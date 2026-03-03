@@ -721,16 +721,10 @@ p  { color: var(--text-sec); }
 }
 .newsletter-inner h2 { margin-bottom: 16px; }
 .newsletter-inner > p { margin-bottom: 32px; font-size: 1.05rem; }
-.substack-embed {
-  margin: 0 auto 16px;
-  max-width: 480px;
-}
-.substack-embed iframe {
-  width: 100%;
-  border: none;
-  background: transparent;
-  filter: invert(1) hue-rotate(180deg);
-  border-radius: 8px;
+.substack-cta {
+  margin: 8px auto 16px;
+  display: flex;
+  justify-content: center;
 }
 .gdpr-text {
   font-size: 0.78rem;
