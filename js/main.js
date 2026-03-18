@@ -177,3 +177,13 @@
     });
   });
 })();
+
+/* ============================
+   8. DYNAMIC COPYRIGHT YEAR
+   ============================ */
+(function initCopyrightYear() {
+  const year = new Date().getFullYear();
+  document.querySelectorAll('.footer-copy, .copyright-inline').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/© \d{4}/, '© ' + year);
+  });
+})();
