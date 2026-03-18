@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://raducapaduraru.ro/sitemap.xml
+Sitemap: https://ralucapaduraru.ro/sitemap.xml
 
 User-agent: GPTBot
 Allow: /
