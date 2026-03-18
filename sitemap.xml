@@ -37,6 +37,17 @@
     <lastmod>2026-03-18</lastmod>
     <priority>0.8</priority>
   </url>
+  <!-- Blog / Reflecții pages -->
+  <url>
+    <loc>https://ralucapaduraru.ro/reflectii.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ralucapaduraru.ro/romania-ai-viteza-fara-centura.html</loc>
+    <lastmod>2025-11-05</lastmod>
+    <priority>0.7</priority>
+  </url>
   <!-- Resource / PDF companion pages -->
   <url>
     <loc>https://ralucapaduraru.ro/resources/state-of-ai-romania/</loc>
