@@ -28,7 +28,7 @@
 
 /* ---- Reset ---- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
 body {
   background: var(--bg);
   color: var(--text);
@@ -128,12 +128,15 @@ p  { color: var(--text-sec); }
   50%       { opacity: 0.45; transform: scale(1.5); }
 }
 
+body.has-announce-bar .nav { top: 36px; }
+body.has-announce-bar .mobile-menu { top: 36px; }
+
 /* ============================
    NAVIGATION
    ============================ */
 .nav {
   position: fixed;
-  top: 36px; left: 0; right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 1000;
   padding: 20px 0;
   transition: all var(--transition);
@@ -221,7 +224,7 @@ p  { color: var(--text-sec); }
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 36px; left: 0; right: 0; bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background: var(--bg);
   z-index: 999;
   padding: 100px 24px 40px;
@@ -827,7 +830,7 @@ footer {
    INNER PAGE HEADER
    ============================ */
 .page-header {
-  padding: 160px 0 80px;
+  padding: 196px 0 80px;
   text-align: center;
   background: var(--surface);
   border-bottom: 1px solid var(--border);

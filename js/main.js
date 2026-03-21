@@ -3,6 +3,22 @@
    ========================================= */
 
 /* ============================
+   0. ANNOUNCEMENT BAR
+   ============================ */
+(function injectAnnounceBar() {
+  if (window.location.pathname.includes('viitoruri')) return;
+  const bar = document.createElement('div');
+  bar.className = 'announce-bar';
+  bar.innerHTML = '<a href="/viitoruri">'
+    + '<span class="announce-dot"></span>'
+    + '<span class="en">New white paper: 4 futures of work in Romania 2030 \u2192 Get it on launch day</span>'
+    + '<span class="ro">White paper nou: 4 viitoruri ale muncii \xeen Rom\xe2nia 2030 \u2192 Prime\u0219te-l la lansare</span>'
+    + '</a>';
+  document.body.insertBefore(bar, document.body.firstChild);
+  document.body.classList.add('has-announce-bar');
+})();
+
+/* ============================
    1. NAV SCROLL
    ============================ */
 (function initNavScroll() {
