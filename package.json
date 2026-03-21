@@ -1,0 +1,8 @@
+{
+  "name": "raluca-paduraru-website",
+  "version": "1.0.0",
+  "description": "ralucapaduraru.ro — AI Strategy & Foresight",
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}
