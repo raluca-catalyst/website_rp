@@ -11,8 +11,7 @@
   bar.className = 'announce-bar';
   bar.innerHTML = '<a href="/viitoruri">'
     + '<span class="announce-dot"></span>'
-    + '<span class="en">New white paper: 4 futures of work in Romania 2030 \u2192 Get it on launch day</span>'
-    + '<span class="ro">White paper nou: 4 viitoruri ale muncii \xeen Rom\xe2nia 2030 \u2192 Prime\u0219te-l la lansare</span>'
+    + 'White paper nou: 4 viitoruri ale muncii \xeen Rom\xe2nia 2030 \u2192 Prime\u0219te-l la lansare'
     + '</a>';
   document.body.insertBefore(bar, document.body.firstChild);
   document.body.classList.add('has-announce-bar');
@@ -27,35 +26,6 @@
   const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-})();
-
-/* ============================
-   2. LANGUAGE TOGGLE
-   ============================ */
-(function initLangToggle() {
-  const COOKIE = 'rp_lang';
-  const DEFAULT = 'en';
-
-  function getLang() {
-    const m = document.cookie.match(/(?:^|;\s*)rp_lang=([^;]+)/);
-    return (m && (m[1] === 'en' || m[1] === 'ro')) ? m[1] : DEFAULT;
-  }
-
-  function setLang(lang) {
-    document.body.classList.remove('lang-en', 'lang-ro');
-    document.body.classList.add('lang-' + lang);
-    document.cookie = COOKIE + '=' + lang + '; path=/; max-age=31536000; SameSite=Lax';
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-  }
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.dataset.lang));
-  });
-
-  setLang(getLang());
 })();
 
 /* ============================
