@@ -365,6 +365,7 @@ body.has-announce-bar .mobile-menu { top: 36px; }
   position: relative;
   display: flex;
   justify-content: center;
+  padding-top: 52px;
 }
 .hero-image-wrap {
   position: relative;
