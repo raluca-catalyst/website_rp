@@ -40,8 +40,13 @@
   <!-- Blog / Reflecții pages -->
   <url>
     <loc>https://ralucapaduraru.ro/reflectii.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <lastmod>2026-03-24</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ralucapaduraru.ro/ai-industrie-productie-romania.html</loc>
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ralucapaduraru.ro/riscul-ai-imm-guvernanta.html</loc>
@@ -62,12 +67,6 @@
     <loc>https://ralucapaduraru.ro/romania-ai-viteza-fara-centura.html</loc>
     <lastmod>2025-11-05</lastmod>
     <priority>0.7</priority>
-  </url>
-  <!-- Viitoruri Muncii landing page -->
-  <url>
-    <loc>https://ralucapaduraru.ro/viitoruri</loc>
-    <lastmod>2026-03-21</lastmod>
-    <priority>0.9</priority>
   </url>
   <!-- Resource / PDF companion pages -->
   <url>
