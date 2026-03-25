@@ -17,9 +17,9 @@ const LAUNCH_EMAIL_HTML = `
   <style>
     body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
     .wrap { max-width: 560px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; }
-    .header { background: #0A0A0F; padding: 32px 40px; }
-    .header h1 { color: #9B8AF0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 8px; }
-    .header h2 { color: #ffffff; font-size: 24px; font-weight: 700; margin: 0; line-height: 1.3; }
+    .header { background: #ffffff; padding: 32px 40px 24px; border-bottom: 1px solid #eee; }
+    .header h1 { color: #9B8AF0; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 10px; }
+    .header h2 { color: #111111; font-size: 22px; font-weight: 700; margin: 0; line-height: 1.3; }
     .body { padding: 36px 40px; }
     .body p { font-size: 15px; color: #444; line-height: 1.7; margin: 0 0 16px; }
     .body ul { padding-left: 20px; margin: 0 0 20px; }
@@ -27,8 +27,8 @@ const LAUNCH_EMAIL_HTML = `
     .cta { display: inline-block; background: #9B8AF0; color: #ffffff; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; margin: 12px 0 24px; }
     .footer { background: #f9f9f9; padding: 24px 40px; border-top: 1px solid #eee; }
     .footer p { font-size: 12px; color: #888; line-height: 1.6; margin: 0; }
-    .sig { font-size: 14px; color: #333; font-weight: 600; margin-top: 24px; }
-    .sig span { display: block; font-weight: 400; color: #666; font-size: 13px; }
+    .sig-name { font-size: 14px; color: #333; font-weight: 600; margin-top: 24px; margin-bottom: 2px; }
+    .sig-title { font-size: 13px; color: #666; margin: 0; }
   </style>
 </head>
 <body>
@@ -53,10 +53,8 @@ const LAUNCH_EMAIL_HTML = `
       <p>P.S. Dacă raportul ți se pare util, trimite-l unui coleg care se gândește la viitorul carierei sale.<br>
       Link de descărcare: <a href="https://ralucapaduraru.ro/viitoruri" style="color:#9B8AF0">https://ralucapaduraru.ro/viitoruri</a></p>
       <p>Lectură plăcută,</p>
-      <p class="sig">
-        Raluca Păduraru
-        <span>Futures of Work Strategist | Building AI Agency in Organizations</span>
-      </p>
+      <p class="sig-name">Raluca Păduraru</p>
+      <p class="sig-title">Futures of Work Strategist | Building AI Agency in Organizations</p>
     </div>
     <div class="footer">
       <p>Ai primit acest email deoarece te-ai înscris pe lista de așteptare pe ralucapaduraru.ro/viitoruri.<br>
