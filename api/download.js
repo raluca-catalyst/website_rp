@@ -7,7 +7,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const PDF_URL = 'https://ralucapaduraru.ro/downloads/viitoruri-2030.pdf';
 
-const DELIVERY_EMAIL_HTML = (name) => `
+const DELIVERY_EMAIL_HTML = () => `
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -22,8 +22,6 @@ const DELIVERY_EMAIL_HTML = (name) => `
     .body { padding: 36px 40px; }
     .body p { font-size: 15px; color: #444; line-height: 1.7; margin: 0 0 16px; }
     .cta { display: inline-block; background: #9B8AF0; color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 16px; margin: 12px 0 24px; }
-    .reading-tip { background: #f9f7ff; border-left: 3px solid #9B8AF0; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 20px 0; }
-    .reading-tip p { margin: 0; font-size: 14px; color: #555; }
     .footer { background: #f9f9f9; padding: 24px 40px; border-top: 1px solid #eee; }
     .footer p { font-size: 12px; color: #888; line-height: 1.6; margin: 0; }
     .sig { font-size: 14px; color: #333; font-weight: 600; margin-top: 24px; }
@@ -34,28 +32,24 @@ const DELIVERY_EMAIL_HTML = (name) => `
   <div class="wrap">
     <div class="header">
       <h1>Upvance Global</h1>
-      <h2>Raportul tau: Patru viitoruri ale muncii in Romania 2030</h2>
+      <h2>Raportul tău: Patru viitoruri ale muncii în România 2030</h2>
     </div>
     <div class="body">
-      <p>Salut${name ? `, ${name.split(' ')[0]}` : ''},</p>
-      <p>Multumesc ca ai cerut raportul. Il gasesti aici:</p>
-      <a class="cta" href="${PDF_URL}" target="_blank">Descarca raportul &rarr;</a>
-      <div class="reading-tip">
-        <p><strong>Cum sa il citesti:</strong> Sunt 62 de pagini. Daca ai 5 minute, citeste sumarul executiv. Daca ai 15, adauga si scenariul care te intriga cel mai mult. Daca ai o ora, citeste-l integral. Fiecare nivel de lectura ofera ceva util.</p>
-      </div>
-      <p>Dar, indiferent cat citesti, am o invitatie: da-mi un reply cu o singura propozitie. <strong>Ce te-a surprins cel mai mult?</strong></p>
-      <p>Fiecare raspuns pe care il primesc ma ajuta sa inteleg ce e cu adevarat relevant pentru profesionistii din Romania si sa construiesc materiale si mai bune.</p>
-      <p>P.S. Daca vrei sa explorezi implicatiile raportului cu echipa ta, pot organiza o sesiune de debrief de 30 de minute, fara obligatii. Poti rezerva un slot aici: <a href="https://calendar.app.google/97NFSpQYzKkJmkuL9" style="color:#9B8AF0">calendar.app.google</a></p>
-      <p>Multumesc si lectura placuta,</p>
+      <p>Salutare,</p>
+      <p>Mulțumesc că ai cerut raportul. Îl găsești aici:</p>
+      <a class="cta" href="${PDF_URL}" target="_blank">Descarcă raportul &rarr;</a>
+      <p>Sunt 62 de pagini. Dacă ai 5 minute, citește sumarul executiv. Dacă ai 15, adaugă și scenariul care te intrigă cel mai mult. Dacă ai o oră, citește-l integral. Fiecare nivel de lectură oferă ceva util.</p>
+      <p>Dar, indiferent cât citești, am o invitație: dă-mi un reply cu o singură propoziție. <strong>Ce te-a surprins cel mai mult?</strong> Fiecare răspuns pe care îl primesc mă ajută să înțeleg ce e cu adevărat relevant pentru profesioniștii din România și să construiesc materiale și mai bune.</p>
+      <p>P.S. Dacă vrei să explorezi implicațiile raportului cu echipa ta, pot organiza o sesiune de debrief de 30 de minute, fără obligații. Poți rezerva un slot aici: <a href="https://calendar.app.google/97NFSpQYzKkJmkuL9" style="color:#9B8AF0">https://calendar.app.google/97NFSpQYzKkJmkuL9</a></p>
+      <p>Mulțumesc și lectură plăcută,</p>
       <p class="sig">
-        Raluca Paduraru
+        Raluca Păduraru
         <span>Futures of Work Strategist | Building AI Agency in Organizations</span>
       </p>
     </div>
     <div class="footer">
-      <p>Link de descarcare: <a href="${PDF_URL}" style="color:#9B8AF0">${PDF_URL}</a><br>
-      Ai primit acest email deoarece ai completat formularul de pe ralucapaduraru.ro/viitoruri.<br>
-      Intrebari? Scrie la <a href="mailto:contact@upvance.global" style="color:#9B8AF0">contact@upvance.global</a></p>
+      <p>Ai primit acest email deoarece ai completat formularul de pe ralucapaduraru.ro/viitoruri.<br>
+      Întrebări? Scrie la <a href="mailto:contact@upvance.global" style="color:#9B8AF0">contact@upvance.global</a></p>
     </div>
   </div>
 </body>
@@ -81,16 +75,16 @@ module.exports = async (req, res) => {
 
   try {
     const { error } = await resend.emails.send({
-      from: 'Raluca Paduraru <contact@upvance.global>',
+      from: 'Raluca P\u0103duraru <contact@upvance.global>',
       reply_to: 'contact@upvance.global',
       to: [email],
-      subject: 'Raportul tau: Patru viitoruri ale muncii in Romania 2030',
-      html: DELIVERY_EMAIL_HTML(name),
+      subject: 'Raportul t\u0103u: Patru viitoruri ale muncii \u00een Rom\u00e2nia 2030',
+      html: DELIVERY_EMAIL_HTML(),
     });
 
     if (error) {
       console.error('Email send error:', error);
-      return res.status(500).json({ message: 'Nu am putut trimite emailul. Incearca din nou.' });
+      return res.status(500).json({ message: 'Nu am putut trimite emailul. Încearcă din nou.' });
     }
 
     // Also notify Raluca of new lead
@@ -105,6 +99,6 @@ module.exports = async (req, res) => {
 
   } catch (err) {
     console.error('Download error:', err);
-    return res.status(500).json({ message: 'Eroare interna. Incearca din nou.' });
+    return res.status(500).json({ message: 'Eroare internă. Încearcă din nou.' });
   }
 };
