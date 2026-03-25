@@ -24,6 +24,24 @@
   <!-- Cookiebot -->
   <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
 
+  <!-- Cookiebot → GA consent update -->
+  <script>
+    function updateGAConsent() {
+      if (typeof Cookiebot === 'undefined') return;
+      gtag('consent', 'update', {
+        ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+        functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+        personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+      });
+    }
+    window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+    window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+    window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+  </script>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HPPWXR6NTD"></script>
   <script>
