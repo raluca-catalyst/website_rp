@@ -1,5 +1,5 @@
 // api/send-launch.js — Send launch email to all waiting list subscribers
-// Call manually on April 3 at 13:00: GET /api/send-launch?secret=YOUR_ADMIN_SECRET
+// Call manually on April 3 at 11:00: GET /api/send-launch?secret=YOUR_ADMIN_SECRET
 // Returns { sent, failed, total }
 
 const { Resend } = require('resend');
@@ -25,11 +25,6 @@ const LAUNCH_EMAIL_HTML = `
     .body ul { padding-left: 20px; margin: 0 0 20px; }
     .body ul li { font-size: 15px; color: #444; line-height: 1.7; margin-bottom: 6px; }
     .cta { display: inline-block; background: #9B8AF0; color: #ffffff; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; margin: 12px 0 24px; }
-    .stats { display: flex; gap: 0; margin: 24px 0; border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
-    .stat { flex: 1; padding: 16px; text-align: center; border-right: 1px solid #eee; }
-    .stat:last-child { border-right: none; }
-    .stat strong { display: block; font-size: 20px; color: #9B8AF0; }
-    .stat span { font-size: 11px; color: #999; }
     .footer { background: #f9f9f9; padding: 24px 40px; border-top: 1px solid #eee; }
     .footer p { font-size: 12px; color: #888; line-height: 1.6; margin: 0; }
     .sig { font-size: 14px; color: #333; font-weight: 600; margin-top: 24px; }
@@ -40,32 +35,32 @@ const LAUNCH_EMAIL_HTML = `
   <div class="wrap">
     <div class="header">
       <h1>Upvance Global</h1>
-      <h2>Raportul e gata. Descarca-l acum.</h2>
+      <h2>Raportul e gata. Descarcă-l acum.</h2>
     </div>
     <div class="body">
-      <p>Salut,</p>
-      <p>Ti-am promis ca pe 3 aprilie primesti raportul. Iata-l.</p>
-      <a class="cta" href="${PDF_URL}" target="_blank">Descarca "Patru viitoruri ale muncii in Romania 2030" &rarr;</a>
-      <p>Cateva cifre din raport, ca aperitiv:</p>
+      <p>Salutare,</p>
+      <p>Ți-am promis că pe 3 aprilie primești raportul. Iată-l.</p>
+      <a class="cta" href="${PDF_URL}" target="_blank">Descarcă &ldquo;Patru viitoruri ale muncii în România 2030&rdquo; &rarr;</a>
+      <p>Câteva cifre din raport, ca aperitiv:</p>
       <ul>
-        <li>5,2% din companiile din Romania folosesc AI. Ultimul loc in UE.</li>
-        <li>54% din locurile vacante sunt pentru necalificati. Doar 6,7% pentru cei cu studii superioare.</li>
-        <li>Industria auto a pierdut deja peste 1.500 de locuri de munca in 2025.</li>
-        <li>82.000 de profesionisti din diaspora s-au repatriat in 2023.</li>
+        <li>5,2% din companiile din România folosesc AI. Ultimul loc în UE.</li>
+        <li>54% din locurile vacante sunt pentru necalificați. Doar 6,7% pentru cei cu studii superioare.</li>
+        <li>Industria auto a pierdut deja peste 1.500 de locuri de muncă în 2025 și sângerează locuri de muncă și în 2026.</li>
+        <li>82.000 de profesioniști din diaspora s-au repatriat în 2023.</li>
       </ul>
-      <p>Raportul construieste 4 scenarii pe baza acestor date: <strong>Primavara co-Pilot, Vara superputerilor, Toamna inertiei si Iarna digitala</strong>. Plus 10 competente care te protejeaza in orice scenariu si strategii actionabile imediat.</p>
-      <p>Am o invitatie pentru tine: dupa ce il citesti (sau chiar dupa ce parcurgi sumarul executiv), da-mi un reply cu o impresie. Ce te-a surprins? Ce ti s-a parut cel mai relevant? Ce ai vrea sa exploram mai departe?</p>
-      <p>Feedback-ul tau chiar conteaza pentru mine.</p>
-      <p>P.S. Daca raportul ti se pare util, trimite-l unui coleg care se gandeste la viitorul carierei sale. Link de descarcare: <a href="${PDF_URL}" style="color:#9B8AF0">ralucapaduraru.ro/viitoruri</a></p>
-      <p>Lectura placuta,</p>
+      <p>Raportul construiește 4 scenarii pe baza acestor date: <strong>Primăvara co-Pilot, Vara superputerilor, Toamna inerției și Iarna digitală</strong>. Plus 10 competențe care te protejează în orice scenariu și strategii acționabile imediat.</p>
+      <p>Am o invitație pentru tine: după ce îl citești (sau chiar după ce parcurgi sumarul executiv), dă-mi un reply cu o impresie. Ce te-a surprins? Ce ți s-a părut cel mai relevant? Ce ai vrea să explorăm mai departe? Feedback-ul tău chiar contează pentru mine. Fiecare răspuns mă ajută să înțeleg mai bine ce e relevant pentru profesioniștii din România.</p>
+      <p>P.S. Dacă raportul ți se pare util, trimite-l unui coleg care se gândește la viitorul carierei sale.<br>
+      Link de descărcare: <a href="https://ralucapaduraru.ro/viitoruri" style="color:#9B8AF0">https://ralucapaduraru.ro/viitoruri</a></p>
+      <p>Lectură plăcută,</p>
       <p class="sig">
-        Raluca Paduraru
+        Raluca Păduraru
         <span>Futures of Work Strategist | Building AI Agency in Organizations</span>
       </p>
     </div>
     <div class="footer">
-      <p>Ai primit acest email deoarece te-ai inscris pe lista de asteptare pe ralucapaduraru.ro/viitoruri.<br>
-      Pentru a te dezabona, trimite un email la <a href="mailto:contact@upvance.global" style="color:#9B8AF0">contact@upvance.global</a> cu subiectul "Dezabonare".</p>
+      <p>Ai primit acest email deoarece te-ai înscris pe lista de așteptare pe ralucapaduraru.ro/viitoruri.<br>
+      Pentru a te dezabona, trimite un email la <a href="mailto:contact@upvance.global" style="color:#9B8AF0">contact@upvance.global</a> cu subiectul &ldquo;Dezabonare&rdquo;.</p>
     </div>
   </div>
 </body>
@@ -125,10 +120,10 @@ module.exports = async (req, res) => {
     for (let i = 0; i < emails.length; i += BATCH_SIZE) {
       const batch = emails.slice(i, i + BATCH_SIZE);
       const messages = batch.map(email => ({
-        from: 'Raluca Paduraru <contact@upvance.global>',
+        from: 'Raluca P\u0103duraru <contact@upvance.global>',
         reply_to: 'contact@upvance.global',
         to: [email],
-        subject: 'Raportul e gata. Descarca-l acum.',
+        subject: 'Raportul e gata. Desc\u0103rc\u0103-l acum.',
         html: LAUNCH_EMAIL_HTML,
       }));
 
@@ -151,7 +146,7 @@ module.exports = async (req, res) => {
       from: 'Viitoruri Bot <contact@upvance.global>',
       to: ['raluca@upvance.global'],
       subject: `Launch emails trimise: ${sent}/${emails.length}`,
-      html: `<p>Launch email blast finalizat.<br><b>Trimise:</b> ${sent}<br><b>Esecuri:</b> ${failed}<br><b>Total subscribers:</b> ${emails.length}</p>`,
+      html: `<p>Launch email blast finalizat.<br><b>Trimise:</b> ${sent}<br><b>Eșecuri:</b> ${failed}<br><b>Total subscribers:</b> ${emails.length}</p>`,
     }).catch(() => {});
 
     return res.status(200).json({ sent, failed, total: emails.length });
