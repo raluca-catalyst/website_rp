@@ -90,16 +90,35 @@
     "@graph": [
       {
         "@type": "WebSite",
+        "@id": "https://ralucapaduraru.ro/#website",
         "name": "Raluca Păduraru",
         "url": "https://ralucapaduraru.ro",
         "description": "AI Strategy & Foresight for Business",
-        "inLanguage": ["en", "ro"]
+        "inLanguage": ["en", "ro"],
+        "publisher": {"@id": "https://ralucapaduraru.ro/#person"}
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://ralucapaduraru.ro/#profilepage",
+        "url": "https://ralucapaduraru.ro/",
+        "name": "Raluca Păduraru — AI Strategy & Foresight for Business",
+        "description": "Futures of Work Strategist, co-founder Upvance Global. AI fluency training, strategic foresight, and organizational transformation for leadership teams.",
+        "inLanguage": ["en", "ro"],
+        "isPartOf": {"@id": "https://ralucapaduraru.ro/#website"},
+        "dateModified": "2026-03-28",
+        "mainEntity": {"@id": "https://ralucapaduraru.ro/#person"}
       },
       {
         "@type": "Person",
+        "@id": "https://ralucapaduraru.ro/#person",
         "name": "Raluca Păduraru",
         "url": "https://ralucapaduraru.ro",
-        "image": "https://ralucapaduraru.ro/images/portrait.png",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://ralucapaduraru.ro/images/portrait.png",
+          "width": 800,
+          "height": 800
+        },
         "jobTitle": "Futures of Work Strategist",
         "description": "Raluca Păduraru helps leadership teams build AI agency through strategic foresight, hands-on AI fluency training, and tested frameworks. 17 years of operational management, Certified Foresight Practitioner (TFSX), 800+ hours of workshops delivered to 5,000+ professionals.",
         "knowsAbout": ["Artificial Intelligence Strategy","AI Fluency Training","Strategic Foresight","Futures of Work","Organizational Transformation","AI Adoption","EU AI Act Compliance","Scenario Planning"],
@@ -113,12 +132,16 @@
           {"@type": "Organization","name": "Smart HR Community Advisory Board"}
         ],
         "founder": [{"@type": "Organization","name": "Upvance Global","url": "https://upvance.global"}],
-        "sameAs": ["https://www.linkedin.com/in/paduraru-raluca/","https://ralucapaduraru.substack.com/","https://airesponsabil.ro"]
+        "sameAs": [
+          "https://www.linkedin.com/in/paduraru-raluca/",
+          "https://ralucapaduraru.substack.com/",
+          "https://airesponsabil.ro"
+        ]
       },
-      {"@type": "Service","name": "AI Strategy Session","provider": {"@type": "Person","name": "Raluca Păduraru"},"description": "A 6-hour intensive for leadership teams covering AI maturity diagnostic, strategic roadmap, and 90-day action plan.","serviceType": "AI Consulting"},
-      {"@type": "Service","name": "AI Fluency for Business","provider": {"@type": "Person","name": "Raluca Păduraru"},"description": "Role-specific AI training using 4D, M.O.D.E.L., and F.O.R.C.E. frameworks. Configurable from 4 hours to 2 days. EU AI Act compliant.","serviceType": "AI Training"},
-      {"@type": "Service","name": "Foresight & Futures Workshop","provider": {"@type": "Person","name": "Raluca Păduraru"},"description": "1-2 day immersive workshop for leadership teams including scenario planning, weak signal identification, and strategic playbook development.","serviceType": "Strategic Foresight Consulting"},
-      {"@type": "Service","name": "Strategic Retainer","provider": {"@type": "Person","name": "Raluca Păduraru"},"description": "Monthly or quarterly strategic advisory for AI and foresight, including trend monitoring, priority access, and implementation support.","serviceType": "Strategic Advisory"}
+      {"@type": "Service","name": "AI Strategy Session","provider": {"@id": "https://ralucapaduraru.ro/#person"},"description": "A 6-hour intensive for leadership teams covering AI maturity diagnostic, strategic roadmap, and 90-day action plan.","serviceType": "AI Consulting"},
+      {"@type": "Service","name": "AI Fluency for Business","provider": {"@id": "https://ralucapaduraru.ro/#person"},"description": "Role-specific AI training using 4D, M.O.D.E.L., and F.O.R.C.E. frameworks. Configurable from 4 hours to 2 days. EU AI Act compliant.","serviceType": "AI Training"},
+      {"@type": "Service","name": "Foresight & Futures Workshop","provider": {"@id": "https://ralucapaduraru.ro/#person"},"description": "1-2 day immersive workshop for leadership teams including scenario planning, weak signal identification, and strategic playbook development.","serviceType": "Strategic Foresight Consulting"},
+      {"@type": "Service","name": "Strategic Retainer","provider": {"@id": "https://ralucapaduraru.ro/#person"},"description": "Monthly or quarterly strategic advisory for AI and foresight, including trend monitoring, priority access, and implementation support.","serviceType": "Strategic Advisory"}
     ]
   }
   </script>
