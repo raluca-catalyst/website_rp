@@ -42,9 +42,8 @@ a { color: inherit; text-decoration: none; }
 button { cursor: pointer; font-family: var(--font-body); }
 ul { list-style: none; }
 
-/* ---- Bilingual toggle ---- */
-body.lang-en .ro { display: none !important; }
-body.lang-ro .en { display: none !important; }
+/* ---- Romanian only ---- */
+.en { display: none !important; }
 
 /* ---- Typography ---- */
 h1, h2, h3, h4, h5 {

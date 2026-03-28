@@ -29,36 +29,6 @@
 })();
 
 /* ============================
-   2. LANGUAGE TOGGLE
-   ============================ */
-(function initLangToggle() {
-  const COOKIE = 'rp_lang';
-  const DEFAULT = 'ro';
-
-  function getLang() {
-    const m = document.cookie.match(/(?:^|;\s*)rp_lang=([^;]+)/);
-    return (m && (m[1] === 'en' || m[1] === 'ro')) ? m[1] : DEFAULT;
-  }
-
-  function setLang(lang) {
-    document.body.classList.remove('lang-en', 'lang-ro');
-    document.body.classList.add('lang-' + lang);
-    document.documentElement.setAttribute('data-lang', lang);
-    document.cookie = COOKIE + '=' + lang + '; path=/; max-age=31536000; SameSite=Lax';
-
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-  }
-
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.dataset.lang));
-  });
-
-  setLang(getLang());
-})();
-
-/* ============================
    3. MOBILE MENU
    ============================ */
 (function initMobileMenu() {

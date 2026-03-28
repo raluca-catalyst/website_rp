@@ -40,11 +40,6 @@
   <link rel="canonical" href="https://ralucapaduraru.ro/reflectii.html" />
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/logo.png" />
-  <!-- Language init: prevent FOUC before main.js loads -->
-  <script>
-    (function(){var m=document.cookie.match(/(?:^|;\s*)rp_lang=(en|ro)/);document.documentElement.setAttribute('data-lang',m?m[1]:'ro');})();
-  </script>
-  <style>html[data-lang="en"] .ro{display:none!important}html[data-lang="ro"] .en{display:none!important}</style>
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -98,10 +93,6 @@
         <li><a href="mailto:raluca@upvance.global"><span class="en">Contact</span><span class="ro">Contact</span></a></li>
       </ul>
       <div class="nav-right">
-        <div class="lang-toggle" role="group" aria-label="Language selector">
-          <button class="lang-btn" data-lang="en">EN</button>
-          <button class="lang-btn active" data-lang="ro">RO</button>
-        </div>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -118,10 +109,6 @@
     <a href="impact.html">Impact</a>
     <a href="reflectii.html"><span class="en">Reflections</span><span class="ro">Reflecții</span></a>
     <a href="mailto:raluca@upvance.global"><span class="en">Contact</span><span class="ro">Contact</span></a>
-    <div class="lang-toggle" role="group" aria-label="Language selector">
-      <button class="lang-btn" data-lang="en">EN</button>
-      <button class="lang-btn active" data-lang="ro">RO</button>
-    </div>
   </nav>
 
   <main>
