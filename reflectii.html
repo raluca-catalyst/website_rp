@@ -40,6 +40,14 @@
   <link rel="canonical" href="https://ralucapaduraru.ro/reflectii.html" />
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/logo.png" />
+  <!-- Language init: prevent FOUC before main.js loads -->
+  <script>
+    (function(){var m=document.cookie.match(/(?:^|;\s*)rp_lang=(en|ro)/);document.documentElement.setAttribute('data-lang',m?m[1]:'ro');})();
+  </script>
+  <style>
+    html[data-lang="en"] .ro{display:none!important}
+    html[data-lang="ro"] .en{display:none!important}
+  </style>
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -141,6 +149,28 @@
         <h2 id="reflectii-heading" class="sr-only">Articole</h2>
 
         <div class="fade-up" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; margin-top: 1rem;">
+
+          <!-- Article Card: AI Industrie Producție România — 2026-03-24 -->
+          <article style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; transition: box-shadow 0.2s;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-cyan);">Industrie</span>
+              <span style="color: var(--text-muted); font-size: 0.75rem;">·</span>
+              <time datetime="2026-03-24" style="font-size: 0.75rem; color: var(--text-muted);">24 martie 2026</time>
+            </div>
+            <h2 style="font-size: 1.2rem; font-weight: 700; line-height: 1.3; margin: 0;">
+              <a href="ai-industrie-productie-romania.html" style="color: var(--text-primary); text-decoration: none;">
+                Să spui că AI-ul nu e pentru fabrica ta e ca și cum ai refuza electricitatea
+              </a>
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin: 0; flex: 1;">
+              De ce eșuează adopția AI în companiile industriale din România. Mitul irelevanței, capcana metricilor greșite și un plan de acțiune concret pentru managerii din producție.
+            </p>
+            <a href="ai-industrie-productie-romania.html" style="display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 600; color: var(--accent-cyan); text-decoration: none;">
+              <span class="en">Read article</span>
+              <span class="ro">Citește articolul</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
 
           <!-- Article Card: Riscul AI IMM Guvernanță — 2026-03-02 -->
           <article style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; transition: box-shadow 0.2s;">
