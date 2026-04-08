@@ -24,12 +24,29 @@ module.exports = async (req, res) => {
     message,
     contactPrefs,
     gdpr,
-    newsletter
+    newsletter,
+    website
   } = req.body || {};
+
+  // Honeypot: bot a completat câmpul ascuns — respinge silențios
+  if (website) {
+    return res.status(200).json({ ok: true });
+  }
 
   // Validate required fields
   if (!name || !email || !phone || !role || !company || !message || !gdpr) {
     return res.status(400).json({ error: 'Câmpuri obligatorii lipsă.' });
+  }
+
+  // Validare lungime mesaj
+  if (message.trim().length < 20) {
+    return res.status(400).json({ error: 'Mesajul este prea scurt.' });
+  }
+
+  // Validare format email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ error: 'Adresă de email invalidă.' });
   }
 
   const prefsLabel = Array.isArray(contactPrefs) && contactPrefs.length > 0

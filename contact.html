@@ -247,6 +247,11 @@
                 </label>
               </div>
 
+              <div style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true">
+                <label for="cf-website">Website</label>
+                <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+
               <div class="form-submit-row">
                 <button type="submit" class="btn-submit" id="cf-submit">
                   Trimite formularul
@@ -333,7 +338,7 @@
       fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, email: email, phone: phone, role: role, company: company, message: message, gdpr: gdpr, newsletter: newsletter, contactPrefs: contactPrefs })
+        body: JSON.stringify({ name: name, email: email, phone: phone, role: role, company: company, message: message, gdpr: gdpr, newsletter: newsletter, contactPrefs: contactPrefs, website: (document.getElementById('cf-website') || {}).value || '' })
       })
       .then(function(res) { return res.json().then(function(data) { return { ok: res.ok, data: data }; }); })
       .then(function(result) {
