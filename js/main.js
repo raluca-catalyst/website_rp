@@ -11,7 +11,7 @@
   bar.className = 'announce-bar';
   bar.innerHTML = '<a href="/viitoruri">'
     + '<span class="announce-dot"></span>'
-    + 'White paper nou: 4 viitoruri ale muncii \xeen Rom\xe2nia 2030 \u2192 Prime\u0219te-l la lansare'
+    + 'White paper nou: 4 viitoruri ale muncii \xeen Rom\xe2nia 2030 \u2192 Cite\u0219te-l \u0219i tu. Deja a fost desc\u0103rcat de +400 ori.'
     + '</a>';
   document.body.insertBefore(bar, document.body.firstChild);
   document.body.classList.add('has-announce-bar');
