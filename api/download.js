@@ -85,6 +85,12 @@ module.exports = async (req, res) => {
       return res.status(500).json({ message: 'Nu am putut trimite emailul. Încearcă din nou.' });
     }
 
+    // Log lead to Google Sheets (non-critical)
+    fetch('https://script.google.com/macros/s/AKfycbxJjD_2faU9XQLxOOlWDzYUXLp4Vs0aa-895GJ5rXj9GnZ5U1rQsQMMfptEXLVVQG5_/exec', {
+      method: 'POST',
+      body: JSON.stringify({ nume: name, prenume: '', email, rol: role, companie: company }),
+    }).catch(() => {}); // non-critical, ignore errors
+
     // Also notify Raluca of new lead
     await resend.emails.send({
       from: 'Viitoruri Site <contact@upvance.global>',
