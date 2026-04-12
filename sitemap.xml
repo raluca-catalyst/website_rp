@@ -37,6 +37,22 @@
     <lastmod>2026-03-18</lastmod>
     <priority>0.8</priority>
   </url>
+  <!-- Foresight / Special pages -->
+  <url>
+    <loc>https://ralucapaduraru.ro/viitoruri.html</loc>
+    <lastmod>2026-03-18</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ralucapaduraru.ro/contact.html</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ralucapaduraru.ro/privacy.html</loc>
+    <lastmod>2026-03-03</lastmod>
+    <priority>0.3</priority>
+  </url>
   <!-- Blog / Reflecții pages -->
   <url>
     <loc>https://ralucapaduraru.ro/reflectii.html</loc>

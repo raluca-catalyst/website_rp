@@ -44,7 +44,7 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LearningResource", "HowTo"],
+        "@type": ["LearningResource", "Article"],
         "name": "F.O.R.C.E. Matrix — Tipuri de task-uri delegabile către AI",
         "description": "Cadru de delegare AI cu 5 dimensiuni: Filtrează (gestionarea volumului de informații), Optimizează (rafinarea și eficientizarea), Raționează (sparring partner pentru decizii), Construiește (creație aplicată și asset-uri funcționale), Execută (acțiuni autonome în ecosistemul de aplicații). Creat de Raluca Păduraru, Upvance Global.",
         "author": {
@@ -55,15 +55,19 @@
         },
         "publisher": {"@type": "Organization", "name": "Upvance Global", "url": "https://upvance.global"},
         "url": "https://ralucapaduraru.ro/frameworks/force-matrix/",
-        "inLanguage": ["ro", "en"],
+        "inLanguage": "ro",
         "keywords": ["delegare AI", "task-uri AI", "AI agentiv", "F.O.R.C.E. Matrix", "AI fluency", "Raluca Păduraru"],
-        "step": [
-          {"@type": "HowToStep", "name": "F — Filtrează", "position": 1, "text": "Task-uri de gestionare a volumului masiv de informații: rezumate, identificare tipare, structurare din zgomot."},
-          {"@type": "HowToStep", "name": "O — Optimizează", "position": 2, "text": "Task-uri în care munca de bază există dar trebuie rafinată, eficientizată sau adaptată la format sau audiență."},
-          {"@type": "HowToStep", "name": "R — Raționează", "position": 3, "text": "AI ca partener de gândire critică: luare de decizii, evaluare riscuri, problem-solving, combatere bias-uri."},
-          {"@type": "HowToStep", "name": "C — Construiește", "position": 4, "text": "Creație aplicată: instrumente, structuri complexe, prototipuri, cod funcțional — de la zero."},
-          {"@type": "HowToStep", "name": "E — Execută", "position": 5, "text": "AI iese din fereastra de chat și acționează autonom în ecosistemul de aplicații: email, calendar, CRM, baze de date."}
-        ]
+        "hasPart": {
+          "@type": "ItemList",
+          "name": "Dimensiunile F.O.R.C.E. Matrix",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "F — Filtrează", "description": "Task-uri de gestionare a volumului masiv de informații: rezumate, identificare tipare, structurare din zgomot."},
+            {"@type": "ListItem", "position": 2, "name": "O — Optimizează", "description": "Task-uri în care munca de bază există dar trebuie rafinată, eficientizată sau adaptată la format sau audiență."},
+            {"@type": "ListItem", "position": 3, "name": "R — Raționează", "description": "AI ca partener de gândire critică: luare de decizii, evaluare riscuri, problem-solving, combatere bias-uri."},
+            {"@type": "ListItem", "position": 4, "name": "C — Construiește", "description": "Creație aplicată: instrumente, structuri complexe, prototipuri, cod funcțional — de la zero."},
+            {"@type": "ListItem", "position": 5, "name": "E — Execută", "description": "AI iese din fereastra de chat și acționează autonom în ecosistemul de aplicații: email, calendar, CRM, baze de date."}
+          ]
+        }
       },
       {
         "@type": "BreadcrumbList",
@@ -83,7 +87,7 @@
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="../../index.html" class="nav-logo" aria-label="Raluca Păduraru home">
-        <img src="../../images/logo.png" alt="RP Logo" />
+        <img src="../../images/logo.png" alt="Raluca Păduraru" />
       </a>
       <ul class="nav-links" role="list">
         <li><a href="../../index.html#services">Servicii</a></li>

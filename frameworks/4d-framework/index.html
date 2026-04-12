@@ -44,7 +44,7 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "HowTo",
+        "@type": "Article",
         "name": "4D Framework for Risks & Ethics — Audit de guvernanță AI",
         "description": "Matricea 4D se folosește ca un audit preliminar pentru toate inițiativele de adopție AI. Cei 4 piloni: Delegare, Descriere, Discernământ, Diligență.",
         "author": {
@@ -53,36 +53,18 @@
           "url": "https://ralucapaduraru.ro"
         },
         "publisher": {"@type": "Organization", "name": "Upvance Global", "url": "https://upvance.global"},
-        "step": [
-          {
-            "@type": "HowToStep",
-            "position": 1,
-            "name": "1D: Delegare",
-            "text": "Înainte de a scrie un prompt, definim mandatul AI-ului pentru acel task. Problema pe care o rezolvă AI-ul trebuie să fie extrem de clar definită, iar rezultatul dorit trebuie să fie măsurabil și ușor de evaluat.",
-            "url": "https://ralucapaduraru.ro/frameworks/4d-framework/#delegare"
-          },
-          {
-            "@type": "HowToStep",
-            "position": 2,
-            "name": "2D: Descriere",
-            "text": "Un prompt vag sau generic generează rezultate mediocre. Este important să oferim AI-ului contextul complet pentru succesul acelui task și să îi furnizăm un golden set de exemple pozitive și negative.",
-            "url": "https://ralucapaduraru.ro/frameworks/4d-framework/#descriere"
-          },
-          {
-            "@type": "HowToStep",
-            "position": 3,
-            "name": "3D: Discernământ",
-            "text": "Prin discernământ validăm calitatea procesului delegat către AI. Trebuie să definim cum măsurăm succesul, ce volum de erori e acceptabil, ce facem dacă modelul greșește, cine auditează, când.",
-            "url": "https://ralucapaduraru.ro/frameworks/4d-framework/#discernamant"
-          },
-          {
-            "@type": "HowToStep",
-            "position": 4,
-            "name": "4D: Diligență",
-            "text": "E important ca inovația să nu apară mână în mână cu lipsa de conformitate. Validăm existența unor bias-uri ascunse, definim felul în care protejăm datele personale și construim un audit trail reproductibil.",
-            "url": "https://ralucapaduraru.ro/frameworks/4d-framework/#diligenta"
-          }
-        ]
+        "inLanguage": "ro",
+        "url": "https://ralucapaduraru.ro/frameworks/4d-framework/",
+        "hasPart": {
+          "@type": "ItemList",
+          "name": "Pilonii 4D Framework",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "1D: Delegare", "description": "Înainte de a scrie un prompt, definim mandatul AI-ului pentru acel task. Problema pe care o rezolvă AI-ul trebuie să fie extrem de clar definită, iar rezultatul dorit trebuie să fie măsurabil și ușor de evaluat."},
+            {"@type": "ListItem", "position": 2, "name": "2D: Descriere", "description": "Un prompt vag sau generic generează rezultate mediocre. Este important să oferim AI-ului contextul complet pentru succesul acelui task și să îi furnizăm un golden set de exemple pozitive și negative."},
+            {"@type": "ListItem", "position": 3, "name": "3D: Discernământ", "description": "Prin discernământ validăm calitatea procesului delegat către AI. Trebuie să definim cum măsurăm succesul, ce volum de erori e acceptabil, ce facem dacă modelul greșește, cine auditează, când."},
+            {"@type": "ListItem", "position": 4, "name": "4D: Diligență", "description": "E important ca inovația să nu apară mână în mână cu lipsa de conformitate. Validăm existența unor bias-uri ascunse, definim felul în care protejăm datele personale și construim un audit trail reproductibil."}
+          ]
+        }
       },
       {
         "@type": "DigitalDocument",
@@ -113,7 +95,7 @@
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="../../index.html" class="nav-logo" aria-label="Raluca Păduraru home">
-        <img src="../../images/logo.png" alt="RP Logo" />
+        <img src="../../images/logo.png" alt="Raluca Păduraru" />
       </a>
       <ul class="nav-links" role="list">
         <li><a href="../../index.html#services">Servicii</a></li>
