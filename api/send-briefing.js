@@ -19,7 +19,8 @@ module.exports = async (req, res) => {
 
   const { html, subject, secret } = body || {};
 
-  if (!secret || secret !== process.env.ADMIN_SECRET) {
+  const BRIEFING_SECRET = process.env.BRIEFING_SECRET || 'briefing-raluca-2026';
+  if (!secret || secret !== BRIEFING_SECRET) {
     return res.status(401).json({ message: 'Unauthorized' });
   }
 
