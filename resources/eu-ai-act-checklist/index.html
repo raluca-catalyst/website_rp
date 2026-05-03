@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="index, follow" />
+  <title>EU AI Act Compliance Checklist pentru Deployers — Upvance Global | Raluca Păduraru</title>
+  <meta name="description" content="Checklist de conformitate la EU AI Act (Regulamentul UE 2024/1689) pentru organizații care folosesc sisteme AI. Identifică sistemele, clasifică riscul și înțelege-ți obligațiile ca deployer. De Raluca Păduraru, Upvance Global." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:site_name" content="Raluca Păduraru" />
+  <meta property="og:title" content="EU AI Act Compliance Checklist pentru Deployers" />
+  <meta property="og:description" content="Un checklist de conformitate la EU AI Act pentru organizații care folosesc sisteme AI. Identifică sistemele, clasifică riscul, înțelege-ți obligațiile conform Regulamentului UE 2024/1689." />
+  <meta property="og:url" content="https://ralucapaduraru.ro/resources/eu-ai-act-checklist/" />
+  <meta property="og:image" content="https://ralucapaduraru.ro/images/build.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EU AI Act Compliance Checklist pentru Deployers" />
+  <meta name="twitter:description" content="Checklist gratuit de conformitate EU AI Act pentru organizații care folosesc sisteme AI. Clasificare risc + obligații deployer." />
+  <meta name="twitter:image" content="https://ralucapaduraru.ro/images/build.png" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://ralucapaduraru.ro/resources/eu-ai-act-checklist/" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <!-- Cookiebot -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M4ET119Z1X');
+  </script>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["DigitalDocument", "HowTo"],
+        "name": "EU AI Act Compliance Checklist pentru Deployers — Regulamentul UE 2024/1689",
+        "headline": "Cum verifici conformitatea cu EU AI Act ca organizație care folosește sisteme AI",
+        "description": "Un checklist de conformitate la EU AI Act (Regulamentul UE 2024/1689) pentru deployers: identificarea sistemelor AI utilizate, clasificarea riscului, obligații legale și plan de acțiune. Creat de Raluca Păduraru, Upvance Global.",
+        "url": "https://ralucapaduraru.ro/resources/eu-ai-act-checklist/",
+        "encodingFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "author": {
+          "@type": "Person",
+          "name": "Raluca Păduraru",
+          "url": "https://ralucapaduraru.ro",
+          "jobTitle": "Futures of Work Strategist"
+        },
+        "publisher": {"@type": "Organization", "name": "Upvance Global", "url": "https://upvance.global"},
+        "inLanguage": "ro",
+        "about": ["EU AI Act", "conformitate AI", "deployer AI", "Regulamentul UE 2024/1689", "guvernanță AI", "risc AI"],
+        "keywords": ["EU AI Act compliance", "checklist deployer AI", "Regulamentul UE 2024/1689", "risc AI organizații", "guvernanță AI România", "Raluca Păduraru"],
+        "isAccessibleForFree": true,
+        "step": [
+          {"@type": "HowToStep", "name": "Inventarul sistemelor AI", "position": 1, "description": "Identifică ce sisteme AI folosești în organizație și în ce procese"},
+          {"@type": "HowToStep", "name": "Clasificarea riscului", "position": 2, "description": "Determină categoria de risc pentru fiecare sistem: inacceptabil, înalt, limitat sau minim"},
+          {"@type": "HowToStep", "name": "Obligațiile ca deployer", "position": 3, "description": "Identifică ce obligații legale ai conform EU AI Act pentru fiecare categorie de risc"},
+          {"@type": "HowToStep", "name": "Plan de acțiune", "position": 4, "description": "Documentație, supraveghere umană, transparență — ce pregătești și când"}
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ralucapaduraru.ro/"},
+          {"@type": "ListItem", "position": 2, "name": "Resurse", "item": "https://ralucapaduraru.ro/#frameworks"},
+          {"@type": "ListItem", "position": 3, "name": "EU AI Act Compliance Checklist", "item": "https://ralucapaduraru.ro/resources/eu-ai-act-checklist/"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="lang-ro">
+
+  <!-- ====================== NAVIGATION ====================== -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="../../index.html" class="nav-logo" aria-label="Raluca Păduraru home">
+        <img src="../../images/logo.png" alt="Raluca Păduraru" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../../index.html#services">Servicii</a></li>
+        <li><a href="../../index.html#frameworks">Framework-uri</a></li>
+        <li><a href="../../about.html">Despre</a></li>
+        <li><a href="../../faq.html">FAQ</a></li>
+        <li><a href="../../impact.html">Impact</a></li>
+        <li><a href="../../reflectii.html">Reflecții</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="../../index.html#services">Servicii</a>
+    <a href="../../index.html#frameworks">Framework-uri</a>
+    <a href="../../about.html">Despre</a>
+    <a href="../../faq.html">FAQ</a>
+    <a href="../../impact.html">Impact</a>
+    <a href="../../reflectii.html">Reflecții</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <main>
+
+    <!-- ====================== PAGE HEADER ====================== -->
+    <header class="page-header">
+      <div class="container">
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:12px;">
+          <a href="../../index.html" style="color:var(--text-muted);">Home</a> /
+          <a href="../../index.html#frameworks" style="color:var(--text-muted);">Resurse</a> /
+          <span style="color:var(--cyan);">EU AI Act Compliance Checklist</span>
+        </p>
+        <div style="display:inline-flex; align-items:center; gap:8px; background:rgba(0,212,255,0.1); border:1px solid rgba(0,212,255,0.3); border-radius:20px; padding:4px 14px; font-size:0.8rem; font-weight:600; color:var(--cyan); margin-bottom:20px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <span>Regulamentul UE 2024/1689 · Pentru deployers</span>
+        </div>
+        <h1>EU AI Act Compliance Checklist</h1>
+        <p>Un instrument de conformitate pentru organizațiile care folosesc sisteme AI. Te ajută să identifici ce sisteme AI folosești, cum le clasifici și ce obligații ai ca utilizator (deployer) conform Regulamentului UE 2024/1689.</p>
+      </div>
+    </header>
+
+    <!-- ====================== CONTENT ====================== -->
+    <section class="section">
+      <div class="container">
+        <div style="max-width:800px; margin:0 auto;">
+
+          <!-- INTRO -->
+          <div class="fade-up" style="margin-bottom:48px;">
+            <h2>De ce ai nevoie de acest checklist?</h2>
+            <p style="margin-top:16px; font-size:1.05rem;">
+              EU AI Act (Regulamentul UE 2024/1689) este primul cadru legal complet pentru AI la nivel mondial și se aplică oricărei organizații care folosește sisteme AI în activitatea sa — nu doar celor care le dezvoltă. Ca <strong>deployer</strong> (organizație care pune în funcțiune sau utilizează un sistem AI), ai obligații legale specifice în funcție de nivelul de risc al sistemelor pe care le folosești.
+            </p>
+            <p style="margin-top:12px; color:var(--text-sec);">
+              <strong style="color:var(--text);">Cum să-l folosești:</strong> parcurge fiecare secțiune împreună cu echipa de management, Legal sau Compliance. Completează câmpurile editabile direct în document. Salvează o versiune datată — aceasta devine dovada due diligence a organizației tale.
+            </p>
+          </div>
+
+          <!-- WHO IT'S FOR -->
+          <div class="fade-up" style="background: linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(191,255,0,0.05) 100%); border:1px solid var(--cyan); border-radius:var(--radius-lg); padding:36px 40px; margin-bottom:56px;">
+            <p style="font-size:0.8rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--cyan); margin-bottom:12px;">Pentru cine este</p>
+            <h2 style="margin-bottom:20px; font-size:1.3rem;">Organizații care folosesc AI — nu care îl construiesc</h2>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <span style="color:var(--cyan); font-size:1rem; flex-shrink:0; margin-top:2px;">✓</span>
+                <p style="margin:0; font-size:0.9rem; color:var(--text-sec);">Management și C-level care iau decizii despre adoptarea AI în organizație</p>
+              </div>
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <span style="color:var(--cyan); font-size:1rem; flex-shrink:0; margin-top:2px;">✓</span>
+                <p style="margin:0; font-size:0.9rem; color:var(--text-sec);">Echipe Legal și Compliance care trebuie să documenteze conformitatea</p>
+              </div>
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <span style="color:var(--cyan); font-size:1rem; flex-shrink:0; margin-top:2px;">✓</span>
+                <p style="margin:0; font-size:0.9rem; color:var(--text-sec);">HR care folosesc instrumente AI în recrutare, evaluare sau monitorizare</p>
+              </div>
+              <div style="display:flex; gap:12px; align-items:flex-start;">
+                <span style="color:var(--cyan); font-size:1rem; flex-shrink:0; margin-top:2px;">✓</span>
+                <p style="margin:0; font-size:0.9rem; color:var(--text-sec);">Orice departament care integrează AI în procese operaționale sau decizionale</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECTION 1 -->
+          <div class="fade-up" style="margin-bottom:56px;">
+            <div style="display:flex; align-items:center; gap:16px; margin-bottom:28px; padding-bottom:16px; border-bottom:1px solid var(--border);">
+              <div style="background:rgba(0,212,255,0.1); border:1px solid rgba(0,212,255,0.3); border-radius:50%; width:44px; height:44px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:700; font-size:0.9rem; color:var(--cyan);">1</div>
+              <div>
+                <h2 style="margin:0; font-size:1.25rem;">Inventarul sistemelor AI</h2>
+                <p style="margin:4px 0 0; font-size:0.85rem; color:var(--text-muted);">Ce sisteme AI folosești și în ce procese</p>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+
+              <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--cyan); background:rgba(0,212,255,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">1.1</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Lista tuturor sistemelor AI utilizate</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0 0 10px;">Documentezi fiecare sistem AI folosit în organizație: denumire, furnizor, scopul utilizării, departamentul responsabil și data introducerii.</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin:0;"><strong style="color:var(--text-sec);">Exemplu:</strong> ChatGPT Enterprise (OpenAI) — generare conținut și sinteză documente — Marketing — din ian. 2024.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--cyan); background:rgba(0,212,255,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">1.2</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Scopul și contextul de utilizare</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0 0 10px;">Pentru fiecare sistem: ce decizii sprijină sau ia, ce date procesează, cine sunt utilizatorii finali și dacă afectează persoane fizice.</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin:0;"><strong style="color:var(--text-sec);">Atenție:</strong> sisteme care procesează date despre angajați sau clienți pot cădea în categorii de risc ridicat.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--cyan); background:rgba(0,212,255,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">1.3</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Furnizori și contracte</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0 0 10px;">Verifici dacă furnizorii pun la dispoziție documentația tehnică și dacă în contracte sunt menționate obligațiile de conformitate EU AI Act.</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin:0;"><strong style="color:var(--text-sec);">De cerut de la furnizor:</strong> declarație de conformitate, instrucțiuni de utilizare, informații despre riscuri cunoscute.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SECTION 2 -->
+          <div class="fade-up" style="margin-bottom:56px;">
+            <div style="display:flex; align-items:center; gap:16px; margin-bottom:28px; padding-bottom:16px; border-bottom:1px solid var(--border);">
+              <div style="background:rgba(191,255,0,0.1); border:1px solid rgba(191,255,0,0.3); border-radius:50%; width:44px; height:44px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:700; font-size:0.9rem; color:var(--lime);">2</div>
+              <div>
+                <h2 style="margin:0; font-size:1.25rem;">Clasificarea riscului</h2>
+                <p style="margin:4px 0 0; font-size:0.85rem; color:var(--text-muted);">4 categorii de risc — obligații diferite pentru fiecare</p>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+
+              <div style="background:var(--card); border:1px solid var(--border); border-left:4px solid #ff4444; border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:#ff4444; background:rgba(255,68,68,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">INACCEPTABIL</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Interzis prin lege</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0;">Sisteme de scoring social, manipulare subliminală, identificare biometrică în timp real în spații publice (cu excepții limitate), sisteme care exploatează vulnerabilități. Dacă folosești astfel de sisteme, ești în afara legii.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:var(--card); border:1px solid var(--border); border-left:4px solid #ff8800; border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:#ff8800; background:rgba(255,136,0,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">RISC ÎNALT</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Obligații stricte — cele mai multe organizații sunt aici</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0 0 8px;">Recrutare și selecție angajați, evaluarea performanței, sisteme de creditare, selecție în educație, infrastructuri critice. Necesită: evaluare de risc, loguri, supraveghere umană obligatorie, documentație completă.</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin:0;"><strong style="color:var(--text-sec);">Exemplu practic:</strong> un tool de screening CV-uri sau scoring candidați = risc înalt conform EU AI Act.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:var(--card); border:1px solid var(--border); border-left:4px solid var(--cyan); border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--cyan); background:rgba(0,212,255,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">RISC LIMITAT</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Obligații de transparență</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0;">Chatboți, sisteme care generează conținut. Utilizatorii trebuie informați că interacționează cu AI. Conținutul generat de AI trebuie marcat (watermarking pentru deepfakes).</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:var(--card); border:1px solid var(--border); border-left:4px solid var(--lime); border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--lime); background:rgba(191,255,0,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">RISC MINIM</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Fără obligații specifice</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0;">Filtre spam, recomandări de conținut, instrumente de productivitate fără impact asupra persoanelor. Bune practici voluntare recomandate, fără cerințe legale stricte.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SECTION 3 -->
+          <div class="fade-up" style="margin-bottom:56px;">
+            <div style="display:flex; align-items:center; gap:16px; margin-bottom:28px; padding-bottom:16px; border-bottom:1px solid var(--border);">
+              <div style="background:rgba(255,90,200,0.1); border:1px solid rgba(255,90,200,0.3); border-radius:50%; width:44px; height:44px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:700; font-size:0.9rem; color:var(--magenta);">3</div>
+              <div>
+                <h2 style="margin:0; font-size:1.25rem;">Obligațiile ca deployer</h2>
+                <p style="margin:4px 0 0; font-size:0.85rem; color:var(--text-muted);">Ce trebuie să faci concret — pentru sistemele de risc înalt</p>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+
+              <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--magenta); background:rgba(255,90,200,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">3.1</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Supraveghere umană</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0 0 8px;">Desemnezi persoane responsabile care monitorizează funcționarea sistemului AI și pot interveni sau opri sistemul dacă este necesar.</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin:0;"><strong style="color:var(--text-sec);">Documentezi:</strong> cine este responsabil, ce proceduri de intervenție există, cum sunt instruiți utilizatorii.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--magenta); background:rgba(255,90,200,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">3.2</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Evaluarea impactului fundamental</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0 0 8px;">Pentru sistemele care afectează angajații (recrutare, evaluare, monitorizare), trebuie consultate reprezentanțele salariaților înainte de implementare.</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin:0;"><strong style="color:var(--text-sec);">Atenție:</strong> această obligație este distinctă față de GDPR — chiar dacă ești conform GDPR, poți fi non-compliant EU AI Act.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--magenta); background:rgba(255,90,200,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">3.3</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Loguri și raportare</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0 0 8px;">Menții loguri automate ale utilizării sistemelor AI de risc înalt (dacă sistemul le generează). Raportezi incidentele grave sau comportamentele neașteptate autorității de supraveghere.</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin:0;"><strong style="color:var(--text-sec);">Perioadă de păstrare:</strong> minimum 6 luni pentru logurile de utilizare.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px;">
+                <div style="display:flex; gap:12px; align-items:flex-start;">
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--magenta); background:rgba(255,90,200,0.1); border-radius:4px; padding:2px 8px; flex-shrink:0; margin-top:3px;">3.4</span>
+                  <div>
+                    <h3 style="font-size:1rem; margin:0 0 8px;">Transparența față de persoanele afectate</h3>
+                    <p style="font-size:0.9rem; color:var(--text-sec); margin:0 0 8px;">Informezi persoanele că sunt supuse unui sistem AI de risc înalt (de ex., candidații că CV-ul lor este evaluat automat) și le asiguri dreptul la explicație și contestare.</p>
+                    <p style="font-size:0.85rem; color:var(--text-muted); margin:0;"><strong style="color:var(--text-sec);">Practic:</strong> adaugă mențiuni în procesul de recrutare, în contracte sau în politicile interne.</p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SECTION 4: Action plan -->
+          <div class="fade-up" style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius-lg); padding:40px; margin-bottom:48px;">
+            <h2 style="margin-bottom:8px; color:var(--cyan);">Planul tău de acțiune — 4 pași</h2>
+            <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:28px;">Checklist-ul include câmpuri editabile pentru fiecare pas.</p>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div style="display:flex; gap:16px; align-items:flex-start;">
+                <div style="font-size:1.4rem; font-weight:800; color:var(--cyan); flex-shrink:0; line-height:1; width:32px;">1</div>
+                <div>
+                  <strong style="display:block; margin-bottom:4px;">Inventariază sistemele AI</strong>
+                  <p style="font-size:0.9rem; color:var(--text-sec); margin:0;">Completezi tabelul cu toate sistemele AI folosite în organizație — inclusiv cele introduse informal de angajați (shadow AI).</p>
+                </div>
+              </div>
+              <div style="display:flex; gap:16px; align-items:flex-start;">
+                <div style="font-size:1.4rem; font-weight:800; color:var(--cyan); flex-shrink:0; line-height:1; width:32px;">2</div>
+                <div>
+                  <strong style="display:block; margin-bottom:4px;">Clasifică fiecare sistem pe categoria de risc</strong>
+                  <p style="font-size:0.9rem; color:var(--text-sec); margin:0;">Folosești grila din checklist pentru a determina dacă ești în risc înalt, limitat sau minim. Documentezi argumentele.</p>
+                </div>
+              </div>
+              <div style="display:flex; gap:16px; align-items:flex-start;">
+                <div style="font-size:1.4rem; font-weight:800; color:var(--cyan); flex-shrink:0; line-height:1; width:32px;">3</div>
+                <div>
+                  <strong style="display:block; margin-bottom:4px;">Identifică gap-urile față de obligații</strong>
+                  <p style="font-size:0.9rem; color:var(--text-sec); margin:0;">Compari situația actuală cu lista de obligații pentru fiecare categorie de risc și marchezi ce lipsește.</p>
+                </div>
+              </div>
+              <div style="display:flex; gap:16px; align-items:flex-start;">
+                <div style="font-size:1.4rem; font-weight:800; color:var(--cyan); flex-shrink:0; line-height:1; width:32px;">4</div>
+                <div>
+                  <strong style="display:block; margin-bottom:4px;">Stabilești responsabili și termene</strong>
+                  <p style="font-size:0.9rem; color:var(--text-sec); margin:0;">Pentru fiecare gap identificat, desemnezi un owner și un termen de remediere. Documentul devine baza planului de conformitate.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOWNLOAD CTA -->
+          <div class="fade-up" style="text-align:center; padding:48px 0;">
+            <p style="font-size:0.8rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--cyan); margin-bottom:12px;">DOCX · Editabil · Gratuit</p>
+            <h2 style="margin-bottom:16px;">Descarcă EU AI Act Compliance Checklist</h2>
+            <p style="margin-bottom:32px; max-width:520px; margin-left:auto; margin-right:auto; color:var(--text-sec);">
+              Format Word editabil — completezi direct câmpurile pentru organizația ta. Include grile de clasificare risc, tabele de inventar și plan de acțiune cu responsabili și termene.
+            </p>
+            <a href="../../downloads/EU-AI-Act-Compliance-Checklist-Upvance.docx" class="btn btn-cyan">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Descarcă DOCX — Gratuit
+            </a>
+            <p style="margin-top:16px; font-size:0.8rem; color:var(--text-muted);">© 2026 Upvance Global. All rights reserved.</p>
+          </div>
+
+          <!-- RELATED RESOURCES -->
+          <div class="fade-up">
+            <h2 style="margin-bottom:24px;">Resurse conexe</h2>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <a href="../blueprint-ai-fluency/" style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; display:block;">
+                <div style="font-weight:700; color:var(--cyan); margin-bottom:8px; font-size:0.9rem;">AI Fluency Blueprint →</div>
+                <p style="font-size:0.85rem; margin:0; color:var(--text-sec);">26 de principii aplicate pentru a construi AI fluency organizațional</p>
+              </a>
+              <a href="../../frameworks/model-framework/" style="background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; display:block;">
+                <div style="font-weight:700; color:var(--cyan); margin-bottom:8px; font-size:0.9rem;">M.O.D.E.L. Framework →</div>
+                <p style="font-size:0.85rem; margin:0; color:var(--text-sec);">Protocolul profesional pentru generare structurată de output AI de înaltă valoare</p>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== FOOTER CTA ====================== -->
+    <section class="footer-cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 id="cta-heading">Vrei ajutor cu conformitatea EU AI Act în organizația ta?</h2>
+        <p>Raluca lucrează cu echipe de management și Legal pentru a naviga obligațiile EU AI Act în context real — inventar, clasificare risc, gap analysis și plan de implementare adaptat organizației tale.</p>
+        <a href="mailto:raluca@upvance.global" class="btn btn-cyan">
+          Hai să vorbim
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="../../index.html" class="footer-logo">
+            <img src="../../images/logo.png" alt="Raluca Păduraru" />
+          </a>
+          <p class="footer-copy">© 2026 Raluca Păduraru. All rights reserved.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+          <a href="../../contact.html">Contact</a>
+          <a href="/privacy.html">Politică de confidențialitate</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>
