@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Raluca Păduraru" />
   <meta property="og:title" content="Blueprint de AI Fluency Organizațional — 26 de principii aplicate" />
   <meta property="og:description" content="26 de principii aplicate pentru AI fluency organizațional: cultură, procese, implementare, eficiență, customer experience și dezvoltare continuă." />
-  <meta property="og:url" content="https://ralucapaduraru.ro/resources/blueprint-ai-fluency/" />
+  <meta property="og:url" content="https://www.ralucapaduraru.ro/resources/blueprint-ai-fluency/" />
   <meta property="og:image" content="https://ralucapaduraru.ro/images/build.png" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -22,7 +22,7 @@
   <meta name="twitter:image" content="https://ralucapaduraru.ro/images/build.png" />
   <!-- Hreflang -->
 <!-- Canonical -->
-  <link rel="canonical" href="https://ralucapaduraru.ro/resources/blueprint-ai-fluency/" />
+  <link rel="canonical" href="https://www.ralucapaduraru.ro/resources/blueprint-ai-fluency/" />
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <!-- Fonts -->
@@ -30,8 +30,48 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="../../css/style.css" />
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
+
+<!-- 2b. Cookiebot → GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -48,7 +88,7 @@
         "name": "Blueprint de AI Fluency Organizațional — 26 de principii aplicate pentru 2026",
         "headline": "Cum construiești AI fluency organizațional: 26 de principii aplicate",
         "description": "Un ghid practic cu 26 de principii aplicate pentru a construi AI fluency în organizație, structurate pe 6 categorii: cultură organizațională, procese și fluxuri de lucru, implementare și testare, eficiență operațională, customer experience și învățare continuă.",
-        "url": "https://ralucapaduraru.ro/resources/blueprint-ai-fluency/",
+        "url": "https://www.ralucapaduraru.ro/resources/blueprint-ai-fluency/",
         "encodingFormat": "application/pdf",
         "author": {
           "@type": "Person",
@@ -76,7 +116,7 @@
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ralucapaduraru.ro/"},
           {"@type": "ListItem", "position": 2, "name": "Resurse", "item": "https://ralucapaduraru.ro/#frameworks"},
-          {"@type": "ListItem", "position": 3, "name": "Blueprint de AI Fluency", "item": "https://ralucapaduraru.ro/resources/blueprint-ai-fluency/"}
+          {"@type": "ListItem", "position": 3, "name": "Blueprint de AI Fluency", "item": "https://www.ralucapaduraru.ro/resources/blueprint-ai-fluency/"}
         ]
       }
     ]

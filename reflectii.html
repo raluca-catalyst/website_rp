@@ -7,8 +7,48 @@
   <meta name="robots" content="index, follow" />
   <title>Reflecții — Raluca Păduraru</title>
 
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
+
+<!-- 2b. Cookiebot → GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -20,11 +60,10 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ro_RO" />
-  <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:site_name" content="Raluca Păduraru" />
   <meta property="og:title" content="Reflecții — Raluca Păduraru" />
   <meta property="og:description" content="Articole despre AI, leadership și viitorul muncii. Perspective de la Raluca Păduraru, AI Strategist și Certified Foresight Practitioner." />
-  <meta property="og:url" content="https://ralucapaduraru.ro/reflectii.html" />
+  <meta property="og:url" content="https://www.ralucapaduraru.ro/reflectii.html" />
   <meta property="og:image" content="https://ralucapaduraru.ro/images/portrait.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -34,10 +73,10 @@
   <meta name="twitter:description" content="Articole despre AI, leadership și viitorul muncii." />
   <meta name="twitter:image" content="https://ralucapaduraru.ro/images/portrait.png" />
   <!-- Hreflang -->
-  <link rel="alternate" hreflang="ro" href="https://ralucapaduraru.ro/reflectii.html" />
-  <link rel="alternate" hreflang="x-default" href="https://ralucapaduraru.ro/reflectii.html" />
+  <link rel="alternate" hreflang="ro" href="https://www.ralucapaduraru.ro/reflectii.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.ralucapaduraru.ro/reflectii.html" />
   <!-- Canonical -->
-  <link rel="canonical" href="https://ralucapaduraru.ro/reflectii.html" />
+  <link rel="canonical" href="https://www.ralucapaduraru.ro/reflectii.html" />
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <!-- Fonts -->
@@ -52,7 +91,7 @@
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Reflecții — Raluca Păduraru",
-    "url": "https://ralucapaduraru.ro/reflectii.html",
+    "url": "https://www.ralucapaduraru.ro/reflectii.html",
     "description": "Articole despre AI, leadership și viitorul muncii.",
     "author": {
       "@type": "Person",

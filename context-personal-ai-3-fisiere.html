@@ -7,8 +7,48 @@
   <meta name="robots" content="index, follow" />
   <title>Cum să-ți instalezi contextul personal în AI și să câștigi 5 ore pe săptămână — Raluca Păduraru</title>
 
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
+
+<!-- 2b. Cookiebot → GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -22,7 +62,7 @@
   <meta property="og:site_name" content="Raluca Păduraru" />
   <meta property="og:title" content="Cum să-ți instalezi contextul personal în AI și să câștigi 5 ore pe săptămână" />
   <meta property="og:description" content="Metoda celor 3 fișiere: construiești o dată un context personal în AI și câștigi peste 5 ore pe săptămână. Fără cod, fără complicații." />
-  <meta property="og:url" content="https://ralucapaduraru.ro/context-personal-ai-3-fisiere.html" />
+  <meta property="og:url" content="https://www.ralucapaduraru.ro/context-personal-ai-3-fisiere.html" />
   <meta property="og:image" content="https://ralucapaduraru.ro/images/portrait.png" />
   <meta property="article:published_time" content="2026-02-09" />
   <meta property="article:author" content="Raluca Păduraru" />
@@ -30,7 +70,7 @@
   <meta name="twitter:title" content="Cum să-ți instalezi contextul personal în AI și să câștigi 5 ore pe săptămână" />
   <meta name="twitter:description" content="Metoda celor 3 fișiere: context personal în AI, fără cod, fără complicații." />
   <meta name="twitter:image" content="https://ralucapaduraru.ro/images/portrait.png" />
-  <link rel="canonical" href="https://ralucapaduraru.ro/context-personal-ai-3-fisiere.html" />
+  <link rel="canonical" href="https://www.ralucapaduraru.ro/context-personal-ai-3-fisiere.html" />
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,7 +84,7 @@
     "@type": "BlogPosting",
     "headline": "Cum să-ți instalezi contextul personal în AI și să câștigi 5 ore pe săptămână. Metoda celor 3 fișiere.",
     "description": "Metoda celor 3 fișiere: construiești o dată un context personal în AI și câștigi peste 5 ore pe săptămână. Fără cod, fără complicații.",
-    "url": "https://ralucapaduraru.ro/context-personal-ai-3-fisiere.html",
+    "url": "https://www.ralucapaduraru.ro/context-personal-ai-3-fisiere.html",
     "datePublished": "2026-02-09",
     "inLanguage": "ro",
     "image": {

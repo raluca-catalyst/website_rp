@@ -7,8 +7,48 @@
   <meta name="robots" content="index, follow" />
   <title>Cel mai mare risc AI pentru IMM-uri e lipsa regulilor, nu tehnologia — Raluca Păduraru</title>
 
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
+
+<!-- 2b. Cookiebot → GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -22,7 +62,7 @@
   <meta property="og:site_name" content="Raluca Păduraru" />
   <meta property="og:title" content="Cel mai mare risc AI pentru IMM-uri e lipsa regulilor, nu tehnologia" />
   <meta property="og:description" content="91% dintre IMM-urile care au adoptat AI raportează creștere directă a veniturilor. Principala barieră nu este costul, ci haosul din lipsa guvernanței." />
-  <meta property="og:url" content="https://ralucapaduraru.ro/riscul-ai-imm-guvernanta.html" />
+  <meta property="og:url" content="https://www.ralucapaduraru.ro/riscul-ai-imm-guvernanta.html" />
   <meta property="og:image" content="https://ralucapaduraru.ro/images/portrait.png" />
   <meta property="article:published_time" content="2026-03-02" />
   <meta property="article:author" content="Raluca Păduraru" />
@@ -30,7 +70,7 @@
   <meta name="twitter:title" content="Cel mai mare risc AI pentru IMM-uri e lipsa regulilor, nu tehnologia" />
   <meta name="twitter:description" content="91% dintre IMM-uri cu AI raportează creștere. Principala barieră: lipsa guvernanței. EU AI Act, termen august 2026." />
   <meta name="twitter:image" content="https://ralucapaduraru.ro/images/portrait.png" />
-  <link rel="canonical" href="https://ralucapaduraru.ro/riscul-ai-imm-guvernanta.html" />
+  <link rel="canonical" href="https://www.ralucapaduraru.ro/riscul-ai-imm-guvernanta.html" />
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,7 +84,7 @@
     "@type": "BlogPosting",
     "headline": "Cel mai mare risc AI pentru IMM-uri e lipsa regulilor, nu tehnologia în sine.",
     "description": "91% dintre IMM-urile care au adoptat AI raportează creștere directă a veniturilor. Principala barieră nu este costul, ci haosul din lipsa guvernanței.",
-    "url": "https://ralucapaduraru.ro/riscul-ai-imm-guvernanta.html",
+    "url": "https://www.ralucapaduraru.ro/riscul-ai-imm-guvernanta.html",
     "datePublished": "2026-03-02",
     "inLanguage": "ro",
     "image": {

@@ -1,9 +1,25 @@
 {
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "ralucapaduraru.ro" }],
+      "destination": "https://www.ralucapaduraru.ro/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     { "source": "/viitoruri", "destination": "/viitoruri.html" },
     { "source": "/contact",   "destination": "/contact.html"   }
   ],
   "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
     {
       "source": "/api/(.*)",
       "headers": [
