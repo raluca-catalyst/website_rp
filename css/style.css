@@ -717,7 +717,7 @@ body.has-announce-bar .mobile-menu { top: 36px; }
 .video-section .section-header { margin-bottom: 40px; }
 .video-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
