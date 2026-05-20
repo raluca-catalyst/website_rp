@@ -6,7 +6,7 @@
   <meta name="author" content="Raluca Păduraru" />
   <meta name="robots" content="index, follow" />
   <title>Raluca Păduraru — AI Strategy &amp; Foresight for Business</title>
-  
+
 <!-- 1. Google Consent Mode defaults (must be FIRST) -->
 <script data-cookieconsent="ignore">
     window.dataLayer = window.dataLayer || [];
@@ -25,7 +25,7 @@
     gtag("set", "url_passthrough", false);
 </script>
 
-<!-- 2. Cookiebot CMP (must be SECOND) -->
+<!-- 2. Cookiebot CMP -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
 
 <!-- 2b. Cookiebot → GA consent update -->
@@ -46,22 +46,20 @@
   window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
 </script>
 
-<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
-<!-- Google tag (gtag.js) -->
+<!-- 3. Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-M4ET119Z1X');
 </script>
-  
+
   <meta name="description" content="Raluca Păduraru helps leadership teams build AI agency through strategic foresight, hands-on training, and tested frameworks. 800+ workshop hours, 5,000+ professionals trained." />
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ro_RO" />
-<meta property="og:site_name" content="Raluca Păduraru" />
+  <meta property="og:site_name" content="Raluca Păduraru" />
   <meta property="og:title" content="Raluca Păduraru — AI Strategy &amp; Foresight for Business" />
   <meta property="og:description" content="Raluca Păduraru helps leadership teams build AI agency through strategic foresight, hands-on training, and tested frameworks. 800+ workshop hours, 5,000+ professionals trained." />
   <meta property="og:url" content="https://www.ralucapaduraru.ro/" />
@@ -73,18 +71,17 @@
   <meta name="twitter:title" content="Raluca Păduraru — AI Strategy &amp; Foresight for Business" />
   <meta name="twitter:description" content="Raluca Păduraru helps leadership teams build AI agency through strategic foresight, hands-on training, and tested frameworks. 800+ workshop hours, 5,000+ professionals trained." />
   <meta name="twitter:image" content="https://ralucapaduraru.ro/images/portrait.png" />
-  <!-- Hreflang -->
-<!-- Canonical -->
+  <!-- Canonical -->
   <link rel="canonical" href="https://www.ralucapaduraru.ro/" />
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <!-- Preload LCP image -->
-  <link rel="preload" as="image" href="/images/portrait.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/images/raluca-paduraru-speaker.png" fetchpriority="high" />
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" /></noscript>
   <link rel="stylesheet" href="css/style.css" />
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -108,7 +105,7 @@
         "description": "Futures of Work Strategist, co-founder Upvance Global. AI fluency training, strategic foresight, and organizational transformation for leadership teams.",
         "inLanguage": "ro",
         "isPartOf": {"@id": "https://ralucapaduraru.ro/#website"},
-        "dateModified": "2026-03-28T00:00:00+02:00",
+        "dateModified": "2026-05-20T00:00:00+02:00",
         "mainEntity": {"@id": "https://ralucapaduraru.ro/#person"}
       },
       {
@@ -118,9 +115,9 @@
         "url": "https://ralucapaduraru.ro",
         "image": {
           "@type": "ImageObject",
-          "url": "https://ralucapaduraru.ro/images/portrait.png",
+          "url": "https://ralucapaduraru.ro/images/raluca-paduraru-speaker.png",
           "width": 800,
-          "height": 800
+          "height": 1000
         },
         "jobTitle": "Futures of Work Strategist",
         "description": "Raluca Păduraru helps leadership teams build AI agency through strategic foresight, hands-on AI fluency training, and tested frameworks. 17 years of operational management, Certified Foresight Practitioner (TFSX), 800+ hours of workshops delivered to 5,000+ professionals.",
@@ -151,35 +148,23 @@
 </head>
 <body>
 
-  <!-- ====================== NAVIGATION ====================== -->
+  <!-- NAV -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Raluca Păduraru home">
         <img src="images/logo.png" alt="Raluca Păduraru" />
       </a>
-
       <ul class="nav-links" role="list">
-        <li>
-          <a href="#services">
-            
-            Servicii
-          </a>
-        </li>
-        <li>
-          <a href="#frameworks">
-            
-            Framework-uri
-          </a>
-        </li>
+        <li><a href="#services">Servicii</a></li>
+        <li><a href="#frameworks">Framework-uri</a></li>
         <li><a href="about.html">Despre</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="impact.html">Impact</a></li>
         <li><a href="reflectii.html">Reflecții</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-
       <div class="nav-right">
-        
+        <a href="/contact.html" class="nav-cta">Hai să vorbim</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -200,476 +185,283 @@
 
   <main>
 
-    <!-- ====================== HERO ====================== -->
+    <!-- HERO -->
     <section class="hero" aria-label="Hero">
       <div class="container">
         <div class="hero-inner">
+
           <div class="hero-content">
-            <div class="hero-tag">
-              
-              Futures of Work Strategist
-            </div>
+            <div class="hero-tag">Futures of Work Strategist</div>
 
             <h1>
-              Ajut liderii să construiască <span class="accent-cyan">AI agency</span>, claritatea de a vedea prin zgomot și încrederea de a acționa.
+              Ajut liderii să construiască <span class="accent">AI agency</span>, claritatea de a vedea prin zgomot și încrederea de a acționa.
             </h1>
 
             <p>
-              
-              Ajut echipele non-tehnice să treacă de la simpla utilizare a instrumentelor AI la <span class="accent-cyan">AI agency</span>, adică la discernământ însoțit de capacitatea de a lua acțiuni strategice.
+              Ajut echipele non-tehnice să treacă de la simpla utilizare a instrumentelor AI la <span class="accent-inline">AI agency</span>, adică la discernământ însoțit de capacitatea de a lua acțiuni strategice.
             </p>
 
             <div class="hero-cta">
-              <a href="/contact.html" class="btn btn-cyan">
-                
+              <a href="/contact.html" class="btn btn-primary">
                 Hai să vorbim
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
               <a href="#services" class="btn btn-outline">
-                
                 Vezi serviciile disponibile
               </a>
             </div>
-          </div>
 
-          <div class="hero-image fade-up delay-2">
-            <div class="hero-image-wrap">
-              <img src="images/portrait.webp" alt="Raluca Păduraru — Futures of Work Strategist and AI Fluency Trainer" width="900" height="900" fetchpriority="high" />
+            <div class="hero-social-row">
+              <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener" class="social-link" aria-label="Newsletter Substack">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M9 13l3 3 3-3"/></svg>
+              </a>
             </div>
           </div>
+
+          <div class="hero-image">
+            <div class="hero-image-wrap">
+              <div class="hero-circle"></div>
+              <img
+                src="images/raluca-paduraru-speaker.png"
+                alt="Raluca Păduraru — Futures of Work Strategist și trainer AI fluency vorbind la conferință"
+                width="480"
+                height="600"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ====================== HOW I WORK ====================== -->
+    <!-- HOW I WORK -->
     <section class="section section-alt" aria-labelledby="how-heading">
       <div class="container">
         <div class="section-header fade-up">
-          <h2 id="how-heading">
-            
-            Cum lucrez
-          </h2>
+          <div class="label">Proces</div>
+          <h2 id="how-heading">Cum lucrez</h2>
         </div>
-
-        <div class="how-grid">
-          <div class="how-card fade-up delay-1">
-            <div class="how-icon how-icon-cyan"><img src="images/conversation.webp" alt="Raluca Păduraru in conversation with a leadership team during an AI strategy session" width="200" height="146" loading="lazy" /></div>
-            <h3>
-              
-              Începem cu o conversație.
-            </h3>
-            <p>
-              
-              Fiecare colaborare începe cu înțelegerea situației tale actuale și a blocajelor cu care te confrunți.
-            </p>
+        <div class="how-grid fade-up">
+          <div class="how-card">
+            <div class="how-icon">
+              <img src="images/conversation.webp" alt="Raluca Păduraru în conversație cu o echipă de leadership în cadrul unei sesiuni de AI strategy" loading="lazy" />
+            </div>
+            <h3>Începem cu o conversație.</h3>
+            <p>Fiecare colaborare începe cu înțelegerea situației tale actuale și a blocajelor cu care te confrunți.</p>
           </div>
-
-          <div class="how-card fade-up delay-2">
-            <div class="how-icon how-icon-magenta"><img src="images/build.webp" alt="Building AI fluency in organizations through hands-on workshop training" width="400" height="268" loading="lazy" /></div>
-            <h3>
-              
-              Construim împreună
-            </h3>
-            <p>
-              
-              Fie că ai nevoie de claritate strategică la nivel de conducere sau de competențe AI concrete în echipe.
-            </p>
+          <div class="how-card">
+            <div class="how-icon">
+              <img src="images/build.webp" alt="Construim AI fluency în organizații prin training practic și workshop-uri hands-on" loading="lazy" />
+            </div>
+            <h3>Construim împreună</h3>
+            <p>Fie că ai nevoie de claritate strategică la nivel de conducere sau de competențe AI concrete în echipe.</p>
           </div>
-
-          <div class="how-card fade-up delay-3">
-            <div class="how-icon how-icon-lime"><img src="images/frameworks.webp" alt="Proprietary AI frameworks including 4D, MODEL and FORCE developed by Raluca Păduraru" width="400" height="267" loading="lazy" /></div>
-            <h3>
-              
-              Framework-uri testate
-            </h3>
-            <p>
-              
-              Instrumente proprii testate în 800+ ore de workshop cu peste 5.000 de profesioniști.
-            </p>
+          <div class="how-card">
+            <div class="how-icon">
+              <img src="images/frameworks.webp" alt="Framework-uri AI proprii — 4D, MODEL și FORCE — testate în sute de ore de workshop" loading="lazy" />
+            </div>
+            <h3>Framework-uri testate</h3>
+            <p>Instrumente proprii testate în 800+ ore de workshop cu peste 5.000 de profesioniști.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== PRODUCTS / SERVICES ====================== -->
+    <!-- SERVICES -->
     <section class="section" id="services" aria-labelledby="services-heading">
       <div class="container">
         <div class="section-header fade-up">
-          <h2 id="services-heading">
-            
-            Produse și servicii
-          </h2>
-          <p>
-            
-            Colaborări dedicate, concepute pentru schimbare organizațională durabilă.
-          </p>
+          <div class="label">Colaborări</div>
+          <h2 id="services-heading">Produse și servicii</h2>
+          <p>Colaborări dedicate, concepute pentru schimbare organizațională durabilă.</p>
         </div>
 
         <div class="products-grid">
 
-          <!-- Product 1: AI Strategy Session -->
-          <div class="product-card card-cyan fade-up delay-1">
-            <div class="product-tag product-tag-cyan">
-              
-              Punct de plecare
-            </div>
-            <h3>AI Strategy Session</h3>
-            <p>
-              
-              O sesiune intensivă pentru echipele de conducere care au nevoie de claritate cu privire la implementările AI: de unde să înceapă, ce să prioritizeze, ce să evite.
-            </p>
-            <div class="product-meta">
-              <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Pentru cine
-                </span>
-                <span class="product-meta-val">
-                  
-                  Echipe de conducere / C-suite
-                </span>
-              </div>
-              <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Ce primiți
-                </span>
-                <span class="product-meta-val">
-                  
-                  Diagnostic maturitate AI, roadmap strategic, plan de acțiune 90 zile
-                </span>
-              </div>
-              <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Format
-                </span>
-                <span class="product-meta-val">
-                  
-                  Sesiune de 6 ore
-                </span>
-              </div>
-            </div>
-            <div class="product-note">
-              
-              Punctul de start pentru majoritatea colaborărilor.
-            </div>
-          </div>
-
-          <!-- Product 2: AI Fluency for Business -->
-          <div class="product-card card-magenta fade-up delay-2">
-            <div class="product-tag product-tag-magenta">
-              
-              Cel mai popular
-            </div>
+          <div class="product-card featured fade-up delay-1">
+            <div class="product-tag">Cel mai popular</div>
             <h3>AI Fluency for Business</h3>
-            <p>
-              
-              Training AI practic, configurat pe industria, rolurile și workflow-urile tale reale. Participanții pleacă cu sarcini reale rezolvate.
-            </p>
+            <p>Training AI practic, configurat pe industria, rolurile și workflow-urile tale reale. Participanții pleacă cu sarcini reale rezolvate.</p>
             <div class="product-meta">
               <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Pentru cine
-                </span>
-                <span class="product-meta-val">
-                  
-                  Manageri și specialiști care urmează să utilizeze AI în activitățile lor zilnice
-                </span>
+                <span class="product-meta-label">Pentru cine</span>
+                <span class="product-meta-val">Manageri și specialiști care urmează să utilizeze AI în activitățile lor zilnice</span>
               </div>
               <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Ce primiți
-                </span>
-                <span class="product-meta-val">
-                  
-                  Training pe rol cu framework-urile 4D, M.O.D.E.L., F.O.R.C.E.
-                </span>
+                <span class="product-meta-label">Ce primiți</span>
+                <span class="product-meta-val">Training pe rol cu framework-urile 4D, M.O.D.E.L., F.O.R.C.E.</span>
               </div>
               <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Format
-                </span>
-                <span class="product-meta-val">
-                  
-                  Între 4 ore și 2 zile, configurabil în funcție de nevoia de business
-                </span>
+                <span class="product-meta-label">Format</span>
+                <span class="product-meta-val">Între 4 ore și 2 zile, configurabil în funcție de nevoia de business</span>
               </div>
             </div>
-            <div class="product-note">
-              
-              Fiecare sesiune e adaptată 100% la contextul tău. Respectă standardele EU AI Act.
-            </div>
+            <div class="product-note">Fiecare sesiune e adaptată 100% la contextul tău. Respectă standardele EU AI Act.</div>
           </div>
 
-          <!-- Product 3: Foresight & Futures Workshop -->
-          <div class="product-card card-lime fade-up delay-3">
-            <div class="product-tag product-tag-lime">
-              
-              Gândire pe termen lung
-            </div>
-            <h3>
-              
-              Foresight &amp; Futures Workshop
-            </h3>
-            <p>
-              
-              Un workshop structurat pentru echipele de conducere care vor să gândească dincolo de trimestrul următor. Mapăm ce urmează, testăm presupunerile, aliniem direcția.
-            </p>
+          <div class="product-card fade-up delay-2">
+            <div class="product-tag">Diagnostic AI</div>
+            <h3>AI Strategy Session</h3>
+            <p>O sesiune intensivă pentru echipele de conducere care au nevoie de claritate cu privire la implementările AI: de unde să înceapă, ce să prioritizeze, ce să evite.</p>
             <div class="product-meta">
               <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Pentru cine
-                </span>
-                <span class="product-meta-val">
-                  
-                  Echipe de leadership gata să gândească 2–5 ani înainte
-                </span>
+                <span class="product-meta-label">Pentru cine</span>
+                <span class="product-meta-val">Echipe de conducere / C-suite</span>
               </div>
               <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Ce primiți
-                </span>
-                <span class="product-meta-val">
-                  
-                  Scenario planning, identificarea semnalelor slabe, playbook strategic
-                </span>
+                <span class="product-meta-label">Ce primiți</span>
+                <span class="product-meta-val">Diagnostic maturitate AI, roadmap strategic, plan de acțiune 90 zile</span>
               </div>
               <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Format
-                </span>
-                <span class="product-meta-val">
-                  
-                  1–2 zile imersive
-                </span>
+                <span class="product-meta-label">Format</span>
+                <span class="product-meta-val">Sesiune de 6 ore</span>
               </div>
             </div>
-            <div class="product-note">
-              
-              Foresight-ul strategic e pregătirea pentru un viitor incert.
-            </div>
+            <div class="product-note">Punctul de start pentru majoritatea colaborărilor.</div>
           </div>
 
-          <!-- Product 4: Strategic Retainer -->
-          <div class="product-card card-cyan fade-up delay-4">
-            <div class="product-tag product-tag-cyan">
-              
-              Continuu
+          <div class="product-card fade-up delay-3">
+            <div class="product-tag">Gândire pe termen lung</div>
+            <h3>Foresight &amp; Futures Workshop</h3>
+            <p>Un workshop structurat pentru echipele de conducere care vor să gândească dincolo de trimestrul următor. Mapăm ce urmează, testăm presupunerile, aliniem direcția.</p>
+            <div class="product-meta">
+              <div class="product-meta-row">
+                <span class="product-meta-label">Pentru cine</span>
+                <span class="product-meta-val">Echipe de leadership gata să gândească 2–5 ani înainte</span>
+              </div>
+              <div class="product-meta-row">
+                <span class="product-meta-label">Ce primiți</span>
+                <span class="product-meta-val">Scenario planning, identificarea semnalelor slabe, playbook strategic</span>
+              </div>
+              <div class="product-meta-row">
+                <span class="product-meta-label">Format</span>
+                <span class="product-meta-val">1–2 zile imersive</span>
+              </div>
             </div>
+            <div class="product-note">Foresight-ul strategic e pregătirea pentru un viitor incert.</div>
+          </div>
+
+          <div class="product-card fade-up delay-4">
+            <div class="product-tag">Continuu</div>
             <h3>Strategic Retainer</h3>
-            <p>
-              
-              Un parteneriat strategic continuu pentru companiile care vor un consultant de AI și foresight care le cunoaște organizația.
-            </p>
+            <p>Un parteneriat strategic continuu pentru companiile care vor un consultant de AI și foresight care le cunoaște organizația.</p>
             <div class="product-meta">
               <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Pentru cine
-                </span>
-                <span class="product-meta-val">
-                  
-                  Companii care au finalizat unul dintre programe și au nevoie de sprijin în implementare sau planificarea roadmap-ului
-                </span>
+                <span class="product-meta-label">Pentru cine</span>
+                <span class="product-meta-val">Companii care au finalizat unul dintre programe și au nevoie de sprijin în implementare sau planificarea roadmap-ului</span>
               </div>
               <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Ce primiți
-                </span>
-                <span class="product-meta-val">
-                  
-                  Sesiuni de consultanță lunare, acces prioritar, monitorizare tendințe, suport ad-hoc
-                </span>
+                <span class="product-meta-label">Ce primiți</span>
+                <span class="product-meta-val">Sesiuni de consultanță lunare, acces prioritar, monitorizare tendințe, suport ad-hoc</span>
               </div>
               <div class="product-meta-row">
-                <span class="product-meta-label">
-                  
-                  Format
-                </span>
-                <span class="product-meta-val">
-                  
-                  Lunar sau trimestrial
-                </span>
+                <span class="product-meta-label">Format</span>
+                <span class="product-meta-val">Lunar sau trimestrial</span>
               </div>
             </div>
-            <div class="product-note">
-              
-              Linia ta directă către un strateg care îți cunoaște organizația.
-            </div>
+            <div class="product-note">Linia ta directă către un strateg care îți cunoaște organizația.</div>
           </div>
+
         </div>
 
-        <!-- Products CTA -->
         <div class="products-cta fade-up">
-          <p>
-            
-            Fiecare produs începe de la cum va arăta industria ta în 3 ani și ce trebuie să faci azi ca să fii pregătit. Toate sunt configurate pentru contextul, industria și dimensiunea echipei tale. Hai să vorbim despre ce ar fi potrivit pentru tine.
-          </p>
-          <a href="/contact.html" class="btn btn-cyan">
-            
+          <p>Fiecare produs începe de la cum va arăta industria ta în 3 ani și ce trebuie să faci azi ca să fii pregătit. Toate sunt configurate pentru contextul, industria și dimensiunea echipei tale. Hai să vorbim despre ce ar fi potrivit pentru tine.</p>
+          <a href="/contact.html" class="btn btn-primary">
             Hai să vorbim
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ====================== FRAMEWORKS ====================== -->
+    <!-- FRAMEWORKS -->
     <section class="section section-alt" id="frameworks" aria-labelledby="frameworks-heading">
       <div class="container">
         <div class="section-header fade-up">
-          <h2 id="frameworks-heading">
-            
-            Framework-uri și resurse
-          </h2>
-          <p>
-            
-            Instrumente gratuite pentru lideri și echipe care navighează tranziția AI.
-          </p>
+          <div class="label">Resurse gratuite</div>
+          <h2 id="frameworks-heading">Framework-uri și resurse</h2>
+          <p>Instrumente gratuite pentru lideri și echipe care navighează tranziția AI.</p>
         </div>
 
-        <div class="frameworks-grid">
-
-          <!-- 1. State of AI in Romania -->
-          <div class="framework-card fade-up delay-1">
-            <h3>
-              
-              State of AI în România
-            </h3>
-            <p>
-              
-              Cercetare academică despre cum interacționează forța de muncă din România cu AI. Date pentru decidenți.
-            </p>
+        <div class="frameworks-grid fade-up">
+          <div class="framework-card">
+            <h3>State of AI în România</h3>
+            <p>Cercetare academică despre cum interacționează forța de muncă din România cu AI. Date pentru decidenți.</p>
             <a href="https://ralucapaduraru.ro/state-of-ai.pdf" target="_blank" rel="noopener" class="btn btn-download">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-              
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
               Deschide PDF
             </a>
           </div>
-
-          <!-- 2. M.O.D.E.L. Framework -->
-          <div class="framework-card fade-up delay-2">
+          <div class="framework-card">
             <h3>M.O.D.E.L. Framework</h3>
-            <p>
-              
-              Un protocol profesional pentru trecerea de la prompting de bază la generare structurată de output AI de înaltă valoare.
-            </p>
+            <p>Un protocol profesional pentru trecerea de la prompting de bază la generare structurată de output AI de înaltă valoare.</p>
             <a href="downloads/M.O.D.E.L. Framework.pdf" target="_blank" rel="noopener" class="btn btn-download">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-              
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
               Deschide PDF
             </a>
           </div>
-
-          <!-- 3. 4D Framework -->
-          <div class="framework-card fade-up delay-3">
+          <div class="framework-card">
             <h3>4D Framework</h3>
-            <p>
-              
-              Un framework de decizie pentru lucrul cu AI: ce să delegi, cum să descrii, cum să evaluezi output-urile, cum să menții calitatea.
-            </p>
+            <p>Un framework de decizie pentru lucrul cu AI: ce să delegi, cum să descrii, cum să evaluezi output-urile, cum să menții calitatea.</p>
             <a href="downloads/4D-Framework.pdf" target="_blank" rel="noopener" class="btn btn-download">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-              
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
               Deschide PDF
             </a>
           </div>
-
-          <!-- 4. AI Fluency Blueprint -->
-          <div class="framework-card fade-up delay-1">
-            <h3>
-              
-              AI Fluency Blueprint
-            </h3>
-            <p>
-              
-              Un plan de acțiuni în 26 de puncte pentru a ajunge la AI fluency organizațional.
-            </p>
+          <div class="framework-card">
+            <h3>AI Fluency Blueprint</h3>
+            <p>Un plan de acțiuni în 26 de puncte pentru a ajunge la AI fluency organizațional.</p>
             <a href="downloads/Blueprint de AI fluency organizațional.pdf" target="_blank" rel="noopener" class="btn btn-download">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-              
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
               Deschide PDF
             </a>
           </div>
-
-          <!-- 5. EU AI Act Compliance Checklist -->
-          <div class="framework-card fade-up delay-2">
+          <div class="framework-card">
             <h3>EU AI Act Compliance Checklist</h3>
             <p>Un checklist de conformitate la EU AI Act pentru deployers. Te ajută să identifici ce sisteme AI folosești, cum le clasifici și ce obligații ai ca utilizator (deployer) conform Regulamentului UE 2024/1689.</p>
             <a href="downloads/EU-AI-Act-Compliance-Checklist-Upvance.docx" class="btn btn-download">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
               Descarcă DOCX
             </a>
           </div>
-
-          <!-- 6. AI Evolution Arc -->
-          <div class="framework-card fade-up delay-3">
-            <h3>
-              
-              The AI Evolution Arc
-            </h3>
-            <p>
-              
-              Un roadmap de la rezistență digitală la transformare strategică, 4 niveluri de AI fluency pentru profesioniști și echipe.
-            </p>
+          <div class="framework-card">
+            <h3>The AI Evolution Arc</h3>
+            <p>Un roadmap de la rezistență digitală la transformare strategică, 4 niveluri de AI fluency pentru profesioniști și echipe.</p>
             <a href="downloads/ai-evolution.pdf" target="_blank" rel="noopener" class="btn btn-download">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-              
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
               Deschide PDF
             </a>
           </div>
-
-          <!-- 6. AI Reality Check Canvas -->
-          <div class="framework-card fade-up delay-3">
-            <h3>
-              
-              AI Reality Check Canvas
-            </h3>
-            <p>
-              
-              Un instrument de dialog pentru echipe: evaluarea beneficiilor, riscurilor și necunoscutelor în cazurile de utilizare AI.
-            </p>
+          <div class="framework-card">
+            <h3>AI Reality Check Canvas</h3>
+            <p>Un instrument de dialog pentru echipe: evaluarea beneficiilor, riscurilor și necunoscutelor în cazurile de utilizare AI.</p>
             <a href="downloads/AI-reality-check.pdf" target="_blank" rel="noopener" class="btn btn-download">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-              
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
               Deschide PDF
             </a>
           </div>
-
-          <!-- 7. F.O.R.C.E. Matrix -->
-          <div class="framework-card fade-up delay-1">
+          <div class="framework-card">
             <h3>F.O.R.C.E. Matrix</h3>
-            <p>
-              
-              Un framework de delegare pentru era agenților AI pentru a trece dincolo de generarea de text, către raționament complex și execuție autonomă.
-            </p>
-            <a href="#" class="btn btn-download" aria-disabled="true" title="Coming soon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-              
+            <p>Un framework de delegare pentru era agenților AI pentru a trece dincolo de generarea de text, către raționament complex și execuție autonomă.</p>
+            <span class="btn btn-download" style="opacity:0.4; cursor:default; pointer-events:none;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
               În curând
-            </a>
+            </span>
           </div>
-
         </div>
       </div>
     </section>
 
-    <!-- ====================== TESTIMONIALS ====================== -->
+    <!-- TESTIMONIALS -->
     <section class="section" aria-labelledby="testimonials-heading">
       <div class="container">
         <div class="section-header fade-up">
-          <h2 id="testimonials-heading">
-            
-            Ce spun participanții
-          </h2>
+          <div class="label">Feedback</div>
+          <h2 id="testimonials-heading">Ce spun participanții</h2>
         </div>
 
         <div class="testimonials-wrap fade-up">
@@ -759,72 +551,50 @@
           </div>
 
           <div class="slider-controls">
-            <button class="slider-btn" id="slider-prev" aria-label="Previous testimonial">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <button class="slider-btn" id="slider-prev" aria-label="Anterior">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             </button>
-            <button class="slider-btn" id="slider-next" aria-label="Next testimonial">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <button class="slider-btn" id="slider-next" aria-label="Următor">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== CREDIBILITY ====================== -->
+    <!-- CREDIBILITY -->
     <section class="section section-alt" aria-labelledby="credibility-heading">
       <div class="container">
         <div class="section-header fade-up">
-          <h2 id="credibility-heading">
-            
-            În cifre
-          </h2>
+          <div class="label">Track record</div>
+          <h2 id="credibility-heading">În cifre</h2>
         </div>
 
-        <!-- Stats -->
         <div class="stats-grid fade-up">
           <div class="stat-card">
             <div class="stat-number">800+</div>
-            <div class="stat-label">
-              
-              ore de workshop-uri de AI fluency
-            </div>
+            <div class="stat-label">ore de workshop-uri de AI fluency</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">5,000+</div>
-            <div class="stat-label">
-              
-              profesioniști formați
-            </div>
+            <div class="stat-label">profesioniști formați</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">17</div>
-            <div class="stat-label">
-              
-              ani de management operațional
-            </div>
+            <div class="stat-label">ani de management operațional</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">30+</div>
-            <div class="stat-label">
-              
-              conferințe și paneluri
-            </div>
+            <div class="stat-label">conferințe și paneluri</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">25+</div>
-            <div class="stat-label">
-              
-              apariții media și interviuri
-            </div>
+            <div class="stat-label">apariții media și interviuri</div>
           </div>
         </div>
 
-        <!-- Credentials -->
         <div class="credentials-section fade-up">
-          <h3>
-            
-            Certificări
-          </h3>
+          <h3>Credențiale și certificări</h3>
           <div class="credentials-grid">
             <div class="credential-badge">
               <img src="credentials/certified_foresight_practitioner.webp" alt="Certified Foresight Practitioner TFSX" loading="lazy" />
@@ -840,17 +610,13 @@
             </div>
             <div class="credential-badge">
               <img src="credentials/iaf_logo.png" alt="International Association of Facilitators" loading="lazy" />
-              <span>International Association of Facilitators</span>
+              <span>VP of AI &amp; Digital @International Association of Facilitators, Romania</span>
             </div>
           </div>
         </div>
 
-        <!-- Media -->
         <div class="media-section fade-up">
-          <h3>
-            
-            Apariții în presă
-          </h3>
+          <h3>Apariții în presă</h3>
           <div class="media-logos">
             <a href="https://republica.ro/ai-afacerea-soloprenorantreprenor" target="_blank" rel="noopener" class="media-logo">Republica</a>
             <a href="https://www.undelucram.ro/ro/cumlucram/contributor/raluca-paduraru/56" target="_blank" rel="noopener" class="media-logo">Undelucram</a>
@@ -863,113 +629,68 @@
       </div>
     </section>
 
-    <!-- ====================== VIDEO ====================== -->
+    <!-- VIDEO -->
     <section class="section video-section" aria-labelledby="video-heading">
       <div class="container">
         <div class="section-header fade-up">
-          <h2 id="video-heading">
-            
-            Raluca în acțiune
-          </h2>
+          <div class="label">Vizionează</div>
+          <h2 id="video-heading">Raluca în acțiune</h2>
         </div>
         <div class="video-grid fade-up">
           <div class="video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/qzjL9_n7y_g"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/qzjL9_n7y_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/P26SxRtgeZk?si=2ZFBcVri6D96nWJm"
-              title="Ne înlocuiește AI-ul?"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/P26SxRtgeZk?si=2ZFBcVri6D96nWJm" title="Ne înlocuiește AI-ul?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/dFBABIAsvwY?si=Z5NPxOBqdRMEXQcw"
-              title="Gândire Strategică - Lansare Raport"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/dFBABIAsvwY?si=Z5NPxOBqdRMEXQcw" title="Gândire Strategică - Lansare Raport" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="video-wrap">
-            <iframe
-              src="https://www.youtube.com/embed/PCqs1Cr6OJU"
-              title="Offbeat Learning - 4 robots walk into a workshop"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/PCqs1Cr6OJU" title="Offbeat Learning - 4 robots walk into a workshop" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== NEWSLETTER ====================== -->
+    <!-- NEWSLETTER -->
     <section class="section section-alt" aria-labelledby="newsletter-heading">
       <div class="container">
         <div class="newsletter-inner fade-up">
-          <h2 id="newsletter-heading">
-            
-            Rămâi la curent cu AI și viitorul muncii
-          </h2>
-          <p>
-            
-            Perspective bi-lunare, framework-uri și opinii oneste. Fără spam, doar idei pe care le-am testat personal.
-          </p>
-          <div class="substack-cta">
-            <a href="https://ralucapaduraru.substack.com/?r=subscribe" target="_blank" rel="noopener" class="btn btn-cyan">
-              
-              Abonează-te gratuit
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+          <div>
+            <div class="label">Newsletter</div>
+            <h2 id="newsletter-heading">Rămâi la curent cu AI și viitorul muncii</h2>
+            <p>Perspective bi-lunare, framework-uri și opinii oneste. Fără spam, doar idei pe care le-am testat personal.</p>
           </div>
-          <p class="gdpr-text">
-            
-            Prin abonare ești de acord să primești newsletter-ul The Leadership Catalyst cu noutăți despre AI și viitorurile muncii.
-          </p>
+          <div class="newsletter-right">
+            <div class="substack-cta">
+              <a href="https://ralucapaduraru.substack.com/?r=subscribe" target="_blank" rel="noopener" class="btn btn-primary">
+                Abonează-te gratuit
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+            <p class="gdpr-text">Prin abonare ești de acord să primești newsletter-ul The Leadership Catalyst cu noutăți despre AI și viitorurile muncii.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== FOOTER CTA ====================== -->
+    <!-- FOOTER CTA -->
     <section class="footer-cta" id="contact" aria-labelledby="cta-heading">
       <div class="container">
-        <h2 id="cta-heading">
-          
-          Pregătit pentru agency în AI?
-        </h2>
-        <p>
-          
-          Fie că ai nevoie de direcție strategică, training de echipă sau un partener continuu de gândire, totul începe cu o conversație.
-        </p>
-        <a href="/contact.html" class="btn btn-cyan">
-          
+        <div class="label" style="margin: 0 auto 0.75rem;">Contact</div>
+        <h2 id="cta-heading">Pregătit pentru agency în AI?</h2>
+        <p>Fie că ai nevoie de direcție strategică, training de echipă sau un partener continuu de gândire, totul începe cu o conversație.</p>
+        <a href="/contact.html" class="btn btn-primary">
           Hai să vorbim
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </section>
 
   </main>
 
-  <!-- ====================== FOOTER ====================== -->
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-inner">

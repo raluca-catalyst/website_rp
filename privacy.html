@@ -25,7 +25,7 @@
     gtag("set", "url_passthrough", false);
 </script>
 
-<!-- 2. Cookiebot CMP (must be SECOND) -->
+<!-- 2. Cookiebot CMP -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
 
 <!-- 2b. Cookiebot → GA consent update -->
@@ -46,7 +46,7 @@
   window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
 </script>
 
-<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<!-- 3. Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -60,78 +60,12 @@
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" /></noscript>
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    .privacy-section {
-      padding: 80px 0 60px;
-    }
-    .privacy-section h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-    .privacy-section .privacy-subtitle {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 56px;
-    }
-    .privacy-content h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--cyan);
-      margin: 48px 0 12px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-    }
-    .privacy-content h2:first-child {
-      margin-top: 0;
-      border-top: none;
-      padding-top: 0;
-    }
-    .privacy-content h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin: 28px 0 8px;
-    }
-    .privacy-content p {
-      color: var(--text-muted);
-      line-height: 1.75;
-      margin-bottom: 12px;
-      max-width: 720px;
-    }
-    .privacy-content ul {
-      color: var(--text-muted);
-      line-height: 1.75;
-      padding-left: 20px;
-      margin-bottom: 12px;
-      max-width: 720px;
-    }
-    .privacy-content ul li {
-      margin-bottom: 6px;
-    }
-    .privacy-content strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-    .privacy-content a {
-      color: var(--cyan);
-      text-decoration: underline;
-    }
-    .privacy-last-updated {
-      margin-top: 56px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- ====================== NAVIGATION ====================== -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Raluca Păduraru home">
@@ -154,7 +88,6 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
   <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
     <a href="index.html#services">Servicii</a>
     <a href="index.html#frameworks">Framework-uri</a>
@@ -167,14 +100,20 @@
 
   <main>
 
-    <!-- ====================== PRIVACY POLICY ====================== -->
-    <section class="privacy-section" aria-labelledby="privacy-heading">
+    <header class="page-header">
       <div class="container">
-        <h1 id="privacy-heading">Politică de confidențialitate</h1>
-        <p class="privacy-subtitle">ralucapaduraru.ro</p>
+        <div class="label">Legal</div>
+        <h1>Politică de confidențialitate</h1>
+        <p>ralucapaduraru.ro</p>
+      </div>
+    </header>
 
-        <div class="privacy-content">
+    <div class="container">
+      <div class="privacy-layout">
 
+        <p class="privacy-updated">Ultima actualizare: 9 aprilie 2026</p>
+
+        <div class="privacy-section">
           <h2>1. Operator de date</h2>
           <p>Datele personale colectate prin acest site sunt prelucrate de:</p>
           <ul>
@@ -183,9 +122,11 @@
             <li><strong>Nr. înregistrare:</strong> J40/8625/2023</li>
             <li><strong>Sediu:</strong> Șos. Mihai Bravu 491-495, București Sector 3</li>
             <li><strong>Reprezentant:</strong> Raluca Păduraru</li>
-            <li><strong>E-mail:</strong> <a href="mailto:contact@upvance.global">contact@upvance.global</a></li>
+            <li><strong>E-mail:</strong> <a href="mailto:contact@upvance.global" style="color:var(--lavender-lt)">contact@upvance.global</a></li>
           </ul>
+        </div>
 
+        <div class="privacy-section">
           <h2>2. Ce date colectăm și în ce scop</h2>
 
           <h3>2.1 Formularul de contact (/contact)</h3>
@@ -209,14 +150,18 @@
           <p><strong>Scopul prelucrării:</strong> trimiterea raportului și comunicări periodice prin newsletterul The Leadership Catalyst (publicat pe Substack).</p>
           <p><strong>Temeiul legal:</strong> consimțământul tău explicit, exprimat prin bifarea căsuței de pe pagină (Art. 6 alin. 1 lit. a GDPR).</p>
           <p><strong>Perioadă de stocare:</strong> datele sunt păstrate atât timp cât ești abonat(ă) la newsletter. Te poți dezabona oricând folosind linkul de dezabonare din orice e-mail trimis prin Substack. La dezabonare, datele tale sunt eliminate din lista de distribuție.</p>
+        </div>
 
+        <div class="privacy-section">
           <h2>3. Destinatari și sub-procesatori</h2>
           <p>Datele pot fi transmise către:</p>
           <ul>
             <li><strong>Substack Inc.,</strong> platformă de e-mail marketing, utilizată pentru gestionarea listei de newsletter și trimiterea comunicărilor. Substack prelucrează datele în conformitate cu propria politică de confidențialitate.</li>
           </ul>
           <p>Nu vindem și nu transferăm datele tale către terți în scopuri de marketing sau în alte scopuri decât cele menționate în această politică.</p>
+        </div>
 
+        <div class="privacy-section">
           <h2>4. Cookie-uri</h2>
           <p>Site-ul utilizează cookie-uri gestionate prin platforma Cookiebot. Consimțământul pentru utilizarea cookie-urilor este solicitat la prima vizită.</p>
           <p>Categoriile de cookie-uri utilizate:</p>
@@ -225,7 +170,9 @@
             <li><strong>Cookie-uri statistice:</strong> utilizate prin Google Analytics (identificator: G-M4ET119Z1X) pentru analiza anonimizată a traficului. Activate doar cu consimțământul tău.</li>
           </ul>
           <p>Poți modifica preferințele privind cookie-urile oricând, accesând setările Cookiebot disponibile pe site.</p>
+        </div>
 
+        <div class="privacy-section">
           <h2>5. Drepturile tale</h2>
           <p>Conform GDPR, ai următoarele drepturi în legătură cu datele tale personale:</p>
           <ul>
@@ -237,38 +184,43 @@
             <li><strong>Dreptul de a te opune:</strong> poți obiecta prelucrării bazate pe interesul legitim.</li>
             <li><strong>Dreptul de a retrage consimțământul:</strong> dacă prelucrarea se bazează pe consimțământ, îl poți retrage oricând, fără a afecta legalitatea prelucrării anterioare.</li>
           </ul>
-          <p>Pentru a exercita oricare dintre aceste drepturi, ne poți contacta la: <a href="mailto:contact@upvance.global">contact@upvance.global</a></p>
+          <p>Pentru a exercita oricare dintre aceste drepturi, ne poți contacta la: <a href="mailto:contact@upvance.global" style="color:var(--lavender-lt)">contact@upvance.global</a></p>
+        </div>
 
+        <div class="privacy-section">
           <h2>6. Autoritatea de supraveghere</h2>
           <p>Dacă consideri că drepturile tale au fost încălcate, ai dreptul să depui o plângere la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP):</p>
           <ul>
-            <li><strong>Website:</strong> <a href="https://www.dataprotection.ro" target="_blank" rel="noopener">www.dataprotection.ro</a></li>
-            <li><strong>E-mail:</strong> <a href="mailto:anspdcp@dataprotection.ro">anspdcp@dataprotection.ro</a></li>
+            <li><strong>Website:</strong> <a href="https://www.dataprotection.ro" target="_blank" rel="noopener" style="color:var(--lavender-lt)">www.dataprotection.ro</a></li>
+            <li><strong>E-mail:</strong> <a href="mailto:anspdcp@dataprotection.ro" style="color:var(--lavender-lt)">anspdcp@dataprotection.ro</a></li>
             <li><strong>Telefon:</strong> +40 318 059 211</li>
           </ul>
+        </div>
 
+        <div class="privacy-section">
           <h2>7. Securitatea datelor</h2>
           <p>Implementăm măsuri tehnice și organizatorice adecvate pentru protejarea datelor personale împotriva accesului neautorizat, pierderii sau modificării. Accesul la datele personale este limitat la persoanele care au nevoie de acestea pentru îndeplinirea scopurilor menționate.</p>
+        </div>
 
+        <div class="privacy-section">
           <h2>8. Modificări ale politicii</h2>
           <p>Ne rezervăm dreptul de a actualiza această politică. Versiunea actualizată va fi publicată pe această pagină, cu indicarea datei ultimei modificări. Îți recomandăm să verifici periodic această pagină.</p>
+        </div>
 
+        <div class="privacy-section">
           <h2>9. Contact</h2>
           <p>Pentru orice întrebări legate de această politică sau de prelucrarea datelor tale personale:</p>
           <ul>
-            <li><strong>E-mail:</strong> <a href="mailto:contact@upvance.global">contact@upvance.global</a></li>
+            <li><strong>E-mail:</strong> <a href="mailto:contact@upvance.global" style="color:var(--lavender-lt)">contact@upvance.global</a></li>
             <li><strong>Adresă:</strong> Șos. Mihai Bravu 491-495, București Sector 3</li>
           </ul>
-
-          <p class="privacy-last-updated">Ultima actualizare: 9 aprilie 2026</p>
-
         </div>
+
       </div>
-    </section>
+    </div>
 
   </main>
 
-  <!-- ====================== FOOTER ====================== -->
   <footer>
     <div class="container">
       <div class="footer-inner">

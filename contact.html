@@ -73,12 +73,12 @@
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" /></noscript>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ====================== NAVIGATION ====================== -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Raluca Păduraru home">
@@ -100,7 +100,6 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
   <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
     <a href="index.html#services">Servicii</a>
     <a href="index.html#frameworks">Framework-uri</a>
@@ -112,20 +111,18 @@
 
   <main>
 
-    <!-- ====================== PAGE HEADER ====================== -->
     <header class="page-header">
       <div class="container">
+        <div class="label">Contactează-mă</div>
         <h1>Contact</h1>
         <p>Scrie-mi direct sau completează formularul de mai jos.</p>
       </div>
     </header>
 
-    <!-- ====================== CONTACT SECTION ====================== -->
     <section class="section" aria-label="Contact">
       <div class="container">
         <div class="contact-layout">
 
-          <!-- Left: contact info -->
           <aside class="contact-info fade-up">
             <h2>Date de contact</h2>
 
@@ -159,7 +156,6 @@
             </div>
           </aside>
 
-          <!-- Right: form -->
           <div class="contact-form-wrap fade-up delay-2">
             <div class="contact-form-intro">
               <p>Completează acest formular dacă vrei să mă contactezi sau să afli mai multe despre programele pe care le susțin. Toate câmpurile sunt obligatorii, mai puțin bifele de la final.</p>
@@ -267,7 +263,6 @@
 
   </main>
 
-  <!-- ====================== FOOTER ====================== -->
   <footer>
     <div class="container">
       <div class="footer-inner">

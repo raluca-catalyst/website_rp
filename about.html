@@ -25,7 +25,7 @@
     gtag("set", "url_passthrough", false);
 </script>
 
-<!-- 2. Cookiebot CMP (must be SECOND) -->
+<!-- 2. Cookiebot CMP -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
 
 <!-- 2b. Cookiebot → GA consent update -->
@@ -46,42 +46,35 @@
   window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
 </script>
 
-<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
-<!-- Google tag (gtag.js) -->
+<!-- 3. Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-M4ET119Z1X');
 </script>
-  
+
   <meta name="description" content="17 years of operational management, Certified Foresight Practitioner (TFSX), 800+ hours of AI workshops. Raluca Păduraru works with companies on AI strategy and fluency." />
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ro_RO" />
-<meta property="og:site_name" content="Raluca Păduraru" />
+  <meta property="og:site_name" content="Raluca Păduraru" />
   <meta property="og:title" content="About Raluca Păduraru — AI Strategist &amp; Foresight Practitioner" />
   <meta property="og:description" content="17 years of operational management, Certified Foresight Practitioner (TFSX), 800+ hours of AI workshops. Raluca Păduraru works with companies on AI strategy and fluency." />
   <meta property="og:url" content="https://www.ralucapaduraru.ro/about.html" />
   <meta property="og:image" content="https://ralucapaduraru.ro/images/portrait.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About Raluca Păduraru — AI Strategist &amp; Foresight Practitioner" />
   <meta name="twitter:description" content="17 years of operational management, Certified Foresight Practitioner (TFSX), 800+ hours of AI workshops. Raluca Păduraru works with companies on AI strategy and fluency." />
   <meta name="twitter:image" content="https://ralucapaduraru.ro/images/portrait.png" />
-  <!-- Hreflang -->
-<!-- Canonical -->
   <link rel="canonical" href="https://www.ralucapaduraru.ro/about.html" />
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="/images/logo.png" />
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" /></noscript>
   <link rel="stylesheet" href="css/style.css" />
   <script type="application/ld+json">
   {
@@ -110,7 +103,6 @@
 </head>
 <body>
 
-  <!-- ====================== NAVIGATION ====================== -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Raluca Păduraru home">
@@ -119,13 +111,14 @@
       <ul class="nav-links" role="list">
         <li><a href="index.html#services">Servicii</a></li>
         <li><a href="index.html#frameworks">Framework-uri</a></li>
+        <li><a href="about.html">Despre</a></li>
         <li><a href="faq.html">FAQ</a></li>
         <li><a href="impact.html">Impact</a></li>
         <li><a href="reflectii.html">Reflecții</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-right">
-        
+        <a href="contact.html" class="nav-cta">Hai să vorbim</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -133,182 +126,133 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
   <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
     <a href="index.html#services">Servicii</a>
     <a href="index.html#frameworks">Framework-uri</a>
+    <a href="about.html">Despre</a>
     <a href="faq.html">FAQ</a>
     <a href="impact.html">Impact</a>
     <a href="reflectii.html">Reflecții</a>
-    <a href="/contact">Contact</a>
-    
+    <a href="contact.html">Contact</a>
   </nav>
 
   <main>
 
-    <!-- ====================== PAGE HEADER ====================== -->
     <header class="page-header">
       <div class="container">
-        <h1>
-          
-          Despre Raluca
-        </h1>
-        <p>
-          
-          Futures of Work Strategist. Trainer AI Fluency. Certified Foresight Practitioner.
-        </p>
+        <div class="label">Despre</div>
+        <h1>Despre Raluca</h1>
+        <p>Futures of Work Strategist. Trainer AI Fluency. Certified Foresight Practitioner.</p>
       </div>
     </header>
 
-    <!-- ====================== BIO ====================== -->
+    <!-- BIO -->
     <section class="section">
       <div class="container">
         <div class="bio-grid">
+
           <div class="bio-image fade-up">
-            <img src="images/speaking.png" alt="Raluca Păduraru speaking at a conference on AI strategy and foresight" />
+            <div class="bio-image-wrap">
+              <div class="bio-circle"></div>
+              <img src="images/speaking.png" alt="Raluca Păduraru vorbind la o conferință despre strategie AI și foresight" width="400" height="500" loading="eager" />
+            </div>
           </div>
+
           <div class="bio-text fade-up delay-2">
-            <h2>
-              
-              Construim AI agency, organizație cu organizație.
-            </h2>
+            <h2>Construim AI agency, organizație cu organizație.</h2>
 
-            
-            <p>
-              Raluca Păduraru ajută liderii să construiască AI agency, claritatea de a vedea prin zgomot și încrederea de a acționa.
-            </p>
+            <p>Raluca Păduraru ajută liderii să construiască AI agency, claritatea de a vedea prin zgomot și încrederea de a acționa.</p>
 
-            
-            <p>
-              Majoritatea training-urilor de AI îi învață pe oameni ce butoane să apese. Raluca lucrează pe ceva mai greu: cum gândesc liderii și echipele despre AI, cum evaluează ce e real și cum iau decizii strategice când totul se schimbă continuu.
-            </p>
+            <p>Majoritatea training-urilor de AI îi învață pe oameni ce butoane să apese. Raluca lucrează pe ceva mai greu: cum gândesc liderii și echipele despre AI, cum evaluează ce e real și cum iau decizii strategice când totul se schimbă continuu.</p>
 
-            
-            <p>
-              Aduce 17 ani de management organizațional în fiecare colaborare. A văzut ce se întâmplă când oamenii rezistă la schimbare, când middle management-ul se opune, când echipele sunt speriate, când leadership-ul vrea rezultate dar nu vrea să schimbe modul de lucru. Știe cum arată adopția dincolo de slide deck.
-            </p>
+            <p>Aduce 17 ani de management organizațional în fiecare colaborare. A văzut ce se întâmplă când oamenii rezistă la schimbare, când middle management-ul se opune, când echipele sunt speriate, când leadership-ul vrea rezultate dar nu vrea să schimbe modul de lucru. Știe cum arată adopția dincolo de slide deck.</p>
 
-            
-            <p>
-              Abordarea Ralucăi combină 3 discipline care rareori stau împreună: foresight strategic, training practic de AI fluency și înțelegere profundă a comportamentului organizațional. Este Certified Foresight Practitioner (TFSX), membră a Association of Professional Futurists, și urmează un MSc în Counselling &amp; Leadership, pentru că latura umană a transformării contează la fel de mult ca cea tehnică.
-            </p>
+            <p>Abordarea Ralucăi combină 3 discipline care rareori stau împreună: foresight strategic, training practic de AI fluency și înțelegere profundă a comportamentului organizațional. Este Certified Foresight Practitioner (TFSX), membră a Association of Professional Futurists, și urmează un MSc în Counselling &amp; Leadership, pentru că latura umană a transformării contează la fel de mult ca cea tehnică.</p>
 
-            
-            <p>
-              A livrat 800+ ore de workshop pentru peste 5.000 de profesioniști din manufacturing, tech, guvern, educație și servicii. A construit framework-uri proprii (precum 4D, M.O.D.E.L., F.O.R.C.E.) care dau echipelor instrumente practice de lucru cu AI fără să-și piardă discernământul.
-            </p>
+            <p>A livrat 800+ ore de workshop pentru peste 5.000 de profesioniști din manufacturing, tech, guvern, educație și servicii. A construit framework-uri proprii (precum 4D, M.O.D.E.L., F.O.R.C.E.) care dau echipelor instrumente practice de lucru cu AI fără să-și piardă discernământul.</p>
 
-            
-            <p>
-              Dincolo de munca cu clienții, a co-fondat Upvance Global pentru a transforma modul în care organizațiile abordează procesele de upskilling &amp; reskilling și administrează AIResponsabil.ro ca resursă pentru utilizarea responsabilă a AI. Face parte din advisory board-ul Smart HR Community și din echipa de leadership a IAF Romania.
-            </p>
+            <p>Dincolo de munca cu clienții, a co-fondat Upvance Global pentru a transforma modul în care organizațiile abordează procesele de upskilling &amp; reskilling și administrează AIResponsabil.ro ca resursă pentru utilizarea responsabilă a AI. Face parte din advisory board-ul Smart HR Community și din echipa de leadership a IAF Romania.</p>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ====================== STATS ====================== -->
+    <!-- STATS -->
     <section class="section section-alt" aria-labelledby="about-stats-heading">
       <div class="container">
         <div class="section-header fade-up">
-          <h2 id="about-stats-heading">
-            
-            În cifre
-          </h2>
+          <div class="label">Track record</div>
+          <h2 id="about-stats-heading">În cifre</h2>
         </div>
         <div class="stats-grid fade-up">
           <div class="stat-card">
             <div class="stat-number">800+</div>
-            <div class="stat-label">
-              
-              ore de workshop-uri de AI fluency
-            </div>
+            <div class="stat-label">ore de workshop-uri de AI fluency</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">5,000+</div>
-            <div class="stat-label">
-              
-              profesioniști formați
-            </div>
+            <div class="stat-label">profesioniști formați</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">17</div>
-            <div class="stat-label">
-              
-              ani de management operațional
-            </div>
+            <div class="stat-label">ani de management operațional</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">30+</div>
-            <div class="stat-label">
-              
-              conferințe și paneluri
-            </div>
+            <div class="stat-label">conferințe și paneluri</div>
           </div>
           <div class="stat-card">
             <div class="stat-number">25+</div>
-            <div class="stat-label">
-              
-              apariții media și interviuri
-            </div>
+            <div class="stat-label">apariții media și interviuri</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== CREDENTIALS ====================== -->
+    <!-- CREDENTIALS -->
     <section class="section" aria-labelledby="credentials-heading">
       <div class="container">
         <div class="section-header fade-up">
-          <h2 id="credentials-heading">
-            
-            Certificări și acreditări
-          </h2>
+          <div class="label">Acreditări</div>
+          <h2 id="credentials-heading">Credențiale și certificări</h2>
         </div>
-
         <div class="credentials-grid fade-up">
           <div class="credential-badge">
-            <img src="credentials/certified_foresight_practitioner.webp" alt="Certified Foresight Practitioner TFSX" />
+            <img src="credentials/certified_foresight_practitioner.webp" alt="Certified Foresight Practitioner TFSX" loading="lazy" />
             <span>Certified Foresight Practitioner (TFSX)</span>
           </div>
           <div class="credential-badge">
-            <img src="credentials/APF_membership.png" alt="Association of Professional Futurists" />
+            <img src="credentials/APF_membership.png" alt="Association of Professional Futurists" loading="lazy" />
             <span>Association of Professional Futurists</span>
           </div>
           <div class="credential-badge">
-            <img src="credentials/Certified Agile Leadership - seal.png" alt="Certified Agile Leadership" />
+            <img src="credentials/Certified Agile Leadership - seal.png" alt="Certified Agile Leadership" loading="lazy" />
             <span>Certified Agile Leadership</span>
           </div>
           <div class="credential-badge">
-            <img src="credentials/iaf_logo.png" alt="International Association of Facilitators" />
-            <span>International Association of Facilitators</span>
+            <img src="credentials/iaf_logo.png" alt="International Association of Facilitators Romania" loading="lazy" />
+            <span>VP of AI &amp; Digital @International Association of Facilitators, Romania</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== FOOTER CTA ====================== -->
+    <!-- FOOTER CTA -->
     <section class="footer-cta" aria-labelledby="about-cta-heading">
       <div class="container">
-        <h2 id="about-cta-heading">
-          
-          Pregătit pentru agency în AI?
-        </h2>
-        <p>
-          
-          Fie că ai nevoie de direcție strategică, training de echipă sau un partener continuu de gândire, totul începe cu o conversație.
-        </p>
-        <a href="/contact.html" class="btn btn-cyan">
-          
+        <div class="label" style="margin: 0 auto 0.75rem;">Contact</div>
+        <h2 id="about-cta-heading">Pregătit pentru agency în AI?</h2>
+        <p>Fie că ai nevoie de direcție strategică, training de echipă sau un partener continuu de gândire, totul începe cu o conversație.</p>
+        <a href="/contact.html" class="btn btn-primary">
           Hai să vorbim
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </section>
 
   </main>
 
-  <!-- ====================== FOOTER ====================== -->
   <footer>
     <div class="container">
       <div class="footer-inner">
