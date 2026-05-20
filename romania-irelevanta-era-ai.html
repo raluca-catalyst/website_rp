@@ -74,7 +74,7 @@
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Barlow:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- Schema.org: BlogPosting -->
@@ -106,20 +106,9 @@
   </script>
 
   <style>
-    .article-meta { display:flex; align-items:center; gap:0.75rem; margin-bottom:2rem; flex-wrap:wrap; }
-    .article-tag { font-size:0.75rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent-cyan); }
-    .article-date { font-size:0.85rem; color:var(--text-muted); }
-    .article-body { max-width:720px; margin:0 auto; }
-    .article-body h2 { font-size:1.35rem; font-weight:700; margin:2.5rem 0 1rem; color:var(--text-primary); }
-    .article-body p { font-size:1.05rem; line-height:1.8; color:var(--text-secondary); margin-bottom:1.25rem; }
-    .article-body .stat-highlight { font-weight:600; color:var(--text-primary); }
-    .article-body ul { margin:1rem 0 1.5rem 1.25rem; display:flex; flex-direction:column; gap:0.75rem; }
-    .article-body ul li { font-size:1.05rem; line-height:1.7; color:var(--text-secondary); }
-    .article-breadcrumb { display:flex; align-items:center; gap:0.5rem; margin-bottom:2.5rem; font-size:0.9rem; color:var(--text-muted); }
-    .article-breadcrumb a { color:var(--accent-cyan); text-decoration:none; font-weight:500; }
-    .article-breadcrumb a:hover { text-decoration:underline; }
-    .article-cover { max-width:760px; margin:0 auto 2.5rem; }
-    .article-cover img { width:100%; border-radius:12px; display:block; }
+    .stat-highlight { font-weight:600; color:var(--text); }
+    .article-cover { margin-bottom:2.5rem; }
+    .article-cover img { border-radius:12px; }
   </style>
 </head>
 <body>
@@ -162,28 +151,22 @@
 
   <main>
 
-    <!-- ====================== ARTICLE HEADER ====================== -->
-    <header class="page-header">
-      <div class="container">
+    <!-- ====================== ARTICLE ====================== -->
+    <div class="article-layout">
+      <div class="article-header">
         <nav class="article-breadcrumb" aria-label="Breadcrumb">
-          <span aria-hidden="true">›</span>
+          <a href="reflectii.html">Reflecții</a>
+          <span>›</span>
           <span>România și AI</span>
         </nav>
-        <div class="article-meta">
-          <span class="article-tag">Strategie</span>
-          <span style="color:var(--text-muted);" aria-hidden="true">·</span>
-          <time class="article-date" datetime="2026-01-27">27 ianuarie 2026</time>
-          <span style="color:var(--text-muted);" aria-hidden="true">·</span>
-          <span class="article-date">Raluca Păduraru</span>
+        <span class="article-tag">Strategie</span>
+        <h1 class="article-title">De ce România riscă să devină irelevantă în era AI. Avem net rapid. Ce facem cu el?</h1>
+        <div class="article-date-row">
+          <time datetime="2026-01-27">27 ianuarie 2026</time>
+          <span>Raluca Păduraru</span>
         </div>
-        <h1 style="max-width:760px; margin:0 auto;">De ce România riscă să devină irelevantă în era AI. Avem net rapid. Ce facem cu el?</h1>
       </div>
-    </header>
-
-    <!-- ====================== ARTICLE BODY ====================== -->
-    <section class="section">
-      <div class="container">
-        <div class="article-cover">
+      <div class="article-cover">
           <img src="images/romania-irelevanta-era-ai.webp" alt="De ce România riscă să devină irelevantă în era AI" />
         </div>
         <div class="article-body">
@@ -227,8 +210,7 @@
           <p>Diferența dintre cei care rămân relevanți și cei care nu o fac nu va fi dată de accesul la tehnologie, ci de capacitatea de a gândi cu ea, nu în locul ei.</p>
 
         </div>
-      </div>
-    </section>
+    </div>
 
     <!-- ====================== BACK + CTA ====================== -->
     <section class="footer-cta" aria-labelledby="article-cta-heading">
@@ -246,7 +228,7 @@
             Abonează-te
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="reflectii.html" class="btn" style="border:1px solid var(--border); background:transparent; color:var(--text-primary);">
+          <a href="reflectii.html" class="btn btn-outline">
             ← Toate articolele
           </a>
         </div>

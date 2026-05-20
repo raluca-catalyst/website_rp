@@ -74,7 +74,7 @@
   <link rel="icon" type="image/png" href="/images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Barlow:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- Schema.org: BlogPosting -->
@@ -106,53 +106,16 @@
   </script>
 
   <style>
-    .article-meta { display:flex; align-items:center; gap:0.75rem; margin-bottom:2rem; flex-wrap:wrap; }
-    .article-tag { font-size:0.75rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent-cyan); }
-    .article-date { font-size:0.85rem; color:var(--text-muted); }
-    .article-body { max-width:720px; margin:0 auto; }
-    .article-body h2 { font-size:1.35rem; font-weight:700; margin:2.5rem 0 1rem; color:var(--text-primary); }
-    .article-body p { font-size:1.05rem; line-height:1.8; color:var(--text-secondary); margin-bottom:1.25rem; }
-    .article-body .stat-highlight { font-weight:600; color:var(--text-primary); }
-    .article-body ul { margin:1rem 0 1.5rem 1.25rem; display:flex; flex-direction:column; gap:0.75rem; }
-    .article-body ul li { font-size:1.05rem; line-height:1.7; color:var(--text-secondary); }
-    .article-body ol { margin:1rem 0 1.5rem 1.25rem; display:flex; flex-direction:column; gap:0.75rem; }
-    .article-body ol li { font-size:1.05rem; line-height:1.7; color:var(--text-secondary); }
-    .article-breadcrumb { display:flex; align-items:center; gap:0.5rem; margin-bottom:2.5rem; font-size:0.9rem; color:var(--text-muted); }
-    .article-breadcrumb a { color:var(--accent-cyan); text-decoration:none; font-weight:500; }
-    .article-breadcrumb a:hover { text-decoration:underline; }
-    .article-cover { max-width:760px; margin:0 auto 2.5rem; }
-    .article-cover img { width:100%; border-radius:12px; display:block; }
-    .takeaway-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin: 0 0 2.5rem;
-    }
-    .takeaway-box .takeaway-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent-cyan);
-      margin-bottom: 1rem;
-      display: block;
-    }
-    .takeaway-box ul { margin: 0; padding-left: 1.25rem; }
-    .takeaway-box ul li { font-size: 0.95rem; line-height: 1.7; color: var(--text-secondary); }
-    .article-study-note {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent-cyan);
-      border-radius: 8px;
-      padding: 1.25rem 1.5rem;
-      margin: 2.5rem 0;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-    .article-study-note a { color: var(--accent-cyan); text-decoration: none; font-weight: 600; }
-    .article-study-note a:hover { text-decoration: underline; }
+    .stat-highlight { font-weight:600; color:var(--text); }
+    .article-cover { margin-bottom:2.5rem; }
+    .article-cover img { border-radius:12px; }
+    .takeaway-box { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.5rem; margin:0 0 2.5rem; }
+    .takeaway-box .takeaway-label { font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--lavender); margin-bottom:1rem; display:block; }
+    .takeaway-box ul { margin:0; padding-left:1.25rem; }
+    .takeaway-box ul li { font-size:0.95rem; line-height:1.7; color:var(--text-sec); }
+    .article-study-note { background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--lavender); border-radius:8px; padding:1.25rem 1.5rem; margin:2.5rem 0; font-size:0.95rem; color:var(--text-muted); line-height:1.7; }
+    .article-study-note a { color:var(--lavender-lt); text-decoration:none; font-weight:600; }
+    .article-study-note a:hover { text-decoration:underline; }
   </style>
 </head>
 <body>
@@ -195,29 +158,23 @@
 
   <main>
 
-    <!-- ====================== ARTICLE HEADER ====================== -->
-    <header class="page-header">
-      <div class="container">
+    <!-- ====================== ARTICLE ====================== -->
+    <div class="article-layout">
+      <div class="article-header">
         <nav class="article-breadcrumb" aria-label="Breadcrumb">
-          <span aria-hidden="true">›</span>
+          <a href="reflectii.html">Reflecții</a>
+          <span>›</span>
           <span>Guvernanță AI</span>
         </nav>
-        <div class="article-meta">
-          <span class="article-tag">Guvernanță</span>
-          <span style="color:var(--text-muted);" aria-hidden="true">·</span>
-          <time class="article-date" datetime="2026-03-02">2 martie 2026</time>
-          <span style="color:var(--text-muted);" aria-hidden="true">·</span>
-          <span class="article-date">Raluca Păduraru</span>
+        <span class="article-tag">Guvernanță</span>
+        <h1 class="article-title">Cel mai mare risc AI pentru IMM-uri e lipsa regulilor, nu tehnologia în sine.</h1>
+        <p style="font-size:1.05rem; color:var(--text-muted); margin-top:0.75rem;">Ce spun cercetările din 2025–2026 despre guvernanța AI în companii cu 50–500 de angajați și de unde începi dacă nu ai echipă enterprise, buget mare sau procese complet digitalizate.</p>
+        <div class="article-date-row">
+          <time datetime="2026-03-02">2 martie 2026</time>
+          <span>Raluca Păduraru</span>
         </div>
-        <h1 style="max-width:760px; margin:0 auto;">Cel mai mare risc AI pentru IMM-uri e lipsa regulilor, nu tehnologia în sine.</h1>
-        <p style="font-size:1.05rem; color:var(--text-muted); max-width:680px; margin-top:0.75rem;">Ce spun cercetările din 2025–2026 despre guvernanța AI în companii cu 50–500 de angajați și de unde începi dacă nu ai echipă enterprise, buget mare sau procese complet digitalizate.</p>
       </div>
-    </header>
-
-    <!-- ====================== ARTICLE BODY ====================== -->
-    <section class="section">
-      <div class="container">
-        <div class="article-cover">
+      <div class="article-cover">
           <img src="images/riscul-ai-imm-guvernanta.webp" alt="Cel mai mare risc AI pentru IMM-uri e lipsa regulilor, nu tehnologia în sine" />
         </div>
         <div class="article-body">
@@ -298,8 +255,7 @@
           <p>Guvernanța e despre asta, de fapt: despre a construi centura de siguranță care îi permite afacerii tale să ruleze cu viteză mare pe autostrada digitală, fără teama că la prima curbă legislativă sau tehnică vei ieși în decor.</p>
 
         </div>
-      </div>
-    </section>
+    </div>
 
     <!-- ====================== BACK + CTA ====================== -->
     <section class="footer-cta" aria-labelledby="article-cta-heading">
@@ -317,7 +273,7 @@
             Abonează-te
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="reflectii.html" class="btn" style="border:1px solid var(--border); background:transparent; color:var(--text-primary);">
+          <a href="reflectii.html" class="btn btn-outline">
             ← Toate articolele
           </a>
         </div>
