@@ -1131,6 +1131,7 @@ footer {
   width: 100%;
   height: auto;
   border-radius: var(--radius-lg);
+  transform: translateY(30px);
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
   mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
 }
