@@ -30,6 +30,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Barlow:wght@300;400;500;600;700&display=swap" />
   <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Full-width paragraphs in section headers on this page */
+    .section-header p { max-width: none; }
+
+    /* 3-column grid border rules (resets the default 4-column nth-child selectors) */
+    .frameworks-page-grid .framework-card:nth-child(4n)        { border-right: 1px solid var(--border); }
+    .frameworks-page-grid .framework-card:nth-last-child(-n+4) { border-bottom: 1px solid var(--border); }
+    .frameworks-page-grid .framework-card:nth-child(3n)        { border-right: none; }
+    .frameworks-page-grid .framework-card:nth-last-child(-n+3) { border-bottom: none; }
+
+    @media (max-width: 900px) {
+      .frameworks-page-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .frameworks-page-grid .framework-card:nth-child(3n)        { border-right: 1px solid var(--border); }
+      .frameworks-page-grid .framework-card:nth-last-child(-n+3) { border-bottom: 1px solid var(--border); }
+      .frameworks-page-grid .framework-card:nth-child(2n)        { border-right: none; }
+      .frameworks-page-grid .framework-card:nth-last-child(-n+2) { border-bottom: none; }
+    }
+
+    @media (max-width: 600px) {
+      .frameworks-page-grid { grid-template-columns: 1fr !important; }
+      .frameworks-page-grid .framework-card                      { border-right: none; border-bottom: 1px solid var(--border); }
+      .frameworks-page-grid .framework-card:last-child           { border-bottom: none; }
+    }
+  </style>
 
 <!-- 1. Google Consent Mode defaults (must be FIRST) -->
 <script data-cookieconsent="ignore">
@@ -170,7 +194,7 @@
           <p>Trei framework-uri construite și ajustate în 800+ ore de workshop cu profesioniști non-tehnici din România și din afară.</p>
         </div>
 
-        <div class="frameworks-grid fade-up" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+        <div class="frameworks-grid frameworks-page-grid fade-up" style="grid-template-columns: repeat(3, 1fr);">
 
           <!-- 4D Framework -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
@@ -245,12 +269,12 @@
           <p>Resurse gratuite pentru lideri și echipe care navighează tranziția AI cu date reale și instrumente practice.</p>
         </div>
 
-        <div class="frameworks-grid fade-up" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="frameworks-grid frameworks-page-grid fade-up" style="grid-template-columns: repeat(3, 1fr);">
 
           <!-- State of AI în România -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
             <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--magenta); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,0,128,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Studiu academic</span>
+              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--magenta); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,0,128,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Studiu</span>
             </div>
             <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">State of AI în România</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
@@ -344,6 +368,23 @@
               <a href="/downloads/AI-reality-check.pdf" target="_blank" rel="noopener" class="btn btn-download" style="font-size: 0.9rem;">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
                 Descarcă PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Raport Viitoruri -->
+          <div class="framework-card" style="display: flex; flex-direction: column;">
+            <div style="margin-bottom: 1rem;">
+              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--magenta); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,0,128,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Raport</span>
+            </div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Patru viitoruri ale muncii în România 2030</h3>
+            <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
+              Primul raport de foresight dedicat viitorului muncii în România. Patru scenarii construite pe date reale, din care rezultă <strong>10 competențe relevante</strong> pentru toate viitorurile posibile. Util pentru lideri care vor să planifice dincolo de trimestrul următor.
+            </p>
+            <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <a href="/viitoruri" class="btn btn-primary" style="font-size: 0.9rem;">
+                Citește raportul
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
