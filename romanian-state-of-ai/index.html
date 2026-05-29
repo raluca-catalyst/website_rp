@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="index, follow" />
+  <title>Romanian State of AI 2026 — Studiu național privind maturitatea AI în organizații | Raluca Păduraru</title>
+  <meta name="description" content="Participă la al doilea studiu care măsoară cum folosim AI în România. 6 minute, anonim, rezultate publicate în iulie 2026." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:site_name" content="Raluca Păduraru" />
+  <meta property="og:title" content="Romanian State of AI 2026 — Contribuie la studiul național" />
+  <meta property="og:description" content="Al doilea an de măsurare a maturității AI în organizațiile din România. Anonim, 6 minute." />
+  <meta property="og:url" content="https://www.ralucapaduraru.ro/romanian-state-of-ai/" />
+  <meta property="og:image" content="https://ralucapaduraru.ro/images/portrait.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://www.ralucapaduraru.ro/romanian-state-of-ai/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Cookiebot + GA -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+      ad_personalization: "denied", ad_storage: "denied",
+      ad_user_data: "denied", analytics_storage: "denied",
+      functionality_storage: "denied", personalization_storage: "denied",
+      security_storage: "granted", wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+  </script>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
+  <script>
+    function updateGAConsent() {
+      if (typeof Cookiebot === 'undefined') return;
+      gtag('consent', 'update', {
+        ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+        functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+        personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+      });
+    }
+    window.addEventListener('CookiebotOnAccept', updateGAConsent, false);
+    window.addEventListener('CookiebotOnDecline', updateGAConsent, false);
+    window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M4ET119Z1X');
+  </script>
+
+  <!-- Schema.org — aliniat la @graph-ul site-ului, www, referă #person existent -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.ralucapaduraru.ro/romanian-state-of-ai/#webpage",
+        "url": "https://www.ralucapaduraru.ro/romanian-state-of-ai/",
+        "name": "Romanian State of AI 2026 — Studiu național privind maturitatea AI în organizații",
+        "description": "Al doilea studiu național privind maturitatea AI în organizațiile din România. Anonim, ~8 minute, rezultate publicate în iulie 2026.",
+        "inLanguage": "ro",
+        "isPartOf": { "@id": "https://ralucapaduraru.ro/#website" },
+        "about": { "@id": "https://ralucapaduraru.ro/#person" },
+        "potentialAction": {
+          "@type": "Action",
+          "name": "Completează studiul Romanian State of AI 2026"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.ralucapaduraru.ro/romanian-state-of-ai/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Acasă", "item": "https://www.ralucapaduraru.ro/" },
+          { "@type": "ListItem", "position": 2, "name": "Romanian State of AI 2026", "item": "https://www.ralucapaduraru.ro/romanian-state-of-ai/" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .hidden { display: none !important; }
+
+    /* Wrapper */
+    .survey-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* Progress */
+    .survey-progress { margin-bottom: 2rem; }
+    .survey-progress-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      margin-bottom: 0.6rem;
+    }
+    .survey-progress-bar {
+      height: 4px;
+      background: rgba(167,139,250,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .survey-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--lavender-dk), var(--lavender));
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    /* Validation message */
+    .survey-validation-msg {
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.35);
+      border-radius: 8px;
+      color: #fca5a5;
+      font-size: 0.85rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Step container */
+    .survey-step {
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    .survey-step-title {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Question */
+    .survey-question {
+      margin-bottom: 2rem;
+    }
+    .survey-question-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+    .survey-question-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+
+    /* Error state */
+    .survey-question.has-error .survey-question-text { color: #fca5a5; }
+    .survey-question.has-error .options-list,
+    .survey-question.has-error .likert-wrapper {
+      outline: 1px solid rgba(239,68,68,0.5);
+      border-radius: 8px;
+      padding: 4px;
+    }
+
+    /* Options list (SINGLE + MULTI) */
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      font-size: 0.9rem;
+      color: var(--text-sec);
+      user-select: none;
+    }
+    .option-item:hover {
+      border-color: rgba(167,139,250,0.4);
+      color: var(--text);
+      background: rgba(167,139,250,0.04);
+    }
+    /* sr-only: ascuns vizual, dar focusabil cu tastatura + citit de screenreader */
+    .option-item input[type=radio],
+    .option-item input[type=checkbox] {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    /* Focus vizibil pe tot rândul când input-ul ascuns primește focus */
+    .option-item:focus-within {
+      border-color: var(--lavender);
+      outline: 2px solid var(--lavender);
+      outline-offset: 2px;
+    }
+    .option-dot {
+      width: 16px; height: 16px;
+      min-width: 16px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(167,139,250,0.4);
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .option-check {
+      width: 16px; height: 16px;
+      min-width: 16px;
+      border-radius: 4px;
+      border: 1.5px solid rgba(167,139,250,0.4);
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .option-item.selected {
+      border-color: var(--lavender);
+      background: rgba(167,139,250,0.08);
+      color: var(--text);
+    }
+    .option-item.selected .option-dot {
+      background: var(--lavender);
+      border-color: var(--lavender);
+      box-shadow: 0 0 8px rgba(167,139,250,0.5);
+    }
+    .option-item.selected .option-check {
+      background: var(--lavender-dk);
+      border-color: var(--lavender);
+      box-shadow: 0 0 8px rgba(167,139,250,0.4);
+    }
+    .option-item.selected .option-check::after {
+      content: '';
+      display: block;
+      width: 8px; height: 5px;
+      border-left: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      transform: rotate(-45deg) translateY(-1px);
+    }
+
+    /* T8 limit message */
+    .t8-limit-msg {
+      background: rgba(167,139,250,0.1);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--lavender-lt);
+      font-size: 0.8rem;
+      padding: 0.5rem 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    /* LIKERT */
+    .likert-wrapper { overflow-x: auto; }
+    .likert-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .likert-table th {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--lavender);
+      text-align: center;
+      padding: 0.4rem 0.5rem;
+      white-space: nowrap;
+    }
+    .likert-table th:first-child { text-align: left; }
+    .likert-table td {
+      padding: 0.6rem 0.5rem;
+      border-top: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .likert-table td:first-child {
+      color: var(--text-sec);
+      max-width: 280px;
+      line-height: 1.4;
+    }
+    .likert-table td:not(:first-child) { text-align: center; }
+    .likert-radio {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(167,139,250,0.4);
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin: 0 auto;
+    }
+    .likert-radio.selected {
+      background: var(--lavender);
+      border-color: var(--lavender);
+      box-shadow: 0 0 8px rgba(167,139,250,0.5);
+    }
+    .likert-radio:focus-visible {
+      outline: 2px solid var(--lavender);
+      outline-offset: 2px;
+    }
+    .likert-row-error .likert-radio { border-color: rgba(239,68,68,0.5); }
+
+    /* Mobile: LIKERT collapses to card-per-statement */
+    @media (max-width: 600px) {
+      .likert-wrapper { overflow-x: visible; }
+      .likert-table, .likert-table tbody, .likert-table tr, .likert-table td, .likert-table th, .likert-table thead {
+        display: block;
+      }
+      .likert-table thead { display: none; }
+      .likert-table tr {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      .likert-table td:first-child {
+        max-width: 100%;
+        font-weight: 500;
+        color: var(--text);
+        padding-bottom: 0.75rem;
+        border: none;
+      }
+      .likert-table td:not(:first-child) {
+        display: inline-block;
+        width: 20%;
+        text-align: center;
+        border: none;
+        padding: 0.25rem;
+      }
+      .likert-mobile-labels {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0.25rem;
+        margin-bottom: 0.5rem;
+      }
+      .likert-mobile-label {
+        font-family: var(--font-mono);
+        font-size: 0.6rem;
+        color: var(--text-muted);
+        text-align: center;
+        width: 20%;
+      }
+    }
+    @media (min-width: 601px) {
+      .likert-mobile-labels { display: none; }
+    }
+
+    /* Navigation */
+    .survey-nav {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      justify-content: flex-end;
+    }
+    @media (max-width: 480px) {
+      .survey-nav { flex-direction: column-reverse; }
+      .survey-nav .btn { width: 100%; justify-content: center; }
+    }
+
+    /* Email screen */
+    .survey-email-screen,
+    .survey-thanks-screen,
+    .survey-error-screen {
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .survey-email-screen { text-align: left; }
+    .survey-screen-title {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .survey-screen-subtitle {
+      color: var(--text-sec);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+    .survey-email-field {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .survey-email-field:focus { border-color: var(--lavender); }
+    .survey-email-field::placeholder { color: var(--text-muted); }
+    .survey-consent-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      font-size: 0.85rem;
+      color: var(--text-sec);
+      cursor: pointer;
+    }
+    .survey-consent-item input[type=checkbox] {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .survey-consent-item:focus-within .consent-check {
+      outline: 2px solid var(--lavender);
+      outline-offset: 2px;
+    }
+    .consent-check {
+      width: 18px; height: 18px;
+      min-width: 18px;
+      border-radius: 4px;
+      border: 1.5px solid rgba(167,139,250,0.4);
+      margin-top: 1px;
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .survey-consent-item.checked .consent-check {
+      background: var(--lavender-dk);
+      border-color: var(--lavender);
+    }
+    .survey-consent-item.checked .consent-check::after {
+      content: '';
+      display: block;
+      width: 9px; height: 5px;
+      border-left: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      transform: rotate(-45deg) translateY(-1px);
+    }
+    .survey-email-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 480px) {
+      .survey-email-actions { flex-direction: column; }
+      .survey-email-actions .btn { width: 100%; justify-content: center; }
+    }
+    .survey-field-error {
+      color: #fca5a5;
+      font-size: 0.8rem;
+      margin-top: -0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .survey-thanks-icon {
+      width: 56px; height: 56px;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Raluca Păduraru home">
+        <img src="../images/logo.png" alt="Raluca Păduraru" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html#services">Servicii</a></li>
+        <li><a href="/frameworks/">Framework-uri</a></li>
+        <li><a href="../about.html">Despre</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../impact.html">Impact</a></li>
+        <li><a href="../reflectii.html">Reflecții</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="../contact.html" class="nav-cta">Hai să vorbim</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="../index.html#services">Servicii</a>
+    <a href="/frameworks/">Framework-uri</a>
+    <a href="../about.html">Despre</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../impact.html">Impact</a>
+    <a href="../reflectii.html">Reflecții</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="page-header">
+      <div class="container">
+        <div class="label">Studiu național · 2026</div>
+        <h1>Romanian State of AI</h1>
+        <p>Al doilea an de măsurare a maturității AI în organizațiile din România.<br>
+        Contribuie la primul studiu longitudinal despre cum folosim AI la job. Durează aproximativ 6 minute, iar rezultatele se publică la final de iulie 2026.</p>
+        <button class="btn btn-primary" id="btn-hero-start" style="margin-top:1.5rem;">
+          Începe
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- SURVEY CONTAINER -->
+    <section class="section" id="survey-section">
+      <div class="container">
+        <div class="survey-wrapper" id="survey-wrapper">
+
+          <!-- Progress bar (hidden on result screens) -->
+          <div class="survey-progress" id="survey-progress">
+            <div class="survey-progress-label" id="progress-label">Pas 1 din 6 — Câteva detalii despre tine</div>
+            <div class="survey-progress-bar">
+              <div class="survey-progress-fill" id="progress-fill" style="width:0%"></div>
+            </div>
+          </div>
+
+          <!-- Validation message (hidden by default) -->
+          <div class="survey-validation-msg hidden" id="validation-msg" role="alert" aria-live="assertive">
+            Te rugăm să răspunzi la toate întrebările înainte să continui.
+          </div>
+
+          <!-- STEP 0: Demographics -->
+          <div class="survey-step" id="step-0">
+            <h2 class="survey-step-title">Câteva detalii despre tine</h2>
+
+            <div class="survey-question" id="q-D1">
+              <p class="survey-question-text">1. În ce domeniu lucrezi?</p>
+              <div class="options-list" data-type="single" data-key="D1_domeniu">
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="HR / People &amp; Culture"><span class="option-dot"></span>HR / People &amp; Culture</label>
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="IT &amp; Tehnologie"><span class="option-dot"></span>IT &amp; Tehnologie</label>
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="Vânzări"><span class="option-dot"></span>Vânzări</label>
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="Marketing &amp; PR / Comunicare"><span class="option-dot"></span>Marketing &amp; PR / Comunicare</label>
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="Financiar &amp; Contabilitate"><span class="option-dot"></span>Financiar &amp; Contabilitate</label>
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="Operațiuni / Supply Chain / Logistică"><span class="option-dot"></span>Operațiuni / Supply Chain / Logistică</label>
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="Project / Product Management"><span class="option-dot"></span>Project / Product Management</label>
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="Customer Support / CX"><span class="option-dot"></span>Customer Support / CX</label>
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="Educație &amp; Training"><span class="option-dot"></span>Educație &amp; Training</label>
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="Legal / Juridic"><span class="option-dot"></span>Legal / Juridic</label>
+                <label class="option-item"><input type="radio" name="D1_domeniu" value="Alt domeniu"><span class="option-dot"></span>Alt domeniu</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-D2">
+              <p class="survey-question-text">2. Care este rolul tău actual?</p>
+              <div class="options-list" data-type="single" data-key="D2_rol">
+                <label class="option-item"><input type="radio" name="D2_rol" value="Specialist / Expert"><span class="option-dot"></span>Specialist / Expert</label>
+                <label class="option-item"><input type="radio" name="D2_rol" value="Manager de echipă"><span class="option-dot"></span>Manager de echipă</label>
+                <label class="option-item"><input type="radio" name="D2_rol" value="Director / Head of"><span class="option-dot"></span>Director / Head of</label>
+                <label class="option-item"><input type="radio" name="D2_rol" value="C-level (CEO, CMO, CPO etc.)"><span class="option-dot"></span>C-level (CEO, CMO, CPO etc.)</label>
+                <label class="option-item"><input type="radio" name="D2_rol" value="Antreprenor / Fondator"><span class="option-dot"></span>Antreprenor / Fondator</label>
+                <label class="option-item"><input type="radio" name="D2_rol" value="Consultant / Freelancer"><span class="option-dot"></span>Consultant / Freelancer</label>
+                <label class="option-item"><input type="radio" name="D2_rol" value="Alt rol"><span class="option-dot"></span>Alt rol</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-D3">
+              <p class="survey-question-text">3. În ce sector activează organizația ta?</p>
+              <div class="options-list" data-type="single" data-key="D3_sector">
+                <label class="option-item"><input type="radio" name="D3_sector" value="Tech &amp; IT / Software"><span class="option-dot"></span>Tech &amp; IT / Software</label>
+                <label class="option-item"><input type="radio" name="D3_sector" value="Producție &amp; Industrie"><span class="option-dot"></span>Producție &amp; Industrie</label>
+                <label class="option-item"><input type="radio" name="D3_sector" value="Servicii profesionale (consultanță, audit, legal, HR)"><span class="option-dot"></span>Servicii profesionale (consultanță, audit, legal, HR)</label>
+                <label class="option-item"><input type="radio" name="D3_sector" value="Retail &amp; FMCG"><span class="option-dot"></span>Retail &amp; FMCG</label>
+                <label class="option-item"><input type="radio" name="D3_sector" value="Financiar &amp; Banking &amp; Asigurări"><span class="option-dot"></span>Financiar &amp; Banking &amp; Asigurări</label>
+                <label class="option-item"><input type="radio" name="D3_sector" value="Sănătate &amp; Pharma"><span class="option-dot"></span>Sănătate &amp; Pharma</label>
+                <label class="option-item"><input type="radio" name="D3_sector" value="Educație &amp; Training"><span class="option-dot"></span>Educație &amp; Training</label>
+                <label class="option-item"><input type="radio" name="D3_sector" value="Media &amp; Comunicare"><span class="option-dot"></span>Media &amp; Comunicare</label>
+                <label class="option-item"><input type="radio" name="D3_sector" value="Alt sector"><span class="option-dot"></span>Alt sector</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-D4">
+              <p class="survey-question-text">4. Câți angajați are organizația ta?</p>
+              <div class="options-list" data-type="single" data-key="D4_angajati">
+                <label class="option-item"><input type="radio" name="D4_angajati" value="1-50"><span class="option-dot"></span>1–50</label>
+                <label class="option-item"><input type="radio" name="D4_angajati" value="51-100"><span class="option-dot"></span>51–100</label>
+                <label class="option-item"><input type="radio" name="D4_angajati" value="101-250"><span class="option-dot"></span>101–250</label>
+                <label class="option-item"><input type="radio" name="D4_angajati" value="251-500"><span class="option-dot"></span>251–500</label>
+                <label class="option-item"><input type="radio" name="D4_angajati" value="Peste 500"><span class="option-dot"></span>Peste 500</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-D5">
+              <p class="survey-question-text">5. Care este vârsta ta?</p>
+              <div class="options-list" data-type="single" data-key="D5_varsta">
+                <label class="option-item"><input type="radio" name="D5_varsta" value="21-25 ani"><span class="option-dot"></span>21–25 ani</label>
+                <label class="option-item"><input type="radio" name="D5_varsta" value="26-30 ani"><span class="option-dot"></span>26–30 ani</label>
+                <label class="option-item"><input type="radio" name="D5_varsta" value="31-35 ani"><span class="option-dot"></span>31–35 ani</label>
+                <label class="option-item"><input type="radio" name="D5_varsta" value="36-40 ani"><span class="option-dot"></span>36–40 ani</label>
+                <label class="option-item"><input type="radio" name="D5_varsta" value="41-45 ani"><span class="option-dot"></span>41–45 ani</label>
+                <label class="option-item"><input type="radio" name="D5_varsta" value="46-50 ani"><span class="option-dot"></span>46–50 ani</label>
+                <label class="option-item"><input type="radio" name="D5_varsta" value="Peste 50 ani"><span class="option-dot"></span>Peste 50 ani</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-D6">
+              <p class="survey-question-text">6. Câți ani de experiență profesională ai?</p>
+              <div class="options-list" data-type="single" data-key="D6_experienta">
+                <label class="option-item"><input type="radio" name="D6_experienta" value="Sub 3 ani"><span class="option-dot"></span>Sub 3 ani</label>
+                <label class="option-item"><input type="radio" name="D6_experienta" value="3-5 ani"><span class="option-dot"></span>3–5 ani</label>
+                <label class="option-item"><input type="radio" name="D6_experienta" value="6-8 ani"><span class="option-dot"></span>6–8 ani</label>
+                <label class="option-item"><input type="radio" name="D6_experienta" value="9-15 ani"><span class="option-dot"></span>9–15 ani</label>
+                <label class="option-item"><input type="radio" name="D6_experienta" value="Peste 15 ani"><span class="option-dot"></span>Peste 15 ani</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-D7">
+              <p class="survey-question-text">7. Cum lucrezi în prezent?</p>
+              <div class="options-list" data-type="single" data-key="D7_mod_lucru">
+                <label class="option-item"><input type="radio" name="D7_mod_lucru" value="100% la birou / on-site"><span class="option-dot"></span>100% la birou / on-site</label>
+                <label class="option-item"><input type="radio" name="D7_mod_lucru" value="Hibrid (mix birou + remote)"><span class="option-dot"></span>Hibrid (mix birou + remote)</label>
+                <label class="option-item"><input type="radio" name="D7_mod_lucru" value="100% remote"><span class="option-dot"></span>100% remote</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-D8">
+              <p class="survey-question-text">8. Gen</p>
+              <div class="options-list" data-type="single" data-key="D8_gen">
+                <label class="option-item"><input type="radio" name="D8_gen" value="Feminin"><span class="option-dot"></span>Feminin</label>
+                <label class="option-item"><input type="radio" name="D8_gen" value="Masculin"><span class="option-dot"></span>Masculin</label>
+                <label class="option-item"><input type="radio" name="D8_gen" value="Prefer să nu spun"><span class="option-dot"></span>Prefer să nu spun</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-D9">
+              <p class="survey-question-text">9. Ai urmat vreun training, curs sau program dedicat pe tema AI în ultimele 6 luni?</p>
+              <div class="options-list" data-type="single" data-key="D9_training">
+                <label class="option-item"><input type="radio" name="D9_training" value="Da, unul organizat de angajatorul meu"><span class="option-dot"></span>Da, unul organizat de angajatorul meu</label>
+                <label class="option-item"><input type="radio" name="D9_training" value="Da, pe cont propriu (curs plătit, online, eveniment)"><span class="option-dot"></span>Da, pe cont propriu (curs plătit, online, eveniment)</label>
+                <label class="option-item"><input type="radio" name="D9_training" value="Am participat la un webinar sau eveniment informativ"><span class="option-dot"></span>Am participat la un webinar sau eveniment informativ</label>
+                <label class="option-item"><input type="radio" name="D9_training" value="Nu am urmat nimic structurat"><span class="option-dot"></span>Nu am urmat nimic structurat</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 1: Tracking -->
+          <div class="survey-step hidden" id="step-1">
+            <h2 class="survey-step-title">Cum folosești AI</h2>
+
+            <div class="survey-question" id="q-T1">
+              <p class="survey-question-text">10. Cât de des folosești AI generativ (ex: ChatGPT, Claude, Gemini, Copilot etc.)?</p>
+              <div class="options-list" data-type="single" data-key="T1_frecventa">
+                <label class="option-item"><input type="radio" name="T1_frecventa" value="De minim 3 ori pe zi"><span class="option-dot"></span>De minim 3 ori pe zi</label>
+                <label class="option-item"><input type="radio" name="T1_frecventa" value="Zilnic"><span class="option-dot"></span>Zilnic</label>
+                <label class="option-item"><input type="radio" name="T1_frecventa" value="De 2-3 ori pe săptămână"><span class="option-dot"></span>De 2–3 ori pe săptămână</label>
+                <label class="option-item"><input type="radio" name="T1_frecventa" value="O dată pe săptămână"><span class="option-dot"></span>O dată pe săptămână</label>
+                <label class="option-item"><input type="radio" name="T1_frecventa" value="O dată pe lună"><span class="option-dot"></span>O dată pe lună</label>
+                <label class="option-item"><input type="radio" name="T1_frecventa" value="Mai rar"><span class="option-dot"></span>Mai rar</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-T2">
+              <p class="survey-question-text">11. Ce task-uri îndeplinești cu ajutorul AI? <em>(selectează tot ce se aplică)</em></p>
+              <div class="options-list" data-type="multi" data-key="T2_taskuri">
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Îmbunătățirea textelor"><span class="option-check"></span>Îmbunătățirea textelor</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Generare de text"><span class="option-check"></span>Generare de text</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Generare de idei"><span class="option-check"></span>Generare de idei</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Motor de căutare / cercetare"><span class="option-check"></span>Motor de căutare / cercetare</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Traduceri"><span class="option-check"></span>Traduceri</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Generare de imagini"><span class="option-check"></span>Generare de imagini</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Analiză de date / rapoarte"><span class="option-check"></span>Analiză de date / rapoarte</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Potențarea creativității"><span class="option-check"></span>Potențarea creativității</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Prezentări / chart-uri"><span class="option-check"></span>Prezentări / chart-uri</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Generare de cod"><span class="option-check"></span>Generare de cod</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Îmbunătățirea codului"><span class="option-check"></span>Îmbunătățirea codului</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Organizarea vieții personale"><span class="option-check"></span>Organizarea vieții personale</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="O viață mai sănătoasă"><span class="option-check"></span>O viață mai sănătoasă</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Terapie / coaching / companionship"><span class="option-check"></span>Terapie / coaching / companionship</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Strategii de învățare / studiu"><span class="option-check"></span>Strategii de învățare / studiu</label>
+                <label class="option-item"><input type="checkbox" name="T2_taskuri" value="Lucruri amuzante"><span class="option-check"></span>Lucruri amuzante</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-T3">
+              <p class="survey-question-text">12. Pe o scară de la 1 la 5, cât de mult ești de acord cu afirmațiile de mai jos?</p>
+              <p class="survey-question-note">1 = dezacord total &nbsp;·&nbsp; 5 = acord total</p>
+              <div class="likert-wrapper">
+                <div class="likert-mobile-labels">
+                  <span class="likert-mobile-label">1<br>Dezacord</span>
+                  <span class="likert-mobile-label">2</span>
+                  <span class="likert-mobile-label">3</span>
+                  <span class="likert-mobile-label">4</span>
+                  <span class="likert-mobile-label">5<br>Acord</span>
+                </div>
+                <table class="likert-table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>1<br><span style="font-weight:300;font-size:0.6rem;">Dezacord total</span></th>
+                      <th>2</th><th>3</th><th>4</th>
+                      <th>5<br><span style="font-weight:300;font-size:0.6rem;">Acord total</span></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="likert-row" data-key="T3_potential_maxim" role="radiogroup" aria-label="Folosesc AI la potențialul maxim raportat la rolul meu">
+                      <td>Folosesc AI la potențialul maxim raportat la rolul meu</td>
+                      <td><div class="likert-radio" data-val="1" role="radio" tabindex="0" aria-checked="false" aria-label="1 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="2" role="radio" tabindex="0" aria-checked="false" aria-label="2 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="3" role="radio" tabindex="0" aria-checked="false" aria-label="3 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="4" role="radio" tabindex="0" aria-checked="false" aria-label="4 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="5" role="radio" tabindex="0" aria-checked="false" aria-label="5 din 5"></div></td>
+                    </tr>
+                    <tr class="likert-row" data-key="T3_prompting_solid" role="radiogroup" aria-label="Am deprinderi solide de prompting în 80% din cazuri">
+                      <td>Am deprinderi solide de prompting în 80% din cazuri</td>
+                      <td><div class="likert-radio" data-val="1" role="radio" tabindex="0" aria-checked="false" aria-label="1 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="2" role="radio" tabindex="0" aria-checked="false" aria-label="2 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="3" role="radio" tabindex="0" aria-checked="false" aria-label="3 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="4" role="radio" tabindex="0" aria-checked="false" aria-label="4 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="5" role="radio" tabindex="0" aria-checked="false" aria-label="5 din 5"></div></td>
+                    </tr>
+                    <tr class="likert-row" data-key="T3_pregatit_tranzitie" role="radiogroup" aria-label="Mă simt pregătit(ă) pentru tranziția spre o muncă în care AI este partenerul meu de gândire">
+                      <td>Mă simt pregătit(ă) pentru tranziția spre o muncă în care AI este partenerul meu de gândire</td>
+                      <td><div class="likert-radio" data-val="1" role="radio" tabindex="0" aria-checked="false" aria-label="1 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="2" role="radio" tabindex="0" aria-checked="false" aria-label="2 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="3" role="radio" tabindex="0" aria-checked="false" aria-label="3 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="4" role="radio" tabindex="0" aria-checked="false" aria-label="4 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="5" role="radio" tabindex="0" aria-checked="false" aria-label="5 din 5"></div></td>
+                    </tr>
+                    <tr class="likert-row" data-key="T3_teama_inlocuire" role="radiogroup" aria-label="Mi-e teamă că AI-ul ar putea face munca mea mai bine sau mai ieftin decât o fac eu">
+                      <td>Mi-e teamă că AI-ul ar putea face munca mea mai bine sau mai ieftin decât o fac eu</td>
+                      <td><div class="likert-radio" data-val="1" role="radio" tabindex="0" aria-checked="false" aria-label="1 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="2" role="radio" tabindex="0" aria-checked="false" aria-label="2 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="3" role="radio" tabindex="0" aria-checked="false" aria-label="3 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="4" role="radio" tabindex="0" aria-checked="false" aria-label="4 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="5" role="radio" tabindex="0" aria-checked="false" aria-label="5 din 5"></div></td>
+                    </tr>
+                    <tr class="likert-row" data-key="T3_incurajat_manageri" role="radiogroup" aria-label="Mă simt încurajat(ă) să folosesc AI de către managerii sau liderii din organizația mea">
+                      <td>Mă simt încurajat(ă) să folosesc AI de către managerii sau liderii din organizația mea</td>
+                      <td><div class="likert-radio" data-val="1" role="radio" tabindex="0" aria-checked="false" aria-label="1 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="2" role="radio" tabindex="0" aria-checked="false" aria-label="2 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="3" role="radio" tabindex="0" aria-checked="false" aria-label="3 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="4" role="radio" tabindex="0" aria-checked="false" aria-label="4 din 5"></div></td>
+                      <td><div class="likert-radio" data-val="5" role="radio" tabindex="0" aria-checked="false" aria-label="5 din 5"></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-T4">
+              <p class="survey-question-text">13. Care dintre profilele de mai jos te descrie cel mai bine ca utilizator AI?</p>
+              <div class="options-list" data-type="single" data-key="T4_profil">
+                <label class="option-item"><input type="radio" name="T4_profil" value="Utilizator explorator — testez des, încerc tool-uri noi, învăț din mers"><span class="option-dot"></span>Utilizator explorator — testez des, încerc tool-uri noi, învăț din mers</label>
+                <label class="option-item"><input type="radio" name="T4_profil" value="Utilizator strateg — investighez cum poate AI schimba complet modul în care lucrez"><span class="option-dot"></span>Utilizator strateg — investighez cum poate AI schimba complet modul în care lucrez</label>
+                <label class="option-item"><input type="radio" name="T4_profil" value="Utilizator de nevoie — îl folosesc doar când e obligatoriu sau nu am altă opțiune"><span class="option-dot"></span>Utilizator de nevoie — îl folosesc doar când e obligatoriu sau nu am altă opțiune</label>
+                <label class="option-item"><input type="radio" name="T4_profil" value="Utilizator fantomă — îl folosesc, dar nu vorbesc despre asta cu colegii sau managementul"><span class="option-dot"></span>Utilizator fantomă — îl folosesc, dar nu vorbesc despre asta cu colegii sau managementul</label>
+                <label class="option-item"><input type="radio" name="T4_profil" value="Utilizator evitant — încerc să evit AI cât pot"><span class="option-dot"></span>Utilizator evitant — încerc să evit AI cât pot</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-T5">
+              <p class="survey-question-text">14. Cum folosește organizația ta AI în prezent?</p>
+              <div class="options-list" data-type="single" data-key="T5_org_ai">
+                <label class="option-item"><input type="radio" name="T5_org_ai" value="Nu folosim AI oficial"><span class="option-dot"></span>Nu folosim AI oficial</label>
+                <label class="option-item"><input type="radio" name="T5_org_ai" value="Anumite persoane sau echipe îl folosesc, neoficial"><span class="option-dot"></span>Anumite persoane sau echipe îl folosesc, neoficial</label>
+                <label class="option-item"><input type="radio" name="T5_org_ai" value="Anumite echipe au acces oficial la tool-uri AI"><span class="option-dot"></span>Anumite echipe au acces oficial la tool-uri AI</label>
+                <label class="option-item"><input type="radio" name="T5_org_ai" value="AI este integrat în mai multe procese interne"><span class="option-dot"></span>AI este integrat în mai multe procese interne</label>
+                <label class="option-item"><input type="radio" name="T5_org_ai" value="Avem o strategie clară de AI la nivel organizațional"><span class="option-dot"></span>Avem o strategie clară de AI la nivel organizațional</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-T6">
+              <p class="survey-question-text">15. Ce ai primit din partea organizației tale legat de AI? <em>(selectează tot ce se aplică)</em></p>
+              <div class="options-list" data-type="multi" data-key="T6_oferit_org">
+                <label class="option-item"><input type="checkbox" name="T6_oferit_org" value="N-am primit nimic relevant"><span class="option-check"></span>N-am primit nimic relevant</label>
+                <label class="option-item"><input type="checkbox" name="T6_oferit_org" value="Acces la licențe sau platforme AI plătite"><span class="option-check"></span>Acces la licențe sau platforme AI plătite</label>
+                <label class="option-item"><input type="checkbox" name="T6_oferit_org" value="Traininguri sau workshopuri aplicate"><span class="option-check"></span>Traininguri sau workshopuri aplicate</label>
+                <label class="option-item"><input type="checkbox" name="T6_oferit_org" value="Ghiduri interne despre utilizarea AI"><span class="option-check"></span>Ghiduri interne despre utilizarea AI</label>
+                <label class="option-item"><input type="checkbox" name="T6_oferit_org" value="Exemple concrete pentru activitatea noastră"><span class="option-check"></span>Exemple concrete pentru activitatea noastră</label>
+                <label class="option-item"><input type="checkbox" name="T6_oferit_org" value="Oportunitatea de a învăța de la un coleg sau mentor"><span class="option-check"></span>Oportunitatea de a învăța de la un coleg sau mentor</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-T7">
+              <p class="survey-question-text">16. Care sunt principalele obstacole în utilizarea AI la job? <em>(selectează tot ce se aplică)</em></p>
+              <div class="options-list" data-type="multi" data-key="T7_obstacole">
+                <label class="option-item"><input type="checkbox" name="T7_obstacole" value="Lipsa de timp"><span class="option-check"></span>Lipsa de timp</label>
+                <label class="option-item"><input type="checkbox" name="T7_obstacole" value="Nu știu de unde să încep"><span class="option-check"></span>Nu știu de unde să încep</label>
+                <label class="option-item"><input type="checkbox" name="T7_obstacole" value="Nu am încredere în calitatea rezultatelor"><span class="option-check"></span>Nu am încredere în calitatea rezultatelor</label>
+                <label class="option-item"><input type="checkbox" name="T7_obstacole" value="Lipsa reglementărilor clare"><span class="option-check"></span>Lipsa reglementărilor clare</label>
+                <label class="option-item"><input type="checkbox" name="T7_obstacole" value="Nu e încurajată utilizarea AI în organizația mea"><span class="option-check"></span>Nu e încurajată utilizarea AI în organizația mea</label>
+                <label class="option-item"><input type="checkbox" name="T7_obstacole" value="Teama că voi fi judecat(ă) de colegi sau management"><span class="option-check"></span>Teama că voi fi judecat(ă) de colegi sau management</label>
+                <label class="option-item"><input type="checkbox" name="T7_obstacole" value="Teama că AI-ul mă va înlocui dacă managementul vede că îl folosesc"><span class="option-check"></span>Teama că AI-ul mă va înlocui dacă managementul vede că îl folosesc</label>
+                <label class="option-item"><input type="checkbox" name="T7_obstacole" value="Teama că voi greși"><span class="option-check"></span>Teama că voi greși</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-T8">
+              <p class="survey-question-text">17. Ce abilități crezi că vor fi esențiale în carieră în urmatorii 5 ani? <em>(selectează top 5)</em></p>
+              <div class="options-list" data-type="multi" data-key="T8_abilitati" data-max="5">
+                <label class="option-item"><input type="checkbox" name="T8_abilitati" value="Gândirea critică"><span class="option-check"></span>Gândirea critică</label>
+                <label class="option-item"><input type="checkbox" name="T8_abilitati" value="Gândirea strategică"><span class="option-check"></span>Gândirea strategică</label>
+                <label class="option-item"><input type="checkbox" name="T8_abilitati" value="Gândirea analitică bazată pe date"><span class="option-check"></span>Gândirea analitică bazată pe date</label>
+                <label class="option-item"><input type="checkbox" name="T8_abilitati" value="Gândirea creativă"><span class="option-check"></span>Gândirea creativă</label>
+                <label class="option-item"><input type="checkbox" name="T8_abilitati" value="Flexibilitatea și adaptabilitatea la schimbări"><span class="option-check"></span>Flexibilitatea și adaptabilitatea la schimbări</label>
+                <label class="option-item"><input type="checkbox" name="T8_abilitati" value="Reziliența emoțională"><span class="option-check"></span>Reziliența emoțională</label>
+                <label class="option-item"><input type="checkbox" name="T8_abilitati" value="Empatia și comunicarea"><span class="option-check"></span>Empatia și comunicarea</label>
+                <label class="option-item"><input type="checkbox" name="T8_abilitati" value="Abilitatea de prompting / lucrul cu AI"><span class="option-check"></span>Abilitatea de prompting / lucrul cu AI</label>
+                <label class="option-item"><input type="checkbox" name="T8_abilitati" value="Abilitățile tehnice / coding"><span class="option-check"></span>Abilitățile tehnice / coding</label>
+                <label class="option-item"><input type="checkbox" name="T8_abilitati" value="Influența socială și networking"><span class="option-check"></span>Influența socială și networking</label>
+              </div>
+              <div class="t8-limit-msg hidden" id="t8-limit-msg">Selectează maximum 5 abilități.</div>
+            </div>
+          </div>
+
+          <!-- STEP 2: AI Maturity -->
+          <div class="survey-step hidden" id="step-2">
+            <h2 class="survey-step-title">Cât de adânc mergi cu AI</h2>
+
+            <div class="survey-question" id="q-M1">
+              <p class="survey-question-text">18. Câte ore pe săptămână estimezi că economisești folosind AI (față de cum ai lucra fără el)?</p>
+              <div class="options-list" data-type="single" data-key="M1_ore_economisite">
+                <label class="option-item"><input type="radio" name="M1_ore_economisite" value="0 ore — nu am observat economii de timp"><span class="option-dot"></span>0 ore — nu am observat economii de timp</label>
+                <label class="option-item"><input type="radio" name="M1_ore_economisite" value="1-2 ore"><span class="option-dot"></span>1–2 ore</label>
+                <label class="option-item"><input type="radio" name="M1_ore_economisite" value="3-5 ore"><span class="option-dot"></span>3–5 ore</label>
+                <label class="option-item"><input type="radio" name="M1_ore_economisite" value="6-10 ore"><span class="option-dot"></span>6–10 ore</label>
+                <label class="option-item"><input type="radio" name="M1_ore_economisite" value="Peste 10 ore"><span class="option-dot"></span>Peste 10 ore</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-M2">
+              <p class="survey-question-text">19. Pe care dintre nivelurile de mai jos te afli acum în utilizarea AI?</p>
+              <div class="options-list" data-type="single" data-key="M2_nivel_maturitate">
+                <label class="option-item"><input type="radio" name="M2_nivel_maturitate" value="L1 — Explorator: testez tool-uri, încerc utilizări diferite, încă caut ce funcționează pentru mine"><span class="option-dot"></span><strong>L1 — Explorator:</strong> testez tool-uri, încerc utilizări diferite, încă caut ce funcționează pentru mine</label>
+                <label class="option-item"><input type="radio" name="M2_nivel_maturitate" value="L2 — Utilizator stabil: am 2-3 fluxuri clare în care AI mă ajută constant, săptămânal"><span class="option-dot"></span><strong>L2 — Utilizator stabil:</strong> am 2–3 fluxuri clare în care AI mă ajută constant, săptămânal</label>
+                <label class="option-item"><input type="radio" name="M2_nivel_maturitate" value="L3 — Integrator: am redesenat cel puțin un proces de muncă datorită AI (nu doar task-uri izolate)"><span class="option-dot"></span><strong>L3 — Integrator:</strong> am redesenat cel puțin un proces de muncă datorită AI (nu doar task-uri izolate)</label>
+                <label class="option-item"><input type="radio" name="M2_nivel_maturitate" value="L4 — Strateg: AI face parte din modul în care gândesc și iau decizii, nu doar cum execut"><span class="option-dot"></span><strong>L4 — Strateg:</strong> AI face parte din modul în care gândesc și iau decizii, nu doar cum execut</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-M3">
+              <p class="survey-question-text">20. Cum s-a schimbat modul în care lucrezi datorită AI în ultimele 12 luni?</p>
+              <div class="options-list" data-type="single" data-key="M3_schimbare_mod_lucru">
+                <label class="option-item"><input type="radio" name="M3_schimbare_mod_lucru" value="Nu s-a schimbat, lucrez la fel ca înainte"><span class="option-dot"></span>Nu s-a schimbat, lucrez la fel ca înainte</label>
+                <label class="option-item"><input type="radio" name="M3_schimbare_mod_lucru" value="Am adăugat câteva task-uri AI, dar fluxurile de lucru sunt la fel"><span class="option-dot"></span>Am adăugat câteva task-uri AI, dar fluxurile de lucru sunt la fel</label>
+                <label class="option-item"><input type="radio" name="M3_schimbare_mod_lucru" value="Am restructurat cel puțin un proces important"><span class="option-dot"></span>Am restructurat cel puțin un proces important</label>
+                <label class="option-item"><input type="radio" name="M3_schimbare_mod_lucru" value="Modul meu de lucru s-a schimbat fundamental"><span class="option-dot"></span>Modul meu de lucru s-a schimbat fundamental</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-M4">
+              <p class="survey-question-text">21. Utilizezi AI pentru a sprijini sau lua decizii profesionale / de business?</p>
+              <div class="options-list" data-type="single" data-key="M4_decizii_ai">
+                <label class="option-item"><input type="radio" name="M4_decizii_ai" value="Nu, îl folosesc doar pentru execuție (scris, cercetare, generare conținut)"><span class="option-dot"></span>Nu, îl folosesc doar pentru execuție (scris, cercetare, generare conținut)</label>
+                <label class="option-item"><input type="radio" name="M4_decizii_ai" value="Rar, ocazional"><span class="option-dot"></span>Rar, ocazional</label>
+                <label class="option-item"><input type="radio" name="M4_decizii_ai" value="Da, pentru unele decizii"><span class="option-dot"></span>Da, pentru unele decizii</label>
+                <label class="option-item"><input type="radio" name="M4_decizii_ai" value="Da, sistematic, pentru majoritate deciziilor importante"><span class="option-dot"></span>Da, sistematic, pentru majoritate deciziilor importante</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-AG1">
+              <p class="survey-question-text">22. Cum descrii cel mai bine atitudinea ta față de AI la locul de muncă?</p>
+              <div class="options-list" data-type="single" data-key="AG1_atitudine">
+                <label class="option-item"><input type="radio" name="AG1_atitudine" value="Explorez activ, fără să aștept să mi se spună să o fac"><span class="option-dot"></span>Explorez activ, fără să aștept să mi se spună să o fac</label>
+                <label class="option-item"><input type="radio" name="AG1_atitudine" value="Adopt când există un motiv sau o nevoie concretă"><span class="option-dot"></span>Adopt când există un motiv sau o nevoie concretă</label>
+                <label class="option-item"><input type="radio" name="AG1_atitudine" value="Aștept să văd cum o fac alții mai întâi"><span class="option-dot"></span>Aștept să văd cum o fac alții mai întâi</label>
+                <label class="option-item"><input type="radio" name="AG1_atitudine" value="Prefer să nu schimb modul în care lucrez"><span class="option-dot"></span>Prefer să nu schimb modul în care lucrez</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Organization -->
+          <div class="survey-step hidden" id="step-3">
+            <h2 class="survey-step-title">AI în organizația ta</h2>
+
+            <div class="survey-question" id="q-O1">
+              <p class="survey-question-text">23. Folosești tool-uri AI pe care organizația ta nu le-a aprobat oficial sau nu știe că le folosești?</p>
+              <div class="options-list" data-type="single" data-key="O1_shadow_ai">
+                <label class="option-item"><input type="radio" name="O1_shadow_ai" value="Da, des"><span class="option-dot"></span>Da, des</label>
+                <label class="option-item"><input type="radio" name="O1_shadow_ai" value="Da, uneori"><span class="option-dot"></span>Da, uneori</label>
+                <label class="option-item"><input type="radio" name="O1_shadow_ai" value="Nu, folosesc doar ce a aprobat organizația"><span class="option-dot"></span>Nu, folosesc doar ce a aprobat organizația</label>
+                <label class="option-item"><input type="radio" name="O1_shadow_ai" value="Nu știu dacă tool-urile pe care le folosesc sunt aprobate sau nu"><span class="option-dot"></span>Nu știu dacă tool-urile pe care le folosesc sunt aprobate sau nu</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-O2">
+              <p class="survey-question-text">24. Organizația ta are politici clare despre ce date poți introduce în tool-uri AI?</p>
+              <div class="options-list" data-type="single" data-key="O2_politici">
+                <label class="option-item"><input type="radio" name="O2_politici" value="Da, avem politici clare pe care le cunosc"><span class="option-dot"></span>Da, avem politici clare pe care le cunosc</label>
+                <label class="option-item"><input type="radio" name="O2_politici" value="Există ceva, dar nu e clar comunicat"><span class="option-dot"></span>Există ceva, dar nu e clar comunicat</label>
+                <label class="option-item"><input type="radio" name="O2_politici" value="Nu există politici pe această temă"><span class="option-dot"></span>Nu există politici pe această temă</label>
+                <label class="option-item"><input type="radio" name="O2_politici" value="Nu știu dacă există sau nu"><span class="option-dot"></span>Nu știu dacă există sau nu</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-O3">
+              <p class="survey-question-text">25. Ți s-a întâmplat să NU folosești AI deoarece nu știai dacă e permis sau sigur în contextul companiei?</p>
+              <div class="options-list" data-type="single" data-key="O3_autocenzura">
+                <label class="option-item"><input type="radio" name="O3_autocenzura" value="Da, des"><span class="option-dot"></span>Da, des</label>
+                <label class="option-item"><input type="radio" name="O3_autocenzura" value="Da, uneori"><span class="option-dot"></span>Da, uneori</label>
+                <label class="option-item"><input type="radio" name="O3_autocenzura" value="Nu mi s-a întâmplat"><span class="option-dot"></span>Nu mi s-a întâmplat</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-O4">
+              <p class="survey-question-text">26. Organizația ta a măsurat sau urmărit vreodată impactul utilizării AI de către angajați?</p>
+              <div class="options-list" data-type="single" data-key="O4_masurare_impact">
+                <label class="option-item"><input type="radio" name="O4_masurare_impact" value="Da, măsurăm activ"><span class="option-dot"></span>Da, măsurăm activ</label>
+                <label class="option-item"><input type="radio" name="O4_masurare_impact" value="Nu, dar se discută"><span class="option-dot"></span>Nu, dar se discută</label>
+                <label class="option-item"><input type="radio" name="O4_masurare_impact" value="Nu, și nu cred că urmează"><span class="option-dot"></span>Nu, și nu cred că urmează</label>
+                <label class="option-item"><input type="radio" name="O4_masurare_impact" value="Nu știu"><span class="option-dot"></span>Nu știu</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-ABT1">
+              <p class="survey-question-text">27. Există în organizația ta cineva care îndeplinește (formal sau informal) rolul de "punte" între capacitățile AI și echipă?</p>
+              <div class="options-list" data-type="single" data-key="ABT1_translator">
+                <label class="option-item"><input type="radio" name="ABT1_translator" value="Da, există un rol dedicat (AI Lead, AI Champion, Chief AI Officer etc.)"><span class="option-dot"></span>Da, există un rol dedicat (AI Lead, AI Champion, Chief AI Officer etc.)</label>
+                <label class="option-item"><input type="radio" name="ABT1_translator" value="Da, informal — o persoană face asta printre altele, fără un titlu specific"><span class="option-dot"></span>Da, informal — o persoană face asta printre altele, fără un titlu specific</label>
+                <label class="option-item"><input type="radio" name="ABT1_translator" value="Da, e distribuit — mai mulți contribuie ocazional"><span class="option-dot"></span>Da, e distribuit — mai mulți contribuie ocazional</label>
+                <label class="option-item"><input type="radio" name="ABT1_translator" value="Nu există nimeni cu această funcție"><span class="option-dot"></span>Nu există nimeni cu această funcție</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Business Impact -->
+          <div class="survey-step hidden" id="step-4">
+            <h2 class="survey-step-title">Ce s-a schimbat în munca ta</h2>
+
+            <div class="survey-question" id="q-B1">
+              <p class="survey-question-text">28. Ce a îmbunătățit concret AI în munca ta? <em>(selectează tot ce se aplică)</em></p>
+              <div class="options-list" data-type="multi" data-key="B1_imbunatatiri">
+                <label class="option-item"><input type="checkbox" name="B1_imbunatatiri" value="Viteza de livrare / productivitatea"><span class="option-check"></span>Viteza de livrare / productivitatea</label>
+                <label class="option-item"><input type="checkbox" name="B1_imbunatatiri" value="Calitatea output-ului meu"><span class="option-check"></span>Calitatea output-ului meu</label>
+                <label class="option-item"><input type="checkbox" name="B1_imbunatatiri" value="Calitatea deciziilor pe care le iau"><span class="option-check"></span>Calitatea deciziilor pe care le iau</label>
+                <label class="option-item"><input type="checkbox" name="B1_imbunatatiri" value="Timp eliberat pentru muncă strategică sau creativă"><span class="option-check"></span>Timp eliberat pentru muncă strategică sau creativă</label>
+                <label class="option-item"><input type="checkbox" name="B1_imbunatatiri" value="Relația cu clienții sau colegii"><span class="option-check"></span>Relația cu clienții sau colegii</label>
+                <label class="option-item"><input type="checkbox" name="B1_imbunatatiri" value="Costuri reduse pentru echipă sau proiect"><span class="option-check"></span>Costuri reduse pentru echipă sau proiect</label>
+                <label class="option-item"><input type="checkbox" name="B1_imbunatatiri" value="Nimic concret până acum"><span class="option-check"></span>Nimic concret până acum</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-B2">
+              <p class="survey-question-text">29. Rezultate generate cu AI au ajuns în prezentări, rapoarte sau decizii de management în organizația ta?</p>
+              <div class="options-list" data-type="single" data-key="B2_rezultate_management">
+                <label class="option-item"><input type="radio" name="B2_rezultate_management" value="Da, frecvent"><span class="option-dot"></span>Da, frecvent</label>
+                <label class="option-item"><input type="radio" name="B2_rezultate_management" value="Da, ocazional"><span class="option-dot"></span>Da, ocazional</label>
+                <label class="option-item"><input type="radio" name="B2_rezultate_management" value="Nu"><span class="option-dot"></span>Nu</label>
+                <label class="option-item"><input type="radio" name="B2_rezultate_management" value="Nu știu"><span class="option-dot"></span>Nu știu</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5: Tendinte -->
+          <div class="survey-step hidden" id="step-5">
+            <h2 class="survey-step-title">Ce urmează</h2>
+
+            <div class="survey-question" id="q-E1">
+              <p class="survey-question-text">30. Cum s-a schimbat utilizarea ta de AI față de acum 6 luni?</p>
+              <div class="options-list" data-type="single" data-key="E1_schimbare_6luni">
+                <label class="option-item"><input type="radio" name="E1_schimbare_6luni" value="A scăzut sau am renunțat"><span class="option-dot"></span>A scăzut sau am renunțat</label>
+                <label class="option-item"><input type="radio" name="E1_schimbare_6luni" value="A rămas aproximativ la fel"><span class="option-dot"></span>A rămas aproximativ la fel</label>
+                <label class="option-item"><input type="radio" name="E1_schimbare_6luni" value="A crescut moderat"><span class="option-dot"></span>A crescut moderat</label>
+                <label class="option-item"><input type="radio" name="E1_schimbare_6luni" value="A crescut semnificativ"><span class="option-dot"></span>A crescut semnificativ</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-E2">
+              <p class="survey-question-text">31. Ai auzit de conceptul de "AI agentic" sau "agenți AI" — sisteme AI care acționează autonom, nu doar răspund la comenzi?</p>
+              <div class="options-list" data-type="single" data-key="E2_agentic_awareness">
+                <label class="option-item"><input type="radio" name="E2_agentic_awareness" value="Nu, nu am auzit"><span class="option-dot"></span>Nu, nu am auzit</label>
+                <label class="option-item"><input type="radio" name="E2_agentic_awareness" value="Am auzit, dar nu înțeleg exact ce înseamnă"><span class="option-dot"></span>Am auzit, dar nu înțeleg exact ce înseamnă</label>
+                <label class="option-item"><input type="radio" name="E2_agentic_awareness" value="Înțeleg ce înseamnă și urmăresc evoluțiile"><span class="option-dot"></span>Înțeleg ce înseamnă și urmăresc evoluțiile</label>
+                <label class="option-item"><input type="radio" name="E2_agentic_awareness" value="Înțeleg și am început să explorez sau să folosesc"><span class="option-dot"></span>Înțeleg și am început să explorez sau să folosesc</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-E3">
+              <p class="survey-question-text">32. Ți s-a întâmplat să te simți cognitiv copleșit(ă) sau obosit(ă) din cauza cantității de informație și output pe care AI-ul le generează?</p>
+              <div class="options-list" data-type="single" data-key="E3_cognitive_overload">
+                <label class="option-item"><input type="radio" name="E3_cognitive_overload" value="Niciodată"><span class="option-dot"></span>Niciodată</label>
+                <label class="option-item"><input type="radio" name="E3_cognitive_overload" value="Rar"><span class="option-dot"></span>Rar</label>
+                <label class="option-item"><input type="radio" name="E3_cognitive_overload" value="Uneori"><span class="option-dot"></span>Uneori</label>
+                <label class="option-item"><input type="radio" name="E3_cognitive_overload" value="Des"><span class="option-dot"></span>Des</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-E4">
+              <p class="survey-question-text">33. Ai auzit de EU AI Act — regulamentul european privind inteligența artificială?</p>
+              <div class="options-list" data-type="single" data-key="E4_eu_ai_act">
+                <label class="option-item"><input type="radio" name="E4_eu_ai_act" value="Nu, deloc"><span class="option-dot"></span>Nu, deloc</label>
+                <label class="option-item"><input type="radio" name="E4_eu_ai_act" value="Am auzit vag, nu știu detalii"><span class="option-dot"></span>Am auzit vag, nu știu detalii</label>
+                <label class="option-item"><input type="radio" name="E4_eu_ai_act" value="Da, știu ce este și ce implică"><span class="option-dot"></span>Da, știu ce este și ce implică</label>
+                <label class="option-item"><input type="radio" name="E4_eu_ai_act" value="Da, și organizația mea a început să se pregătească"><span class="option-dot"></span>Da, și organizația mea a început să se pregătească</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- EMAIL CAPTURE SCREEN -->
+          <div class="survey-step hidden survey-email-screen" id="email-screen">
+            <h2 class="survey-screen-title">Primești raportul înaintea tuturor?</h2>
+            <p class="survey-screen-subtitle">Lasă adresa de email și ești primul care îl primește în iulie. Răspunsul tău anonim se va salva când apeși butonul de mai jos.</p>
+
+            <input type="email" class="survey-email-field" id="email-input" placeholder="adresa ta de email" autocomplete="email" />
+            <div class="survey-field-error hidden" id="email-error">Te rugăm să introduci o adresă de email validă.</div>
+
+            <label class="survey-consent-item" id="consent-raport-label" onclick="toggleConsent('consent-raport')">
+              <input type="checkbox" id="consent-raport">
+              <span class="consent-check" id="consent-raport-check"></span>
+              <span>Doresc să primesc prioritar informații despre Romanian State of AI. Înțeleg că fără acordul meu nu voi primi raportul.</span>
+            </label>
+            <div class="survey-field-error hidden" id="consent-error">Te rugăm să bifezi consimțământul pentru a primi raportul.</div>
+
+            <label class="survey-consent-item" id="consent-newsletter-label" onclick="toggleConsent('consent-newsletter')">
+              <input type="checkbox" id="consent-newsletter">
+              <span class="consent-check" id="consent-newsletter-check"></span>
+              <span>Da, doresc să mă înscriu la newsletter-ul bilunar The Leadership Catalyst.</span>
+            </label>
+
+            <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.5rem;">
+              Email-ul se folosește doar pentru trimiterea raportului și (dacă bifezi) a newsletter-ului. Detalii în <a href="/privacy.html" style="color:var(--lavender);">politica de confidențialitate</a>.
+            </p>
+
+            <div class="survey-email-actions">
+              <button class="btn btn-primary" id="btn-email-submit" onclick="submitAll()">
+                Trimite
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <button class="btn btn-outline" id="btn-skip-email" onclick="submitAll(true)">
+                Sari peste →
+              </button>
+            </div>
+          </div>
+
+          <!-- THANKS SCREEN -->
+          <div class="survey-step hidden survey-thanks-screen" id="thanks-screen">
+            <div class="survey-thanks-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h2 class="survey-screen-title">Mulțumim!</h2>
+            <p class="survey-screen-subtitle">Răspunsul tău anonim a fost înregistrat.<br><br>
+            Raportul Romanian State of AI 2026 se va publica în iulie.<br>
+            Îl vei găsi pe ralucapaduraru.ro și pe LinkedIn.</p>
+            <a href="../index.html" class="btn btn-outline" style="margin-top:1rem;">← Înapoi la site</a>
+          </div>
+
+          <!-- ERROR SCREEN -->
+          <div class="survey-step hidden survey-error-screen" id="error-screen">
+            <h2 class="survey-screen-title">Ceva nu a funcționat.</h2>
+            <p class="survey-screen-subtitle">Te rugăm să încerci din nou. Răspunsurile tale sunt salvate în browser.</p>
+            <button class="btn btn-primary" onclick="retrySubmit()">
+              Încearcă din nou
+            </button>
+          </div>
+
+          <!-- Navigation buttons -->
+          <div class="survey-nav" id="survey-nav">
+            <button class="btn btn-outline" id="btn-prev" onclick="goPrev()" style="display:none;">
+              ← Înapoi
+            </button>
+            <button class="btn btn-primary" id="btn-next" onclick="goNext()">
+              Continuă
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+        </div><!-- /survey-wrapper -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="../index.html" class="footer-logo">
+            <img src="../images/logo.png" alt="Raluca Păduraru" />
+          </a>
+          <p class="footer-copy">© 2026 Raluca Păduraru. All rights reserved.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+          <a href="../contact.html">Contact</a>
+          <a href="/privacy.html">Politică de confidențialitate</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyy_qVfIabUZXjweEchySGgP6WurjWf8y1z5TQ7GZexuJdwexwXQ794JYL4pqh2aE0B/exec';
+
+const TOTAL_STEPS = 6;
+const STEP_TITLES = [
+  'Câteva detalii despre tine',
+  'Cum folosești AI',
+  'Cât de adânc mergi cu AI',
+  'AI în organizația ta',
+  'Ce s-a schimbat în munca ta',
+  'Ce urmează'
+];
+
+const STORAGE_KEY = 'rsoai_2026_progress';
+let currentStep = 0;
+const formData = {};
+
+// ---- localStorage (anti-pierdere date la refresh) ----
+function saveProgress() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ step: currentStep, data: formData })); } catch (e) {}
+}
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch (e) { return null; }
+}
+function clearProgress() {
+  try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+}
+
+// ---- Navigation ----
+// skipScroll = true la încărcarea inițială, ca pagina să NU sară peste hero
+function showStep(n, skipScroll) {
+  document.querySelectorAll('.survey-step').forEach(s => s.classList.add('hidden'));
+  document.getElementById('step-' + n).classList.remove('hidden');
+  currentStep = n;
+  updateProgress();
+  updateNavButtons();
+  saveProgress();
+  if (!skipScroll) {
+    const surveySection = document.getElementById('survey-section');
+    if (surveySection) surveySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.survey-step').forEach(s => s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  document.getElementById('survey-progress').classList.add('hidden');
+  document.getElementById('survey-nav').classList.add('hidden');
+  const surveySection = document.getElementById('survey-section');
+  if (surveySection) surveySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateProgress() {
+  const pct = Math.round(((currentStep + 1) / TOTAL_STEPS) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent =
+    'Pas ' + (currentStep + 1) + ' din ' + TOTAL_STEPS + ' — ' + STEP_TITLES[currentStep];
+}
+
+function updateNavButtons() {
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  btnPrev.style.display = currentStep === 0 ? 'none' : '';
+  if (currentStep === TOTAL_STEPS - 1) {
+    btnNext.innerHTML = 'Trimite răspunsul <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  } else {
+    btnNext.innerHTML = 'Continuă <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  }
+}
+
+function goNext() {
+  if (!validateStep(currentStep)) return;
+  collectStepData(currentStep);
+  if (currentStep < TOTAL_STEPS - 1) {
+    showStep(currentStep + 1);
+  } else {
+    collectStepData(currentStep);
+    showScreen('email-screen');
+  }
+}
+
+function goPrev() {
+  collectStepData(currentStep);
+  showStep(currentStep - 1);
+  restoreStepData(currentStep);
+}
+
+// ---- Data collection ----
+function collectStepData(stepIndex) {
+  const step = document.getElementById('step-' + stepIndex);
+  if (!step) return;
+
+  step.querySelectorAll('.options-list[data-type="single"]').forEach(list => {
+    const key = list.dataset.key;
+    const checked = list.querySelector('input[type=radio]:checked');
+    if (checked) formData[key] = checked.value;
+  });
+
+  step.querySelectorAll('.options-list[data-type="multi"]').forEach(list => {
+    const key = list.dataset.key;
+    const checked = [...list.querySelectorAll('input[type=checkbox]:checked')];
+    if (checked.length > 0) formData[key] = checked.map(c => c.value).join('|');
+  });
+
+  step.querySelectorAll('.likert-row').forEach(row => {
+    const key = row.dataset.key;
+    const sel = row.querySelector('.likert-radio.selected');
+    if (sel) formData[key] = sel.dataset.val;
+  });
+}
+
+function restoreStepData(stepIndex) {
+  const step = document.getElementById('step-' + stepIndex);
+  if (!step) return;
+
+  step.querySelectorAll('.options-list[data-type="single"]').forEach(list => {
+    const key = list.dataset.key;
+    const val = formData[key];
+    if (!val) return;
+    list.querySelectorAll('input[type=radio]').forEach(input => {
+      input.checked = input.value === val;
+      input.closest('.option-item').classList.toggle('selected', input.checked);
+    });
+  });
+
+  step.querySelectorAll('.options-list[data-type="multi"]').forEach(list => {
+    const key = list.dataset.key;
+    const saved = formData[key] ? formData[key].split('|') : [];
+    list.querySelectorAll('input[type=checkbox]').forEach(input => {
+      input.checked = saved.includes(input.value);
+      input.closest('.option-item').classList.toggle('selected', input.checked);
+    });
+  });
+
+  step.querySelectorAll('.likert-row').forEach(row => {
+    const key = row.dataset.key;
+    const val = formData[key];
+    row.querySelectorAll('.likert-radio').forEach(r => {
+      const on = r.dataset.val === val;
+      r.classList.toggle('selected', on);
+      r.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+  });
+}
+
+// ---- Validation ----
+function validateStep(stepIndex) {
+  collectStepData(stepIndex);
+  const step = document.getElementById('step-' + stepIndex);
+  let valid = true;
+  let firstInvalid = null;
+
+  step.querySelectorAll('.options-list[data-type="single"]').forEach(list => {
+    const key = list.dataset.key;
+    const q = list.closest('.survey-question');
+    if (!formData[key]) {
+      q.classList.add('has-error');
+      valid = false;
+      if (!firstInvalid) firstInvalid = q;
+    } else {
+      q.classList.remove('has-error');
+    }
+  });
+
+  step.querySelectorAll('.options-list[data-type="multi"]').forEach(list => {
+    const key = list.dataset.key;
+    const q = list.closest('.survey-question');
+    if (!formData[key]) {
+      q.classList.add('has-error');
+      valid = false;
+      if (!firstInvalid) firstInvalid = q;
+    } else {
+      q.classList.remove('has-error');
+    }
+  });
+
+  step.querySelectorAll('.likert-row').forEach(row => {
+    const key = row.dataset.key;
+    if (!formData[key]) {
+      row.classList.add('likert-row-error');
+      valid = false;
+      if (!firstInvalid) firstInvalid = row;
+    } else {
+      row.classList.remove('likert-row-error');
+    }
+  });
+
+  const msg = document.getElementById('validation-msg');
+  if (!valid) {
+    msg.classList.remove('hidden');
+    if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } else {
+    msg.classList.add('hidden');
+  }
+  return valid;
+}
+
+// ---- Submit ----
+async function submitAll(skipEmail) {
+  const emailInput = document.getElementById('email-input');
+  const email = emailInput ? emailInput.value.trim() : '';
+  const consent1 = document.getElementById('consent-raport') && document.getElementById('consent-raport').checked;
+  const consent2 = document.getElementById('consent-newsletter') && document.getElementById('consent-newsletter').checked;
+
+  if (!skipEmail && email) {
+    const emailError = document.getElementById('email-error');
+    const consentError = document.getElementById('consent-error');
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailValid) {
+      emailError.classList.remove('hidden');
+      return;
+    } else {
+      emailError.classList.add('hidden');
+    }
+    if (!consent1) {
+      consentError.classList.remove('hidden');
+      return;
+    } else {
+      consentError.classList.add('hidden');
+    }
+  }
+
+  formData.timestamp = new Date().toISOString();
+  if (!skipEmail && email) {
+    formData.email = email;
+    formData.consent_raport = 'da';
+    formData.consent_newsletter = consent2 ? 'da' : 'nu';
+  } else {
+    formData.email = '';
+    formData.consent_raport = '';
+    formData.consent_newsletter = '';
+  }
+
+  const submitBtn = document.getElementById('btn-email-submit');
+  const skipBtn = document.getElementById('btn-skip-email');
+  if (submitBtn) submitBtn.disabled = true;
+  if (skipBtn) skipBtn.disabled = true;
+
+  // timeout 12s — no-cors poate atârna dacă rețeaua e jos
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 12000);
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify(formData),
+      signal: controller.signal
+    });
+    clearTimeout(timeout);
+  } catch (err) {
+    clearTimeout(timeout);
+    if (submitBtn) submitBtn.disabled = false;
+    if (skipBtn) skipBtn.disabled = false;
+    showScreen('error-screen');
+    return;
+  }
+
+  if (typeof gtag === 'function') gtag('event', 'survey_complete', { survey: 'romanian_state_of_ai_2026' });
+  clearProgress();
+  showScreen('thanks-screen');
+}
+
+function retrySubmit() {
+  document.getElementById('survey-progress').classList.remove('hidden');
+  document.getElementById('survey-nav').classList.remove('hidden');
+  showStep(currentStep);
+}
+
+// ---- Option handlers (pe `change`, nu pe `click` — evită double-toggle și
+//      lasă comportamentul nativ al label-ului să funcționeze cu tastatura) ----
+function setupOptionHandlers() {
+  // SINGLE (radio)
+  document.querySelectorAll('.options-list[data-type="single"]').forEach(list => {
+    list.querySelectorAll('input[type=radio]').forEach(input => {
+      input.addEventListener('change', function() {
+        list.querySelectorAll('.option-item').forEach(i => i.classList.remove('selected'));
+        if (this.checked) this.closest('.option-item').classList.add('selected');
+        list.closest('.survey-question').classList.remove('has-error');
+      });
+    });
+  });
+
+  // MULTI (checkbox), cu limită opțională data-max
+  document.querySelectorAll('.options-list[data-type="multi"]').forEach(list => {
+    const maxSel = list.dataset.max ? parseInt(list.dataset.max) : null;
+    list.querySelectorAll('input[type=checkbox]').forEach(input => {
+      input.addEventListener('change', function() {
+        if (this.checked && maxSel) {
+          const checkedCount = list.querySelectorAll('input:checked').length;
+          if (checkedCount > maxSel) {
+            // peste limită: revine la nebifat și arată mesajul
+            this.checked = false;
+            const msg = document.getElementById('t8-limit-msg');
+            if (msg) {
+              msg.classList.remove('hidden');
+              setTimeout(() => msg.classList.add('hidden'), 3000);
+            }
+            return;
+          }
+        }
+        this.closest('.option-item').classList.toggle('selected', this.checked);
+        list.closest('.survey-question').classList.remove('has-error');
+      });
+    });
+  });
+}
+
+function setupLikertHandlers() {
+  function selectRadio(row, radio) {
+    row.querySelectorAll('.likert-radio').forEach(r => {
+      r.classList.remove('selected');
+      r.setAttribute('aria-checked', 'false');
+    });
+    radio.classList.add('selected');
+    radio.setAttribute('aria-checked', 'true');
+    formData[row.dataset.key] = radio.dataset.val;
+    row.classList.remove('likert-row-error');
+    saveProgress();
+  }
+  document.querySelectorAll('.likert-row').forEach(row => {
+    const radios = [...row.querySelectorAll('.likert-radio')];
+    radios.forEach((radio, idx) => {
+      radio.addEventListener('click', () => selectRadio(row, radio));
+      radio.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectRadio(row, radio);
+        } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          const next = radios[Math.min(idx + 1, radios.length - 1)];
+          next.focus(); selectRadio(row, next);
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prev = radios[Math.max(idx - 1, 0)];
+          prev.focus(); selectRadio(row, prev);
+        }
+      });
+    });
+  });
+}
+
+function toggleConsent(id) {
+  const input = document.getElementById(id);
+  const check = document.getElementById(id + '-check');
+  const label = document.getElementById(id + '-label');
+  if (!input) return;
+  input.checked = !input.checked;
+  if (check) check.classList.toggle('checked', input.checked);
+  if (label) label.classList.toggle('checked', input.checked);
+  if (id === 'consent-raport') {
+    const err = document.getElementById('consent-error');
+    if (err && input.checked) err.classList.add('hidden');
+  }
+}
+
+// Hero start button
+document.addEventListener('DOMContentLoaded', function() {
+  setupOptionHandlers();
+  setupLikertHandlers();
+
+  // Restaurează progresul salvat (refresh accidental) fără să sară peste hero
+  const saved = loadProgress();
+  if (saved && saved.data) {
+    Object.assign(formData, saved.data);
+    const startStep = (typeof saved.step === 'number' && saved.step >= 0 && saved.step < TOTAL_STEPS) ? saved.step : 0;
+    showStep(startStep, true);
+    for (let i = 0; i <= startStep; i++) restoreStepData(i);
+  } else {
+    showStep(0, true);
+  }
+
+  let startedFired = false;
+  const heroBtn = document.getElementById('btn-hero-start');
+  if (heroBtn) {
+    heroBtn.addEventListener('click', function() {
+      if (!startedFired && typeof gtag === 'function') { gtag('event', 'survey_start', { survey: 'romanian_state_of_ai_2026' }); startedFired = true; }
+      document.getElementById('survey-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  // Email input: clear error on input
+  const emailInput = document.getElementById('email-input');
+  if (emailInput) {
+    emailInput.addEventListener('input', function() {
+      document.getElementById('email-error').classList.add('hidden');
+    });
+  }
+});
+  </script>
+</body>
+</html>
