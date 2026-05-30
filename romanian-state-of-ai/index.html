@@ -1018,6 +1018,10 @@
 
           <!-- EMAIL CAPTURE SCREEN -->
           <div class="survey-step hidden survey-email-screen" id="email-screen">
+            <!-- honeypot anti-spam: câmp ascuns; un om nu-l vede, boții îl completează -->
+            <div aria-hidden="true" style="position:absolute; left:-9999px; top:-9999px; width:1px; height:1px; overflow:hidden;">
+              <label>Website (lasă gol)<input type="text" id="hp-website" name="hp_website" tabindex="-1" autocomplete="off"></label>
+            </div>
             <h2 class="survey-screen-title">Primești raportul înaintea tuturor?</h2>
             <p class="survey-screen-subtitle">Lasă adresa de email și ești primul care îl primește în iulie. Răspunsul tău anonim se va salva când apeși butonul de mai jos.</p>
 
@@ -1130,8 +1134,16 @@ const STEP_TITLES = [
 ];
 
 const STORAGE_KEY = 'rsoai_2026_progress';
+const START_KEY = 'rsoai_2026_start_ts';
 let currentStep = 0;
 const formData = {};
+
+// ---- start timestamp (cursă de timp anti-bot); persistă la refresh ----
+let surveyStartTs = parseInt(localStorage.getItem(START_KEY) || '0', 10);
+if (!surveyStartTs) {
+  surveyStartTs = Date.now();
+  try { localStorage.setItem(START_KEY, String(surveyStartTs)); } catch (e) {}
+}
 
 // ---- localStorage (anti-pierdere date la refresh) ----
 function saveProgress() {
@@ -1145,7 +1157,7 @@ function loadProgress() {
   } catch (e) { return null; }
 }
 function clearProgress() {
-  try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+  try { localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(START_KEY); } catch (e) {}
 }
 
 // ---- Navigation ----
@@ -1343,6 +1355,10 @@ async function submitAll(skipEmail) {
   }
 
   formData.timestamp = new Date().toISOString();
+  // anti-spam: honeypot (gol = om) + timp scurs de la start (secunde)
+  const hpField = document.getElementById('hp-website');
+  formData.hp_website = hpField ? hpField.value : '';
+  formData.elapsed_s = Math.round((Date.now() - surveyStartTs) / 1000);
   if (!skipEmail && email) {
     formData.email = email;
     formData.consent_raport = 'da';
