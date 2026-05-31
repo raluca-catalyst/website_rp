@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="index, follow" />
+  <title>Capcanele Low-Agency — De ce echipa ta nu adoptă AI | Raluca Păduraru</title>
+  <meta name="description" content="Cinci capcane low-agency care explică de ce o echipă stă pe loc cu AI, chiar când toți spun că vor. Diagnostic gratuit: alege capcana și vezi ieșirea. Adaptat după George Mack." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:site_name" content="Raluca Păduraru" />
+  <meta property="og:title" content="Capcanele Low-Agency — De ce echipa ta nu adoptă AI" />
+  <meta property="og:description" content="Cinci tipare care explică de ce o echipă stă pe loc cu AI. Alege capcana în care ești și vezi ce te scoate din ea." />
+  <meta property="og:url" content="https://www.ralucapaduraru.ro/frameworks/capcane-low-agency/" />
+  <meta property="og:image" content="https://ralucapaduraru.ro/images/frameworks.jpg" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Capcanele Low-Agency — De ce echipa ta nu adoptă AI" />
+  <meta name="twitter:description" content="Cinci capcane care explică de ce o echipă stă pe loc cu AI. Alege capcana și vezi ieșirea." />
+  <meta name="twitter:image" content="https://ralucapaduraru.ro/images/frameworks.jpg" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.ralucapaduraru.ro/frameworks/capcane-low-agency/" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Barlow:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="../../css/style.css" />
+
+  <style>
+    /* Page-specific: capcane diagnostic cards */
+    .capcane-list { display: flex; flex-direction: column; gap: 16px; }
+    .capcana-card {
+      width: 100%;
+      text-align: left;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--lavender);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      transition: all var(--transition);
+      color: var(--text);
+      display: block;
+    }
+    .capcana-card:hover { background: rgba(167,139,250,0.06); border-left-color: var(--lavender-lt); }
+    .capcana-card.is-open { background: rgba(167,139,250,0.08); border-left-color: var(--lavender-lt); box-shadow: 0 0 22px rgba(124,58,237,0.18); }
+    .capcana-head { display: flex; align-items: baseline; gap: 14px; }
+    .capcana-nr { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--lavender); line-height: 1; flex-shrink: 0; }
+    .capcana-titlu { font-family: var(--font-mono); font-size: 1.05rem; margin: 0; color: var(--text); }
+    .capcana-manifestare { color: var(--text-sec); margin-top: 10px; font-style: italic; }
+    .capcana-iesire {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, margin-top 0.35s ease, opacity 0.35s ease;
+      opacity: 0; margin-top: 0;
+    }
+    .capcana-card.is-open .capcana-iesire { max-height: 240px; opacity: 1; margin-top: 18px; }
+    .iesire-label {
+      font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--lavender-lt); display: inline-flex; align-items: center; gap: 6px;
+    }
+    .iesire-text { color: var(--text); margin-top: 8px; }
+    .capcana-hint {
+      font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-muted); margin-top: 14px; display: block;
+    }
+    .capcana-card.is-open .capcana-hint { color: var(--lavender); }
+    .credit-sursa { font-size: 0.82rem; color: var(--text-muted); margin-top: 28px; }
+  </style>
+
+  <!-- 1. Google Consent Mode defaults (must be FIRST) -->
+  <script data-cookieconsent="ignore">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("consent", "default", {
+          ad_personalization: "denied",
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          analytics_storage: "denied",
+          functionality_storage: "denied",
+          personalization_storage: "denied",
+          security_storage: "granted",
+          wait_for_update: 500,
+      });
+      gtag("set", "ads_data_redaction", true);
+      gtag("set", "url_passthrough", false);
+  </script>
+
+  <!-- 2. Cookiebot CMP (must be SECOND) -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
+
+  <!-- 2b. Cookiebot → GA consent update -->
+  <script>
+    function updateGAConsent() {
+      if (typeof Cookiebot === 'undefined') return;
+      gtag('consent', 'update', {
+        ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+        functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+        personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+      });
+    }
+    window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+    window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+    window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+  </script>
+
+  <!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M4ET119Z1X');
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "name": "Capcanele Low-Agency — De ce echipa ta nu adoptă AI",
+        "description": "Cinci capcane low-agency care explică de ce o echipă stă pe loc cu AI. Diagnostic gratuit cu ieșirea pentru fiecare capcană.",
+        "author": {"@type": "Person", "name": "Raluca Păduraru", "url": "https://ralucapaduraru.ro"},
+        "publisher": {"@type": "Organization", "name": "Upvance Global", "url": "https://upvance.global"},
+        "inLanguage": "ro",
+        "url": "https://www.ralucapaduraru.ro/frameworks/capcane-low-agency/",
+        "hasPart": {
+          "@type": "ItemList",
+          "name": "Cele 5 capcane low-agency",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Capcana lipsei de claritate", "description": "Nu știm exact ce vrem de la AI. Soluție: definește problema concret, pe ce task specific ai da 45 de minute azi."},
+            {"@type": "ListItem", "position": 2, "name": "Capcana perfecționistului", "description": "Avem nevoie de o strategie completă înainte să testăm orice. Soluție: ce ar face cel mai puțin sofisticat om din echipă, începeți de acolo."},
+            {"@type": "ListItem", "position": 3, "name": "Capcana îndrăgostirii", "description": "Procesele noastre sunt speciale, am mers bine și fără AI. Soluție: dacă ai avea 10x agency pe problema asta, ce ai face diferit."},
+            {"@type": "ListItem", "position": 4, "name": "Capcana ruminației", "description": "Buclă de GDPR, securitate, dacă greșește, fără acțiune. Soluție: tratează primul test ca pe un experiment."},
+            {"@type": "ListItem", "position": 5, "name": "Capcana copleșirii", "description": "Nu știm de unde să începem cu AI, cel mai frecvent blocaj. Soluție: care e un singur task dintr-un singur workflow pe care îl testezi azi."}
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ralucapaduraru.ro/"},
+          {"@type": "ListItem", "position": 2, "name": "Frameworks", "item": "https://ralucapaduraru.ro/frameworks/"},
+          {"@type": "ListItem", "position": 3, "name": "Capcanele Low-Agency", "item": "https://www.ralucapaduraru.ro/frameworks/capcane-low-agency/"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="lang-ro">
+
+  <!-- ====================== NAVIGATION ====================== -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="../../index.html" class="nav-logo" aria-label="Raluca Păduraru home">
+        <img src="../../images/logo.png" alt="Raluca Păduraru" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../../index.html#services">Servicii</a></li>
+        <li><a href="/frameworks/" aria-current="page">Framework-uri</a></li>
+        <li><a href="../../about.html">Despre</a></li>
+        <li><a href="../../faq.html">FAQ</a></li>
+        <li><a href="../../impact.html">Impact</a></li>
+        <li><a href="../../reflectii.html">Reflecții</a></li>
+        <li><a href="../../contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="../../index.html#services">Servicii</a>
+    <a href="/frameworks/">Framework-uri</a>
+    <a href="../../about.html">Despre</a>
+    <a href="../../faq.html">FAQ</a>
+    <a href="../../impact.html">Impact</a>
+    <a href="../../reflectii.html">Reflecții</a>
+    <a href="../../contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+    <!-- ====================== PAGE HEADER ====================== -->
+    <header class="page-header">
+      <div class="container">
+        <div class="label">Instrument de diagnostic</div>
+        <h1>Capcanele Low-Agency</h1>
+        <p>
+          Cinci tipare care explică de ce o echipă stă pe loc cu AI, chiar când toți spun că vor. Identifică în ce capcană te regăsești și vezi ce te scoate din ea.
+        </p>
+      </div>
+    </header>
+
+    <!-- ====================== PROBLEMA ====================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div style="max-width:760px; margin:0 auto;">
+          <h2 style="margin-bottom:20px;">De ce stă echipa pe loc</h2>
+          <p style="margin-bottom:16px;">
+            Auzi aceeași frază în aproape orice organizație: „vrem să folosim AI, dar nu știm de unde să începem". Vorbești cu 10 companii și auzi 10 variante ale aceleiași propoziții.
+          </p>
+          <p style="margin-bottom:16px;">
+            De cele mai multe ori, blocajul stă în felul în care echipa se raportează la problemă. George Mack numește tiparul ăsta <strong>low agency</strong>: vezi clar ce ai de făcut, dar ceva te ține pe loc. Agency înseamnă discernământ plus acțiune, adică să vezi o opțiune și să o folosești.
+          </p>
+          <p>
+            Iată mai jos 5 capcane care îți țin echipa într-o zonă lipsită de agency. Se mapează surprinzător de bine pe echipele care se împotmolesc la AI.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CELE 5 CAPCANE (INTERACTIV) ====================== -->
+    <section class="section">
+      <div class="container">
+        <div style="max-width:760px; margin:0 auto;">
+          <div class="fade-up" style="margin-bottom:28px;">
+            <h2 style="margin-bottom:12px;">Cele cinci capcane</h2>
+            <p style="color:var(--text-sec);">
+              Citește-le pe toate, apoi apasă pe capcana în care e echipa ta acum, față de AI. Te gândești la echipă, nu la tine. Poți deschide mai multe, dacă te regăsești în mai multe.
+            </p>
+          </div>
+
+          <div class="capcane-list fade-up">
+
+            <button type="button" class="capcana-card" aria-expanded="false">
+              <div class="capcana-head">
+                <span class="capcana-nr">01</span>
+                <h3 class="capcana-titlu">Capcana lipsei de claritate</h3>
+              </div>
+              <p class="capcana-manifestare">„Nu știm exact ce vrem de la AI." Obiectivele rămân vagi și discuțiile se învârt în cerc.</p>
+              <span class="capcana-hint">Apasă pentru soluție</span>
+              <div class="capcana-iesire">
+                <span class="iesire-label">Soluția →</span>
+                <p class="iesire-text">Definește problema concret. Pe ce task specific ai da 45 de minute azi?</p>
+              </div>
+            </button>
+
+            <button type="button" class="capcana-card" aria-expanded="false">
+              <div class="capcana-head">
+                <span class="capcana-nr">02</span>
+                <h3 class="capcana-titlu">Capcana perfecționistului</h3>
+              </div>
+              <p class="capcana-manifestare">„Avem nevoie de o strategie completă înainte să testăm orice."</p>
+              <span class="capcana-hint">Apasă pentru soluție</span>
+              <div class="capcana-iesire">
+                <span class="iesire-label">Soluția →</span>
+                <p class="iesire-text">Ce ar face cel mai puțin sofisticat om din echipă? Începeți de acolo.</p>
+              </div>
+            </button>
+
+            <button type="button" class="capcana-card" aria-expanded="false">
+              <div class="capcana-head">
+                <span class="capcana-nr">03</span>
+                <h3 class="capcana-titlu">Capcana îndrăgostirii</h3>
+              </div>
+              <p class="capcana-manifestare">„Procesele noastre sunt speciale." „Am mers bine și fără AI."</p>
+              <span class="capcana-hint">Apasă pentru soluție</span>
+              <div class="capcana-iesire">
+                <span class="iesire-label">Soluția →</span>
+                <p class="iesire-text">Dacă ai avea 10x agency pe problema asta, ce ai face diferit?</p>
+              </div>
+            </button>
+
+            <button type="button" class="capcana-card" aria-expanded="false">
+              <div class="capcana-head">
+                <span class="capcana-nr">04</span>
+                <h3 class="capcana-titlu">Capcana ruminației</h3>
+              </div>
+              <p class="capcana-manifestare">Bucla de GDPR, securitate și „dacă greșește" se transformă în lipsă de acțiune.</p>
+              <span class="capcana-hint">Apasă pentru soluție</span>
+              <div class="capcana-iesire">
+                <span class="iesire-label">Soluția →</span>
+                <p class="iesire-text">Tratează primul test ca pe un experiment, nu ca pe o decizie finală.</p>
+              </div>
+            </button>
+
+            <button type="button" class="capcana-card" aria-expanded="false">
+              <div class="capcana-head">
+                <span class="capcana-nr">05</span>
+                <h3 class="capcana-titlu">Capcana copleșirii</h3>
+              </div>
+              <p class="capcana-manifestare">„Nu știm de unde să începem cu AI." E cel mai frecvent blocaj din teren.</p>
+              <span class="capcana-hint">Apasă pentru soluție</span>
+              <div class="capcana-iesire">
+                <span class="iesire-label">Soluția →</span>
+                <p class="iesire-text">Care e un singur task dintr-un singur workflow pe care îl testezi azi?</p>
+              </div>
+            </button>
+
+          </div>
+
+          <p class="credit-sursa">Adaptat după cele 5 capcane low-agency descrise de George Mack, highagency.com.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== INSIGHT ====================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div style="max-width:760px; margin:0 auto;">
+          <h2 style="margin-bottom:20px;">Ce-ți arată diagnosticul</h2>
+          <p style="margin-bottom:16px;">
+            Cele mai multe echipe se află într-una din aceste capcane, uneori în mai multe deodată. Fiecare are altă soluție, iar diagnosticul corect schimbă ce face liderul a doua zi.
+          </p>
+          <p>
+            Odată ce numești capcana, știi ce pârghie tragi.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== FOOTER CTA ====================== -->
+    <section class="footer-cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 id="cta-heading">Vrei să scoți echipa din capcană?</h2>
+        <p>
+          Framework-ul de mai sus îți arată unde e problema. Dacă vrei să o rezolvi, hai să discutăm despre cum putem s-o rezolvăm în cadrul unui workshop, lucrând pe task-urile voastre de zi cu zi.
+        </p>
+        <a href="../../contact.html" class="btn btn-primary">
+          Hai să vorbim
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="../../index.html" class="footer-logo">
+            <img src="../../images/logo.png" alt="Raluca Păduraru" />
+          </a>
+          <p class="footer-copy">© 2026 Raluca Păduraru. All rights reserved.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+          <a href="../../contact.html">Contact</a>
+          <a href="/privacy.html">Politică de confidențialitate</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    (function () {
+      var cards = document.querySelectorAll('.capcana-card');
+      cards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          var open = card.classList.toggle('is-open');
+          card.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
