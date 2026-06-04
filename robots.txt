@@ -1,27 +1,36 @@
 User-agent: *
 Allow: /
+Disallow: /assessment/
 Sitemap: https://ralucapaduraru.ro/sitemap.xml
 
 User-agent: GPTBot
 Allow: /
+Disallow: /assessment/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /assessment/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /assessment/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /assessment/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /assessment/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /assessment/
 
 User-agent: Bytespider
 Allow: /
+Disallow: /assessment/
 
 User-agent: Meta-ExternalFetcher
 Allow: /
+Disallow: /assessment/

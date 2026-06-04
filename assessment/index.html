@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>AI Readiness Assessment — Raluca Păduraru</title>
+  <meta name="description" content="Assessment pre-workshop. Răspunsurile construiesc direct exercițiile și use-case-urile sesiunii." />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- Cookiebot + GA -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+      ad_personalization: "denied", ad_storage: "denied",
+      ad_user_data: "denied", analytics_storage: "denied",
+      functionality_storage: "denied", personalization_storage: "denied",
+      security_storage: "granted", wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+  </script>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript"></script>
+  <script>
+    function updateGAConsent() {
+      if (typeof Cookiebot === 'undefined') return;
+      gtag('consent', 'update', {
+        ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+        functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+        personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+      });
+    }
+    window.addEventListener('CookiebotOnAccept', updateGAConsent, false);
+    window.addEventListener('CookiebotOnDecline', updateGAConsent, false);
+    window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M4ET119Z1X');
+  </script>
+
+  <style>
+    .hidden { display: none !important; }
+
+    /* Wrapper */
+    .survey-wrapper { max-width: 720px; margin: 0 auto; }
+
+    /* Hero confidentiality note */
+    .hero-privacy {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      max-width: 640px;
+    }
+
+    /* Progress */
+    .survey-progress { margin-bottom: 2rem; }
+    .survey-progress-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      margin-bottom: 0.6rem;
+    }
+    .survey-progress-bar {
+      height: 4px;
+      background: rgba(167,139,250,0.15);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .survey-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--lavender-dk), var(--lavender));
+      border-radius: 2px;
+      transition: width 0.4s ease;
+    }
+
+    /* Validation message */
+    .survey-validation-msg {
+      background: rgba(239,68,68,0.12);
+      border: 1px solid rgba(239,68,68,0.35);
+      border-radius: 8px;
+      color: #fca5a5;
+      font-size: 0.85rem;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Step container */
+    .survey-step { animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    .survey-step-title {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Question */
+    .survey-question { margin-bottom: 2rem; }
+    .survey-question-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+    .survey-question-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Error state */
+    .survey-question.has-error .survey-question-text { color: #fca5a5; }
+    .survey-question.has-error .options-list {
+      outline: 1px solid rgba(239,68,68,0.5);
+      border-radius: 8px;
+      padding: 4px;
+    }
+    .survey-question.has-error .survey-input { border-color: rgba(239,68,68,0.6); }
+
+    /* Options list (SINGLE + MULTI) */
+    .options-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .option-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      font-size: 0.9rem;
+      color: var(--text-sec);
+      user-select: none;
+    }
+    .option-item:hover {
+      border-color: rgba(167,139,250,0.4);
+      color: var(--text);
+      background: rgba(167,139,250,0.04);
+    }
+    .option-item input[type=radio],
+    .option-item input[type=checkbox] {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .option-item:focus-within {
+      border-color: var(--lavender);
+      outline: 2px solid var(--lavender);
+      outline-offset: 2px;
+    }
+    .option-dot {
+      width: 16px; height: 16px;
+      min-width: 16px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(167,139,250,0.4);
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .option-check {
+      width: 16px; height: 16px;
+      min-width: 16px;
+      border-radius: 4px;
+      border: 1.5px solid rgba(167,139,250,0.4);
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .option-item.selected {
+      border-color: var(--lavender);
+      background: rgba(167,139,250,0.08);
+      color: var(--text);
+    }
+    .option-item.selected .option-dot {
+      background: var(--lavender);
+      border-color: var(--lavender);
+      box-shadow: 0 0 8px rgba(167,139,250,0.5);
+    }
+    .option-item.selected .option-check {
+      background: var(--lavender-dk);
+      border-color: var(--lavender);
+      box-shadow: 0 0 8px rgba(167,139,250,0.4);
+    }
+    .option-item.selected .option-check::after {
+      content: '';
+      display: block;
+      width: 8px; height: 5px;
+      border-left: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      transform: rotate(-45deg) translateY(-1px);
+    }
+
+    /* Text inputs / textarea / select */
+    .survey-input {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .survey-input:focus { border-color: var(--lavender); }
+    .survey-input::placeholder { color: var(--text-muted); }
+    textarea.survey-input { resize: vertical; min-height: 96px; line-height: 1.5; }
+    textarea.survey-input:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      background: rgba(255,255,255,0.02);
+    }
+    select.survey-input {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a78bfa' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    select.survey-input option { background: var(--bg-mid); color: var(--text); }
+
+    /* Field note (C1 confidentiality) */
+    .field-note {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* "Altul" reveal input */
+    .altul-input { margin-top: 0.6rem; }
+
+    /* OPEN footer (char counter) */
+    .open-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.4rem;
+    }
+    .char-counter {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    .char-counter.ok { color: var(--lavender); }
+
+    /* Escape checkbox (reuse consent pattern) */
+    .escape-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.85rem;
+      font-size: 0.83rem;
+      color: var(--text-sec);
+      cursor: pointer;
+      user-select: none;
+    }
+    .escape-toggle input[type=checkbox] {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .escape-toggle:focus-within .consent-check {
+      outline: 2px solid var(--lavender);
+      outline-offset: 2px;
+    }
+    .consent-check {
+      width: 18px; height: 18px;
+      min-width: 18px;
+      border-radius: 4px;
+      border: 1.5px solid rgba(167,139,250,0.4);
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .escape-toggle.checked .consent-check {
+      background: var(--lavender-dk);
+      border-color: var(--lavender);
+    }
+    .escape-toggle.checked .consent-check::after {
+      content: '';
+      display: block;
+      width: 9px; height: 5px;
+      border-left: 1.5px solid #fff;
+      border-bottom: 1.5px solid #fff;
+      transform: rotate(-45deg) translateY(-1px);
+    }
+
+    /* Sub-question (conditional reveal) */
+    .reveal {
+      margin-top: 1rem;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--border);
+    }
+
+    /* Navigation */
+    .survey-nav {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      justify-content: flex-end;
+    }
+    @media (max-width: 480px) {
+      .survey-nav { flex-direction: column-reverse; }
+      .survey-nav .btn { width: 100%; justify-content: center; }
+    }
+
+    /* Result screens */
+    .survey-thanks-screen,
+    .survey-error-screen { text-align: center; padding: 2rem 0; }
+    .survey-screen-title {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .survey-screen-subtitle {
+      color: var(--text-sec);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .survey-thanks-icon {
+      width: 56px; height: 56px;
+      background: rgba(167,139,250,0.1);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="Raluca Păduraru home">
+        <img src="../images/logo.png" alt="Raluca Păduraru" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../index.html#services">Servicii</a></li>
+        <li><a href="/frameworks/">Framework-uri</a></li>
+        <li><a href="../about.html">Despre</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../impact.html">Impact</a></li>
+        <li><a href="../reflectii.html">Reflecții</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="../contact.html" class="nav-cta">Hai să vorbim</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="../index.html#services">Servicii</a>
+    <a href="/frameworks/">Framework-uri</a>
+    <a href="../about.html">Despre</a>
+    <a href="../faq.html">FAQ</a>
+    <a href="../impact.html">Impact</a>
+    <a href="../reflectii.html">Reflecții</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="page-header">
+      <div class="container">
+        <div class="label">Pre-workshop · Assessment</div>
+        <h1>AI Readiness Assessment</h1>
+        <p>Înainte de workshop, ajută-ne să-l construim pe nevoile tale reale.<br>
+        Durează 12-15 minute. Răspunsurile tale ne ajută să adaptăm exercițiile și use-case-urile din sesiune. Cu cât ești mai concret, cu atât workshopul va fi mai util pentru tine.</p>
+        <p class="hero-privacy">Răspunsurile tale sunt folosite exclusiv pentru a personaliza workshopul. Nu sunt publicate și nu sunt distribuite.</p>
+        <button class="btn btn-primary" id="btn-hero-start" style="margin-top:1.5rem;">
+          Începe
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- SURVEY CONTAINER -->
+    <section class="section" id="survey-section">
+      <div class="container">
+        <div class="survey-wrapper" id="survey-wrapper">
+
+          <div class="survey-progress" id="survey-progress">
+            <div class="survey-progress-label" id="progress-label">Pas 1 din 5 — Context &amp; rol</div>
+            <div class="survey-progress-bar">
+              <div class="survey-progress-fill" id="progress-fill" style="width:0%"></div>
+            </div>
+          </div>
+
+          <div class="survey-validation-msg hidden" id="validation-msg" role="alert" aria-live="assertive">
+            Te rugăm să răspunzi la toate întrebările înainte să continui.
+          </div>
+
+          <!-- STEP 0 — Pasul 1: Context & rol -->
+          <div class="survey-step" id="step-0">
+            <h2 class="survey-step-title">Câteva detalii despre tine și rolul tău</h2>
+
+            <div class="survey-question" id="q-C1">
+              <p class="survey-question-text">Numele și prenumele tău:</p>
+              <input type="text" class="survey-input" data-key="C1_nume" data-required="1" placeholder="Ex: Andrei Popescu" autocomplete="name" />
+              <p class="field-note">Numele tău e folosit exclusiv pentru a personaliza workshopul, răspunsurile tale nu vor fi făcute publice.</p>
+            </div>
+
+            <div class="survey-question" id="q-C2">
+              <p class="survey-question-text">În ce departament/zonă lucrezi?</p>
+              <select class="survey-input" data-key="C2_departament" data-required="1" data-altul-key="C2_departament_altul">
+                <option value="">Alege…</option>
+                <option>Vânzări</option>
+                <option>Marketing &amp; Comunicare</option>
+                <option>HR &amp; People</option>
+                <option>Finanțe &amp; Contabilitate</option>
+                <option>Operațiuni</option>
+                <option>IT &amp; Tehnic</option>
+                <option>Juridic &amp; Compliance</option>
+                <option>Customer Support / Relații clienți</option>
+                <option>Management &amp; Leadership</option>
+                <option>Producție</option>
+                <option>Achiziții &amp; Logistică</option>
+                <option>Altul</option>
+              </select>
+              <input type="text" class="survey-input altul-input hidden" data-key="C2_departament_altul" placeholder="Care departament?" />
+            </div>
+
+            <div class="survey-question" id="q-C3">
+              <p class="survey-question-text">Coordonezi o echipă?</p>
+              <div class="options-list" data-type="single" data-key="C3_coordonare" data-required="1">
+                <label class="option-item"><input type="radio" name="C3" value="Da, coordonez o echipă"><span class="option-dot"></span>Da, coordonez o echipă</label>
+                <label class="option-item"><input type="radio" name="C3" value="Nu, sunt într-un rol individual"><span class="option-dot"></span>Nu, sunt într-un rol individual</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-C4">
+              <p class="survey-question-text">Ce obiective sunt importante pentru tine în rolul tău? La ce ești măsurat/ă, ce trebuie să livrezi?</p>
+              <div class="survey-open" data-key="C4_obiective" data-min="50">
+                <textarea class="survey-input" rows="3" placeholder="Scrie liber…"></textarea>
+                <div class="open-footer"><span class="char-counter">0 / 50</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 1 — Pasul 2: Stack & acces -->
+          <div class="survey-step hidden" id="step-1">
+            <h2 class="survey-step-title">Ce instrumente AI ai la dispoziție</h2>
+
+            <div class="survey-question" id="q-S1">
+              <p class="survey-question-text">Ce instrumente AI ai la dispoziție la muncă?</p>
+              <p class="survey-question-note">Bifează tot ce se aplică.</p>
+              <div class="options-list" data-type="multi" data-key="S1_instrumente" data-required="1" data-altul-key="S1_altul">
+                <label class="option-item"><input type="checkbox" value="Microsoft Copilot"><span class="option-check"></span>Microsoft Copilot</label>
+                <label class="option-item"><input type="checkbox" value="ChatGPT (OpenAI)"><span class="option-check"></span>ChatGPT (OpenAI)</label>
+                <label class="option-item"><input type="checkbox" value="Claude (Anthropic)"><span class="option-check"></span>Claude (Anthropic)</label>
+                <label class="option-item"><input type="checkbox" value="Google Gemini"><span class="option-check"></span>Google Gemini</label>
+                <label class="option-item"><input type="checkbox" value="Perplexity"><span class="option-check"></span>Perplexity</label>
+                <label class="option-item"><input type="checkbox" value="NotebookLM"><span class="option-check"></span>NotebookLM</label>
+                <label class="option-item"><input type="checkbox" value="Altul" data-altul="1"><span class="option-check"></span>Altul</label>
+                <label class="option-item"><input type="checkbox" value="Niciunul" data-exclusive="1"><span class="option-check"></span>Niciunul</label>
+                <label class="option-item"><input type="checkbox" value="Nu știu" data-exclusive="1"><span class="option-check"></span>Nu știu</label>
+              </div>
+              <input type="text" class="survey-input altul-input hidden" data-key="S1_altul" placeholder="Care instrument?" />
+            </div>
+
+            <!-- S2: per-tool account type, generated dynamically -->
+            <div id="s2-container"></div>
+
+            <div class="survey-question" id="q-S3">
+              <p class="survey-question-text">Ce funcționalități AI ai disponibile la muncă?</p>
+              <p class="survey-question-note">Bifează toate funcționalitățile aplicabile.</p>
+              <div class="options-list" data-type="multi" data-key="S3_functii" data-required="1">
+                <label class="option-item"><input type="checkbox" value="Asistent în chat (browser sau aplicație separată)"><span class="option-check"></span>Asistent în chat (browser sau aplicație separată)</label>
+                <label class="option-item"><input type="checkbox" value="Integrat în Microsoft Office (Word, Excel, PowerPoint, Outlook)"><span class="option-check"></span>Integrat în Microsoft Office (Word, Excel, PowerPoint, Outlook)</label>
+                <label class="option-item"><input type="checkbox" value="Integrat în Google Workspace (Docs, Sheets, Gmail)"><span class="option-check"></span>Integrat în Google Workspace (Docs, Sheets, Gmail)</label>
+                <label class="option-item"><input type="checkbox" value="Agenți care execută task-uri autonome"><span class="option-check"></span>Agenți care execută task-uri autonome</label>
+                <label class="option-item"><input type="checkbox" value="Copilot Studio / agent builder"><span class="option-check"></span>Copilot Studio / agent builder</label>
+                <label class="option-item"><input type="checkbox" value="Proiecte sau GPT-uri custom"><span class="option-check"></span>Proiecte sau GPT-uri custom</label>
+                <label class="option-item"><input type="checkbox" value="Nu știu" data-exclusive="1"><span class="option-check"></span>Nu știu</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2 — Pasul 3: Nivel real -->
+          <div class="survey-step hidden" id="step-2">
+            <h2 class="survey-step-title">Cât de adânc mergi cu AI</h2>
+
+            <div class="survey-question" id="q-N1">
+              <p class="survey-question-text">Cât de des folosești AI în munca ta?</p>
+              <div class="options-list" data-type="single" data-key="N1_frecventa" data-required="1">
+                <label class="option-item"><input type="radio" name="N1" value="Niciodată"><span class="option-dot"></span>Niciodată</label>
+                <label class="option-item"><input type="radio" name="N1" value="Ocazional (de câteva ori pe lună)"><span class="option-dot"></span>Ocazional (de câteva ori pe lună)</label>
+                <label class="option-item"><input type="radio" name="N1" value="Săptămânal"><span class="option-dot"></span>Săptămânal</label>
+                <label class="option-item"><input type="radio" name="N1" value="Zilnic"><span class="option-dot"></span>Zilnic</label>
+                <label class="option-item"><input type="radio" name="N1" value="Zilnic, integrat în mai multe fluxuri de lucru"><span class="option-dot"></span>Zilnic, integrat în mai multe fluxuri de lucru</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-N2">
+              <p class="survey-question-text">Ai un exemplu concret de timp economisit cu AI în ultima lună?</p>
+              <div class="options-list" data-type="single" data-key="N2_timp_economisit" data-required="1">
+                <label class="option-item"><input type="radio" name="N2" value="Nu"><span class="option-dot"></span>Nu</label>
+                <label class="option-item"><input type="radio" name="N2" value="Da, o dată (ad-hoc)"><span class="option-dot"></span>Da, o dată (ad-hoc)</label>
+                <label class="option-item"><input type="radio" name="N2" value="Da, repetat (mai multe task-uri)"><span class="option-dot"></span>Da, repetat (mai multe task-uri)</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-N3">
+              <p class="survey-question-text">Ai un workflow repetabil în care AI e un pas standard?</p>
+              <div class="options-list" data-type="single" data-key="N3_workflow" data-required="1">
+                <label class="option-item"><input type="radio" name="N3" value="Da"><span class="option-dot"></span>Da</label>
+                <label class="option-item"><input type="radio" name="N3" value="Nu"><span class="option-dot"></span>Nu</label>
+              </div>
+              <div class="survey-question reveal hidden" data-reveal-control="N3_workflow" data-reveal-val="Da">
+                <p class="survey-question-text">Descrie-l pe scurt:</p>
+                <div class="survey-open" data-key="N3_workflow_descriere" data-min="50">
+                  <textarea class="survey-input" rows="3" placeholder="Scrie liber…"></textarea>
+                  <div class="open-footer"><span class="char-counter">0 / 50</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-N4">
+              <p class="survey-question-text">Ai arătat cuiva din echipă cum faci ceva cu AI?</p>
+              <div class="options-list" data-type="single" data-key="N4_aratat" data-required="1">
+                <label class="option-item"><input type="radio" name="N4" value="Da"><span class="option-dot"></span>Da</label>
+                <label class="option-item"><input type="radio" name="N4" value="Nu"><span class="option-dot"></span>Nu</label>
+              </div>
+              <div class="survey-question reveal hidden" data-reveal-control="N4_aratat" data-reveal-val="Da">
+                <p class="survey-question-text">Ce anume i-ai arătat?</p>
+                <div class="survey-open" data-key="N4_aratat_ce" data-min="50">
+                  <textarea class="survey-input" rows="3" placeholder="Scrie liber…"></textarea>
+                  <div class="open-footer"><span class="char-counter">0 / 50</span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-N5">
+              <p class="survey-question-text">Unde te plasezi acum în relația cu AI?</p>
+              <div class="options-list" data-type="single" data-key="N5_nivel_autoeval" data-required="1">
+                <label class="option-item"><input type="radio" name="N5" value="Explorator: încerc AI ocazional, fără un fir clar"><span class="option-dot"></span>Explorator: încerc AI ocazional, fără un fir clar</label>
+                <label class="option-item"><input type="radio" name="N5" value="Practician: am 2-3 fluxuri în care AI mă ajută constant"><span class="option-dot"></span>Practician: am 2-3 fluxuri în care AI mă ajută constant</label>
+                <label class="option-item"><input type="radio" name="N5" value="Arhitect: construiesc fluxuri/sisteme cu AI și îi învăț pe alții"><span class="option-dot"></span>Arhitect: construiesc fluxuri/sisteme cu AI și îi învăț pe alții</label>
+                <label class="option-item"><input type="radio" name="N5" value="Catalizator: iau decizii despre cum folosește organizația AI (guvernanță, ROI)"><span class="option-dot"></span>Catalizator: iau decizii despre cum folosește organizația AI (guvernanță, ROI)</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-N6">
+              <p class="survey-question-text">Care e diferența dintre un asistent AI și un agent AI?</p>
+              <div class="options-list" data-type="single" data-key="N6_agent_vs_asistent" data-required="1">
+                <label class="option-item"><input type="radio" name="N6" value="Asistentul răspunde la cereri punctuale; agentul duce singur o sarcină la capăt, în mai mulți pași."><span class="option-dot"></span>Asistentul răspunde la cereri punctuale; agentul duce singur o sarcină la capăt, în mai mulți pași.</label>
+                <label class="option-item"><input type="radio" name="N6" value="Sunt același lucru, doar denumiri diferite folosite de companii diferite."><span class="option-dot"></span>Sunt același lucru, doar denumiri diferite folosite de companii diferite.</label>
+                <label class="option-item"><input type="radio" name="N6" value="Asistentul e versiunea gratuită, agentul e versiunea plătită / enterprise."><span class="option-dot"></span>Asistentul e versiunea gratuită, agentul e versiunea plătită / enterprise.</label>
+                <label class="option-item"><input type="radio" name="N6" value="Nu știu"><span class="option-dot"></span>Nu știu</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3 — Pasul 4: Pain points & use-cases -->
+          <div class="survey-step hidden" id="step-3">
+            <h2 class="survey-step-title">Cum arată munca ta, concret</h2>
+
+            <div class="survey-question" id="q-P1">
+              <p class="survey-question-text">Descrie un task sau proiect recurent pe care îl faci cel puțin o dată pe săptămână. Acoperă toate etapele, de la primirea cererii până la livrare. Care sunt pașii? Ce documente creezi sau modifici în fiecare pas? În ce aplicații lucrezi?</p>
+              <div class="survey-open" data-key="P1_proces" data-min="60">
+                <textarea class="survey-input" rows="5" placeholder="Scrie liber…"></textarea>
+                <div class="open-footer"><span class="char-counter">0 / 60</span></div>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-P2">
+              <p class="survey-question-text">În procesul de mai sus, ce pas/pași durează mai mult decât ar trebui? Ce faci manual acolo și de ce n-ai automatizat deja?</p>
+              <div class="survey-open" data-key="P2_timp_pierdut" data-min="60">
+                <textarea class="survey-input" rows="4" placeholder="Scrie liber…"></textarea>
+                <div class="open-footer"><span class="char-counter">0 / 60</span></div>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-P3">
+              <p class="survey-question-text">Descrie cel mai recent moment în care ai cerut ceva unui AI și ai primit altceva decât îți trebuia. Ce ai cerut (cu cuvintele tale exacte)? Ce ai primit? Ce ar fi trebuit să primești?</p>
+              <div class="survey-open" data-key="P3_fail" data-min="60" data-escape-key="P3_nefolosit">
+                <textarea class="survey-input" rows="4" placeholder="Scrie liber…"></textarea>
+                <div class="open-footer"><span class="char-counter">0 / 60</span></div>
+                <label class="escape-toggle"><input type="checkbox"><span class="consent-check"></span>Nu am folosit încă AI</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-P4">
+              <p class="survey-question-text">Ce documente produci cel mai des (raport de status, minută, brief, risk log etc.)? Descrie structura: ce secțiuni sau coloane au și la ce servesc.</p>
+              <div class="survey-open" data-key="P4_documente" data-min="50">
+                <textarea class="survey-input" rows="4" placeholder="Scrie liber…"></textarea>
+                <div class="open-footer"><span class="char-counter">0 / 50</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4 — Pasul 5: Succes -->
+          <div class="survey-step hidden" id="step-4">
+            <h2 class="survey-step-title">Ce vrei să iei cu tine</h2>
+
+            <div class="survey-question" id="q-F1">
+              <p class="survey-question-text">Dacă la finalul workshopului pleci cu un singur skill nou pe care îl poți aplica a doua zi, care ar fi? Descrie concret: ce task, cu ce input, cu ce output vrei să iasă.</p>
+              <div class="survey-open" data-key="F1_succes" data-min="50">
+                <textarea class="survey-input" rows="4" placeholder="Scrie liber…"></textarea>
+                <div class="open-footer"><span class="char-counter">0 / 50</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- THANK YOU -->
+          <div class="survey-step hidden survey-thanks-screen" id="thanks-screen">
+            <div class="survey-thanks-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h2 class="survey-screen-title">Mulțumim!</h2>
+            <p class="survey-screen-subtitle">Răspunsul tău a fost înregistrat.<br><br>
+            Ce ai scris aici contribuie direct la construcția exercițiilor și use-case-urilor din workshop. Ne vedem în sală.</p>
+            <a href="../index.html" class="btn btn-outline">← Înapoi la site</a>
+          </div>
+
+          <!-- ERROR -->
+          <div class="survey-step hidden survey-error-screen" id="error-screen">
+            <h2 class="survey-screen-title">Ceva nu a funcționat.</h2>
+            <p class="survey-screen-subtitle">Te rugăm să încerci din nou.</p>
+            <button class="btn btn-primary" onclick="retrySubmit()">Încearcă din nou</button>
+          </div>
+
+          <!-- Navigation buttons -->
+          <div class="survey-nav" id="survey-nav">
+            <button class="btn btn-outline" id="btn-prev" onclick="goPrev()" style="display:none;">
+              ← Înapoi
+            </button>
+            <button class="btn btn-primary" id="btn-next" onclick="goNext()">
+              Continuă
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+        </div><!-- /survey-wrapper -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="../index.html" class="footer-logo">
+            <img src="../images/logo.png" alt="Raluca Păduraru" />
+          </a>
+          <p class="footer-copy">© 2026 Raluca Păduraru. All rights reserved.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+          <a href="../contact.html">Contact</a>
+          <a href="/privacy.html">Politică de confidențialitate</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLp_wOk72d93IbCSlL6UycfDxqrZNDMUwwVqLB6HSsBs0ymTB935WSsqBTJ2ghB9WF/exec';
+
+const TOTAL_STEPS = 5;
+const STEP_TITLES = ['Context & rol', 'Stack & acces', 'Nivel real', 'Pain points', 'Succes'];
+
+// Toate cheile, în ordine, ca să trimitem JSON complet (condiționalele goale = "").
+const ALL_KEYS = [
+  'C1_nume', 'C2_departament', 'C2_departament_altul', 'C3_coordonare', 'C4_obiective',
+  'S1_instrumente', 'S1_altul',
+  'S2_cont_copilot', 'S2_cont_chatgpt', 'S2_cont_claude', 'S2_cont_gemini', 'S2_cont_perplexity', 'S2_cont_notebooklm', 'S2_cont_altul',
+  'S3_functii',
+  'N1_frecventa', 'N2_timp_economisit', 'N3_workflow', 'N3_workflow_descriere', 'N4_aratat', 'N4_aratat_ce', 'N5_nivel_autoeval', 'N6_agent_vs_asistent',
+  'P1_proces', 'P2_timp_pierdut', 'P3_fail', 'P3_nefolosit', 'P4_documente',
+  'F1_succes'
+];
+
+// S1 value -> S2 key suffix. Niciunul / Nu știu nu declanșează S2.
+const TOOL_KEY = {
+  'Microsoft Copilot': 'S2_cont_copilot',
+  'ChatGPT (OpenAI)': 'S2_cont_chatgpt',
+  'Claude (Anthropic)': 'S2_cont_claude',
+  'Google Gemini': 'S2_cont_gemini',
+  'Perplexity': 'S2_cont_perplexity',
+  'NotebookLM': 'S2_cont_notebooklm',
+  'Altul': 'S2_cont_altul'
+};
+const ACCOUNT_OPTIONS = ['Gratuit', 'Pro / Plus (plătit individual)', 'Team', 'Business', 'Enterprise', 'Nu știu'];
+
+let currentStep = 0;
+const formData = {};
+
+// ---- Navigation ----
+function showStep(n, skipScroll) {
+  document.querySelectorAll('.survey-step').forEach(s => s.classList.add('hidden'));
+  document.getElementById('step-' + n).classList.remove('hidden');
+  currentStep = n;
+  updateProgress();
+  updateNavButtons();
+  if (!skipScroll) {
+    const sec = document.getElementById('survey-section');
+    if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.survey-step').forEach(s => s.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  document.getElementById('survey-progress').classList.add('hidden');
+  document.getElementById('survey-nav').classList.add('hidden');
+  const sec = document.getElementById('survey-section');
+  if (sec) sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updateProgress() {
+  const pct = Math.round(((currentStep + 1) / TOTAL_STEPS) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent =
+    'Pas ' + (currentStep + 1) + ' din ' + TOTAL_STEPS + ' — ' + STEP_TITLES[currentStep];
+}
+
+function updateNavButtons() {
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  btnPrev.style.display = currentStep === 0 ? 'none' : '';
+  const arrow = ' <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  btnNext.innerHTML = (currentStep === TOTAL_STEPS - 1 ? 'Trimite răspunsul' : 'Continuă') + arrow;
+}
+
+function goNext() {
+  if (!validateStep(currentStep)) return;
+  if (currentStep < TOTAL_STEPS - 1) {
+    showStep(currentStep + 1);
+  } else {
+    submitAll();
+  }
+}
+
+function goPrev() {
+  document.getElementById('validation-msg').classList.add('hidden');
+  showStep(currentStep - 1);
+}
+
+// ---- Validation ----
+function clearErrors(step) {
+  step.querySelectorAll('.survey-question.has-error').forEach(q => q.classList.remove('has-error'));
+  document.getElementById('validation-msg').classList.add('hidden');
+}
+
+function isQuestionVisible(q) {
+  // exclude questions inside a hidden reveal block
+  const reveal = q.closest('.reveal');
+  if (reveal && reveal.classList.contains('hidden')) return false;
+  return true;
+}
+
+function validateStep(stepIndex) {
+  const step = document.getElementById('step-' + stepIndex);
+  clearErrors(step);
+  let firstError = null;
+
+  step.querySelectorAll('.survey-question').forEach(q => {
+    if (!isQuestionVisible(q)) return;
+
+    let ok = true;
+
+    // SINGLE / MULTI
+    const list = q.querySelector(':scope > .options-list[data-required]');
+    if (list) {
+      const inputs = list.querySelectorAll('input:checked');
+      if (inputs.length === 0) ok = false;
+      // "Altul" bifat -> textul e obligatoriu
+      const altulKey = list.dataset.altulKey;
+      if (ok && altulKey) {
+        const altSel = [...inputs].some(i => i.dataset.altul);
+        if (altSel) {
+          const altInput = q.querySelector('.altul-input[data-key="' + altulKey + '"]');
+          if (altInput && altInput.value.trim() === '') ok = false;
+        }
+      }
+    }
+
+    // DROPDOWN
+    const sel = q.querySelector(':scope > select[data-required]');
+    if (sel) {
+      if (sel.value === '') ok = false;
+      const altulKey = sel.dataset.altulKey;
+      if (ok && altulKey && sel.value === 'Altul') {
+        const altInput = q.querySelector('.altul-input[data-key="' + altulKey + '"]');
+        if (altInput && altInput.value.trim() === '') ok = false;
+      }
+    }
+
+    // OPEN (textarea + optional escape)
+    const open = q.querySelector(':scope > .survey-open') || (q.classList.contains('reveal') ? q.querySelector('.survey-open') : null);
+    if (open) {
+      const min = parseInt(open.dataset.min || '0', 10);
+      const escKey = open.dataset.escapeKey;
+      const escChecked = escKey && open.querySelector('.escape-toggle input').checked;
+      const ta = open.querySelector('textarea');
+      if (!escChecked && ta.value.trim().length < min) ok = false;
+    }
+
+    if (!ok) {
+      q.classList.add('has-error');
+      if (!firstError) firstError = q;
+    }
+  });
+
+  if (firstError) {
+    document.getElementById('validation-msg').classList.remove('hidden');
+    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return false;
+  }
+  return true;
+}
+
+// ---- Conditional reveals ----
+function updateReveals(step) {
+  step.querySelectorAll('.reveal').forEach(rev => {
+    const ctrlKey = rev.dataset.revealControl;
+    const wantVal = rev.dataset.revealVal;
+    const ctrlList = step.querySelector('.options-list[data-key="' + ctrlKey + '"]');
+    const checked = ctrlList ? ctrlList.querySelector('input:checked') : null;
+    const match = checked && checked.value === wantVal;
+    rev.classList.toggle('hidden', !match);
+    if (!match) {
+      // clear hidden reveal inputs
+      rev.querySelectorAll('textarea').forEach(t => { t.value = ''; });
+      rev.querySelectorAll('.char-counter').forEach(c => { updateCounter(c.closest('.survey-open')); });
+    }
+  });
+}
+
+// ---- S2 dynamic per-tool blocks ----
+function buildS2() {
+  const container = document.getElementById('s2-container');
+  const s1List = document.querySelector('.options-list[data-key="S1_instrumente"]');
+  const selected = [...s1List.querySelectorAll('input:checked')]
+    .map(i => i.value)
+    .filter(v => TOOL_KEY[v]); // doar tool-urile reale (exclude Niciunul / Nu știu)
+
+  // preserve current selections
+  const existing = {};
+  container.querySelectorAll('.options-list[data-type="single"]').forEach(list => {
+    const c = list.querySelector('input:checked');
+    if (c) existing[list.dataset.key] = c.value;
+  });
+
+  container.innerHTML = '';
+  selected.forEach(tool => {
+    const key = TOOL_KEY[tool];
+    let label = tool;
+    if (tool === 'Altul') {
+      const altTxt = (document.querySelector('.altul-input[data-key="S1_altul"]').value || '').trim();
+      label = altTxt || 'celălalt instrument';
+    }
+    const prev = existing[key] || '';
+    const opts = ACCOUNT_OPTIONS.map(o =>
+      '<label class="option-item' + (o === prev ? ' selected' : '') + '"><input type="radio" name="' + key + '" value="' + escapeAttr(o) + '"' + (o === prev ? ' checked' : '') + '><span class="option-dot"></span>' + escapeHtml(o) + '</label>'
+    ).join('');
+    const block = document.createElement('div');
+    block.className = 'survey-question';
+    block.innerHTML =
+      '<p class="survey-question-text">Ce tip de cont <strong>' + escapeHtml(label) + '</strong> folosești?</p>' +
+      '<div class="options-list" data-type="single" data-key="' + key + '" data-required="1">' + opts + '</div>';
+    container.appendChild(block);
+  });
+}
+
+function escapeHtml(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function escapeAttr(s) { return escapeHtml(s).replace(/"/g, '&quot;'); }
+
+// ---- Char counter ----
+function updateCounter(open) {
+  if (!open) return;
+  const counter = open.querySelector('.char-counter');
+  if (!counter) return;
+  const min = parseInt(open.dataset.min || '0', 10);
+  const ta = open.querySelector('textarea');
+  const len = ta.value.trim().length;
+  counter.textContent = len + ' / ' + min;
+  counter.classList.toggle('ok', len >= min);
+}
+
+// ---- Submit ----
+function buildPayload() {
+  // SINGLE
+  document.querySelectorAll('.options-list[data-type="single"]').forEach(list => {
+    const c = list.querySelector('input:checked');
+    formData[list.dataset.key] = c ? c.value : '';
+  });
+  // MULTI
+  document.querySelectorAll('.options-list[data-type="multi"]').forEach(list => {
+    const checked = [...list.querySelectorAll('input:checked')].map(c => c.value);
+    formData[list.dataset.key] = checked.join('|');
+  });
+  // DROPDOWN
+  document.querySelectorAll('select[data-key]').forEach(sel => {
+    formData[sel.dataset.key] = sel.value;
+  });
+  // "Altul" text inputs
+  document.querySelectorAll('.altul-input[data-key]').forEach(inp => {
+    formData[inp.dataset.key] = inp.value.trim();
+  });
+  // OPEN + escape
+  document.querySelectorAll('.survey-open').forEach(open => {
+    const key = open.dataset.key;
+    const escKey = open.dataset.escapeKey;
+    const ta = open.querySelector('textarea');
+    const escEl = escKey ? open.querySelector('.escape-toggle input') : null;
+    if (escEl && escEl.checked) {
+      formData[key] = '';
+      formData[escKey] = 'da';
+    } else {
+      formData[key] = ta.value.trim();
+      if (escKey) formData[escKey] = '';
+    }
+  });
+
+  // Build complete, ordered payload
+  const payload = { timestamp: new Date().toISOString() };
+  ALL_KEYS.forEach(k => { payload[k] = formData[k] || ''; });
+  return payload;
+}
+
+async function submitAll() {
+  const payload = buildPayload();
+  const btn = document.getElementById('btn-next');
+  btn.disabled = true;
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify(payload)
+    });
+    showScreen('thanks-screen');
+  } catch (err) {
+    showScreen('error-screen');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function retrySubmit() {
+  document.getElementById('survey-progress').classList.remove('hidden');
+  document.getElementById('survey-nav').classList.remove('hidden');
+  showStep(TOTAL_STEPS - 1);
+}
+
+// ---- Event handlers (delegated, so dynamic S2 works) ----
+function handleOptionClick(input) {
+  const item = input.closest('.option-item');
+  const list = input.closest('.options-list');
+
+  if (input.type === 'radio') {
+    list.querySelectorAll('.option-item').forEach(li => li.classList.remove('selected'));
+    item.classList.add('selected');
+  } else {
+    // MULTI with exclusive logic
+    if (input.checked && input.dataset.exclusive) {
+      // deselect all others
+      list.querySelectorAll('input[type=checkbox]').forEach(cb => {
+        if (cb !== input) { cb.checked = false; cb.closest('.option-item').classList.remove('selected'); }
+      });
+    } else if (input.checked) {
+      // deselect any exclusive option
+      list.querySelectorAll('input[data-exclusive]').forEach(cb => {
+        cb.checked = false; cb.closest('.option-item').classList.remove('selected');
+      });
+    }
+    item.classList.toggle('selected', input.checked);
+
+    // "Altul" reveal
+    const altulKey = list.dataset.altulKey;
+    if (altulKey && input.dataset.altul) {
+      const altInput = list.closest('.survey-question').querySelector('.altul-input[data-key="' + altulKey + '"]');
+      if (altInput) altInput.classList.toggle('hidden', !input.checked);
+    }
+  }
+
+  // S1 changed -> rebuild S2
+  if (list.dataset.key === 'S1_instrumente') buildS2();
+  // single in a step with reveals -> update reveals
+  const step = list.closest('.survey-step');
+  if (step) updateReveals(step);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // hero start
+  const heroBtn = document.getElementById('btn-hero-start');
+  if (heroBtn) heroBtn.addEventListener('click', function() {
+    document.getElementById('survey-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // delegated option clicks (keyboard + mouse via native input change)
+  document.addEventListener('change', function(e) {
+    const t = e.target;
+    if (t.matches('.option-item input')) { handleOptionClick(t); return; }
+    if (t.matches('select[data-key]')) {
+      const altulKey = t.dataset.altulKey;
+      if (altulKey) {
+        const altInput = t.closest('.survey-question').querySelector('.altul-input[data-key="' + altulKey + '"]');
+        if (altInput) altInput.classList.toggle('hidden', t.value !== 'Altul');
+      }
+      return;
+    }
+    if (t.matches('.escape-toggle input')) {
+      const open = t.closest('.survey-open');
+      const toggle = t.closest('.escape-toggle');
+      const ta = open.querySelector('textarea');
+      toggle.classList.toggle('checked', t.checked);
+      ta.disabled = t.checked;
+      if (t.checked) { ta.value = ''; updateCounter(open); }
+      return;
+    }
+  });
+
+  // char counters
+  document.addEventListener('input', function(e) {
+    if (e.target.matches('.survey-open textarea')) {
+      updateCounter(e.target.closest('.survey-open'));
+    }
+  });
+
+  // S1 "Altul" text changes -> refresh S2 label
+  document.addEventListener('input', function(e) {
+    if (e.target.matches('.altul-input[data-key="S1_altul"]')) buildS2();
+  });
+
+  showStep(0, true);
+});
+  </script>
+
+</body>
+</html>
