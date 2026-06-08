@@ -591,7 +591,7 @@ body.has-announce-bar .mobile-menu { top: 36px; }
    ============================ */
 .how-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;

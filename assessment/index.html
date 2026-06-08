@@ -405,7 +405,7 @@
         <h1>AI Readiness Assessment</h1>
         <p>Înainte de workshop, ajută-ne să-l construim pe nevoile tale reale.<br>
         Durează 12-15 minute. Răspunsurile tale ne ajută să adaptăm exercițiile și use-case-urile din sesiune. Cu cât ești mai concret, cu atât workshopul va fi mai util pentru tine.</p>
-        <p class="hero-privacy">Răspunsurile tale sunt folosite exclusiv pentru a personaliza workshopul. Nu sunt publicate și nu sunt distribuite.</p>
+        <p class="hero-privacy">Răspunsurile tale sunt folosite exclusiv pentru a personaliza workshopul. Un raport agregat, fără date individuale identificabile, va fi transmis organizației. Răspunsurile tale individuale nu vor fi publicate sau partajate.</p>
         <button class="btn btn-primary" id="btn-hero-start" style="margin-top:1.5rem;">
           Începe
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -436,7 +436,7 @@
             <div class="survey-question" id="q-C1">
               <p class="survey-question-text">Numele și prenumele tău:</p>
               <input type="text" class="survey-input" data-key="C1_nume" data-required="1" placeholder="Ex: Andrei Popescu" autocomplete="name" />
-              <p class="field-note">Numele tău e folosit exclusiv pentru a personaliza workshopul, răspunsurile tale nu vor fi făcute publice.</p>
+              <p class="field-note">Răspunsurile tale sunt folosite exclusiv pentru a personaliza workshopul. Un raport agregat, fără date individuale identificabile, va fi transmis organizației. Răspunsurile tale individuale nu vor fi publicate sau partajate.</p>
             </div>
 
             <div class="survey-question" id="q-C2">
@@ -580,12 +580,43 @@
             </div>
 
             <div class="survey-question" id="q-N6">
+              <p class="survey-question-text">Cum descrii cel mai bine relația ta cu AI-ul acum?</p>
+              <div class="options-list" data-type="single" data-key="N6_atitudine" data-required="1">
+                <label class="option-item"><input type="radio" name="N6" value="Îl folosesc activ și văd rezultate concrete în munca mea"><span class="option-dot"></span>Îl folosesc activ și văd rezultate concrete în munca mea</label>
+                <label class="option-item"><input type="radio" name="N6" value="Îl încerc ocazional, dar nu știu exact cum să-l aplic pe ce fac eu"><span class="option-dot"></span>Îl încerc ocazional, dar nu știu exact cum să-l aplic pe ce fac eu</label>
+                <label class="option-item"><input type="radio" name="N6" value="Prefer să aștept să văd cum evoluează înainte să investesc timp"><span class="option-dot"></span>Prefer să aștept să văd cum evoluează înainte să investesc timp</label>
+                <label class="option-item"><input type="radio" name="N6" value="Am reticențe legate de acuratețe sau confidențialitate"><span class="option-dot"></span>Am reticențe legate de acuratețe sau confidențialitate</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-N7">
+              <p class="survey-question-text">Ce te oprește cel mai mult să folosești AI mai mult în munca ta?</p>
+              <div class="options-list" data-type="single" data-key="N7_obstacol" data-required="1">
+                <label class="option-item"><input type="radio" name="N7" value="Nu știu să formulez cereri care să dea rezultate bune"><span class="option-dot"></span>Nu știu să formulez cereri care să dea rezultate bune</label>
+                <label class="option-item"><input type="radio" name="N7" value="Nu văd cum se aplică concret pe task-urile mele"><span class="option-dot"></span>Nu văd cum se aplică concret pe task-urile mele</label>
+                <label class="option-item"><input type="radio" name="N7" value="Nu am timp să explorez și să experimentez"><span class="option-dot"></span>Nu am timp să explorez și să experimentez</label>
+                <label class="option-item"><input type="radio" name="N7" value="Am îngrijorări legate de confidențialitate sau acuratețe"><span class="option-dot"></span>Am îngrijorări legate de confidențialitate sau acuratețe</label>
+                <label class="option-item"><input type="radio" name="N7" value="Nu am niciun obstacol major"><span class="option-dot"></span>Nu am niciun obstacol major</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-N8">
+              <p class="survey-question-text">Ai fost vreodată cel care explică sau traduce cum se poate folosi AI pentru colegii din jur?</p>
+              <div class="options-list" data-type="single" data-key="N8_abt_potential" data-required="1">
+                <label class="option-item"><input type="radio" name="N8" value="Da, asta fac frecvent"><span class="option-dot"></span>Da, asta fac frecvent</label>
+                <label class="option-item"><input type="radio" name="N8" value="Ocazional, dar fără o metodă clară"><span class="option-dot"></span>Ocazional, dar fără o metodă clară</label>
+                <label class="option-item"><input type="radio" name="N8" value="Nu, prefer să lucrez pentru mine"><span class="option-dot"></span>Nu, prefer să lucrez pentru mine</label>
+                <label class="option-item"><input type="radio" name="N8" value="Nu știu suficient cât să explic altora"><span class="option-dot"></span>Nu știu suficient cât să explic altora</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-N9">
               <p class="survey-question-text">Care e diferența dintre un asistent AI și un agent AI?</p>
-              <div class="options-list" data-type="single" data-key="N6_agent_vs_asistent" data-required="1">
-                <label class="option-item"><input type="radio" name="N6" value="Asistentul răspunde la cereri punctuale; agentul duce singur o sarcină la capăt, în mai mulți pași."><span class="option-dot"></span>Asistentul răspunde la cereri punctuale; agentul duce singur o sarcină la capăt, în mai mulți pași.</label>
-                <label class="option-item"><input type="radio" name="N6" value="Sunt același lucru, doar denumiri diferite folosite de companii diferite."><span class="option-dot"></span>Sunt același lucru, doar denumiri diferite folosite de companii diferite.</label>
-                <label class="option-item"><input type="radio" name="N6" value="Asistentul e versiunea gratuită, agentul e versiunea plătită / enterprise."><span class="option-dot"></span>Asistentul e versiunea gratuită, agentul e versiunea plătită / enterprise.</label>
-                <label class="option-item"><input type="radio" name="N6" value="Nu știu"><span class="option-dot"></span>Nu știu</label>
+              <div class="options-list" data-type="single" data-key="N9_agent_vs_asistent" data-required="1">
+                <label class="option-item"><input type="radio" name="N9" value="Asistentul răspunde la cereri punctuale; agentul duce singur o sarcină la capăt, în mai mulți pași."><span class="option-dot"></span>Asistentul răspunde la cereri punctuale; agentul duce singur o sarcină la capăt, în mai mulți pași.</label>
+                <label class="option-item"><input type="radio" name="N9" value="Sunt același lucru, doar denumiri diferite folosite de companii diferite."><span class="option-dot"></span>Sunt același lucru, doar denumiri diferite folosite de companii diferite.</label>
+                <label class="option-item"><input type="radio" name="N9" value="Asistentul e versiunea gratuită, agentul e versiunea plătită / enterprise."><span class="option-dot"></span>Asistentul e versiunea gratuită, agentul e versiunea plătită / enterprise.</label>
+                <label class="option-item"><input type="radio" name="N9" value="Nu știu"><span class="option-dot"></span>Nu știu</label>
               </div>
             </div>
           </div>
@@ -709,7 +740,7 @@ const ALL_KEYS = [
   'S1_instrumente', 'S1_altul',
   'S2_cont_copilot', 'S2_cont_chatgpt', 'S2_cont_claude', 'S2_cont_gemini', 'S2_cont_perplexity', 'S2_cont_notebooklm', 'S2_cont_altul',
   'S3_functii',
-  'N1_frecventa', 'N2_timp_economisit', 'N3_workflow', 'N3_workflow_descriere', 'N4_aratat', 'N4_aratat_ce', 'N5_nivel_autoeval', 'N6_agent_vs_asistent',
+  'N1_frecventa', 'N2_timp_economisit', 'N3_workflow', 'N3_workflow_descriere', 'N4_aratat', 'N4_aratat_ce', 'N5_nivel_autoeval', 'N6_atitudine', 'N7_obstacol', 'N8_abt_potential', 'N9_agent_vs_asistent',
   'P1_proces', 'P2_timp_pierdut', 'P3_fail', 'P3_nefolosit', 'P4_documente',
   'F1_succes'
 ];
