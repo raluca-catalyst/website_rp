@@ -10,8 +10,8 @@
   --bg-mid:        #160e35;
   --surface:       rgba(255,255,255,0.018);
   --card:          rgba(255,255,255,0.045);
-  --border:        rgba(167,139,250,0.14);
-  --border-card:   rgba(167,139,250,0.10);
+  --border:        rgba(241,238,253,0.10);
+  --border-card:   rgba(241,238,253,0.08);
 
   --lavender:      #a78bfa;
   --lavender-lt:   #c4b5fd;
@@ -37,9 +37,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body {
   background: var(--bg);
   background-image:
-    radial-gradient(ellipse 90% 55% at 50% -5%,  #2d1569 0%, transparent 65%),
-    radial-gradient(ellipse 55% 35% at 95% 15%,  rgba(109,40,217,0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 45% 25% at 5%  85%,  rgba(91,33,182,0.12) 0%, transparent 55%);
+    radial-gradient(ellipse 80% 40% at 50% -10%, rgba(45,21,105,0.55) 0%, transparent 65%);
   color: var(--text);
   font-family: var(--font-body);
   font-size: 16px;
@@ -70,30 +68,15 @@ p  { color: var(--text-sec); }
 .accent-magenta { color: var(--lavender-lt); }
 .accent-lime    { color: var(--lavender-lt); }
 
-/* ---- Label chip ---- */
+/* ---- Kicker (fost label chip) ---- */
 .label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
+  display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--lavender);
-  padding: 0.28rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  background: rgba(167,139,250,0.06);
-}
-.label::before {
-  content: '';
-  display: block;
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--lavender);
-  box-shadow: 0 0 7px var(--lavender);
-  flex-shrink: 0;
 }
 
 /* ---- Layout Utilities ---- */
@@ -109,25 +92,13 @@ p  { color: var(--text-sec); }
   border-bottom: 1px solid var(--border);
 }
 .section-header { margin-bottom: clamp(2.5rem, 5vw, 3.5rem); }
-.section-header h2 { margin-top: 0.65rem; }
+.section-header h2 { margin-top: 0; }
 .section-header p {
   font-size: 0.95rem;
   color: var(--text-sec);
   margin-top: 0.55rem;
   max-width: 540px;
 }
-
-/* ---- Fade-up ---- */
-.fade-up {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-.fade-up.visible { opacity: 1; transform: none; }
-.fade-up.delay-1 { transition-delay: 0.1s; }
-.fade-up.delay-2 { transition-delay: 0.2s; }
-.fade-up.delay-3 { transition-delay: 0.3s; }
-.fade-up.delay-4 { transition-delay: 0.4s; }
 
 /* ============================
    ANNOUNCEMENT BAR
@@ -137,13 +108,13 @@ p  { color: var(--text-sec); }
   top: 0; left: 0; right: 0;
   z-index: 1001;
   height: 36px;
-  background: linear-gradient(90deg, var(--lavender-dk), #6d28d9);
+  background: var(--lavender);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .announce-bar a {
-  color: #fff;
+  color: #17122e;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 500;
@@ -156,18 +127,7 @@ p  { color: var(--text-sec); }
   text-overflow: ellipsis;
   padding: 0 16px;
 }
-.announce-bar a:hover { opacity: 0.85; }
-.announce-dot {
-  width: 6px; height: 6px;
-  min-width: 6px;
-  background: #fff;
-  border-radius: 50%;
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.45; transform: scale(1.5); }
-}
+.announce-bar a:hover { opacity: 0.75; }
 body.has-announce-bar .nav       { top: 36px; }
 body.has-announce-bar .mobile-menu { top: 36px; }
 
@@ -432,16 +392,6 @@ body.has-announce-bar .mobile-menu { top: 36px; }
   position: relative;
   overflow: hidden;
 }
-.page-header::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 600px; height: 300px;
-  background: radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, transparent 70%);
-  pointer-events: none;
-}
-.page-header .label { margin-bottom: 1rem; }
 .page-header h1 {
   margin-bottom: 1rem;
   font-size: clamp(1.8rem, 4.5vw, 3.2rem);
