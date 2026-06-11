@@ -85,7 +85,7 @@
     }
     .survey-progress-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--lavender-dk), var(--lavender));
+      background: var(--lavender);
       border-radius: 2px;
       transition: width 0.4s ease;
     }
@@ -199,12 +199,10 @@
     .option-item.selected .option-dot {
       background: var(--lavender);
       border-color: var(--lavender);
-      box-shadow: 0 0 8px rgba(167,139,250,0.5);
     }
     .option-item.selected .option-check {
       background: var(--lavender-dk);
       border-color: var(--lavender);
-      box-shadow: 0 0 8px rgba(167,139,250,0.4);
     }
     .option-item.selected .option-check::after {
       content: '';
@@ -408,7 +406,6 @@
         <p class="hero-privacy">Răspunsurile tale sunt folosite exclusiv pentru a personaliza workshopul. Un raport agregat, fără date individuale identificabile, va fi transmis organizației. Răspunsurile tale individuale nu vor fi publicate sau partajate.</p>
         <button class="btn btn-primary" id="btn-hero-start" style="margin-top:1.5rem;">
           Începe
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
     </section>
