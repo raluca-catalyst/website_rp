@@ -10,8 +10,7 @@
   const bar = document.createElement('div');
   bar.className = 'announce-bar';
   bar.innerHTML = '<a href="/viitoruri">'
-    + '<span class="announce-dot"></span>'
-    + 'White paper nou: 4 viitoruri ale muncii \xeen Rom\xe2nia 2030 \u2192 Cite\u0219te-l \u0219i tu. Deja a fost desc\u0103rcat de 500+ ori.'
+    + 'White paper nou: 4 viitoruri ale muncii \xeen Rom\xe2nia 2030 \u2192 Cite\u0219te-l \u0219i tu. Deja a fost desc\u0103rcat de 600+ ori.'
     + '</a>';
   document.body.insertBefore(bar, document.body.firstChild);
   document.body.classList.add('has-announce-bar');
@@ -92,58 +91,38 @@
   const cards = slider.querySelectorAll('.testimonial-card');
   let current = 0;
 
+  function perView() {
+    return window.innerWidth <= 920 ? 1 : 3;
+  }
+  function maxIdx() {
+    return Math.max(0, cards.length - perView());
+  }
   function getCardWidth() {
     const card = cards[0];
     if (!card) return 404;
     return card.offsetWidth + 24; // card + gap
   }
-
-  function scrollTo(index) {
-    const maxIdx = cards.length - 1;
-    current = Math.max(0, Math.min(maxIdx, index));
+  function update() {
+    current = Math.max(0, Math.min(maxIdx(), current));
     slider.scrollTo({ left: current * getCardWidth(), behavior: 'smooth' });
+    btnPrev.disabled = current <= 0;
+    btnNext.disabled = current >= maxIdx();
   }
 
-  btnPrev.addEventListener('click', () => scrollTo(current - 1));
-  btnNext.addEventListener('click', () => scrollTo(current + 1));
-
-  // Auto-slide every 5s
-  let autoTimer = setInterval(() => {
-    current = (current + 1) % cards.length;
-    scrollTo(current);
-  }, 5000);
-
-  slider.addEventListener('mouseenter', () => clearInterval(autoTimer));
-  slider.addEventListener('mouseleave', () => {
-    autoTimer = setInterval(() => {
-      current = (current + 1) % cards.length;
-      scrollTo(current);
-    }, 5000);
-  });
+  btnPrev.addEventListener('click', () => { current -= perView(); update(); });
+  btnNext.addEventListener('click', () => { current += perView(); update(); });
+  window.addEventListener('resize', update);
 
   // Touch/drag support
   let startX = 0;
   slider.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
   slider.addEventListener('touchend', e => {
     const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) scrollTo(diff > 0 ? current + 1 : current - 1);
+    if (Math.abs(diff) > 50) { current += diff > 0 ? 1 : -1; update(); }
   });
-})();
 
-/* ============================
-   6. FADE-UP ON SCROLL
-   ============================ */
-(function initFadeUp() {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  btnPrev.disabled = true;
+  btnNext.disabled = maxIdx() <= 0;
 })();
 
 /* ============================
