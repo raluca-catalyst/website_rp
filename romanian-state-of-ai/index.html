@@ -120,7 +120,7 @@
     }
     .survey-progress-fill {
       height: 100%;
-      background: linear-gradient(90deg, var(--lavender-dk), var(--lavender));
+      background: var(--lavender);
       border-radius: 2px;
       transition: width 0.4s ease;
     }
@@ -245,12 +245,10 @@
     .option-item.selected .option-dot {
       background: var(--lavender);
       border-color: var(--lavender);
-      box-shadow: 0 0 8px rgba(167,139,250,0.5);
     }
     .option-item.selected .option-check {
       background: var(--lavender-dk);
       border-color: var(--lavender);
-      box-shadow: 0 0 8px rgba(167,139,250,0.4);
     }
     .option-item.selected .option-check::after {
       content: '';
@@ -312,7 +310,6 @@
     .likert-radio.selected {
       background: var(--lavender);
       border-color: var(--lavender);
-      box-shadow: 0 0 8px rgba(167,139,250,0.5);
     }
     .likert-radio:focus-visible {
       outline: 2px solid var(--lavender);
@@ -521,13 +518,11 @@
     <!-- HERO -->
     <section class="page-header">
       <div class="container">
-        <div class="label">Studiu național · 2026</div>
         <h1>Romanian State of AI</h1>
         <p>Al doilea an de măsurare a maturității AI în organizațiile din România.<br>
         Contribuie la primul studiu longitudinal despre cum folosim AI la job. Durează aproximativ 6 minute, iar rezultatele se publică la final de iulie 2026.</p>
         <button class="btn btn-primary" id="btn-hero-start" style="margin-top:1.5rem;">
           Începe
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
     </section>
@@ -1029,7 +1024,7 @@
             <input type="email" class="survey-email-field" id="email-input" placeholder="adresa ta de email" autocomplete="email" />
             <div class="survey-field-error hidden" id="email-error">Te rugăm să introduci o adresă de email validă.</div>
 
-            <div style="border:1px solid rgba(167,139,250,0.35); background:rgba(167,139,250,0.08); border-radius:12px; padding:0.85rem 1.1rem; margin:0.75rem 0 1rem;">
+            <div style="border:1px solid var(--border); background:rgba(167,139,250,0.035); border-radius:12px; padding:0.85rem 1.1rem; margin:0.75rem 0 1rem;">
               <div class="label" style="margin-bottom:0.4rem;">Tombolă</div>
               <p style="color:var(--text-sec); font-size:0.88rem; margin:0;">Lasă emailul ca să intri automat în tombolă: 3 sesiuni 1:1 de 30 de minute despre cum poți folosi AI la potențialul maxim. Trag câștigătorii la sorți spre sfârșitul lui iulie 2026.</p>
             </div>
@@ -1054,7 +1049,6 @@
             <div class="survey-email-actions">
               <button class="btn btn-primary" id="btn-email-submit" onclick="submitAll()">
                 Trimite
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </button>
               <button class="btn btn-outline" id="btn-skip-email" onclick="submitAll(true)">
                 Sari peste →
