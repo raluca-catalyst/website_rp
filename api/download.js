@@ -1,13 +1,16 @@
-// api/download.js — Post-launch PDF delivery
-// Called when user submits download form after launch date
+// api/download.js — PDF delivery prin email, multi-resource
+// Body: { resource?, name, email, company, role, website (honeypot) }
+// resource lipsă => 'viitoruri' (backwards compatible)
 
 const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const PDF_URL = 'https://ralucapaduraru.ro/downloads/viitoruri-2030.pdf';
+const SHEETS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxJjD_2faU9XQLxOOlWDzYUXLp4Vs0aa-895GJ5rXj9GnZ5U1rQsQMMfptEXLVVQG5_/exec';
+const BOOKING_URL = 'https://calendar.app.google/97NFSpQYzKkJmkuL9';
 
-const DELIVERY_EMAIL_HTML = () => `
+// Schelet comun de email (header Upvance, CTA lavender, footer)
+const emailShell = ({ title, bodyHtml, footerNote }) => `
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -32,27 +35,61 @@ const DELIVERY_EMAIL_HTML = () => `
   <div class="wrap">
     <div class="header">
       <h1>Upvance Global</h1>
-      <h2>Raportul tău: Patru viitoruri ale muncii în România 2030</h2>
+      <h2>${title}</h2>
     </div>
     <div class="body">
-      <p>Salutare,</p>
-      <p>Mulțumesc că ai cerut raportul. Îl găsești aici:</p>
-      <a class="cta" href="${PDF_URL}" target="_blank">Descarcă raportul &rarr;</a>
-      <p>Sunt 62 de pagini. Dacă ai 5 minute, citește sumarul executiv. Dacă ai 15, adaugă și scenariul care te intrigă cel mai mult. Dacă ai o oră, citește-l integral. Fiecare nivel de lectură oferă ceva util.</p>
-      <p>Dar, indiferent cât citești, am o invitație: dă-mi un reply cu o singură propoziție. <strong>Ce te-a surprins cel mai mult?</strong> Fiecare răspuns pe care îl primesc mă ajută să înțeleg ce e cu adevărat relevant pentru profesioniștii din România și să construiesc materiale și mai bune.</p>
-      <p>P.S. Dacă vrei să explorezi implicațiile raportului cu echipa ta, pot organiza o sesiune de debrief de 30 de minute, fără obligații. Poți rezerva un slot aici: <a href="https://calendar.app.google/97NFSpQYzKkJmkuL9" style="color:#9B8AF0">https://calendar.app.google/97NFSpQYzKkJmkuL9</a></p>
+      ${bodyHtml}
       <p>Mulțumesc și lectură plăcută,</p>
       <p class="sig-name">Raluca Păduraru</p>
       <p class="sig-title">Futures of Work Strategist | Building AI Agency in Organizations</p>
     </div>
     <div class="footer">
-      <p>Ai primit acest email deoarece ai completat formularul de pe ralucapaduraru.ro/viitoruri.<br>
+      <p>${footerNote}<br>
       Întrebări? Scrie la <a href="mailto:contact@upvance.global" style="color:#9B8AF0">contact@upvance.global</a></p>
     </div>
   </div>
 </body>
 </html>
 `;
+
+const RESOURCES = {
+  'viitoruri': {
+    pdfUrl: 'https://ralucapaduraru.ro/downloads/viitoruri-2030.pdf',
+    subject: 'Raportul tău: Patru viitoruri ale muncii în România 2030',
+    notifySubject: (name, company) => `Nou download: ${name} (${company || 'N/A'})`,
+    emailHtml: function () {
+      return emailShell({
+        title: 'Raportul tău: Patru viitoruri ale muncii în România 2030',
+        footerNote: 'Ai primit acest email deoarece ai completat formularul de pe ralucapaduraru.ro/viitoruri.',
+        bodyHtml: `
+      <p>Salutare,</p>
+      <p>Mulțumesc că ai cerut raportul. Îl găsești aici:</p>
+      <a class="cta" href="${this.pdfUrl}" target="_blank">Descarcă raportul &rarr;</a>
+      <p>Sunt 62 de pagini. Dacă ai 5 minute, citește sumarul executiv. Dacă ai 15, adaugă și scenariul care te intrigă cel mai mult. Dacă ai o oră, citește-l integral. Fiecare nivel de lectură oferă ceva util.</p>
+      <p>Dar, indiferent cât citești, am o invitație: dă-mi un reply cu o singură propoziție. <strong>Ce te-a surprins cel mai mult?</strong> Fiecare răspuns pe care îl primesc mă ajută să înțeleg ce e cu adevărat relevant pentru profesioniștii din România și să construiesc materiale și mai bune.</p>
+      <p>P.S. Dacă vrei să explorezi implicațiile raportului cu echipa ta, pot organiza o sesiune de debrief de 30 de minute, fără obligații. Poți rezerva un slot aici: <a href="${BOOKING_URL}" style="color:#9B8AF0">${BOOKING_URL}</a></p>`,
+      });
+    },
+  },
+  'ai-business-translator': {
+    pdfUrl: 'https://ralucapaduraru.ro/downloads/ai-business-translator-framework.pdf',
+    subject: 'Framework-ul tău: AI Business Translator',
+    notifySubject: (name, company) => `Nou download AI Business Translator: ${name} (${company || 'N/A'})`,
+    emailHtml: function () {
+      return emailShell({
+        title: 'Framework-ul tău: AI Business Translator',
+        footerNote: 'Ai primit acest email deoarece ai completat formularul de pe ralucapaduraru.ro/frameworks/ai-business-translator/.',
+        bodyHtml: `
+      <p>Salutare,</p>
+      <p>Mulțumesc că ai cerut framework-ul. Îl găsești aici:</p>
+      <a class="cta" href="${this.pdfUrl}" target="_blank">Descarcă framework-ul &rarr;</a>
+      <p>Framework-ul definește concret rolul de AI Business Translator: cele trei seturi de abilități, cele cinci activități și cele cinci milestone-uri prin care se construiește competența în echipă.</p>
+      <p>După ce îl parcurgi, am o invitație: dă-mi un reply cu o singură propoziție. <strong>Care dintre cele cinci activități e cel mai puțin acoperită în echipa ta acum?</strong> Răspunsurile mă ajută să construiesc materiale tot mai relevante pentru profesioniștii din România.</p>
+      <p>P.S. Dacă vrei să construiești AI Business Translators în organizația ta, putem vorbi 30 de minute despre cum ar arăta un program adaptat la contextul vostru, fără obligații: <a href="${BOOKING_URL}" style="color:#9B8AF0">${BOOKING_URL}</a></p>`,
+      });
+    },
+  },
+};
 
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://ralucapaduraru.ro');
@@ -62,7 +99,14 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ message: 'Method not allowed' });
 
-  const { name, email, company, role } = req.body || {};
+  const { resource, name, email, company, role, website } = req.body || {};
+
+  // Honeypot: boții completează câmpul ascuns => răspuns 200 fals, fără acțiune
+  if (website) return res.status(200).json({ message: 'OK' });
+
+  const slug = resource || 'viitoruri';
+  const cfg = RESOURCES[slug];
+  if (!cfg) return res.status(400).json({ message: 'Resursă necunoscută.' });
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ message: 'Email invalid.' });
@@ -73,11 +117,11 @@ module.exports = async (req, res) => {
 
   try {
     const { error } = await resend.emails.send({
-      from: 'Raluca P\u0103duraru <contact@upvance.global>',
+      from: 'Raluca Păduraru <contact@upvance.global>',
       reply_to: 'contact@upvance.global',
       to: [email],
-      subject: 'Raportul t\u0103u: Patru viitoruri ale muncii \u00een Rom\u00e2nia 2030',
-      html: DELIVERY_EMAIL_HTML(),
+      subject: cfg.subject,
+      html: cfg.emailHtml(),
     });
 
     if (error) {
@@ -86,20 +130,20 @@ module.exports = async (req, res) => {
     }
 
     // Log lead to Google Sheets (non-critical)
-    fetch('https://script.google.com/macros/s/AKfycbxJjD_2faU9XQLxOOlWDzYUXLp4Vs0aa-895GJ5rXj9GnZ5U1rQsQMMfptEXLVVQG5_/exec', {
+    fetch(SHEETS_WEBHOOK, {
       method: 'POST',
-      body: JSON.stringify({ nume: name, prenume: '', email, rol: role, companie: company }),
+      body: JSON.stringify({ nume: name, prenume: '', email, rol: role, companie: company, sursa: slug }),
     }).catch(() => {}); // non-critical, ignore errors
 
     // Also notify Raluca of new lead
     await resend.emails.send({
-      from: 'Viitoruri Site <contact@upvance.global>',
+      from: 'Site ralucapaduraru.ro <contact@upvance.global>',
       to: ['raluca@upvance.global'],
-      subject: `Nou download: ${name} (${company || 'N/A'})`,
-      html: `<p><b>Nume:</b> ${name}<br><b>Email:</b> ${email}<br><b>Companie:</b> ${company || '-'}<br><b>Rol:</b> ${role || '-'}</p>`,
+      subject: cfg.notifySubject(name, company),
+      html: `<p><b>Nume:</b> ${name}<br><b>Email:</b> ${email}<br><b>Companie:</b> ${company || '-'}<br><b>Rol:</b> ${role || '-'}<br><b>Sursă:</b> ${slug}</p>`,
     }).catch(() => {}); // non-critical, ignore errors
 
-    return res.status(200).json({ message: 'Raportul a fost trimis pe email!' });
+    return res.status(200).json({ message: 'Trimis pe email!' });
 
   } catch (err) {
     console.error('Download error:', err);
