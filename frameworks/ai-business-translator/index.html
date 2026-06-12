@@ -41,6 +41,32 @@
       .abt-integrate-grid { grid-template-columns:1fr; }
     }
     @media (max-width:480px) { .abt-act-grid { grid-template-columns:1fr; } }
+    /* download form */
+    .download-form-wrap { max-width: 600px; margin: 0 auto; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-field label {
+      font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-sec);
+    }
+    .form-field input {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 13px 16px; font-family: var(--font-body, inherit); font-size: 0.95rem;
+      color: var(--text); outline: none; transition: border-color 0.2s;
+    }
+    .form-field input:focus { border-color: var(--lavender); }
+    .form-field input::placeholder { color: var(--text-muted); }
+    .form-check { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 24px; }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--lavender); cursor: pointer; }
+    .form-check label { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; cursor: pointer; }
+    .form-submit-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .form-submit-wrap .btn { width: 100%; justify-content: center; }
+    .form-privacy { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
+    .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+    .download-form-msg { margin-top: 16px; font-size: 0.9rem; border-radius: var(--radius); padding: 12px 16px; text-align: center; display: none; }
+    .download-form-msg.success { display: block; background: rgba(107,158,116,0.15); border: 1px solid rgba(107,158,116,0.4); color: #7BC78A; }
+    .download-form-msg.error   { display: block; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3); color: var(--lavender-lt); }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
   </style>
 <!-- 1. Google Consent Mode defaults (must be FIRST) -->
 <script data-cookieconsent="ignore">
@@ -182,6 +208,11 @@
         <p style="margin-top:1.25rem;">
           Termenul de AI Business Translator a crescut cu <strong style="color:var(--lavender-lt);">24%</strong> în cererea de pe piața muncii din România în mai 2026 (analiză de piață Upvance Global). Piața înțelege valoarea rolului înainte să îl definească. Acest framework îl definește concret: profesionistul care traduce între realitatea organizației și capabilitățile AI, în ambele direcții.
         </p>
+        <a href="#descarca" class="btn btn-primary" style="margin-top:1.5rem;"
+           onclick="gtag('event','cta_click',{event_category:'hero',event_label:'ai-business-translator-pdf'})">
+          Descarcă framework-ul (PDF)
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        </a>
       </div>
     </header>
 
@@ -331,6 +362,62 @@
       </div>
     </section>
 
+    <!-- ====================== DOWNLOAD FORM ====================== -->
+    <section class="section" id="descarca" aria-labelledby="descarca-heading">
+      <div class="container">
+        <div style="max-width:860px; margin:0 auto;">
+          <div class="fade-up" style="text-align:center; margin-bottom:32px;">
+            <div class="label" style="margin:0 auto 1rem;">Descarcă gratuit</div>
+            <h2 id="descarca-heading">Descarcă framework-ul complet (PDF)</h2>
+            <p style="color:var(--text-muted); margin-top:12px;">Completează formularul și primești framework-ul pe email.</p>
+          </div>
+          <div class="download-form-wrap fade-up">
+            <form id="abt-download-form" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="abt-name">Nume complet *</label>
+                  <input type="text" id="abt-name" name="name" required placeholder="Prenume Nume" autocomplete="name" />
+                </div>
+                <div class="form-field">
+                  <label for="abt-email">Email profesional *</label>
+                  <input type="email" id="abt-email" name="email" required placeholder="tu@companie.ro" autocomplete="email" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="abt-company">Companie</label>
+                  <input type="text" id="abt-company" name="company" placeholder="Compania ta" autocomplete="organization" />
+                </div>
+                <div class="form-field">
+                  <label for="abt-role">Rol / Funcție</label>
+                  <input type="text" id="abt-role" name="role" placeholder="Ex: Director, HR Manager..." autocomplete="organization-title" />
+                </div>
+              </div>
+              <div class="hp-field" aria-hidden="true">
+                <label for="abt-website">Website</label>
+                <input type="text" id="abt-website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="abt-consent" name="consent" required />
+                <label for="abt-consent">
+                  Doresc să primesc actualizări despre AI și viitorul muncii.
+                  Înțeleg că fără acordul meu nu voi primi framework-ul.
+                </label>
+              </div>
+              <div class="form-submit-wrap">
+                <button type="submit" class="btn btn-primary" id="abt-btn">
+                  Vreau framework-ul
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                </button>
+                <p class="form-privacy">Datele tale sunt în siguranță și nu vor fi distribuite terților.</p>
+              </div>
+              <div id="abt-form-msg" class="download-form-msg"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ====================== FOOTER CTA ====================== -->
     <section class="footer-cta" aria-labelledby="cta-heading">
       <div class="container">
@@ -365,5 +452,47 @@
   </footer>
 
   <script src="../../js/main.js"></script>
+  <script>
+    document.getElementById('abt-download-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name    = document.getElementById('abt-name').value.trim();
+      const email   = document.getElementById('abt-email').value.trim();
+      const company = document.getElementById('abt-company').value.trim();
+      const role    = document.getElementById('abt-role').value.trim();
+      const website = document.getElementById('abt-website').value.trim();
+      const consent = document.getElementById('abt-consent').checked;
+      const btn     = document.getElementById('abt-btn');
+      const msg     = document.getElementById('abt-form-msg');
+      if (!name || !email || !consent) {
+        msg.className = 'download-form-msg error';
+        msg.textContent = 'Te rugăm completează câmpurile obligatorii și bifează acordul.';
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Se trimite...';
+      msg.className = 'download-form-msg';
+      gtag('event', 'form_submit', { event_category: 'download', event_label: 'ai-business-translator' });
+      try {
+        const res = await fetch('/api/download', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ resource: 'ai-business-translator', name, email, company, role, website })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          msg.className = 'download-form-msg success';
+          msg.innerHTML = 'Mulțumim! Framework-ul a fost trimis pe email. Verifică și în folderul de spam.';
+          this.reset();
+          btn.textContent = 'Trimis! ✓';
+          gtag('event', 'pdf_download', { event_category: 'conversion', event_label: 'ai-business-translator' });
+        } else { throw new Error(data.message || 'Eroare la trimitere'); }
+      } catch (err) {
+        msg.className = 'download-form-msg error';
+        msg.textContent = 'Ceva nu a mers. Încearcă din nou sau scrie la contact@upvance.global';
+        btn.disabled = false;
+        btn.innerHTML = 'Vreau framework-ul <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>';
+      }
+    });
+  </script>
 </body>
 </html>
