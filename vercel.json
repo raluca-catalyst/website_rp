@@ -5,7 +5,12 @@
       "has": [{ "type": "host", "value": "ralucapaduraru.ro" }],
       "destination": "https://www.ralucapaduraru.ro/:path*",
       "permanent": true
-    }
+    },
+    { "source": "/subscribe",     "destination": "https://ralucapaduraru.substack.com/", "permanent": true },
+    { "source": "/media",         "destination": "/about.html",  "permanent": true },
+    { "source": "/download",      "destination": "/frameworks/", "permanent": true },
+    { "source": "/ai-canvas.pdf", "destination": "/",            "permanent": true },
+    { "source": "/api",           "destination": "/",            "permanent": true }
   ],
   "rewrites": [
     { "source": "/viitoruri", "destination": "/viitoruri.html" },
