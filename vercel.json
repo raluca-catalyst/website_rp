@@ -6,6 +6,7 @@
       "destination": "https://www.ralucapaduraru.ro/:path*",
       "permanent": true
     },
+    { "source": "/index.html",    "destination": "/",                                    "permanent": true },
     { "source": "/subscribe",     "destination": "https://ralucapaduraru.substack.com/", "permanent": true },
     { "source": "/media",         "destination": "/about.html",  "permanent": true },
     { "source": "/download",      "destination": "/frameworks/", "permanent": true },

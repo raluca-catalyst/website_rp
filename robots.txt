@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /assessment/
 Disallow: /api/
-Sitemap: https://ralucapaduraru.ro/sitemap.xml
+Sitemap: https://www.ralucapaduraru.ro/sitemap.xml
 
 User-agent: GPTBot
 Allow: /

@@ -6,15 +6,26 @@
 
 Raluca Păduraru este educator de AI fluency și consultant independent (Upvance Global). Transformă echipele non-tehnice în AI Business Translators: oameni cu AI agency — discernământ și capacitate de acțiune — care înțeleg probleme de business, le rezolvă cu AI și construiesc sisteme sustenabile în organizație. Specializată în: workshopuri de adopție AI, frameworks de prompting și guvernanță AI, foresight strategic.
 
+## Pagini principale
+
+- [Despre Raluca](https://www.ralucapaduraru.ro/about.html) — Parcurs, expertiză și abordare: AI Strategist și Foresight Practitioner pentru echipe non-tehnice
+- [Framework-uri AI](https://www.ralucapaduraru.ro/frameworks/) — Instrumente testate de AI fluency: 4D, M.O.D.E.L., F.O.R.C.E. și altele
+- [Impact & Comunitate](https://www.ralucapaduraru.ro/impact.html) — Rezultate, comunitate și inițiative din jurul adopției AI în România
+- [Întrebări frecvente (FAQ)](https://www.ralucapaduraru.ro/faq.html) — Răspunsuri despre workshopuri, training AI, foresight și colaborare
+
 ## Frameworks originale
 
+- [AI Business Translator Framework](https://www.ralucapaduraru.ro/frameworks/ai-business-translator/) — Competența centrală care leagă organizația de AI: oameni care traduc problemele de business în soluții cu AI
 - [M.O.D.E.L. Framework](https://www.ralucapaduraru.ro/frameworks/model-framework/) — Metodă replicabilă pentru prompting profesional cu AI (Multipli experți, Obiective, Date de context, Etape de lucru, Loop de verificare, Task)
 - [4D Framework for Risks & Ethics](https://www.ralucapaduraru.ro/frameworks/4d-framework/) — Audit de guvernanță AI preliminar pentru inițiative de adopție (Delegare, Descriere, Discernământ, Diligență)
 - [F.O.R.C.E. Matrix](https://www.ralucapaduraru.ro/frameworks/force-matrix/) — Cadru de categorisire a task-urilor delegabile către AI (Filtrează, Optimizează, Raționează, Construiește, Execută)
+- [Capcanele Low-Agency](https://www.ralucapaduraru.ro/frameworks/capcane-low-agency/) — De ce echipele nu adoptă AI: capcanele de agency redusă și cum le depășești
+- [Detecție Workslop — Grila 7V](https://www.ralucapaduraru.ro/frameworks/detectie-workslop/) — Grilă de evaluare în 7 dimensiuni pentru a distinge output-ul AI de calitate de „workslop"
 
 ## Resurse
 
 - [State of AI în România 2025](https://www.ralucapaduraru.ro/resources/state-of-ai-romania/) — Primul studiu academic despre utilizarea AI la locul de muncă în România: 390 profesioniști, 12 industrii
+- [Romanian State of AI 2026](https://www.ralucapaduraru.ro/romanian-state-of-ai/) — Studiu național în desfășurare privind maturitatea AI în organizațiile din România
 - [Blueprint AI Fluency](https://www.ralucapaduraru.ro/resources/blueprint-ai-fluency/) — Ghid practic pentru organizații care vor să construiască AI fluency intern
 - [AI Evolution Arc](https://www.ralucapaduraru.ro/resources/ai-evolution-arc/) — Hartă a evoluției AI și impactul asupra muncii
 - [EU AI Act Compliance Checklist](https://www.ralucapaduraru.ro/resources/eu-ai-act-checklist/) — Checklist de conformitate la Regulamentul UE 2024/1689 pentru organizații care folosesc sisteme AI
