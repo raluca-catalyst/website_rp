@@ -15,7 +15,8 @@
   ],
   "rewrites": [
     { "source": "/viitoruri", "destination": "/viitoruri.html" },
-    { "source": "/contact",   "destination": "/contact.html"   }
+    { "source": "/contact",   "destination": "/contact.html"   },
+    { "source": "/summer-mentoring", "destination": "/summer-mentoring.html" }
   ],
   "headers": [
     {

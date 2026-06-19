@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="index, follow" />
+  <title>Summer Mentoring — Sistemul tău de lucru cu AI | Raluca Păduraru</title>
+
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot → GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+  <meta name="description" content="Summer Mentoring: 3 sesiuni 1:1 online în care îți construiești sistemul tău de lucru cu AI. Pentru manageri și antreprenori non-tehnici. Doar 3 locuri, vara 2026." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:site_name" content="Raluca Păduraru" />
+  <meta property="og:title" content="Summer Mentoring — Sistemul tău de lucru cu AI" />
+  <meta property="og:description" content="3 sesiuni 1:1 online în care îți construiești sistemul tău de lucru cu AI. Pentru manageri și antreprenori non-tehnici. Doar 3 locuri, vara 2026." />
+  <meta property="og:url" content="https://www.ralucapaduraru.ro/summer-mentoring" />
+  <meta property="og:image" content="https://www.ralucapaduraru.ro/images/summer-mentoring-raluca-paduraru.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Summer Mentoring — Sistemul tău de lucru cu AI" />
+  <meta name="twitter:description" content="3 sesiuni 1:1 online în care îți construiești sistemul tău de lucru cu AI. Doar 3 locuri, vara 2026." />
+  <meta name="twitter:image" content="https://www.ralucapaduraru.ro/images/summer-mentoring-raluca-paduraru.webp" />
+  <link rel="canonical" href="https://www.ralucapaduraru.ro/summer-mentoring" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Barlow:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Schema.org: Service + Offers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://www.ralucapaduraru.ro/summer-mentoring#service",
+        "serviceType": "Mentorat AI fluency 1:1",
+        "name": "Summer Mentoring — Sistemul tău de lucru cu AI",
+        "description": "Program de mentorat 1:1 online: 3 sesiuni de 90 de minute în care managerii și antreprenorii non-tehnici își construiesc un sistem personal de lucru cu AI.",
+        "url": "https://www.ralucapaduraru.ro/summer-mentoring",
+        "inLanguage": "ro",
+        "areaServed": "RO",
+        "provider": { "@type": "Person", "@id": "https://www.ralucapaduraru.ro/#person", "name": "Raluca Păduraru", "url": "https://www.ralucapaduraru.ro/" },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Pachet 3 sesiuni",
+            "price": "2750",
+            "priceCurrency": "RON",
+            "url": "https://buy.stripe.com/5kQ7sKdIRdE2389bn8enS09",
+            "availability": "https://schema.org/LimitedAvailability",
+            "category": "Pachet mentorat"
+          },
+          {
+            "@type": "Offer",
+            "name": "Sesiune individuală",
+            "price": "1310",
+            "priceCurrency": "RON",
+            "url": "https://buy.stripe.com/7sY8wO7kt2ZoeQR3UGenS0a",
+            "category": "Sesiune mentorat"
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ralucapaduraru.ro/" },
+          { "@type": "ListItem", "position": 2, "name": "Summer Mentoring" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ===== Summer Mentoring landing — scoped ===== */
+    .sm-section { padding: clamp(3.25rem, 6vw, 5rem) 0; }
+    .sm-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.15; margin: 0 0 1.4rem; }
+    .sm-section p { color: var(--text-sec); margin-bottom: 1rem; font-size: 1.02rem; line-height: 1.7; }
+    .sm-section p:last-child { margin-bottom: 0; }
+    .sm-section p strong { color: var(--text); }
+    .sm-lead-block { max-width: none; }
+
+    /* HERO */
+    .sm-hero { padding: 7.5rem 0 3.5rem; }
+    .sm-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; }
+    .sm-hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.3rem); line-height: 1.08; margin: 0 0 1.2rem; }
+    .sm-hero-lead { font-size: 1.15rem; color: var(--text-sec); max-width: 36ch; margin-bottom: 2rem; line-height: 1.55; }
+    .sm-hero-img { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-card); }
+    .sm-hero-img img { display: block; width: 100%; height: auto; }
+
+    /* ARC (3 carduri) */
+    .sm-arc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .sm-card { background: var(--card); border: 1px solid var(--border-card); border-radius: var(--radius); padding: 1.6rem 1.5rem; }
+    .sm-card .num { font-family: var(--font-mono); font-size: 0.8rem; color: var(--lavender-lt); letter-spacing: 0.1em; margin-bottom: 0.8rem; }
+    .sm-card h3 { font-size: 1.12rem; margin-bottom: 0.6rem; }
+    .sm-card p { font-size: 0.95rem; margin-bottom: 0; }
+
+    /* PENTRU CINE */
+    .sm-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .sm-col { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem 1.5rem; }
+    .sm-col h3 { font-size: 1.05rem; margin-bottom: 1rem; }
+    .sm-col ul { list-style: none; padding: 0; margin: 0; }
+    .sm-col li { position: relative; padding-left: 1.5rem; margin-bottom: 0.7rem; color: var(--text-sec); font-size: 0.97rem; line-height: 1.55; }
+    .sm-col.yes li::before { content: "✓"; position: absolute; left: 0; color: var(--lavender-lt); font-weight: 700; }
+    .sm-col.no li::before { content: "✕"; position: absolute; left: 0; color: var(--text-muted); }
+
+    /* DESPRE */
+    .sm-about-grid { display: grid; grid-template-columns: 340px 1fr; gap: 2.5rem; align-items: center; }
+    .sm-about-photo { display: flex; justify-content: center; }
+    .sm-about-text h2 { margin-top: 0; }
+    .sm-about-text p { font-size: 0.98rem; }
+
+    /* PREȚ */
+    .sm-price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.25rem; }
+    .sm-price-card { background: var(--card); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 2rem 1.8rem; display: flex; flex-direction: column; }
+    .sm-price-card.featured { border-color: rgba(167,139,250,0.45); box-shadow: 0 0 0 1px rgba(167,139,250,0.18), 0 18px 50px -28px rgba(124,58,237,0.55); }
+    .sm-price-tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender-lt); margin-bottom: 1rem; }
+    .sm-price-card h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
+    .sm-price-sub { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.4rem; }
+    .sm-amount { font-family: var(--font-mono); font-size: 2.1rem; font-weight: 700; color: var(--text); line-height: 1; }
+    .sm-amount .old { font-size: 1rem; font-weight: 400; color: var(--text-muted); text-decoration: line-through; margin-left: 0.6rem; }
+    .sm-price-feat { list-style: none; padding: 0; margin: 1.4rem 0 1.8rem; }
+    .sm-price-feat li { position: relative; padding-left: 1.5rem; margin-bottom: 0.6rem; color: var(--text-sec); font-size: 0.95rem; }
+    .sm-price-feat li::before { content: "✓"; position: absolute; left: 0; color: var(--lavender-lt); font-weight: 700; }
+    .sm-price-card .btn { margin-top: auto; width: 100%; justify-content: center; }
+    .sm-price-note { color: var(--text-muted); font-size: 0.88rem; margin-top: 1.4rem; }
+
+    /* CUM FUNCȚIONEAZĂ */
+    .sm-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .sm-step .num { font-family: var(--font-mono); font-size: 1.6rem; color: var(--lavender); margin-bottom: 0.6rem; }
+    .sm-step h3 { font-size: 1.02rem; margin-bottom: 0.4rem; }
+    .sm-step p { font-size: 0.94rem; margin-bottom: 0; }
+
+    /* FAQ */
+    .sm-faq { max-width: none; }
+    .sm-faq details { border-bottom: 1px solid var(--border); padding: 1.1rem 0; }
+    .sm-faq summary { cursor: pointer; font-weight: 600; color: var(--text); font-size: 1.02rem; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .sm-faq summary::-webkit-details-marker { display: none; }
+    .sm-faq summary::after { content: "+"; font-family: var(--font-mono); color: var(--lavender-lt); font-size: 1.3rem; flex-shrink: 0; }
+    .sm-faq details[open] summary::after { content: "−"; }
+    .sm-faq details p { margin: 0.9rem 0 0; color: var(--text-sec); font-size: 0.97rem; }
+
+    @media (max-width: 860px) {
+      .sm-hero { padding: 6rem 0 2.5rem; }
+      .sm-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .sm-hero-img { order: -1; }
+      .sm-arc, .sm-cols, .sm-price-grid, .sm-steps { grid-template-columns: 1fr; }
+      .sm-about-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .sm-about-photo { max-width: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====================== NAVIGATION ====================== -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Raluca Păduraru home">
+        <img src="images/logo.png" alt="Raluca Păduraru" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#services">Servicii</a></li>
+        <li><a href="/frameworks/">Framework-uri</a></li>
+        <li><a href="about.html">Despre</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="impact.html">Impact</a></li>
+        <li><a href="reflectii.html">Reflecții</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#preturi" class="nav-cta">Prinde un loc</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="index.html#services">Servicii</a>
+    <a href="/frameworks/">Framework-uri</a>
+    <a href="about.html">Despre</a>
+    <a href="faq.html">FAQ</a>
+    <a href="impact.html">Impact</a>
+    <a href="reflectii.html">Reflecții</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <main>
+
+    <!-- ====================== HERO ====================== -->
+    <section class="sm-hero">
+      <div class="container">
+        <div class="sm-hero-grid">
+          <div class="sm-hero-text">
+            <h1>Sistemul tău de lucru cu AI</h1>
+            <p class="sm-hero-lead">3 sesiuni online 1:1 în care îți construiești modul tău de a lucra cu AI.</p>
+            <a href="#preturi" class="btn btn-primary">
+              Rezervă unul dintre cele 3 locuri disponibile
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="sm-hero-img">
+            <img src="images/summer-mentoring-raluca-paduraru.webp" alt="Raluca Păduraru susținând o sesiune de AI fluency în fața unei echipe de manageri" width="1200" height="798" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PROBLEMA ====================== -->
+    <section class="sm-section section-alt">
+      <div class="container">
+        <div class="sm-lead-block">
+          <h2>De ce mentorat 1:1</h2>
+          <p>În fiecare workshop se întâmplă același lucru. Oamenii pleacă entuziasmați, cu energie și cu 3 idei pe care vor să le încerce luni dimineață.</p>
+          <p>Și apoi viața îi prinde din urmă. Notițele rămân în caiet. Ideea pentru ziua de luni rămâne doar scrisă pe undeva. Peste o lună lucrează tot ca înainte, doar cu o vagă senzație de vinovăție că ar trebui să folosească mai mult AI.</p>
+          <p><strong>Mentoratul 1:1 acoperă fix golul ăsta:</strong> aplicare pe munca ta reală, repetată, până devine sistem.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CE PRIMEȘTI ====================== -->
+    <section class="sm-section">
+      <div class="container">
+        <div class="sm-lead-block">
+          <h2>La final ai propriul tău sistem de lucru cu AI</h2>
+          <p>3 sesiuni de lucru 1:1, online, fiecare a câte 90 minute. Lucrăm pe obiectivele tale, pe task-urile tale, pe cum îți e ție util. La final pleci cu un sistem personal de lucru cu AI, construit pe cazurile tale, pe care îl folosești și înveți să-l extinzi singur, ca să poți lucra și după terminarea sesiunilor.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== ARCUL 3 SESIUNI ====================== -->
+    <section class="sm-section section-alt">
+      <div class="container">
+        <h2>Arcul celor 3 sesiuni</h2>
+        <div class="sm-arc">
+          <div class="sm-card">
+            <div class="num">Sesiunea 1</div>
+            <h3>Diagnostic</h3>
+            <p>Ne uităm unde îți pierzi timpul, ce task-uri se repetă și unde ar putea AI-ul să intervină în activitatea ta.</p>
+          </div>
+          <div class="sm-card">
+            <div class="num">Sesiunea 2</div>
+            <h3>Construcție</h3>
+            <p>Îți construiești fluxurile și prompturile tale, pe cazurile tale. Pleci cu lucruri pe care le poți pune în aplicare imediat după sesiune.</p>
+          </div>
+          <div class="sm-card">
+            <div class="num">Sesiunea 3</div>
+            <h3>Consolidare</h3>
+            <p>Rafinăm sistemul și înveți să-l extinzi singur, pe situații noi, ca să poți lucra autonom după ce finalizezi programul de lucru cu mine.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PENTRU CINE ====================== -->
+    <section class="sm-section">
+      <div class="container">
+        <h2>Pentru cine e Summer Mentoring</h2>
+        <div class="sm-cols">
+          <div class="sm-col yes">
+            <h3>E pentru tine dacă:</h3>
+            <ul>
+              <li>Ești manager sau antreprenor și nu vii din zona tehnică.</li>
+              <li>Ai înțeles că AI contează, dar nu știi ce să faci concret luni dimineață.</li>
+              <li>Vrei să lucrezi pe situațiile tale concrete.</li>
+            </ul>
+          </div>
+          <div class="sm-col no">
+            <h3>Nu e pentru tine dacă:</h3>
+            <ul>
+              <li>Vrei doar o demonstrație rapidă de instrumente.</li>
+              <li>Vrei să primești o rețetă cu cel mai tare tool și prompt.</li>
+              <li>Vrei să explorezi 384 instrumente, fără un obiectiv clar.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== DESPRE RALUCA ====================== -->
+    <section class="sm-section section-alt">
+      <div class="container">
+        <div class="sm-about-grid">
+          <div class="sm-about-photo">
+            <div class="hero-image-wrap">
+              <div class="hero-circle"></div>
+              <img src="images/raluca-paduraru-speaker.webp" alt="Raluca Păduraru, trainer de AI fluency, vorbind la o conferință" width="480" height="600" loading="lazy" />
+            </div>
+          </div>
+          <div class="sm-about-text">
+            <h2>Despre Raluca</h2>
+            <p>Raluca Păduraru este consultant în AI fluency, facilitator de învățare și co-fondator Upvance Global. Cu aproape două decenii de experiență în formarea adulților și dezvoltarea echipelor, Raluca lucrează la intersecția dintre educație, foresight și tehnologie. Este Certified Foresight Practitioner (TFSX) și VP of Digitalization &amp; AI la International Association of Facilitators Romania.</p>
+            <p>Specializată în implementarea AI în organizații, Raluca a facilitat peste 800 de ore de workshop-uri cu și despre AI pentru companii și instituții din România, cu accent pe aplicabilitate practică și agency (discernământ și acțiune) sprijinite prin gândire critică, creativitate în rezolvarea problemelor complexe și utilizare responsabilă a tehnologiei. În același timp, în cadrul activității sale, a dezvoltat multiple metodologii de lucru utilizate de zeci de companii din industrii diverse în implementarea și adopția instrumentelor AI în strategia de lucru.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PREȚ ====================== -->
+    <section class="sm-section" id="preturi">
+      <div class="container">
+        <div class="sm-lead-block">
+          <h2>Securizează-ți locul</h2>
+          <p>Vara asta am disponibile doar 3 slot-uri în programul de mentoring de 3 sesiuni, ca să pot lucra în profunzime cu fiecare persoană. Plătești online, apoi îți scriu personal în maxim 24 ore ca să stabilim prima sesiune.</p>
+        </div>
+        <div class="sm-price-grid">
+          <div class="sm-price-card featured">
+            <div class="sm-price-tag">Recomandat · doar 3 locuri</div>
+            <h3>Pachet 3 sesiuni</h3>
+            <div class="sm-price-sub">Sistemul complet, de la diagnostic la autonomie</div>
+            <div class="sm-amount">2.750 RON <span class="old">3.930 RON</span></div>
+            <ul class="sm-price-feat">
+              <li>3 sesiuni 1:1 × 90 de minute</li>
+              <li>Lucru pe cazurile tale reale</li>
+              <li>Pleci cu un sistem de lucru personal</li>
+              <li>Reducere de vară -30%</li>
+            </ul>
+            <a href="https://buy.stripe.com/5kQ7sKdIRdE2389bn8enS09" target="_blank" rel="noopener" class="btn btn-primary">
+              Rezervă-ți locul
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="sm-price-card">
+            <div class="sm-price-tag">À la carte</div>
+            <h3>O sesiune</h3>
+            <div class="sm-price-sub">Pentru o întrebare punctuală</div>
+            <div class="sm-amount">1.310 RON</div>
+            <ul class="sm-price-feat">
+              <li>O sesiune 1:1 de 90 de minute</li>
+              <li>Online, pe munca ta</li>
+            </ul>
+            <a href="https://buy.stripe.com/7sY8wO7kt2ZoeQR3UGenS0a" target="_blank" rel="noopener" class="btn btn-outline">
+              Plătește o sesiune
+            </a>
+          </div>
+        </div>
+        <p class="sm-price-note">Reducere de sezon. Prețul standard este 1.310 RON/sesiune. Plata se face securizat prin Stripe.</p>
+      </div>
+    </section>
+
+    <!-- ====================== CUM FUNCȚIONEAZĂ ====================== -->
+    <section class="sm-section section-alt">
+      <div class="container">
+        <h2>Cum funcționează</h2>
+        <div class="sm-steps">
+          <div class="sm-step">
+            <div class="num">1</div>
+            <h3>Plătești online</h3>
+            <p>Îți alegi pachetul sau o sesiune și plătești securizat prin Stripe. Dacă ai nevoie de factură pe firmă, completezi datele la checkout.</p>
+          </div>
+          <div class="sm-step">
+            <div class="num">2</div>
+            <h3>Primești un email de la mine</h3>
+            <p>În maxim 24 de ore îți scriu personal: îți propun sloturi de 90 de minute și câteva întrebări scurte de pregătire.</p>
+          </div>
+          <div class="sm-step">
+            <div class="num">3</div>
+            <h3>Programăm sesiunile</h3>
+            <p>Alegi ce ți se potrivește, pui sesiunile în calendar și ne vedem online, pe Zoom. Apoi construim împreună sistemul tău personal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== FAQ ====================== -->
+    <section class="sm-section">
+      <div class="container">
+        <h2>Ce vrei să știi înainte</h2>
+        <div class="sm-faq">
+          <details>
+            <summary>Trebuie să știu deja să folosesc AI?</summary>
+            <p>Nu. E construit pentru oameni non-tehnici. Pornim de unde ești.</p>
+          </details>
+          <details>
+            <summary>Ce instrumente folosim?</summary>
+            <p>Lucrăm cu ce ai deja sau alegem împreună (ChatGPT, Claude etc.). Fără setup tehnic complicat.</p>
+          </details>
+          <details>
+            <summary>Care e recurența sesiunilor?</summary>
+            <p>Recomandat 1-2 săptămâni între sesiuni, ca să apuci să aplici ce construim. Totul este flexibil și customizat pe programul tău.</p>
+          </details>
+          <details>
+            <summary>Pot plăti o singură sesiune?</summary>
+            <p>Da, 1.310 RON. Pachetul de 3 e gândit ca să construiești un sistem de lucru, iar o singură sesiune este insuficientă pentru asta.</p>
+          </details>
+          <details>
+            <summary>E pentru echipa mea?</summary>
+            <p>Asta e mentorat 1:1. Pentru echipe, vezi workshop-urile — scrie-mi și găsim formatul potrivit.</p>
+          </details>
+          <details>
+            <summary>Pot primi factură pe firmă?</summary>
+            <p>Da. La checkout completezi numele companiei și CUI-ul, iar factura o emit pe firmă.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CTA FINAL ====================== -->
+    <section class="footer-cta" aria-labelledby="sm-cta-heading">
+      <div class="container">
+        <h2 id="sm-cta-heading">3 locuri. Vara asta.</h2>
+        <p>Un workshop îți dă harta. Un sistem te duce la destinație. Dacă vrei unul dintre cele 3 locuri, acum e momentul.</p>
+        <a href="#preturi" class="btn btn-primary">
+          Rezervă-ți locul
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="index.html" class="footer-logo"><img src="images/logo.png" alt="Raluca Păduraru" /></a>
+          <p class="footer-copy">© 2026 Raluca Păduraru. All rights reserved.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy.html">Politică de confidențialitate</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

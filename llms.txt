@@ -31,6 +31,10 @@ Raluca Păduraru este educator de AI fluency și consultant independent (Upvance
 - [EU AI Act Compliance Checklist](https://www.ralucapaduraru.ro/resources/eu-ai-act-checklist/) — Checklist de conformitate la Regulamentul UE 2024/1689 pentru organizații care folosesc sisteme AI
 - [Viitoruri 2030](https://www.ralucapaduraru.ro/viitoruri.html) — Raport de foresight: patru scenarii pentru viitorul muncii în România
 
+## Programe & produse
+
+- [Summer Mentoring — Sistemul tău de lucru cu AI](https://www.ralucapaduraru.ro/summer-mentoring) — Mentorat 1:1 online, 3 sesiuni de 90 de minute, pentru manageri și antreprenori non-tehnici. Diagnostic, construcție, consolidare: pleci cu un sistem personal de lucru cu AI, nu cu notițe. Ediție de vară 2026, 3 locuri.
+
 ## Articole (Reflecții)
 
 - [EU AI Act și Digital Omnibus — ce s-a schimbat pentru IMM-uri](https://www.ralucapaduraru.ro/eu-ai-act-imm.html) — Digital Omnibus a extins termenul pentru sisteme de risc ridicat, dar obligația de AI Literacy e deja activă
