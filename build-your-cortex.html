@@ -128,14 +128,13 @@
     .byc-section p { color: var(--text-sec); margin-bottom: 1rem; font-size: 1.02rem; line-height: 1.7; }
     .byc-section p:last-child { margin-bottom: 0; }
     .byc-section p strong { color: var(--text); }
-    .byc-lead-block { max-width: 760px; }
+    .byc-lead-block { max-width: 820px; margin: 0 auto; text-align: center; }
+    .byc-section-intro { color: var(--text-muted); margin-bottom: 2.25rem; }
 
     /* HERO */
     .byc-hero { padding: 7.5rem 0 3.5rem; text-align: center; }
-    .byc-hero .eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lavender-lt); margin-bottom: 1.2rem; }
-    .byc-hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.08; margin: 0 auto 1.3rem; max-width: 18ch; }
-    .byc-hero-lead { font-size: 1.18rem; color: var(--text-sec); max-width: 54ch; margin: 0 auto 2rem; line-height: 1.6; }
-    .byc-hero-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-top: 1.5rem; letter-spacing: 0.04em; }
+    .byc-hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.08; margin: 0 auto 1.3rem; max-width: 20ch; }
+    .byc-hero-lead { font-size: 1.18rem; color: var(--text-sec); max-width: 58ch; margin: 0 auto 2rem; line-height: 1.6; }
 
     /* CARDURI (cu ce pleci acasă) */
     .byc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
@@ -158,7 +157,22 @@
     .byc-col ul { list-style: none; padding: 0; margin: 0; }
     .byc-col li { position: relative; padding-left: 1.6rem; margin-bottom: 0.8rem; color: var(--text-sec); font-size: 0.97rem; line-height: 1.55; }
     .byc-col.check li::before { content: "✓"; position: absolute; left: 0; color: var(--lavender-lt); font-weight: 700; }
+    .byc-col.cross li::before { content: "✕"; position: absolute; left: 0; color: var(--text-muted); }
     .byc-col li:last-child { margin-bottom: 0; }
+
+    /* CE-ȚI TREBUIE */
+    .byc-needs { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem 1.6rem; margin-top: 1.25rem; }
+    .byc-needs h3 { font-size: 1.08rem; margin-bottom: 1rem; }
+    .byc-needs ul { list-style: none; padding: 0; margin: 0; }
+    .byc-needs li { position: relative; padding-left: 1.6rem; margin-bottom: 0.8rem; color: var(--text-sec); font-size: 0.97rem; line-height: 1.55; }
+    .byc-needs li::before { content: "✓"; position: absolute; left: 0; color: var(--lavender-lt); font-weight: 700; }
+    .byc-needs-note { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 1.2rem 0 0; }
+
+    /* PROGRAM */
+    .byc-program { list-style: none; padding: 0; margin: 0 0 2.5rem; max-width: 720px; }
+    .byc-program li { display: flex; gap: 1.1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); color: var(--text-sec); font-size: 1rem; line-height: 1.6; }
+    .byc-program li:last-child { border-bottom: none; }
+    .byc-program .t { font-family: var(--font-mono); font-size: 0.85rem; color: var(--lavender-lt); flex-shrink: 0; width: 120px; }
 
     /* DETALII + PREȚ */
     .byc-detalii { list-style: none; padding: 0; margin: 0 0 2.25rem; max-width: 640px; }
@@ -169,9 +183,10 @@
 
     .byc-price-card { background: var(--card); border: 1px solid rgba(167,139,250,0.45); border-radius: var(--radius-lg); padding: 2.2rem 2rem; max-width: 520px; box-shadow: 0 0 0 1px rgba(167,139,250,0.18), 0 18px 50px -28px rgba(124,58,237,0.55); }
     .byc-price-tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender-lt); margin-bottom: 1rem; }
-    .byc-amount { font-family: var(--font-mono); font-size: 2.3rem; font-weight: 700; color: var(--text); line-height: 1; }
-    .byc-amount .old { font-size: 1rem; font-weight: 400; color: var(--text-muted); text-decoration: line-through; margin-left: 0.6rem; }
-    .byc-amount .save { display: inline-block; font-family: var(--font-body, inherit); font-size: 0.78rem; color: var(--lavender-lt); margin-left: 0.6rem; vertical-align: middle; }
+    .byc-amount { font-family: var(--font-mono); font-size: 2.4rem; font-weight: 700; color: var(--text); line-height: 1; }
+    .byc-amount-sub { margin-top: 0.6rem; font-size: 0.92rem; color: var(--text-muted); }
+    .byc-amount-sub .old { text-decoration: line-through; margin-right: 0.7rem; }
+    .byc-amount-sub .save { color: var(--lavender-lt); }
     .byc-price-feat { list-style: none; padding: 0; margin: 1.5rem 0 1.8rem; }
     .byc-price-feat li { position: relative; padding-left: 1.6rem; margin-bottom: 0.7rem; color: var(--text-sec); font-size: 0.96rem; }
     .byc-price-feat li::before { content: "✓"; position: absolute; left: 0; color: var(--lavender-lt); font-weight: 700; }
@@ -253,14 +268,12 @@
     <!-- ====================== HERO ====================== -->
     <section class="byc-hero">
       <div class="container">
-        <p class="eyebrow">Build Your Cortex · 6 august 2026 · Palatul Universului</p>
         <h1>Nu mai ești executantul. Ești CEO-ul unui sistem.</h1>
-        <p class="byc-hero-lead">Într-o singură zi îți construiești un sistem AI care te cunoaște, lucrează pentru tine și produce. Pleci cu el funcțional, plus o echipă de specialiști gata de pus la treabă.</p>
+        <p class="byc-hero-lead">Pe 6 august îți construiești un sistem AI care te cunoaște, lucrează pentru tine și produce. La finalul zilei, pleci cu un sistem funcțional și cu o echipă de specialiști gata de pus la treabă.</p>
         <a href="#inscriere" class="btn btn-primary">
           Intră pe lista de early-access
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <p class="byc-hero-meta">Ediție unică · max 16 locuri · parte din ecosistemul KA-BOM</p>
       </div>
     </section>
 
@@ -279,7 +292,7 @@
     <section class="byc-section">
       <div class="container">
         <h2>Cu ce pleci acasă</h2>
-        <p style="color:var(--text-muted); margin-bottom:2.25rem; max-width:720px;">Nu pleci cu notițe și bune intenții. Pleci cu un sistem care funcționează deja, construit pe munca și obiectivele tale.</p>
+        <p class="byc-section-intro">Nu pleci cu notițe și bune intenții. Pleci cu un sistem care funcționează deja, construit pe munca și obiectivele tale.</p>
         <div class="byc-grid">
           <div class="byc-card">
             <h3>Cartierul tău general</h3>
@@ -287,27 +300,23 @@
           </div>
           <div class="byc-card">
             <h3>Directorul de Operațiuni</h3>
-            <p>Creierul de coordonare al sistemului, personalizat pe obiectivul tău. Știe ce ai, ce vrei și cum să ruteze munca.</p>
+            <p>Creierul de coordonare al sistemului, personalizat pe obiectivul tău. Știe ce resurse ai, încotro te îndrepți și cum să te susțină.</p>
           </div>
           <div class="byc-card">
             <h3>Lecția transferabilă</h3>
-            <p>Înțelegi cum se construiește un astfel de sistem pentru orice proiect viitor, nu doar pentru cel de azi.</p>
+            <p>Înțelegi cum să gestionezi acest sistem singur și cum să construiești oricând un nou sistem pentru proiecte viitoare.</p>
           </div>
           <div class="byc-card">
             <h3>Zona care se actualizează singură</h3>
-            <p>Sistemul observă tipare și se îmbunătățește în timp. Lucrează și învață și când tu ești în pauză de prânz.</p>
+            <p>Sistemul observă tipare și se îmbunătățește în timp. Lucrează și învață și când tu ești în pauza de prânz.</p>
           </div>
           <div class="byc-card">
-            <h3>Prima experiență de discernământ</h3>
-            <p>Îți hrănești sistemul cu surse adevărate și înveți să-i ceri socoteală, fără să accepți fluența ca adevăr.</p>
+            <h3>Agency = discernământ + acțiune</h3>
+            <p>Îți hrănești sistemul cu surse adevărate și înveți să-i ceri socoteală, fără să accepți totul fără discernământ.</p>
           </div>
           <div class="byc-card">
             <h3>O echipă de 4-5 specialiști</h3>
-            <p>Fiecare cu fișa lui de post, gata de personalizat pe businessul tău: voce, follow-up, oferte, sinteză de surse, consiliu de perspective.</p>
-          </div>
-          <div class="byc-card">
-            <h3>Un artefact vizual generat live</h3>
-            <p>Pleci cu ceva concret în mână, produs de sistemul tău chiar în sală.</p>
+            <p>Fiecare cu fișa lui de post, gata de personalizat pe contextul tău: voce, follow-up, oferte, sinteză de surse, consiliu de perspective.</p>
           </div>
         </div>
       </div>
@@ -317,27 +326,31 @@
     <section class="byc-section section-alt">
       <div class="container">
         <h2>Cum arată ziua</h2>
-        <p style="color:var(--text-muted); margin-bottom:2.25rem; max-width:720px;">O zi, patru mișcări. Fără teorie lungă; construiești pe businessul tău de la prima oră.</p>
+        <ul class="byc-program">
+          <li><span class="t">9:30 - 10:00</span><span>Sesiune de setup pentru cei care au nevoie</span></li>
+          <li><span class="t">10:00 - 10:30</span><span>Networking &amp; welcome</span></li>
+          <li><span class="t">10:30 - 18:30</span><span>6 ore de lucru pentru a-ți construi propriul CORTEX</span></li>
+        </ul>
         <div class="byc-arc">
           <div class="byc-step">
             <div class="num">1</div>
             <h3>Nu mai ești executantul</h3>
-            <p>Vezi un sistem matur la lucru și înțelegi exact ce construiești azi.</p>
+            <p>Vezi cum arată un sistem CORTEX matur și înțelegi exact ce construiești în cursul zilei.</p>
           </div>
           <div class="byc-step">
             <div class="num">2</div>
             <h3>Cartierul tău general</h3>
-            <p>Îți așezi sistemul și Directorul de Operațiuni, croit pe obiectivul tău.</p>
+            <p>Îți construiești sistemul și-ți angajezi un director de operațiuni, special croit pentru obiectivul tău.</p>
           </div>
           <div class="byc-step">
             <div class="num">3</div>
             <h3>Îl hrănești și îi ceri socoteală</h3>
-            <p>Pui primul context real înăuntru și înveți să-i verifici munca, nu doar s-o accepți.</p>
+            <p>Inserezi propriul tău context în sistem și înveți să-i verifici munca.</p>
           </div>
           <div class="byc-step">
             <div class="num">4</div>
             <h3>Îți angajezi echipa</h3>
-            <p>Activezi specialiștii care produc pentru tine și pleci cu primul artefact vizual.</p>
+            <p>Activezi specialiștii care produc pentru tine și pleci cu primul tău artefact gata de folosit.</p>
           </div>
         </div>
       </div>
@@ -348,19 +361,31 @@
       <div class="container">
         <h2>Pentru cine e</h2>
         <div class="byc-cols">
-          <div class="byc-col">
-            <h3>Pentru tine</h3>
-            <p>Pentru lideri, manageri și antreprenori care vor să folosească AI ca pe un sistem propriu. Nu trebuie să fii tehnic și nici nu va trebui să scrii vreo linie de cod.</p>
-          </div>
           <div class="byc-col check">
-            <h3>Ce-ți trebuie</h3>
+            <h3>Este pentru tine dacă:</h3>
             <ul>
-              <li>Un laptop și deschiderea de a construi în ziua respectivă</li>
-              <li>Aplicația Claude Desktop instalată</li>
-              <li>Un abonament Claude Pro (sau Max)</li>
-              <li>Atât. De rest ne ocupăm în sală: organizez o sesiune de setup de 30 de minute pentru cei care au nevoie de sprijin, dimineața, înainte să începem.</li>
+              <li>Ești lider, manager sau antreprenor și vrei să folosești AI ca pe un sistem propriu.</li>
+              <li>Nu vii din zona tehnică și nu vrei să scrii cod.</li>
+              <li>Ești dispus să depui efort ca să pleci cu un sistem care chiar lucrează pentru tine.</li>
             </ul>
           </div>
+          <div class="byc-col cross">
+            <h3>Nu este pentru tine dacă:</h3>
+            <ul>
+              <li>Ești un om foarte tehnic.</li>
+              <li>Nu ești dispus să depui efort ca să-ți construiești sistemul.</li>
+              <li>Cauți rețete magice și soluții de-a gata.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="byc-needs">
+          <h3>Ce-ți trebuie</h3>
+          <ul>
+            <li>Un laptop și deschiderea de a construi în ziua respectivă</li>
+            <li>Aplicația Claude Desktop instalată</li>
+            <li>Un abonament Claude Pro (sau Max)</li>
+          </ul>
+          <p class="byc-needs-note">De restul ne ocupăm în sală: organizez o sesiune de setup de 30 de minute pentru cei care au nevoie de sprijin, dimineața, înainte să începem.</p>
         </div>
       </div>
     </section>
@@ -370,7 +395,7 @@
       <div class="container">
         <h2>Detalii și preț</h2>
         <ul class="byc-detalii">
-          <li><span class="k">Când</span><span>6 august 2026. Program de la 10:30 la 18:30, cu pauze. Setup asistat opțional de la 09:30.</span></li>
+          <li><span class="k">Când</span><span>6 august 2026, de la 10:30 la 18:30.</span></li>
           <li><span class="k">Unde</span><span>Palatul Universul, București.</span></li>
           <li><span class="k">Locuri</span><span>Max 16. Grup mic, atenție pe fiecare.</span></li>
           <li><span class="k">Parte din</span><span>Lansarea ecosistemului <a href="https://ka-bom.com/about" target="_blank" rel="noopener">KA-BOM</a>.</span></li>
@@ -378,11 +403,12 @@
 
         <div class="byc-price-card">
           <div class="byc-price-tag">Preț de lansare · reducere 30%</div>
-          <div class="byc-amount">1.197 lei <span class="old">1.710 lei</span><span class="save">economisești 513 lei</span></div>
+          <div class="byc-amount">1.197 lei</div>
+          <div class="byc-amount-sub"><span class="old">1.710 lei</span><span class="save">economisești 513 lei</span></div>
           <ul class="byc-price-feat">
-            <li>O zi întreagă de construit, pe businessul tău</li>
+            <li>O zi întreagă de construit, pe contextul tău</li>
             <li>Pleci cu un sistem AI personal funcțional</li>
-            <li>Echipa de 4-5 specialiști, gata de pus la treabă</li>
+            <li>Obții o echipă de 4-5 specialiști, gata de pus la treabă</li>
             <li>Grup mic, max 16 persoane</li>
           </ul>
           <a href="#inscriere" class="btn btn-primary">
