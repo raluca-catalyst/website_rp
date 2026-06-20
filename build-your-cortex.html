@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="index, follow" />
+  <title>Build Your Cortex: Sistemul tău AI personal, într-o zi | Raluca Păduraru</title>
+
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot → GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+  <meta name="description" content="Build Your Cortex: într-o zi îți construiești un sistem AI personal care te cunoaște, lucrează pentru tine și produce. Ediție unică, 6 august 2026, Palatul Universului, ecosistem KA-BOM." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:site_name" content="Raluca Păduraru" />
+  <meta property="og:title" content="Build Your Cortex: Sistemul tău AI personal, într-o zi" />
+  <meta property="og:description" content="Nu mai ești executantul. Ești CEO-ul unui sistem. Într-o zi îți construiești un sistem AI care te cunoaște, lucrează pentru tine și produce. Ediție unică, 6 august 2026." />
+  <meta property="og:url" content="https://www.ralucapaduraru.ro/build-your-cortex" />
+  <meta property="og:image" content="https://www.ralucapaduraru.ro/images/build.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Build Your Cortex: Sistemul tău AI personal, într-o zi" />
+  <meta name="twitter:description" content="Nu mai ești executantul. Ești CEO-ul unui sistem. Ediție unică, 6 august 2026, Palatul Universului." />
+  <meta name="twitter:image" content="https://www.ralucapaduraru.ro/images/build.webp" />
+  <link rel="canonical" href="https://www.ralucapaduraru.ro/build-your-cortex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Barlow:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Schema.org: Event + Offers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Event",
+        "@id": "https://www.ralucapaduraru.ro/build-your-cortex#event",
+        "name": "Build Your Cortex",
+        "description": "Workshop de o zi în care îți construiești un sistem AI personal care te cunoaște, lucrează pentru tine și produce. Pleci cu sistemul funcțional și o echipă de specialiști gata de pus la treabă. Ediție unică, parte din lansarea ecosistemului KA-BOM.",
+        "startDate": "2026-08-06T10:30:00+03:00",
+        "endDate": "2026-08-06T18:30:00+03:00",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "inLanguage": "ro",
+        "url": "https://www.ralucapaduraru.ro/build-your-cortex",
+        "image": "https://www.ralucapaduraru.ro/images/build.webp",
+        "location": {
+          "@type": "Place",
+          "name": "Palatul Universul",
+          "address": { "@type": "PostalAddress", "addressLocality": "București", "addressCountry": "RO" }
+        },
+        "organizer": { "@type": "Organization", "name": "Upvance Global", "url": "https://upvance.global" },
+        "performer": { "@type": "Person", "name": "Raluca Păduraru", "url": "https://www.ralucapaduraru.ro/" },
+        "maximumAttendeeCapacity": 16,
+        "offers": {
+          "@type": "Offer",
+          "name": "Bilet Build Your Cortex (preț de lansare)",
+          "price": "1197",
+          "priceCurrency": "RON",
+          "availability": "https://schema.org/LimitedAvailability",
+          "url": "https://www.ralucapaduraru.ro/build-your-cortex",
+          "validThrough": "2026-08-06"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ralucapaduraru.ro/" },
+          { "@type": "ListItem", "position": 2, "name": "Build Your Cortex" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ===== Build Your Cortex landing — scoped ===== */
+    .byc-section { padding: clamp(3.25rem, 6vw, 5rem) 0; }
+    .byc-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.15; margin: 0 0 1.4rem; }
+    .byc-section p { color: var(--text-sec); margin-bottom: 1rem; font-size: 1.02rem; line-height: 1.7; }
+    .byc-section p:last-child { margin-bottom: 0; }
+    .byc-section p strong { color: var(--text); }
+    .byc-lead-block { max-width: 760px; }
+
+    /* HERO */
+    .byc-hero { padding: 7.5rem 0 3.5rem; text-align: center; }
+    .byc-hero .eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--lavender-lt); margin-bottom: 1.2rem; }
+    .byc-hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.08; margin: 0 auto 1.3rem; max-width: 18ch; }
+    .byc-hero-lead { font-size: 1.18rem; color: var(--text-sec); max-width: 54ch; margin: 0 auto 2rem; line-height: 1.6; }
+    .byc-hero-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-top: 1.5rem; letter-spacing: 0.04em; }
+
+    /* CARDURI (cu ce pleci acasă) */
+    .byc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+    .byc-card { background: var(--card); border: 1px solid var(--border-card); border-radius: var(--radius); padding: 1.6rem 1.5rem; border-top: 2px solid var(--lavender); }
+    .byc-card h3 { font-size: 1.05rem; color: var(--lavender-lt); margin-bottom: 0.6rem; }
+    .byc-card p { font-size: 0.95rem; margin-bottom: 0; }
+
+    /* ARC (cum arată ziua) */
+    .byc-arc { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; }
+    .byc-step { background: var(--card); border: 1px solid var(--border-card); border-radius: var(--radius); padding: 1.6rem 1.5rem; }
+    .byc-step .num { font-family: var(--font-mono); font-size: 1.6rem; color: var(--lavender); margin-bottom: 0.6rem; line-height: 1; }
+    .byc-step h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .byc-step p { font-size: 0.94rem; margin-bottom: 0; }
+
+    /* PENTRU CINE / CE-ȚI TREBUIE */
+    .byc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .byc-col { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem 1.6rem; }
+    .byc-col h3 { font-size: 1.08rem; margin-bottom: 1rem; }
+    .byc-col p { font-size: 0.98rem; }
+    .byc-col ul { list-style: none; padding: 0; margin: 0; }
+    .byc-col li { position: relative; padding-left: 1.6rem; margin-bottom: 0.8rem; color: var(--text-sec); font-size: 0.97rem; line-height: 1.55; }
+    .byc-col.check li::before { content: "✓"; position: absolute; left: 0; color: var(--lavender-lt); font-weight: 700; }
+    .byc-col li:last-child { margin-bottom: 0; }
+
+    /* DETALII + PREȚ */
+    .byc-detalii { list-style: none; padding: 0; margin: 0 0 2.25rem; max-width: 640px; }
+    .byc-detalii li { display: flex; gap: 0.9rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); color: var(--text-sec); font-size: 1rem; line-height: 1.6; }
+    .byc-detalii li:last-child { border-bottom: none; }
+    .byc-detalii .k { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lavender-lt); flex-shrink: 0; width: 86px; padding-top: 0.25rem; }
+    .byc-detalii a { color: var(--lavender-lt); }
+
+    .byc-price-card { background: var(--card); border: 1px solid rgba(167,139,250,0.45); border-radius: var(--radius-lg); padding: 2.2rem 2rem; max-width: 520px; box-shadow: 0 0 0 1px rgba(167,139,250,0.18), 0 18px 50px -28px rgba(124,58,237,0.55); }
+    .byc-price-tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender-lt); margin-bottom: 1rem; }
+    .byc-amount { font-family: var(--font-mono); font-size: 2.3rem; font-weight: 700; color: var(--text); line-height: 1; }
+    .byc-amount .old { font-size: 1rem; font-weight: 400; color: var(--text-muted); text-decoration: line-through; margin-left: 0.6rem; }
+    .byc-amount .save { display: inline-block; font-family: var(--font-body, inherit); font-size: 0.78rem; color: var(--lavender-lt); margin-left: 0.6rem; vertical-align: middle; }
+    .byc-price-feat { list-style: none; padding: 0; margin: 1.5rem 0 1.8rem; }
+    .byc-price-feat li { position: relative; padding-left: 1.6rem; margin-bottom: 0.7rem; color: var(--text-sec); font-size: 0.96rem; }
+    .byc-price-feat li::before { content: "✓"; position: absolute; left: 0; color: var(--lavender-lt); font-weight: 700; }
+    .byc-price-card .btn { width: 100%; justify-content: center; }
+    .byc-price-note { color: var(--text-muted); font-size: 0.9rem; margin-top: 1.4rem; line-height: 1.6; max-width: 520px; }
+
+    /* FORMULAR WAITLIST */
+    .byc-form-wrap { max-width: 600px; margin: 2rem auto 0; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-field label {
+      font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-sec);
+    }
+    .form-field input {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 13px 16px; font-family: var(--font-body, inherit); font-size: 0.95rem;
+      color: var(--text); outline: none; transition: border-color 0.2s;
+    }
+    .form-field input:focus { border-color: var(--lavender); }
+    .form-field input::placeholder { color: var(--text-muted); }
+    .form-check { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 24px; }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--lavender); cursor: pointer; }
+    .form-check label { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; cursor: pointer; }
+    .form-submit-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .form-submit-wrap .btn { width: 100%; justify-content: center; }
+    .form-privacy { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
+    .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+    .byc-form-msg { margin-top: 16px; font-size: 0.9rem; border-radius: var(--radius); padding: 12px 16px; text-align: center; display: none; }
+    .byc-form-msg.success { display: block; background: rgba(107,158,116,0.15); border: 1px solid rgba(107,158,116,0.4); color: #7BC78A; }
+    .byc-form-msg.error   { display: block; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3); color: var(--lavender-lt); }
+
+    @media (max-width: 860px) {
+      .byc-hero { padding: 6rem 0 2.5rem; }
+      .byc-cols { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ====================== NAVIGATION ====================== -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Raluca Păduraru home">
+        <img src="images/logo.png" alt="Raluca Păduraru" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#services">Servicii</a></li>
+        <li><a href="/frameworks/">Framework-uri</a></li>
+        <li><a href="about.html">Despre</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="impact.html">Impact</a></li>
+        <li><a href="reflectii.html">Reflecții</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="#inscriere" class="nav-cta">Intră pe listă</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="index.html#services">Servicii</a>
+    <a href="/frameworks/">Framework-uri</a>
+    <a href="about.html">Despre</a>
+    <a href="faq.html">FAQ</a>
+    <a href="impact.html">Impact</a>
+    <a href="reflectii.html">Reflecții</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <main>
+
+    <!-- ====================== HERO ====================== -->
+    <section class="byc-hero">
+      <div class="container">
+        <p class="eyebrow">Build Your Cortex · 6 august 2026 · Palatul Universului</p>
+        <h1>Nu mai ești executantul. Ești CEO-ul unui sistem.</h1>
+        <p class="byc-hero-lead">Într-o singură zi îți construiești un sistem AI care te cunoaște, lucrează pentru tine și produce. Pleci cu el funcțional, plus o echipă de specialiști gata de pus la treabă.</p>
+        <a href="#inscriere" class="btn btn-primary">
+          Intră pe lista de early-access
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <p class="byc-hero-meta">Ediție unică · max 16 locuri · parte din ecosistemul KA-BOM</p>
+      </div>
+    </section>
+
+    <!-- ====================== PROBLEMA ====================== -->
+    <section class="byc-section section-alt">
+      <div class="container">
+        <div class="byc-lead-block">
+          <h2>Asistenții AI standard nu te cunosc.</h2>
+          <p>Fiecare conversație e luată de la zero. Le explici de fiecare dată cine ești, cu ce te ocupi, cum gândești, ce ai mai vorbit data trecută. Și tot așa ori de câte ori o iei de la capăt. Rezultatul e că primești niște răspunsuri generice, pe care le rescrii oricum. Lucrezi pentru instrument, în loc să lucreze el pentru tine.</p>
+          <p>Un Cortex schimbă relația. E un sistem care reține contextul tău, învață din ceea ce construiți împreună și pe care-l ai mereu la îndemână. Nu mai execuți tu fiecare mic pas, ci devii CEO-ul unei mini-echipe proprii.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CU CE PLECI ACASĂ ====================== -->
+    <section class="byc-section">
+      <div class="container">
+        <h2>Cu ce pleci acasă</h2>
+        <p style="color:var(--text-muted); margin-bottom:2.25rem; max-width:720px;">Nu pleci cu notițe și bune intenții. Pleci cu un sistem care funcționează deja, construit pe munca și obiectivele tale.</p>
+        <div class="byc-grid">
+          <div class="byc-card">
+            <h3>Cartierul tău general</h3>
+            <p>Un sistem AI personal, cu structură funcțională, care îți ține laolaltă contextul, sursele și munca.</p>
+          </div>
+          <div class="byc-card">
+            <h3>Directorul de Operațiuni</h3>
+            <p>Creierul de coordonare al sistemului, personalizat pe obiectivul tău. Știe ce ai, ce vrei și cum să ruteze munca.</p>
+          </div>
+          <div class="byc-card">
+            <h3>Lecția transferabilă</h3>
+            <p>Înțelegi cum se construiește un astfel de sistem pentru orice proiect viitor, nu doar pentru cel de azi.</p>
+          </div>
+          <div class="byc-card">
+            <h3>Zona care se actualizează singură</h3>
+            <p>Sistemul observă tipare și se îmbunătățește în timp. Lucrează și învață și când tu ești în pauză de prânz.</p>
+          </div>
+          <div class="byc-card">
+            <h3>Prima experiență de discernământ</h3>
+            <p>Îți hrănești sistemul cu surse adevărate și înveți să-i ceri socoteală, fără să accepți fluența ca adevăr.</p>
+          </div>
+          <div class="byc-card">
+            <h3>O echipă de 4-5 specialiști</h3>
+            <p>Fiecare cu fișa lui de post, gata de personalizat pe businessul tău: voce, follow-up, oferte, sinteză de surse, consiliu de perspective.</p>
+          </div>
+          <div class="byc-card">
+            <h3>Un artefact vizual generat live</h3>
+            <p>Pleci cu ceva concret în mână, produs de sistemul tău chiar în sală.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CUM ARATĂ ZIUA ====================== -->
+    <section class="byc-section section-alt">
+      <div class="container">
+        <h2>Cum arată ziua</h2>
+        <p style="color:var(--text-muted); margin-bottom:2.25rem; max-width:720px;">O zi, patru mișcări. Fără teorie lungă; construiești pe businessul tău de la prima oră.</p>
+        <div class="byc-arc">
+          <div class="byc-step">
+            <div class="num">1</div>
+            <h3>Nu mai ești executantul</h3>
+            <p>Vezi un sistem matur la lucru și înțelegi exact ce construiești azi.</p>
+          </div>
+          <div class="byc-step">
+            <div class="num">2</div>
+            <h3>Cartierul tău general</h3>
+            <p>Îți așezi sistemul și Directorul de Operațiuni, croit pe obiectivul tău.</p>
+          </div>
+          <div class="byc-step">
+            <div class="num">3</div>
+            <h3>Îl hrănești și îi ceri socoteală</h3>
+            <p>Pui primul context real înăuntru și înveți să-i verifici munca, nu doar s-o accepți.</p>
+          </div>
+          <div class="byc-step">
+            <div class="num">4</div>
+            <h3>Îți angajezi echipa</h3>
+            <p>Activezi specialiștii care produc pentru tine și pleci cu primul artefact vizual.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PENTRU CINE E ====================== -->
+    <section class="byc-section">
+      <div class="container">
+        <h2>Pentru cine e</h2>
+        <div class="byc-cols">
+          <div class="byc-col">
+            <h3>Pentru tine</h3>
+            <p>Pentru lideri, manageri și antreprenori care vor să folosească AI ca pe un sistem propriu. Nu trebuie să fii tehnic și nici nu va trebui să scrii vreo linie de cod.</p>
+          </div>
+          <div class="byc-col check">
+            <h3>Ce-ți trebuie</h3>
+            <ul>
+              <li>Un laptop și deschiderea de a construi în ziua respectivă</li>
+              <li>Aplicația Claude Desktop instalată</li>
+              <li>Un abonament Claude Pro (sau Max)</li>
+              <li>Atât. De rest ne ocupăm în sală: organizez o sesiune de setup de 30 de minute pentru cei care au nevoie de sprijin, dimineața, înainte să începem.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== DETALII ȘI PREȚ ====================== -->
+    <section class="byc-section section-alt">
+      <div class="container">
+        <h2>Detalii și preț</h2>
+        <ul class="byc-detalii">
+          <li><span class="k">Când</span><span>6 august 2026. Program de la 10:30 la 18:30, cu pauze. Setup asistat opțional de la 09:30.</span></li>
+          <li><span class="k">Unde</span><span>Palatul Universul, București.</span></li>
+          <li><span class="k">Locuri</span><span>Max 16. Grup mic, atenție pe fiecare.</span></li>
+          <li><span class="k">Parte din</span><span>Lansarea ecosistemului <a href="https://ka-bom.com/about" target="_blank" rel="noopener">KA-BOM</a>.</span></li>
+        </ul>
+
+        <div class="byc-price-card">
+          <div class="byc-price-tag">Preț de lansare · reducere 30%</div>
+          <div class="byc-amount">1.197 lei <span class="old">1.710 lei</span><span class="save">economisești 513 lei</span></div>
+          <ul class="byc-price-feat">
+            <li>O zi întreagă de construit, pe businessul tău</li>
+            <li>Pleci cu un sistem AI personal funcțional</li>
+            <li>Echipa de 4-5 specialiști, gata de pus la treabă</li>
+            <li>Grup mic, max 16 persoane</li>
+          </ul>
+          <a href="#inscriere" class="btn btn-primary">
+            Intră pe lista de early-access
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <p class="byc-price-note">Prețul include un discount special de 30%: este cadoul meu prin care sărbătoresc, alături de voi, lansarea ecosistemului KA-BOM. Edițiile viitoare vor fi la preț întreg, fără discount. Înscrierile se deschid în curând, iar cei de pe lista de early-access sunt anunțați primii și au prioritate la cele 16 locuri.</p>
+      </div>
+    </section>
+
+    <!-- ====================== FORMULAR WAITLIST ====================== -->
+    <section class="byc-section" id="inscriere" aria-labelledby="inscriere-heading">
+      <div class="container">
+        <div style="text-align:center; max-width:640px; margin:0 auto;">
+          <h2 id="inscriere-heading">Intră pe lista de early-access</h2>
+          <p style="color:var(--text-muted); margin-top:12px;">Lasă-ți datele și vei fi printre primii anunțați la deschiderea înscrierilor.</p>
+        </div>
+        <div class="byc-form-wrap">
+          <form id="byc-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="byc-name">Nume complet *</label>
+                <input type="text" id="byc-name" name="name" required placeholder="Prenume Nume" autocomplete="name" />
+              </div>
+              <div class="form-field">
+                <label for="byc-email">Email *</label>
+                <input type="email" id="byc-email" name="email" required placeholder="tu@email.ro" autocomplete="email" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="byc-company">Companie</label>
+                <input type="text" id="byc-company" name="company" placeholder="Compania ta (opțional)" autocomplete="organization" />
+              </div>
+              <div class="form-field">
+                <label for="byc-role">Rol / Funcție</label>
+                <input type="text" id="byc-role" name="role" placeholder="Ex: Director, Antreprenor... (opțional)" autocomplete="organization-title" />
+              </div>
+            </div>
+            <div class="hp-field" aria-hidden="true">
+              <label for="byc-website">Website</label>
+              <input type="text" id="byc-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="byc-consent" name="consent" required />
+              <label for="byc-consent">
+                Doresc să fiu anunțat(ă) despre Build Your Cortex și să primesc actualizări despre AI și viitorul muncii.
+              </label>
+            </div>
+            <div class="form-submit-wrap">
+              <button type="submit" class="btn btn-primary" id="byc-btn">
+                Intră pe lista de early-access
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <p class="form-privacy">Datele tale sunt în siguranță și nu vor fi distribuite terților.</p>
+            </div>
+            <div id="byc-form-msg" class="byc-form-msg"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CTA FINAL ====================== -->
+    <section class="footer-cta" aria-labelledby="byc-cta-heading">
+      <div class="container">
+        <h2 id="byc-cta-heading">16 locuri, o singură ediție.</h2>
+        <p>Dacă vrei să termini ziua cu un sistem AI care chiar lucrează pentru tine, ne vedem pe 6 august!</p>
+        <a href="#inscriere" class="btn btn-primary">
+          Intră pe lista de early-access
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="index.html" class="footer-logo"><img src="images/logo.png" alt="Raluca Păduraru" /></a>
+          <p class="footer-copy">© 2026 Raluca Păduraru. All rights reserved.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+          <a href="/contact">Contact</a>
+          <a href="/privacy.html">Politică de confidențialitate</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('byc-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const name    = document.getElementById('byc-name').value.trim();
+      const email   = document.getElementById('byc-email').value.trim();
+      const company = document.getElementById('byc-company').value.trim();
+      const role    = document.getElementById('byc-role').value.trim();
+      const website = document.getElementById('byc-website').value.trim();
+      const consent = document.getElementById('byc-consent').checked;
+      const btn     = document.getElementById('byc-btn');
+      const msg     = document.getElementById('byc-form-msg');
+      if (!name || !email || !consent) {
+        msg.className = 'byc-form-msg error';
+        msg.textContent = 'Te rugăm completează câmpurile obligatorii și bifează acordul.';
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Se trimite...';
+      msg.className = 'byc-form-msg';
+      gtag('event', 'form_submit', { event_category: 'waitlist', event_label: 'build-your-cortex' });
+      try {
+        const res = await fetch('/api/download', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ resource: 'build-your-cortex', name, email, company, role, website })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          msg.className = 'byc-form-msg success';
+          msg.innerHTML = 'Mulțumim! Ești pe lista de early-access. Te anunț prima dată când deschid înscrierile. Verifică și folderul de spam pentru confirmare.';
+          this.reset();
+          btn.textContent = 'Ești pe listă! ✓';
+          gtag('event', 'waitlist_signup', { event_category: 'conversion', event_label: 'build-your-cortex' });
+        } else { throw new Error(data.message || 'Eroare la trimitere'); }
+      } catch (err) {
+        msg.className = 'byc-form-msg error';
+        msg.textContent = 'Ceva nu a mers. Încearcă din nou sau scrie la contact@upvance.global';
+        btn.disabled = false;
+        btn.innerHTML = 'Intră pe lista de early-access <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+      }
+    });
+  </script>
+</body>
+</html>

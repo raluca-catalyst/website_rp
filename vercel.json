@@ -16,7 +16,8 @@
   "rewrites": [
     { "source": "/viitoruri", "destination": "/viitoruri.html" },
     { "source": "/contact",   "destination": "/contact.html"   },
-    { "source": "/summer-mentoring", "destination": "/summer-mentoring.html" }
+    { "source": "/summer-mentoring", "destination": "/summer-mentoring.html" },
+    { "source": "/build-your-cortex", "destination": "/build-your-cortex.html" }
   ],
   "headers": [
     {

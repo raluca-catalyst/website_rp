@@ -10,7 +10,7 @@ const SHEETS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxJjD_2faU9XQLxO
 const BOOKING_URL = 'https://calendar.app.google/97NFSpQYzKkJmkuL9';
 
 // Schelet comun de email (header Upvance, CTA lavender, footer)
-const emailShell = ({ title, bodyHtml, footerNote }) => `
+const emailShell = ({ title, bodyHtml, footerNote, signoff = 'Mulțumesc și lectură plăcută,' }) => `
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -39,7 +39,7 @@ const emailShell = ({ title, bodyHtml, footerNote }) => `
     </div>
     <div class="body">
       ${bodyHtml}
-      <p>Mulțumesc și lectură plăcută,</p>
+      <p>${signoff}</p>
       <p class="sig-name">Raluca Păduraru</p>
       <p class="sig-title">Futures of Work Strategist | Building AI Agency in Organizations</p>
     </div>
@@ -86,6 +86,24 @@ const RESOURCES = {
       <p>Framework-ul definește concret rolul de AI Business Translator: cele trei seturi de abilități, cele cinci activități și cele cinci milestone-uri prin care se construiește competența în echipă.</p>
       <p>După ce îl parcurgi, am o invitație: dă-mi un reply cu o singură propoziție. <strong>Care dintre cele cinci activități e cel mai puțin acoperită în echipa ta acum?</strong> Răspunsurile mă ajută să construiesc materiale tot mai relevante pentru profesioniștii din România.</p>
       <p>P.S. Dacă vrei să construiești AI Business Translators în organizația ta, putem vorbi 30 de minute despre cum ar arăta un program adaptat la contextul vostru, fără obligații: <a href="${BOOKING_URL}" style="color:#9B8AF0">${BOOKING_URL}</a></p>`,
+      });
+    },
+  },
+  'build-your-cortex': {
+    subject: 'Ești pe lista Build Your Cortex',
+    notifySubject: (name, company) => `Nou waitlist Build Your Cortex: ${name} (${company || 'N/A'})`,
+    emailHtml: function () {
+      return emailShell({
+        title: 'Ești pe lista de early-access Build Your Cortex',
+        signoff: 'Ne vedem curând,',
+        footerNote: 'Ai primit acest email deoarece te-ai înscris pe lista de early-access de pe ralucapaduraru.ro/build-your-cortex.',
+        bodyHtml: `
+      <p>Salutare,</p>
+      <p>Te-ai înscris pe lista de early-access pentru <strong>Build Your Cortex</strong>, ediția unică din 6 august, de la Palatul Universul (București), parte din lansarea ecosistemului KA-BOM.</p>
+      <p>Ce înseamnă asta: ești printre primii anunțați când deschid înscrierile și ai prioritate la cele 16 locuri, la prețul de lansare.</p>
+      <p>Pleci de la workshop cu un sistem AI personal care te cunoaște, lucrează pentru tine și produce, plus o echipă de specialiști gata de pus la treabă. Îți scriu în curând cu detaliile de înscriere.</p>
+      <p>Până atunci, dacă vrei să vezi cum gândesc despre AI ca sistem personal, mă găsești pe LinkedIn:</p>
+      <a class="cta" href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank">LinkedIn &rarr;</a>`,
       });
     },
   },
