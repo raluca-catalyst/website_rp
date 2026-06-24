@@ -231,7 +231,34 @@
       .byc-cols { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
-  </style>
+
+    /* ===== SUMMER SCHOOL THEME ===== */
+    :root{ --amber:#f5b54a; }
+    .byc-hero{ position:relative; overflow:hidden; }
+    .byc-hero .container{ position:relative; z-index:1; }
+    .byc-hero::before{ content:''; position:absolute; left:50%; top:48%; transform:translate(-50%,-50%);
+      width:1200px; height:1200px; max-width:170vw; pointer-events:none; z-index:0;
+      background:repeating-conic-gradient(from 0deg at 50% 50%, rgba(196,181,253,0.07) 0deg 1.3deg, transparent 1.3deg 10deg);
+      -webkit-mask-image:radial-gradient(circle at 50% 50%, transparent 16%, #000 22%, transparent 58%);
+      mask-image:radial-gradient(circle at 50% 50%, transparent 16%, #000 22%, transparent 58%); }
+    .byc-hero::after{ content:''; position:absolute; left:50%; top:55%; transform:translate(-50%,-50%);
+      width:1000px; height:1000px; max-width:150vw; pointer-events:none; z-index:0;
+      background:radial-gradient(circle at 50% 50%, rgba(245,181,74,0.12) 0%, rgba(196,181,253,0.10) 18%, rgba(124,58,237,0.10) 32%, transparent 56%); }
+    .byc-seal{ width:122px; height:122px; border-radius:50%; margin:0 auto 1.6rem;
+      border:1.5px solid rgba(245,181,74,0.55); background:rgba(245,181,74,0.06);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px;
+      text-align:center; transform:rotate(-6deg); position:relative; }
+    .byc-seal::before{ content:''; position:absolute; inset:4px; border-radius:50%; border:1px solid rgba(245,181,74,0.25); }
+    .byc-seal .s1{ font-family:var(--font-mono); font-weight:700; font-size:0.72rem; letter-spacing:0.13em; color:var(--amber); }
+    .byc-seal .s2{ font-family:var(--font-mono); font-weight:700; font-size:0.8rem; color:var(--text); line-height:1.12; }
+    .byc-seal .s3{ font-family:var(--font-mono); font-weight:500; font-size:0.52rem; letter-spacing:0.14em; color:rgba(245,181,74,0.85); margin-top:1px; }
+    .byc-price-tag{ color:var(--amber) !important; }
+
+    /* Agenda: etapele nestate sub cele 6 ore de lucru */
+    .byc-program{ margin-bottom: 1.4rem !important; }
+    .byc-day-detail{ border-left: 2px solid var(--border); padding-left: clamp(1rem, 2.5vw, 1.75rem); margin-left: 0.25rem; }
+    .byc-arc-intro{ font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.03em; color: var(--lavender-lt); margin: 0 0 1.15rem !important; }
+</style>
 </head>
 <body>
 
@@ -275,6 +302,7 @@
     <!-- ====================== HERO ====================== -->
     <section class="byc-hero">
       <div class="container">
+        <div class="byc-seal"><span class="s1">KA-BOM</span><span class="s2">Summer<br>School</span><span class="s3">EDIȚIE UNICĂ</span></div>
         <h1>Nu mai ești executantul. Ești CEO-ul unui sistem.</h1>
         <p class="byc-hero-lead">Pe 6 august îți construiești un sistem AI care te cunoaște, lucrează pentru tine și produce. La finalul zilei, pleci cu un sistem funcțional și cu o echipă de specialiști gata de pus la treabă.</p>
         <a href="#inscriere" class="btn btn-primary">
@@ -338,7 +366,9 @@
           <li><span class="t">10:00 - 10:30</span><span>Networking &amp; welcome</span></li>
           <li><span class="t">10:30 - 18:30</span><span>6 ore de lucru pentru a-ți construi propriul CORTEX</span></li>
         </ul>
-        <div class="byc-arc">
+        <div class="byc-day-detail">
+          <p class="byc-arc-intro">Cele 6 ore de lucru, în patru etape:</p>
+          <div class="byc-arc">
           <div class="byc-step">
             <div class="num">1</div>
             <h3>Nu mai ești executantul</h3>
@@ -358,6 +388,7 @@
             <div class="num">4</div>
             <h3>Îți angajezi echipa</h3>
             <p>Activezi specialiștii care produc pentru tine și pleci cu primul tău artefact gata de folosit.</p>
+          </div>
           </div>
         </div>
       </div>
