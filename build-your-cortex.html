@@ -201,37 +201,10 @@
     .byc-price-card .btn { width: 100%; justify-content: center; }
     .byc-price-note { color: var(--text-muted); font-size: 0.9rem; margin-top: 1.4rem; line-height: 1.6; max-width: 520px; }
 
-    /* FORMULAR WAITLIST */
-    .byc-form-wrap { max-width: 600px; margin: 2rem auto 0; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
-    .form-field label {
-      font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-sec);
-    }
-    .form-field input {
-      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 13px 16px; font-family: var(--font-body, inherit); font-size: 0.95rem;
-      color: var(--text); outline: none; transition: border-color 0.2s;
-    }
-    .form-field input:focus { border-color: var(--lavender); }
-    .form-field input::placeholder { color: var(--text-muted); }
-    .form-check { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 24px; }
-    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--lavender); cursor: pointer; }
-    .form-check label { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; cursor: pointer; }
-    .form-submit-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .form-submit-wrap .btn { width: 100%; justify-content: center; }
-    .form-privacy { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
-    .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
-    .byc-form-msg { margin-top: 16px; font-size: 0.9rem; border-radius: var(--radius); padding: 12px 16px; text-align: center; display: none; }
-    .byc-form-msg.success { display: block; background: rgba(107,158,116,0.15); border: 1px solid rgba(107,158,116,0.4); color: #7BC78A; }
-    .byc-form-msg.error   { display: block; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3); color: var(--lavender-lt); }
-
     @media (max-width: 860px) {
       .byc-hero { padding: 6rem 0 2.5rem; }
       .byc-cols { grid-template-columns: 1fr; }
     }
-    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
 
     /* ===== SUMMER SCHOOL THEME ===== */
     :root{ --amber:#f5b54a; }
@@ -279,7 +252,7 @@
         <li><a href="/contact">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="#inscriere" class="nav-cta">Intră pe listă</a>
+        <a href="https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b" class="nav-cta" target="_blank" rel="noopener">Cumpără bilet</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -307,8 +280,8 @@
         <h1>Tot ce știi despre AI e din 2024. Bun venit în 2026!</h1>
         <p class="byc-hero-sub">Acum poți fi CEO-ul unui sistem.</p>
         <p class="byc-hero-lead">Pe 6 august îți construiești Cortexul care te cunoaște, lucrează pentru tine și produce. La finalul zilei pleci cu el funcțional, gata de pus la treabă.</p>
-        <a href="#inscriere" class="btn btn-primary">
-          Intră pe lista de early-access
+        <a href="https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b" class="btn btn-primary" target="_blank" rel="noopener">
+          Rezervă-ți locul
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -451,64 +424,12 @@
             <li>Obții o echipă de 4-5 specialiști, gata de pus la treabă</li>
             <li>Grup mic, max 16 persoane</li>
           </ul>
-          <a href="#inscriere" class="btn btn-primary">
-            Intră pe lista de early-access
+          <a href="https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b" class="btn btn-primary" target="_blank" rel="noopener">
+            Rezervă-ți locul
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
-        <p class="byc-price-note">Prețul include un discount special de 30%: este cadoul meu prin care sărbătoresc, alături de voi, lansarea ecosistemului KA-BOM. Edițiile viitoare vor fi la preț întreg, fără discount. Înscrierile se deschid în curând, iar cei de pe lista de early-access sunt anunțați primii și au prioritate la cele 16 locuri.</p>
-      </div>
-    </section>
-
-    <!-- ====================== FORMULAR WAITLIST ====================== -->
-    <section class="byc-section" id="inscriere" aria-labelledby="inscriere-heading">
-      <div class="container">
-        <div style="text-align:center; max-width:640px; margin:0 auto;">
-          <h2 id="inscriere-heading">Intră pe lista de early-access</h2>
-          <p style="color:var(--text-muted); margin-top:12px;">Lasă-ți datele și vei fi printre primii anunțați la deschiderea înscrierilor.</p>
-        </div>
-        <div class="byc-form-wrap">
-          <form id="byc-form" novalidate>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="byc-name">Nume complet *</label>
-                <input type="text" id="byc-name" name="name" required placeholder="Prenume Nume" autocomplete="name" />
-              </div>
-              <div class="form-field">
-                <label for="byc-email">Email *</label>
-                <input type="email" id="byc-email" name="email" required placeholder="tu@email.ro" autocomplete="email" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="byc-company">Companie</label>
-                <input type="text" id="byc-company" name="company" placeholder="Compania ta (opțional)" autocomplete="organization" />
-              </div>
-              <div class="form-field">
-                <label for="byc-role">Rol / Funcție</label>
-                <input type="text" id="byc-role" name="role" placeholder="Ex: Director, Antreprenor... (opțional)" autocomplete="organization-title" />
-              </div>
-            </div>
-            <div class="hp-field" aria-hidden="true">
-              <label for="byc-website">Website</label>
-              <input type="text" id="byc-website" name="website" tabindex="-1" autocomplete="off" />
-            </div>
-            <div class="form-check">
-              <input type="checkbox" id="byc-consent" name="consent" required />
-              <label for="byc-consent">
-                Doresc să fiu anunțat(ă) despre Build Your Cortex și să primesc actualizări despre AI și viitorul muncii.
-              </label>
-            </div>
-            <div class="form-submit-wrap">
-              <button type="submit" class="btn btn-primary" id="byc-btn">
-                Intră pe lista de early-access
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-              <p class="form-privacy">Datele tale sunt în siguranță și nu vor fi distribuite terților.</p>
-            </div>
-            <div id="byc-form-msg" class="byc-form-msg"></div>
-          </form>
-        </div>
+        <p class="byc-price-note">Prețul include un discount special de 30%: este cadoul meu prin care sărbătoresc, alături de voi, lansarea ecosistemului KA-BOM. Edițiile viitoare vor fi la preț întreg, fără discount. Locurile sunt limitate la 16, iar plata se face online, securizat.</p>
       </div>
     </section>
 
@@ -517,8 +438,8 @@
       <div class="container">
         <h2 id="byc-cta-heading">16 locuri, o singură ediție.</h2>
         <p>Dacă vrei să termini ziua cu un sistem AI care chiar lucrează pentru tine, ne vedem pe 6 august!</p>
-        <a href="#inscriere" class="btn btn-primary">
-          Intră pe lista de early-access
+        <a href="https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b" class="btn btn-primary" target="_blank" rel="noopener">
+          Rezervă-ți locul
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -545,47 +466,5 @@
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    document.getElementById('byc-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const name    = document.getElementById('byc-name').value.trim();
-      const email   = document.getElementById('byc-email').value.trim();
-      const company = document.getElementById('byc-company').value.trim();
-      const role    = document.getElementById('byc-role').value.trim();
-      const website = document.getElementById('byc-website').value.trim();
-      const consent = document.getElementById('byc-consent').checked;
-      const btn     = document.getElementById('byc-btn');
-      const msg     = document.getElementById('byc-form-msg');
-      if (!name || !email || !consent) {
-        msg.className = 'byc-form-msg error';
-        msg.textContent = 'Te rugăm completează câmpurile obligatorii și bifează acordul.';
-        return;
-      }
-      btn.disabled = true;
-      btn.textContent = 'Se trimite...';
-      msg.className = 'byc-form-msg';
-      gtag('event', 'form_submit', { event_category: 'waitlist', event_label: 'build-your-cortex' });
-      try {
-        const res = await fetch('/api/download', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ resource: 'build-your-cortex', name, email, company, role, website })
-        });
-        const data = await res.json();
-        if (res.ok) {
-          msg.className = 'byc-form-msg success';
-          msg.innerHTML = 'Mulțumim! Ești pe lista de early-access. Te anunț prima dată când deschid înscrierile. Verifică și folderul de spam pentru confirmare.';
-          this.reset();
-          btn.textContent = 'Ești pe listă! ✓';
-          gtag('event', 'waitlist_signup', { event_category: 'conversion', event_label: 'build-your-cortex' });
-        } else { throw new Error(data.message || 'Eroare la trimitere'); }
-      } catch (err) {
-        msg.className = 'byc-form-msg error';
-        msg.textContent = 'Ceva nu a mers. Încearcă din nou sau scrie la contact@upvance.global';
-        btn.disabled = false;
-        btn.innerHTML = 'Intră pe lista de early-access <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-      }
-    });
-  </script>
 </body>
 </html>
