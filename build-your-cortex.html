@@ -100,15 +100,26 @@
         "organizer": { "@type": "Organization", "name": "Upvance Global", "url": "https://upvance.global" },
         "performer": { "@type": "Person", "name": "Raluca Păduraru", "url": "https://www.ralucapaduraru.ro/" },
         "maximumAttendeeCapacity": 16,
-        "offers": {
-          "@type": "Offer",
-          "name": "Bilet Build Your Cortex (preț de lansare)",
-          "price": "1197",
-          "priceCurrency": "RON",
-          "availability": "https://schema.org/LimitedAvailability",
-          "url": "https://www.ralucapaduraru.ro/build-your-cortex",
-          "validThrough": "2026-08-06"
-        }
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Bilet Build Your Cortex (preț de lansare)",
+            "price": "1197",
+            "priceCurrency": "RON",
+            "availability": "https://schema.org/LimitedAvailability",
+            "url": "https://www.ralucapaduraru.ro/build-your-cortex",
+            "validThrough": "2026-08-06"
+          },
+          {
+            "@type": "Offer",
+            "name": "Build Your Cortex + Mentoring 1:1 (90 min)",
+            "price": "1852",
+            "priceCurrency": "RON",
+            "availability": "https://schema.org/LimitedAvailability",
+            "url": "https://www.ralucapaduraru.ro/build-your-cortex",
+            "validThrough": "2026-08-06"
+          }
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -229,6 +240,17 @@
     .byc-seal .s3{ font-family:var(--font-mono); font-weight:500; font-size:0.52rem; letter-spacing:0.14em; color:rgba(245,181,74,0.85); margin-top:1px; }
     .byc-price-tag{ color:var(--amber) !important; }
 
+    /* GRID 2 carduri de preț */
+    .byc-price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1080px; margin: 0 auto; align-items: stretch; }
+    .byc-price-grid .byc-price-card { max-width: none; margin: 0; display: flex; flex-direction: column; }
+    .byc-price-grid .byc-price-card .btn { margin-top: auto; }
+    .byc-price-card.featured { border-color: rgba(167,139,250,0.6); box-shadow: 0 0 0 1px rgba(167,139,250,0.3), 0 18px 50px -28px rgba(124,58,237,0.6); }
+    .byc-amount-break { margin: 1rem 0 0; }
+    .byc-amount-break .row { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+    .byc-amount-break .row .was { text-decoration: line-through; margin-right: 0.45rem; opacity: 0.7; }
+    .byc-amount-break .row.total { color: var(--text-sec); font-weight: 600; border-top: 1px solid var(--border); padding-top: 0.55rem; margin-top: 0.25rem; }
+    .byc-amount-break .row.save { color: var(--lavender-lt); }
+
     /* Agenda: etapele nestate sub cele 6 ore de lucru */
     .byc-program{ margin-bottom: 1.4rem !important; }
     .byc-day-detail{ border-left: 2px solid var(--border); padding-left: clamp(1rem, 2.5vw, 1.75rem); margin-left: 0.25rem; }
@@ -253,7 +275,7 @@
         <li><a href="/contact">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b" class="nav-cta" target="_blank" rel="noopener">Rezervă-ți locul</a>
+        <a href="#pret" class="nav-cta">Rezervă-ți locul</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -281,7 +303,7 @@
         <h1>Tot ce știi despre AI e din 2024. Bun venit în 2026!</h1>
         <p class="byc-hero-sub">Acum poți fi CEO-ul unui sistem.</p>
         <p class="byc-hero-lead">Pe 6 august îți construiești Cortexul care te cunoaște, lucrează pentru tine și produce. La finalul zilei pleci cu el funcțional, gata de pus la treabă.</p>
-        <a href="https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b" class="btn btn-primary" target="_blank" rel="noopener">
+        <a href="#pret" class="btn btn-primary">
           Rezervă-ți locul
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -405,7 +427,7 @@
     </section>
 
     <!-- ====================== DETALII ȘI PREȚ ====================== -->
-    <section class="byc-section section-alt byc-center">
+    <section id="pret" class="byc-section section-alt byc-center">
       <div class="container">
         <h2>Detalii și preț</h2>
         <ul class="byc-detalii">
@@ -415,22 +437,46 @@
           <li><span class="k">Parte din</span><span><a href="https://ka-bom.com/about" target="_blank" rel="noopener" style="display:inline-block; vertical-align:middle;"><img src="images/ka-bom-logo.png" alt="KA-BOM" style="height:18px; width:auto; vertical-align:middle; margin-right:0.4em;" /></a> Summer Reboot.</span></li>
         </ul>
 
-        <div class="byc-price-card">
-          <div class="byc-price-tag">Preț de lansare · reducere 30%</div>
-          <div class="byc-amount">1.197 lei</div>
-          <div class="byc-amount-sub"><span class="old">1.710 lei</span><span class="sep">·</span><span class="save">economisești 513 lei</span></div>
-          <ul class="byc-price-feat">
-            <li>O zi întreagă de construit, pe contextul tău</li>
-            <li>Pleci cu un sistem AI personal funcțional</li>
-            <li>Obții o echipă de 4-5 specialiști, gata de pus la treabă</li>
-            <li>Grup mic, max 16 persoane</li>
-          </ul>
-          <a href="https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b" class="btn btn-primary" target="_blank" rel="noopener">
-            Rezervă-ți locul
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+        <div class="byc-price-grid">
+          <div class="byc-price-card">
+            <div class="byc-price-tag">Preț de lansare · reducere 30%</div>
+            <div class="byc-amount">1.197 lei</div>
+            <div class="byc-amount-sub"><span class="old">1.710 lei</span><span class="sep">·</span><span class="save">economisești 513 lei</span></div>
+            <ul class="byc-price-feat">
+              <li>O zi întreagă de construit, pe contextul tău</li>
+              <li>Pleci cu un sistem AI personal funcțional</li>
+              <li>Obții o echipă de 4-5 specialiști, gata de pus la treabă</li>
+              <li>Grup mic, max 16 persoane</li>
+            </ul>
+            <a href="https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b" class="btn btn-primary" target="_blank" rel="noopener">
+              Rezervă-ți locul
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="byc-price-card featured">
+            <div class="byc-price-tag">Pachet complet · doar 3 locuri</div>
+            <div class="byc-amount">1.852 lei</div>
+            <div class="byc-amount-break">
+              <div class="row"><span>Laborator Build Your Cortex</span><span><span class="was">1.710</span>1.197 lei</span></div>
+              <div class="row"><span>Mentoring 1:1, 90 min</span><span><span class="was">1.310</span>655 lei</span></div>
+              <div class="row total"><span>Total</span><span>1.852 lei</span></div>
+              <div class="row save"><span>Economisești</span><span>1.168 lei</span></div>
+            </div>
+            <ul class="byc-price-feat">
+              <li>Tot ce include laboratorul Build Your Cortex</li>
+              <li>Sesiune de mentoring 1:1, 90 min, cu mine</li>
+              <li>Online, după eveniment — când vrei, în max 6 săptămâni</li>
+              <li>Îmbunătățim împreună Cortexul pe care l-ai construit</li>
+              <li>Doar 3 locuri</li>
+            </ul>
+            <a href="https://buy.stripe.com/4gM7sK7ktgQe6kl62OenS0c" class="btn btn-primary" target="_blank" rel="noopener">
+              Rezervă pachetul complet
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
-        <p class="byc-price-note">Prețul include un discount special de 30%: este cadoul meu prin care sărbătoresc, alături de voi, KA-BOM Summer Reboot.</p>
+        <p class="byc-price-note">Prețurile includ un discount special: este cadoul meu prin care sărbătoresc, alături de voi, KA-BOM Summer Reboot.</p>
       </div>
     </section>
 
@@ -439,7 +485,7 @@
       <div class="container">
         <h2 id="byc-cta-heading">16 locuri, o singură ediție.</h2>
         <p>Dacă vrei să termini ziua cu un sistem AI care chiar lucrează pentru tine, ne vedem pe 6 august!</p>
-        <a href="https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b" class="btn btn-primary" target="_blank" rel="noopener">
+        <a href="#pret" class="btn btn-primary">
           Rezervă-ți locul
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
