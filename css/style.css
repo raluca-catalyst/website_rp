@@ -595,6 +595,12 @@ body.has-announce-bar .mobile-menu { top: 36px; }
 .service-left .label { font-size: 0.62rem; color: var(--text-muted); }
 .service-left .label.featured-mark { color: var(--lavender); }
 .service-left h3 { font-size: 1.15rem; font-weight: 600; margin-top: 0.5rem; }
+.service-left .service-sub {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-sec);
+  line-height: 1.55;
+}
 .service-right > p { color: var(--text-sec); font-size: 0.93rem; margin-bottom: 1.1rem; }
 .service .product-meta { border-top: none; padding: 0; margin-bottom: 0; }
 .service .product-note { border-top: none; padding-top: 0.9rem; opacity: 0.8; font-family: var(--font-body); font-size: 0.83rem; }
