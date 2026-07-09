@@ -99,6 +99,9 @@ p  { color: var(--text-sec); }
   margin-top: 0.55rem;
   max-width: 540px;
 }
+.section-header p.section-header-wide {
+  max-width: none;
+}
 
 /* ============================
    ANNOUNCEMENT BAR
