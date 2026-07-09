@@ -964,7 +964,6 @@ footer {
 .bio-text a:hover { color: var(--lavender-lt); }
 
 /* ABOUT — sectiuni narative */
-.about-narrative { max-width: 720px; }
 .about-narrative p {
   color: var(--text-sec);
   font-size: 0.98rem;
