@@ -11,7 +11,10 @@
     { "source": "/media",         "destination": "/about.html",  "permanent": true },
     { "source": "/download",      "destination": "/frameworks/", "permanent": true },
     { "source": "/ai-canvas.pdf", "destination": "/",            "permanent": true },
-    { "source": "/api",           "destination": "/",            "permanent": true }
+    { "source": "/api",           "destination": "/",            "permanent": true },
+    { "source": "/resources/state-of-ai-romania",       "destination": "/romanian-state-of-ai/", "permanent": true },
+    { "source": "/resources/state-of-ai-romania/:path*", "destination": "/romanian-state-of-ai/", "permanent": true },
+    { "source": "/state-of-ai.pdf", "destination": "/romanian-state-of-ai/", "permanent": true }
   ],
   "rewrites": [
     { "source": "/viitoruri", "destination": "/viitoruri.html" },
