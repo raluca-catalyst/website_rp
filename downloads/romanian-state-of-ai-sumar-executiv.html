@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Romanian State of AI 2026 · Sumar executiv</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lavender: #a78bfa;
+    --lavender-lt: #c4b5fd;
+    --lavender-dk: #7c3aed;
+    --ink: #1a1a1a;
+    --ink-sec: rgba(0,0,0,0.66);
+    --ink-muted: rgba(0,0,0,0.42);
+    --tint: rgba(167,139,250,0.06);
+    --tint-border: rgba(124,58,237,0.22);
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-body: 'Barlow', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { background:#e8e8ee; }
+  body { font-family: var(--font-body); color: var(--ink); font-size:9pt; line-height:1.45; }
+  @page { size: A4 portrait; margin: 0; }
+  .page {
+    width:210mm; height:296.5mm; background:#ffffff;
+    padding:11mm 14mm 19mm 14mm;
+    position:relative; overflow:hidden;
+    margin:0 auto;
+  }
+  @media screen { .page { margin:10mm auto; box-shadow:0 2px 18px rgba(0,0,0,0.15); } }
+  @media print { .page { margin:0; box-shadow:none; } }
+  .page-1 { page-break-after: always; }
+
+  /* ---------- header ---------- */
+  .doc-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:3.5mm; }
+  .doc-header img { width:30mm; display:block; margin-top:1mm; }
+  .doc-meta { text-align:right; font-family:var(--font-mono); font-size:6.4pt; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-muted); line-height:1.8; }
+  .doc-title { font-family:var(--font-mono); font-weight:700; font-size:17pt; letter-spacing:-0.02em; line-height:1.15; color:var(--ink); margin-bottom:1mm; }
+  .doc-title .ed { color:var(--lavender-dk); }
+  .doc-subtitle { font-family:var(--font-mono); font-size:7.4pt; letter-spacing:0.14em; text-transform:uppercase; color:var(--lavender-dk); font-weight:600; margin-bottom:3.5mm; }
+
+  /* ---------- agency strip ---------- */
+  .agency-strip {
+    display:flex; align-items:center; gap:4mm;
+    border:1px solid var(--tint-border); border-radius:8px;
+    background:var(--tint); padding:2.2mm 3.5mm; margin-bottom:4mm;
+  }
+  .agency-strip svg { flex:none; width:26px; height:26px; }
+  .agency-eq { font-family:var(--font-mono); font-size:7.6pt; font-weight:600; letter-spacing:0.06em; white-space:nowrap; color:var(--ink-sec); }
+  .agency-eq .on { background:var(--lavender-dk); color:#ffffff; padding:0.8mm 2mm; border-radius:4px; }
+  .agency-eq .off { color:var(--ink-muted); }
+  .agency-note { font-size:7.6pt; color:var(--ink-sec); line-height:1.38; border-left:1px solid var(--tint-border); padding-left:4mm; }
+  .agency-note strong { color:var(--ink); }
+
+  /* ---------- section labels ---------- */
+  .label {
+    font-family:var(--font-mono); font-size:6.6pt; font-weight:600; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--lavender-dk);
+    display:flex; align-items:center; gap:2mm; margin-bottom:1.8mm;
+  }
+  .label::before { content:''; width:1.6mm; height:1.6mm; border-radius:50%; background:var(--lavender-dk); box-shadow:0 0 4px rgba(124,58,237,0.5); }
+
+  /* ---------- teza ---------- */
+  .teza {
+    font-family:var(--font-mono); font-weight:700; font-size:12pt; letter-spacing:-0.02em;
+    line-height:1.3; margin:0 0 4mm 0; padding-left:4mm; border-left:3px solid var(--lavender-dk);
+  }
+  .teza .nu { color:var(--lavender-dk); }
+
+  /* ---------- key grid ---------- */
+  .key-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:2.4mm; margin-bottom:4mm; }
+  .key-tile { border:1px solid var(--tint-border); border-radius:8px; background:var(--tint); padding:2.4mm 3mm; }
+  .key-num { font-family:var(--font-mono); font-weight:700; font-size:13.5pt; color:var(--lavender-dk); letter-spacing:-0.02em; line-height:1; margin-bottom:1.2mm; }
+  .key-title { font-size:7.6pt; font-weight:600; line-height:1.32; color:var(--ink); margin-bottom:1mm; }
+  .key-sub { font-size:6.6pt; color:var(--ink-muted); line-height:1.35; }
+
+  /* ---------- charts ---------- */
+  .chart { border:1px solid var(--tint-border); border-radius:8px; padding:2.6mm 3.4mm; margin-bottom:4mm; }
+  .chart-title { font-family:var(--font-mono); font-size:7pt; font-weight:600; letter-spacing:0.06em; margin-bottom:2mm; color:var(--ink); }
+  .chart-title span { color:var(--ink-muted); font-weight:400; }
+  .bar-row { display:flex; align-items:center; gap:2.6mm; margin-bottom:1.4mm; }
+  .bar-row:last-child { margin-bottom:0; }
+  .bar-lab { flex:none; width:40mm; font-family:var(--font-mono); font-size:6.6pt; color:var(--ink-sec); text-align:right; }
+  .bar-track { flex:1; height:3.8mm; background:rgba(0,0,0,0.05); border-radius:3px; overflow:hidden; }
+  .bar-fill { display:block; height:100%; background:linear-gradient(90deg, #7c3aed, #a78bfa); border-radius:3px; }
+  .bar-fill.muted { background:rgba(124,58,237,0.25); }
+  .bar-val { flex:none; width:11mm; font-family:var(--font-mono); font-size:7pt; font-weight:600; color:var(--ink); }
+  .bar-val.muted { color:var(--ink-muted); font-weight:400; }
+  .chart-note { font-size:6.6pt; color:var(--ink-muted); margin-top:1.6mm; line-height:1.35; }
+
+  /* ---------- constatări ---------- */
+  .findings { display:flex; flex-direction:column; gap:2mm; }
+  .finding { display:flex; gap:3mm; align-items:baseline; }
+  .finding-no { flex:none; font-family:var(--font-mono); font-weight:700; font-size:10pt; color:var(--lavender-dk); width:4.5mm; }
+  .finding-body { font-size:8.3pt; line-height:1.4; color:var(--ink-sec); }
+  .finding-body strong { color:var(--ink); font-family:var(--font-mono); font-size:7.8pt; letter-spacing:-0.01em; }
+  .finding-gap {
+    margin-top:2.6mm; padding:2.2mm 3.4mm; border-radius:8px;
+    background:var(--tint); border:1px solid var(--tint-border);
+    font-size:8pt; line-height:1.4; color:var(--ink-sec);
+  }
+  .finding-gap strong { color:var(--lavender-dk); font-family:var(--font-mono); }
+
+  /* ---------- page 2: interventions ---------- */
+  .mini-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:3mm; }
+  .mini-header img { width:22mm; display:block; }
+  .mini-header .mini-title { font-family:var(--font-mono); font-size:6.6pt; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-muted); }
+
+  .interv { border:1px solid var(--tint-border); border-radius:8px; padding:2.3mm 3.2mm; margin-bottom:2mm; }
+  .interv-title { font-family:var(--font-mono); font-weight:700; font-size:8.8pt; letter-spacing:-0.01em; color:var(--ink); margin-bottom:1.6mm; }
+  .interv-title .no { color:var(--lavender-dk); margin-right:1.5mm; }
+  .interv-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.4mm 4mm; }
+  .interv-cell { font-size:7.7pt; line-height:1.38; color:var(--ink-sec); }
+  .interv-cell b.tag { display:block; font-family:var(--font-mono); font-size:6pt; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:var(--lavender-dk); margin-bottom:0.6mm; }
+  .interv-cell .cifra { font-family:var(--font-mono); font-weight:700; color:var(--ink); }
+
+  /* ---------- checklist ---------- */
+  .checklist { display:flex; flex-direction:column; gap:1mm; margin-bottom:2.2mm; }
+  .check-item { display:flex; gap:2.6mm; align-items:baseline; font-size:7.8pt; line-height:1.32; color:var(--ink-sec); }
+  .check-item::before { content:''; flex:none; width:2.6mm; height:2.6mm; border:1.5px solid var(--lavender-dk); border-radius:1px; position:relative; top:0.3mm; }
+  .check-item strong { color:var(--ink); }
+
+  /* ---------- lead box ---------- */
+  .lead-box {
+    border:1px solid var(--tint-border); border-left:3px solid var(--lavender-dk);
+    border-radius:8px; background:var(--tint); padding:2.2mm 3.4mm;
+    font-size:7.4pt; line-height:1.36; color:var(--ink-sec);
+  }
+  .lead-box a { color:var(--lavender-dk); text-decoration:none; font-weight:600; }
+  .lead-box ol { margin:1.2mm 0 1.2mm 5mm; }
+  .lead-box li { margin-bottom:0.4mm; }
+  .lead-box .cta { color:var(--ink); font-weight:600; margin-top:1.2mm; display:block; }
+
+  /* ---------- footer ---------- */
+  .footer {
+    position:absolute; left:14mm; right:14mm; bottom:7mm;
+    border-top:1px solid var(--tint-border); padding-top:2.4mm;
+    display:flex; justify-content:space-between; align-items:baseline; gap:6mm;
+    font-family:var(--font-mono); font-size:6.4pt; letter-spacing:0.06em; color:var(--ink-muted); line-height:1.6;
+  }
+  .footer a { color:var(--lavender-dk); text-decoration:none; }
+  .footer .pageno { flex:none; font-weight:600; color:var(--ink-sec); }
+
+  h2.section { font-family:var(--font-mono); font-weight:700; font-size:11pt; letter-spacing:-0.02em; color:var(--ink); margin-bottom:1.6mm; }
+  p.intro { font-size:8.6pt; color:var(--ink-sec); line-height:1.45; margin-bottom:3mm; }
+  p.intro .hl { color:var(--ink); font-weight:600; }
+</style>
+</head>
+<body>
+
+<!-- ============ PAGINA 1 · DISCERNĂMÂNT ============ -->
+<div class="page page-1">
+
+  <div class="doc-header">
+    <img src="../images/upvance-logo-color.png" alt="Upvance Global">
+    <div class="doc-meta">
+      Sumar executiv<br>
+      N = 514 · mai · iulie 2026<br>
+      Al doilea an de măsurare
+    </div>
+  </div>
+
+  <div class="doc-title">Romanian State of AI <span class="ed">· ediția 2026</span></div>
+  <div class="doc-subtitle">Primul studiu longitudinal despre cum folosim AI la job în România</div>
+
+  <div class="agency-strip">
+    <!-- diafragmă: discernământ -->
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+      <circle cx="15" cy="15" r="13" stroke="#7c3aed" stroke-width="1.5"/>
+      <g stroke="#7c3aed" stroke-width="1.3" stroke-linecap="round">
+        <line x1="15" y1="2.5"  x2="19.5" y2="15"/>
+        <line x1="25.8" y1="8.75" x2="17.25" y2="18.9"/>
+        <line x1="25.8" y1="21.25" x2="12.75" y2="18.9"/>
+        <line x1="15" y1="27.5" x2="10.5" y2="15"/>
+        <line x1="4.2" y1="21.25" x2="12.75" y2="11.1"/>
+        <line x1="4.2" y1="8.75" x2="17.25" y2="11.1"/>
+      </g>
+    </svg>
+    <div>
+      <div class="agency-eq">AGENCY = <span class="on">DISCERNĂMÂNT</span> + <span class="off">ACȚIUNE</span></div>
+    </div>
+    <div class="agency-note">
+      <strong>Pagina 1 e partea de discernământ:</strong> ce spun datele despre locul în care ne aflăm.
+      Agency, așa cum îl văd eu, are 2 componente: discernământ și acțiune.
+    </div>
+  </div>
+
+  <div class="label">Obiectivul studiului</div>
+  <p class="intro">
+    Romanian State of AI măsoară, pentru al doilea an consecutiv, cum utilizează profesioniștii români AI la job:
+    cât de des, cât de adânc și cu ce sprijin din partea organizațiilor. 514 respondenți au completat 37 de întrebări între mai și iulie 2026,
+    față de 390 în octombrie 2025, cu o compoziție a eșantionului aproape identică între ediții, ceea ce face comparațiile de la an la an solide.
+    Eșantionul este auto-selectat: cifrele descriu <span class="hl">avangarda adopției AI din România</span>, iar nu piața muncii în ansamblu.
+    Dacă avangarda arată așa, restul pieței e și mai în urmă.
+  </p>
+
+  <div class="label">Teza raportului</div>
+  <div class="teza">Frecvența utilizării a crescut.<br>Complexitatea task-urilor, <span class="nu">nu</span>.</div>
+
+  <div class="label">Ce spun datele · 6 cifre-cheie</div>
+  <div class="key-grid">
+    <div class="key-tile">
+      <div class="key-num">74,9%</div>
+      <div class="key-title">folosesc AI zilnic sau de mai multe ori pe zi</div>
+      <div class="key-sub">În octombrie 2025 erau 66,4%. 3 din 4 respondenți lucrează cu AI în fiecare zi.</div>
+    </div>
+    <div class="key-tile">
+      <div class="key-num">72,7%</div>
+      <div class="key-title">dintre utilizatorii zilnici folosesc AI la un nivel bazic</div>
+      <div class="key-sub">Folosesc AI des, dar n-au redesenat niciun proces de muncă. Cifra care dă titlul raportului.</div>
+    </div>
+    <div class="key-tile">
+      <div class="key-num">50%</div>
+      <div class="key-title">folosesc tool-uri AI neaprobate de organizație</div>
+      <div class="key-sub">Alți 16,5% nu știu dacă tool-urile pe care le folosesc sunt sau nu aprobate.</div>
+    </div>
+    <div class="key-tile">
+      <div class="key-num">64%</div>
+      <div class="key-title">spun că nu există politici organizaționale clare cu privire la datele introduse în AI</div>
+      <div class="key-sub">Ce intră în tool-uri rămâne la latitudinea fiecărui angajat.</div>
+    </div>
+    <div class="key-tile">
+      <div class="key-num">43%</div>
+      <div class="key-title">iau decizii de management cu ajutorul AI, fără să le măsoare impactul</div>
+      <div class="key-sub">Rezultate AI ajung în decizii, iar organizația nu a măsurat niciodată impactul.</div>
+    </div>
+    <div class="key-tile">
+      <div class="key-num">54,5%</div>
+      <div class="key-title">spun că nu există un rol în organizație care să conducă adopția AI</div>
+      <div class="key-sub">Fără un om care să ajute colegii să adopte AI, adopția rămâne un efort individual.</div>
+    </div>
+  </div>
+
+  <div class="chart">
+    <div class="chart-title">Folosesc AI zilnic sau de mai multe ori pe zi <span>· evoluția de la an la an</span></div>
+    <div class="bar-row">
+      <span class="bar-lab">iulie 2026</span>
+      <span class="bar-track"><span class="bar-fill" style="width:74.9%"></span></span>
+      <span class="bar-val">74,9%</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-lab">octombrie 2025</span>
+      <span class="bar-track"><span class="bar-fill muted" style="width:66.4%"></span></span>
+      <span class="bar-val muted">66,4%</span>
+    </div>
+    <div class="chart-note">77% spun că utilizarea lor a crescut în ultimele 6 luni. Timpul câștigat e real: 37% economisesc peste 6 ore pe săptămână.</div>
+  </div>
+
+  <div class="label">Cele 4 constatări ale ediției 2026</div>
+  <div class="findings">
+    <div class="finding">
+      <span class="finding-no">1</span>
+      <span class="finding-body"><strong>Adâncimea nu ține pasul cu frecvența.</strong> 72,7% dintre cei care folosesc AI zilnic sau mai des sunt încă la nivelurile de bază L1–L2, iar 67% spun că fluxurile lor de lucru au rămas la fel.</span>
+    </div>
+    <div class="finding">
+      <span class="finding-no">2</span>
+      <span class="finding-body"><strong>Angajații au accelerat. Organizațiile au stagnat.</strong> Proporția organizațiilor în care AI nu există oficial a rămas neschimbată (35,9% în 2025, 35,2% în 2026), în timp ce utilizarea individuală a crescut cu aproape 9%.</span>
+    </div>
+    <div class="finding">
+      <span class="finding-no">3</span>
+      <span class="finding-body"><strong>Bariera s-a mutat: de la timp la reguli.</strong> În 2025, cel mai citat obstacol era lipsa de timp (47,4%). În 2026, pe primul loc e lipsa reglementărilor clare (39,7%).</span>
+    </div>
+    <div class="finding">
+      <span class="finding-no">4</span>
+      <span class="finding-body"><strong>Paradoxul guvernanței.</strong> 43% dintre respondenți le bifează pe ambele: rezultatele AI au ajuns în decizii de management și nu au măsurat niciodată impactul lor.</span>
+    </div>
+  </div>
+  <div class="finding-gap">
+    Peste toate cele 4 constatări: decalajul dintre maturitatea angajaților și sprijinul organizațiilor e de <strong>+1,35 puncte</strong> (6,74 față de 5,39 din 10),
+    iar în firmele mici și mijlocii aproape se dublează (~2 puncte). Angajații folosesc AI după propriile reguli, singuri.
+  </div>
+
+  <div class="footer">
+    <span>© 2026 Raluca Păduraru · Upvance Global · Toate drepturile rezervate · Raportul complet: <a href="https://www.ralucapaduraru.ro/romanian-state-of-ai/">ralucapaduraru.ro/romanian-state-of-ai</a></span>
+    <span class="pageno">1 / 2</span>
+  </div>
+</div>
+
+<!-- ============ PAGINA 2 · ACȚIUNE ============ -->
+<div class="page">
+
+  <div class="mini-header" style="margin-bottom:2.4mm;">
+    <img src="../images/upvance-logo-color.png" alt="Upvance Global">
+    <div class="mini-title">Romanian State of AI · ediția 2026 · Sumar executiv</div>
+  </div>
+
+  <div class="agency-strip" style="margin-bottom:3mm;">
+    <!-- declanșator: acțiune -->
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+      <path d="M 25.5 9.5 A 13 13 0 1 0 27.9 17.5" stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round"/>
+      <g stroke="#7c3aed" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="12" y1="18" x2="26" y2="4"/>
+        <polyline points="19.5,4 26,4 26,10.5"/>
+      </g>
+    </svg>
+    <div>
+      <div class="agency-eq">AGENCY = <span class="off">DISCERNĂMÂNT</span> + <span class="on">ACȚIUNE</span></div>
+    </div>
+    <div class="agency-note">
+      <strong>Pagina 2 e partea de acțiune:</strong> ce faci cu aceste date în următoarele 30 de zile.
+      Discernământul fără acțiune e doar o lectură interesantă.
+    </div>
+  </div>
+
+  <h2 class="section">3 intervenții cu efect maxim</h2>
+  <p class="intro" style="margin-bottom:2.4mm;">Direct din date: cele 3 locuri în care o organizație obține cel mai mare efect cu cel mai mic efort.</p>
+
+  <div class="interv">
+    <div class="interv-title"><span class="no">1</span>Politici de utilizare GenAI</div>
+    <div class="interv-grid">
+      <div class="interv-cell"><b class="tag">Problema și consecința</b>64% din angajați lucrează fără politici clare de date, iar jumătate folosesc deja tool-uri neaprobate. Ce intră în AI rămâne la latitudinea fiecărui angajat.</div>
+      <div class="interv-cell"><b class="tag">Acțiunea</b>Implementează rapid politici de utilizare a instrumentelor GenAI, cu exemple clare de tip așa da, așa nu. Închide zona gri, costă puțin și reduce riscul imediat.</div>
+      <div class="interv-cell"><b class="tag">Cifra care o susține</b><span class="cifra">64%</span> fără politici clare de date · <span class="cifra">50%</span> shadow AI</div>
+      <div class="interv-cell"><b class="tag">Primul pas în 30 de zile</b>Publică lista tool-urilor aprobate și regulile despre datele care nu intră niciodată în AI. O pagină e suficientă pentru început.</div>
+    </div>
+  </div>
+
+  <div class="interv">
+    <div class="interv-title"><span class="no">2</span>Laboratoare de practică, nu webinare</div>
+    <div class="interv-grid">
+      <div class="interv-cell"><b class="tag">Problema și consecința</b>51% din respondenți au primit licențe, dar doar 26% au primit training aplicat. Adopția AI e tratată ca un proiect plug and play, iar învățarea nu se produce de la sine.</div>
+      <div class="interv-cell"><b class="tag">Acțiunea</b>Workshopuri aplicate, pe situații din activitatea de zi cu zi a oamenilor. Training-ul de la angajator e cel mai puternic predictor al maturității AI.</div>
+      <div class="interv-cell"><b class="tag">Cifra care o susține</b><span class="cifra">42,1%</span> ating nivelurile avansate cu training de la angajator, față de <span class="cifra">12,3%</span> cu webinare</div>
+      <div class="interv-cell"><b class="tag">Primul pas în 30 de zile</b>Pilotează un laborator de practică pe un proces real, cu o singură echipă, și măsoară diferența.</div>
+    </div>
+  </div>
+
+  <div class="chart" style="padding:2.2mm 3.2mm; margin-bottom:2mm;">
+    <div class="chart-title">Cine ajunge la nivelurile avansate L3–L4, după tipul de training</div>
+    <div class="bar-row"><span class="bar-lab">Training de la angajator</span><span class="bar-track"><span class="bar-fill" style="width:42.1%"></span></span><span class="bar-val">42,1%</span></div>
+    <div class="bar-row"><span class="bar-lab">Curs pe cont propriu</span><span class="bar-track"><span class="bar-fill" style="width:26.0%"></span></span><span class="bar-val">26,0%</span></div>
+    <div class="bar-row"><span class="bar-lab">Doar webinar / eveniment</span><span class="bar-track"><span class="bar-fill muted" style="width:12.3%"></span></span><span class="bar-val muted">12,3%</span></div>
+    <div class="bar-row"><span class="bar-lab">Nimic structurat</span><span class="bar-track"><span class="bar-fill muted" style="width:9.8%"></span></span><span class="bar-val muted">9,8%</span></div>
+    <div class="chart-note">Dintre cei fără training structurat, exact 0% au ajuns la L4. Webinarele produc aproape același rezultat ca lipsa oricărui training.</div>
+  </div>
+
+  <div class="interv">
+    <div class="interv-title"><span class="no">3</span>Campioni ai adopției AI</div>
+    <div class="interv-grid">
+      <div class="interv-cell"><b class="tag">Problema și consecința</b>54,5% spun că nu există niciun rol în organizație care să conducă adopția AI. Fără un om-punte, adopția rămâne un efort individual.</div>
+      <div class="interv-cell"><b class="tag">Acțiunea</b>Caută campioni ai adopției AI: un rol de legătură între AI și echipă, formal sau informal. Corelație, nu cauzalitate, însă suficient de amplă ca să n-o putem ignora.</div>
+      <div class="interv-cell"><b class="tag">Cifra care o susține</b><span class="cifra">61%</span> angajați avansați acolo unde rolul există, față de <span class="cifra">11%</span> unde nu există nimeni</div>
+      <div class="interv-cell"><b class="tag">Primul pas în 30 de zile</b>Identifică super-userii pe care îi ai deja și dă-le mandat și timp dedicat de practică cu echipa.</div>
+    </div>
+  </div>
+
+  <div class="label" style="margin-top:2.8mm;">De unde începi · 5 acțiuni cu efort mic și impact maxim</div>
+  <div class="checklist">
+    <div class="check-item"><span><strong>Mapează înainte să automatizezi.</strong> Evaluează un proces cap-coadă (value stream mapping), apoi redesenează-l cu AI în minte.</span></div>
+    <div class="check-item"><span><strong>Laboratoare de lucru, nu traininguri.</strong> Oamenii care lucrează pe situații din propria activitate descoperă cum le poate AI îmbunătăți calitatea vieții.</span></div>
+    <div class="check-item"><span><strong>Ritualuri de practică.</strong> Campionii AI țin sesiuni recurente de practică: ce am testat, ce a mers, ce nu, ce am învățat, pașii următori.</span></div>
+    <div class="check-item"><span><strong>Lideri în arenă.</strong> Leadership-ul modelează vizibil adopția, prin propriul exemplu.</span></div>
+    <div class="check-item"><span><strong>Codifică super-userii.</strong> Transformă ce știu deja cei mai buni utilizatori ai tăi în procese reutilizabile pentru toată lumea.</span></div>
+  </div>
+
+  <div class="lead-box">
+    Intervențiile pe care le descriu sunt inspirate din sesiunile de AI Agency for Leaders și AI Agency for Non-Technical Teams
+    pe care le-am susținut pe parcursul anilor 2025-2026 în industrii diverse, precum finance &amp; banking, oil &amp; gas, logistică,
+    software development, industrii grele, arhitectură &amp; design interior, marketing etc.
+    În urma celor peste 800 de ore de laboratoare AI susținute cu peste 5.000 de participanți am elaborat o metodologie clară,
+    care sporește adopția AI și construiește echipe formate din <a href="https://www.ralucapaduraru.ro/frameworks/ai-business-translator/">AI Business Translators</a>,
+    care fac legătura între business și sistemele AI în 3 pași:
+    <ol>
+      <li>traduc probleme de business în cerințe pe care AI le rezolvă.</li>
+      <li>traduc output-ul AI înapoi în decizii pe care organizația le aplică.</li>
+      <li>văd unde aduce AI-ul valoare și construiesc în jurul acestuia capacitate, ridicând nivelul echipei cu fiecare iterație.</li>
+    </ol>
+    <span class="cta">Dacă vrei să vezi cum arată asta în practică, hai să vorbim: <a href="https://www.ralucapaduraru.ro/contact.html">pagina de contact</a>.</span>
+  </div>
+
+  <div class="footer">
+    <span>© 2026 Raluca Păduraru · Toate drepturile rezervate · Citare: Păduraru, R. (2026). <em>Romanian State of AI, ediția 2026.</em> Upvance Global. N=514 · Raportul complet: <a href="https://www.ralucapaduraru.ro/romanian-state-of-ai/">ralucapaduraru.ro/romanian-state-of-ai</a></span>
+    <span class="pageno">2 / 2</span>
+  </div>
+</div>
+
+</body>
+</html>

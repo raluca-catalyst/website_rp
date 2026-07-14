@@ -13,8 +13,11 @@
   <meta property="og:title" content="Romanian State of AI, ediția 2026" />
   <meta property="og:description" content="514 profesioniști, al doilea an de măsurare. 74,9% folosesc AI zilnic. 50% folosesc tool-uri neaprobate. 64% fără politici de date. Raportul complet, liber." />
   <meta property="og:url" content="https://www.ralucapaduraru.ro/romanian-state-of-ai/" />
-  <meta property="og:image" content="https://www.ralucapaduraru.ro/images/portrait.png" />
+  <meta property="og:image" content="https://www.ralucapaduraru.ro/images/og-romanian-state-of-ai.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.ralucapaduraru.ro/images/og-romanian-state-of-ai.png" />
   <link rel="canonical" href="https://www.ralucapaduraru.ro/romanian-state-of-ai/" />
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
@@ -322,6 +325,32 @@
       .ax-track { grid-column: 1; }
       .ax-opt { grid-column: 1 / -1; margin-bottom: 0.1rem; }
     }
+    /* download form (gate sumar executiv) */
+    .download-form-wrap { max-width: 600px; margin: 1.6rem auto 0; text-align: left; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-field label {
+      font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-sec);
+    }
+    .form-field input {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius, 12px);
+      padding: 13px 16px; font-family: var(--font-body, inherit); font-size: 0.95rem;
+      color: var(--text); outline: none; transition: border-color 0.2s;
+    }
+    .form-field input:focus { border-color: var(--lavender); }
+    .form-field input::placeholder { color: var(--text-muted); }
+    .form-check { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 24px; }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--lavender); cursor: pointer; }
+    .form-check label { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; cursor: pointer; }
+    .form-submit-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .form-submit-wrap .btn { width: 100%; justify-content: center; }
+    .form-privacy { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
+    .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+    .download-form-msg { margin-top: 16px; font-size: 0.9rem; border-radius: var(--radius, 12px); padding: 12px 16px; text-align: center; display: none; }
+    .download-form-msg.success { display: block; background: rgba(107,158,116,0.15); border: 1px solid rgba(107,158,116,0.4); color: #7BC78A; }
+    .download-form-msg.error   { display: block; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3); color: var(--lavender-lt); }
+    @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -766,10 +795,51 @@
         <div class="deck-card" style="margin-top:1.4rem;">
           <h3>Sumarul executiv</h3>
           <p>
-            Un deck executiv cu cifrele-cheie și concluziile care îți arată, pe scurt, cum arată piața, care sunt decalajele și 3 intervenții pe care le poți implementa pentru a construi adopție AI în organizația ta.
+            Sumarul executiv (PDF, 2 pagini) îți arată, pe scurt, cum arată piața, care sunt decalajele și 3 intervenții pe care le poți implementa pentru a construi adopție AI în organizația ta, fiecare cu primul pas în 30 de zile.
           </p>
-          <!-- TODO: la lansarea deck-ului, blocul de mai jos devine formular de email (gate) -->
-          <a href="../contact.html" class="btn btn-primary">Anunță-mă când apare</a>
+          <div class="download-form-wrap">
+            <form id="rsai-download-form" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="rsai-name">Nume complet *</label>
+                  <input type="text" id="rsai-name" name="name" required placeholder="Prenume Nume" autocomplete="name" />
+                </div>
+                <div class="form-field">
+                  <label for="rsai-email">Email profesional *</label>
+                  <input type="email" id="rsai-email" name="email" required placeholder="tu@companie.ro" autocomplete="email" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="rsai-company">Companie</label>
+                  <input type="text" id="rsai-company" name="company" placeholder="Compania ta" autocomplete="organization" />
+                </div>
+                <div class="form-field">
+                  <label for="rsai-role">Rol / Funcție</label>
+                  <input type="text" id="rsai-role" name="role" placeholder="Ex: Director, HR Manager..." autocomplete="organization-title" />
+                </div>
+              </div>
+              <div class="hp-field" aria-hidden="true">
+                <label for="rsai-website">Website</label>
+                <input type="text" id="rsai-website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="rsai-consent" name="consent" required />
+                <label for="rsai-consent">
+                  Doresc să primesc actualizări despre AI și viitorul muncii.
+                  Înțeleg că fără acordul meu nu voi primi sumarul executiv.
+                </label>
+              </div>
+              <div class="form-submit-wrap">
+                <button type="submit" class="btn btn-primary" id="rsai-btn">
+                  Vreau sumarul executiv
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                </button>
+                <p class="form-privacy">Datele tale sunt în siguranță și nu vor fi distribuite terților.</p>
+              </div>
+              <div id="rsai-form-msg" class="download-form-msg"></div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -1148,6 +1218,50 @@
         if (typeof gtag === 'function') gtag('event', 'copy_section_link', { section: btn.dataset.anchor, page: 'romanian_state_of_ai_2026' });
       });
     });
+    // Gate sumar executiv
+    var rsaiForm = document.getElementById('rsai-download-form');
+    if (rsaiForm) {
+      rsaiForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var name    = document.getElementById('rsai-name').value.trim();
+        var email   = document.getElementById('rsai-email').value.trim();
+        var company = document.getElementById('rsai-company').value.trim();
+        var role    = document.getElementById('rsai-role').value.trim();
+        var website = document.getElementById('rsai-website').value.trim();
+        var consent = document.getElementById('rsai-consent').checked;
+        var btn     = document.getElementById('rsai-btn');
+        var msg     = document.getElementById('rsai-form-msg');
+        if (!name || !email || !consent) {
+          msg.className = 'download-form-msg error';
+          msg.textContent = 'Te rugăm completează câmpurile obligatorii și bifează acordul.';
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = 'Se trimite...';
+        msg.className = 'download-form-msg';
+        if (typeof gtag === 'function') gtag('event', 'form_submit', { event_category: 'download', event_label: 'romanian-state-of-ai-sumar' });
+        try {
+          var res = await fetch('/api/download', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ resource: 'romanian-state-of-ai-sumar', name: name, email: email, company: company, role: role, website: website })
+          });
+          var data = await res.json();
+          if (res.ok) {
+            msg.className = 'download-form-msg success';
+            msg.innerHTML = 'Mulțumim! Sumarul executiv a fost trimis pe email. Verifică și în folderul de spam.';
+            rsaiForm.reset();
+            btn.textContent = 'Trimis! ✓';
+            if (typeof gtag === 'function') gtag('event', 'pdf_download', { event_category: 'conversion', event_label: 'romanian-state-of-ai-sumar' });
+          } else { throw new Error(data.message || 'Eroare la trimitere'); }
+        } catch (err) {
+          msg.className = 'download-form-msg error';
+          msg.textContent = 'Ceva nu a mers. Încearcă din nou sau scrie la contact@upvance.global';
+          btn.disabled = false;
+          btn.innerHTML = 'Vreau sumarul executiv <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>';
+        }
+      });
+    }
     var citeBtn = document.getElementById('copy-cite');
     if (citeBtn) {
       citeBtn.addEventListener('click', function() {

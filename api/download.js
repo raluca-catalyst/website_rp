@@ -89,6 +89,24 @@ const RESOURCES = {
       });
     },
   },
+  'romanian-state-of-ai-sumar': {
+    pdfUrl: 'https://ralucapaduraru.ro/downloads/romanian-state-of-ai-sumar-executiv.pdf',
+    subject: 'Sumarul tău executiv: Romanian State of AI 2026',
+    notifySubject: (name, company) => `Nou download Sumar RSAI 2026: ${name} (${company || 'N/A'})`,
+    emailHtml: function () {
+      return emailShell({
+        title: 'Sumarul tău executiv: Romanian State of AI 2026',
+        footerNote: 'Ai primit acest email deoarece ai completat formularul de pe ralucapaduraru.ro/romanian-state-of-ai/.',
+        bodyHtml: `
+      <p>Salutare,</p>
+      <p>Mulțumesc că ai cerut sumarul executiv al studiului Romanian State of AI 2026. Îl găsești aici:</p>
+      <a class="cta" href="${this.pdfUrl}" target="_blank">Descarcă sumarul &rarr;</a>
+      <p>Sunt 2 pagini, construite pe cele două componente ale agency-ului: prima e partea de discernământ (cifrele-cheie și cele 4 constatări), a doua e partea de acțiune (3 intervenții cu efect maxim, fiecare cu primul pas în 30 de zile, plus un checklist de pornire).</p>
+      <p>După ce îl parcurgi, am o invitație: dă-mi un reply cu o singură propoziție. <strong>Care dintre cele 3 intervenții e cea mai departe de realitatea organizației tale acum?</strong> Răspunsurile mă ajută să construiesc materiale tot mai relevante pentru profesioniștii din România.</p>
+      <p>P.S. Dacă vrei să discutăm ce ar însemna aceste intervenții pentru echipa ta, putem vorbi 30 de minute, fără obligații: <a href="${BOOKING_URL}" style="color:#9B8AF0">${BOOKING_URL}</a></p>`,
+      });
+    },
+  },
   'build-your-cortex': {
     subject: 'Ești pe lista Build Your Cortex',
     notifySubject: (name, company) => `Nou waitlist Build Your Cortex: ${name} (${company || 'N/A'})`,
