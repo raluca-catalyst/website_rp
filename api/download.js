@@ -9,6 +9,10 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const SHEETS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxJjD_2faU9XQLxOOlWDzYUXLp4Vs0aa-895GJ5rXj9GnZ5U1rQsQMMfptEXLVVQG5_/exec';
 const BOOKING_URL = 'https://calendar.app.google/97NFSpQYzKkJmkuL9';
 
+// Build Your Cortex — linkuri de plată Stripe (sesiunea din 9 octombrie 2026)
+const STRIPE_SIMPLU = 'https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b';
+const STRIPE_MENTORING = 'https://buy.stripe.com/4gM7sK7ktgQe6kl62OenS0c';
+
 // Schelet comun de email (header Upvance, CTA lavender, footer)
 const emailShell = ({ title, bodyHtml, footerNote, signoff = 'Mulțumesc și lectură plăcută,' }) => `
 <!DOCTYPE html>
@@ -107,21 +111,28 @@ const RESOURCES = {
       });
     },
   },
-  'build-your-cortex': {
-    subject: 'Ești pe lista Build Your Cortex',
-    notifySubject: (name, company) => `Nou waitlist Build Your Cortex: ${name} (${company || 'N/A'})`,
-    emailHtml: function () {
+  'build-your-cortex-oct': {
+    subject: 'Build Your Cortex, 9 octombrie — pașii pentru înscriere',
+    notifySubject: (name) => `Nouă înscriere Build Your Cortex (9 oct): ${name}`,
+    emailHtml: function (data) {
+      const salut = data && data.prenume ? `Salutare, ${data.prenume},` : 'Salutare,';
       return emailShell({
-        title: 'Ești pe lista de early-access Build Your Cortex',
-        signoff: 'Ne vedem curând,',
-        footerNote: 'Ai primit acest email deoarece te-ai înscris pe lista de early-access de pe ralucapaduraru.ro/build-your-cortex.',
+        title: 'Build Your Cortex — 9 octombrie 2026',
+        signoff: 'Ne vedem pe 9 octombrie,',
+        footerNote: 'Ai primit acest email deoarece te-ai înscris prin formularul de pe ralucapaduraru.ro/build-your-cortex.',
         bodyHtml: `
-      <p>Salutare,</p>
-      <p>Te-ai înscris pe lista de early-access pentru <strong>Build Your Cortex</strong>, ediția unică din 6 august, de la Palatul Universul (București), parte din lansarea ecosistemului KA-BOM.</p>
-      <p>Ce înseamnă asta: ești printre primii anunțați când deschid înscrierile și ai prioritate la cele 16 locuri, la prețul de lansare.</p>
-      <p>Pleci de la workshop cu un sistem AI personal care te cunoaște, lucrează pentru tine și produce, plus o echipă de specialiști gata de pus la treabă. Îți scriu în curând cu detaliile de înscriere.</p>
-      <p>Până atunci, dacă vrei să vezi cum gândesc despre AI ca sistem personal, mă găsești pe LinkedIn:</p>
-      <a class="cta" href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank">LinkedIn &rarr;</a>`,
+      <p>${salut}</p>
+      <p>Mulțumesc că te-ai înscris la <strong>Build Your Cortex</strong>. Uite tot ce trebuie să știi.</p>
+      <p><strong>Când:</strong> 9 octombrie 2026, de la 9:30 la 18:30.<br>
+      <strong>Unde:</strong> București. Îți confirm locația exactă în curând.<br>
+      <strong>Câți suntem:</strong> maximum 12 persoane.</p>
+      <p>Locul tău este rezervat când efectuezi plata, iar cele 12 locuri se ocupă în ordinea efectuării plăților. Alege varianta care ți se potrivește:</p>
+      <a class="cta" href="${STRIPE_SIMPLU}" target="_blank">Build Your Cortex &middot; 1.197 lei &rarr;</a><br>
+      <a class="cta" href="${STRIPE_MENTORING}" target="_blank">Build Your Cortex + mentoring 1:1, 90 min &middot; 1.852 lei &rarr;</a>
+      <p>La varianta cu mentoring am doar <strong>3 locuri disponibile</strong>, ca să pot lucra în profunzime cu fiecare.</p>
+      <p>Prețurile de mai sus sunt valabile până pe 9 septembrie.</p>
+      <p>După plată primești confirmarea, iar cu câteva zile înainte de sesiune îți trimit pașii de setup, ca să vii cu tot instalat și să intri direct în ziua de lucru.</p>
+      <p>Dacă ai întrebări până atunci, dă-mi un reply la acest email.</p>`,
       });
     },
   },
@@ -135,7 +146,7 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ message: 'Method not allowed' });
 
-  const { resource, name, email, company, role, website } = req.body || {};
+  const { resource, name, email, company, role, website, prenume, nume, telefon } = req.body || {};
 
   // Honeypot: boții completează câmpul ascuns => răspuns 200 fals, fără acțiune
   if (website) return res.status(200).json({ message: 'OK' });
@@ -157,7 +168,7 @@ module.exports = async (req, res) => {
       reply_to: 'contact@upvance.global',
       to: [email],
       subject: cfg.subject,
-      html: cfg.emailHtml(),
+      html: cfg.emailHtml({ name, prenume, nume, email, telefon }),
     });
 
     if (error) {
@@ -168,7 +179,7 @@ module.exports = async (req, res) => {
     // Log lead to Google Sheets (non-critical)
     fetch(SHEETS_WEBHOOK, {
       method: 'POST',
-      body: JSON.stringify({ nume: name, prenume: '', email, rol: role, companie: company, sursa: slug }),
+      body: JSON.stringify({ nume: nume || name, prenume: prenume || '', email, telefon: telefon || '', rol: role, companie: company, sursa: slug }),
     }).catch(() => {}); // non-critical, ignore errors
 
     // Also notify Raluca of new lead
@@ -176,7 +187,7 @@ module.exports = async (req, res) => {
       from: 'Site ralucapaduraru.ro <contact@upvance.global>',
       to: ['raluca@upvance.global'],
       subject: cfg.notifySubject(name, company),
-      html: `<p><b>Nume:</b> ${name}<br><b>Email:</b> ${email}<br><b>Companie:</b> ${company || '-'}<br><b>Rol:</b> ${role || '-'}<br><b>Sursă:</b> ${slug}</p>`,
+      html: `<p><b>Nume:</b> ${name}<br><b>Email:</b> ${email}<br><b>Telefon:</b> ${telefon || '-'}<br><b>Companie:</b> ${company || '-'}<br><b>Rol:</b> ${role || '-'}<br><b>Sursă:</b> ${slug}</p>`,
     }).catch(() => {}); // non-critical, ignore errors
 
     return res.status(200).json({ message: 'Trimis pe email!' });
