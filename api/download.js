@@ -9,10 +9,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const SHEETS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxJjD_2faU9XQLxOOlWDzYUXLp4Vs0aa-895GJ5rXj9GnZ5U1rQsQMMfptEXLVVQG5_/exec';
 const BOOKING_URL = 'https://calendar.app.google/97NFSpQYzKkJmkuL9';
 
-// Build Your Cortex — linkuri de plată Stripe (sesiunea din 9 octombrie 2026)
-const STRIPE_SIMPLU = 'https://buy.stripe.com/8x2dR80W5czYaAB76SenS0b';
-const STRIPE_MENTORING = 'https://buy.stripe.com/4gM7sK7ktgQe6kl62OenS0c';
-
 // Schelet comun de email (header Upvance, CTA lavender, footer)
 const emailShell = ({ title, bodyHtml, footerNote, signoff = 'Mulțumesc și lectură plăcută,' }) => `
 <!DOCTYPE html>
@@ -112,26 +108,22 @@ const RESOURCES = {
     },
   },
   'build-your-cortex-oct': {
-    subject: 'Pașii pentru înscrierea la ediția din 9 octombrie a Build Your Cortex',
-    notifySubject: (name) => `Nouă înscriere Build Your Cortex (9 oct): ${name}`,
+    subject: 'Ești pe lista de așteptare pentru Build Your Cortex, 16 octombrie',
+    notifySubject: (name) => `Nouă înscriere pe lista de așteptare Build Your Cortex (16 oct): ${name}`,
     emailHtml: function (data) {
       const salut = data && data.prenume ? `Salutare, ${data.prenume},` : 'Salutare,';
       return emailShell({
-        title: 'Build Your Cortex, 9 octombrie 2026',
-        signoff: 'Ne vedem pe 9 octombrie,',
+        title: 'Build Your Cortex, 16 octombrie 2026',
+        signoff: 'Pe curând,',
         footerNote: 'Ai primit acest email deoarece te-ai înscris prin formularul de pe ralucapaduraru.ro/build-your-cortex.',
         bodyHtml: `
       <p>${salut}</p>
-      <p>Mulțumesc că te-ai înscris la <strong>Build Your Cortex</strong>. Uite tot ce trebuie să știi.</p>
-      <p><strong>Când:</strong> 9 octombrie 2026, de la 9:30 la 18:30.<br>
-      <strong>Unde:</strong> București. Îți confirm locația exactă în curând.<br>
-      <strong>Câți suntem:</strong> maximum 12 persoane.</p>
-      <p>Locul tău este rezervat când efectuezi plata, iar cele 12 locuri se ocupă în ordinea efectuării plăților. Alege varianta care ți se potrivește:</p>
-      <a class="cta" style="color:#111111" href="${STRIPE_SIMPLU}" target="_blank">Build Your Cortex &middot; 1.197 lei &rarr;</a><br>
-      <a class="cta" style="color:#111111" href="${STRIPE_MENTORING}" target="_blank">Build Your Cortex + mentoring 1:1, 90 min &middot; 1.852 lei &rarr;</a>
-      <p>La varianta cu mentoring am doar <strong>3 locuri disponibile</strong>, ca să pot lucra în profunzime cu fiecare.</p>
-      <p>Prețurile early bird de mai sus sunt valabile până pe 9 septembrie.</p>
-      <p>După plată primești confirmarea, iar cu câteva zile înainte de sesiune îți trimit pașii de setup, ca să vii cu tot instalat și să intri direct în ziua de lucru.</p>
+      <p>Felicitări pentru că te-ai înscris pe lista de așteptare pentru <strong>Build Your Cortex</strong>! Uite tot ce trebuie să știi.</p>
+      <p><strong>Când:</strong> 16 octombrie 2026, de la 9:30 la 18:30.<br>
+      <strong>Unde:</strong> București. Îți confirm locația exactă în curând.</p>
+      <p>Pentru că te-ai înscris pe lista de așteptare, la deschiderea înscrierilor beneficiezi de prețul special de <strong>1.197 lei</strong> (față de 1.710 lei, prețul standard).</p>
+      <p>Când deschid înscrierile, revin către tine cu detaliile de plată. Cele 12 locuri disponibile se vor ocupa în ordinea efectuării plăților.</p>
+      <p>Ulterior, lucrăm împreună pentru ca tu să poți deveni CEO-ul propriului sistem de lucru cu AI.</p>
       <p>Dacă ai întrebări până atunci, dă-mi un reply la acest email.</p>`,
       });
     },
