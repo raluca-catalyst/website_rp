@@ -28,7 +28,7 @@ const emailShell = ({ title, bodyHtml, footerNote, signoff = 'Mulțumesc și lec
     .header h2 { color: #111111; font-size: 22px; font-weight: 700; margin: 0; line-height: 1.3; }
     .body { padding: 36px 40px; }
     .body p { font-size: 15px; color: #444; line-height: 1.7; margin: 0 0 16px; }
-    .cta { display: inline-block; background: #9B8AF0; color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 16px; margin: 12px 0 24px; }
+    .cta { display: inline-block; background: #9B8AF0; color: #111111; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 16px; margin: 12px 0 24px; }
     .footer { background: #f9f9f9; padding: 24px 40px; border-top: 1px solid #eee; }
     .footer p { font-size: 12px; color: #888; line-height: 1.6; margin: 0; }
     .sig-name { font-size: 14px; color: #333; font-weight: 600; margin-top: 24px; margin-bottom: 2px; }
@@ -68,7 +68,7 @@ const RESOURCES = {
         bodyHtml: `
       <p>Salutare,</p>
       <p>Mulțumesc că ai cerut raportul. Îl găsești aici:</p>
-      <a class="cta" href="${this.pdfUrl}" target="_blank">Descarcă raportul &rarr;</a>
+      <a class="cta" style="color:#111111" href="${this.pdfUrl}" target="_blank">Descarcă raportul &rarr;</a>
       <p>Sunt 62 de pagini. Dacă ai 5 minute, citește sumarul executiv. Dacă ai 15, adaugă și scenariul care te intrigă cel mai mult. Dacă ai o oră, citește-l integral. Fiecare nivel de lectură oferă ceva util.</p>
       <p>Dar, indiferent cât citești, am o invitație: dă-mi un reply cu o singură propoziție. <strong>Ce te-a surprins cel mai mult?</strong> Fiecare răspuns pe care îl primesc mă ajută să înțeleg ce e cu adevărat relevant pentru profesioniștii din România și să construiesc materiale și mai bune.</p>
       <p>P.S. Dacă vrei să explorezi implicațiile raportului cu echipa ta, pot organiza o sesiune de debrief de 30 de minute, fără obligații. Poți rezerva un slot aici: <a href="${BOOKING_URL}" style="color:#9B8AF0">${BOOKING_URL}</a></p>`,
@@ -86,7 +86,7 @@ const RESOURCES = {
         bodyHtml: `
       <p>Salutare,</p>
       <p>Mulțumesc că ai cerut framework-ul. Îl găsești aici:</p>
-      <a class="cta" href="${this.pdfUrl}" target="_blank">Descarcă framework-ul &rarr;</a>
+      <a class="cta" style="color:#111111" href="${this.pdfUrl}" target="_blank">Descarcă framework-ul &rarr;</a>
       <p>Framework-ul definește concret rolul de AI Business Translator: cele trei seturi de abilități, cele cinci activități și cele cinci milestone-uri prin care se construiește competența în echipă.</p>
       <p>După ce îl parcurgi, am o invitație: dă-mi un reply cu o singură propoziție. <strong>Care dintre cele cinci activități e cel mai puțin acoperită în echipa ta acum?</strong> Răspunsurile mă ajută să construiesc materiale tot mai relevante pentru profesioniștii din România.</p>
       <p>P.S. Dacă vrei să construiești AI Business Translators în organizația ta, putem vorbi 30 de minute despre cum ar arăta un program adaptat la contextul vostru, fără obligații: <a href="${BOOKING_URL}" style="color:#9B8AF0">${BOOKING_URL}</a></p>`,
@@ -104,7 +104,7 @@ const RESOURCES = {
         bodyHtml: `
       <p>Salutare,</p>
       <p>Mulțumesc că ai cerut sumarul executiv al studiului Romanian State of AI 2026. Îl găsești aici:</p>
-      <a class="cta" href="${this.pdfUrl}" target="_blank">Descarcă sumarul &rarr;</a>
+      <a class="cta" style="color:#111111" href="${this.pdfUrl}" target="_blank">Descarcă sumarul &rarr;</a>
       <p>Sunt 2 pagini, construite pe cele două componente ale agency-ului: prima e partea de discernământ (cifrele-cheie și cele 4 constatări), a doua e partea de acțiune (3 intervenții cu efect maxim, fiecare cu primul pas în 30 de zile, plus un checklist de pornire).</p>
       <p>După ce îl parcurgi, am o invitație: dă-mi un reply cu o singură propoziție. <strong>Care dintre cele 3 intervenții e cea mai departe de realitatea organizației tale acum?</strong> Răspunsurile mă ajută să construiesc materiale tot mai relevante pentru profesioniștii din România.</p>
       <p>P.S. Dacă vrei să discutăm ce ar însemna aceste intervenții pentru echipa ta, putem vorbi 30 de minute, fără obligații: <a href="${BOOKING_URL}" style="color:#9B8AF0">${BOOKING_URL}</a></p>`,
@@ -112,12 +112,12 @@ const RESOURCES = {
     },
   },
   'build-your-cortex-oct': {
-    subject: 'Build Your Cortex, 9 octombrie — pașii pentru înscriere',
+    subject: 'Pașii pentru înscrierea la ediția din 9 octombrie a Build Your Cortex',
     notifySubject: (name) => `Nouă înscriere Build Your Cortex (9 oct): ${name}`,
     emailHtml: function (data) {
       const salut = data && data.prenume ? `Salutare, ${data.prenume},` : 'Salutare,';
       return emailShell({
-        title: 'Build Your Cortex — 9 octombrie 2026',
+        title: 'Build Your Cortex, 9 octombrie 2026',
         signoff: 'Ne vedem pe 9 octombrie,',
         footerNote: 'Ai primit acest email deoarece te-ai înscris prin formularul de pe ralucapaduraru.ro/build-your-cortex.',
         bodyHtml: `
@@ -127,10 +127,10 @@ const RESOURCES = {
       <strong>Unde:</strong> București. Îți confirm locația exactă în curând.<br>
       <strong>Câți suntem:</strong> maximum 12 persoane.</p>
       <p>Locul tău este rezervat când efectuezi plata, iar cele 12 locuri se ocupă în ordinea efectuării plăților. Alege varianta care ți se potrivește:</p>
-      <a class="cta" href="${STRIPE_SIMPLU}" target="_blank">Build Your Cortex &middot; 1.197 lei &rarr;</a><br>
-      <a class="cta" href="${STRIPE_MENTORING}" target="_blank">Build Your Cortex + mentoring 1:1, 90 min &middot; 1.852 lei &rarr;</a>
+      <a class="cta" style="color:#111111" href="${STRIPE_SIMPLU}" target="_blank">Build Your Cortex &middot; 1.197 lei &rarr;</a><br>
+      <a class="cta" style="color:#111111" href="${STRIPE_MENTORING}" target="_blank">Build Your Cortex + mentoring 1:1, 90 min &middot; 1.852 lei &rarr;</a>
       <p>La varianta cu mentoring am doar <strong>3 locuri disponibile</strong>, ca să pot lucra în profunzime cu fiecare.</p>
-      <p>Prețurile de mai sus sunt valabile până pe 9 septembrie.</p>
+      <p>Prețurile early bird de mai sus sunt valabile până pe 9 septembrie.</p>
       <p>După plată primești confirmarea, iar cu câteva zile înainte de sesiune îți trimit pașii de setup, ca să vii cu tot instalat și să intri direct în ziua de lucru.</p>
       <p>Dacă ai întrebări până atunci, dă-mi un reply la acest email.</p>`,
       });

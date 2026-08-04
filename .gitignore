@@ -1,3 +1,10 @@
 node_modules/
 package-lock.json
 package.json
+
+# Notițe de lucru — nu se publică niciodată
+.superpowers/
+docs/redesign/
+docs/superpowers/plans/
+SEO-ACTION-PLAN.md
+SEO-AUDIT-REPORT.md

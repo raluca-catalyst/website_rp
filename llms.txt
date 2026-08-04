@@ -16,7 +16,9 @@ Raluca Păduraru este educator de AI fluency și consultant independent (Upvance
 ## Frameworks originale
 
 - [AI Business Translator Framework](https://www.ralucapaduraru.ro/frameworks/ai-business-translator/) — Competența centrală care leagă organizația de AI: oameni care traduc problemele de business în soluții cu AI
-- [M.O.D.E.L. Framework](https://www.ralucapaduraru.ro/frameworks/model-framework/) — Metodă replicabilă pentru prompting profesional cu AI (Multipli experți, Obiective, Date de context, Etape de lucru, Loop de verificare, Task)
+- [C.A.D.R.U. Framework](https://www.ralucapaduraru.ro/frameworks/cadru/) — Cadrul de gândire dinaintea conversației cu un model AI de frontieră: Contextul pe care doar tu îl ai, Alegerea, Definiția reușitei, Restricțiile care chiar contează, Ultimul cuvânt. Pentru modele post-iunie 2026 (Claude Opus 5, Claude Fable 5, GPT-5.6 Sol)
+- [Stratul uman](https://www.ralucapaduraru.ro/frameworks/stratul-uman/) — Ce cultivi în tine și în echipă ca să rămâi valoros în era AI: 3 niveluri (experiență acumulată, judecată și problem framing, relațional și etic), plus AI ca amplificator extern
+- [M.O.D.E.L. Framework](https://www.ralucapaduraru.ro/frameworks/model-framework/) — Metodă replicabilă pentru prompting profesional cu AI (Multipli experți, Obiective, Date de context, Etape de lucru, Loop de verificare, Task). Domeniu de valabilitate: modele mici, rapide sau locale, care au nevoie de ghidaj directiv
 - [4D Framework for Risks & Ethics](https://www.ralucapaduraru.ro/frameworks/4d-framework/) — Audit de guvernanță AI preliminar pentru inițiative de adopție (Delegare, Descriere, Discernământ, Diligență)
 - [F.O.R.C.E. Matrix](https://www.ralucapaduraru.ro/frameworks/force-matrix/) — Cadru de categorisire a task-urilor delegabile către AI (Filtrează, Optimizează, Raționează, Construiește, Execută)
 - [Capcanele Low-Agency](https://www.ralucapaduraru.ro/frameworks/capcane-low-agency/) — De ce echipele nu adoptă AI: capcanele de agency redusă și cum le depășești
