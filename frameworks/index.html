@@ -34,42 +34,62 @@
     /* Full-width paragraphs in section headers on this page */
     .section-header p { max-width: none; }
 
-    /* Butoanele fiecărui card se lipesc de baza cardului, ca să fie aliniate
-       pe același rând, și stau mereu pe o singură linie. */
+    /* Trei coloane strict egale. minmax(0, 1fr) împiedică un conținut lat
+       (un buton care nu se rupe, un titlu lung) să umfle o coloană. */
+    .frameworks-page-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-auto-rows: 1fr;   /* toate cardurile la aceeași înălțime */
+      gap: 3rem 2.5rem;
+    }
+
+    /* Fără linii pe pagina asta: separarea o face spațiul. */
+    .frameworks-page-grid .framework-card {
+      border: none;
+      padding: 0;
+      min-width: 0;
+    }
+
+    /* Eticheta mono e ancora vizuală de sus a fiecărui card. */
+    .frameworks-page-grid .card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--lavender-lt);
+      margin-bottom: 0.9rem;
+    }
+
+    /* Titluri identice în ambele grile. */
+    .frameworks-page-grid .framework-card h3 { font-size: 1.25rem; margin-bottom: 0.85rem; }
+
+    /* Butoanele se lipesc de baza cardului. Cu rânduri egale, asta le aliniază
+       pe toată grila, nu doar în cadrul unui rând. */
     .frameworks-page-grid .framework-card > .card-actions {
       margin-top: auto;
-      padding-top: 1.5rem;
+      padding-top: 1.75rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;   /* plasă de siguranță; la pragurile de mai jos nu se declanșează */
     }
     .frameworks-page-grid .framework-card > .card-actions .btn { white-space: nowrap; }
 
-    /* Sub ~1150px coloanele scad sub 340px și butoanele s-ar tăia pe o singură
-       linie, așa că le lăsăm din nou să treacă pe rândul următor. */
-    @media (max-width: 1180px) {
-      .frameworks-page-grid .framework-card > .card-actions { flex-wrap: wrap; }
+    /* Pragurile de mai jos sunt alese ca o coloană să nu scadă niciodată sub
+       ~300px: perechea „buton principal + PDF" are nevoie de 296px ca să stea
+       pe o linie. Sub asta, PDF-ul ar sări pe rândul doi și ar dezalinia
+       butonul față de cardurile vecine. */
+    @media (max-width: 1099px) {
+      .frameworks-page-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
-    /* 3-column grid border rules (resets the default 4-column nth-child selectors) */
-    .frameworks-page-grid .framework-card:nth-child(4n)        { border-right: 1px solid var(--border); }
-    .frameworks-page-grid .framework-card:nth-last-child(-n+4) { border-bottom: 1px solid var(--border); }
-    .frameworks-page-grid .framework-card:nth-child(3n)        { border-right: none; }
-    .frameworks-page-grid .framework-card:nth-last-child(-n+3) { border-bottom: none; }
-
-    @media (max-width: 900px) {
-      .frameworks-page-grid { grid-template-columns: repeat(2, 1fr) !important; }
-      .frameworks-page-grid .framework-card:nth-child(3n)        { border-right: 1px solid var(--border); }
-      .frameworks-page-grid .framework-card:nth-last-child(-n+3) { border-bottom: 1px solid var(--border); }
-      .frameworks-page-grid .framework-card:nth-child(2n)        { border-right: none; }
-      .frameworks-page-grid .framework-card:nth-last-child(-n+2) { border-bottom: none; }
-    }
-
-    @media (max-width: 600px) {
-      .frameworks-page-grid { grid-template-columns: 1fr !important; }
-      .frameworks-page-grid .framework-card                      { border-right: none; border-bottom: 1px solid var(--border); }
-      .frameworks-page-grid .framework-card:last-child           { border-bottom: none; }
+    /* Pe o coloană, rândurile egale ar lăsa goluri uriașe sub cardurile scurte. */
+    @media (max-width: 767px) {
+      .frameworks-page-grid {
+        grid-template-columns: minmax(0, 1fr);
+        grid-auto-rows: auto;
+        gap: 2.75rem;
+      }
     }
   </style>
 
@@ -204,7 +224,7 @@
           <ol style="list-style:none; padding:0; margin:0; display:flex; gap:0.5rem; align-items:center; font-size:0.85rem; color:var(--text-muted);">
             <li><a href="/" style="color:var(--text-muted); text-decoration:none;">Acasă</a></li>
             <li style="opacity:0.4;">/</li>
-            <li style="color:var(--cyan);">Framework-uri & resurse</li>
+            <li style="color:var(--lavender-lt);">Framework-uri & resurse</li>
           </ol>
         </nav>
 
@@ -248,23 +268,21 @@
           <p>Trei framework-uri construite și ajustate în 800+ ore de laborator cu profesioniști non-tehnici din România și din afară.</p>
         </div>
 
-        <div class="frameworks-grid frameworks-page-grid fade-up" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="frameworks-grid frameworks-page-grid fade-up">
 
           <!-- 4D Framework -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(0,212,255,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Framework propriu</span>
-            </div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">4D Framework</h3>
+            <div class="card-eyebrow">Framework propriu</div>
+            <h3>4D Framework</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Cele mai multe erori în lucrul cu AI vin din decizii greșite luate înainte de a deschide o conversație cu AI. 4D Framework oferă un proces de gândire în 4 pași: ce <strong>Delegi</strong>, cum <strong>Descrii</strong> contextul, cum <strong>Definești</strong> outputul dorit și cum <strong>Discearnezi</strong> calitatea a ceea ce primești. Funcționează pentru oricine lucrează cu AI, indiferent de tool sau rol.
             </p>
             <div class="card-actions">
-              <a href="/frameworks/4d-framework/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/frameworks/4d-framework/" class="btn btn-primary">
                 Descoperă framework-ul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <a href="/downloads/4D-Framework.pdf" target="_blank" rel="noopener" class="btn btn-download" style="font-size: 0.9rem;">
+              <a href="/downloads/4D-Framework.pdf" target="_blank" rel="noopener" class="btn btn-download">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
                 PDF
               </a>
@@ -273,15 +291,13 @@
 
           <!-- C.A.D.R.U. Framework -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(0,212,255,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Framework propriu</span>
-            </div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">C.A.D.R.U. Framework</h3>
+            <div class="card-eyebrow">Framework propriu</div>
+            <h3>C.A.D.R.U. Framework</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Cele mai bune practici de prompting de anul trecut au încetat să funcționeze la modelele de frontieră: instrucțiunile lungi și rigide le supra-constrâng. Ce a rămas valoros e gândirea de dinainte. C.A.D.R.U. sunt cele 5 lucruri pe care numai tu le poți defini: <strong>C</strong>=Contextul pe care doar tu îl ai, <strong>A</strong>=Alegerea, <strong>D</strong>=Definiția reușitei, <strong>R</strong>=Restricțiile care chiar contează, <strong>U</strong>=Ultimul cuvânt.
             </p>
             <div class="card-actions">
-              <a href="/frameworks/cadru/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/frameworks/cadru/" class="btn btn-primary">
                 Descoperă framework-ul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
@@ -290,15 +306,13 @@
 
           <!-- Stratul uman -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(0,212,255,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Framework propriu</span>
-            </div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Stratul uman</h3>
+            <div class="card-eyebrow">Framework propriu</div>
+            <h3>Stratul uman</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Ce cultivi în tine și în echipă ca să rămâi valoros pe măsură ce AI-ul preia execuția. Trei niveluri care se construiesc unul peste altul: <strong>experiența acumulată</strong>, <strong>judecata și problem framing-ul</strong>, <strong>relaționalul și eticul</strong>. AI-ul funcționează ca un amplificator extern, peste acestea.
             </p>
             <div class="card-actions">
-              <a href="/frameworks/stratul-uman/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/frameworks/stratul-uman/" class="btn btn-primary">
                 Descoperă framework-ul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
@@ -307,15 +321,13 @@
 
           <!-- M.O.D.E.L. Framework -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(0,212,255,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Framework propriu</span>
-            </div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">M.O.D.E.L. Framework</h3>
+            <div class="card-eyebrow">Framework propriu</div>
+            <h3>M.O.D.E.L. Framework</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Protocolul în 5 pași pentru structurarea prompt-ului: <strong>M</strong>=Multipli experți, <strong>O</strong>=Obiective, <strong>D</strong>=Date de context, <strong>E</strong>=Etape de lucru, <strong>L</strong>=Loop de verificare. Testat în 800+ ore de laborator. Din 2026 are un domeniu de valabilitate clar: modelele mici, rapide sau locale, care chiar au nevoie de ghidaj directiv. Pentru modelele de frontieră, folosește C.A.D.R.U.
             </p>
             <div class="card-actions">
-              <a href="/frameworks/model-framework/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/frameworks/model-framework/" class="btn btn-primary">
                 Descoperă framework-ul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
@@ -324,19 +336,16 @@
 
           <!-- F.O.R.C.E. Matrix -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--cyan); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(0,212,255,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Framework propriu</span>
-            </div>
-            <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">F.O.R.C.E. Matrix</h3>
+            <div class="card-eyebrow">Framework propriu</div>
+            <h3>F.O.R.C.E. Matrix</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Agenții AI nu se folosesc la fel ca ChatGPT. F.O.R.C.E. Matrix oferă un cadru de decizie pentru lucrul cu sisteme AI autonome: ce tipuri de sarcini pot fi delegate, cum arată un brief potrivit și unde intervine judecata umană. Framework-ul acoperă <strong>5 categorii de task-uri delegabile</strong>, cu criterii clare pentru fiecare dintre ele.
             </p>
             <div class="card-actions">
-              <a href="/frameworks/force-matrix/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/frameworks/force-matrix/" class="btn btn-primary">
                 Descoperă framework-ul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <span class="btn btn-download" style="font-size: 0.9rem; opacity: 0.4; cursor: default; pointer-events: none;">PDF disponibil în curând</span>
             </div>
           </div>
 
@@ -352,19 +361,17 @@
           <p>Resurse gratuite pentru lideri și echipe care navighează tranziția AI cu date reale și instrumente practice.</p>
         </div>
 
-        <div class="frameworks-grid frameworks-page-grid fade-up" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="frameworks-grid frameworks-page-grid fade-up">
 
           <!-- State of AI în România -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--magenta); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,0,128,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Studiu</span>
-            </div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Romanian State of AI 2026</h3>
+            <div class="card-eyebrow">Studiu</div>
+            <h3>Romanian State of AI 2026</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Al doilea an de măsurare a maturității AI în organizațiile din România: <strong>514 respondenți</strong>, comparație directă cu octombrie 2025 și distribuții complete publicate deschis. Frecvența utilizării a crescut, adâncimea nu, iar decalajul dintre angajați și organizații se vede în cifre. Util pentru decidenți care vor date, nu opinii.
             </p>
             <div class="card-actions">
-              <a href="/romanian-state-of-ai/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/romanian-state-of-ai/" class="btn btn-primary">
                 Citește raportul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
@@ -373,19 +380,17 @@
 
           <!-- Blueprint de AI Fluency -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--magenta); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,0,128,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Resursă</span>
-            </div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Blueprint de AI Fluency Organizațional</h3>
+            <div class="card-eyebrow">Resursă</div>
+            <h3>Blueprint de AI Fluency Organizațional</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Un plan de acțiune în <strong>26 de puncte</strong> pentru organizații care vor să construiască AI fluency sistematic. Structurat pe 6 dimensiuni: cultură și oameni, procese și fluxuri de lucru, implementare și testare, eficiență operațională, customer experience și dezvoltare continuă. Funcționează ca instrument de diagnostic și ca roadmap concret.
             </p>
             <div class="card-actions">
-              <a href="/resources/blueprint-ai-fluency/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/resources/blueprint-ai-fluency/" class="btn btn-primary">
                 Descoperă Blueprint-ul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <a href="/downloads/Blueprint de AI fluency organizațional.pdf" target="_blank" rel="noopener" class="btn btn-download" style="font-size: 0.9rem;">
+              <a href="/downloads/Blueprint de AI fluency organizațional.pdf" target="_blank" rel="noopener" class="btn btn-download">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
                 PDF
               </a>
@@ -394,19 +399,17 @@
 
           <!-- The AI Evolution Arc -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--magenta); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,0,128,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Resursă</span>
-            </div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">The AI Evolution Arc</h3>
+            <div class="card-eyebrow">Resursă</div>
+            <h3>The AI Evolution Arc</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Un roadmap de la rezistență digitală la transformare strategică, în <strong>4 niveluri</strong>: Conscious Explorer, Augmented Practitioner, Workflow Architect și Strategic Catalyst. Util pentru evaluarea individuală și pentru maparea nivelului de AI fluency al întregii echipe.
             </p>
             <div class="card-actions">
-              <a href="/resources/ai-evolution-arc/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/resources/ai-evolution-arc/" class="btn btn-primary">
                 Descoperă Arc-ul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <a href="/downloads/ai-evolution.pdf" target="_blank" rel="noopener" class="btn btn-download" style="font-size: 0.9rem;">
+              <a href="/downloads/ai-evolution.pdf" target="_blank" rel="noopener" class="btn btn-download">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
                 PDF
               </a>
@@ -415,19 +418,17 @@
 
           <!-- EU AI Act Compliance Checklist -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--magenta); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,0,128,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Resursă</span>
-            </div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">EU AI Act Compliance Checklist</h3>
+            <div class="card-eyebrow">Resursă</div>
+            <h3>EU AI Act Compliance Checklist</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Ce obligații ai ca deployer conform Regulamentului UE 2024/1689, cu termen obligatoriu în <strong>august 2026</strong>. Checklist-ul acoperă inventarul sistemelor AI pe care le folosești, clasificarea riscului fiecăruia și pașii concreți de conformitate. Disponibil în format DOCX editabil.
             </p>
             <div class="card-actions">
-              <a href="/resources/eu-ai-act-checklist/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/resources/eu-ai-act-checklist/" class="btn btn-primary">
                 Descoperă checklist-ul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
-              <a href="/downloads/EU-AI-Act-Compliance-Checklist-Upvance.docx" class="btn btn-download" style="font-size: 0.9rem;">
+              <a href="/downloads/EU-AI-Act-Compliance-Checklist-Upvance.docx" class="btn btn-download">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
                 DOCX
               </a>
@@ -436,15 +437,13 @@
 
           <!-- AI Reality Check Canvas -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--magenta); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,0,128,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Resursă</span>
-            </div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">AI Reality Check Canvas</h3>
+            <div class="card-eyebrow">Resursă</div>
+            <h3>AI Reality Check Canvas</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Un instrument de dialog pentru echipe: evaluarea structurată a beneficiilor, riscurilor și necunoscutelor pentru orice caz de utilizare AI. Se folosește la începutul unui proiect AI sau la evaluarea tool-urilor deja implementate.
             </p>
             <div class="card-actions">
-              <a href="/downloads/AI-reality-check.pdf" target="_blank" rel="noopener" class="btn btn-download" style="font-size: 0.9rem;">
+              <a href="/downloads/AI-reality-check.pdf" target="_blank" rel="noopener" class="btn btn-download">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
                 Descarcă PDF
               </a>
@@ -453,15 +452,13 @@
 
           <!-- Raport Viitoruri -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--magenta); text-transform: uppercase; letter-spacing: 0.08em; background: rgba(255,0,128,0.08); padding: 0.25rem 0.6rem; border-radius: 4px;">Raport</span>
-            </div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Patru viitoruri ale muncii în România 2030</h3>
+            <div class="card-eyebrow">Raport</div>
+            <h3>Patru viitoruri ale muncii în România 2030</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Primul raport de foresight dedicat viitorului muncii în România. Patru scenarii construite pe date reale, din care rezultă <strong>10 competențe relevante</strong> pentru toate viitorurile posibile. Util pentru lideri care vor să planifice dincolo de trimestrul următor.
             </p>
             <div class="card-actions">
-              <a href="/viitoruri" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/viitoruri" class="btn btn-primary">
                 Citește raportul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
@@ -470,15 +467,13 @@
 
           <!-- Detecție Workslop — Grila 7V -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--lavender-lt); text-transform: uppercase; letter-spacing: 0.08em;">Diagnostic</span>
-            </div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Detecție Workslop — Grila 7V</h3>
+            <div class="card-eyebrow">Diagnostic</div>
+            <h3>Detecție Workslop — Grila 7V</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Workslop e output-ul AI care arată îngrijit, dar e gol pe dinăuntru — și ajunge să mute munca pe umărul colegului. Grila 7V îți dă <strong>șapte verificări</strong> prin care treci orice text generat de AI înainte să-l trimiți mai departe: valoare, verificare, volum, viteză, voce, vid și valabilitate. Instrument interactiv, construit pe datele Microsoft New Future of Work 2025.
             </p>
             <div class="card-actions">
-              <a href="/frameworks/detectie-workslop/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/frameworks/detectie-workslop/" class="btn btn-primary">
                 Deschide diagnosticul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
@@ -487,15 +482,13 @@
 
           <!-- Capcanele Low-Agency -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div style="margin-bottom: 1rem;">
-              <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--lavender-lt); text-transform: uppercase; letter-spacing: 0.08em;">Diagnostic</span>
-            </div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Capcanele Low-Agency</h3>
+            <div class="card-eyebrow">Diagnostic</div>
+            <h3>Capcanele Low-Agency</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Uneori o echipă spune că vrea AI, dar stă pe loc luni întregi. La mijloc e de obicei una dintre <strong>cinci capcane low-agency</strong>: lipsa de claritate, perfecționismul, îndrăgostirea de proces, ruminația și copleșirea. Diagnostic interactiv: alegi capcana în care te regăsești și vezi întrebarea care te scoate din ea. Adaptat după George Mack.
             </p>
             <div class="card-actions">
-              <a href="/frameworks/capcane-low-agency/" class="btn btn-primary" style="font-size: 0.9rem;">
+              <a href="/frameworks/capcane-low-agency/" class="btn btn-primary">
                 Deschide diagnosticul
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
