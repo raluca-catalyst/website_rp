@@ -100,7 +100,7 @@
   /* ---------- Header ---------- */
   .doc-head{border-bottom:1px solid var(--border);padding-bottom:40px;margin-bottom:42px;}
   .logo-row{margin-bottom:40px;}
-  .logo-row img{height:34px;width:auto;display:block;}
+  .logo-row img{height:44px;width:auto;display:block;}
   .kicker{
     font-family:var(--font-mono);font-size:0.72rem;font-weight:500;
     letter-spacing:0.16em;text-transform:uppercase;color:var(--lavender);
@@ -118,6 +118,27 @@
   .lead{margin:0 0 8px;font-size:1.08rem;line-height:1.8;color:var(--body);}
   .lead em{color:var(--violet);font-style:normal;font-weight:600;}
   .avail{font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);margin:14px 0 0;}
+  .copy-note{
+    font-family:var(--font-mono);font-size:0.8rem;font-weight:600;color:var(--violet);
+    background:rgba(124,58,237,0.06);border:1px solid var(--border);border-radius:8px;
+    padding:10px 16px;margin:16px 0 0;display:inline-block;
+  }
+
+  /* ---------- Celebratory ---------- */
+  .cele{text-align:center;margin:44px auto 8px;padding:36px 28px 32px;
+    border:1px solid var(--border);border-radius:14px;
+    background:linear-gradient(145deg,rgba(124,58,237,0.05),rgba(167,139,250,0.02));}
+  .cele svg{color:var(--lavender);display:block;margin:0 auto 18px;}
+  .cele-main{font-family:var(--font-mono);font-weight:700;font-size:1.05rem;color:var(--ink);margin:0 0 10px;}
+  .cele-sub{color:var(--body);margin:0;}
+
+  /* ---------- Copyright ---------- */
+  .copyright-box{
+    margin-top:46px;background:var(--surface);border:1px solid var(--border);
+    border-left:3px solid var(--lavender);border-radius:10px;padding:20px 24px;
+    font-size:0.95rem;color:var(--body);
+  }
+  .copyright-box strong{font-family:var(--font-mono);font-size:0.85rem;color:var(--violet);}
 
   .rule-box{
     margin-top:28px;background:var(--surface);border:1px solid var(--border);
@@ -274,12 +295,13 @@
 
   <!-- ================= HEADER ================= -->
   <header class="doc-head">
-    <div class="logo-row"><img src="/images/logo.png" alt="Raluca Păduraru" /></div>
+    <div class="logo-row"><img src="logo-rp.png" alt="Raluca Păduraru" /></div>
     <div class="kicker">Build Your Cortex · KA-BOM · 6 august 2026</div>
     <h1>Compania ta: tot ce construiești pe 6 august</h1>
     <p class="lead">Aici găsești tot ce creezi în sală și tot ce îți trebuie ca să continui acasă.</p>
     <p class="lead">Prompt-urile se copiază de aici direct în Claude. COO-ul (fișierul CLAUDE.md) se copiază în folderul în care vei lucra cu Claude Cowork. Fișele angajaților se instalează ca skill în contul tău — mișcarea de instalare o înveți la primul angajat, INGEST (<a href="#s21">secțiunea 2.1</a>), și o refolosești pentru toată echipa.</p>
     <p class="avail">Pagina rămâne disponibilă până pe 7 septembrie 2026.</p>
+    <p class="copy-note">© 2026 Raluca Păduraru · Materialele de pe această pagină sunt pentru uzul tău personal. Nu se distribuie fără acordul meu explicit.</p>
 
     <div class="rule-box">
       Regula de bază e să deschizi o <strong>conversație nouă pentru fiecare task.</strong> Memoria de durată stă în fișiere, nu în conversație.
@@ -762,15 +784,34 @@ Nu accepta răspunsuri vagi: cere-mi un exemplu real din ultima lună pentru fie
         <li><strong>Intenția</strong>: tu dai direcția, compania execută (aici poți ajunge cu Claude Code)</li>
       </ol>
 
-      <p><strong>Primii pași sunt cei mai dificili. I-ai făcut, felicitări!</strong><br>
-      De aici încolo e vorba doar de curiozitate și antrenament.</p>
+      <div class="cele">
+        <svg width="46" height="46" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="22" y1="3"    x2="22" y2="12"/>
+          <line x1="22" y1="32"   x2="22" y2="41"/>
+          <line x1="3"  y1="22"   x2="12" y2="22"/>
+          <line x1="32" y1="22"   x2="41" y2="22"/>
+          <line x1="8.6" y1="8.6" x2="14.9" y2="14.9"/>
+          <line x1="29.1" y1="29.1" x2="35.4" y2="35.4"/>
+          <line x1="8.6" y1="35.4" x2="14.9" y2="29.1"/>
+          <line x1="29.1" y1="14.9" x2="35.4" y2="8.6"/>
+          <circle cx="22" cy="22" r="3.2" fill="currentColor" stroke="none"/>
+        </svg>
+        <p class="cele-main">Primii pași sunt cei mai dificili. I-ai făcut, felicitări!</p>
+        <p class="cele-sub">De aici încolo e vorba doar de curiozitate și antrenament.</p>
+      </div>
     </div>
   </section>
 
+  <!-- ================= COPYRIGHT ================= -->
+  <div class="copyright-box">
+    <strong>© 2026 Raluca Păduraru · Upvance Global</strong><br>
+    Toate materialele de pe această pagină — prompturi, fișe de post, ghiduri — sunt create de mine pentru participanții Build Your Cortex și sunt pentru uzul lor personal. Nu se distribuie, nu se republică și nu se refolosesc în alte traininguri fără acordul meu explicit.
+  </div>
+
   <!-- ================= FOOTER ================= -->
   <footer class="doc-foot">
-    <img src="/images/logo.png" alt="Raluca Păduraru" />
-    <p>Build Your Cortex · Raluca Păduraru · <a href="https://www.ralucapaduraru.ro">ralucapaduraru.ro</a></p>
+    <img src="logo-rp.png" alt="Raluca Păduraru" />
+    <p>© 2026 Build Your Cortex · Raluca Păduraru · <a href="https://www.ralucapaduraru.ro">ralucapaduraru.ro</a></p>
   </footer>
 
 </div>
