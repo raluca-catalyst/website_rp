@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Compania ta: tot ce construiești pe 6 august | Build Your Cortex</title>
+
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot → GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f7f4ff;
+    --code-bg:#f4f1fb;
+    --ink:#1d1836;
+    --body:#3a3553;
+    --muted:#7a7596;
+    --violet:#6d28d9;
+    --lavender:#7c3aed;
+    --lavender-lt:#a78bfa;
+    --border:rgba(124,58,237,0.16);
+    --font-mono:'JetBrains Mono',monospace;
+    --font-body:'Barlow',sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  html,body{margin:0;padding:0;background:#e9e6f2;}
+
+  body{
+    font-family:var(--font-body);
+    color:var(--body);
+    font-size:16px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    background:var(--bg);
+    max-width:860px;
+    margin:24px auto;
+    padding:54px 60px 72px;
+    box-shadow:0 10px 40px rgba(29,24,54,0.10);
+  }
+  @media(max-width:720px){
+    .page{margin:0;padding:36px 22px 56px;}
+  }
+
+  /* ---------- Header ---------- */
+  .doc-head{border-bottom:1px solid var(--border);padding-bottom:40px;margin-bottom:42px;}
+  .logo-row{margin-bottom:40px;}
+  .logo-row img{height:34px;width:auto;display:block;}
+  .kicker{
+    font-family:var(--font-mono);font-size:0.72rem;font-weight:500;
+    letter-spacing:0.16em;text-transform:uppercase;color:var(--lavender);
+    display:flex;align-items:center;gap:9px;margin-bottom:16px;
+  }
+  .kicker::before{
+    content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--lavender);box-shadow:0 0 0 3px rgba(124,58,237,0.18);
+  }
+  h1{
+    font-family:var(--font-mono);font-weight:700;
+    font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.18;letter-spacing:-0.02em;
+    color:var(--ink);margin:0 0 22px;
+  }
+  .lead{margin:0 0 8px;font-size:1.08rem;line-height:1.8;color:var(--body);}
+  .lead em{color:var(--violet);font-style:normal;font-weight:600;}
+  .avail{font-family:var(--font-mono);font-size:0.8rem;color:var(--muted);margin:14px 0 0;}
+
+  .rule-box{
+    margin-top:28px;background:var(--surface);border:1px solid var(--border);
+    border-left:3px solid var(--lavender);border-radius:10px;padding:18px 22px;
+    font-size:1rem;color:var(--body);
+  }
+  .rule-box strong{color:var(--ink);}
+
+  /* ---------- Cine e cine ---------- */
+  .whois{
+    margin-top:32px;border:1px solid var(--border);border-radius:14px;
+    padding:30px 32px;background:linear-gradient(145deg,rgba(124,58,237,0.05),rgba(167,139,250,0.02));
+  }
+  .whois h3{margin-top:0;}
+  .whois-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:16px;}
+  @media(max-width:640px){.whois-grid{grid-template-columns:1fr;}}
+  .whois-item{font-size:0.97rem;}
+  .whois-item b{display:block;font-family:var(--font-mono);font-size:0.85rem;color:var(--violet);margin-bottom:4px;}
+  .whois-tag{
+    margin-top:22px;font-family:var(--font-mono);font-weight:600;font-size:0.9rem;
+    color:var(--ink);text-align:center;padding-top:18px;border-top:1px dashed var(--border);
+  }
+
+  /* ---------- TOC ---------- */
+  .toc{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px;}
+  .toc a{
+    font-family:var(--font-mono);font-size:0.75rem;font-weight:600;color:var(--violet);
+    background:#fff;border:1px solid var(--border);border-radius:100px;
+    padding:6px 15px;text-decoration:none;transition:all .2s ease;
+  }
+  .toc a:hover{background:var(--surface);border-color:rgba(124,58,237,0.35);}
+  .toc a .tn{color:var(--lavender-lt);margin-right:6px;}
+
+  /* ---------- Sections ---------- */
+  section{margin-top:46px;}
+  .sec-card{border:1px solid var(--border);border-radius:14px;padding:36px 36px 42px;}
+  @media(max-width:720px){.sec-card{padding:26px 20px 32px;}}
+  .sec-tag{
+    font-family:var(--font-mono);font-size:0.68rem;font-weight:600;letter-spacing:0.12em;
+    text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#7c3aed,#6d28d9);
+    border-radius:100px;padding:4px 13px;display:inline-block;margin-bottom:14px;
+  }
+  .sec-tag.home{background:#fff;color:var(--violet);border:1px solid var(--border);}
+  h2{
+    font-family:var(--font-mono);font-weight:700;font-size:clamp(1.15rem,2.6vw,1.45rem);
+    letter-spacing:-0.01em;color:var(--ink);margin:0 0 6px;
+    display:flex;align-items:baseline;gap:12px;
+  }
+  h2 .num{font-size:0.95em;color:var(--lavender-lt);font-weight:600;min-width:22px;}
+  h3{
+    font-family:var(--font-mono);font-weight:600;font-size:0.92rem;letter-spacing:0.02em;
+    text-transform:uppercase;color:var(--violet);margin:34px 0 12px;
+  }
+  h4{font-family:var(--font-mono);font-weight:600;font-size:0.95rem;color:var(--ink);margin:26px 0 10px;}
+  p{margin:0 0 16px;}
+  a{color:var(--lavender);text-decoration:none;border-bottom:1px solid var(--border);}
+  a:hover{border-bottom-color:var(--lavender);}
+
+  ul{margin:0 0 16px;padding-left:0;list-style:none;}
+  ul li{position:relative;padding-left:20px;margin-bottom:11px;}
+  ul li::before{
+    content:"";position:absolute;left:2px;top:0.62em;
+    width:6px;height:6px;border-radius:50%;background:var(--lavender-lt);
+  }
+  ol{margin:0 0 16px;padding-left:22px;}
+  ol li{margin-bottom:9px;}
+  ol li::marker{color:var(--lavender);font-family:var(--font-mono);font-weight:600;}
+  strong{color:var(--ink);font-weight:600;}
+
+  /* ---------- Prompt blocks ---------- */
+  .prompt{margin:14px 0 10px;}
+  .prompt-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:7px;}
+  .prompt-label{
+    font-family:var(--font-mono);font-size:0.68rem;font-weight:600;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px;
+  }
+  .prompt-label::before{content:"⌘";color:var(--lavender);font-size:0.85rem;}
+  .copy-btn{
+    font-family:var(--font-mono);font-size:0.68rem;font-weight:600;letter-spacing:0.06em;
+    text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#7c3aed,#6d28d9);
+    border:1px solid rgba(167,139,250,0.28);border-radius:6px;padding:6px 14px;cursor:pointer;
+    box-shadow:0 0 12px rgba(124,58,237,0.18);transition:all .2s ease;
+  }
+  .copy-btn:hover{background:linear-gradient(135deg,#8b5cf6,#7c3aed);transform:translateY(-1px);}
+  .copy-btn.copied{background:#fff;color:var(--violet);box-shadow:none;}
+  pre{
+    background:var(--code-bg);border:1px solid var(--border);border-left:3px solid var(--lavender);
+    border-radius:8px;padding:18px 20px;margin:0;
+    font-family:var(--font-mono);font-size:0.8rem;line-height:1.6;color:var(--ink);
+    white-space:pre-wrap;word-wrap:break-word;
+  }
+  .tip{font-size:0.9rem;color:var(--muted);margin-top:12px;padding-left:14px;border-left:2px solid var(--border);}
+  .tip b{color:var(--violet);}
+
+  /* ---------- Download buttons ---------- */
+  .dl{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--font-mono);font-size:0.75rem;font-weight:600;letter-spacing:0.04em;
+    color:#fff;background:linear-gradient(135deg,#7c3aed,#6d28d9);
+    border:1px solid rgba(167,139,250,0.28);border-radius:6px;padding:9px 18px;
+    text-decoration:none;box-shadow:0 0 14px rgba(124,58,237,0.2);transition:all .2s ease;
+  }
+  .dl:hover{background:linear-gradient(135deg,#8b5cf6,#7c3aed);transform:translateY(-1px);border-bottom-color:rgba(167,139,250,0.28);}
+  .dl::before{content:"↓";font-weight:700;}
+  .dl-row{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 8px;}
+
+  /* ---------- Numbered steps ---------- */
+  .gsteps{margin-top:18px;border:1px solid var(--border);border-radius:12px;padding:20px 22px 8px;background:#fff;}
+  .gstep{display:flex;gap:14px;padding-bottom:16px;margin-bottom:16px;}
+  .gstep:not(:last-child){border-bottom:1px dashed var(--border);}
+  .gstep .n{
+    flex:0 0 26px;height:26px;border-radius:50%;
+    background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;
+    font-family:var(--font-mono);font-weight:700;font-size:0.85rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .gstep .gtext{flex:1;}
+  .gstep .gtext p{margin:0 0 4px;font-size:0.97rem;}
+  .ui{
+    font-family:var(--font-mono);font-size:0.8rem;color:var(--violet);
+    background:rgba(124,58,237,0.07);border-radius:5px;padding:1px 6px;white-space:nowrap;
+  }
+
+  /* ---------- Table ---------- */
+  .tbl-wrap{overflow-x:auto;margin:18px 0 8px;border:1px solid var(--border);border-radius:12px;}
+  table{border-collapse:collapse;width:100%;min-width:620px;font-size:0.93rem;}
+  th{
+    font-family:var(--font-mono);font-size:0.72rem;font-weight:600;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--violet);text-align:left;
+    background:var(--surface);padding:12px 16px;border-bottom:1px solid var(--border);
+  }
+  td{padding:13px 16px;border-bottom:1px solid rgba(124,58,237,0.08);vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{font-family:var(--font-mono);font-size:0.83rem;font-weight:600;color:var(--ink);white-space:nowrap;}
+
+  /* ---------- Callout ---------- */
+  .callout{
+    background:var(--surface);border:1px solid var(--border);border-radius:10px;
+    padding:18px 22px;margin:18px 0;font-size:0.97rem;
+  }
+  .callout.warn{border-left:3px solid var(--lavender);}
+
+  /* ---------- Footer ---------- */
+  .doc-foot{
+    margin-top:56px;padding-top:32px;border-top:1px solid var(--border);
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  }
+  .doc-foot img{height:26px;width:auto;display:block;}
+  .doc-foot p{font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);margin:0;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ================= HEADER ================= -->
+  <header class="doc-head">
+    <div class="logo-row"><img src="/images/logo.png" alt="Raluca Păduraru" /></div>
+    <div class="kicker">Build Your Cortex · KA-BOM · 6 august 2026</div>
+    <h1>Compania ta: tot ce construiești pe 6 august</h1>
+    <p class="lead">Aici găsești tot ce creezi în sală și tot ce îți trebuie ca să continui acasă.</p>
+    <p class="lead">Prompt-urile se copiază de aici direct în Claude. COO-ul (fișierul CLAUDE.md) se copiază în folderul în care vei lucra cu Claude Cowork. Fișele angajaților se instalează ca skill în contul tău — mișcarea de instalare o înveți la primul angajat, INGEST (<a href="#s21">secțiunea 2.1</a>), și o refolosești pentru toată echipa.</p>
+    <p class="avail">Pagina rămâne disponibilă până pe 7 septembrie 2026.</p>
+
+    <div class="rule-box">
+      Regula de bază e să deschizi o <strong>conversație nouă pentru fiecare task.</strong> Memoria de durată stă în fișiere, nu în conversație.
+    </div>
+
+    <div class="whois">
+      <h3>Cine e cine</h3>
+      <div class="whois-grid">
+        <div class="whois-item">
+          <b>Directorul de Operațiuni = fișierul CLAUDE.md</b>
+          Unul singur, mereu în cameră. Te cunoaște și decide cine face ce.
+        </div>
+        <div class="whois-item">
+          <b>Angajații = skills</b>
+          Fișe de post. Fiecare știe să execute un task și îl chemi la treabă doar când e cazul.
+        </div>
+        <div class="whois-item">
+          <b>Camerele = folderele</b>
+          Acolo stau munca și memoria, pe categorii.
+        </div>
+        <div class="whois-item">
+          <b>Zilierii = agenții</b>
+          Nu e nevoie să te preocupi cu ei. Angajații tăi îi vor sub-contracta automat atunci un task cere mână de lucru în plus. Ei lucrează și apoi dispar. Fie sistemul decide singur să-i cheme, fie fișa de post menționează ce agent trebuie folosit și când.
+        </div>
+      </div>
+      <div class="whois-tag">Un șef de operațiuni. O echipă de specialiști. Un sediu ordonat.</div>
+    </div>
+
+    <nav class="toc">
+      <a href="#sectiunea-1"><span class="tn">1</span>Cartierul general</a>
+      <a href="#sectiunea-2"><span class="tn">2</span>Îl hrănești</a>
+      <a href="#sectiunea-3"><span class="tn">3</span>Echipa ta</a>
+      <a href="#sectiunea-4"><span class="tn">4</span>Angajarea</a>
+      <a href="#sectiunea-5"><span class="tn">5</span>Siguranța</a>
+      <a href="#sectiunea-6"><span class="tn">6</span>Vocabular</a>
+    </nav>
+  </header>
+
+  <!-- ================= SECȚIUNEA 1 ================= -->
+  <section id="sectiunea-1">
+    <div class="sec-card">
+      <span class="sec-tag">Secțiunea 1</span>
+      <h2><span class="num">1</span>Cartierul general</h2>
+
+      <h3>1.1 Interviul de angajare al Directorului de Operațiuni</h3>
+      <p><strong>Când îl folosești din nou:</strong> când pornești un Cortex nou: un alt proiect, altă zonă de business, alt rol. Ăsta e promptul cu care angajezi un COO pentru orice.</p>
+
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="prompt-label">Promptul, copy-paste</span>
+          <button class="copy-btn" data-copy="p-coo">Copiază</button>
+        </div>
+        <pre id="p-coo">Ești Directorul de Operațiuni pe care îl angajez pentru compania mea și vei lucra ca director peste sistemul meu AI personal. Înainte să-ți preiei rolul, facem un interviu de angajare invers: tu mă intervievezi pe mine, ca să înveți cât mai multe despre mine și despre compania pe care o vei conduce.
+
+REGULILE INTERVIULUI:
+- Pune O SINGURĂ întrebare pe rând. Așteaptă răspunsul meu înainte de următoarea.
+- Nu accepta răspunsuri vagi. Dacă spun „vreau să fiu mai productiv", întreabă-mă ce aș face concret cu timpul câștigat și care sunt task-urile pe care le consider pierderi de timp. Dacă spun „chestii administrative", dă-mi câteva exemple de astfel de task-uri și cere-mi să validez care sunt într-adevăr și pe lista mea.
+- Dacă apare un fir narativ interesant, sapă în el înainte să treci mai departe.
+- După fiecare secțiune, rezumă în 2-3 rânduri ce ai înțeles și cere-mi confirmarea.
+- Nu da recomandări și nu construi nimic până nu terminăm toate secțiunile.
+
+SECȚIUNILE INTERVIULUI (în ordine):
+
+1. OBIECTIVUL COMPANIEI (2-3 întrebări)
+Am venit cu un obiectiv formulat: [PARTICIPANTUL SCRIE AICI OBIECTIVUL DIN EXERCIȚIUL ANTERIOR]. Află cât mai multe despre el: ce înseamnă succes concret peste 30 de zile? Ce problemă doare cel mai tare azi?
+
+2. CINE SUNT (3-4 întrebări)
+Ce fac, pentru cine, cu cine lucrez, cum arată o săptămână bună de muncă.
+
+3. UNDE SE DUCE TIMPUL (3-4 întrebări)
+Ce sarcini se repetă în fiecare săptămână. Ce informații caut din nou și din nou. Ce sarcină amân mereu și de ce. Ce explic de la zero de fiecare dată când deschid un chat AI.
+
+4. CE PRODUC (3-4 întrebări)
+Ce livrez recurent (documente, oferte, conținut, rapoarte, decizii). Pentru ce audiență. Cum arată o versiune bună versus una slabă.
+
+5. STANDARDELE MELE (2-3 întrebări)
+Ce nu fac niciodată în munca mea. Ce trebuie să conțină obligatoriu orice iese de la mine. Ce greșesc de obicei asistenții AI când lucrează cu mine.
+
+DUPĂ INTERVIU, construiește:
+
+1. Structura de foldere: propune-mi o structură a sistemului cu foldere per topics; după ce o agreez, creează folderele goale + un _index.md scurt în fiecare.
+2. Fișierul CLAUDE.md în rădăcina folderului meu, sub 3.000 de tokeni, cu secțiunile:
+   - **Cine sunt** — rol, context, publicul meu
+   - **Obiectivul sistemului** — ce trebuie să realizeze compania asta în următoarele 30 de zile
+   - **Tabel de routing** (pe folderele agreate la punctul 1) — tipurile mele de muncă și, pentru fiecare, în ce folder se lucrează și ce reguli se aplică
+   - **Cum te comporți** — tonul și regulile de colaborare extrase din răspunsurile mele
+   - **Ce nu faci niciodată** — liniile roșii
+   - **Regulile casei** — scrie secțiunea asta exact așa:
+     1. Înainte să lucrezi într-un folder, citește întâi `_index.md` din
+        folderul respectiv, apoi deschide doar fișierele de care ai
+        nevoie. Nu citi tot folderul.
+     2. Când creezi un fișier nou sau modifici serios unul existent,
+        actualizează în aceeași operațiune și `_index.md` al folderului,
+        cu o linie: numele fișierului și la ce folosește.
+     3. Orice operație se trece în `log.md` din rădăcină, o linie: data,
+        ce ai făcut, în ce fișier.
+     4. Nu șterge și nu suprascrie un fișier fără să mă întrebi întâi.
+     5. Dacă nimic din tabelul de routing nu se potrivește, întreabă-mă
+        înainte să creezi un folder nou.
+     6. Nu inventa. Dacă informația nu e în fișierele mele, spune-mi că
+        nu e, nu completa golul din cunoștințe generale.
+     7. Conversația e masa de lucru, fișierele sunt memoria. Ce merită
+        ținut minte se scrie într-un fișier înainte să se închidă
+        conversația.
+     8. Dacă un folder din tabelul de routing nu există încă pe disc,
+        creează-l cu un `_index.md` gol, fără să întrebi.
+   - **Zona de auto-actualizare** — deocamdată doar titlul și o linie: „se completează azi, în exercițiul următor"
+
+Nu salva transcrierea întrebărilor și răspunsurilor. Extrage tiparele și scrie-le concis.
+
+LA FINAL, TESTUL DE ANGAJARE: după ce ai salvat CLAUDE.md, pune-ți o întrebare la care poți răspunde DOAR dacă m-ai înțeles corect și spune-mi cum m-ai ajuta mâine dimineață la prima sarcină din zi. Dacă răspunsul sună generic, te trimit înapoi la interviu.
+
+Începe cu prima întrebare.</pre>
+      </div>
+
+      <h3>1.2 Analistul care învață: completezi zona de auto-actualizare</h3>
+      <p><strong>Ce face:</strong> COO-ul tău are în CLAUDE.md o secțiune numită <em>Zona de auto-actualizare</em>, deocamdată goală. Prompt-ul acesta completează această secțiune, astfel încât sistemul să observe ce merge și ce nu în felul în care lucrați împreună, și să își corecteze singur instrucțiunile.</p>
+      <p><strong>Când îl rulezi:</strong> o singură dată, după ce CLAUDE.md e salvat, într-o conversație nouă.</p>
+
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="prompt-label">Promptul, copy-paste</span>
+          <button class="copy-btn" data-copy="p-analist">Copiază</button>
+        </div>
+        <pre id="p-analist">Citește CLAUDE.md din folderul meu.
+
+Are o secțiune numită „Zona de auto-actualizare", care conține doar un
+titlu și o linie de tip placeholder. O completăm acum.
+
+Nu adăuga o secțiune nouă. ÎNLOCUIEȘTE conținutul secțiunii existente.
+Dacă găsești două secțiuni cu numele ăsta, spune-mi și oprește-te.
+
+Înainte să scrii, pune-mi aceste trei întrebări, una câte una, și
+așteaptă răspunsul la fiecare:
+
+1. Când lucrăm împreună și corectezi ceva, vrei ca Claude să propună singur
+   modificarea regulii sau preferi să-ți ceară voie de fiecare dată?
+2. Ce fel de lucruri merită ținute minte despre felul în care lucrezi
+   (preferințe de formulare, cum arată un rezultat bun, ce nu accepți)?
+3. Cât de des vrei să-ți facă Claude un rezumat cu ce a învățat despre tine?
+
+După răspunsuri, scrie secțiunea. Maximum 15 rânduri, pentru că tot CLAUDE.md trebuie să rămână sub 3.000 de tokeni. Include:
+
+- REGULA DE OBSERVARE: ce urmărește Claude în timpul lucrului — corecturile
+  care se repetă, formulările pe care le schimb mereu, sarcinile la care rezultatul iese slab din prima.
+- PRAGUL: Claude nu scrie o regulă nouă din prima corectură. Doar dacă același
+  lucru apare de cel puțin 3 ori. Altfel sistemul învață accidente.
+- CE FACE CLAUDE CÂND A GĂSIT UN TIPAR: îmi propune modificarea, în cuvinte
+  simple și așteaptă răspunsul meu. Claude nu modifică CLAUDE.md fără permisiune explicită.
+- UNDE ȚINE EVIDENȚA: Claude creează fișierul `lectii.md` în rădăcina folderului
+  și scrie acolo, cu data, fiecare tipar observat și dacă l-am aprobat
+  sau nu.
+- CÂND ÎL CITEȘTE CLAUDE: la începutul oricărei sesiuni de lucru Claude citește
+  `lectii.md`. Ce a fost aprobat acolo se aplică în lucru.
+- RITMUL: la ce interval îmi face Claude rezumatul (răspunsul meu de la întrebarea 3).
+
+La final, arată-mi secțiunea scrisă și spune-mi în ce fișier ai salvat-o.</pre>
+      </div>
+
+      <p class="tip"><b>Cum știi că a mers:</b> deschide CLAUDE.md în Obsidian sau confirmă cu Claude în chat că secțiunea „Zona de auto-actualizare" are conținut. În folder a apărut <span class="ui">lectii.md</span>, gol deocamdată.</p>
+    </div>
+  </section>
+
+  <!-- ================= SECȚIUNEA 2 ================= -->
+  <section id="sectiunea-2">
+    <div class="sec-card">
+      <span class="sec-tag">Secțiunea 2</span>
+      <h2><span class="num">2</span>Îl hrănești</h2>
+
+      <h3 id="s21">2.1 INGEST: prima hrănire și primul tău angajat instalat</h3>
+      <p><strong>Ce face:</strong> iei o sursă reală din munca ta (un raport, un articol, notițele unei întâlniri) și o dai către Cortex. Sistemul o citește, îți spune dacă merită păstrată, extrage ce contează pentru obiectivul tău și o așază în camera potrivită.</p>
+      <p><strong>Diferența față de a încărca un PDF direct în chat:</strong> ce intră prin INGEST rămâne. Peste o lună, sistemul încă știe ce era în raportul ăla, fără să i-l dai din nou.</p>
+      <p>INGEST e o fișă de post (sau skill), iar hrănirea sistemului e o treabă care se repetă, deci o dai unui angajat. E primul skill pe care ți-l instalezi azi și cu această ocazie înveți mișcarea de instalare pe care o vei refolosi ori de câte ori vrei să angajezi un agent nou.</p>
+
+      <h4>Cum îl angajezi: mișcarea pe care o refolosești toată ziua</h4>
+      <div class="callout warn">
+        Un lucru important, ca să nu pierzi timp: <strong>fișa de post nu se pune în folderul Cortex.</strong> Angajații nu stau în folder. Stau în contul tău, la <span class="ui">Customize → Skills</span>, și de acolo lucrează în orice conversație, pe orice device.
+      </div>
+
+      <div class="dl-row">
+        <a class="dl" href="skills/ingest.md" download>ingest.md</a>
+      </div>
+
+      <div class="gsteps">
+        <div class="gstep"><span class="n">1</span><div class="gtext"><p>Descarcă fișierul <span class="ui">ingest.md</span> de aici.</p></div></div>
+        <div class="gstep"><span class="n">2</span><div class="gtext"><p>Deschide o conversație Claude Cowork (sau Claude Code) nouă și <strong>urcă fișierul în chat</strong>.</p></div></div>
+        <div class="gstep"><span class="n">3</span><div class="gtext"><p>Scrie-i: <em>Fă din ăsta un skill pe care să-l pot instala. Dacă îți lipsește ceva ca să-l poți construi, întreabă-mă.</em></p></div></div>
+        <div class="gstep"><span class="n">4</span><div class="gtext"><p>Claude îl construiește. Dacă are nevoie de detalii de la tine, ți le cere pe parcurs. Practic, în felul ăsta nu doar îl instalezi, îl și adaptezi pe tine în timp ce-l faci.</p></div></div>
+        <div class="gstep"><span class="n">5</span><div class="gtext"><p>La final Claude îți dă fișierul în chat, cu un buton de instalare. <strong>Dai click pe el.</strong> Angajatul apare singur în <span class="ui">Customize → Skills</span>.</p></div></div>
+      </div>
+
+      <p class="tip"><b>Dacă ceva nu merge:</b> cel mai frecvent, folderul nu e conectat. Angajații scriu fișiere în folderul Cortexului tău; fără folder conectat, se opresc și îți cer să-l conectezi.</p>
+
+      <p>După-amiază, când îți completezi echipa (<a href="#sectiunea-3">secțiunea 3</a>), vei repeta această mișcare pentru toți angajații. În secțiunea 3 o să găsești și drumul manual pe care îl poți urma dar și informații despre cum modifici fișa de post a unui angajat după angajare.</p>
+
+      <h4>Cum chemi angajatul INGEST la lucru</h4>
+      <p>Într-o conversație nouă îi dai sursa (link, fișier sau text copiat) și îi spui în cuvinte normale ce vrei: <em>Am o sursă nouă</em>, <em>procesează asta</em>, <em>bagă asta în Cortex</em>. Atât.</p>
+
+      <h4>Când chemi angajatul INGEST la lucru</h4>
+      <p>5 declanșatoare acoperă aproape tot:</p>
+      <ul>
+        <li>o <strong>informație relevantă</strong>, care merită păstrată: o decizie, o concluzie la care ai muncit, o asumpție pe care vrei să o testezi, informații despre clienți/proiecte, transcriptul unei ședințe</li>
+        <li>o <strong>sursă de inspirație</strong>: un articol, podcast, o idee de la un keynote, ceva ce vrei să rămână cu tine și să fie folosită în munca ta</li>
+        <li>un <strong>gol</strong>: sistemul n-a știut ceva ce trebuia să știe</li>
+        <li>ceva deja stocat <strong>s-a învechit</strong>: realitatea s-a schimbat și sistemul trebuie actualizat</li>
+        <li>o <strong>corecție</strong> pe care o tot repeți: ai explicat a doua oară același lucru, deci trebuia scris</li>
+      </ul>
+
+      <p><strong>Poarta e în fișa lui de post.</strong> Înainte să scrie orice, angajatul dă un verdict de relevanță: merită / nu merită / la limită. Dacă nu merită → se oprește, e igiena sistemului: tu decizi ce intră în memorie, nimic nu se scrie fără tine. Fără poartă, în 6 luni Cortexul e sertarul în care nu mai știe nimeni ce e.</p>
+
+      <p class="tip"><b>Cum știi că a mers:</b> deschizi folderul și fișierul cu noua sursă e acolo. În <span class="ui">log.md</span> a apărut o linie nouă.</p>
+
+      <p>Două reguli care țin ordinea pe termen lung (angajatul le știe deja, pentru că le are în fișa de post; tu trebuie să le știi ca să-l poți verifica):</p>
+      <ul>
+        <li><strong>Testul de routing:</strong> ar fi util peste 6 luni, în cu totul alt proiect? → e cunoaștere durabilă, merge în camera de cunoaștere. E doar despre proiectul ăsta? → folderul proiectului.</li>
+        <li><strong>O informație are o singură casă.</strong> Restul fișierelor linkuiesc spre ea. O informație care apare random în 3 locuri devine overhead și consumă mai multe resurse inutil.</li>
+      </ul>
+
+      <div class="callout warn">
+        <strong>Greșeala clasică din prima săptămână:</strong> nu-ți petrece weekendul turnând 200 de documente vechi în Cortex. Te epuizezi, Cortexul se umple de rezumate fără context și tragi concluzia greșită că sistemul nu merge. Migrează doar ce are sens azi: doar când un proiect curent cere să introduci materiale vechi, folosești INGEST.
+      </div>
+
+      <h3>2.2 Temă de aprofundare acasă: QUERY, prima întrebare</h3>
+      <p><strong>Ce face:</strong> îți interoghezi COO-ul. Răspunsul vine din sursele existente în Cortex. Copiază prompt-ul în chat după ce ai procesat prima sursă:</p>
+
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="prompt-label">Promptul, copy-paste</span>
+          <button class="copy-btn" data-copy="p-query">Copiază</button>
+        </div>
+        <pre id="p-query">Răspunde-mi folosind DOAR fișierele din folderul meu.
+
+Întrebarea: [ÎNTREBAREA TA]
+
+Reguli:
+- Caută întâi în fișierele mele. Nu răspunde din cunoștințe generale.
+- După fiecare afirmație, pune între paranteze fișierul din care o ai.
+- Dacă în fișierele mele nu e destulă informație ca să răspunzi, spune-mi asta direct și zi-mi ce mi-ar lipsi.
+- Dacă două fișiere se contrazic, arată-mi contradicția.</pre>
+      </div>
+
+      <p class="tip"><b>Și acesta merită transformat în angajat (skill)</b>, cu aceeași mișcare ca la INGEST, dacă te trezești că-l copiezi de câteva ori pe săptămână. Regula generală: orice prompt pe care îl copiezi a treia oară e, de fapt, un angajat pe care nu l-ai angajat încă.</p>
+
+      <h3>2.3 Temă de aprofundare acasă: interogatoriul</h3>
+      <p><strong>Ce face:</strong> înainte să accepți un rezultat, validezi. AI-ul știe unde a fost slab, dar nu-ți spune decât dacă întrebi.</p>
+      <p><strong>Când îl rulezi:</strong> pe orice rezultat care contează. Se copiază direct sub răspunsul primit.</p>
+
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="prompt-label">Promptul, copy-paste</span>
+          <button class="copy-btn" data-copy="p-interogatoriu">Copiază</button>
+        </div>
+        <pre id="p-interogatoriu">Înainte să accept rezultatul ăsta, răspunde-mi la cinci întrebări:
+
+1. Ce pași ai urmat? Unde ai deviat de la ce ți-am cerut?
+2. Unde ai făcut presupuneri sau ai adăugat de la tine?
+3. Care e partea cea mai slabă și ce a cauzat-o?
+4. Ce lipsește și ar îmbunătăți semnificativ rezultatul?
+5. Cât de aproape e de ideal, de la 1 la 10? Ce l-ar duce la 10?</pre>
+      </div>
+
+      <p><strong>Regula pe care să n-o uiți:</strong> AI-ul are 0% ownership și responsabilitate pe rezultat. Acestea îți aparțin ție în exclusivitate.</p>
+      <p><strong>Nivelul 2, când rezultatul contează cu adevărat:</strong> deschide o conversație nouă, dă-i doar rezultatul (fără istoric) și rulează aceleași 5 întrebări acolo. În aceeași conversație, AI-ul își apără propriul context și nota gravitează spre 7-8 aproape indiferent de calitate.</p>
+
+      <h3>2.4 Temă de aprofundare acasă: cele 5 metode de sub un minut</h3>
+      <p>3 obiceiuri din fabrică ale oricărui AI:</p>
+      <ul>
+        <li>Îți dă dreptate.</li>
+        <li>Sună mai sigur decât e.</li>
+        <li>Îți îmbracă ideile, în loc să îți propună alternative.</li>
+      </ul>
+      <p><strong>Primul răspuns pe care îl primești e cel mai comod. Rareori e și cel mai bun.</strong><br>
+      Efortul de a-l muta de la comod la util e o taxă. Cele 5 acțiuni de mai jos sunt felul în care ții costul acestei taxe sub control. Niciuna nu durează mai mult de un minut.</p>
+
+      <ol>
+        <li><strong>Stabilește ce-ți propui înainte să mergi spre AI.</strong> Scrie-ți ipoteza (și ce te-ar contrazice) înainte să deschizi tool-ul. De exemplu, poți folosi <a href="https://www.ralucapaduraru.ro/frameworks/cadru/" target="_blank" rel="noopener">framework-ul C.A.D.R.U.</a> pentru a te ancora. Astfel, eviți ca primul răspuns fluent pe care-l primești să te vrăjească.</li>
+        <li><strong>Nu-i spune tot ce crezi pe subiect deodată.</strong> Dă-i întâi materialul brut și obiectivul. Adaugi opinii personale doar când are sens sau Claude le cere. Cu cât îi dai mai multe presupuneri de la început, cu atât ce iese e propria ta gândire, îmbrăcată în haine de gală.</li>
+        <li><strong>Scoate-ți părerea din întrebare și rulează din nou.</strong> Când e de acord cu tine, șterge-ți sinteza și reia. Dacă evaluarea se schimbă, te oglindea.</li>
+        <li><strong>Împinge în încredere.</strong> 2 formulări care își merită locul:
+          <ul>
+            <li>Ce dovezi ar trebui să fie adevărate ca să cobori încrederea în răspuns de la <em>mare</em> la <em>medie</em>?</li>
+            <li>Pune-te în locul unui lider rațional și sceptic care îți revizuiește recomandarea. Unde e cel mai slab raționamentul tău?</li>
+          </ul>
+        </li>
+        <li><strong>Absența oricărei critici e și ea o informație.</strong> Nicio întrebare, niciun avertisment, nicio obiecție? Nu înseamnă că planul tău a trecut cu brio. Înseamnă că nu l-a examinat complet.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= SECȚIUNEA 3 ================= -->
+  <section id="sectiunea-3">
+    <div class="sec-card">
+      <span class="sec-tag">Secțiunea 3</span>
+      <h2><span class="num">3</span>Echipa ta de angajați</h2>
+
+      <h3>3.1 Cei 5 angajați pe care ți-i propun</h3>
+      <p>Fiecare fișier e o fișă de post.<br>
+      Îl descarci și îl urci în chat, la pasul următor. <strong>Nu se pun în folderul Cortex</strong>, angajații nu trăiesc în folder, trăiesc în contul tău Claude.</p>
+      <p>Ai instalat deja primul angajat, <strong>INGEST</strong>, la <a href="#s21">secțiunea 2.1</a>. Mai jos sunt alți 5 pe care ți-i propun:</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>Angajatul</th><th>Ce face</th><th>Ce-i trebuie de la tine</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Vocea ta</td><td>Scrie conținut care sună a tine</td><td>2-3 texte scrise de tine</td></tr>
+            <tr><td>Board Room</td><td>Dezbate o decizie din perspectiva unui board format din 5 experți din piață și pune totul într-un dosar vizual</td><td>O decizie pe care o tot amâni despre business sau viață personală</td></tr>
+            <tr><td>Follow-up după întâlniri</td><td>Transformă notițele sau transcriptul în sinteză, acțiuni, draft de email</td><td>Cum arată un follow-up bun pentru tine</td></tr>
+            <tr><td>Draft de ofertă</td><td>Transformă un brief de la un client într-o schiță de propunere comercială</td><td>O ofertă comercială bună</td></tr>
+            <tr><td>Raport de board</td><td>Citește tot ce s-a întâmplat în sistem și îți trimite lunar un memo: unde stai vs obiective, ce riscuri există, acțiuni recomandate</td><td>Obiectivul anului (măsurabil, ideal), statusuri actuale</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="dl-row">
+        <a class="dl" href="skills/vocea-ta.md" download>vocea-ta.md</a>
+        <a class="dl" href="skills/board-room.md" download>board-room.md</a>
+        <a class="dl" href="skills/follow-up-intalniri.md" download>follow-up-intalniri.md</a>
+        <a class="dl" href="skills/draft-oferta.md" download>draft-oferta.md</a>
+        <a class="dl" href="skills/raport-de-board.md" download>raport-de-board.md</a>
+      </div>
+
+      <p><strong>Vocea ta</strong> și <strong>Board Room</strong> pornesc singure un interviu la prima rulare. Ceilalți 3 te intervievează și ei la prima rulare și îți salvează răspunsurile în folderul Cortex.</p>
+      <p><strong>Raport de board</strong> nu vine singur pe 1 ale lunii, deoarece angajații lucrează doar când îi chemi.<br>
+      <strong>Level-up:</strong> Când vrei să lucreze singur, explorează funcția <span class="ui">Scheduled</span>, aflată deasupra butonului de Customize, după ce te familiarizezi cu restul task-urilor. Pe <a href="#drumul-adoptiei">harta de la finalul paginii</a>, aia e etapa 4.</p>
+
+      <h3>3.2 Cum angajezi pe cineva</h3>
+      <p><strong>E exact mișcarea pe care ai făcut-o la INGEST, la <a href="#s21">secțiunea 2.1</a>.</strong><br>
+      Pe scurt: descarci fișa de post → conversație nouă → urci fișierul în chat → <em>Fă din ăsta un skill pe care să-l pot instala. Dacă îți lipsește ceva ca să-l poți construi, întreabă-mă.</em> → răspunzi la întrebări → aștepți să vină răspunsul → dai click pe butonul de instalare.<br>
+      <em>Pașii compleți, cu tot cu ce faci dacă ceva nu merge, rămân la <a href="#s21">secțiunea 2.1</a>.</em></p>
+
+      <div class="callout warn">
+        Nu uita: <strong>fișa de post nu se pune în folderul Cortex.</strong> Angajații stau în contul tău, la <span class="ui">Customize → Skills</span>, și de acolo lucrează în orice conversație, pe orice device.
+      </div>
+
+      <p>Mai există un drum alternativ:</p>
+      <h4>Drumul manual: îl încarci direct</h4>
+      <p><span class="ui">Customize → Skills → Add → Upload a Skill</span>.</p>
+      <p>Ce acceptă la încărcare:</p>
+      <ul>
+        <li>un fișier <span class="ui">.md</span>, care trebuie să conțină numele și descrierea skill-ului, scrise în YAML la începutul fișierului</li>
+        <li>sau un <span class="ui">.zip</span> ori <span class="ui">.skill</span>, care trebuie să conțină înăuntru un fișier <span class="ui">SKILL.md</span></li>
+      </ul>
+      <p class="tip">Fișierele din pachetul de azi sunt deja scrise corect, deci merg și așa. Drumul ăsta e mai rapid, dar sare peste partea de adaptare, care e cea mai importantă acum, la început.</p>
+
+      <h4>Cum chemi angajatul la lucru</h4>
+      <p>Scrii ce ai nevoie, în cuvinte normale. Nu trebuie să-l strigi pe nume: angajatul își recunoaște singur treaba din ce-i ceri.</p>
+
+      <h4>Cum modifici fișa de post a oricărui angajat, după angajare</h4>
+      <p><span class="ui">Customize → Skills</span> → selectezi angajatul → <span class="ui">Edit</span> → modifici → <span class="ui">Save</span>.</p>
+      <p>Dar de cele mai multe ori nu skill-ul trebuie modificat: preferințele tale (modelul de follow-up, temele urmărite, oferta-referință) stau în fișierele din folderul Cortex, iar angajatul le citește de acolo la fiecare rulare. Modifici fișierul (CLAUDE.md), nu angajatul.</p>
+      <p>Iar când un angajat greșește, nu-l corecta la nesfârșit în aceeași conversație. Conversația se pierde, fișa rămâne. Adaugă în fișă regula care i-a lipsit și de la rularea următoare o are scrisă clar.</p>
+      <div class="callout warn">
+        <strong>IMPORTANT:</strong> Alternativ, îi poți explica lui Claude într-un chat nou ce nu funcționează în fișa de post a angajatului și să-l rogi să creeze un nou fișier de skill adaptat. Apoi, îl poți întreba chiar pe Claude cum salvezi noua fișă de post peste cea veche, ca să nu fie duplicate.
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECȚIUNEA 4 ================= -->
+  <section id="sectiunea-4">
+    <div class="sec-card">
+      <span class="sec-tag home">Temă de aprofundare acasă</span>
+      <h2><span class="num">4</span>Angajarea</h2>
+
+      <p><strong>Regula de alegere a sarcinii pentru care să cauți angajați noi:</strong> de cele mai multe ori, cele mai bune variante nu sunt cele mai impresionate workflow-uri. Identifică task-uri care se repetă și pe care nu-ți place să le faci. Cu cât e mai specifică, cu atât e mai bine.</p>
+      <p><strong>Testul:</strong> dacă un asistent priceput ar putea s-o facă după o procedură scrisă de tine, e delegabilă. Dacă trăiește doar în capul tău și se schimbă de la caz la caz, rămâne la tine.</p>
+
+      <div class="prompt">
+        <div class="prompt-top">
+          <span class="prompt-label">Promptul, copy-paste</span>
+          <button class="copy-btn" data-copy="p-angajare">Copiază</button>
+        </div>
+        <pre id="p-angajare">Vreau să angajez un specialist nou în sistemul meu. Ajută-mă să-i scriu fișa de post, apoi construiește-l ca skill.
+
+Sarcina pe care i-o dau: [DESCRIE SARCINA]
+
+Adresează-mi câte o întrebare, pe rând, până poți completa toate rubricile din skill:
+1. Misiunea lui, într-o propoziție
+2. Ce primește de la mine ca să lucreze
+3. Pașii pe care îi urmează
+4. Ce îmi predă și în ce format
+5. Criterii de succes și criterii de eșec
+6. Standardul de calitate: ce verifică singur înainte să-mi predea ce a făcut
+
+Nu accepta răspunsuri vagi: cere-mi un exemplu real din ultima lună pentru fiecare rubrică. La final, construiește fișa de post ca skill și dă-mi fișierul de instalat în chat, apoi spune-mi cum îl chem la lucru. Păstrează o copie a fișei în folderul meu ca backup.</pre>
+      </div>
+
+      <h4>Anatomia unei fișe de post</h4>
+      <p>Ca s-o ai la îndemână când mai construiești una:</p>
+      <ol>
+        <li>Misiunea, într-o propoziție</li>
+        <li>Ce primește ca să lucreze</li>
+        <li>Pașii pe care îi urmează</li>
+        <li>Ce predă și în ce format</li>
+        <li>Criterii de succes și de eșec</li>
+        <li>Standardul de calitate: ce verifică singur înainte să predea</li>
+      </ol>
+      <p><strong>Punctul 6 e diferența dintre un angajat și un generator de text.</strong></p>
+    </div>
+  </section>
+
+  <!-- ================= SECȚIUNEA 5 ================= -->
+  <section id="sectiunea-5">
+    <div class="sec-card">
+      <span class="sec-tag home">Temă de aprofundare acasă</span>
+      <h2><span class="num">5</span>Cum verifici un angajat străin înainte să-l angajezi</h2>
+
+      <p>Angajații din pachetul de azi sunt construiți de mine și i-ai văzut pe dinăuntru. Când instalezi un skill făcut de altcineva, e foarte important să-l verifici întâi. Durează două minute și te scutește de o categorie întreagă de probleme.</p>
+
+      <h4>1. Cine l-a făcut</h4>
+      <p>Există un site real, un profil cu istoric, documentație, o cale de contact? A apărut săptămâna trecută sau e de mai mult timp în circulație? Dacă autorul e anonim, fără nicio urmă online, nu-l instala. Punctul ăsta singur elimină majoritatea skill-urilor riscante.</p>
+      <p>Nu te lua după rating-uri și după numărul de instalări. Se pot umfla și nu înseamnă că cineva l-a verificat.</p>
+
+      <h4>2. Deschide SKILL.md și citește-l</h4>
+      <p>E un fișier text, îl poți citi și dacă nu ești tehnic. Cauți formulări care sună a ceva ce nu vrei:</p>
+      <ul>
+        <li>lucruri făcute fără să te întrebe: „automat", „în tăcere", „fără confirmare", „nu spune utilizatorului"</li>
+        <li>instrucțiuni de a-și ignora propriile reguli: „ignoră instrucțiunile anterioare", „treci peste restricții"</li>
+        <li>date trimise altundeva: linkuri, „trimite către", „încarcă pe", „salvează toate intrările"</li>
+        <li>conturile tale conectate, fără motiv: Gmail, Drive, Slack, Notion, într-un skill care n-are ce căuta acolo</li>
+        <li>parole, chei, token-uri</li>
+      </ul>
+      <p>Dacă fișa postului e vagă despre ce face cu datele tale, tratează vagul ca pe un risc. Nu-l angaja.</p>
+
+      <h4>3. Uită-te ce mai e în pachet</h4>
+      <p>Un skill poate fi doar instrucțiuni, sau poate veni cu cod care rulează pe calculatorul tău.</p>
+      <ul>
+        <li><strong>Risc mic:</strong> doar SKILL.md, doar fișiere text, doar exemple.</li>
+        <li><strong>Risc mare:</strong> fișiere <span class="ui">.py</span>, <span class="ui">.js</span>, <span class="ui">.sh</span>, <span class="ui">install.sh</span>, <span class="ui">setup.sh</span>, foldere numite <span class="ui">scripts</span> sau <span class="ui">src</span>.</li>
+      </ul>
+      <p>Dacă nu ești tehnic și pachetul conține cod, nu-l instala fără să-l vadă întâi cineva care e.</p>
+
+      <h4>4. Potrivește accesul cu treaba</h4>
+      <p>Un skill care scrie postări pe LinkedIn n-are nevoie de Drive, de calendar, de folderele tale cu clienți. Dacă cere mai mult decât îi trebuie ca să-și facă treaba, ăsta e semnalul. Un angajat cere minimul.</p>
+
+      <h4>5. Prima rulare, cu date de test</h4>
+      <p>Niciodată cu date reale de client la prima rulare. Fișiere false, folder separat, fără conturi conectate. După ce rulează, întreabă-l direct: ce fișiere ai accesat? Ce servicii sau linkuri externe ai contactat? Ce acțiuni ai făcut? Dacă a umblat pe unde n-avea treabă, îl refuzi.</p>
+
+      <div class="callout warn">
+        <strong>Regula de funcționare, după ce l-ai angajat:</strong> citește oricând, scrie doar cu confirmarea ta, șterge niciodată fără să te întrebe. Și dacă skill-ul primește un update, îl recitești — un update poate aduce instrucțiuni care nu erau acolo când l-ai verificat.
+      </div>
+
+      <p class="tip"><b>Bonus,</b> dacă vrei un filtru rapid înainte de verificarea manuală: <a href="https://repello.ai/tools/skills" target="_blank" rel="noopener">repello.ai/tools/skills</a> îți dă un scor de siguranță în sub un minut. Bun ca prim filtru, nu suficient singur.</p>
+    </div>
+  </section>
+
+  <!-- ================= SECȚIUNEA 6 ================= -->
+  <section id="sectiunea-6">
+    <div class="sec-card">
+      <span class="sec-tag home">Temă de aprofundare acasă</span>
+      <h2><span class="num">6</span>Vocabular</h2>
+      <p class="tip">Cine e cine (COO, angajați, camere, zilieri) e la începutul paginii, în intro. Aici e restul.</p>
+
+      <h3>Glosar</h3>
+      <ul>
+        <li><strong>Cortex</strong> = sistemul tău complet: folderul cu tot ce e în el. Al doilea creier.</li>
+        <li><strong>Fișier .md</strong> = text simplu, în care hashtag-urile și liniuțele fac formatarea. Îl citești și tu frumos cu ajutorul Obsidian, iar modelul îl citește fără balast. Dacă știi să scrii un mesaj, știi să scrii un .md.</li>
+        <li><strong>Token</strong> = bucățica de text în care măsoară AI-ul tot ce citește și scrie. Un Word sau un PDF cară după el formatare invizibilă, care se transformă în costuri de tokeni foarte mari.</li>
+        <li><strong>Fereastra de context (damigeana)</strong> = o conversație nouă e o damigeană goală. Se umple pe măsură ce tu și Claude lucrați împreună în chat. Pe la 40%, modelul începe să se îmbete: amețit întâi, apoi uită, încurcă, strică. De aici cele 2 reguli: damigeană nouă pentru fiecare topic mare și tot ce merită ținut minte se scrie în fișiere.</li>
+        <li><strong>Tabel de routing</strong> = tabelul din CLAUDE.md care spune cine intră în ce cameră și cu ce reguli. Datorită routing-ului sistemul tău știe singur unde să execute fiecare task.</li>
+        <li><strong>Analistul care învață</strong> = zona din CLAUDE.md prin care sistemul observă ce merge și ce nu și își propune singur corecturile. Sistemul de azi e cel mai slab pe care îl vei avea vreodată.</li>
+        <li><strong>Standardul de calitate</strong> = ce verifică un angajat singur, înainte să-ți predea rezultatul. Practic, este interogatoriul, încastrat în fișa de post.</li>
+        <li><strong>Poarta de selecție</strong> = tu decizi ce intră în memoria sistemului; nimic nu se scrie fără confirmarea ta. De asta Cortexul tău nu ajunge sertarul cu de toate.</li>
+      </ul>
+
+      <h3>3 limite de care să fii conștient în permanență</h3>
+      <ul>
+        <li><strong>Sesiunile nu au memorie persistentă.</strong> Fiecare conversație pornește de la zero. De asta memoria sistemului tău Cortex stă în fișiere pe care COO-ul să le poată citi la nevoie.</li>
+        <li><strong>Crearea infrastructurii sistemului consumă mai repede decât chat-ul.</strong> O sesiune serioasă de angajări mănâncă mai mult din abonament decât o zi de lucru cu angajați deja existenți. E normal, nu e semn că faci ceva greșit.</li>
+        <li><strong>Cowork stă doar pe desktop.</strong> Aplicația trebuie să rămână deschisă cât lucrează. Angajații tăi (skill-urile) merg însă oriunde: în chat, pe telefon, pe orice device.</li>
+      </ul>
+
+      <h3 id="drumul-adoptiei">Unde ești pe drumul adopției AI</h3>
+      <ol>
+        <li><strong>Utilizatorul</strong>: AI-ul e un chat cu care vorbești din când în când</li>
+        <li><strong>Colaboratorul</strong>: tu plus un angajat, îi verifici fiecare pas</li>
+        <li><strong>Orchestratorul</strong>: mai mulți angajați lucrează în paralel, tu verifici rezultatele ← <strong>aici ai ajuns pe 6 august</strong></li>
+        <li><strong>Managerul de manageri</strong>: sistemul își planifică și își programează singur munca de rutină (aici poți ajunge cu Claude Code)</li>
+        <li><strong>Intenția</strong>: tu dai direcția, compania execută (aici poți ajunge cu Claude Code)</li>
+      </ol>
+
+      <p><strong>Primii pași sunt cei mai dificili. I-ai făcut, felicitări!</strong><br>
+      De aici încolo e vorba doar de curiozitate și antrenament.</p>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="doc-foot">
+    <img src="/images/logo.png" alt="Raluca Păduraru" />
+    <p>Build Your Cortex · Raluca Păduraru · <a href="https://www.ralucapaduraru.ro">ralucapaduraru.ro</a></p>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = document.getElementById(btn.getAttribute('data-copy'));
+      if (!pre) return;
+      navigator.clipboard.writeText(pre.innerText).then(function () {
+        var old = btn.textContent;
+        btn.textContent = 'Copiat';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.textContent = old;
+          btn.classList.remove('copied');
+        }, 1800);
+      });
+    });
+  });
+</script>
+</body>
+</html>
