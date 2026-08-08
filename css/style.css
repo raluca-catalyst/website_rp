@@ -133,6 +133,10 @@ p  { color: var(--text-sec); }
 .announce-bar a:hover { opacity: 0.75; }
 body.has-announce-bar .nav       { top: 36px; }
 body.has-announce-bar .mobile-menu { top: 36px; }
+/* Pe ecrane inguste taiem prefixul, ca sa incapa data si call-to-action-ul */
+@media (max-width: 480px) {
+  .announce-bar-full { display: none; }
+}
 
 /* ============================
    NAVIGATION

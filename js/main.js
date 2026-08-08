@@ -4,17 +4,11 @@
 
 /* ============================
    0. ANNOUNCEMENT BAR
+   ----------------------------
+   Bara e HTML static in fiecare pagina (primul copil din <body>, plus
+   clasa has-announce-bar pe <body>). Nu se mai injecteaza din JS: asa
+   evitam shift-ul de layout la incarcare si ramane crawlabila.
    ============================ */
-(function injectAnnounceBar() {
-  if (window.location.pathname.includes('viitoruri')) return;
-  const bar = document.createElement('div');
-  bar.className = 'announce-bar';
-  bar.innerHTML = '<a href="/viitoruri">'
-    + 'White paper nou: 4 viitoruri ale muncii \xeen Rom\xe2nia 2030 \u2192 Cite\u0219te-l \u0219i tu. Deja a fost desc\u0103rcat de 600+ ori.'
-    + '</a>';
-  document.body.insertBefore(bar, document.body.firstChild);
-  document.body.classList.add('has-announce-bar');
-})();
 
 /* ============================
    1. NAV SCROLL
