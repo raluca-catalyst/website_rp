@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="index, follow" />
+  <title>30 de date verificate despre AI și muncă — Upvance Global | Raluca Păduraru</title>
+  <meta name="description" content="30 de date verificate despre inteligența artificială și muncă: numerele, sursa originală și capcana, adică felul în care cifra e citată greșit de obicei. Plus 6 cifre celebre demontate. De Raluca Păduraru, Upvance Global." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="ro_RO" />
+  <meta property="og:site_name" content="Raluca Păduraru" />
+  <meta property="og:title" content="30 de date verificate despre AI și muncă" />
+  <meta property="og:description" content="Pentru fiecare cifră: numerele, sursa originală și capcana, adică felul în care e citată greșit de obicei. Plus 6 cifre celebre care circulă prin prezentări, demontate la sursă." />
+  <meta property="og:url" content="https://www.ralucapaduraru.ro/resources/30-cifre-ai-munca/" />
+  <meta property="og:image" content="https://www.ralucapaduraru.ro/images/build.png" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="30 de date verificate despre AI și muncă" />
+  <meta name="twitter:description" content="Numerele, sursa originală și capcana pentru 30 de date despre AI și muncă. Plus 6 cifre celebre demontate la sursă." />
+  <meta name="twitter:image" content="https://www.ralucapaduraru.ro/images/build.png" />
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.ralucapaduraru.ro/resources/30-cifre-ai-munca/" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Barlow:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <style>
+    .cifre-intro { max-width: 780px; margin: 0 auto; color: var(--text-sec); font-size: 1.05rem; line-height: 1.75; }
+    .tema-title { font-size: clamp(1.1rem, 2vw, 1.4rem); margin: 56px 0 24px; }
+    .tema-title .tema-nr { color: var(--lavender); }
+    .cifra-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 28px 30px; margin-bottom: 18px; display: flex; gap: 22px; align-items: flex-start;
+    }
+    .cifra-num {
+      flex-shrink: 0; font-family: var(--font-mono); font-weight: 700; font-size: 1rem;
+      color: var(--lavender-lt); background: rgba(167,139,250,0.08); border: 1px solid var(--border);
+      border-radius: 100px; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+    }
+    .cifra-claim { font-family: var(--font-mono); font-weight: 500; font-size: 0.98rem; line-height: 1.55; color: var(--text); margin: 0 0 12px; }
+    .cifra-sursa { font-size: 0.82rem; color: var(--text-muted); margin: 0 0 14px; }
+    .cifra-sursa strong { color: var(--text-sec); font-weight: 600; }
+    .cifra-capcana { border-left: 2px solid var(--lavender-dk); padding-left: 16px; }
+    .cifra-capcana .capcana-label {
+      display: block; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.13em; text-transform: uppercase; color: var(--lavender); margin-bottom: 6px;
+    }
+    .cifra-capcana p { font-size: 0.95rem; color: var(--text-sec); line-height: 1.7; margin: 0 0 10px; }
+    .cifra-capcana p:last-child { margin-bottom: 0; }
+    .cifra-capcana strong { color: var(--lavender-lt); font-weight: 600; }
+    .cifra-nota { font-size: 0.85rem; font-style: italic; color: var(--text-muted); margin: 10px 0 0; }
+    /* demontaje */
+    .demontaj-card { display: block; }
+    .demontaj-card h3 { font-size: 1rem; line-height: 1.5; color: var(--text); margin: 0 0 16px; }
+    .demontaj-card h3 .dem-nr { color: var(--lavender); margin-right: 8px; }
+    .dem-row { margin-bottom: 12px; }
+    .dem-row:last-child { margin-bottom: 0; }
+    .dem-row .dem-label {
+      display: block; font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.13em; text-transform: uppercase; color: var(--lavender); margin-bottom: 4px;
+    }
+    .dem-row p { font-size: 0.95rem; color: var(--text-sec); line-height: 1.7; margin: 0; }
+    .dem-row strong { color: var(--lavender-lt); font-weight: 600; }
+    /* filter bar */
+    .filter-bar { display: none; flex-wrap: wrap; gap: 10px; margin: 40px 0 8px; }
+    .filter-bar.visible { display: flex; }
+    .filter-btn {
+      font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--text-sec); background: var(--card);
+      border: 1px solid var(--border); border-radius: 100px; padding: 9px 18px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { color: var(--text); background: rgba(167,139,250,0.05); }
+    .filter-btn.active { color: #fff; background: linear-gradient(135deg, #7c3aed, #6d28d9); border-color: transparent; box-shadow: 0 0 18px rgba(124,58,237,0.28); }
+    /* gate */
+    #continut-blocat { display: none; }
+    #continut-blocat.unlocked { display: block; }
+    .gate-section {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 44px 36px; margin: 48px 0; position: relative; overflow: hidden;
+    }
+    .gate-section::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--lavender), transparent);
+    }
+    .gate-section.hidden { display: none; }
+    .gate-fade {
+      height: 120px; margin-top: -140px; position: relative; pointer-events: none;
+      background: linear-gradient(to bottom, transparent, var(--bg));
+    }
+    .gate-fade.hidden { display: none; }
+    /* download form */
+    .download-form-wrap { max-width: 600px; margin: 0 auto; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-field label {
+      font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-sec);
+    }
+    .form-field input {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 13px 16px; font-family: var(--font-body, inherit); font-size: 0.95rem;
+      color: var(--text); outline: none; transition: border-color 0.2s;
+    }
+    .form-field input:focus { border-color: var(--lavender); }
+    .form-field input::placeholder { color: var(--text-muted); }
+    .form-check { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 24px; }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--lavender); cursor: pointer; }
+    .form-check label { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; cursor: pointer; }
+    .form-submit-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .form-submit-wrap .btn { width: 100%; justify-content: center; }
+    .form-privacy { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
+    .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+    .download-form-msg { margin-top: 16px; font-size: 0.9rem; border-radius: var(--radius); padding: 12px 16px; text-align: center; display: none; }
+    .download-form-msg.success { display: block; background: rgba(107,158,116,0.15); border: 1px solid rgba(107,158,116,0.4); color: #7BC78A; }
+    .download-form-msg.error   { display: block; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3); color: var(--lavender-lt); }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .cifra-card { flex-direction: column; gap: 14px; padding: 24px 20px; }
+    }
+  </style>
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot → GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "name": "30 de date verificate despre AI și muncă",
+        "headline": "30 de date verificate despre inteligența artificială și muncă, cu sursa originală și capcana de citire pentru fiecare",
+        "description": "30 de date verificate despre inteligența artificială și muncă. Pentru fiecare: numerele, sursa originală și capcana, adică felul în care cifra e citată greșit de obicei. Plus 6 cifre celebre care circulă prin prezentări, demontate la sursă. De Raluca Păduraru, Upvance Global.",
+        "url": "https://www.ralucapaduraru.ro/resources/30-cifre-ai-munca/",
+        "author": {
+          "@type": "Person",
+          "name": "Raluca Păduraru",
+          "url": "https://www.ralucapaduraru.ro",
+          "jobTitle": "Futures of Work Strategist"
+        },
+        "publisher": {"@type": "Organization", "name": "Upvance Global", "url": "https://upvance.global"},
+        "inLanguage": "ro",
+        "datePublished": "2026-08-14",
+        "about": ["inteligența artificială", "viitorul muncii", "adopția AI", "productivitate", "AI România", "data literacy"],
+        "keywords": ["date AI verificate", "statistici AI muncă", "cifre AI România", "adopție AI organizații", "Raluca Păduraru"],
+        "hasPart": {
+          "@type": "ItemList",
+          "name": "Cele 6 teme",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Investiții și rezultate"},
+            {"@type": "ListItem", "position": 2, "name": "Piața muncii și oamenii la început de drum"},
+            {"@type": "ListItem", "position": 3, "name": "Productivitatea și timpul câștigat"},
+            {"@type": "ListItem", "position": 4, "name": "Judecata umană și agency-ul"},
+            {"@type": "ListItem", "position": 5, "name": "România"},
+            {"@type": "ListItem", "position": 6, "name": "Cât de repede evoluează lucrurile"}
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.ralucapaduraru.ro/"},
+          {"@type": "ListItem", "position": 2, "name": "Resurse", "item": "https://www.ralucapaduraru.ro/frameworks/"},
+          {"@type": "ListItem", "position": 3, "name": "30 de date verificate despre AI și muncă", "item": "https://www.ralucapaduraru.ro/resources/30-cifre-ai-munca/"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="lang-ro has-announce-bar">
+  <div class="announce-bar"><a href="/build-your-cortex"><span class="announce-bar-full">Build Your Cortex, ed. 2 — </span>16 octombrie, București → Înscrie-te pe lista de așteptare</a></div>
+
+  <!-- ====================== NAVIGATION ====================== -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="../../index.html" class="nav-logo" aria-label="Raluca Păduraru home">
+        <img src="../../images/logo.png" alt="Raluca Păduraru" />
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="../../index.html#services">Servicii</a></li>
+        <li><a href="/frameworks/">Framework-uri</a></li>
+        <li><a href="../../about.html">Despre</a></li>
+        <li><a href="../../faq.html">FAQ</a></li>
+        <li><a href="../../impact.html">Impact</a></li>
+        <li><a href="../../reflectii.html">Reflecții</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <a href="../../index.html#services">Servicii</a>
+    <a href="/frameworks/">Framework-uri</a>
+    <a href="../../about.html">Despre</a>
+    <a href="../../faq.html">FAQ</a>
+    <a href="../../impact.html">Impact</a>
+    <a href="../../reflectii.html">Reflecții</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <main>
+    <!-- ====================== HERO ====================== -->
+    <section style="padding: 140px 0 40px;">
+      <div class="container">
+        <div style="max-width: 860px; margin: 0 auto; text-align: center;">
+          <div class="fade-up" style="font-family:var(--font-mono); font-size:0.7rem; font-weight:500; color:var(--lavender); margin-bottom:20px; letter-spacing:0.16em; text-transform:uppercase;">
+            Resursă · Date verificate la sursă
+          </div>
+          <h1 class="fade-up delay-1" style="margin-bottom: 24px;">30 de date verificate despre <em style="color:var(--lavender-lt);">AI și muncă</em></h1>
+          <p class="cifre-intro fade-up delay-2">
+            Circulă foarte multe cifre despre inteligența artificială. Unele sunt adevărate, dar spuse pe jumătate. Altele sunt luate dintr-o sursă care le-a luat din altă sursă, care le-a luat de pe un slide. Documentul acesta adună 30 de date verificate despre inteligența artificială și muncă. Pentru fiecare găsești 3 lucruri: numerele, sursa originală și capcana, adică felul în care cifra e citată greșit de obicei. La final găsești o secțiune în care punem cifrele care circulă cel mai des prin prezentări și ședințe față în față cu ce spun sursele lor de fapt și le demontăm.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CONTENT ====================== -->
+    <section style="padding: 20px 0 80px;">
+      <div class="container">
+        <div style="max-width: 860px; margin: 0 auto;">
+
+          <!-- FILTER BAR (visible after unlock) -->
+          <div class="filter-bar" id="filter-bar" role="group" aria-label="Filtrează după temă">
+            <button class="filter-btn active" data-filter="toate">Toate</button>
+            <button class="filter-btn" data-filter="t1">Investiții și rezultate</button>
+            <button class="filter-btn" data-filter="t2">Piața muncii</button>
+            <button class="filter-btn" data-filter="t3">Productivitate</button>
+            <button class="filter-btn" data-filter="t4">Judecata umană</button>
+            <button class="filter-btn" data-filter="t5">România</button>
+            <button class="filter-btn" data-filter="t6">Viteza schimbării</button>
+            <button class="filter-btn" data-filter="dem">Demontaje</button>
+          </div>
+
+          <!-- ============ PREVIEW: primele 5 (vizibile mereu) ============ -->
+          <div data-tema="t1">
+            <h2 class="tema-title"><span class="tema-nr">Tema 1:</span> investiții și rezultate</h2>
+
+            <article class="cifra-card">
+              <div class="cifra-num">1</div>
+              <div>
+                <p class="cifra-claim">5% dintre organizațiile care au investit în inteligența artificială obțin valoare substanțială la scară mare. 60% raportează câștiguri minime.</p>
+                <p class="cifra-sursa"><strong>Sursa:</strong> Boston Consulting Group, studiul „Widening AI Value Gap", 2026.</p>
+                <div class="cifra-capcana">
+                  <span class="capcana-label">Capcana</span>
+                  <p>Cifra pare să spună că inteligența artificială nu funcționează. De fapt spune că majoritatea companiilor cumpără tehnologie fără să schimbe felul în care lucrează oamenii cu ea. <strong>Diferența dintre cei 5% și restul stă în felul de lucru, pentru că tehnologia e aceeași pentru toți.</strong></p>
+                </div>
+              </div>
+            </article>
+
+            <article class="cifra-card">
+              <div class="cifra-num">2</div>
+              <div>
+                <p class="cifra-claim">Când un proiect de inteligență artificială se blochează, în 70% din cazuri problema ține de oameni și de procese, în 20% de tehnologie și doar în 10% de algoritmi.</p>
+                <p class="cifra-sursa"><strong>Sursa:</strong> Boston Consulting Group, modelul 10-20-70.</p>
+                <div class="cifra-capcana">
+                  <span class="capcana-label">Capcana</span>
+                  <p>În ședințe timpul este alocat fix invers pe aceste subiecte, adică <strong>70% din discuție se axează pe tehnologie și algoritmi</strong>. Informația asta ne spune, de fapt, că banii și atenția ar trebui să meargă spre partea umană: cine folosește, cum folosește, ce procese se schimbă, cum evoluează rolurile &amp; responsabilitățile.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="cifra-card">
+              <div class="cifra-num">3</div>
+              <div>
+                <p class="cifra-claim">85% dintre oamenii care lucrează cu informații (<em>knowledge work</em>) folosesc deja inteligența artificială. Dar doar 6% dintre directori spun că văd rezultate la nivelul întregii organizații.</p>
+                <p class="cifra-sursa"><strong>Sursa:</strong> Atlassian (companie care vinde software de organizare a muncii în echipe), cercetarea „AI-first organization", 2026.</p>
+                <div class="cifra-capcana">
+                  <span class="capcana-label">Capcana</span>
+                  <p>Gap-ul dintre 85% și 6% se citează des ca dovadă că inteligența artificială nu aduce nimic. Interpretată așa, informația duce spre fatalism. A treia cifră, cea pe care nimeni n-o menționează, e cea care ne arată unde se ascunde diferența: <strong>echipele ale căror date interne sunt puse în ordine văd rezultate de 7,3 ori mai des</strong>, deci blocajul nu e nici tehnologia, nici angajații, ci ceva ce organizația poate repara relativ ușor și rapid.</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="cifra-card">
+              <div class="cifra-num">4</div>
+              <div>
+                <p class="cifra-claim">66% dintre departamentele de resurse umane folosesc inteligența artificială pentru fișele de post, iar 89% declară că economisesc timp.</p>
+                <p class="cifra-sursa"><strong>Sursa:</strong> SHRM (asociația profesioniștilor de resurse umane din Statele Unite), studiul „State of AI in HR", 2025.</p>
+                <div class="cifra-capcana">
+                  <span class="capcana-label">Capcana</span>
+                  <p>Datele acestea sunt des citate drept dovadă a eficienței aduse de AI. În aceleași organizații, însă, măsurătorile pe proces arată contrariul: timpul până la angajare și costul unei angajări au crescut. <strong>Timpul raportat ca fiind economisit și rezultatul măsurat sunt informații care spun 2 povești diferite, iar în ședințe se citează aproape mereu doar prima.</strong></p>
+                </div>
+              </div>
+            </article>
+
+            <article class="cifra-card">
+              <div class="cifra-num">5</div>
+              <div>
+                <p class="cifra-claim">75% dintre directori recunosc că strategia de inteligență artificială a companiei lor e mai mult de fațadă decât un ghid real pentru decizii.</p>
+                <p class="cifra-sursa"><strong>Sursa:</strong> Writer (furnizor de software de inteligență artificială pentru companii), sondajul „2026 AI Adoption in the Enterprise" (auto-evaluare a directorilor, cu atât mai credibilă cu cât e o mărturisire împotriva propriului interes).</p>
+                <div class="cifra-capcana">
+                  <span class="capcana-label">Capcana</span>
+                  <p>În ședințe, ideea că avem strategie o strategie pentru implementarea inteligenței artificiale este văzută ca fiind o dovadă de pregătire. Dacă ne uităm la numărul de mai sus, vedem că, de fapt, el spune că existența documentului nu garantează nimic: <strong>3 din 4 dintre oamenii care au construit strategiile</strong> recunosc că deciziile de zi cu zi se iau pe alte criterii. Așadar, degeaba ne batem pe umăr apreciativ că am construit o strategie, dacă nu ne asigurăm că ea și e folosită în procesele decizionale de zi cu zi.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="gate-fade" id="gate-fade"></div>
+
+          <!-- ============ GATE ============ -->
+          <div class="gate-section" id="gate-section">
+            <div style="text-align:center; margin-bottom:32px;">
+              <div style="font-family:var(--font-mono); font-size:0.7rem; font-weight:500; color:var(--lavender); margin-bottom:16px; letter-spacing:0.16em; text-transform:uppercase;">
+                Încă 25 de date + 6 cifre celebre demontate
+              </div>
+              <h2 style="font-size:clamp(1.2rem, 2.5vw, 1.6rem); margin-bottom:12px;">Deblochează lista completă</h2>
+              <p style="color:var(--text-sec); max-width:520px; margin:0 auto;">Completează formularul și primești acces imediat la toate cele 30 de date, plus secțiunea în care demontăm cifrele care circulă cel mai des prin prezentări și ședințe.</p>
+            </div>
+            <div class="download-form-wrap">
+              <form id="cifre-form" novalidate>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="cifre-name">Nume complet *</label>
+                    <input type="text" id="cifre-name" name="name" required placeholder="Prenume Nume" autocomplete="name" />
+                  </div>
+                  <div class="form-field">
+                    <label for="cifre-email">Email profesional *</label>
+                    <input type="email" id="cifre-email" name="email" required placeholder="tu@companie.ro" autocomplete="email" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="cifre-company">Companie</label>
+                    <input type="text" id="cifre-company" name="company" placeholder="Compania ta" autocomplete="organization" />
+                  </div>
+                  <div class="form-field">
+                    <label for="cifre-role">Rol / Funcție</label>
+                    <input type="text" id="cifre-role" name="role" placeholder="Ex: Director, HR Manager..." autocomplete="organization-title" />
+                  </div>
+                </div>
+                <div class="hp-field" aria-hidden="true">
+                  <label for="cifre-website">Website</label>
+                  <input type="text" id="cifre-website" name="website" tabindex="-1" autocomplete="off" />
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="cifre-consent" name="consent" required />
+                  <label for="cifre-consent">
+                    Doresc să primesc actualizări despre AI și viitorul muncii.
+                    Înțeleg că fără acordul meu nu voi primi accesul la lista completă.
+                  </label>
+                </div>
+                <div class="form-submit-wrap">
+                  <button type="submit" class="btn btn-primary" id="cifre-btn">
+                    Vreau toate cele 30 de date
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+                  <p class="form-privacy">Datele tale sunt în siguranță și nu vor fi distribuite terților.</p>
+                </div>
+                <div id="cifre-form-msg" class="download-form-msg"></div>
+              </form>
+            </div>
+          </div>
+
+          <!-- ============ CONȚINUT BLOCAT (se deblochează după formular) ============ -->
+          <div id="continut-blocat">
+
+            <div data-tema="t1">
+              <article class="cifra-card">
+                <div class="cifra-num">6</div>
+                <div>
+                  <p class="cifra-claim">Doar 11% dintre organizații își regândesc felul de a lucra atunci când adoptă inteligența artificială.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> McKinsey, analiza „Three Horizons of AI Adoption", 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Se citează des fără context, drept dovadă că adopția merge greu și mai bine stăm potoliți. A doua cifră din același studiu e cea care ne arată, însă, imaginea integrală: <strong>organizațiile care își redesenează fluxurile de lucru raportează că au obținut plus-valoare de 5,3 ori mai des decât cele care doar instalează programe noi</strong>.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div data-tema="t2">
+              <h2 class="tema-title"><span class="tema-nr">Tema 2:</span> piața muncii și oamenii la început de drum</h2>
+
+              <article class="cifra-card">
+                <div class="cifra-num">7</div>
+                <div>
+                  <p class="cifra-claim">Angajarea tinerilor cu vârste între 22 și 25 de ani, în rolurile cele mai expuse la inteligența artificială, a scăzut cu 13%.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Brynjolfsson și colaboratorii, studiu pe date Microsoft, 2025.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Scăderea e măsurată doar pe ocupațiile cele mai expuse, cum ar fi programarea sau relațiile cu clienții. <strong>Nu e o scădere a tuturor angajărilor de tineri, deși așa e citată de obicei.</strong></p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">8</div>
+                <div>
+                  <p class="cifra-claim">Companiile care investesc cel mai mult în inteligența artificială și-au crescut numărul de angajați aflați la început de carieră cu 12%.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Revelio Labs și Ramp, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Cifra pare să o contrazică pe cea de dinainte, dar cele 2 măsoară felii diferite ale aceleiași realități. Una se uită la ocupațiile expuse, cealaltă la companiile care investesc serios. Concluzia, de fapt, e că <strong>inteligența artificială nu șterge joburile entry-level, cu totul, dar le mută dinspre companiile care taie costuri spre companiile care construiesc</strong>.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">9</div>
+                <div>
+                  <p class="cifra-claim">68% dintre profesioniștii aflați la început de carieră spun că inteligența artificială i-a făcut mai productivi.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> World Economic Forum, raportul „AI and the Future of Entry-Level Work", 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Productivitatea crescută e citată ca dovadă a timpului câștigat. În același raport, însă, observăm că <strong>45% dintre respondenți spun că muncesc mai mult decât înainte</strong>. Deci, viteza s-a transformat în așteptări mai mari, nu în timp liber.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">10</div>
+                <div>
+                  <p class="cifra-claim">Anunțurile pentru joburi entry-level care cer competențe de nivel senior au crescut cu 35% față de 2019.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> PwC, analiză pe peste un miliard de anunțuri de angajare, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Datele acestea se interpretează des ca o creștere nejustificată a așteptărilor angajatorilor, însă de fapt ele vorbesc despre cum <strong>munca de rutină prin care juniorii învățau meserie e preluată de inteligența artificială</strong>. Așadar, responsabilitățile joburilor entry-level sunt cele care se schimbă, uneori chiar radical.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">11</div>
+                <div>
+                  <p class="cifra-claim">Exporturile de servicii din India, exact munca despre care s-a spus că dispare prima, sunt cu 27% peste propria estimare de dinainte de inteligența artificială. În același timp, cel mai mare angajator din sector, TCS, a tăiat 12.000 de joburi, iar încasările sectorului au crescut cu 17%.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Richard Baldwin, economist la IMD Lausanne, pe statistici oficiale de comerț ale Organizației Mondiale a Comerțului, iulie 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Titlurile folosesc concedierile ca dovadă că rolurile profesionale din industria BPO/outsourcing dispar. Datele de comerț măsoară, însă, ce vinde industria, nu câți oameni angajează. <strong>Când vânzările cresc și angajații scad, asta se numește productivitate, iar cine citează doar concedierile spune jumătate de poveste.</strong></p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">12</div>
+                <div>
+                  <p class="cifra-claim">Dintre cele 23 de companii din indicele S&amp;P 500 care au pus concedierile pe seama inteligenței artificiale, 13 au scăzut la bursă după anunț, în medie cu 25%.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> analiză CNBC, mai 2026. <strong>Perechea ei:</strong> 59% dintre managerii de recrutare au recunoscut într-un sondaj că au folosit inteligența artificială ca scuză pentru concedieri care aveau alte cauze.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Concedierile justificate de implementarea AI sunt foarte des doar o narativă, prin care managerii să evite să admită că au greșit când au supra-angajat în perioada pandemiei. <strong>Piața financiară a început să nu mai recompenseze această narativă.</strong></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div data-tema="t3">
+              <h2 class="tema-title"><span class="tema-nr">Tema 3:</span> productivitatea și timpul câștigat</h2>
+
+              <article class="cifra-card">
+                <div class="cifra-num">13</div>
+                <div>
+                  <p class="cifra-claim">Programatorii care au folosit inteligența artificială au fost convinși că lucrează cu 20% mai repede.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> METR, organizație independentă de evaluare a modelelor, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Viteza resimțită se citează ca dovadă de viteză. Măsurătoarea din același studiu arată însă contrariul: <strong>aceiași programatori au lucrat, de fapt, cu 19% mai lent</strong>. Senzația că am prins viteză nu e, neapărat, o dovadă de viteză, aviz amatorilor.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">14</div>
+                <div>
+                  <p class="cifra-claim">87% dintre angajații care lucrează pe calculator folosesc inteligența artificială și estimează că economisesc în jur de 11 ore pe săptămână.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Glean, Work AI Index, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Estimarea individuală se citează ca și cum s-ar aduna de la sine într-un câștig al firmei. Același studiu arată că doar <strong>13% dintre organizații văd câștiguri semnificative la nivelul întregii firme</strong>: orele economisite se pierd pe drum, în coordonare, în așteptare și în muncă refăcută, dacă nimeni nu le direcționează spre un obiectiv clar.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">15</div>
+                <div>
+                  <p class="cifra-claim">Pe un test numit GDPval, inteligența artificială egalează sau întrece munca unui profesionist uman de aproximativ 7 ore în aproximativ 15 minute, în 84% din cazuri. Acum un an, procentul era 48%.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> OpenAI (compania care dezvoltă modelele AI testate), 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Informațiile acestea sunt citate ca și cum inteligența artificială face în 15 minute munca zilnică a unui profesionist, deci jobul dispare. Testul măsoară însă sarcini individuale, date una câte una, cu cerințe formulate clar și specific la fiecare pas. Asta nu e nici pe departe un rol întreg. Iar cele 15 minute nu includ timpul în care cineva, un om, verifică și integrează rezultatul. <strong>Informația de reținut rămâne saltul de la 48% la 84% într-un an: viteza schimbării e evidentă și nu avem date care să indice o potențială încetinire.</strong></p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">16</div>
+                <div>
+                  <p class="cifra-claim">53% dintre manageri spun că mai multe instrumente de inteligență artificială au însemnat pentru ei volum de muncă mai mare și atenție mai fragmentată.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> McKinsey, biroul din București, mai 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Se presupune automat că fiecare instrument nou adaugă productivitate. De la un punct încolo, <strong>fiecare instrument nou adaugă în primul rând întreruperi în ritmul de lucru și în fluxurile mentale</strong>.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div data-tema="t4">
+              <h2 class="tema-title"><span class="tema-nr">Tema 4:</span> judecata umană și agency-ul</h2>
+
+              <article class="cifra-card">
+                <div class="cifra-num">17</div>
+                <div>
+                  <p class="cifra-claim">Aproximativ 90% dintre oamenii care se bazează frecvent pe inteligența artificială acceptă recomandările ei fără să le testeze. Peste 50% spun că simt mai puțină responsabilitate pentru rezultatul obținut, pentru că AI a sugerat acțiunile.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Boston Consulting Group, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Cifrele se citează ca defect al oamenilor. De fapt descriu un mod de lucru care se instalează de la sine acolo unde nu există procese de potențare a agency-ului angajaților. Agency înseamnă să înțelegi în ce context operezi și cum te impactează el și să iei decizii și acțiuni care să te ducă spre un context mai dezirabil. Acest lucru se repară prin procese de lucru și prin implementarea unor acțiuni care să potențeze ownership-ul individual.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">18</div>
+                <div>
+                  <p class="cifra-claim">Jumătate dintre lideri observă deja pierderea competențelor în echipele lor din cauza delegării către inteligența artificială. 53% spun că angajații tineri se dezvoltă mai lent.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Boston Consulting Group, studiul „When Everyone Uses AI", pe 70 de directori de top, iunie 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Pierderea de competențe e discutată ca fiind o problemă individuală, a angajatului comod și leneș, care de rău ce e nu vrea să se dezvolte. Dacă parcurgem studiul, însă, vedem că acesta o tratează ca pe o problemă de proiectare a muncii: dacă toate task-urile unde agency-ul e necesar se deleagă spre AI, cum s-ar mai putea antrena acești mușchi?</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">19</div>
+                <div>
+                  <p class="cifra-claim">Utilizatorii experimentați ai inteligenței artificiale eșuează în 64% din încercări, față de 24% la începători.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Potts și Sudhof, studiu pe 27.000 de conversații reale, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Interpretată fără context, informația pare să spună că experiența de lucru cu AI e nasoală, nu ajută. În realitate, ce se întâmplă e că experții sunt suficient de îndrăzneți încât experimentează cu sarcini de 2-3 ori mai complexe decât începătorii. Eșecul mai frecvent e semn de ambiție, nu de incompetență. Corelația =/= cauzalitate. E una dintre cele mai frumoase lecții de interpretare a unei informații în context.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">20</div>
+                <div>
+                  <p class="cifra-claim">Aproximativ 10% dintre rezumatele generate de Google automat înaintea rezultatelor de căutare conțin inexactități.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> analiză citată de The Batch plus decizia Tribunalului Regional din München, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Azi spunem că ne-a zis rezumatul de la Google cu siguranța cu care deunăzi spuneam că am văzut pe Google. <strong>Numai că rezumatul nu e un rezultat găsit, pe care să-l poți deschide și verifica, ci un text generat, iar 1 din 10 e greșit.</strong> Cât de reală e problema o arată justiția: o instanță din München a decis deja că Google răspunde legal pentru o defăimare produsă de un astfel de rezumat.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">21</div>
+                <div>
+                  <p class="cifra-claim">Au fost suficiente 13 cuvinte strecurate în conținut scris de utilizatori, pe site-uri precum Reddit sau Wikipedia, pentru a manipula răspunsurile agenților de cercetare bazați pe inteligență artificială.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> cercetători de la Universitatea Cornell, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Cifra se citește ca un experiment de laborator, un atac exotic de care se ocupă specialiștii în securitate. Dar ce a expus experimentul nu e atacul, ci mecanismul din spatele lui, pe care-l putem vedea în activitățile zilnice: <strong>agenții AI tratează aproape la fel o sursă oficială și un comentariu anonim</strong>, la fiecare răspuns, nu doar când îi manipulează cineva. Așa că un răspuns cu surse citate nu e un răspuns verificat. <strong>E jobul omului să verifice și să se asigure de corectitudinea informațiilor.</strong></p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">22</div>
+                <div>
+                  <p class="cifra-claim">Citările fabricate, adică trimiteri la studii care nu există, apar acum de 12 ori mai des în lucrările academice decât în 2023. Una din 277 de lucrări conține cel puțin una.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Lancet și Universitatea Columbia, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Dacă fenomenul există în lucrări științifice verificate de specialiști, există cu siguranță și în rapoartele și prezentările care circulă pe la tine prin organizație. <strong>Orice sursă citată de un text generat merită măcar un click de verificare.</strong></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div data-tema="t5">
+              <h2 class="tema-title"><span class="tema-nr">Tema 5:</span> România</h2>
+
+              <article class="cifra-card">
+                <div class="cifra-num">23</div>
+                <div>
+                  <p class="cifra-claim">17,5% din forța de muncă activă din România folosește inteligența artificială. Adică aproximativ 1 din 6 oameni care lucrează.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Microsoft Global AI Diffusion Report, primul trimestru din 2026. În prima jumătate a lui 2025 procentul era 15,3%.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Cifra de 17,5% se interpretează ca dovadă că în România inteligența artificială nu e încă o treabă serioasă. Interpretarea pe care ți-o propun eu, însă, e fix invers: 1 din 6 oameni care lucrează o folosește deja, iar creșterea față de 15,3% în doar câteva luni ne indică o direcție foarte bine conturată. Organizațiile care așteaptă momentul potrivit, au deja angajați care folosesc AI, doar că fără reguli și responsabilități.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">24</div>
+                <div>
+                  <p class="cifra-claim">Statistica oficială spune că 5,2% dintre firmele românești cu peste 10 angajați folosesc inteligența artificială. Când firmele mici și mijlocii au fost întrebate direct, 66,1% au răspuns că folosesc deja cel puțin un instrument.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> statistica oficială plus sondajul IMM România, publicat în august 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Diferența uriașă dintre cele 2 cifre nu înseamnă că una minte. Metodologia diferă: statistica oficială numără adopția declarată formal de firmă, sondajul numără ce folosesc oamenii în practică. <strong>Concluzia, practic, e că există adopție AI la un mod foarte real și extrem de nesupravegheat. Oamenii folosesc, organizația se face că nu vede.</strong></p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">25</div>
+                <div>
+                  <p class="cifra-claim">Bugetele de training din companiile românești au crescut cu 14%.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Raport Executiv HR Club România, mai 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Creșterea bugetului se citează ca dovadă că organizația investește în oameni, deci problema competențelor e pe cale să se rezolve. Același raport arată însă unde ajung banii: <strong>sub 9% dintre cursurile online asincrone începute sunt duse până la capăt</strong>. Bugetul măsoară intenția, finalizarea măsoară realitatea.</p>
+                    <p class="cifra-nota">Nota autoarei: mă abțin să comentez aici despre motivele din spatele ratei reduse de finalizare. Spun doar că sunt 100% convinsă că ele nu țin de lipsa de dorință de dezvoltare a angajaților.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">26</div>
+                <div>
+                  <p class="cifra-claim">România are cea mai bună acoperire cu internet prin fibră optică din Uniunea Europeană: 96,25% dintre gospodării.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> raportul Digital Decade pentru România, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Infrastructura excelentă se citează des ca dovadă că România e pregătită. Același raport arată, însă, și că avem <strong>cele mai slabe competențe digitale de bază din UE: 31,8% dintre oameni</strong>, față de media europeană de 60,4%. <strong>Autostrada există, dar 2 din 3 oameni nu au învățat să conducă pe ea.</strong></p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">27</div>
+                <div>
+                  <p class="cifra-claim">74,9% dintre profesioniștii români chestionați folosesc inteligența artificială zilnic.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Romanian State of AI 2026, studiul realizat de mine pe 514 respondenți, iulie 2026 (eșantion de oameni deja interesați de subiect, deci mai avansat decât media țării).</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Cifra se citează singură, ca dovadă că adopția e rezolvată. Același studiu arată, însă, că <strong>72,7% dintre cei care o folosesc zilnic rămân la un nivel de bază</strong>, în care adresează niște întrebări banale și rezolvă niște task-uri banale (mails, texte, imagini drăguțe, planificarea vacanțelor sau idei de rețete). Frecvența a crescut, complexitatea nu. <strong>A folosi zilnic =/= a folosi bine.</strong></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div data-tema="t6">
+              <h2 class="tema-title"><span class="tema-nr">Tema 6:</span> cât de repede evoluează lucrurile</h2>
+
+              <article class="cifra-card">
+                <div class="cifra-num">28</div>
+                <div>
+                  <p class="cifra-claim">Costul procesării unui text de către modelele de inteligență artificială a scăzut de 280 de ori în 24 de luni.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> Stanford AI Index, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Informația asta este interpretată drept ieftinirea inteligenței artificiale, care înseamnă automat și ieftinirea implementării inteligenței artificiale. Dar aici vorbim doar de costul tehnologiei, exact partea care, după modelul 10-20-70 de la punctul 2, rezolvă doar 20% din problemă. <strong>Partea cu adevărat scumpă, adică oamenii, procesele și modul de lucru, nu s-a ieftinit deloc.</strong></p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">29</div>
+                <div>
+                  <p class="cifra-claim">Procentul utilizatorilor care deleagă sarcini care unui om i-ar lua peste 8 ore de muncă către inteligența artificială a crescut de la 2,1% la 25,6% în 6 luni.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> OpenAI, împreună cu economiști de la universitățile Columbia, Wharton și Duke, pe date de utilizare a agentului Codex, decembrie 2025 – mai 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Informațiile se interpretează ca și cum ar descrie utilizatorul obișnuit, ceea ce ar însemna că un sfert din piață deleagă deja proiecte întregi. Nu-l descriu: <strong>e vorba de utilizatorii aflați în avangardă, de oamenii care adoptă primii instrumentele AI</strong>. De fapt, aceste informații ne arată încotro mergem și cu ce viteză ne îndreptăm spre încolo: am trecut de la conversații de tip Q&amp;A la delegarea de proiecte întregi, într-o jumătate de an.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="cifra-card">
+                <div class="cifra-num">30</div>
+                <div>
+                  <p class="cifra-claim">Durata task-urilor pe care un model AI performant le duce la bun sfârșit autonom a crescut de la aproximativ 4 minute, în martie 2024, la aproximativ 12 ore, în februarie 2026.</p>
+                  <p class="cifra-sursa"><strong>Sursa:</strong> METR, 2026.</p>
+                  <div class="cifra-capcana">
+                    <span class="capcana-label">Capcana</span>
+                    <p>Măsurătoarea e făcută pe sarcini de programare bine definite și ia în calcul task-urile unde modelele AI au obținut o <strong>rată de succes de 50%</strong>. Deci nu înseamnă că un model lucrează autonom și fără greșeli o zi întreagă în orice domeniu. <strong>Înseamnă că suntem la începutul unei curbe exponențiale, iar în acest scenariu direcția contează mai mult decât valoarea exactă.</strong></p>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- ============ DEMONTAJE ============ -->
+            <div data-tema="dem">
+              <h2 class="tema-title" style="margin-top: 72px;">Să demontăm cifrele care circulă fără context și să analizăm ce spun sursele lor, de fapt</h2>
+
+              <article class="cifra-card demontaj-card">
+                <h3><span class="dem-nr">1.</span>„95% dintre organizații nu văd niciun randament din inteligența artificială generativă."</h3>
+                <div class="dem-row"><span class="dem-label">Ce e adevărat</span><p>Cifra există, în raportul MIT Project NANDA din 2025, și a devenit argumentul preferat al scepticilor.</p></div>
+                <div class="dem-row"><span class="dem-label">Ce se pierde pe drum</span><p>Rata de eșec a proiectelor de inteligență artificială depășește 80% (RAND, 2025), cam dublul proiectelor clasice de IT, iar cele mai multe proiecte-pilot eșuează din motive care țin de oameni și procese, nu de tehnologie (70%, Boston Consulting Group).</p></div>
+                <div class="dem-row"><span class="dem-label">Ce spui în ședință</span><p>Numărul vorbește despre felul în care companiile implementează, mult mai mult decât despre ce poate tehnologia. Un număr scos din context poate susține orice concluzie.</p></div>
+              </article>
+
+              <article class="cifra-card demontaj-card">
+                <h3><span class="dem-nr">2.</span>„Inteligența artificială crește viteza cu 740%."</h3>
+                <div class="dem-row"><span class="dem-label">Ce e adevărat</span><p>Agenții de inteligență artificială cresc viteza de scriere a codului cu 740% (Demirer și colaboratorii, 2026, studiu pe peste 100.000 de programatori de pe GitHub).</p></div>
+                <div class="dem-row"><span class="dem-label">Ce se pierde pe drum</span><p>Același studiu arată că livrarea reală, adică software-ul ajuns la utilizatori, crește cu doar 20%. Câștigul se pierde în etapele dintre codare și livrare: în verificări, în integrări, în procesele decizionale ș.a.m.d.</p></div>
+                <div class="dem-row"><span class="dem-label">Ce spui în ședință</span><p>Viteza obținută pe un singur pas se extrapolează des spre întreg lanțul. Întreabă întotdeauna pe ce parte din proces e măsurată o cifră care indică o creștere spectaculoasă a vitezei.</p></div>
+              </article>
+
+              <article class="cifra-card demontaj-card">
+                <h3><span class="dem-nr">3.</span>„85% dintre organizații vor agenți de inteligență artificială în 3 ani, dar 76% spun că nu îi pot susține."</h3>
+                <div class="dem-row"><span class="dem-label">Mai întâi să vorbim despre surse principale</span><p>Perechea de cifre circulă printr-un autor care o citează dintr-un raport MIT Technology Review Insights. E o citare secundară, adică o informație preluată de la cineva care a preluat-o, la rândul său, de la altcineva. În astfel de cazuri, e musai să verificăm sursa primară înainte să punem numerele pe slide-uri.</p></div>
+                <div class="dem-row"><span class="dem-label">De ce nu pot susține agenții, de fapt</span><p>Pentru că un agent lucrează singur, iar organizațiile de azi sunt construite pe opusul acestei idei. Procesele cer aprobare umană la fiecare pas, datele stau închise în departamente separate care nu comunică între ele decât în anumite contexte și prin anumite procese și proceduri, iar doar 21% dintre companii au reguli clare pentru ce are voie să facă un agent autonom (Deloitte, 2026).</p></div>
+                <div class="dem-row"><span class="dem-label">Cum ar putea ajunge să susțină agenții</span><p>Întâi, e obligatoriu să existe un set reguli clare pentru agenți, adică cine răspunde pentru ce face agentul și unde se oprește autoritatea lui. Apoi, trebuie să fie redesenate fluxurile de lucru pentru a facilita colaborarea om-agent; companiile care fac asta raportează valoare de 5,3 ori mai des (McKinsey, 2026). Abia după aceste 2 acțiuni putem vorbi de scalare, iar acolo totul pleacă de la lideri, căci ei ar trebui să înțeleagă ei înșiși instrumentul, nu doar să îl aprobe.</p></div>
+              </article>
+
+              <article class="cifra-card demontaj-card">
+                <h3><span class="dem-nr">4.</span>„Experții omit 73% dintre pașii de decizie când își explică munca."</h3>
+                <div class="dem-row"><span class="dem-label">Ce e adevărat</span><p>Informația vine dintr-un studiu academic real, Sullivan și colaboratorii, publicat în 2014.</p></div>
+                <div class="dem-row"><span class="dem-label">Ce se pierde pe drum</span><p>Informația circulă acum prin postări despre instrumentele care înregistrează ce faci pe ecran, prezentată ca descoperire proaspătă. Are 12 ani și vine din alt context, cel al chirurgilor care își descriau operațiile. Rămâne o observație valoroasă, dar anul și contextul trebuie să fie menționate clar, ca să nu existe ambiguități. E clar că direcția se poate extrapola, dar informația nu poate fi reprodusă 1:1 în orice alt context.</p></div>
+              </article>
+
+              <article class="cifra-card demontaj-card">
+                <h3><span class="dem-nr">5.</span>„Datele reale ale firmei nu intră niciodată în inteligența artificială."</h3>
+                <div class="dem-row"><span class="dem-label">De ce sună convingător</span><p>Pentru că pornește de la o grijă legitimă. Nimeni nu vrea datele clienților într-un sistem pe care nu îl controlează.</p></div>
+                <div class="dem-row"><span class="dem-label">De ce e fals ca regulă absolută</span><p>Toate planurile de tip enterprise, adică versiunile pentru companii ale acestor produse, Microsoft Copilot, ChatGPT, Claude, Gemini și celelalte, funcționează cu contract: datele firmei rămân în spațiul contractual al firmei, nu sunt folosite pentru antrenarea modelelor și sunt acoperite de aceleași garanții juridice ca orice serviciu enterprise.</p></div>
+                <div class="dem-row"><span class="dem-label">Analogia care lămurește discuția</span><p>Emailul firmei tale, documentele, contabilitatea și copiile de siguranță stau deja, foarte probabil, pe serverele cloud ale companiilor tip Microsoft, Google, Amazon sau Oracle. Dacă ai încredere în serverele lor pentru email și contabilitate, versiunea enterprise de inteligență artificială vine pe același tip de contract.</p></div>
+                <div class="dem-row"><span class="dem-label">Ce spui în ședință</span><p>Ridică problema tipului de contract pe care îl aveți cu producătorul instrumentelor folosite intern. Cu plan enterprise, răspunsul e în contract.</p></div>
+              </article>
+
+              <article class="cifra-card demontaj-card">
+                <h3><span class="dem-nr">6.</span>„Legea te obligă deja să dovedești că echipa e instruită. Riști amenzi."</h3>
+                <div class="dem-row"><span class="dem-label">Ce e adevărat</span><p>Obligația de alfabetizare în inteligența artificială din legea europeană, articolul 4 din AI Act, e reală și nu pleacă nicăieri.</p></div>
+                <div class="dem-row"><span class="dem-label">Ce se pierde pe drum</span><p>România nu a adoptat încă actul normativ național care pune legea în aplicare. Autoritatea propusă pentru verificări poate controla și sancționa doar după ce acel act intră în vigoare, iar el e încă în lucru (BURSA, august 2026).</p></div>
+                <div class="dem-row"><span class="dem-label">Ce spui în ședință</span><p>Nu lua decizii impulsive de frica unei amenzi care deocamdată nu poate fi dată. Folosește-te de această fereastră pentru a construi așezat, fără presiune. Ce faci cu fereastra asta acum, cât timp nu te presează nimeni și oamenii au nevoie de sprijinul tău?</p></div>
+              </article>
+            </div>
+
+          </div><!-- /continut-blocat -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== FOOTER CTA ====================== -->
+    <section class="footer-cta" aria-labelledby="cta-heading">
+      <div class="container">
+        <h2 id="cta-heading">Vrei ca echipa ta să citească cifrele în context?</h2>
+        <p>Exact asta antrenăm în workshop-urile de AI agency: discernământul de a interpreta ce spun datele de fapt, înainte de a lua decizii pe baza lor.</p>
+        <a href="/contact.html" class="btn btn-primary">
+          Hai să vorbim
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="../../index.html" class="footer-logo">
+            <img src="../../images/logo.png" alt="Raluca Păduraru" />
+          </a>
+          <p class="footer-copy">© 2026 Raluca Păduraru. All rights reserved.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy.html">Politică de confidențialitate</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+  <script>
+    (function () {
+      var STORAGE_KEY = 'cifre30_deblocat';
+      var locked   = document.getElementById('continut-blocat');
+      var gate     = document.getElementById('gate-section');
+      var gateFade = document.getElementById('gate-fade');
+      var filterBar = document.getElementById('filter-bar');
+
+      function unlock() {
+        locked.classList.add('unlocked');
+        gate.classList.add('hidden');
+        gateFade.classList.add('hidden');
+        filterBar.classList.add('visible');
+        try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+      }
+
+      // deja deblocat (vizită anterioară) sau venit din emailul de confirmare
+      var params = new URLSearchParams(window.location.search);
+      var wasUnlocked = false;
+      try { wasUnlocked = localStorage.getItem(STORAGE_KEY) === '1'; } catch (e) {}
+      if (wasUnlocked || params.get('acces') === 'email') { unlock(); }
+
+      // filtre pe teme
+      filterBar.addEventListener('click', function (e) {
+        var btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        filterBar.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.dataset.filter;
+        document.querySelectorAll('[data-tema]').forEach(function (sec) {
+          sec.style.display = (f === 'toate' || sec.dataset.tema === f) ? '' : 'none';
+        });
+      });
+
+      // formular
+      document.getElementById('cifre-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var name    = document.getElementById('cifre-name').value.trim();
+        var email   = document.getElementById('cifre-email').value.trim();
+        var company = document.getElementById('cifre-company').value.trim();
+        var role    = document.getElementById('cifre-role').value.trim();
+        var website = document.getElementById('cifre-website').value.trim();
+        var consent = document.getElementById('cifre-consent').checked;
+        var btn     = document.getElementById('cifre-btn');
+        var msg     = document.getElementById('cifre-form-msg');
+        if (!name || !email || !consent) {
+          msg.className = 'download-form-msg error';
+          msg.textContent = 'Te rugăm completează câmpurile obligatorii și bifează acordul.';
+          return;
+        }
+        btn.disabled = true;
+        btn.textContent = 'Se trimite...';
+        msg.className = 'download-form-msg';
+        gtag('event', 'form_submit', { event_category: 'download', event_label: '30-cifre-ai-munca' });
+        try {
+          var res = await fetch('/api/download', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ resource: '30-cifre-ai-munca', name: name, email: email, company: company, role: role, website: website })
+          });
+          var data = await res.json();
+          if (res.ok) {
+            gtag('event', 'content_unlock', { event_category: 'conversion', event_label: '30-cifre-ai-munca' });
+            unlock();
+          } else { throw new Error(data.message || 'Eroare la trimitere'); }
+        } catch (err) {
+          msg.className = 'download-form-msg error';
+          msg.textContent = 'Ceva nu a mers. Încearcă din nou sau scrie la contact@upvance.global';
+          btn.disabled = false;
+          btn.innerHTML = 'Vreau toate cele 30 de date <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
