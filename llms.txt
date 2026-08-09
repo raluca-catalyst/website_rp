@@ -27,6 +27,7 @@ Raluca Păduraru este educator de AI fluency și consultant independent (Upvance
 ## Resurse
 
 - [Romanian State of AI 2026](https://www.ralucapaduraru.ro/romanian-state-of-ai/) — Al doilea an de măsurare a maturității AI în organizațiile din România: 514 respondenți, comparație cu 2025, raport complet cu distribuții deschise
+- [30 de date verificate despre AI și muncă](https://www.ralucapaduraru.ro/resources/30-cifre-ai-munca/) — 30 de cifre despre inteligența artificială și muncă, fiecare cu sursa originală și cu capcana de citire; plus 6 cifre celebre demontate la sursă
 - [Blueprint AI Fluency](https://www.ralucapaduraru.ro/resources/blueprint-ai-fluency/) — Ghid practic pentru organizații care vor să construiască AI fluency intern
 - [AI Evolution Arc](https://www.ralucapaduraru.ro/resources/ai-evolution-arc/) — Hartă a evoluției AI și impactul asupra muncii
 - [EU AI Act Compliance Checklist](https://www.ralucapaduraru.ro/resources/eu-ai-act-checklist/) — Checklist de conformitate la Regulamentul UE 2024/1689 pentru organizații care folosesc sisteme AI
