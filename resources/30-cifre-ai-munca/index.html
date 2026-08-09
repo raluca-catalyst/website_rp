@@ -95,6 +95,25 @@
       background: linear-gradient(to bottom, transparent, var(--bg));
     }
     .gate-fade.hidden { display: none; }
+    /* pdf box (apare dupa deblocare) */
+    .pdf-box {
+      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+      background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(167,139,250,0.05));
+      border: 1px solid rgba(167,139,250,0.3); border-radius: var(--radius);
+      padding: 26px 30px; margin: 32px 0 8px;
+    }
+    .pdf-box-icon {
+      flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px;
+      background: rgba(167,139,250,0.1); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; color: var(--lavender);
+    }
+    .pdf-box-text { flex: 1; min-width: 240px; }
+    .pdf-box-title {
+      font-family: var(--font-mono); font-weight: 700; font-size: 0.98rem;
+      color: var(--text); margin: 0 0 6px;
+    }
+    .pdf-box-sub { font-size: 0.88rem; color: var(--text-sec); margin: 0; line-height: 1.6; }
+    @media (max-width: 640px) { .pdf-box { padding: 22px; gap: 18px; } }
     /* download form */
     .download-form-wrap { max-width: 600px; margin: 0 auto; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -349,7 +368,7 @@
                 <p class="cifra-sursa"><strong>Sursa:</strong> Writer (furnizor de software de inteligență artificială pentru companii), sondajul „2026 AI Adoption in the Enterprise" (auto-evaluare a directorilor, cu atât mai credibilă cu cât e o mărturisire împotriva propriului interes).</p>
                 <div class="cifra-capcana">
                   <span class="capcana-label">Capcana</span>
-                  <p>În ședințe, ideea că avem strategie o strategie pentru implementarea inteligenței artificiale este văzută ca fiind o dovadă de pregătire. Dacă ne uităm la numărul de mai sus, vedem că, de fapt, el spune că existența documentului nu garantează nimic: <strong>3 din 4 dintre oamenii care au construit strategiile</strong> recunosc că deciziile de zi cu zi se iau pe alte criterii. Așadar, degeaba ne batem pe umăr apreciativ că am construit o strategie, dacă nu ne asigurăm că ea și e folosită în procesele decizionale de zi cu zi.</p>
+                  <p>În ședințe, ideea că avem o strategie pentru implementarea inteligenței artificiale este văzută ca fiind o dovadă de pregătire. Dacă ne uităm la numărul de mai sus, vedem că, de fapt, el spune că existența documentului nu garantează nimic: <strong>3 din 4 dintre oamenii care au construit strategiile</strong> recunosc că deciziile de zi cu zi se iau pe alte criterii. Așadar, degeaba ne batem pe umăr apreciativ că am construit o strategie, dacă nu ne asigurăm că ea și e folosită în procesele decizionale de zi cu zi.</p>
                 </div>
               </div>
             </article>
@@ -413,6 +432,26 @@
 
           <!-- ============ CONȚINUT BLOCAT (se deblochează după formular) ============ -->
           <div id="continut-blocat">
+
+            <!-- download PDF: fără data-tema, ca să rămână vizibil la orice filtru -->
+            <div class="pdf-box">
+              <div class="pdf-box-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="12" y1="12" x2="12" y2="18"/>
+                  <polyline points="9 15 12 18 15 15"/>
+                </svg>
+              </div>
+              <div class="pdf-box-text">
+                <p class="pdf-box-title">Ia documentul cu tine, în PDF</p>
+                <p class="pdf-box-sub">Aceleași 30 de date și aceleași 6 demontaje, cuvânt cu cuvânt, într-un document de 11 pagini pe fond alb, gata de printat sau de trimis echipei.</p>
+              </div>
+              <a href="/downloads/30-cifre-ai-munca.pdf" class="btn btn-primary" id="cifre-pdf-btn" download>
+                Descarcă PDF-ul
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 11l5 5 5-5M5 21h14"/></svg>
+              </a>
+            </div>
 
             <div data-tema="t1">
               <article class="cifra-card">
@@ -845,6 +884,14 @@
       var wasUnlocked = false;
       try { wasUnlocked = localStorage.getItem(STORAGE_KEY) === '1'; } catch (e) {}
       if (wasUnlocked || params.get('acces') === 'email') { unlock(); }
+
+      // download PDF
+      var pdfBtn = document.getElementById('cifre-pdf-btn');
+      if (pdfBtn) {
+        pdfBtn.addEventListener('click', function () {
+          gtag('event', 'file_download', { event_category: 'download', event_label: '30-cifre-ai-munca-pdf' });
+        });
+      }
 
       // filtre pe teme
       filterBar.addEventListener('click', function (e) {

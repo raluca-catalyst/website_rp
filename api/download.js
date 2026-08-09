@@ -109,6 +109,7 @@ const RESOURCES = {
   },
   '30-cifre-ai-munca': {
     pageUrl: 'https://ralucapaduraru.ro/resources/30-cifre-ai-munca/?acces=email',
+    pdfUrl: 'https://ralucapaduraru.ro/downloads/30-cifre-ai-munca.pdf',
     subject: 'Accesul tău: 30 de date verificate despre AI și muncă',
     notifySubject: (name, company) => `Nou unlock 30 cifre AI: ${name} (${company || 'N/A'})`,
     emailHtml: function () {
@@ -120,6 +121,7 @@ const RESOURCES = {
       <p>Mulțumesc că ai cerut lista completă. Pagina s-a deblocat deja în browserul în care ai completat formularul, iar dacă vrei să revii de pe alt dispozitiv, folosește linkul de mai jos:</p>
       <a class="cta" style="color:#111111" href="${this.pageUrl}" target="_blank">Deschide lista completă &rarr;</a>
       <p>Sunt 30 de date verificate despre inteligența artificială și muncă, fiecare cu sursa originală și cu capcana, adică felul în care cifra e citată greșit de obicei. La final găsești și secțiunea în care demontăm cifrele care circulă cel mai des prin prezentări și ședințe.</p>
+      <p>Dacă vrei documentul cu tine, ca să îl printezi sau să îl trimiți echipei, îl găsești și în <a href="${this.pdfUrl}" style="color:#9B8AF0">varianta PDF, de 11 pagini</a>.</p>
       <p>După ce le parcurgi, am o invitație: dă-mi un reply cu o singură propoziție. <strong>Care dintre cele 30 de date contrazice cel mai tare ceva ce s-a spus recent într-o ședință la tine?</strong> Răspunsurile mă ajută să construiesc materiale tot mai relevante pentru profesioniștii din România.</p>
       <p>P.S. Dacă vrei ca echipa ta să antreneze exact acest tip de discernământ, putem vorbi 30 de minute despre cum ar arăta un workshop adaptat la contextul vostru, fără obligații: <a href="${BOOKING_URL}" style="color:#9B8AF0">${BOOKING_URL}</a></p>`,
       });
