@@ -7,3 +7,6 @@ package.json
 docs/
 SEO-ACTION-PLAN.md
 SEO-AUDIT-REPORT.md
+
+.vercel
+.env*
