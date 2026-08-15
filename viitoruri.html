@@ -110,29 +110,6 @@
       --blue-scen:    #5E87A8;
     }
 
-    .btn-purple {
-      background: var(--purple);
-      color: #fff;
-      border: none;
-      padding: 14px 28px;
-      border-radius: var(--radius);
-      font-family: var(--font-mono);
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      transition: all var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .btn-purple:hover {
-      background: var(--purple-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px var(--purple-glow2);
-    }
-    .btn-purple:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
     .accent-purple { color: var(--purple); }
 
     /* COMING SOON */
@@ -467,7 +444,7 @@
     .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--purple); cursor: pointer; }
     .form-check label { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; cursor: pointer; }
     .form-submit-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .form-submit-wrap .btn-purple { width: 100%; justify-content: center; padding: 15px 28px; font-size: 0.9rem; }
+    .form-submit-wrap .btn-submit { width: 100%; justify-content: center; }
     .form-privacy { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
     .download-form-msg { margin-top: 16px; font-size: 0.9rem; border-radius: var(--radius); padding: 12px 16px; text-align: center; display: none; }
     .download-form-msg.success { display: block; background: rgba(107,158,116,0.15); border: 1px solid rgba(107,158,116,0.4); color: #7BC78A; }
@@ -593,7 +570,7 @@
         <p class="cs-form-title">Fii printre primii care îl primesc.</p>
         <form class="cs-form" id="waiting-list-form" novalidate>
           <input type="email" id="wl-email" name="email" placeholder="adresa ta de email" required autocomplete="email" />
-          <button type="submit" class="btn-purple" id="wl-btn">Anunță-mă la lansare</button>
+          <button type="submit" class="btn-submit" id="wl-btn">Anunță-mă la lansare</button>
         </form>
         <div id="wl-msg" class="cs-form-msg"></div>
         <p class="cs-fine-print">
@@ -633,7 +610,7 @@
                 pentru lideri, profesioniști și decidenți.
               </p>
               <div class="hero-cta">
-                <a href="#formular" class="btn-purple" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'descarca'})">
+                <a href="#formular" class="btn btn-primary" onclick="gtag('event','cta_click',{event_category:'hero',event_label:'descarca'})">
                   Descarcă raportul gratuit
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
@@ -858,7 +835,7 @@
                 </label>
               </div>
               <div class="form-submit-wrap">
-                <button type="submit" class="btn-purple" id="df-btn" onclick="gtag('event','form_submit',{event_category:'download',event_label:'raport'})">
+                <button type="submit" class="btn-submit" id="df-btn" onclick="gtag('event','form_submit',{event_category:'download',event_label:'raport'})">
                   Vreau raportul
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                 </button>
@@ -902,7 +879,7 @@
             <div class="label" style="margin: 0 auto 1rem;">Laboratoare</div>
             <h2>Vrei să explorezi aceste scenarii cu echipa ta?</h2>
             <p>Raportul e un punct de plecare solid. Raluca oferă laboratoare de foresight strategic, programe de AI fluency și sesiuni de debrief personalizate.</p>
-            <a href="https://calendar.app.google/97NFSpQYzKkJmkuL9" target="_blank" rel="noopener"
+            <a href="/contact.html"
                class="btn btn-primary"
                onclick="gtag('event','cta_click',{event_category:'footer',event_label:'programeaza'})">
               Hai să vorbim
