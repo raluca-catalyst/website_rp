@@ -50,9 +50,15 @@ Nu păstra și JS-ul, și HTML-ul static — bara ar apărea de două ori.
 
 ### C3. Asset og:image dedicat, 1200×630
 
-**Status 15 aug 2026: 11 din 23 de tag-uri rezolvate.** Raluca a produs 11 variante `images/og-default*.jpg` (1800×945, același raport 1.91:1, 195–467 KB fiecare), câte una per pagină, iar `portrait.png` nu mai e referit din niciun HTML — inclusiv cele 2 `<img>` din pagină (`viitoruri.html`, `build-your-cortex.html`), înlocuite cu decupaje de 51–53 KB. Dimensiunile declarate în meta sunt 1800×945, ca să corespundă fișierelor reale.
+**Status 15 aug 2026: ÎNCHIS.** Toate cele 23 de pagini trecute pe assets noi.
 
-**Rămas de făcut:** `images/frameworks.jpg` (3,48 MB, 10 tag-uri) și `images/build.png` (5,73 MB, **3** tag-uri, nu 2 — `resources/eu-ai-act-checklist`, `resources/blueprint-ai-fluency`, `resources/30-cifre-ai-munca`).
+Raluca a produs 11 variante `images/og-default*.jpg` (1800×945, același raport 1.91:1, 195–467 KB fiecare). Repartizare: câte una unică pe cele 11 pagini care foloseau `portrait.png`; `og-default5.jpg` pe cele 9 pagini care foloseau `frameworks.jpg`; `og-default9.jpg` pe cele 3 care foloseau `build.png`. Dimensiunile declarate în meta sunt 1800×945, ca să corespundă fișierelor reale.
+
+**Corecții la cifrele din audit:** `frameworks.jpg` era pe **9** pagini, nu 10 (8× `frameworks/*` plus `resources/ai-evolution-arc`). `build.png` era pe **3**, nu 2.
+
+**Rezolvat în plus, nesemnalat de audit:** `images/raluca-about-me.png` — 1,78 MB, `<img loading="eager">` la 400×400 pe `about.html`, deci imaginea LCP a paginii. Singurul fișier greu care se descărca efectiv la vizitare, restul erau doar `og:image`. Înlocuit cu `raluca-about-me.webp`, 27 KB, cu transparența păstrată. Tot atunci: cele 2 `<img>` cu `portrait.png` (12 MB) de pe `viitoruri.html` și `build-your-cortex.html`, înlocuite cu decupaje de 48–51 KB.
+
+**Curățenie:** 15 fișiere-imagine fără nicio referință în repo (83 MB) au fost șterse din working tree — originalele `.png`/`.jpg` ale imaginilor care se servesc deja ca `.webp`, plus assets-urile retrase mai sus. Folderul `images/` a scăzut de la ~90 MB la 6,5 MB. Rămân în istoricul git, deci mărimea la clonare nu se schimbă; ce scade e payload-ul fiecărui deploy.
 
 Creează `images/og-default.jpg` — 1200×630, sub 500 KB, JPG (nu WebP: scraperele de social îl citesc inconsecvent).
 
