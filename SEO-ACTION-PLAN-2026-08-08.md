@@ -50,6 +50,10 @@ Nu păstra și JS-ul, și HTML-ul static — bara ar apărea de două ori.
 
 ### C3. Asset og:image dedicat, 1200×630
 
+**Status 15 aug 2026: 11 din 23 de tag-uri rezolvate.** Raluca a produs 11 variante `images/og-default*.jpg` (1800×945, același raport 1.91:1, 195–467 KB fiecare), câte una per pagină, iar `portrait.png` nu mai e referit din niciun HTML — inclusiv cele 2 `<img>` din pagină (`viitoruri.html`, `build-your-cortex.html`), înlocuite cu decupaje de 51–53 KB. Dimensiunile declarate în meta sunt 1800×945, ca să corespundă fișierelor reale.
+
+**Rămas de făcut:** `images/frameworks.jpg` (3,48 MB, 10 tag-uri) și `images/build.png` (5,73 MB, **3** tag-uri, nu 2 — `resources/eu-ai-act-checklist`, `resources/blueprint-ai-fluency`, `resources/30-cifre-ai-munca`).
+
 Creează `images/og-default.jpg` — 1200×630, sub 500 KB, JPG (nu WebP: scraperele de social îl citesc inconsecvent).
 
 `images/portrait.png` (12,3 MB, 3750×3750) apare în **13 fișiere**, dar ca `og:image` în **11**. În celelalte 2 e referit din alt context — verifică fiecare înainte de înlocuire:
