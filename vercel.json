@@ -14,12 +14,14 @@
     { "source": "/api",           "destination": "/",            "permanent": true },
     { "source": "/resources/state-of-ai-romania",       "destination": "/romanian-state-of-ai/", "permanent": true },
     { "source": "/resources/state-of-ai-romania/:path*", "destination": "/romanian-state-of-ai/", "permanent": true },
-    { "source": "/state-of-ai.pdf", "destination": "/romanian-state-of-ai/", "permanent": true }
+    { "source": "/state-of-ai.pdf", "destination": "/romanian-state-of-ai/", "permanent": true },
+    { "source": "/summer-mentoring",      "destination": "/mentorat-ai", "permanent": true },
+    { "source": "/summer-mentoring.html", "destination": "/mentorat-ai", "permanent": true }
   ],
   "rewrites": [
     { "source": "/viitoruri", "destination": "/viitoruri.html" },
     { "source": "/contact",   "destination": "/contact.html"   },
-    { "source": "/summer-mentoring", "destination": "/summer-mentoring.html" },
+    { "source": "/mentorat-ai", "destination": "/mentorat-ai.html" },
     { "source": "/build-your-cortex", "destination": "/build-your-cortex.html" }
   ],
   "headers": [
