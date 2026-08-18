@@ -9,6 +9,53 @@
    clasa has-announce-bar pe <body>). Nu se mai injecteaza din JS: asa
    evitam shift-ul de layout la incarcare si ramane crawlabila.
    ============================ */
+(function initAnnounceMarquee() {
+  const bar  = document.querySelector('.announce-bar');
+  const link = bar && bar.querySelector('a');
+  if (!bar || !link) return;
+
+  // Cine cere miscare redusa ramane pe comportamentul static existent
+  // (prefix ascuns sub 480px + ellipsis): nu construim deloc marquee-ul.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Mutam link-ul intr-un track si adaugam o clona, ca bucla sa fie continua.
+  // Clona e ascunsa pentru screen readere si scoasa din ordinea de tab.
+  const track = document.createElement('div');
+  track.className = 'announce-track';
+  bar.appendChild(track);
+  track.appendChild(link);
+
+  const clone = link.cloneNode(true);
+  clone.setAttribute('aria-hidden', 'true');
+  clone.setAttribute('tabindex', '-1');
+  track.appendChild(clone);
+  bar.classList.add('is-marquee');
+
+  // Animatia porneste doar sub 600px (CSS); aici doar calculam durata,
+  // ca viteza sa ramana constanta indiferent cat de lung e anuntul.
+  const narrow = window.matchMedia('(max-width: 600px)');
+  const SPEED  = 45; // px pe secunda
+
+  function setSpeed() {
+    if (!narrow.matches) { track.style.animationDuration = ''; return; }
+    const loop = track.scrollWidth / 2; // latimea unei singure copii
+    if (loop > 0) track.style.animationDuration = (loop / SPEED).toFixed(1) + 's';
+  }
+  setSpeed();
+  // fonturile web schimba latimea textului -> recalculam dupa ce s-au incarcat
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setSpeed);
+  narrow.addEventListener('change', setSpeed);
+  window.addEventListener('resize', setSpeed, { passive: true });
+
+  // Pauza cat timp degetul (sau mouse-ul) e pe banda.
+  const pause  = () => bar.classList.add('is-paused');
+  const resume = () => bar.classList.remove('is-paused');
+  bar.addEventListener('pointerdown', pause);
+  bar.addEventListener('pointerup', resume);
+  bar.addEventListener('pointercancel', resume);
+  bar.addEventListener('pointerleave', resume);
+})();
+
 
 /* ============================
    1. NAV SCROLL

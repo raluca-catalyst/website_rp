@@ -138,6 +138,41 @@ body.has-announce-bar .mobile-menu { top: 36px; }
   .announce-bar-full { display: none; }
 }
 
+/* Banda curgatoare (marquee) pe mobil: track-ul si clona link-ului sunt
+   adaugate din js/main.js, ca sa nu atingem HTML-ul din fiecare pagina. */
+.announce-bar .announce-track {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+}
+.announce-bar .announce-track a[aria-hidden="true"] { display: none; }
+
+@media (max-width: 600px) {
+  .announce-bar.is-marquee { justify-content: flex-start; overflow: hidden; }
+  .announce-bar.is-marquee .announce-track {
+    flex: none;
+    width: max-content;
+    max-width: none;
+    animation: announce-scroll 18s linear infinite; /* durata reala o pune js/main.js */
+  }
+  .announce-bar.is-marquee .announce-track a {
+    flex: none;
+    padding: 0 24px;
+    overflow: visible;
+  }
+  .announce-bar.is-marquee .announce-track a[aria-hidden="true"] { display: flex; }
+  .announce-bar.is-marquee .announce-bar-full { display: inline; }
+  /* pauza cat timp degetul e pe banda */
+  .announce-bar.is-marquee.is-paused .announce-track { animation-play-state: paused; }
+}
+@keyframes announce-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .announce-bar.is-marquee .announce-track { animation: none; }
+}
+
 /* ============================
    NAVIGATION
    ============================ */
