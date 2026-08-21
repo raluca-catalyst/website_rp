@@ -100,16 +100,26 @@
         },
         "organizer": { "@type": "Organization", "name": "Upvance Global", "url": "https://upvance.global" },
         "performer": { "@type": "Person", "name": "Raluca Păduraru", "url": "https://www.ralucapaduraru.ro/" },
-        "maximumAttendeeCapacity": 14,
+        "maximumAttendeeCapacity": 20,
         "offers": [
           {
             "@type": "Offer",
-            "name": "Bilet Build Your Cortex (listă de așteptare)",
+            "name": "Bilet Build Your Cortex (preț de lansare)",
             "price": "1197",
             "priceCurrency": "RON",
-            "availability": "https://schema.org/PreOrder",
+            "availability": "https://schema.org/InStock",
             "url": "https://www.ralucapaduraru.ro/build-your-cortex#inscriere",
             "validFrom": "2026-08-04",
+            "validThrough": "2026-09-25"
+          },
+          {
+            "@type": "Offer",
+            "name": "Bilet Build Your Cortex (preț standard)",
+            "price": "1710",
+            "priceCurrency": "RON",
+            "availability": "https://schema.org/InStock",
+            "url": "https://www.ralucapaduraru.ro/build-your-cortex#inscriere",
+            "validFrom": "2026-09-26",
             "validThrough": "2026-10-16"
           }
         ]
@@ -271,28 +281,6 @@
     .byc-seal .s3{ font-family:var(--font-mono); font-weight:500; font-size:0.56rem; letter-spacing:0.14em; color:rgba(245,181,74,0.85); margin-top:5px; }
     .byc-price-tag{ color:var(--amber) !important; }
 
-    /* formular de înscriere */
-    .byc-form-wrap{ max-width:600px; margin:0 auto; }
-    .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-    .form-field{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; text-align:left; }
-    .form-field label{ font-family:var(--font-mono); font-size:0.7rem; font-weight:600;
-      letter-spacing:0.1em; text-transform:uppercase; color:var(--text-sec); }
-    .form-field input{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-      padding:13px 16px; font-family:inherit; font-size:0.95rem; color:var(--text); outline:none; transition:border-color 0.2s; }
-    .form-field input:focus{ border-color:var(--lavender); }
-    .form-field input::placeholder{ color:var(--text-muted); }
-    .form-check{ display:flex; gap:12px; align-items:flex-start; margin-bottom:24px; text-align:left; }
-    .form-check input[type="checkbox"]{ width:18px; height:18px; flex-shrink:0; margin-top:2px; accent-color:var(--lavender); cursor:pointer; }
-    .form-check label{ font-size:0.85rem; color:var(--text-sec); line-height:1.6; cursor:pointer; }
-    .form-submit-wrap{ display:flex; flex-direction:column; align-items:center; gap:12px; }
-    .form-submit-wrap .btn{ width:100%; justify-content:center; }
-    .form-privacy{ font-size:0.75rem; color:var(--text-muted); text-align:center; }
-    .hp-field{ position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden; }
-    .byc-form-msg{ margin-top:16px; font-size:0.9rem; border-radius:var(--radius); padding:12px 16px; text-align:center; display:none; }
-    .byc-form-msg.success{ display:block; background:rgba(107,158,116,0.15); border:1px solid rgba(107,158,116,0.4); color:#7BC78A; }
-    .byc-form-msg.error{ display:block; background:rgba(167,139,250,0.1); border:1px solid rgba(167,139,250,0.3); color:var(--lavender-lt); }
-    @media (max-width:600px){ .form-row{ grid-template-columns:1fr; } }
-
     /* Agenda: etapele nestate sub cele 6 ore de lucru */
     .byc-program{ margin-bottom: 1.4rem !important; }
     .byc-day-detail{ border-left: 2px solid var(--border); padding-left: clamp(1rem, 2.5vw, 1.75rem); margin-left: 0.25rem; }
@@ -391,7 +379,7 @@
         <li><a href="/contact">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <a href="#inscriere" class="nav-cta">Listă de așteptare</a>
+        <a href="#inscriere" class="nav-cta">Înscriere</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -594,7 +582,7 @@
         <p class="byc-hero-sub">Acum poți fi CEO-ul unui sistem.</p>
         <p class="byc-hero-lead">Pe 16 octombrie îți construiești Cortexul care te cunoaște și lucrează cot la cot cu tine ca să livreze rezultate. La finalul zilei pleci cu el funcțional, gata de pus la treabă.</p>
         <a href="#inscriere" class="btn btn-primary">
-          Înscrie-te pe lista de așteptare
+          Rezervă-ți locul
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -619,7 +607,7 @@
               <div class="l">au declarat că aplică în munca lor ce au construit în ziua aceea</div>
             </div>
           </div>
-          <p class="byc-proof-note">Toată sala a plecat cu directorul de operațiuni angajat și cu cel puțin un specialist integrat în sistem. Pe 16 octombrie facilitez ediția a doua. Dacă vrei să îți asiguri locul în sală, înscrie-te pe lista de așteptare.</p>
+          <p class="byc-proof-note">Toată sala a plecat cu directorul de operațiuni angajat și cu cel puțin un specialist integrat în sistem. Pe 16 octombrie facilitez ediția a doua. Dacă vrei să îți asiguri locul în sală, rezervă-ți locul mai jos. Locurile se ocupă în ordinea efectuării plăților.</p>
         </div>
       </div>
     </section>
@@ -858,14 +846,14 @@
         </ul>
 
         <div class="byc-price-card">
-          <div class="byc-price-tag">Preț special pentru lista de așteptare</div>
+          <div class="byc-price-tag">Preț de lansare, valabil până pe 25 septembrie</div>
           <div class="byc-amount">1.197 lei</div>
           <div class="byc-amount-sub"><span class="old">1.710 lei</span><span class="sep">·</span><span class="save">economisești 513 lei</span></div>
-          <a href="#inscriere" class="btn btn-primary">
-            Înscrie-te pe lista de așteptare
+          <a href="https://buy.stripe.com/aFacN4eMV43s1013UGenS0g?locale=ro" class="btn btn-primary byc-pay" target="_blank" rel="noopener">
+            Rezervă-ți locul
           </a>
         </div>
-        <p class="byc-price-note">Doar cei înscriși pe lista de așteptare beneficiază de prețul special de 1.197 lei. Locurile se ocupă în ordinea efectuării plăților, după deschiderea înscrierilor.</p>
+        <p class="byc-price-note">Până pe 25 septembrie inclusiv, biletul e 1.197 lei; din 26 septembrie, prețul devine 1.710 lei. Locurile se ocupă în ordinea efectuării plăților.</p>
         <div class="byc-quote" style="margin-left:auto;margin-right:auto;">
           <p>„Nu m-am așteptat nicio secundă să reușesc într-o zi ce nu am reușit în luni de zile."</p>
           <span class="who">Corina Neagu, consultant HR senior &middot; participantă la prima ediție</span>
@@ -873,53 +861,18 @@
       </div>
     </section>
 
-    <!-- ====================== FORMULAR DE ÎNSCRIERE ====================== -->
+    <!-- ====================== ÎNSCRIERE ====================== -->
     <section id="inscriere" class="byc-section section-alt byc-center">
       <div class="container">
-        <h2>Înscrie-te pe lista de așteptare pentru sesiunea din 16 octombrie</h2>
-        <p class="byc-section-intro">După ce completezi formularul, primești toate detaliile pe e-mail. Doar cei înscriși pe lista de așteptare beneficiază de prețul special de 1.197 lei. Locurile se ocupă în ordinea efectuării plăților, după deschiderea înscrierilor.</p>
-        <div class="byc-form-wrap">
-          <form id="byc-form" novalidate>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="byc-nume">Nume *</label>
-                <input type="text" id="byc-nume" name="nume" required placeholder="Popescu" autocomplete="family-name" />
-              </div>
-              <div class="form-field">
-                <label for="byc-prenume">Prenume *</label>
-                <input type="text" id="byc-prenume" name="prenume" required placeholder="Maria" autocomplete="given-name" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="byc-email">Email *</label>
-                <input type="email" id="byc-email" name="email" required placeholder="tu@companie.ro" autocomplete="email" />
-              </div>
-              <div class="form-field">
-                <label for="byc-telefon">Telefon *</label>
-                <input type="tel" id="byc-telefon" name="telefon" required placeholder="07xx xxx xxx" autocomplete="tel" />
-              </div>
-            </div>
-            <div class="hp-field" aria-hidden="true">
-              <label for="byc-website">Website</label>
-              <input type="text" id="byc-website" name="website" tabindex="-1" autocomplete="off" />
-            </div>
-            <div class="form-check">
-              <input type="checkbox" id="byc-consent" name="consent" required />
-              <label for="byc-consent">
-                Sunt de acord să primesc pe email informațiile despre sesiunea din 16 octombrie, inclusiv detaliile de înscriere și de plată.
-              </label>
-            </div>
-            <div class="form-submit-wrap">
-              <button type="submit" class="btn btn-primary" id="byc-btn">
-                Trimite
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-              <p class="form-privacy">Datele tale sunt în siguranță și nu vor fi distribuite terților.</p>
-            </div>
-            <div id="byc-form-msg" class="byc-form-msg"></div>
-          </form>
+        <h2>Rezervă-ți locul la sesiunea din 16 octombrie</h2>
+        <p class="byc-section-intro" style="text-align:center; max-width:680px; margin-left:auto; margin-right:auto;">Dacă plătești până pe 25 septembrie, inclusiv, costul este de 1.197 lei, față de 1.710 lei prețul standard. Locurile se ocupă în ordinea efectuării plăților.</p>
+        <div style="text-align:center;">
+          <a href="https://buy.stripe.com/aFacN4eMV43s1013UGenS0g?locale=ro" class="btn btn-primary byc-pay" target="_blank" rel="noopener">
+            Rezervă-ți locul
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
+        <p class="byc-section-intro" style="margin-top:32px; margin-bottom:0; text-align:center; max-width:680px; margin-left:auto; margin-right:auto;">Dacă ai nevoie de factură pe firmă, nu uita să completezi CUI-ul când efectuezi plata. Vei primi confirmarea plății imediat pe email, iar de factură mă ocup personal. Dacă ai întrebări înainte de a efectua plata, dă-mi un email pe <a href="mailto:raluca@upvance.global">raluca@upvance.global</a>.</p>
       </div>
     </section>
 
@@ -928,8 +881,8 @@
       <div class="container">
         <h2 id="byc-cta-heading">Sesiune nouă pe 16 octombrie, la Nagarro Orhideea Towers. Sunt disponibile doar 20 de locuri.</h2>
         <p>Dacă vrei să termini ziua cu un sistem AI care chiar lucrează pentru tine, ne vedem pe 16 octombrie!</p>
-        <a href="#inscriere" class="btn btn-primary">
-          Înscrie-te pe lista de așteptare
+        <a href="https://buy.stripe.com/aFacN4eMV43s1013UGenS0g?locale=ro" class="btn btn-primary byc-pay" target="_blank" rel="noopener">
+          Rezervă-ți locul
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
@@ -957,52 +910,10 @@
 
   <script src="js/main.js"></script>
   <script>
-    document.getElementById('byc-form').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const nume    = document.getElementById('byc-nume').value.trim();
-      const prenume = document.getElementById('byc-prenume').value.trim();
-      const email   = document.getElementById('byc-email').value.trim();
-      const telefon = document.getElementById('byc-telefon').value.trim();
-      const website = document.getElementById('byc-website').value.trim();
-      const consent = document.getElementById('byc-consent').checked;
-      const btn     = document.getElementById('byc-btn');
-      const msg     = document.getElementById('byc-form-msg');
-
-      if (!nume || !prenume || !email || !telefon || !consent) {
-        msg.className = 'byc-form-msg error';
-        msg.textContent = 'Te rog completează toate câmpurile și bifează acordul.';
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = 'Se trimite...';
-      msg.className = 'byc-form-msg';
-      gtag('event', 'form_submit', { event_category: 'inscriere', event_label: 'build-your-cortex-oct' });
-
-      try {
-        const res = await fetch('/api/download', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            resource: 'build-your-cortex-oct',
-            name: (prenume + ' ' + nume).trim(),
-            prenume, nume, email, telefon, website
-          })
-        });
-        const data = await res.json();
-        if (res.ok) {
-          msg.className = 'byc-form-msg success';
-          msg.textContent = 'Mail-ul cu toate detaliile a plecat spre tine. Verifică și folder-ul de spam. Mulțumesc!';
-          this.reset();
-          btn.textContent = 'Trimis! ✓';
-          gtag('event', 'inscriere_completa', { event_category: 'conversion', event_label: 'build-your-cortex-oct' });
-        } else { throw new Error(data.message || 'Eroare la trimitere'); }
-      } catch (err) {
-        msg.className = 'byc-form-msg error';
-        msg.textContent = 'Ceva n-a mers. Încearcă din nou sau scrie-mi la contact@upvance.global.';
-        btn.disabled = false;
-        btn.textContent = 'Trimite';
-      }
+    document.querySelectorAll('a.byc-pay').forEach(function (a) {
+      a.addEventListener('click', function () {
+        gtag('event', 'begin_checkout', { event_category: 'conversion', event_label: 'build-your-cortex-oct' });
+      });
     });
   </script>
 </body>
