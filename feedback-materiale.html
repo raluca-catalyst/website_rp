@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Spune-mi cum a fost | Raluca Păduraru</title>
+  <meta name="description" content="Feedback despre materialele descărcate de pe ralucapaduraru.ro." />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Barlow:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .fb-main { max-width: 640px; margin: 0 auto; padding: 120px 24px 80px; }
+    .fb-intro { margin-bottom: 40px; }
+    .fb-intro p { color: var(--text-sec); font-size: 1.02rem; line-height: 1.7; margin-top: 16px; }
+    .fb-intro p em { color: var(--lavender-lt); font-style: italic; }
+    .fb-q { margin-bottom: 36px; }
+    .fb-q-label { font-family: var(--font-mono); font-weight: 700; font-size: 1rem; color: var(--text); display: block; margin-bottom: 14px; line-height: 1.45; }
+    .fb-q-hint { font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-body); font-weight: 400; }
+    .fb-choice { display: flex; gap: 12px; align-items: flex-start; padding: 11px 14px; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 8px; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+    .fb-choice:hover { background: rgba(167,139,250,0.05); border-color: rgba(167,139,250,0.3); }
+    .fb-choice input { width: 17px; height: 17px; flex-shrink: 0; margin-top: 2px; accent-color: var(--lavender); cursor: pointer; }
+    .fb-choice span { font-size: 0.92rem; color: var(--text-sec); line-height: 1.55; }
+    .fb-altceva-input { width: 100%; margin-top: 6px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 14px; color: var(--text); font-family: var(--font-body); font-size: 0.92rem; display: none; }
+    .fb-altceva-input:focus { outline: none; border-color: var(--lavender); }
+    .fb-textarea { width: 100%; min-height: 96px; resize: vertical; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 14px; color: var(--text); font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6; }
+    .fb-textarea:focus { outline: none; border-color: var(--lavender); }
+    .fb-textarea::placeholder { color: var(--text-muted); }
+    .fb-email-field { margin-bottom: 32px; }
+    .fb-email-field label { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); display: block; margin-bottom: 8px; }
+    .fb-email-field input { width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius); padding: 11px 14px; color: var(--text); font-family: var(--font-body); font-size: 0.95rem; }
+    .fb-email-field input:focus { outline: none; border-color: var(--lavender); }
+    .form-submit-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .form-submit-wrap .btn { width: 100%; justify-content: center; }
+    .form-privacy { font-size: 0.75rem; color: var(--text-muted); text-align: center; }
+    .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+    .download-form-msg { margin-top: 16px; font-size: 0.9rem; border-radius: var(--radius); padding: 12px 16px; text-align: center; display: none; }
+    .download-form-msg.success { display: block; background: rgba(107,158,116,0.15); border: 1px solid rgba(107,158,116,0.4); color: #7BC78A; }
+    .download-form-msg.error   { display: block; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3); color: var(--lavender-lt); }
+    .fb-header { position: absolute; top: 0; left: 0; right: 0; padding: 28px 32px; }
+    .fb-header img { height: 30px; filter: brightness(0) invert(1); opacity: 0.88; }
+  </style>
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot → GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+</head>
+<body>
+
+  <header class="fb-header">
+    <a href="/index.html"><img src="/images/logo.png" alt="Raluca Păduraru" /></a>
+  </header>
+
+  <main class="fb-main">
+    <div class="fb-intro">
+      <span class="label">Feedback materiale</span>
+      <h1>Spune-mi cum a fost</h1>
+      <p id="fb-intro-text">Ai descărcat <em id="fb-material-name">un material</em> de pe site. Patru întrebări, sub un minut. Răspunsurile tale decid ce materiale construiesc în continuare.</p>
+    </div>
+
+    <form id="fb-form" novalidate>
+
+      <div class="fb-q">
+        <label class="fb-q-label">1. Ce te-a făcut să descarci materialul? <span class="fb-q-hint">(poți alege mai multe)</span></label>
+        <label class="fb-choice"><input type="checkbox" name="motive" value="Căutam ceva concret pentru un proiect sau o problemă de la muncă" /><span>Căutam ceva concret pentru un proiect sau o problemă de la muncă</span></label>
+        <label class="fb-choice"><input type="checkbox" name="motive" value="Vreau să înțeleg mai bine ce schimbă AI în domeniul meu" /><span>Vreau să înțeleg mai bine ce schimbă AI în domeniul meu</span></label>
+        <label class="fb-choice"><input type="checkbox" name="motive" value="L-am salvat pentru mai târziu" /><span>L-am salvat „pentru mai târziu&#8221;</span></label>
+        <label class="fb-choice"><input type="checkbox" name="motive" value="Mi l-a recomandat cineva" /><span>Mi l-a recomandat cineva</span></label>
+        <label class="fb-choice"><input type="checkbox" name="motive" value="Voiam să văd ce tip de servicii oferă Raluca Păduraru" /><span>Voiam să văd ce tip de servicii oferă Raluca Păduraru</span></label>
+        <label class="fb-choice"><input type="checkbox" name="motive" value="Altceva" id="fb-altceva-check" /><span>Altceva</span></label>
+        <input type="text" id="fb-altceva" class="fb-altceva-input" placeholder="Spune-mi ce anume" />
+      </div>
+
+      <div class="fb-q">
+        <label class="fb-q-label">2. L-ai folosit efectiv?</label>
+        <label class="fb-choice"><input type="radio" name="folosit" value="Da, mi-a folosit" /><span>Da, mi-a folosit</span></label>
+        <label class="fb-choice"><input type="radio" name="folosit" value="Am încercat, dar m-am blocat" /><span>Am încercat, dar m-am blocat</span></label>
+        <label class="fb-choice"><input type="radio" name="folosit" value="Nu încă" /><span>Nu încă</span></label>
+      </div>
+
+      <div class="fb-q">
+        <label class="fb-q-label" for="fb-teme">3. Pe ce temă sau teme ți-ar fi util să mai public materiale noi?</label>
+        <textarea id="fb-teme" class="fb-textarea" placeholder="Scrie liber, orice temă care te-ar ajuta la muncă."></textarea>
+      </div>
+
+      <div class="fb-q">
+        <label class="fb-q-label" for="fb-maimulte">4. Vrei să-mi spui mai multe? Lasă-mi un rând și îți răspund.</label>
+        <textarea id="fb-maimulte" class="fb-textarea" placeholder="Opțional. Citesc și răspund personal la fiecare mesaj."></textarea>
+      </div>
+
+      <div class="fb-email-field">
+        <label for="fb-email">Emailul tău</label>
+        <input type="email" id="fb-email" name="email" required placeholder="tu@companie.ro" autocomplete="email" />
+      </div>
+
+      <div class="hp-field" aria-hidden="true">
+        <label for="fb-website">Website</label>
+        <input type="text" id="fb-website" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <div class="form-submit-wrap">
+        <button type="submit" class="btn btn-primary" id="fb-btn">
+          Trimite răspunsurile
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p class="form-privacy">Datele tale sunt în siguranță și nu vor fi distribuite terților.</p>
+      </div>
+      <div id="fb-form-msg" class="download-form-msg"></div>
+    </form>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="/index.html" class="footer-logo">
+            <img src="/images/logo.png" alt="Raluca Păduraru" />
+          </a>
+          <p class="footer-copy">© 2026 Raluca Păduraru. All rights reserved.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener">Newsletter</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy.html">Politică de confidențialitate</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Pre-completare din linkul personalizat: ?e=email&m=material
+    var MATERIAL_NAMES = {
+      'viitoruri': 'raportul Patru viitoruri ale muncii în România 2030',
+      'ai-business-translator': 'AI Business Translator Framework',
+      'romanian-state-of-ai-sumar': 'sumarul executiv Romanian State of AI 2026',
+      '30-cifre-ai-munca': '30 de cifre despre AI și muncă'
+    };
+    var params = new URLSearchParams(window.location.search);
+    var prefEmail = params.get('e') || '';
+    var prefMaterial = params.get('m') || '';
+    if (prefEmail) document.getElementById('fb-email').value = prefEmail;
+    if (prefMaterial && MATERIAL_NAMES[prefMaterial.split('+')[0]]) {
+      var names = prefMaterial.split('+').filter(function(m){ return MATERIAL_NAMES[m]; }).map(function(m){ return MATERIAL_NAMES[m]; });
+      document.getElementById('fb-material-name').textContent = names.join(' și ');
+      if (names.length > 1) {
+        document.getElementById('fb-intro-text').childNodes[0].textContent = 'Ai descărcat ';
+      }
+    }
+
+    // Câmpul "Altceva" apare doar când e bifat
+    document.getElementById('fb-altceva-check').addEventListener('change', function() {
+      document.getElementById('fb-altceva').style.display = this.checked ? 'block' : 'none';
+      if (this.checked) document.getElementById('fb-altceva').focus();
+    });
+
+    document.getElementById('fb-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      var email = document.getElementById('fb-email').value.trim();
+      var motive = Array.prototype.map.call(document.querySelectorAll('input[name="motive"]:checked'), function(el){ return el.value; })
+        .filter(function(v){ return v !== 'Altceva'; });
+      var motivAltceva = document.getElementById('fb-altceva-check').checked ? document.getElementById('fb-altceva').value.trim() : '';
+      var folositEl = document.querySelector('input[name="folosit"]:checked');
+      var folosit = folositEl ? folositEl.value : '';
+      var teme = document.getElementById('fb-teme').value.trim();
+      var maimulte = document.getElementById('fb-maimulte').value.trim();
+      var website = document.getElementById('fb-website').value.trim();
+      var btn = document.getElementById('fb-btn');
+      var msg = document.getElementById('fb-form-msg');
+
+      if (!email) {
+        msg.className = 'download-form-msg error';
+        msg.textContent = 'Completează emailul, ca să știu cui răspund.';
+        return;
+      }
+      if (motive.length === 0 && !motivAltceva && !folosit && !teme && !maimulte) {
+        msg.className = 'download-form-msg error';
+        msg.textContent = 'Răspunde la întrebări înainte să finalizezi.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Se trimite...';
+      try {
+        var res = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            motive: motive,
+            motivAltceva: motivAltceva,
+            folosit: folosit,
+            teme: teme,
+            maimulte: maimulte,
+            material: prefMaterial,
+            website: website
+          })
+        });
+        var data = await res.json();
+        if (res.ok && data.ok) {
+          msg.className = 'download-form-msg success';
+          msg.textContent = 'Mulțumesc! Am primit răspunsurile tale.';
+          btn.textContent = 'Trimis';
+        } else {
+          msg.className = 'download-form-msg error';
+          msg.textContent = data.error || 'Nu s-a putut trimite. Mai încearcă o dată.';
+          btn.disabled = false;
+          btn.textContent = 'Trimite răspunsurile';
+        }
+      } catch (err) {
+        msg.className = 'download-form-msg error';
+        msg.textContent = 'Nu s-a putut trimite. Verifică conexiunea la internet și mai încearcă o dată.';
+        btn.disabled = false;
+        btn.textContent = 'Trimite răspunsurile';
+      }
+    });
+  </script>
+</body>
+</html>
