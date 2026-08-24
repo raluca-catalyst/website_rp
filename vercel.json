@@ -23,7 +23,8 @@
     { "source": "/contact",   "destination": "/contact.html"   },
     { "source": "/mentorat-ai", "destination": "/mentorat-ai.html" },
     { "source": "/build-your-cortex", "destination": "/build-your-cortex.html" },
-    { "source": "/feedback-materiale", "destination": "/feedback-materiale.html" }
+    { "source": "/feedback-materiale", "destination": "/feedback-materiale.html" },
+    { "source": "/people-architects", "destination": "/people-architects.html" }
   ],
   "headers": [
     {
