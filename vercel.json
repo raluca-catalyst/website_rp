@@ -9,6 +9,7 @@
     { "source": "/index.html",    "destination": "/",                                    "permanent": true },
     { "source": "/subscribe",     "destination": "https://ralucapaduraru.substack.com/", "permanent": true },
     { "source": "/media",         "destination": "/about.html",  "permanent": true },
+    { "source": "/privacy-policy", "destination": "/privacy.html", "permanent": true },
     { "source": "/download",      "destination": "/frameworks/", "permanent": true },
     { "source": "/ai-canvas.pdf", "destination": "/",            "permanent": true },
     { "source": "/api",           "destination": "/",            "permanent": true },
