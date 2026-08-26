@@ -55,6 +55,24 @@
       ]
     },
     {
+      "source": "/downloads/viitoruri-2030.pdf",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
+    },
+    {
+      "source": "/downloads/ai-business-translator-framework.pdf",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
+    },
+    {
+      "source": "/downloads/romanian-state-of-ai-sumar-executiv.pdf",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
+    },
+    {
       "source": "/cortex/skills/(.*)",
       "headers": [
         { "key": "Content-Type", "value": "application/octet-stream" },
