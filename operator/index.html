@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Decide before You Build</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon-180.png" />
+
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot -> GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --surface:#f7f4ff;
+    --code-bg:#f4f1fb;
+    --ink:#1d1836;
+    --body:#3a3553;
+    --muted:#635e7d;
+    --violet:#6d28d9;
+    --lavender:#7c3aed;
+    --lavender-lt:#a78bfa;
+    --border:rgba(124,58,237,0.16);
+    --font-mono:'JetBrains Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
+    --font-body:'Barlow','Segoe UI',system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  html,body{margin:0;padding:0;background:#e9e6f2;}
+  body{
+    font-family:var(--font-body);color:var(--body);
+    font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  }
+
+  .page{
+    background:var(--bg);max-width:900px;margin:24px auto;
+    padding:54px 60px 72px;box-shadow:0 10px 40px rgba(29,24,54,0.10);
+  }
+  @media(max-width:720px){.page{margin:0;padding:34px 20px 52px;}}
+
+  a{color:var(--violet);text-decoration:none;border-bottom:1px solid rgba(124,58,237,0.3);}
+  a:hover{border-bottom-color:var(--violet);}
+
+  /* ---------- Header ---------- */
+  .doc-head{border-bottom:1px solid var(--border);padding-bottom:34px;margin-bottom:8px;}
+  .logo-row{margin-bottom:38px;}
+  .logo-row img{height:44px;width:auto;display:block;}
+  a.logo-link{border-bottom:none;display:inline-block;}
+  .kicker{
+    font-family:var(--font-mono);font-size:0.72rem;font-weight:500;
+    letter-spacing:0.16em;text-transform:uppercase;color:var(--lavender);
+    display:flex;align-items:center;gap:9px;margin-bottom:16px;
+  }
+  .kicker::before{
+    content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--lavender);box-shadow:0 0 0 3px rgba(124,58,237,0.18);
+  }
+  h1{
+    font-family:var(--font-mono);font-weight:700;
+    font-size:clamp(1.75rem,4.4vw,2.6rem);line-height:1.12;letter-spacing:-0.02em;
+    color:var(--ink);margin:0 0 14px;
+  }
+  .tagline{
+    font-size:clamp(1.05rem,2.2vw,1.3rem);line-height:1.45;color:var(--violet);
+    font-weight:600;margin:0 0 24px;
+  }
+
+  /* ---------- Nav agenți ---------- */
+  .agent-nav{
+    position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--border);
+    margin:0 -60px 40px;padding:12px 60px;
+    display:flex;flex-wrap:wrap;gap:7px;align-items:center;
+  }
+  .agent-nav span{
+    font-family:var(--font-mono);font-size:0.66rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--muted);margin-right:4px;
+  }
+  .agent-nav a{
+    font-family:var(--font-mono);font-size:0.74rem;font-weight:600;
+    color:var(--violet);background:var(--surface);border:1px solid var(--border);
+    border-radius:999px;padding:6px 12px;white-space:nowrap;
+  }
+  .agent-nav a:hover{background:#efe9ff;border-color:var(--lavender);}
+  @media(max-width:720px){.agent-nav{margin:0 -20px 30px;padding:10px 20px;}}
+
+  /* ---------- Secțiuni ---------- */
+  section.agent{padding-top:26px;margin-bottom:20px;border-top:1px solid var(--border);}
+  section.agent:first-of-type{border-top:none;}
+  h2{
+    font-family:var(--font-mono);font-weight:700;
+    font-size:clamp(1.5rem,3.4vw,2.05rem);line-height:1.15;letter-spacing:-0.01em;
+    color:var(--ink);margin:22px 0 14px;scroll-margin-top:124px;
+  }
+  h3{
+    font-family:var(--font-mono);font-weight:600;font-size:1.12rem;
+    color:var(--violet);margin:42px 0 12px;scroll-margin-top:124px;
+    padding-bottom:8px;border-bottom:1px solid var(--border);
+  }
+  h4{
+    font-family:var(--font-mono);font-weight:600;font-size:0.95rem;
+    color:var(--ink);margin:32px 0 8px;
+  }
+  p{margin:0 0 14px;}
+  strong{color:var(--ink);font-weight:600;}
+  .ps{font-size:0.92rem;color:var(--muted);margin-top:-6px;}
+  .sub{margin:8px 0 4px;color:var(--muted);}
+  .tema{
+    background:var(--surface);border-left:3px solid var(--lavender-lt);
+    padding:14px 18px;margin:18px 0 8px;
+  }
+  .cum-fct{
+    font-family:var(--font-mono);font-weight:700;font-size:1.05rem;
+    color:var(--violet);margin:26px 0 12px;
+  }
+  .reco{
+    background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--lavender);
+    border-radius:8px;padding:14px 18px;margin:12px 0 4px;
+  }
+  .reco strong{color:var(--violet);}
+  .durata{
+    font-family:var(--font-mono);font-size:0.72rem;font-weight:600;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--lavender);
+    margin:-6px 0 14px;
+  }
+  .heads-up{
+    background:#fbf7ff;border:1px solid var(--border);border-left:3px solid var(--violet);
+    border-radius:8px;padding:12px 16px;margin:14px 0 18px;font-size:0.92rem;
+  }
+  .heads-up strong{color:var(--violet);}
+
+  ul{margin:0 0 16px;padding-left:0;list-style:none;}
+  ul li{position:relative;padding-left:20px;margin-bottom:9px;}
+  ul li::before{
+    content:"";position:absolute;left:2px;top:0.62em;
+    width:6px;height:6px;border-radius:50%;background:var(--lavender-lt);
+  }
+  ol{margin:0 0 16px;padding-left:24px;}
+  ol li{margin-bottom:12px;}
+  ol li::marker{color:var(--lavender);font-family:var(--font-mono);font-weight:600;}
+  ol ul{margin:10px 0 4px;}
+
+  /* ---------- La ce să te aștepți ---------- */
+  .expect{
+    background:var(--surface);border:1px solid var(--border);border-radius:10px;
+    padding:22px 24px 10px;margin:20px 0 26px;
+  }
+  .expect>p:first-child{
+    font-family:var(--font-mono);font-size:0.72rem;font-weight:600;
+    letter-spacing:0.12em;text-transform:uppercase;color:var(--lavender);
+    margin-bottom:14px;
+  }
+  .expect ul{margin-bottom:14px;}
+
+  /* ---------- Blocuri de prompt ---------- */
+  .prompt{margin:16px 0 22px;}
+  .prompt-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:7px;}
+  .prompt-label{
+    font-family:var(--font-mono);font-size:0.68rem;font-weight:600;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .copy-btn{
+    font-family:var(--font-mono);font-size:0.68rem;font-weight:600;letter-spacing:0.06em;
+    text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#7c3aed,#6d28d9);
+    border:1px solid rgba(167,139,250,0.28);border-radius:6px;padding:7px 16px;cursor:pointer;
+    box-shadow:0 0 12px rgba(124,58,237,0.18);transition:all .2s ease;
+  }
+  .copy-btn:hover{background:linear-gradient(135deg,#8b5cf6,#7c3aed);transform:translateY(-1px);}
+  .copy-btn.copied{background:#fff;color:var(--violet);box-shadow:none;}
+  .legend{
+    font-size:0.82rem;color:var(--muted);margin:0 0 8px;
+  }
+  pre{
+    background:var(--code-bg);border:1px solid var(--border);border-left:3px solid var(--lavender);
+    border-radius:8px;padding:18px 20px;margin:0;max-height:420px;overflow-y:auto;
+    font-family:var(--font-mono);font-size:0.78rem;line-height:1.62;color:var(--ink);
+    white-space:pre-wrap;word-wrap:break-word;
+  }
+  pre .edit{
+    display:inline;border-bottom:2px solid var(--lavender-lt);
+  }
+  pre .fill{
+    display:inline;border-bottom:2px dashed var(--lavender);color:var(--violet);
+  }
+
+  /* ---------- Bio ---------- */
+  .bio{margin-top:54px;padding-top:34px;border-top:1px solid var(--border);}
+  .bio h2{font-size:1.45rem;margin:0 0 16px;}
+  .bio p{font-size:0.96rem;}
+  .bio-links{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 0;}
+  .bio-links a{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--font-mono);font-size:0.76rem;font-weight:600;
+    color:var(--violet);background:var(--surface);border:1px solid var(--border);
+    border-radius:999px;padding:8px 16px;
+  }
+  .bio-links a:hover{background:#efe9ff;border-color:var(--lavender);}
+  .bio-links svg{width:15px;height:15px;flex:none;}
+  .inits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px;}
+  .init{
+    background:var(--surface);border:1px solid var(--border);
+    border-radius:10px;padding:18px 20px;
+  }
+  .init h3{
+    font-size:0.92rem;line-height:1.35;margin:0 0 9px;
+    padding:0;border-bottom:none;color:var(--violet);
+  }
+  .init h3 a{border-bottom:1px solid rgba(124,58,237,0.3);}
+  .init p{font-size:0.85rem;line-height:1.55;color:var(--muted);margin:0;}
+  @media(max-width:720px){.inits{grid-template-columns:1fr;}}
+
+  /* ---------- Final ---------- */
+  .copyright-box{
+    margin-top:48px;background:var(--surface);border:1px solid var(--border);
+    border-radius:10px;padding:20px 24px;font-size:0.86rem;color:var(--muted);
+  }
+  .copyright-box strong{font-family:var(--font-mono);font-size:0.85rem;color:var(--violet);}
+  .doc-foot{
+    margin-top:34px;padding-top:28px;border-top:1px solid var(--border);
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  }
+  .doc-foot img{height:26px;width:auto;display:block;}
+  .doc-foot p{font-family:var(--font-mono);font-size:0.72rem;color:var(--muted);margin:0;}
+
+  @media print{
+    html,body{background:#fff;}
+    .page{box-shadow:none;max-width:none;padding:0;}
+    .agent-nav,.copy-btn{display:none;}
+    pre{max-height:none;overflow:visible;font-size:0.62rem;}
+    section.agent{page-break-before:always;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+
+  <header class="doc-head">
+    <div class="logo-row"><a href="https://www.ralucapaduraru.ro" target="_blank" rel="noopener" class="logo-link"><img src="../images/logo-lavender.png" alt="Raluca Păduraru" /></a></div>
+
+<h1>Decide before You Build</h1>
+
+<p class="tagline">Pleci din sesiune știind exact cum se construiește un agent</p>
+
+<p>Pe pagina asta sunt 4 agenți. Alegi unul, îl construiești în <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> copiind blocurile de mai jos, în ordine, și obții un artefact vizual, pe baza căruia poți lua decizii și acționa. Pe organizația demo îți ia 10-15 minute; pe organizația ta, până spre 45 de minute.</p>
+
+<p><strong>De ce ai nevoie:</strong> de un laptop și de un cont <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>, în care să te fi logat. Din selectorul de model de sus, alege <strong>Opus 5</strong>, deoarece calitatea artefactului diferă mult în funcție de complexitatea modelului pe care îl alegi.</p>
+
+<p class="cum-fct">Cum funcționează, în 3 pași</p>
+
+<ol>
+  <li><strong>Alege cum vrei să lucrezi:</strong> cu informațiile reale despre organizația ta sau cu o organizație fictivă, construită special pentru ca tu să poți exersa fără stres.
+    <p>Dacă alegi să lucrezi pornind de la situația din organizația ta, vei avea nevoie de diverse informații și date reale și exercițiul se poate prelungi spre 45 minute, în funcție de complexitatea speței abordate.</p>
+    <p>Dacă alegi să lucrezi pe organizația demo, nu ai nevoie de nimic adițional și nici nu vei avea nevoie de timp adițional.</p>
+    <p><strong>Scopul demo-ului este ca la final să înțelegi procesul prin care poți construi un agent, fără să compromiți informații din organizația ta.</strong></p>
+    <p class="reco"><strong>Recomandarea Ralucăi:</strong> dacă nu ai cifrele la tine, organizația demo e alegerea bună pentru că îți dă ocazia să exersezi, să înțelegi cum funcționează mecanismul și apoi, cu experiența obținută acum, să continui acasă pe organizația ta.</p>
+  </li>
+  <li><strong>Alege ce agent vrei să construiești în sală.</strong> Pe ceilalți îi poți construi acasă.
+    <ul>
+      <li><a href="#boardroom"><strong>Boardroom</strong></a>: consiliul tău strategic: 3-5 consilieri dezbat o decizie de-ale tale, votează și îți construiesc un artefact vizual cu KPI care variază în funcție de scenarii interactive.</li>
+      <li><a href="#meeting-assistant"><strong>Meeting Assistant</strong></a>: transformă notițele luate într-o ședință într-un artefact vizual pe baza căruia poți lua decizii, alături de un email de follow-up scris în stilul tău.</li>
+      <li><a href="#offer"><strong>Offer</strong></a>: transformă notițele luate în timpul unei discuții cu un prospect într-o schiță de ofertă, pe structura și tonul pe care funcționează, de regulă, ofertele pe care le trimiți.</li>
+      <li><a href="#cockpit"><strong>Cockpit</strong></a>: tabloul de bord al firmei tale: unde stai față de obiectivul anului, ce proiecte stagnează, ce așteaptă o decizie de la tine, 3 acțiuni pentru a ajunge la nivelul următor.</li>
+    </ul>
+  </li>
+  <li><strong>Citește instrucțiunile de pe pagină și urmează-le.</strong> Vei găsi niște prompturi care trebuie copiate ca atare, în ordinea menționată. Completează-le cu informațiile despre organizația ta sau despre organizația demo.
+  </li>
+</ol>
+
+  </header>
+
+
+  <nav class="agent-nav">
+    <span>Sari la</span>
+    <a href="#boardroom">Boardroom</a>
+    <a href="#meeting-assistant">Meeting Assistant</a>
+    <a href="#offer">Offer</a>
+    <a href="#cockpit">Cockpit</a>
+    <a href="#fisa-ventora">Fișa Ventora</a>
+    <a href="#despre-raluca">Despre Raluca</a>
+  </nav>
+
+
+  <section class="agent" id="sec-boardroom">
+<h2 id="boardroom">Boardroom</h2>
+
+<p>Consiliul tău strategic format din 3-5 consilieri care își argumentează perspective, se contrazic, votează și îți construiesc un artefact vizual în care găsești opiniile lor, decizia recomandată, scorul voturilor și scenarii cu care poți interacționa pentru a le testa.</p>
+
+<aside class="expect">
+<p>La ce să te aștepți:</p>
+
+<p><strong>Dacă lucrezi cu organizația demo:</strong> Testezi use-case-ul pe un business fictiv, ale cărui informații le ai integral la dispoziție. Astfel, experimentezi și înțelegi procesul, vezi dacă rezultatul ți-ar folosi în organizația ta și dacă da, îl poți implementa acasă.</p>
+
+<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#boardroom-hibrid"><strong>drumul de mijloc</strong></a>.</p>
+
+<p><strong>Dacă lucrezi cu informații din organizația ta:</strong> Claude te intervievează și pleci cu o decizie de-ale tale analizată. Ai nevoie să știi:</p>
+
+<ul>
+  <li>linkul site-ului tău</li>
+  <li>ce vinzi și la ce tarife</li>
+  <li>unde ești față de obiectivul anului</li>
+  <li>câți oameni sunteți și câte ore ai la dispoziție pentru implementarea deciziei</li>
+  <li>care e cea mai mare provocare acum</li>
+  <li>ce nu e negociabil pentru tine.</li>
+  <li>3-5 consilieri (personas reale sau fictive) pe care vrei să-i ai la masă.</li>
+</ul>
+</aside>
+
+<h3 id="boardroom-demo">Boardroom cu organizația demo</h3>
+<p class="durata">10-15 minute · nu-ți trebuie nicio cifră</p>
+
+<p>Ventora Distribuție e organizația demo: un distribuitor de echipamente HVAC din Transilvania, cu 22 de oameni și depozit lângă Cluj. Vinde centrale termice, chillere și unități de ventilație firmelor de instalații și dezvoltatorilor mici și medii; nu montează și nu proiectează — vinde marfa și o livrează în șantier. În 2025 a făcut 6,5 milioane de lei; obiectivul pe 2026 e 8 milioane, dar la șapte luni e sub ritm. Cea mai mare provocare: trei clienți îi fac aproape jumătate din venit și o strâng pe preț, într-o piață în care distribuitorii naționali intră cu discounturi greu de susținut.</p>
+
+<p>Copiază blocul de mai jos într-o conversație nouă în claude.ai. Contextul firmei demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat) și decizia de analizat sunt deja integrate.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="boardroom-demo-bloc">Copiază</button>
+  </div>
+  <p class="legend">Găsești subliniate informațiile pe care îți recomand să le modifici în prompt în funcție de ce dorești să afli.</p>
+  <pre id="boardroom-demo-bloc">Ești consiliul meu strategic: consilierii de mai jos mă ajută să iau o decizie contrazicându-se între ei.
+
+CONTEXTUL MEU DE BUSINESS (conține și lista consilierilor mei):
+
+CE VÂND ȘI CUI
+Distribuim echipamente HVAC — centrale termice, chillere, unități de ventilație — către firme de instalații și dezvoltatori mici și medii din Transilvania. Nu montăm și nu proiectăm: vindem marfa și o livrăm în șantier. Adaos mediu 18%.
+
+<span class="edit">CIFRE</span>
+Cifră de afaceri 6,5 milioane de lei în 2025, marjă netă 11%. Obiectivul pe 2026 e 8 milioane; la șapte luni suntem la 3,6 milioane, deci sub ritm. Trei clienți fac 48% din venit. Termenul mediu de încasare e 45 de zile.
+
+CAPACITATE
+22 de oameni: 2 pe vânzări, 3 în depozit, 1 tehnic, restul administrativ și logistică. Eu am realist în jur de 10 ore pe săptămână pentru orice nu înseamnă vânzare curentă și stins incendii.
+
+PROVOCĂRI ȘI NON-NEGOCIABILE
+Cea mai mare provocare e dependența de cei trei clienți mari, care ne strâng și pe preț, într-o piață în care distribuitorii naționali intră cu discounturi pe care nu le pot susține. Nu vindem pe credit peste 60 de zile și nu deschidem punct de lucru în alt oraș anul acesta.
+
+<span class="edit">CONSILIUL MEU</span>
+Warren Buffett · Daniel Priestley · operatorul pragmatic · avocatul clientului · avocatul diavolului.
+
+<span class="edit">DECIZIA PE CARE O AM DE LUAT:</span>
+Lansez sau nu un serviciu de mentenanță pe abonament — contract anual, două revizii și intervenții prioritare — pentru care ar trebui să angajez doi tehnicieni.
+
+Consiliul: cel din secțiunea „consiliul meu" de mai sus. Fiecare consilier gândește ca persoana sau rolul pe care l-am ales, dar respectă aceleași reguli de mai jos. Dacă vreun consilier e o persoană pe care n-o cunoști suficient, spune-mi la început și propune-mi un înlocuitor — nu inventa biografii sau poziții publice.
+
+Dacă în context nu apare niciun consilier, folosește-i pe aceștia:
+1. Financiarul sceptic — gândește în cifre: cost, venit, marjă, cash. Cere calculul din spatele oricărui entuziasm.
+2. Avocatul clientului — gândește din scaunul celui care plătește: ce problemă îi rezolv, de ce ar alege asta și ar plăti pentru ea.
+3. Operatorul pragmatic — gândește în execuție: cine face, cât durează, ce se rupe primul când planul întâlnește realitatea.
+4. Vizionarul — gândește la 3 ani distanță: unde duce decizia asta, ce devine posibil dacă iese.
+5. Avocatul diavolului — atacă asumpțiile nespuse din decizia mea și caută motivul pentru care planul eșuează.
+
+Cum lucrezi, în ordinea asta:
+
+1. RUNDA 1. Fiecare consilier își susține poziția, 150-250 de cuvinte, pe cifrele din contextul meu, și dă un vot explicit: DA / NU / CONDIȚIONAT. La CONDIȚIONAT, condiția e concretă și verificabilă.
+2. RUNDA 2. Fiecare răspunde scurt consilierului cu care e cel mai în dezacord, spune dacă și-a schimbat părerea, și dă votul final.
+3. ARTEFACTUL. Construiește un singur fișier HTML, pe care să-l pot deschide în browser și arăta cuiva:
+   - decizia, sus, într-o propoziție
+   - scorul voturilor, vizibil dintr-o privire, în formatul „X DA · Y NU · Z CONDIȚIONAT", cu condiția fiecăruia listată
+   - cardul fiecărui consilier: rol, votul din runda 1 → votul final (schimbarea marcată vizibil), argumentul lui esențial într-o frază
+   - pro și contra, față în față
+   - 3 slidere pentru variabilele-cheie ale deciziei ĂSTEIA (alege-le tu: preț, număr de clienți, ore investite, rată de conversie — ce contează aici), care recalculează în timp real cifrele din scenarii. Valorile de pornire sunt cifrele din contextul meu.
+   - recomandarea consiliului
+   - ce ar trebui să aflu înainte să decid
+
+Cum arată pagina — citește tot punctul ăsta înainte să scrii o linie de cod:
+
+1. Alege ÎNTÂI direcția vizuală, și derivă-o din businessul din contextul meu, nu dintr-un șablon. Un distribuitor de echipamente și o agenție de creație nu au voie să primească aceeași pagină. Spune-mi în două rânduri ce direcție ai ales și de ce vine din businessul ăsta, apoi construiește după ea.
+2. Paleta: 4-5 culori, cu valorile hex scrise explicit, toate derivate din direcția aleasă. Una singură e accentul, și se folosește rar. Contrastul trebuie să țină la citit.
+3. Tipografia duce personalitatea paginii. Două fonturi alese deliberat — unul cu caracter pentru titluri, unul lizibil pentru text — fiecare cu stivă de rezervă din fonturi de sistem, în caz că nu se încarcă. Scara de mărimi cu diferențe mari între niveluri, nu 14-16-18.
+4. Un singur element de semnătură, lucrul după care se ține minte pagina. Aici e scorul voturilor împreună cu sliderele: cifra pe care o mișcă sliderul se vede mare, lângă el, și se schimbă sub degetul meu. Acolo pui toată îndrăzneala; restul paginii stă cuminte în jur.
+5. Interzis, pentru că astea trei ies din reflex și le-am văzut de o mie de ori: fundal crem cu serif și accent teracotă · fundal aproape negru cu un verde acid sau un roșu-portocaliu · pagină de ziar cu linii de un pixel și zero rotunjiri. Dacă direcția ta aterizează pe una dintre ele, alege alta.
+6. Fără emoji și fără iconițe decorative. O iconiță intră doar dacă înlocuiește un cuvânt.
+7. Se citește bine pe laptop și pe telefon, și rezistă la printare.
+8. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
+
+Reguli:
+- Nu inventa cifre. Fiecare cifră vine din contextul meu sau e marcată „estimare", cu calculul arătat.
+- Ce e marcat [nerăspuns] în contextul meu intră la „ce ar trebui să aflu înainte să decid", nu se completează cu presupuneri.
+- Un vot CONDIȚIONAT nu se numără nici la DA, nici la NU.
+- Dacă toți sunt de acord după runda 1, nu te opri acolo: reia runda 2 și cere fiecăruia să găsească punctul cel mai slab al celorlalți. Dacă acordul rezistă și la runda asta, spune-mi explicit că a rezistat unui atac — nu-l fabrica înapoi în dezacord ca să pari riguros.</pre>
+</div>
+
+<p>Schimbă orice vrei: cifrele, consilierii, decizia. E o organizație inventată, făcută să semene cu un IMM românesc real.</p>
+
+<p><strong>Fă acești 2 pași după ce apare artefactul:</strong></p>
+
+<ol>
+  <li>Există posibilitatea să trebuiască să dai un click pe un buton „publish" pe care Claude ți-l pune în chat. Dacă artefactul se generează fără să apară butonul, nu e nicio problemă.
+  </li>
+  <li>Click pe iconița cu săgeată dublă din stânga sus a artefactului, odată ce el a fost generat. Ea deschide output-ul pe tot ecranul, ca să îl vezi complet.
+  </li>
+</ol>
+
+<p class="tema"><strong>Tema ta pentru acasă.</strong> Uită-te la rezultat și întreabă-te dacă ți-ar folosi în contextul tău real. Dacă da, explorează acasă drumul <a class="jump" href="#boardroom-organizatia-ta"><strong>cu organizația ta</strong></a>.</p>
+
+<h3 id="boardroom-hibrid">Boardroom cu interviu, pe date demo</h3>
+<p class="durata">25-30 de minute · nu-ți trebuie nicio cifră</p>
+
+<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe blocurile de mai jos exact ca la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+
+<p>Decizia pentru Blocul 2 o iei din blocul demo de mai sus, de sub „DECIZIA PE CARE O AM DE LUAT".</p>
+
+<h3 id="boardroom-organizatia-ta">Boardroom cu organizația ta</h3>
+<p class="durata">35-40 de minute · ai nevoie de cifrele din caseta de sus</p>
+
+<h4>Blocul 1: copiază-l într-o conversație nouă</h4>
+
+<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="boardroom-bloc-1">Copiază</button>
+  </div>
+  <pre id="boardroom-bloc-1">Ești consiliul meu strategic. Înainte de prima ședință, ai nevoie să mă cunoști.
+
+Pune-mi PATRU întrebări, UNA CÂTE UNA. Aștepți răspunsul meu înainte să treci la următoarea. Nu mi le da pe toate odată. Începe direct cu prima întrebare, fără introducere și fără să-mi explici ce urmează.
+
+ÎNTREBAREA 1 — fixă:
+Cere-mi linkul site-ului sau al paginii mele de prezentare și încearcă să-l citești. Dacă nu poți, cere-mi să copiez textul — o singură dată, fără explicații. Apoi spune-mi în 3 rânduri ce ai înțeles că vând și cui, ca să confirm sau să te corectez.
+
+ÎNTREBAREA 2 — fixă:
+Cere-mi să aleg 3-5 consilieri: fie oameni reali pe care îi respect, fie roluri. Dă-mi exemple din ambele:
+- Oameni: Warren Buffett · Elon Musk · Steven Bartlett · Daniel Priestley · Iulian Stanciu · Alexandru Lăpușan · Adrian Dragomir.
+- Roluri: financiarul sceptic · avocatul clientului · operatorul pragmatic · vizionarul · avocatul diavolului.
+Spune-mi că pot amesteca oameni cu roluri, că pot numi pe altcineva, sau că pot spune „alege tu" și îmi propui tu 5 potriviți pentru businessul meu.
+
+ÎNTREBĂRILE 3 și 4 — le alegi tu:
+După ce ai citit site-ul, pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să poți dezbate bine o decizie pe businessul meu. Țintele din care alegi: din ce vând și la ce tarife reale · unde sunt față de obiectivul anului · cine lucrează în firmă și câte ore am EU realist disponibile · care e cea mai mare provocare acum · ce NU e negociabil pentru mine.
+
+O SINGURĂ temă per întrebare. Nu lipi două teme într-una: îți răspund la prima și o pierdem pe a doua. Ce nu încape în cele două întrebări nu se îndeasă — rămâne descoperit și iese la final în „ce ar trebui să aflu înainte să decid".
+
+Formulează-le pe businessul meu concret, nu generic.
+
+Reguli:
+- La răspunsuri vagi, cere-mi concretul: „mult" nu e o cifră, „curând" nu e o dată. Insistă până acoperi tema întrebării, dar maximum două reîntrebări; după ele marchezi ce lipsește cu [nerăspuns] și mergi mai departe.
+- Pot spune „skip" la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
+- Dacă un consilier ales de mine e o persoană pe care n-o cunoști suficient, spune-mi pe loc și propune-mi un înlocuitor. Nu inventa biografii, poziții publice sau cifre despre nimeni.
+- Consiliul are nevoie de cel puțin o voce care are motiv să spună NU. Dacă lista mea n-o are, spune-mi și propune-mi o înlocuire.
+- Dacă îți spun că nu vreau să folosesc date reale, sau dacă nu am cifrele la mine, inventezi o firmă plauzibilă din domeniul meu, mi-o arăți ca s-o confirm, și lucrăm pe ea mai departe. Rezultatul e la fel de bun.
+
+După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU DE BUSINESS, organizat pe cinci secțiuni: ce vând și cui / cifre / capacitate / provocări și non-negociabile / consiliul meu. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+
+Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera — ce n-ai aflat rămâne marcat [nerăspuns] în el, atât. Dacă îți dau totuși o completare după predare, spune-mi doar ce linie s-o adaug și în ce secțiune. Nu rescrie blocul: dacă am pe ecran două variante aproape la fel, o copiez pe cea greșită.
+
+Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
+</div>
+
+<h4>Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+
+<p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
+
+<p>Înainte de orice altceva, copiază în conversație informațiile pe care le-ai primit de la Claude în prima conversație, plus decizia pe care vrei să o iei, într-o singură propoziție. Abia după aceea copiază promptul de mai jos.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="boardroom-bloc-2">Copiază</button>
+  </div>
+  <pre id="boardroom-bloc-2">Ești consiliul meu strategic: consilierii din contextul pe care ți l-am dat mă ajută să iau decizia de mai sus, contrazicându-se între ei.
+
+Consiliul: cel din secțiunea „consiliul meu" din contextul meu. Fiecare consilier gândește ca persoana sau rolul pe care l-am ales, dar respectă aceleași reguli de mai jos. Dacă vreun consilier e o persoană pe care n-o cunoști suficient, spune-mi la început și propune-mi un înlocuitor — nu inventa biografii sau poziții publice.
+
+Dacă în context nu apare niciun consilier, folosește-i pe aceștia:
+1. Financiarul sceptic — gândește în cifre: cost, venit, marjă, cash. Cere calculul din spatele oricărui entuziasm.
+2. Avocatul clientului — gândește din scaunul celui care plătește: ce problemă îi rezolv, de ce ar alege asta și ar plăti pentru ea.
+3. Operatorul pragmatic — gândește în execuție: cine face, cât durează, ce se rupe primul când planul întâlnește realitatea.
+4. Vizionarul — gândește la 3 ani distanță: unde duce decizia asta, ce devine posibil dacă iese.
+5. Avocatul diavolului — atacă asumpțiile nespuse din decizia mea și caută motivul pentru care planul eșuează.
+
+Cum lucrezi, în ordinea asta:
+
+1. RUNDA 1. Fiecare consilier își susține poziția, 150-250 de cuvinte, pe cifrele din contextul meu, și dă un vot explicit: DA / NU / CONDIȚIONAT. La CONDIȚIONAT, condiția e concretă și verificabilă.
+2. RUNDA 2. Fiecare răspunde scurt consilierului cu care e cel mai în dezacord, spune dacă și-a schimbat părerea, și dă votul final.
+3. ARTEFACTUL. Construiește un singur fișier HTML, pe care să-l pot deschide în browser și arăta cuiva:
+   - decizia, sus, într-o propoziție
+   - scorul voturilor, vizibil dintr-o privire, în formatul „X DA · Y NU · Z CONDIȚIONAT", cu condiția fiecăruia listată
+   - cardul fiecărui consilier: rol, votul din runda 1 → votul final (schimbarea marcată vizibil), argumentul lui esențial într-o frază
+   - pro și contra, față în față
+   - 3 slidere pentru variabilele-cheie ale deciziei ĂSTEIA (alege-le tu: preț, număr de clienți, ore investite, rată de conversie — ce contează aici), care recalculează în timp real cifrele din scenarii. Valorile de pornire sunt cifrele din contextul meu.
+   - recomandarea consiliului
+   - ce ar trebui să aflu înainte să decid
+
+Cum arată pagina — citește tot punctul ăsta înainte să scrii o linie de cod:
+
+1. Alege ÎNTÂI direcția vizuală, și derivă-o din businessul din contextul meu, nu dintr-un șablon. Un distribuitor de echipamente și o agenție de creație nu au voie să primească aceeași pagină. Spune-mi în două rânduri ce direcție ai ales și de ce vine din businessul ăsta, apoi construiește după ea.
+2. Paleta: 4-5 culori, cu valorile hex scrise explicit, toate derivate din direcția aleasă. Una singură e accentul, și se folosește rar. Contrastul trebuie să țină la citit.
+3. Tipografia duce personalitatea paginii. Două fonturi alese deliberat — unul cu caracter pentru titluri, unul lizibil pentru text — fiecare cu stivă de rezervă din fonturi de sistem, în caz că nu se încarcă. Scara de mărimi cu diferențe mari între niveluri, nu 14-16-18.
+4. Un singur element de semnătură, lucrul după care se ține minte pagina. Aici e scorul voturilor împreună cu sliderele: cifra pe care o mișcă sliderul se vede mare, lângă el, și se schimbă sub degetul meu. Acolo pui toată îndrăzneala; restul paginii stă cuminte în jur.
+5. Interzis, pentru că astea trei ies din reflex și le-am văzut de o mie de ori: fundal crem cu serif și accent teracotă · fundal aproape negru cu un verde acid sau un roșu-portocaliu · pagină de ziar cu linii de un pixel și zero rotunjiri. Dacă direcția ta aterizează pe una dintre ele, alege alta.
+6. Fără emoji și fără iconițe decorative. O iconiță intră doar dacă înlocuiește un cuvânt.
+7. Se citește bine pe laptop și pe telefon, și rezistă la printare.
+8. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
+
+Reguli:
+- Nu inventa cifre. Fiecare cifră vine din contextul meu sau e marcată „estimare", cu calculul arătat.
+- Ce e marcat [nerăspuns] în contextul meu intră la „ce ar trebui să aflu înainte să decid", nu se completează cu presupuneri.
+- Un vot CONDIȚIONAT nu se numără nici la DA, nici la NU.
+- Dacă toți sunt de acord după runda 1, nu te opri acolo: reia runda 2 și cere fiecăruia să găsească punctul cel mai slab al celorlalți. Dacă acordul rezistă și la runda asta, spune-mi explicit că a rezistat unui atac — nu-l fabrica înapoi în dezacord ca să pari riguros.</pre>
+</div>
+
+<p><strong>Fă acești 2 pași după ce apare artefactul:</strong></p>
+
+<ol>
+  <li>Există posibilitatea să trebuiască să dai un click pe un buton „publish" pe care Claude ți-l pune în chat. Dacă artefactul se generează fără să apară butonul, nu e nicio problemă.
+  </li>
+  <li>Click pe iconița cu săgeată dublă din stânga sus a artefactului, odată ce el a fost generat. Ea deschide output-ul pe tot ecranul, ca să îl vezi complet.
+  </li>
+</ol>
+
+<h4>Blocul 3: copiază-l la final, în aceeași conversație</h4>
+
+<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază următorul bloc în aceeași conversație cu Blocul 2:</p>
+
+<p class="ps"><em>P.S.: Dacă ai terminat mai repede agentul și încă mai ai timp, poți face acest pas chiar acum, live în sală.</em></p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="boardroom-bloc-3">Copiază</button>
+  </div>
+  <pre id="boardroom-bloc-3">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema data viitoare când am o decizie de luat, fără să mai copiez nimic de mână. Păstrează consiliul, regulile de vot și formatul artefactului. La final spune-mi cum îl chem la lucru.</pre>
+</div>
+
+<h4>Unde ajunge skill-ul</h4>
+
+<p>După Blocul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
+
+<p>Dacă Claude îți propune să salveze un skill, apasă save. Îl vei găsi în contul tău la <strong>Customize</strong>, <strong>Skills</strong>. Dacă nu ți-l propune, salvează instrucțiunile într-un <strong>Project</strong>:</p>
+
+<ol>
+  <li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia."
+  </li>
+  <li>În claude.ai, în meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după agentul tău, de exemplu <em>Boardroom</em>.
+  </li>
+  <li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.
+  </li>
+  <li>Data viitoare când vrei să vezi decizia board-ului, deschide o conversație din interiorul proiectului. Agentul va fi acolo să te ajute.
+  </li>
+</ol>
+  </section>
+
+
+  <section class="agent" id="sec-meeting-assistant">
+<h2 id="meeting-assistant">Meeting Assistant</h2>
+
+<p>Transformă notițele unei ședințe în 3 lucruri pe care le poți folosi imediat: decizii separate de discuții, acțiuni cu responsabil și termen, și un email de follow-up în stilul tău, gata de trimis.</p>
+
+<aside class="expect">
+<p>La ce să te aștepți:</p>
+
+<p><strong>Dacă lucrezi cu organizația demo:</strong> Testezi use-case-ul pe un business fictiv, ale cărui informații le ai integral la dispoziție. Astfel, experimentezi și înțelegi procesul, vezi dacă rezultatul ți-ar folosi în organizația ta și dacă da, îl poți implementa acasă.</p>
+
+<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#meeting-assistant-hibrid"><strong>drumul de mijloc</strong></a>.</p>
+
+<p><strong>Dacă lucrezi cu informații din organizația ta:</strong> Claude te intervievează și pleci cu minuta unei ședințe de-ale tale. Ai nevoie să știi:</p>
+
+<ul>
+  <li>linkul site-ului tău</li>
+  <li>un email de follow-up pe care l-ai trimis tu, ca să-ți învețe tonul</li>
+  <li>cu cine ai ședințe de obicei</li>
+  <li>ce nu vrei să ajungă niciodată într-o minută scrisă</li>
+</ul>
+
+<p>Și îți trebuie <strong>notițele sau transcriptul unei ședințe recente</strong>.</p>
+</aside>
+
+<h3 id="meeting-assistant-demo">Meeting Assistant cu organizația demo</h3>
+<p class="durata">10-15 minute · nu-ți trebuie niciun material</p>
+
+<p>Ventora Distribuție e organizația demo: un distribuitor de echipamente HVAC din Transilvania, cu 22 de oameni și depozit lângă Cluj. Vinde centrale termice, chillere și unități de ventilație firmelor de instalații și dezvoltatorilor mici și medii; nu montează și nu proiectează — vinde marfa și o livrează în șantier. În 2025 a făcut 6,5 milioane de lei; obiectivul pe 2026 e 8 milioane, dar la șapte luni e sub ritm. Cea mai mare provocare: trei clienți îi fac aproape jumătate din venit și o strâng pe preț, într-o piață în care distribuitorii naționali intră cu discounturi greu de susținut.</p>
+
+<p>Copiază blocul de mai jos într-o conversație nouă în claude.ai. Contextul organizației demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat) și transcriptul unei ședințe de-ale ei sunt deja integrate.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="meeting-assistant-demo-bloc">Copiază</button>
+  </div>
+  <p class="legend">Găsești subliniate informațiile pe care îți recomand să le modifici în prompt în funcție de ce dorești să afli.</p>
+  <pre id="meeting-assistant-demo-bloc">Ești asistentul meu de ședințe. Transformi notițele dintr-o întâlnire în trei lucruri pe care le pot folosi imediat.
+
+CONTEXTUL MEU DE BUSINESS (conține și stilul meu de email):
+
+CE VÂND ȘI CUI
+Distribuim echipamente HVAC — centrale termice, chillere, unități de ventilație — către firme de instalații și dezvoltatori mici și medii din Transilvania. Nu montăm și nu proiectăm: vindem marfa și o livrăm în șantier. Adaos mediu 18%.
+
+<span class="edit">CIFRE</span>
+Cifră de afaceri 6,5 milioane de lei în 2025, marjă netă 11%. Obiectivul pe 2026 e 8 milioane; la șapte luni suntem la 3,6 milioane, deci sub ritm. Trei clienți fac 48% din venit. Termenul mediu de încasare e 45 de zile.
+
+CAPACITATE
+22 de oameni: 2 pe vânzări, 3 în depozit, 1 tehnic, restul administrativ și logistică. Eu am realist în jur de 10 ore pe săptămână pentru orice nu înseamnă vânzare curentă și stins incendii.
+
+PROVOCĂRI ȘI NON-NEGOCIABILE
+Cea mai mare provocare e dependența de cei trei clienți mari, care ne strâng și pe preț, într-o piață în care distribuitorii naționali intră cu discounturi pe care nu le pot susține. Nu vindem pe credit peste 60 de zile și nu deschidem punct de lucru în alt oraș anul acesta.
+
+<span class="edit">STILUL MEU DE EMAIL ȘI ȘEDINȚE</span>
+Scriu scurt și direct, fără formule lungi. Deschid cu „Bună, [nume]," și închid cu „Mulțumesc, Andrei". Nu folosesc bold și nu fac liste lungi — două-trei rânduri și ce am de cerut. Ședințele mele sunt cu echipa internă, luni dimineața, și cu furnizorii, pe Teams. Nu vreau să ajungă niciodată într-o minută scrisă: nemulțumirile despre oameni pe nume și discuțiile despre marje sau prețuri de achiziție.
+
+<span class="edit">ȘEDINȚA:</span>
+Ședință de luni, echipa Ventora. Prezenți: Andrei (patron), Cristina (vânzări), Mihai (depozit/logistică), Bogdan (tehnic). ~40 min.
+
+Andrei: începem cu Delta Instal. Au cerut revizuire de preț pe comanda de chillere.
+Cristina: da, vor 6% jos. Le-am zis că maxim 3. Dacă nu, pierdem comanda, e a treia oară anul ăsta când negociază așa.
+Andrei: mergem pe 3, dar cu plata la 30 de zile, nu 45. Trimite oferta revizuită până vineri.
+Cristina: ok, vineri.
+Mihai: și transportatorul iar ne-a lăsat. Livrarea de miercuri a ajuns joi seara, clientul a sunat de patru ori. E a doua oară luna asta. Nu se poate așa, serios, eu nu mai am nervi să sun după ei.
+Andrei: știu, e enervant.
+Mihai: și nici măcar nu răspund la telefon după 5.
+Cristina: apropo, ar trebui să ne uităm și la ideea aia cu abonamentele de mentenanță. Dacă am avea venit lunar, nu ne-ar mai strânge Delta așa.
+Bogdan: ar trebui doi oameni. Și mașini.
+Andrei: da, discutăm săptămâna viitoare, nu acum.
+Cristina: sau un showroom în Oradea, să nu mai mergem noi peste tot.
+(nimeni nu răspunde)
+Bogdan: eu am nevoie de lista echipamentelor care mai sunt în garanție, că mă sună lumea și nu știu ce să zic.
+Andrei: fă-o tu, ai acces în sistem.
+Bogdan: ok.
+Andrei: și încă ceva, la ședința cu furnizorul de joi vin eu și Cristina. Mihai, tu rămâi pe recepția marfă.
+
+Regula de aur, înainte de orice: separă deciziile luate cu adevărat de discuțiile deschise și de frustrarea ventilată în ședință. O nemulțumire spusă tare nu e o decizie. O idee aruncată și nepreluată de nimeni nu e o decizie.
+
+Construiește un singur fișier HTML, pe care să-l pot deschide în browser și trimite mai departe:
+
+- ședința, sus, într-o linie: cu cine, despre ce, cât a durat
+- DECIS și DISCUTAT, DAR NEDECIS — cele două coloane, față în față, la fel de vizibile. Asta e inima paginii: cineva care se uită trei secunde trebuie să vadă cât din ședință a produs o decizie și cât a fost doar aer.
+- acțiunile, ca listă bifabilă: ce se face · cine · până când. Fiecare acțiune le are pe toate trei. Ce n-a fost spus în ședință primește [DE CONFIRMAT], marcat vizibil, nu ascuns — nu inventa nume și nu inventa date.
+- un contor sus, dintr-o privire: „X decizii · Y acțiuni · Z de confirmat"
+- ce a rămas neclar și ce ar trebui să întreb ca să închid
+- EMAILUL DE FOLLOW-UP, într-un panou separat la final, scris în stilul meu, gata de trimis: adresat oamenilor din ședință, reia deciziile și acțiunile care îi privesc, se termină cu ce aștept de la ei. Pune-l într-un bloc din care pot selecta și copia textul curat, fără decorațiuni în jur.
+
+Cum arată pagina — citește tot punctul ăsta înainte să scrii o linie de cod:
+
+1. Alege ÎNTÂI direcția vizuală, și derivă-o din businessul din contextul meu, nu dintr-un șablon. Un distribuitor de echipamente și o agenție de creație nu au voie să primească aceeași pagină. Spune-mi în două rânduri ce direcție ai ales și de ce vine din businessul ăsta, apoi construiește după ea.
+2. Paleta: 4-5 culori, cu valorile hex scrise explicit, toate derivate din direcția aleasă. Una singură e accentul, și se folosește rar. Contrastul trebuie să țină la citit.
+3. Tipografia duce personalitatea paginii. Două fonturi alese deliberat — unul cu caracter pentru titluri, unul lizibil pentru text — fiecare cu stivă de rezervă din fonturi de sistem, în caz că nu se încarcă. Scara de mărimi cu diferențe mari între niveluri, nu 14-16-18.
+4. Un singur element de semnătură, lucrul după care se ține minte pagina. Aici sunt cele două coloane, DECIS și DISCUTAT-DAR-NEDECIS: aceeași lățime, aceeași greutate vizuală, nedecisul niciodată scris mai mic sau împins la subsol. Acolo pui toată îndrăzneala; restul paginii stă cuminte în jurul lor.
+5. Interzis, pentru că astea trei ies din reflex și le-am văzut de o mie de ori: fundal crem cu serif și accent teracotă · fundal aproape negru cu un verde acid sau un roșu-portocaliu · pagină de ziar cu linii de un pixel și zero rotunjiri. Dacă direcția ta aterizează pe una dintre ele, alege alta.
+6. Fără emoji și fără iconițe decorative. O iconiță intră doar dacă înlocuiește un cuvânt.
+7. Se citește bine pe laptop și pe telefon, și rezistă la printare.
+8. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
+
+Reguli:
+- Nu inventa. Ce nu s-a spus în ședință nu intră nici în pagină, nici în email.
+- Ce e marcat [nerăspuns] în contextul meu nu se completează cu presupuneri.
+- Ce am spus că nu vreau într-o minută scrisă nu intră nicăieri, nici măcar aluziv.
+- Dacă din ședință nu a ieșit nicio decizie, spune-o pe pagină, cu coloana DECIS goală. Nu promova o discuție la decizie ca să pară că ședința a produs ceva.</pre>
+</div>
+
+<p>Schimbă orice vrei: cifrele, stilul de email, replici din ședință. E o organizație inventată, făcută să semene cu un IMM românesc real.</p>
+
+<p><strong>Fă acești 2 pași după ce apare artefactul:</strong></p>
+
+<ol>
+  <li>Există posibilitatea să trebuiască să dai un click pe un buton „publish" pe care Claude ți-l pune în chat. Dacă artefactul se generează fără să apară butonul, nu e nicio problemă.
+  </li>
+  <li>Click pe iconița cu săgeată dublă din stânga sus a artefactului, odată ce el a fost generat. Ea deschide output-ul pe tot ecranul, ca să îl vezi complet.
+  </li>
+</ol>
+
+<p class="tema"><strong>Tema ta pentru acasă.</strong> Uită-te la rezultat și întreabă-te dacă ți-ar folosi în contextul tău real. Dacă da, explorează acasă drumul <a class="jump" href="#meeting-assistant-organizatia-ta"><strong>cu organizația ta</strong></a>.</p>
+
+<h3 id="meeting-assistant-hibrid">Meeting Assistant cu interviu, pe date demo</h3>
+<p class="durata">25-30 de minute · nu-ți trebuie niciun material</p>
+
+<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe blocurile de mai jos exact ca la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+
+<p>Ședința pentru Blocul 2 o iei din blocul demo de mai sus: selectează din el de la „ȘEDINȚA:" până înainte de „Regula de aur".</p>
+
+<h3 id="meeting-assistant-organizatia-ta">Meeting Assistant cu organizația ta</h3>
+<p class="durata">40-45 de minute · ai nevoie de materialele din caseta de sus</p>
+
+<h4>Blocul 1: copiază-l într-o conversație nouă</h4>
+
+<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="meeting-assistant-bloc-1">Copiază</button>
+  </div>
+  <pre id="meeting-assistant-bloc-1">Ești asistentul meu de ședințe. Înainte să scrii prima minută, ai nevoie să mă cunoști.
+
+Pune-mi PATRU întrebări, UNA CÂTE UNA. Aștepți răspunsul meu înainte să treci la următoarea. Nu mi le da pe toate odată. Începe direct cu prima întrebare, fără introducere și fără să-mi explici ce urmează.
+
+ÎNTREBAREA 1 — fixă:
+Cere-mi linkul site-ului sau al paginii mele de prezentare și încearcă să-l citești. Dacă nu poți, cere-mi să copiez textul — o singură dată, fără explicații. Apoi spune-mi în 3 rânduri ce ai înțeles că vând și cui, ca să confirm sau să te corectez.
+
+ÎNTREBAREA 2 — fixă:
+Cere-mi să copiez un email de follow-up pe care l-am trimis eu după o întâlnire — oricare, chiar imperfect. Din el înveți cum scriu: cât de formal, cât de scurt, cum deschid, cum cer un lucru. Spune-mi în 3 rânduri ce ai reținut despre stilul meu, ca să confirm sau să te corectez. Dacă nu am niciun email la îndemână, întreabă-mă în schimb dacă scriu mai degrabă scurt și direct sau explicativ și politicos, și lucrăm de acolo.
+
+ÎNTREBĂRILE 3 și 4 — le alegi tu:
+După ce ai citit site-ul, pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să scrii o minută pe care aș trimite-o fără s-o rescriu. Țintele din care alegi: ce NU vreau să ajungă niciodată într-o minută scrisă · cum arată un termen realist la mine, în zile sau în săptămâni · cine mai citește minuta în afară de cei care au fost în ședință · pe ce canal și cât de formal trimit follow-up-ul.
+
+Nu mă întreba cine a fost în ședință, ce roluri au sau despre ce s-a discutat. Toate astea sunt în ședința pe care ți-o copiez în conversația următoare. Întreabă-mă DOAR ce nu poți afla de acolo.
+
+O SINGURĂ temă per întrebare. Nu lipi două teme într-una: îți răspund la prima și o pierdem pe a doua. Ce nu încape în cele două întrebări nu se îndeasă — rămâne descoperit și îmi spui la final ce n-ai aflat.
+
+Formulează-le pe businessul meu concret, nu generic.
+
+Reguli:
+- La răspunsuri vagi, cere-mi concretul: „repede" nu e un termen, „echipa" nu e un nume. Insistă până acoperi tema întrebării, dar maximum două reîntrebări; după ele marchezi ce lipsește cu [nerăspuns] și mergi mai departe.
+- Pot spune „skip" la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
+- Dacă îți spun că nu vreau să folosesc date reale, sau dacă nu am materialele la mine, inventezi o firmă plauzibilă din domeniul meu, mi-o arăți ca s-o confirm, și lucrăm pe ea mai departe. Rezultatul e la fel de bun.
+
+După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU DE BUSINESS, organizat pe cinci secțiuni: ce vând și cui / cifre / capacitate / provocări și non-negociabile / stilul meu de email și ședințe. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+
+Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera — ce n-ai aflat rămâne marcat [nerăspuns] în el, atât. Dacă îți dau totuși o completare după predare, spune-mi doar ce linie s-o adaug și în ce secțiune. Nu rescrie blocul: dacă am pe ecran două variante aproape la fel, o copiez pe cea greșită.
+
+Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
+</div>
+
+<h4>Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+
+<p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
+
+<p>Înainte de orice altceva, copiază în conversație informațiile pe care le-ai primit de la Claude în prima conversație, plus notițele sau transcriptul unei întâlniri recente. Abia după aceea copiază promptul de mai jos.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="meeting-assistant-bloc-2">Copiază</button>
+  </div>
+  <pre id="meeting-assistant-bloc-2">Ești asistentul meu de ședințe. Transformi ședința de mai sus în trei lucruri pe care le pot folosi imediat.
+
+Regula de aur, înainte de orice: separă deciziile luate cu adevărat de discuțiile deschise și de frustrarea ventilată în ședință. O nemulțumire spusă tare nu e o decizie. O idee aruncată și nepreluată de nimeni nu e o decizie.
+
+Construiește un singur fișier HTML, pe care să-l pot deschide în browser și trimite mai departe:
+
+- ședința, sus, într-o linie: cu cine, despre ce, cât a durat
+- DECIS și DISCUTAT, DAR NEDECIS — cele două coloane, față în față, la fel de vizibile. Asta e inima paginii: cineva care se uită trei secunde trebuie să vadă cât din ședință a produs o decizie și cât a fost doar aer.
+- acțiunile, ca listă bifabilă: ce se face · cine · până când. Fiecare acțiune le are pe toate trei. Ce n-a fost spus în ședință primește [DE CONFIRMAT], marcat vizibil, nu ascuns — nu inventa nume și nu inventa date.
+- un contor sus, dintr-o privire: „X decizii · Y acțiuni · Z de confirmat"
+- ce a rămas neclar și ce ar trebui să întreb ca să închid
+- EMAILUL DE FOLLOW-UP, într-un panou separat la final, scris în stilul meu, gata de trimis: adresat oamenilor din ședință, reia deciziile și acțiunile care îi privesc, se termină cu ce aștept de la ei. Pune-l într-un bloc din care pot selecta și copia textul curat, fără decorațiuni în jur.
+
+Cum arată pagina — citește tot punctul ăsta înainte să scrii o linie de cod:
+
+1. Alege ÎNTÂI direcția vizuală, și derivă-o din businessul din contextul meu, nu dintr-un șablon. Un distribuitor de echipamente și o agenție de creație nu au voie să primească aceeași pagină. Spune-mi în două rânduri ce direcție ai ales și de ce vine din businessul ăsta, apoi construiește după ea.
+2. Paleta: 4-5 culori, cu valorile hex scrise explicit, toate derivate din direcția aleasă. Una singură e accentul, și se folosește rar. Contrastul trebuie să țină la citit.
+3. Tipografia duce personalitatea paginii. Două fonturi alese deliberat — unul cu caracter pentru titluri, unul lizibil pentru text — fiecare cu stivă de rezervă din fonturi de sistem, în caz că nu se încarcă. Scara de mărimi cu diferențe mari între niveluri, nu 14-16-18.
+4. Un singur element de semnătură, lucrul după care se ține minte pagina. Aici sunt cele două coloane, DECIS și DISCUTAT-DAR-NEDECIS: aceeași lățime, aceeași greutate vizuală, nedecisul niciodată scris mai mic sau împins la subsol. Acolo pui toată îndrăzneala; restul paginii stă cuminte în jurul lor.
+5. Interzis, pentru că astea trei ies din reflex și le-am văzut de o mie de ori: fundal crem cu serif și accent teracotă · fundal aproape negru cu un verde acid sau un roșu-portocaliu · pagină de ziar cu linii de un pixel și zero rotunjiri. Dacă direcția ta aterizează pe una dintre ele, alege alta.
+6. Fără emoji și fără iconițe decorative. O iconiță intră doar dacă înlocuiește un cuvânt.
+7. Se citește bine pe laptop și pe telefon, și rezistă la printare.
+8. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
+
+Reguli:
+- Nu inventa. Ce nu s-a spus în ședință nu intră nici în pagină, nici în email.
+- Ce e marcat [nerăspuns] în contextul meu nu se completează cu presupuneri.
+- Ce am spus că nu vreau într-o minută scrisă nu intră nicăieri, nici măcar aluziv.
+- Dacă din ședință nu a ieșit nicio decizie, spune-o pe pagină, cu coloana DECIS goală. Nu promova o discuție la decizie ca să pară că ședința a produs ceva.</pre>
+</div>
+
+<p><strong>Fă acești 2 pași după ce apare artefactul:</strong></p>
+
+<ol>
+  <li>Există posibilitatea să trebuiască să dai un click pe un buton „publish" pe care Claude ți-l pune în chat. Dacă artefactul se generează fără să apară butonul, nu e nicio problemă.
+  </li>
+  <li>Click pe iconița cu săgeată dublă din stânga sus a artefactului, odată ce el a fost generat. Ea deschide output-ul pe tot ecranul, ca să îl vezi complet.
+  </li>
+</ol>
+
+<h4>Blocul 3: copiază-l la final, în aceeași conversație</h4>
+
+<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază următorul bloc în aceeași conversație cu Blocul 2:</p>
+
+<p class="ps"><em>P.S.: Dacă ai terminat mai repede agentul și încă mai ai timp, poți face acest pas chiar acum, live în sală.</em></p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="meeting-assistant-bloc-3">Copiază</button>
+  </div>
+  <pre id="meeting-assistant-bloc-3">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema data viitoare când ies dintr-o ședință, fără să mai copiez nimic de mână. Păstrează regula de aur, formatul celor trei livrabile și stilul meu de email. La final spune-mi cum îl chem la lucru.</pre>
+</div>
+
+<h4>Unde ajunge skill-ul</h4>
+
+<p>După Blocul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
+
+<p>Dacă Claude îți propune să salveze un skill, apasă save. Îl vei găsi în contul tău la <strong>Customize</strong>, <strong>Skills</strong>. Dacă nu ți-l propune, salvează instrucțiunile într-un <strong>Project</strong>:</p>
+
+<ol>
+  <li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia."
+  </li>
+  <li>În claude.ai, în meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după agentul tău, de exemplu <em>Meeting Assistant</em>.
+  </li>
+  <li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.
+  </li>
+  <li>Data viitoare când ieși dintr-o ședință, deschide o conversație din interiorul proiectului. Agentul va fi acolo să te ajute.
+  </li>
+</ol>
+  </section>
+
+
+  <section class="agent" id="sec-offer">
+<h2 id="offer">Offer</h2>
+
+<p>Transformă notițele unei discuții cu un prospect într-o schiță de ofertă pe care o poți completa și trimite, pe structura și tonul ofertei tale care a funcționat, cu fiecare gol marcat vizibil în loc de umplut cu presupuneri.</p>
+
+<aside class="expect">
+<p>La ce să te aștepți:</p>
+
+<p><strong>Dacă lucrezi cu organizația demo:</strong> Testezi use-case-ul pe un business fictiv, ale cărui informații le ai integral la dispoziție. Astfel, experimentezi și înțelegi procesul, vezi dacă rezultatul ți-ar folosi în organizația ta și dacă da, îl poți implementa acasă.</p>
+
+<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#offer-hibrid"><strong>drumul de mijloc</strong></a>.</p>
+
+<p><strong>Dacă lucrezi cu informații din organizația ta:</strong> Claude te intervievează și pleci cu schița unei propuneri reale, pe structura și tonul ofertei tale care a funcționat. Ai nevoie să știi:</p>
+
+<ul>
+  <li>linkul site-ului tău</li>
+  <li>serviciile tale, cu ce include fiecare și la ce tarife</li>
+  <li>ce nu accepți niciodată într-o ofertă</li>
+</ul>
+
+<p>Și îți trebuie, deschise pe laptop, <strong>o ofertă trimisă care a funcționat</strong> și <strong>notițele dintr-o discuție recentă cu un prospect</strong>.</p>
+
+<p>Ăsta e cel mai încărcat dintre cei patru agenți: cere două materiale, nu unul, iar strângerea lor e partea care durează. Dacă nu le ai deja deschise, le cauți prin email în loc să construiești.</p>
+</aside>
+
+<h3 id="offer-demo">Offer cu organizația demo</h3>
+<p class="durata">10-15 minute · nu-ți trebuie niciun material</p>
+
+<p>Ventora Distribuție e organizația demo: un distribuitor de echipamente HVAC din Transilvania, cu 22 de oameni și depozit lângă Cluj. Vinde centrale termice, chillere și unități de ventilație firmelor de instalații și dezvoltatorilor mici și medii; nu montează și nu proiectează — vinde marfa și o livrează în șantier. În 2025 a făcut 6,5 milioane de lei; obiectivul pe 2026 e 8 milioane, dar la șapte luni e sub ritm. Cea mai mare provocare: trei clienți îi fac aproape jumătate din venit și o strâng pe preț, într-o piață în care distribuitorii naționali intră cu discounturi greu de susținut.</p>
+
+<p>Copiază blocul de mai jos într-o conversație nouă în claude.ai. Contextul firmei demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat), oferta ei care a funcționat și notițele unui prospect nou sunt deja integrate.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="offer-demo-bloc">Copiază</button>
+  </div>
+  <p class="legend">Găsești subliniate informațiile pe care îți recomand să le modifici în prompt în funcție de ce dorești să afli.</p>
+  <pre id="offer-demo-bloc">Ești omul care îmi pregătește propunerile comerciale. Transformi notițele dintr-o discuție cu un prospect într-o schiță de ofertă pe care o pot completa și trimite.
+
+CONTEXTUL MEU DE BUSINESS (conține și lista serviciilor și tarifelor mele):
+
+CE VÂND ȘI CUI
+Distribuim echipamente HVAC — centrale termice, chillere, unități de ventilație — către firme de instalații și dezvoltatori mici și medii din Transilvania. Nu montăm și nu proiectăm: vindem marfa și o livrăm în șantier. Adaos mediu 18%.
+
+<span class="edit">CIFRE</span>
+Cifră de afaceri 6,5 milioane de lei în 2025, marjă netă 11%. Obiectivul pe 2026 e 8 milioane; la șapte luni suntem la 3,6 milioane, deci sub ritm. Trei clienți fac 48% din venit. Termenul mediu de încasare e 45 de zile.
+
+CAPACITATE
+22 de oameni: 2 pe vânzări, 3 în depozit, 1 tehnic, restul administrativ și logistică. Eu am realist în jur de 10 ore pe săptămână pentru orice nu înseamnă vânzare curentă și stins incendii.
+
+PROVOCĂRI ȘI NON-NEGOCIABILE
+Cea mai mare provocare e dependența de cei trei clienți mari, care ne strâng și pe preț, într-o piață în care distribuitorii naționali intră cu discounturi pe care nu le pot susține. Nu vindem pe credit peste 60 de zile și nu deschidem punct de lucru în alt oraș anul acesta.
+
+<span class="edit">SERVICIILE ȘI TARIFELE MELE</span>
+Vindem echipament HVAC din stoc: centrale termice, chillere, unități de ventilație, plus piese de schimb și consumabile. Adaos mediu 18%, cu discount pe volum de la 100.000 de lei pe comandă. Aducem la comandă specială ce nu ținem în stoc, cu termen de 4-6 săptămâni de la producător. Livrăm în șantier: cu mașinile noastre în Cluj, Alba și Mureș (400 de lei pe livrare sub 50 km, 8 lei/km peste), cu transportator extern în restul țării. Facem gratuit dimensionarea și selecția echipamentului pe baza proiectului primit, la comenzi peste 15.000 de lei.
+Nu montăm, nu proiectăm și nu facem service. Punerea în funcțiune, acolo unde garanția o cere, se face printr-un partener autorizat, facturată direct de el.
+
+<span class="edit">OFERTA-REFERINȚĂ — de aici iei structura și tonul, nu conținutul:</span>
+
+Către: Instal Prodex SRL, în atenția dlui Sorin Mureșan
+De la: Ventora Distribuție SRL
+Subiect: Ofertă echipamente — bloc Bună Ziua, corp A
+Data: 14 aprilie 2026
+
+Domnule Mureșan,
+
+În urma discuției de vineri și a proiectului de instalații primit, mai jos oferta pentru corpul A.
+
+CE AM ÎNȚELES
+Aveți nevoie de sursa termică și de ventilația pentru 34 de apartamente, cu livrare eșalonată pe măsură ce avansați cu etajele. Ați spus că v-a rămas prost de la furnizorul anterior că marfa a venit toată odată și ați ținut-o două luni în șantier.
+
+CE PROPUNEM
+1. Centrală termică în condensație 120 kW, cu automatizare — 2 buc.
+2. Unități de ventilație cu recuperare de căldură, 34 buc., câte una pe apartament
+3. Accesorii de montaj și piese de legătură, conform listei anexate
+
+Dimensionarea am făcut-o noi, pe proiectul dumneavoastră, și e inclusă.
+
+PREȚ
+Centrale: 2 x 41.500 lei = 83.000 lei
+Unități ventilație: 34 x 4.200 lei = 142.800 lei
+Accesorii: 18.400 lei
+Total: 244.200 lei, fără TVA. Prețurile includ discountul de volum de 6%.
+
+LIVRARE ȘI CONDIȚII
+Livrare în trei tranșe, la comanda dumneavoastră, cu 5 zile lucrătoare de la anunț. Transport inclus, șantierul e în raza noastră.
+Plata la 30 de zile de la fiecare livrare. Prima tranșă se comandă la confirmare.
+Oferta e valabilă 30 de zile; după, reconfirmăm prețurile la producător.
+
+CE URMEAZĂ
+Dacă vă convine, îmi confirmați pe email și blocăm marfa pentru prima tranșă. Dacă vreți să schimbăm ceva la configurație, ne vedem la dumneavoastră săptămâna viitoare, oricând în afară de joi.
+
+Cu stimă,
+Andrei Pop
+Ventora Distribuție SRL
+
+<span class="edit">PROSPECTUL — de aici iei conținutul:</span>
+
+Notițe discuție Aurelian Cîmpean, Domus Rezidențial (dezvoltator mic, Florești) — 26 august, la telefon, ~20 min
+
+- două blocuri în Florești, P+4, 48 de apartamente în total. Primul se termină prin noiembrie, al doilea abia s-a autorizat
+- vine de la Instal Prodex, Sorin i-a dat numărul meu
+- vrea centrale în condensație și ventilație, ca la Bună Ziua. Zice că "vrea aceeași soluție, funcționează"
+- nu are încă proiectul de instalații final, îl face un proiectant din Turda, îl trimite "săptămâna viitoare"
+- a întrebat de două ori dacă facem și montajul. I-am zis că nu, dar n-a părut să înțeleagă — a revenit la final cu "deci voi îmi puneți tot"
+- a întrebat și de mentenanță după recepție: "cine se ocupă când se strică ceva la un an"
+- despre bani: n-a dat cifră. A zis "am un buget, dar depinde ce iese din proiect". A pomenit că a luat o ofertă și de la altcineva, nu a zis de la cine
+- vrea prima livrare "cât mai repede", fără dată
+- plata: a întrebat dacă mergem la 60 de zile. I-am zis că discutăm
+
+Regula de aur, înainte de orice: nu promiți nimic ce nu e în lista mea de servicii și nu inventezi niciun preț. Ce nu știi din notițe se marchează [DE CONFIRMAT] și rămâne marcat. O ofertă cu trei goluri cinstite se trimite; una cu trei presupuneri frumoase se pierde la primul telefon.
+
+Construiește un singur fișier HTML, pe care să-l pot deschide în browser și lucra pe el:
+
+- schița ofertei, în ordinea și pe secțiunile ofertei-referință, scrisă în tonul ei: context · ce propun · livrabile · preț · pașii următori
+- fiecare gol, marcat [DE CONFIRMAT] vizibil chiar în text, acolo unde e — nu adunat discret la subsol
+- un contor sus, dintr-o privire: „X lucruri de confirmat înainte să trimit"
+- PANOUL DE VERIFICARE, separat: fiecare livrabil pe care l-am promis în schiță, cu serviciul din lista mea din care vine. Ce n-are pereche în listă apare marcat, ca să-l scot sau să-l discut. Asta e plasa care nu lasă agentul să vândă ce nu am.
+- lista întrebărilor rămase pentru client — toate [DE CONFIRMAT]-urile adunate la un loc, ca pregătire pentru următoarea discuție
+- schița, într-un bloc din care pot selecta și copia textul curat, fără decorațiuni în jur
+
+Cum arată pagina — citește tot punctul ăsta înainte să scrii o linie de cod:
+
+1. Alege ÎNTÂI direcția vizuală, și derivă-o din businessul din contextul meu, nu dintr-un șablon. Un distribuitor de echipamente și o agenție de creație nu au voie să primească aceeași pagină. Spune-mi în două rânduri ce direcție ai ales și de ce vine din businessul ăsta, apoi construiește după ea.
+2. Paleta: 4-5 culori, cu valorile hex scrise explicit, toate derivate din direcția aleasă. Una singură e accentul, și se folosește rar. Contrastul trebuie să țină la citit.
+3. Tipografia duce personalitatea paginii. Două fonturi alese deliberat — unul cu caracter pentru titluri, unul lizibil pentru text — fiecare cu stivă de rezervă din fonturi de sistem, în caz că nu se încarcă. Scara de mărimi cu diferențe mari între niveluri, nu 14-16-18.
+4. Un singur element de semnătură, lucrul după care se ține minte pagina. Aici sunt marcajele [DE CONFIRMAT]: se văd din capătul camerei, în text și în contorul de sus, și nu se pot rata înainte de trimitere. Acolo pui toată îndrăzneala; restul paginii stă cuminte în jur și arată ca un document care pleacă la un client.
+5. Interzis, pentru că astea trei ies din reflex și le-am văzut de o mie de ori: fundal crem cu serif și accent teracotă · fundal aproape negru cu un verde acid sau un roșu-portocaliu · pagină de ziar cu linii de un pixel și zero rotunjiri. Dacă direcția ta aterizează pe una dintre ele, alege alta.
+6. Fără emoji și fără iconițe decorative. O iconiță intră doar dacă înlocuiește un cuvânt.
+7. Se citește bine pe laptop și pe telefon, și rezistă la printare.
+8. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
+
+Reguli:
+- Niciun livrabil care nu există în lista mea de servicii. Dacă din notițe reiese că prospectul vrea altceva, îl scrii separat, ca propunere de discutat cu mine, nu în ofertă.
+- Niciun preț inventat. Folosești tarifele din contextul meu; unde nu există, câmpul rămâne gol, cu [DE CONFIRMAT]. Nu estima în locul meu, nici măcar ca interval.
+- Ce e marcat [nerăspuns] în contextul meu nu se completează cu presupuneri.
+- Schița e document de lucru. Nu scrie nicăieri că e finală și nu adăuga formule de trimitere.</pre>
+</div>
+
+<p>Schimbă orice vrei: cifrele, serviciile, replicile prospectului. E o organizație inventată, făcută să semene cu un IMM românesc real.</p>
+
+<p><strong>Fă acești 2 pași după ce apare artefactul:</strong></p>
+
+<ol>
+  <li>Există posibilitatea să trebuiască să dai un click pe un buton „publish" pe care Claude ți-l pune în chat. Dacă artefactul se generează fără să apară butonul, nu e nicio problemă.
+  </li>
+  <li>Click pe iconița cu săgeată dublă din stânga sus a artefactului, odată ce el a fost generat. Ea deschide output-ul pe tot ecranul, ca să îl vezi complet.
+  </li>
+</ol>
+
+<p class="tema"><strong>Tema ta pentru acasă.</strong> Uită-te la rezultat și întreabă-te dacă ți-ar folosi în contextul tău real. Dacă da, explorează acasă drumul <a class="jump" href="#offer-organizatia-ta"><strong>cu organizația ta</strong></a>.</p>
+
+<h3 id="offer-hibrid">Offer cu interviu, pe date demo</h3>
+<p class="durata">30-35 de minute · nu-ți trebuie niciun material</p>
+
+<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe blocurile de mai jos exact ca la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+
+<p>Oferta-referință și notițele prospectului pentru Blocul 2 le iei din blocul demo de mai sus: selectează din el de la „OFERTA-REFERINȚĂ" până înainte de „Regula de aur".</p>
+
+<h3 id="offer-organizatia-ta">Offer cu organizația ta</h3>
+<p class="durata">40-45 de minute · ai nevoie de cele două materiale din caseta de sus</p>
+
+<h4>Blocul 1: copiază-l într-o conversație nouă</h4>
+
+<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="offer-bloc-1">Copiază</button>
+  </div>
+  <pre id="offer-bloc-1">Ești omul care îmi pregătește propunerile comerciale. Înainte să scrii prima schiță, ai nevoie să mă cunoști.
+
+Pune-mi PATRU întrebări, UNA CÂTE UNA. Aștepți răspunsul meu înainte să treci la următoarea. Nu mi le da pe toate odată. Începe direct cu prima întrebare, fără introducere și fără să-mi explici ce urmează.
+
+ÎNTREBAREA 1 — fixă:
+Cere-mi linkul site-ului sau al paginii mele de prezentare și încearcă să-l citești. Dacă nu poți, cere-mi să copiez textul — o singură dată, fără explicații. Apoi spune-mi în 3 rânduri ce ai înțeles că vând și cui, ca să confirm sau să te corectez.
+
+ÎNTREBAREA 2 — fixă:
+Cere-mi lista serviciilor sau produselor pe care le vând, cu ce include fiecare și la ce tarife. Spune-mi că pot da tarifele ca interval sau că pot sări peste ele. Dacă am pus deja ceva pe site, arată-mi ce ai găsit acolo și cere-mi doar să completezi ce lipsește, în loc să mă pui să scriu tot de la zero.
+
+Lista asta e limita agentului: nu voi promite niciodată, în nicio ofertă, ceva ce nu apare în ea.
+
+ÎNTREBĂRILE 3 și 4 — le alegi tu:
+După ce ai citit site-ul, pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să scrii o schiță de ofertă pe care aș trimite-o după ce completez doar cifrele. Țintele din care alegi: ce NU accept niciodată într-o ofertă (termen de plată, discount, scope deschis) · cum arată la mine un termen realist de livrare · ce se întâmplă după ce trimit oferta, ca pași standard · ce mă diferențiază de alternativa evidentă a clientului · unde am pierdut oferte anul ăsta și de ce.
+
+Nu mă întreba ce vând și la ce tarife — ți-am spus deja. Nu mă întreba despre clientul ăsta anume: ce vrea, ce buget are, ce am discutat cu el sunt în notițele pe care ți le copiez în conversația următoare. Și nu-mi cere structura ofertei: primești acolo o ofertă de-a mea care a funcționat. Întreabă-mă DOAR ce nu poți afla de acolo.
+
+O SINGURĂ temă per întrebare. Nu lipi două teme într-una: îți răspund la prima și o pierdem pe a doua. Ce nu încape în cele două întrebări nu se îndeasă — rămâne descoperit și îmi spui la final ce n-ai aflat.
+
+Formulează-le pe businessul meu concret, nu generic.
+
+Reguli:
+- La răspunsuri vagi, cere-mi concretul: „depinde" nu e un tarif, „repede" nu e un termen. Insistă până acoperi tema întrebării, dar maximum două reîntrebări; după ele marchezi ce lipsește cu [nerăspuns] și mergi mai departe.
+- Pot spune „skip" la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
+- Dacă îți spun că nu vreau să folosesc date reale, sau dacă nu am materialele la mine, inventezi o firmă plauzibilă din domeniul meu, mi-o arăți ca s-o confirm, și lucrăm pe ea mai departe. Rezultatul e la fel de bun.
+
+După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU DE BUSINESS, organizat pe cinci secțiuni: ce vând și cui / cifre / capacitate / provocări și non-negociabile / serviciile și tarifele mele. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+
+Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera — ce n-ai aflat rămâne marcat [nerăspuns] în el, atât. Dacă îți dau totuși o completare după predare, spune-mi doar ce linie s-o adaug și în ce secțiune. Nu rescrie blocul: dacă am pe ecran două variante aproape la fel, o copiez pe cea greșită.
+
+Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
+</div>
+
+<h4>Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+
+<p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
+
+<p>Înainte de orice altceva, copiază în conversație informațiile pe care le-ai primit de la Claude în prima conversație, plus o ofertă de-a ta care a funcționat și notițele din discuția cu prospectul. Abia după aceea copiază promptul de mai jos.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="offer-bloc-2">Copiază</button>
+  </div>
+  <pre id="offer-bloc-2">Ești omul care îmi pregătește propunerile comerciale. Transformi notițele de mai sus, din discuția cu prospectul, într-o schiță de ofertă pe care o pot completa și trimite.
+
+Regula de aur, înainte de orice: nu promiți nimic ce nu e în lista mea de servicii și nu inventezi niciun preț. Ce nu știi din notițe se marchează [DE CONFIRMAT] și rămâne marcat. O ofertă cu trei goluri cinstite se trimite; una cu trei presupuneri frumoase se pierde la primul telefon.
+
+Construiește un singur fișier HTML, pe care să-l pot deschide în browser și lucra pe el:
+
+- schița ofertei, în ordinea și pe secțiunile ofertei-referință, scrisă în tonul ei: context · ce propun · livrabile · preț · pașii următori
+- fiecare gol, marcat [DE CONFIRMAT] vizibil chiar în text, acolo unde e — nu adunat discret la subsol
+- un contor sus, dintr-o privire: „X lucruri de confirmat înainte să trimit"
+- PANOUL DE VERIFICARE, separat: fiecare livrabil pe care l-am promis în schiță, cu serviciul din lista mea din care vine. Ce n-are pereche în listă apare marcat, ca să-l scot sau să-l discut. Asta e plasa care nu lasă agentul să vândă ce nu am.
+- lista întrebărilor rămase pentru client — toate [DE CONFIRMAT]-urile adunate la un loc, ca pregătire pentru următoarea discuție
+- schița, într-un bloc din care pot selecta și copia textul curat, fără decorațiuni în jur
+
+Cum arată pagina — citește tot punctul ăsta înainte să scrii o linie de cod:
+
+1. Alege ÎNTÂI direcția vizuală, și derivă-o din businessul din contextul meu, nu dintr-un șablon. Un distribuitor de echipamente și o agenție de creație nu au voie să primească aceeași pagină. Spune-mi în două rânduri ce direcție ai ales și de ce vine din businessul ăsta, apoi construiește după ea.
+2. Paleta: 4-5 culori, cu valorile hex scrise explicit, toate derivate din direcția aleasă. Una singură e accentul, și se folosește rar. Contrastul trebuie să țină la citit.
+3. Tipografia duce personalitatea paginii. Două fonturi alese deliberat — unul cu caracter pentru titluri, unul lizibil pentru text — fiecare cu stivă de rezervă din fonturi de sistem, în caz că nu se încarcă. Scara de mărimi cu diferențe mari între niveluri, nu 14-16-18.
+4. Un singur element de semnătură, lucrul după care se ține minte pagina. Aici sunt marcajele [DE CONFIRMAT]: se văd din capătul camerei, în text și în contorul de sus, și nu se pot rata înainte de trimitere. Acolo pui toată îndrăzneala; restul paginii stă cuminte în jur și arată ca un document care pleacă la un client.
+5. Interzis, pentru că astea trei ies din reflex și le-am văzut de o mie de ori: fundal crem cu serif și accent teracotă · fundal aproape negru cu un verde acid sau un roșu-portocaliu · pagină de ziar cu linii de un pixel și zero rotunjiri. Dacă direcția ta aterizează pe una dintre ele, alege alta.
+6. Fără emoji și fără iconițe decorative. O iconiță intră doar dacă înlocuiește un cuvânt.
+7. Se citește bine pe laptop și pe telefon, și rezistă la printare.
+8. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
+
+Reguli:
+- Niciun livrabil care nu există în lista mea de servicii. Dacă din notițe reiese că prospectul vrea altceva, îl scrii separat, ca propunere de discutat cu mine, nu în ofertă.
+- Niciun preț inventat. Folosești tarifele din contextul meu; unde nu există, câmpul rămâne gol, cu [DE CONFIRMAT]. Nu estima în locul meu, nici măcar ca interval.
+- Ce e marcat [nerăspuns] în contextul meu nu se completează cu presupuneri.
+- Schița e document de lucru. Nu scrie nicăieri că e finală și nu adăuga formule de trimitere.</pre>
+</div>
+
+<p><strong>Fă acești 2 pași după ce apare artefactul:</strong></p>
+
+<ol>
+  <li>Există posibilitatea să trebuiască să dai un click pe un buton „publish" pe care Claude ți-l pune în chat. Dacă artefactul se generează fără să apară butonul, nu e nicio problemă.
+  </li>
+  <li>Click pe iconița cu săgeată dublă din stânga sus a artefactului, odată ce el a fost generat. Ea deschide output-ul pe tot ecranul, ca să îl vezi complet.
+  </li>
+</ol>
+
+<h4>Blocul 3: copiază-l la final, în aceeași conversație</h4>
+
+<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază următorul bloc în aceeași conversație cu Blocul 2:</p>
+
+<p class="ps"><em>P.S.: Dacă ai terminat mai repede agentul și încă mai ai timp, poți face acest pas chiar acum, live în sală.</em></p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="offer-bloc-3">Copiază</button>
+  </div>
+  <pre id="offer-bloc-3">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema data viitoare când ies dintr-o discuție cu un prospect, fără să mai copiez nimic de mână. Păstrează regula de aur, lista serviciilor mele, structura ofertei-referință și formatul artefactului. La final spune-mi cum îl chem la lucru.</pre>
+</div>
+
+<h4>Unde ajunge skill-ul</h4>
+
+<p>După Blocul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
+
+<p>Dacă Claude îți propune să salveze un skill, apasă save. Îl vei găsi în contul tău la <strong>Customize</strong>, <strong>Skills</strong>. Dacă nu ți-l propune, salvează instrucțiunile într-un <strong>Project</strong>:</p>
+
+<ol>
+  <li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia."
+  </li>
+  <li>În claude.ai, în meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după agentul tău, de exemplu <em>Offer</em>.
+  </li>
+  <li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.
+  </li>
+  <li>Data viitoare când ieși dintr-o discuție cu un prospect, deschide o conversație din interiorul proiectului. Agentul va fi acolo să te ajute.
+  </li>
+</ol>
+  </section>
+
+
+  <section class="agent" id="sec-cockpit">
+<h2 id="cockpit">Cockpit</h2>
+
+<p>Tabloul de bord al firmei tale, de o pagină: unde stai față de obiectivul anului, ce stagnează, ce așteaptă un DA sau un NU de la tine, și maximum trei acțiuni, fiecare legată de o cifră.</p>
+
+<aside class="expect">
+<p>La ce să te aștepți:</p>
+
+<p><strong>Dacă lucrezi cu organizația demo:</strong> Testezi use-case-ul pe un business fictiv, ale cărui informații le ai integral la dispoziție. Astfel, experimentezi și înțelegi procesul, vezi dacă rezultatul ți-ar folosi în organizația ta și dacă da, îl poți implementa acasă.</p>
+
+<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#cockpit-hibrid"><strong>drumul de mijloc</strong></a>.</p>
+
+<p><strong>Dacă lucrezi cu informații din organizația ta:</strong> Claude te intervievează și pleci cu tabloul de bord al firmei tale: unde stai față de obiectivul anului, ce stagnează, ce așteaptă un DA sau un NU de la tine, trei acțiuni. Ai nevoie să știi:</p>
+
+<ul>
+  <li>linkul site-ului tău</li>
+  <li>obiectivele tale pe anul ăsta, în cifre</li>
+  <li>ce înseamnă pentru tine că un lucru „stă pe loc"</li>
+</ul>
+
+<p>Și îți trebuie <strong>statusul de acum</strong>: clienții și proiectele în lucru cu ultima mișcare, ofertele trimise, banii încasați și facturați, blocajele.</p>
+
+<p>E agentul care cere cele mai multe cifre din cei patru. Nu trebuie să fie exacte la leu, dar dacă nu le ai nicăieri scrise, le aduni acum din memorie și asta durează.</p>
+</aside>
+
+<h3 id="cockpit-demo">Cockpit cu organizația demo</h3>
+<p class="durata">10-15 minute · nu-ți trebuie nicio cifră</p>
+
+<p>Ventora Distribuție e organizația demo: un distribuitor de echipamente HVAC din Transilvania, cu 22 de oameni și depozit lângă Cluj. Vinde centrale termice, chillere și unități de ventilație firmelor de instalații și dezvoltatorilor mici și medii; nu montează și nu proiectează — vinde marfa și o livrează în șantier. În 2025 a făcut 6,5 milioane de lei; obiectivul pe 2026 e 8 milioane, dar la șapte luni e sub ritm. Cea mai mare provocare: trei clienți îi fac aproape jumătate din venit și o strâng pe preț, într-o piață în care distribuitorii naționali intră cu discounturi greu de susținut.</p>
+
+<p>Copiază blocul de mai jos într-o conversație nouă în claude.ai. Contextul firmei demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat), obiectivele ei pe an și statusul la șapte luni sunt deja integrate.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="cockpit-demo-bloc">Copiază</button>
+  </div>
+  <p class="legend">Găsești subliniate informațiile pe care îți recomand să le modifici în prompt în funcție de ce dorești să afli.</p>
+  <pre id="cockpit-demo-bloc">Ești omul care îmi spune lunar unde stau cu firma. Citești tot ce-ți dau și îmi predai un tablou de bord de o pagină.
+
+CONTEXTUL MEU DE BUSINESS (conține și obiectivele mele pe anul ăsta):
+
+CE VÂND ȘI CUI
+Distribuim echipamente HVAC — centrale termice, chillere, unități de ventilație — către firme de instalații și dezvoltatori mici și medii din Transilvania. Nu montăm și nu proiectăm: vindem marfa și o livrăm în șantier. Adaos mediu 18%.
+
+<span class="edit">CIFRE</span>
+Cifră de afaceri 6,5 milioane de lei în 2025, marjă netă 11%. Obiectivul pe 2026 e 8 milioane; la șapte luni suntem la 3,6 milioane, deci sub ritm. Trei clienți fac 48% din venit. Termenul mediu de încasare e 45 de zile.
+
+CAPACITATE
+22 de oameni: 2 pe vânzări, 3 în depozit, 1 tehnic, restul administrativ și logistică. Eu am realist în jur de 10 ore pe săptămână pentru orice nu înseamnă vânzare curentă și stins incendii.
+
+PROVOCĂRI ȘI NON-NEGOCIABILE
+Cea mai mare provocare e dependența de cei trei clienți mari, care ne strâng și pe preț, într-o piață în care distribuitorii naționali intră cu discounturi pe care nu le pot susține. Nu vindem pe credit peste 60 de zile și nu deschidem punct de lucru în alt oraș anul acesta.
+
+<span class="edit">OBIECTIVELE MELE PE ANUL ĂSTA</span>
+Toate trei, cu termen 31 decembrie 2026: cifră de afaceri 8 milioane de lei, cu marjă netă de minimum 11% · cei mai mari trei clienți sub 40% din venit, de la 48% cât sunt acum · termen mediu de încasare sub 40 de zile, de la 45.
+Consider că un lucru stă pe loc dacă un client n-a comandat nimic de șase săptămâni, dacă o ofertă trimisă n-a primit răspuns de trei săptămâni, sau dacă un proiect intern n-a avansat într-o lună.
+Raportul îl citim eu și boardul: doi investitori care au intrat în firmă în 2022.
+Cele 10 ore pe săptămână le vreau acum pe clienți noi. Amân deciziile în care nu am destulă informație ca să fiu sigur.
+
+<span class="edit">STATUSUL DE ACUM:</span>
+
+STATUSUL VENTORA LA 29 AUGUST 2026 (șapte luni închise)
+
+BANI
+Realizat ianuarie-iulie: 3,6 milioane de lei din ținta de 8 milioane.
+Marja netă la șapte luni: 9,8%.
+Facturat și neîncasat: 640.000 de lei, din care 180.000 sunt peste 60 de zile (Delta Instal 120.000, Hidroterm Alba 60.000).
+August nu e închis încă, dar arată în jur de 480.000.
+
+CLIENȚI
+Delta Instal — 22% din venitul de anul ăsta. Ultima comandă 18 august. Au renegociat prețul de trei ori anul ăsta; ultima dată au cerut 6% și au primit 3%, cu plata mutată la 30 de zile. Oferta revizuită trimisă vineri, 22 august.
+Proinstal Cluj — 15%. Ultima comandă 11 august. Relație bună, nu negociază.
+Termoline — 11%. Ultima comandă 4 august.
+Hidroterm Alba — 6%. Ultima comandă 12 iunie. De atunci nimic, și au și o factură restantă.
+Instal Prodex — 5%. Livrarea a doua din cele trei, făcută pe 20 august. A treia se comandă în septembrie.
+Restul: 15 clienți mici, sub 3% fiecare.
+
+OFERTE TRIMISE, ÎN AȘTEPTARE
+Instal Prodex, corp B — 210.000 lei, trimisă 19 august. Au zis că răspund după ce închid corpul A.
+Climaterm Mureș — 96.000 lei, trimisă 3 iulie. Niciun răspuns, nu am sunat.
+Delta Instal, revizuită — 340.000 lei, trimisă 22 august.
+Un dezvoltator din Florești (Domus Rezidențial) — discuție telefonică pe 26 august, ofertă încă netrimisă, aștept proiectul de instalații.
+
+PROIECTE INTERNE
+Sistemul nou de gestiune a stocului — implementarea a început în aprilie, e blocată din iunie: furnizorul așteaptă de la mine lista de categorii de produse aprobată.
+Angajarea unui al treilea om pe vânzări — am decis în februarie că o facem, n-am scos anunțul.
+Serviciul de mentenanță pe abonament — discutat în ședințe din martie, amânat de fiecare dată. Ultima amânare, luni 24 august: "discutăm săptămâna viitoare".
+Showroom în Oradea — idee ridicată de Cristina, n-am discutat-o niciodată serios.
+
+BLOCAJE ȘI SUPĂRĂRI
+Transportatorul extern a întârziat două livrări luna asta. Mihai din depozit e la capătul răbdării.
+Distribuitorii naționali intră în Transilvania cu discounturi pe care nu le pot susține la marja mea.
+Am 10 ore pe săptămână pentru orice nu e vânzare curentă și stins incendii, și de obicei le pierd pe stins incendii.
+
+Regula de aur, înainte de orice: nu inventezi nicio cifră și nu umfli niciun progres. Fiecare cifră din raport vine din ce ți-am dat mai sus; ce nu are cifră sau dată nu intră ca fapt, ci ca lucru de aflat. Un raport festiv care înșiră tot ce există e un raport eșuat.
+
+Construiește un singur fișier HTML, pe care să-l pot deschide în browser și citi în trei minute:
+
+- UNDE STAU FAȚĂ DE OBIECTIV, sus și mare: cifra de acum, ținta, distanța dintre ele, și dacă sunt în ritm sau sub ritm față de cât a trecut din an. Dacă am dat mai multe obiective, câte unul pentru fiecare.
+- CELE MAXIMUM 3 ACȚIUNI, lângă gap, la fel de vizibile: ordonate după impact, fiecare legată explicit de o cifră sau un fapt din statusul meu. Trei, nu cinci. Dacă a patra e importantă, taie una.
+- ce stagnează sau riscă, după pragul meu de alarmă, cu data ultimei mișcări lângă fiecare. Ce e mai vechi de o lună se marchează ca posibil expirat, nu se tratează ca stare curentă.
+- ce așteaptă un DA sau un NU de la mine — lista lucrurilor blocate pe mine, nu pe alții
+- ce n-am putut evalua, și ce cifră ți-ar trebui data viitoare ca raportul să fie mai bun
+
+Cum arată pagina — citește tot punctul ăsta înainte să scrii o linie de cod:
+
+1. Alege ÎNTÂI direcția vizuală, și derivă-o din businessul din contextul meu, nu dintr-un șablon. Un distribuitor de echipamente și o agenție de creație nu au voie să primească aceeași pagină. Spune-mi în două rânduri ce direcție ai ales și de ce vine din businessul ăsta, apoi construiește după ea.
+2. Paleta: 4-5 culori, cu valorile hex scrise explicit, toate derivate din direcția aleasă. Una singură e accentul, și se folosește rar. Contrastul trebuie să țină la citit.
+3. Tipografia duce personalitatea paginii. Două fonturi alese deliberat — unul cu caracter pentru titluri, unul lizibil pentru text — fiecare cu stivă de rezervă din fonturi de sistem, în caz că nu se încarcă. Scara de mărimi cu diferențe mari între niveluri, nu 14-16-18.
+4. Un singur element de semnătură, lucrul după care se ține minte pagina. Aici e distanța până la obiectiv: cifra ei se vede din capătul camerei, iar cele maximum 3 acțiuni stau lipite de ea, ca răspunsul la ea. Restul paginii — stagnări, decizii, necunoscute — stă cuminte dedesubt și nu concurează cu perechea asta.
+5. Interzis, pentru că astea trei ies din reflex și le-am văzut de o mie de ori: fundal crem cu serif și accent teracotă · fundal aproape negru cu un verde acid sau un roșu-portocaliu · pagină de ziar cu linii de un pixel și zero rotunjiri. Dacă direcția ta aterizează pe una dintre ele, alege alta.
+6. Fără emoji și fără iconițe decorative. O iconiță intră doar dacă înlocuiește un cuvânt.
+7. Se citește bine pe laptop și pe telefon, și rezistă la printare.
+8. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
+
+Reguli:
+- Fiecare cifră din pagină există în ce ți-am dat. Dacă nu poți arăta de unde vine, cifra nu intră.
+- Ce e interpretarea ta se marchează („din ce mi-ai dat pare că…"), nu se scrie ca fapt.
+- Ce e marcat [nerăspuns] în contextul meu intră la „ce n-am putut evalua", nu se completează cu presupuneri.
+- Nicio acțiune vagă. „Continuă să comunici" nu e o acțiune. Dacă nu poți spune ce se face și până când, nu e acțiune, e temă.
+- Dacă statusul meu e prea subțire ca să scrii raportul, spune-mi-o deschis, predă ce se poate și listează ce ți-ar trebui data viitoare. Nu compensa golurile cu generalități.</pre>
+</div>
+
+<p>Schimbă orice vrei: cifrele, obiectivele, statusul. E o organizație inventată, făcută să semene cu un IMM românesc real.</p>
+
+<p><strong>Fă acești 2 pași după ce apare artefactul:</strong></p>
+
+<ol>
+  <li>Există posibilitatea să trebuiască să dai un click pe un buton „publish" pe care Claude ți-l pune în chat. Dacă artefactul se generează fără să apară butonul, nu e nicio problemă.
+  </li>
+  <li>Click pe iconița cu săgeată dublă din stânga sus a artefactului, odată ce el a fost generat. Ea deschide output-ul pe tot ecranul, ca să îl vezi complet.
+  </li>
+</ol>
+
+<p class="tema"><strong>Tema ta pentru acasă.</strong> Uită-te la rezultat și întreabă-te dacă ți-ar folosi în contextul tău real. Dacă da, explorează acasă drumul <a class="jump" href="#cockpit-organizatia-ta"><strong>cu organizația ta</strong></a>.</p>
+
+<h3 id="cockpit-hibrid">Cockpit cu interviu, pe date demo</h3>
+<p class="durata">30-35 de minute · nu-ți trebuie nicio cifră</p>
+
+<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe blocurile de mai jos exact ca la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+
+<p>Statusul pentru Blocul 2 îl iei din blocul demo de mai sus: selectează din el de la „STATUSUL DE ACUM:" până înainte de „Regula de aur".</p>
+
+<h3 id="cockpit-organizatia-ta">Cockpit cu organizația ta</h3>
+<p class="durata">40-45 de minute · ai nevoie de cifrele din caseta de sus</p>
+
+<h4>Blocul 1: copiază-l într-o conversație nouă</h4>
+
+<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="cockpit-bloc-1">Copiază</button>
+  </div>
+  <pre id="cockpit-bloc-1">Ești omul care îmi spune lunar unde stau cu firma. Înainte de primul raport, ai nevoie să mă cunoști.
+
+Pune-mi PATRU întrebări, UNA CÂTE UNA. Aștepți răspunsul meu înainte să treci la următoarea. Nu mi le da pe toate odată. Începe direct cu prima întrebare, fără introducere și fără să-mi explici ce urmează.
+
+ÎNTREBAREA 1 — fixă:
+Cere-mi linkul site-ului sau al paginii mele de prezentare și încearcă să-l citești. Dacă nu poți, cere-mi să copiez textul — o singură dată, fără explicații. Apoi spune-mi în 3 rânduri ce ai înțeles că vând și cui, ca să confirm sau să te corectez.
+
+ÎNTREBAREA 2 — fixă:
+Cere-mi obiectivele mele pe anul ăsta, în cifre, cu termen. Vrei ținta, nu intenția: „8 milioane cifră de afaceri până în decembrie" e un obiectiv, „să creștem" nu e. Dacă îți dau mai multe, ia-le pe toate, maximum trei. Dacă îmi dau doar unul lunar, cere-mi și ținta pe an — fără ea nu există „unde stau".
+
+Fără obiectiv în cifre nu se poate scrie raportul. Dacă nu vreau sau nu pot să-l dau, spune-mi asta deschis și mergem mai departe cu un obiectiv marcat [nerăspuns], dar raportul va fi mai slab.
+
+ÎNTREBĂRILE 3 și 4 — le alegi tu:
+După ce ai citit site-ul, pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să scrii un raport după care știu ce fac săptămâna asta și de ce. Țintele din care alegi: ce înseamnă pentru mine că un lucru „stă pe loc" (după câte săptămâni fără mișcare mă alarmez) · câte ore am EU realist pe săptămână pentru ce nu e muncă curentă · ce fel de decizii amân de obicei · cine mai citește raportul în afară de mine · ce mă doare cel mai tare acum: banii, clienții noi sau livrarea.
+
+Nu mă întreba cum stau acum cu clienții, ofertele, banii sau proiectele, și nici ce mi-a mers sau nu în ultima lună. Toate sunt în statusul pe care ți-l copiez în conversația următoare. Întreabă-mă DOAR ce nu poți afla de acolo.
+
+O SINGURĂ temă per întrebare. Nu lipi două teme într-una: îți răspund la prima și o pierdem pe a doua. Ce nu încape în cele două întrebări nu se îndeasă — rămâne descoperit și îmi spui la final ce n-ai aflat.
+
+Formulează-le pe businessul meu concret, nu generic.
+
+Reguli:
+- La răspunsuri vagi, cere-mi concretul: „mai mult" nu e o cifră, „la anul" nu e un termen. Insistă până acoperi tema întrebării, dar maximum două reîntrebări; după ele marchezi ce lipsește cu [nerăspuns] și mergi mai departe.
+- Pot spune „skip" la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
+- Dacă îți spun că nu vreau să folosesc date reale, sau dacă nu am cifrele la mine, inventezi o firmă plauzibilă din domeniul meu, mi-o arăți ca s-o confirm, și lucrăm pe ea mai departe. Rezultatul e la fel de bun.
+
+După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU DE BUSINESS, organizat pe cinci secțiuni: ce vând și cui / cifre / capacitate / provocări și non-negociabile / obiectivele mele pe anul ăsta. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+
+Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera — ce n-ai aflat rămâne marcat [nerăspuns] în el, atât. Dacă îți dau totuși o completare după predare, spune-mi doar ce linie s-o adaug și în ce secțiune. Nu rescrie blocul: dacă am pe ecran două variante aproape la fel, o copiez pe cea greșită.
+
+Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
+</div>
+
+<h4>Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+
+<p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
+
+<p>Înainte de orice altceva, copiază în conversație informațiile pe care le-ai primit de la Claude în prima conversație, plus statusul de acum al firmei. Abia după aceea copiază promptul de mai jos.</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="cockpit-bloc-2">Copiază</button>
+  </div>
+  <pre id="cockpit-bloc-2">Ești omul care îmi spune lunar unde stau cu firma. Citești tot ce ți-am dat mai sus și îmi predai un tablou de bord de o pagină.
+
+Regula de aur, înainte de orice: nu inventezi nicio cifră și nu umfli niciun progres. Fiecare cifră din raport vine din ce ți-am dat mai sus; ce nu are cifră sau dată nu intră ca fapt, ci ca lucru de aflat. Un raport festiv care înșiră tot ce există e un raport eșuat.
+
+Construiește un singur fișier HTML, pe care să-l pot deschide în browser și citi în trei minute:
+
+- UNDE STAU FAȚĂ DE OBIECTIV, sus și mare: cifra de acum, ținta, distanța dintre ele, și dacă sunt în ritm sau sub ritm față de cât a trecut din an. Dacă am dat mai multe obiective, câte unul pentru fiecare.
+- CELE MAXIMUM 3 ACȚIUNI, lângă gap, la fel de vizibile: ordonate după impact, fiecare legată explicit de o cifră sau un fapt din statusul meu. Trei, nu cinci. Dacă a patra e importantă, taie una.
+- ce stagnează sau riscă, după pragul meu de alarmă, cu data ultimei mișcări lângă fiecare. Ce e mai vechi de o lună se marchează ca posibil expirat, nu se tratează ca stare curentă.
+- ce așteaptă un DA sau un NU de la mine — lista lucrurilor blocate pe mine, nu pe alții
+- ce n-am putut evalua, și ce cifră ți-ar trebui data viitoare ca raportul să fie mai bun
+
+Cum arată pagina — citește tot punctul ăsta înainte să scrii o linie de cod:
+
+1. Alege ÎNTÂI direcția vizuală, și derivă-o din businessul din contextul meu, nu dintr-un șablon. Un distribuitor de echipamente și o agenție de creație nu au voie să primească aceeași pagină. Spune-mi în două rânduri ce direcție ai ales și de ce vine din businessul ăsta, apoi construiește după ea.
+2. Paleta: 4-5 culori, cu valorile hex scrise explicit, toate derivate din direcția aleasă. Una singură e accentul, și se folosește rar. Contrastul trebuie să țină la citit.
+3. Tipografia duce personalitatea paginii. Două fonturi alese deliberat — unul cu caracter pentru titluri, unul lizibil pentru text — fiecare cu stivă de rezervă din fonturi de sistem, în caz că nu se încarcă. Scara de mărimi cu diferențe mari între niveluri, nu 14-16-18.
+4. Un singur element de semnătură, lucrul după care se ține minte pagina. Aici e distanța până la obiectiv: cifra ei se vede din capătul camerei, iar cele maximum 3 acțiuni stau lipite de ea, ca răspunsul la ea. Restul paginii — stagnări, decizii, necunoscute — stă cuminte dedesubt și nu concurează cu perechea asta.
+5. Interzis, pentru că astea trei ies din reflex și le-am văzut de o mie de ori: fundal crem cu serif și accent teracotă · fundal aproape negru cu un verde acid sau un roșu-portocaliu · pagină de ziar cu linii de un pixel și zero rotunjiri. Dacă direcția ta aterizează pe una dintre ele, alege alta.
+6. Fără emoji și fără iconițe decorative. O iconiță intră doar dacă înlocuiește un cuvânt.
+7. Se citește bine pe laptop și pe telefon, și rezistă la printare.
+8. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
+
+Reguli:
+- Fiecare cifră din pagină există în ce ți-am dat. Dacă nu poți arăta de unde vine, cifra nu intră.
+- Ce e interpretarea ta se marchează („din ce mi-ai dat pare că…"), nu se scrie ca fapt.
+- Ce e marcat [nerăspuns] în contextul meu intră la „ce n-am putut evalua", nu se completează cu presupuneri.
+- Nicio acțiune vagă. „Continuă să comunici" nu e o acțiune. Dacă nu poți spune ce se face și până când, nu e acțiune, e temă.
+- Dacă statusul meu e prea subțire ca să scrii raportul, spune-mi-o deschis, predă ce se poate și listează ce ți-ar trebui data viitoare. Nu compensa golurile cu generalități.</pre>
+</div>
+
+<p><strong>Fă acești 2 pași după ce apare artefactul:</strong></p>
+
+<ol>
+  <li>Există posibilitatea să trebuiască să dai un click pe un buton „publish" pe care Claude ți-l pune în chat. Dacă artefactul se generează fără să apară butonul, nu e nicio problemă.
+  </li>
+  <li>Click pe iconița cu săgeată dublă din stânga sus a artefactului, odată ce el a fost generat. Ea deschide output-ul pe tot ecranul, ca să îl vezi complet.
+  </li>
+</ol>
+
+<h4>Blocul 3: copiază-l la final, în aceeași conversație</h4>
+
+<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază următorul bloc în aceeași conversație cu Blocul 2:</p>
+
+<p class="ps"><em>P.S.: Dacă ai terminat mai repede agentul și încă mai ai timp, poți face acest pas chiar acum, live în sală.</em></p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Blocul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="cockpit-bloc-3">Copiază</button>
+  </div>
+  <pre id="cockpit-bloc-3">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema în fiecare lună, fără să mai copiez nimic de mână. Păstrează regula de aur, obiectivele mele, pragul de alarmă și formatul artefactului. Cifrele mele se schimbă de la o lună la alta, așa că spune-mi cum să ți le dau data viitoare fără să refac tot. La final spune-mi cum îl chem la lucru.</pre>
+</div>
+
+<h4>Unde ajunge skill-ul</h4>
+
+<p>După Blocul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
+
+<p>Dacă Claude îți propune să salveze un skill, apasă save. Îl vei găsi în contul tău la <strong>Customize</strong>, <strong>Skills</strong>. Dacă nu ți-l propune, salvează instrucțiunile într-un <strong>Project</strong>:</p>
+
+<ol>
+  <li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia."
+  </li>
+  <li>În claude.ai, în meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după agentul tău, de exemplu <em>Cockpit</em>.
+  </li>
+  <li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.
+  </li>
+  <li>Data viitoare când vrei raportul lunar, deschide o conversație din interiorul proiectului. Agentul va fi acolo să te ajute.
+  </li>
+</ol>
+  </section>
+
+
+  <section class="agent" id="sec-fisa-ventora">
+<h2 id="fisa-ventora">Vrei să vezi interviul, dar fără datele firmei tale?</h2>
+
+<p>Blocurile demo de mai sus sunt construite să sară peste interviu, dar poate vrei să vezi cum decurge acesta, fără să expui informațiile despre organizația ta. De aceea, găsești mai jos răspunsurile despre organizația fictivă Ventora.</p>
+
+<p><strong>Cine ești în firma asta.</strong> Andrei Pop, patron și administrator. Firma e din 2011, a ta de la început. Ai doi investitori intrați în 2022, care au împreună o treime; le dai socoteală trimestrial și sunt singurii care mai citesc rapoartele tale în afară de tine.</p>
+
+<p><strong>„Dă-mi linkul site-ului."</strong> Ventora n-are pagină publică de prezentare, doar o pagină de contact. Spune-i asta și copiază-i textul de mai jos:</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Textul de copiat</span>
+    <button class="copy-btn" type="button" data-copy="fisa-ventora-text">Copiază</button>
+  </div>
+  <pre id="fisa-ventora-text">Ventora Distribuție SRL — distribuitor de echipamente HVAC în Transilvania, din 2011.
+Livrăm centrale termice, chillere și unități de ventilație firmelor de instalații și dezvoltatorilor din Cluj, Alba, Mureș, Bihor și Sălaj. Ținem stoc pentru urgențe de șantier și aducem la comandă de la producători ce nu avem, în 4-6 săptămâni.
+Nu montăm și nu proiectăm. Facem dimensionarea echipamentului pe proiectul tău și livrăm direct în șantier, cu mașinile noastre.
+22 de oameni, depozit propriu în Florești, lângă Cluj-Napoca.</pre>
+</div>
+
+<p><strong>Oamenii tăi.</strong></p>
+
+<ul>
+  <li>Cristina — vânzări, e la tine de șase ani, ea ține relația cu clienții mari.</li>
+  <li>Mihai — depozit și logistică, cel mai vocal când ceva nu merge.</li>
+  <li>Bogdan — singurul om tehnic, face dimensionările și răspunde la întrebări de garanție.</li>
+  <li>Plus un al doilea om pe vânzări, angajat anul trecut, încă verde.</li>
+  <li>Restul: contabilitate, facturare, doi șoferi, un gestionar.</li>
+</ul>
+
+<p><strong>Cum lucrezi tu.</strong> Ai în jur de 10 ore pe săptămână pentru orice nu e vânzare curentă și stins incendii, și de obicei le pierzi tot pe stins incendii. Acum le-ai vrea pe clienți noi, ca să scazi dependența de cei trei mari. Amâni deciziile în care nu ai destulă informație ca să fii sigur — de-aia stau pe loc lista de categorii pentru sistemul de gestiune, anunțul de angajare pe vânzări și abonamentul de mentenanță.</p>
+
+<p><strong>Ce nu vrei.</strong> Să vinzi pe credit peste 60 de zile. Să deschizi punct de lucru în alt oraș anul ăsta. Să ajungă în scris nemulțumirile despre oameni pe nume și discuțiile despre marje sau prețuri de achiziție.</p>
+
+<p><strong>Cum scrii.</strong> Scurt și direct, fără formule lungi. Deschizi cu „Bună, [nume]," și închizi cu „Mulțumesc, Andrei". Fără bold, fără liste lungi: două-trei rânduri și ce ai de cerut.</p>
+
+<p><strong>Ce te doare cel mai tare.</strong> Că trei clienți îți fac aproape jumătate din venit și te strâng pe preț de fiecare dată, într-o piață în care distribuitorii naționali intră cu discounturi pe care nu le poți susține la o marjă de 11%.</p>
+
+<p><strong>Termenele, dacă te întreabă.</strong> Toate cele trei obiective au termen 31 decembrie 2026.</p>
+
+<p><strong>Dacă te întreabă altceva.</strong> Răspunde ce ți se pare plauzibil pentru o firmă de genul ăsta, sau spune-i „skip". Interviul e construit să meargă mai departe cu goluri, exact ca în viața reală.</p>
+  </section>
+
+
+  <section class="bio" id="despre-raluca">
+    <h2>Despre Raluca</h2>
+    <p>Raluca Păduraru este Futures of Work Strategist și fondator Upvance Global.</p>
+    <p>Lucrează de 2 decenii în dezvoltarea oamenilor și a echipelor, iar în ultimii 2 ani a facilitat peste 1.000 de ore de laboratoare cu și despre AI, cu peste 5.500 de oameni, de la antreprenori la echipe de management din corporații. Raluca transformă echipele non-tehnice în AI Business Translators, adică oameni care înțeleg problemele de business, le rezolvă cu ajutorul AI și construiesc sisteme care rămân în organizație.</p>
+    <p>Este Certified Foresight Practitioner, APF Emerging Fellow și autoarea mai multor studii și rapoarte despre viitorul muncii în România și despre felul în care utilizăm AI la job în România.</p>
+
+    <div class="bio-links">
+      <a href="https://www.ralucapaduraru.ro/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.4 3.8 5.5 3.8 9S14.5 18.6 12 21c-2.5-2.4-3.8-5.5-3.8-9S9.5 5.4 12 3z"/></svg>
+        Website
+      </a>
+      <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.3 8.65 22 10.6 22 14.1V21h-4v-6.2c0-1.55-.55-2.6-1.93-2.6-1.05 0-1.68.7-1.95 1.38-.1.25-.12.6-.12.95V21H9V9z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+
+    <div class="inits">
+      <div class="init">
+        <h3><a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener">Newsletter The Leadership Catalyst</a></h3>
+        <p>Newsletter săptămânal despre mindset AI, gândire anticipativă (foresight) și use case-uri practice.</p>
+      </div>
+      <div class="init">
+        <h3><a href="https://www.ralucapaduraru.ro/romanian-state-of-ai/" target="_blank" rel="noopener">Romanian State of AI</a></h3>
+        <p>Primul studiu academic despre utilizarea AI la locul de muncă în România. Preluat de Pro TV, Capital, Revista Cariere.</p>
+      </div>
+      <div class="init">
+        <h3><a href="https://www.ralucapaduraru.ro/viitoruri" target="_blank" rel="noopener">4 viitoruri ale muncii în România 2030</a></h3>
+        <p>Primul raport de foresight dedicat pieței muncii din România. Scenarii ancorate în date și strategii acționabile.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="copyright-box">
+    <strong>© 2026 Raluca Păduraru</strong><br>
+    Materialele de pe pagina asta (prompturi, contextul organizației demo, ghidul de lucru) sunt create pentru participanții la sesiune și pentru uzul lor personal. Nu se distribuie, nu se publică și nu se refolosesc în alte contexte fără acordul scris al Ralucăi Păduraru. Poți cere acordul pe email: <a href="mailto:raluca@upvance.global">raluca@upvance.global</a>.
+  </div>
+
+  <footer class="doc-foot">
+    <a href="https://www.ralucapaduraru.ro" target="_blank" rel="noopener" class="logo-link"><img src="../images/logo-lavender.png" alt="Raluca Păduraru" /></a>
+    <p>© 2026 Raluca Păduraru · <a href="https://www.ralucapaduraru.ro">ralucapaduraru.ro</a></p>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pre = document.getElementById(btn.getAttribute('data-copy'));
+      if (!pre) return;
+      function reusit() {
+        btn.textContent = 'Copiat';
+        btn.classList.add('copied');
+        setTimeout(function () {
+          btn.textContent = 'Copiază';
+          btn.classList.remove('copied');
+        }, 1800);
+      }
+      function eroare() {
+        btn.textContent = 'Selectează și copiază';
+        btn.classList.add('copied');
+      }
+      try {
+        navigator.clipboard.writeText(pre.textContent).then(reusit).catch(eroare);
+      } catch (e) {
+        eroare();
+      }
+    });
+  });
+</script>
+</body>
+</html>
