@@ -137,6 +137,39 @@
   .agent-nav a:hover{background:#efe9ff;border-color:var(--lavender);}
   @media(max-width:720px){.agent-nav{margin:0 -20px 30px;padding:10px 20px;}}
 
+  /* ---------- Mecanismul ---------- */
+  section.mecanism{margin:0 0 36px;}
+  section.mecanism h2{margin-top:0;}
+  .mec-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0 16px;
+  }
+  .mec-card{
+    position:relative;background:var(--surface);border:1px solid var(--border);
+    border-top:3px solid var(--lavender);border-radius:8px;padding:14px 14px 12px;
+  }
+  .mec-card .n{
+    font-family:var(--font-mono);font-size:0.68rem;font-weight:600;letter-spacing:0.12em;
+    text-transform:uppercase;color:var(--lavender);margin-bottom:6px;
+  }
+  .mec-card h3{
+    font-size:0.98rem;margin:0 0 6px;padding:0;border-bottom:none;color:var(--ink);
+  }
+  .mec-card p{font-size:0.88rem;line-height:1.5;color:var(--muted);margin:0;}
+  .mec-card::after{
+    content:"";position:absolute;right:-8px;top:50%;width:6px;height:6px;
+    border-top:2px solid var(--lavender-lt);border-right:2px solid var(--lavender-lt);
+    transform:translateY(-50%) rotate(45deg);
+  }
+  .mec-card:last-child::after{display:none;}
+  .mec-flux{
+    font-size:0.92rem;color:var(--body);background:var(--surface);
+    border-left:3px solid var(--lavender-lt);padding:12px 16px;margin:0;
+  }
+  @media(max-width:720px){
+    .mec-grid{grid-template-columns:1fr;}
+    .mec-card::after{right:auto;left:50%;top:auto;bottom:-9px;transform:translateX(-50%) rotate(135deg);}
+  }
+
   /* ---------- Secțiuni ---------- */
   section.agent{padding-top:26px;margin-bottom:20px;border-top:1px solid var(--border);}
   section.agent:first-of-type{border-top:none;}
@@ -343,6 +376,7 @@
 
   <nav class="agent-nav">
     <span>Sari la</span>
+    <a href="#mecanism">Mecanismul</a>
     <a href="#boardroom">Boardroom</a>
     <a href="#meeting-assistant">Meeting Assistant</a>
     <a href="#offer">Offer</a>
@@ -350,6 +384,38 @@
     <a href="#fisa-ventora">Fișa Ventora</a>
     <a href="#despre-raluca">Despre Raluca</a>
   </nav>
+
+
+  <section class="mecanism" id="sec-mecanism">
+<h2 id="mecanism">Mecanismul</h2>
+
+<p>Toate cele patru blocuri de mai jos sunt construite la fel. Când îți construiești acasă al doilea agent, ăsta e scheletul pe care îl refolosești:</p>
+
+<div class="mec-grid">
+  <div class="mec-card">
+    <div class="n">1</div>
+    <h3>Contextul</h3>
+    <p>Cine ești, ce vinzi, cifrele, ce nu e negociabil. Îl produce interviul din Blocul 1 sau îl scrii tu.</p>
+  </div>
+  <div class="mec-card">
+    <div class="n">2</div>
+    <h3>Regula de aur</h3>
+    <p>Ce nu are voie să facă agentul: să inventeze cifre, să promoveze o discuție la decizie, să promită ce nu vinzi.</p>
+  </div>
+  <div class="mec-card">
+    <div class="n">3</div>
+    <h3>Livrabilul</h3>
+    <p>Ce construiește și cum arată: secțiunile artefactului, elementul de semnătură, ce e interzis vizual.</p>
+  </div>
+  <div class="mec-card">
+    <div class="n">4</div>
+    <h3>Ce verifici tu</h3>
+    <p>Testul de acceptanță: locurile unde agentul ar fi putut să tragă cu ochiul la presupuneri. Fără pasul ăsta, nu ai un agent, ai un text frumos.</p>
+  </div>
+</div>
+
+<p class="mec-flux">Blocul 1 produce contextul. Blocul 2 primește contextul și materialul tău și predă livrabilul, pe care îl verifici. Blocul 3 împachetează totul într-un skill: agentul pe care îl chemi data viitoare fără să mai copiezi nimic.</p>
+  </section>
 
 
   <section class="agent" id="sec-boardroom">
