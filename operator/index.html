@@ -171,6 +171,9 @@
     border-radius:8px;padding:14px 18px;margin:12px 0 4px;
   }
   .reco strong{color:var(--violet);}
+  .reco p{margin:0 0 10px;}
+  .reco p:last-child{margin-bottom:0;}
+  .reco ul{margin:4px 0 12px;}
   .durata{
     font-family:var(--font-mono);font-size:0.72rem;font-weight:600;
     letter-spacing:0.08em;text-transform:uppercase;color:var(--lavender);
@@ -303,10 +306,19 @@
 
 <ol>
   <li><strong>Alege cum vrei să lucrezi:</strong> cu informațiile reale despre organizația ta sau cu o organizație fictivă, construită special pentru ca tu să poți exersa fără stres.
-    <p>Dacă alegi să lucrezi pornind de la situația din organizația ta, vei avea nevoie de diverse informații și date reale și exercițiul se poate prelungi spre 45 minute, în funcție de complexitatea speței abordate.</p>
-    <p>Dacă alegi să lucrezi pe organizația demo, nu ai nevoie de nimic adițional și nici nu vei avea nevoie de timp adițional.</p>
-    <p><strong>Scopul demo-ului este ca la final să înțelegi procesul prin care poți construi un agent, fără să compromiți informații din organizația ta.</strong></p>
-    <p class="reco"><strong>Recomandarea Ralucăi:</strong> dacă nu ai cifrele la tine, organizația demo e alegerea bună pentru că îți dă ocazia să exersezi, să înțelegi cum funcționează mecanismul și apoi, cu experiența obținută acum, să continui acasă pe organizația ta.</p>
+    <div class="reco">
+      <p><strong>Dacă ai informațiile despre organizația ta pregătite</strong>, fă exercițiul pe cazul tău real: pleci cu un rezultat pe care îl poți folosi mâine. Durează până spre 45 de minute, în funcție de speță.</p>
+      <p><strong>Dacă nu le ai pregătite și ar trebui să le compilezi acum</strong>, realist nu vei avea timp să termini exercițiul în sală. Mergi pe organizația demo: în 10-15 minute înțelegi mecanismul pe date pe care le ai integral la dispoziție, fără să compromiți informații din organizația ta, iar acasă refaci drumul pe cazul tău.</p>
+      <p><strong>Contextul general, de care ai nevoie la oricare dintre cei patru agenți:</strong></p>
+      <ul>
+        <li>linkul site-ului tău sau al paginii de prezentare</li>
+        <li>ce vinzi și cui, cu tarifele reale</li>
+        <li>unde ești față de obiectivul anului</li>
+        <li>câți oameni sunteți și câte ore ai tu, realist, pe săptămână</li>
+        <li>cea mai mare provocare de acum și ce nu e negociabil pentru tine</li>
+      </ul>
+      <p>Pe lângă contextul general, fiecare agent cere un material specific. Îl găsești la fiecare, în caseta „La ce să te aștepți".</p>
+    </div>
   </li>
   <li><strong>Alege ce agent vrei să construiești în sală.</strong> Pe ceilalți îi poți construi acasă.
     <ul>
@@ -342,21 +354,18 @@
 <aside class="expect">
 <p>La ce să te aștepți:</p>
 
-<p><strong>Dacă lucrezi cu organizația demo:</strong> Testezi use-case-ul pe un business fictiv, ale cărui informații le ai integral la dispoziție. Astfel, experimentezi și înțelegi procesul, vezi dacă rezultatul ți-ar folosi în organizația ta și dacă da, îl poți implementa acasă.</p>
-
-<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#boardroom-hibrid"><strong>drumul de mijloc</strong></a>.</p>
-
-<p><strong>Dacă lucrezi cu informații din organizația ta:</strong> Claude te intervievează și pleci cu o decizie de-ale tale analizată. Ai nevoie să știi:</p>
+<p><strong>Pe organizația ta</strong>, dacă ai pregătit, pe lângă contextul general de la începutul paginii:</p>
 
 <ul>
-  <li>linkul site-ului tău</li>
-  <li>ce vinzi și la ce tarife</li>
-  <li>unde ești față de obiectivul anului</li>
-  <li>câți oameni sunteți și câte ore ai la dispoziție pentru implementarea deciziei</li>
-  <li>care e cea mai mare provocare acum</li>
-  <li>ce nu e negociabil pentru tine.</li>
-  <li>3-5 consilieri (personas reale sau fictive) pe care vrei să-i ai la masă.</li>
+  <li>o decizie de-ale tale, într-o propoziție</li>
+  <li>3-5 consilieri, oameni reali sau roluri, pe care îi vrei la masă</li>
 </ul>
+
+<p>Nimic de deschis pe laptop. Claude te intervievează și pleci cu o decizie de-ale tale analizată.</p>
+
+<p><strong>Pe organizația demo</strong>, dacă nu ai decizia și consilierii în minte acum: lucrezi pe un business fictiv ale cărui informații le ai integral la dispoziție, înțelegi mecanismul și judeci dacă rezultatul ți-ar folosi. Drumul cu organizația ta îl faci acasă.</p>
+
+<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#boardroom-hibrid"><strong>drumul de mijloc</strong></a>.</p>
 </aside>
 
 <h3 id="boardroom-demo">Boardroom cu organizația demo</h3>
@@ -603,20 +612,19 @@ Reguli:
 <aside class="expect">
 <p>La ce să te aștepți:</p>
 
-<p><strong>Dacă lucrezi cu organizația demo:</strong> Testezi use-case-ul pe un business fictiv, ale cărui informații le ai integral la dispoziție. Astfel, experimentezi și înțelegi procesul, vezi dacă rezultatul ți-ar folosi în organizația ta și dacă da, îl poți implementa acasă.</p>
-
-<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#meeting-assistant-hibrid"><strong>drumul de mijloc</strong></a>.</p>
-
-<p><strong>Dacă lucrezi cu informații din organizația ta:</strong> Claude te intervievează și pleci cu minuta unei ședințe de-ale tale. Ai nevoie să știi:</p>
+<p><strong>Pe organizația ta</strong>, dacă ai pregătit, pe lângă contextul general de la începutul paginii:</p>
 
 <ul>
-  <li>linkul site-ului tău</li>
-  <li>un email de follow-up pe care l-ai trimis tu, ca să-ți învețe tonul</li>
-  <li>cu cine ai ședințe de obicei</li>
-  <li>ce nu vrei să ajungă niciodată într-o minută scrisă</li>
+  <li>notițele sau transcriptul unei ședințe recente, deschise pe laptop</li>
+  <li>un email de follow-up trimis de tine, ca să-ți învețe tonul</li>
+  <li>bine de știut: cu cine ai ședințe de obicei și ce nu vrei să ajungă niciodată într-o minută scrisă</li>
 </ul>
 
-<p>Și îți trebuie <strong>notițele sau transcriptul unei ședințe recente</strong>.</p>
+<p>Claude te intervievează și pleci cu minuta unei ședințe de-ale tale, cu emailul de follow-up gata de trimis.</p>
+
+<p><strong>Pe organizația demo</strong>, dacă notițele ședinței nu sunt la tine acum: lucrezi pe un business fictiv ale cărui informații le ai integral la dispoziție, înțelegi mecanismul și judeci dacă rezultatul ți-ar folosi. Drumul cu organizația ta îl faci acasă.</p>
+
+<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#meeting-assistant-hibrid"><strong>drumul de mijloc</strong></a>.</p>
 </aside>
 
 <h3 id="meeting-assistant-demo">Meeting Assistant cu organizația demo</h3>
@@ -855,21 +863,19 @@ Reguli:
 <aside class="expect">
 <p>La ce să te aștepți:</p>
 
-<p><strong>Dacă lucrezi cu organizația demo:</strong> Testezi use-case-ul pe un business fictiv, ale cărui informații le ai integral la dispoziție. Astfel, experimentezi și înțelegi procesul, vezi dacă rezultatul ți-ar folosi în organizația ta și dacă da, îl poți implementa acasă.</p>
-
-<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#offer-hibrid"><strong>drumul de mijloc</strong></a>.</p>
-
-<p><strong>Dacă lucrezi cu informații din organizația ta:</strong> Claude te intervievează și pleci cu schița unei propuneri reale, pe structura și tonul ofertei tale care a funcționat. Ai nevoie să știi:</p>
+<p><strong>Pe organizația ta</strong>, dacă ai pregătit, pe lângă contextul general de la începutul paginii:</p>
 
 <ul>
-  <li>linkul site-ului tău</li>
-  <li>serviciile tale, cu ce include fiecare și la ce tarife</li>
-  <li>ce nu accepți niciodată într-o ofertă</li>
+  <li>o ofertă trimisă care a funcționat, deschisă pe laptop</li>
+  <li>notițele dintr-o discuție recentă cu un prospect, deschise pe laptop</li>
+  <li>bine de știut: serviciile tale, cu ce include fiecare și la ce tarife, și ce nu accepți niciodată într-o ofertă</li>
 </ul>
 
-<p>Și îți trebuie, deschise pe laptop, <strong>o ofertă trimisă care a funcționat</strong> și <strong>notițele dintr-o discuție recentă cu un prospect</strong>.</p>
+<p>Claude te intervievează și pleci cu schița unei propuneri reale, pe structura și tonul ofertei tale care a funcționat. E cel mai încărcat dintre cei patru agenți: cere două materiale, nu unul, iar dacă nu le ai deja deschise, le cauți prin email în loc să construiești.</p>
 
-<p>Ăsta e cel mai încărcat dintre cei patru agenți: cere două materiale, nu unul, iar strângerea lor e partea care durează. Dacă nu le ai deja deschise, le cauți prin email în loc să construiești.</p>
+<p><strong>Pe organizația demo</strong>, dacă cele două materiale nu sunt deschise pe laptop acum: lucrezi pe un business fictiv ale cărui informații le ai integral la dispoziție, înțelegi mecanismul și judeci dacă rezultatul ți-ar folosi. Drumul cu organizația ta îl faci acasă.</p>
+
+<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#offer-hibrid"><strong>drumul de mijloc</strong></a>.</p>
 </aside>
 
 <h3 id="offer-demo">Offer cu organizația demo</h3>
@@ -1144,21 +1150,19 @@ Reguli:
 <aside class="expect">
 <p>La ce să te aștepți:</p>
 
-<p><strong>Dacă lucrezi cu organizația demo:</strong> Testezi use-case-ul pe un business fictiv, ale cărui informații le ai integral la dispoziție. Astfel, experimentezi și înțelegi procesul, vezi dacă rezultatul ți-ar folosi în organizația ta și dacă da, îl poți implementa acasă.</p>
-
-<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#cockpit-hibrid"><strong>drumul de mijloc</strong></a>.</p>
-
-<p><strong>Dacă lucrezi cu informații din organizația ta:</strong> Claude te intervievează și pleci cu tabloul de bord al firmei tale: unde stai față de obiectivul anului, ce stagnează, ce așteaptă un DA sau un NU de la tine, trei acțiuni. Ai nevoie să știi:</p>
+<p><strong>Pe organizația ta</strong>, dacă ai pregătit, pe lângă contextul general de la începutul paginii:</p>
 
 <ul>
-  <li>linkul site-ului tău</li>
   <li>obiectivele tale pe anul ăsta, în cifre</li>
-  <li>ce înseamnă pentru tine că un lucru „stă pe loc"</li>
+  <li>statusul de acum: clienții și proiectele în lucru cu ultima mișcare, ofertele trimise, banii încasați și facturați, blocajele</li>
+  <li>bine de știut: ce înseamnă pentru tine că un lucru „stă pe loc"</li>
 </ul>
 
-<p>Și îți trebuie <strong>statusul de acum</strong>: clienții și proiectele în lucru cu ultima mișcare, ofertele trimise, banii încasați și facturați, blocajele.</p>
+<p>Claude te intervievează și pleci cu tabloul de bord al firmei tale: unde stai față de obiectivul anului, ce stagnează, ce așteaptă un DA sau un NU de la tine, trei acțiuni. E agentul care cere cele mai multe cifre din cei patru: nu trebuie să fie exacte la leu, dar dacă nu le ai nicăieri scrise, le aduni acum din memorie și asta durează.</p>
 
-<p>E agentul care cere cele mai multe cifre din cei patru. Nu trebuie să fie exacte la leu, dar dacă nu le ai nicăieri scrise, le aduni acum din memorie și asta durează.</p>
+<p><strong>Pe organizația demo</strong>, dacă cifrele nu sunt la tine acum: lucrezi pe un business fictiv ale cărui informații le ai integral la dispoziție, înțelegi mecanismul și judeci dacă rezultatul ți-ar folosi. Drumul cu organizația ta îl faci acasă.</p>
+
+<p>Vrei să vezi și interviul, dar pe date demo? Ai <a href="#cockpit-hibrid"><strong>drumul de mijloc</strong></a>.</p>
 </aside>
 
 <h3 id="cockpit-demo">Cockpit cu organizația demo</h3>
