@@ -131,6 +131,12 @@
   .doc-head{border-bottom:1px solid var(--border);padding-bottom:34px;margin-bottom:8px;}
   .logo-row{margin-bottom:38px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
   .logo-row img{height:44px;width:auto;display:block;}
+  .head-right{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .head-link{
+    font-family:var(--font-mono);font-size:0.68rem;font-weight:600;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--muted);border-bottom:none;white-space:nowrap;
+  }
+  .head-link:hover{color:var(--violet);border-bottom:none;}
   .theme-switch{
     display:inline-flex;border:1px solid var(--border);border-radius:999px;padding:3px;
     background:var(--surface);
@@ -381,7 +387,7 @@
       --border:rgba(124,58,237,0.16);--outer:#ffffff;
       --nav-bg:rgba(255,255,255,0.94);--hover:#efe9ff;--headsup-bg:#fbf7ff;--btn-copied-bg:#ffffff;
     }
-    .theme-switch{display:none;}
+    .theme-switch,.head-link{display:none;}
     .page{box-shadow:none;max-width:none;padding:0;}
     .agent-nav,.copy-btn{display:none;}
     pre{max-height:none;overflow:visible;font-size:0.62rem;}
@@ -397,9 +403,12 @@
   <header class="doc-head">
     <div class="logo-row">
       <a href="https://www.ralucapaduraru.ro" target="_blank" rel="noopener" class="logo-link"><img src="../images/logo-lavender.png" alt="Raluca Păduraru" /></a>
-      <div class="theme-switch" role="group" aria-label="Tema paginii">
-        <button type="button" class="theme-opt" data-theme-choice="light">Temă light</button>
-        <button type="button" class="theme-opt" data-theme-choice="dark">Temă dark</button>
+      <div class="head-right">
+        <a class="head-link" href="#despre-raluca">Despre Raluca</a>
+        <div class="theme-switch" role="group" aria-label="Tema paginii">
+          <button type="button" class="theme-opt" data-theme-choice="light">Temă light</button>
+          <button type="button" class="theme-opt" data-theme-choice="dark">Temă dark</button>
+        </div>
       </div>
     </div>
 
@@ -1916,8 +1925,10 @@ Nu montăm și nu proiectăm. Facem dimensionarea echipamentului pe proiectul t�
       if (sec) {
         arata(sec);
         if (deruleaza) { tinta.scrollIntoView({ behavior: 'instant', block: 'start' }); }
-      } else if (!sectiuni.some(function (s) { return !s.classList.contains('ascuns'); }) || sectiuni.filter(function (s) { return !s.classList.contains('ascuns'); }).length !== 1) {
-        arata(sectiuni[0]);
+      } else {
+        var vizibile = sectiuni.filter(function (s) { return !s.classList.contains('ascuns'); });
+        if (vizibile.length !== 1) { arata(sectiuni[0]); }
+        if (tinta && deruleaza) { tinta.scrollIntoView({ behavior: 'instant', block: 'start' }); }
       }
     }
     laHash(true);
