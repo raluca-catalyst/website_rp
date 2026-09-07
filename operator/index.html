@@ -162,6 +162,12 @@
     background:var(--surface);border-left:3px solid var(--lavender-lt);
     padding:14px 18px;margin:18px 0 8px;
   }
+  .verifica{
+    background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--violet);
+    border-radius:8px;padding:14px 18px 6px;margin:18px 0 8px;
+  }
+  .verifica>p:first-child strong{color:var(--violet);}
+  .verifica ul{margin-bottom:8px;}
   .cum-fct{
     font-family:var(--font-mono);font-weight:700;font-size:1.05rem;
     color:var(--violet);margin:26px 0 12px;
@@ -454,6 +460,15 @@ Reguli:
   </li>
 </ol>
 
+<div class="verifica">
+<p><strong>Verifică înainte să te încrezi.</strong> Datele Ventora le ai integral mai sus, deci poți vedea dacă agentul a respectat regulile:</p>
+<ul>
+  <li>Sliderele: prețul abonamentului și costul celor doi tehnicieni nu sunt în context. Valorile lor de pornire trebuie să apară ca estimare, cu calculul lângă slider.</li>
+  <li>Voturile: un vot CONDIȚIONAT are o condiție concretă, verificabilă, și nu e numărat nici la DA, nici la NU.</li>
+  <li>„Ce ar trebui să aflu înainte să decid": lucruri care chiar lipsesc din context, de exemplu cât ar plăti clienții pentru abonament, nu generalități.</li>
+</ul>
+</div>
+
 <p class="tema"><strong>Tema ta pentru acasă.</strong> Uită-te la rezultat și întreabă-te dacă ți-ar folosi în contextul tău real. Dacă da, explorează acasă drumul <a class="jump" href="#boardroom-organizatia-ta"><strong>cu organizația ta</strong></a>.</p>
 
 <h3 id="boardroom-hibrid">Boardroom cu interviu, pe date demo</h3>
@@ -718,6 +733,15 @@ Reguli:
   <li>Click pe iconița cu săgeată dublă din stânga sus a artefactului. Ea deschide output-ul pe tot ecranul, ca să îl vezi complet.
   </li>
 </ol>
+
+<div class="verifica">
+<p><strong>Verifică înainte să te încrezi.</strong> Transcriptul ședinței îl ai integral mai sus, deci poți vedea dacă agentul a respectat regula de aur:</p>
+<ul>
+  <li>Showroomul din Oradea: idee aruncată de Cristina, nepreluată de nimeni. Trebuie să fie la DISCUTAT, DAR NEDECIS, nu la decizii.</li>
+  <li>Lista echipamentelor în garanție: are responsabil (Bogdan), dar nimeni n-a spus până când. Termenul trebuie să fie [DE CONFIRMAT], nu inventat. Un contor cu zero „de confirmat" înseamnă că a inventat.</li>
+  <li>Emailul de follow-up: scurt, fără bold, deschis cu „Bună, [nume]," și închis cu „Mulțumesc, Andrei". Dacă arată altfel, agentul n-a citit stilul.</li>
+</ul>
+</div>
 
 <p class="tema"><strong>Tema ta pentru acasă.</strong> Uită-te la rezultat și întreabă-te dacă ți-ar folosi în contextul tău real. Dacă da, explorează acasă drumul <a class="jump" href="#meeting-assistant-organizatia-ta"><strong>cu organizația ta</strong></a>.</p>
 
@@ -1004,6 +1028,16 @@ Reguli:
   </li>
 </ol>
 
+<div class="verifica">
+<p><strong>Verifică înainte să te încrezi.</strong> Lista de servicii, oferta-referință și notițele prospectului le ai integral mai sus, deci poți vedea dacă agentul a respectat regula de aur:</p>
+<ul>
+  <li>Montajul: Aurelian a întrebat de două ori, iar Ventora nu montează. Montajul nu apare ca livrabil în ofertă; cel mult ca notă de discutat cu tine, în afara ei.</li>
+  <li>Prețurile: oferta-referință are prețuri din aprilie, valabile 30 de zile, pentru alt client. Nu se copiază automat; pentru 48 de apartamente fără proiect final, prețul e [DE CONFIRMAT].</li>
+  <li>Plata la 60 de zile: prospectul a cerut, Andrei a zis „discutăm". Trebuie să apară la întrebările rămase, nu acceptată tacit la condiții.</li>
+  <li>Panoul de verificare: mentenanța după recepție („cine se ocupă când se strică ceva la un an") n-are pereche în lista de servicii, deci trebuie marcată.</li>
+</ul>
+</div>
+
 <p class="tema"><strong>Tema ta pentru acasă.</strong> Uită-te la rezultat și întreabă-te dacă ți-ar folosi în contextul tău real. Dacă da, explorează acasă drumul <a class="jump" href="#offer-organizatia-ta"><strong>cu organizația ta</strong></a>.</p>
 
 <h3 id="offer-hibrid">Offer cu interviu, pe date demo</h3>
@@ -1274,6 +1308,16 @@ Reguli:
   <li>Click pe iconița cu săgeată dublă din stânga sus a artefactului. Ea deschide output-ul pe tot ecranul, ca să îl vezi complet.
   </li>
 </ol>
+
+<div class="verifica">
+<p><strong>Verifică înainte să te încrezi.</strong> Obiectivele și statusul Ventora le ai integral mai sus, deci poți vedea dacă agentul a respectat regula de aur:</p>
+<ul>
+  <li>Banii: ianuarie-iulie e închis (3,6 milioane), august e estimare (în jur de 480.000). Nu se adună într-o singură cifră „realizat"; dacă apar împreună, augustul e marcat ca estimare.</li>
+  <li>Ritmul: la 7 luni din 12, ținta liniară e 4,67 milioane. „Sub ritm" și distanța trebuie să vină cu calculul ăsta arătat și etichetat ca reper.</li>
+  <li>Stagnări, după pragul lui Andrei: Hidroterm Alba (ultima comandă 12 iunie) și Climaterm Mureș (ofertă din 3 iulie, fără răspuns) trebuie să apară. Showroomul din Oradea nu e proiect blocat, e o idee nediscutată.</li>
+  <li>Blocat pe tine: sistemul de gestiune a stocului așteaptă din iunie lista de categorii de la Andrei. Trebuie să fie la „așteaptă un DA sau un NU de la mine", nu pus pe seama furnizorului.</li>
+</ul>
+</div>
 
 <p class="tema"><strong>Tema ta pentru acasă.</strong> Uită-te la rezultat și întreabă-te dacă ți-ar folosi în contextul tău real. Dacă da, explorează acasă drumul <a class="jump" href="#cockpit-organizatia-ta"><strong>cu organizația ta</strong></a>.</p>
 
