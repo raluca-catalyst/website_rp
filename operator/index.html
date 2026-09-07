@@ -193,10 +193,6 @@
     position:relative;background:var(--surface);border:1px solid var(--border);
     border-top:3px solid var(--lavender);border-radius:8px;padding:14px 14px 12px;
   }
-  .mec-card .n{
-    font-family:var(--font-mono);font-size:0.68rem;font-weight:600;letter-spacing:0.12em;
-    text-transform:uppercase;color:var(--lavender);margin-bottom:6px;
-  }
   .mec-card h3{
     font-size:0.98rem;margin:0 0 6px;padding:0;border-bottom:none;color:var(--ink);
   }
@@ -411,7 +407,7 @@
 
 <p class="tagline">Pleci din sesiune știind exact cum se construiește un agent</p>
 
-<p>Pe pagina asta sunt 4 agenți. Alegi unul, îl construiești în <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> copiind blocurile de mai jos, în ordine, și obții un artefact vizual, pe baza căruia poți lua decizii și acționa. Pe organizația demo îți ia 10-15 minute; pe organizația ta, până spre 45 de minute.</p>
+<p>Pe pagina asta sunt 4 agenți. Alegi unul, îl construiești în <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> copiind prompturile de mai jos, în ordine, și obții un artefact vizual, pe baza căruia poți lua decizii și acționa. Pe organizația demo îți ia 10-15 minute; pe organizația ta, până spre 45 de minute.</p>
 
 <p><strong>De ce ai nevoie:</strong> de un laptop și de un cont <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>, în care să te fi logat. Din selectorul de model de sus, alege <strong>Opus 5</strong>, deoarece calitatea artefactului diferă mult în funcție de complexitatea modelului pe care îl alegi.</p>
 
@@ -483,32 +479,28 @@
 
 <div class="mec-grid">
   <div class="mec-card">
-    <div class="n">1</div>
     <h3>Contextul</h3>
-    <p>Cine ești, ce vinzi, cifrele, ce nu e negociabil. Îl produce interviul din Blocul 1 sau îl scrii tu.</p>
+    <p>Cine ești, ce vinzi, cifrele, ce nu e negociabil.</p>
   </div>
   <div class="mec-card">
-    <div class="n">2</div>
     <h3>Regula de aur</h3>
     <p>Ce nu are voie să facă agentul: să inventeze cifre, să promoveze o discuție la decizie, să promită ce nu vinzi.</p>
   </div>
   <div class="mec-card">
-    <div class="n">3</div>
     <h3>Livrabilul</h3>
     <p>Ce construiește și cum arată: secțiunile artefactului, elementul de semnătură, ce e interzis vizual.</p>
   </div>
   <div class="mec-card">
-    <div class="n">4</div>
     <h3>Ce verifici tu</h3>
     <p>Testul de acceptanță: locurile unde agentul ar fi putut să tragă cu ochiul la presupuneri. Fără pasul ăsta, nu ai un agent, ai un text frumos.</p>
   </div>
 </div>
 
 <div class="mec-flux">
-  <p><strong>Etapa 1.</strong> Contextul: îl produce interviul din Blocul 1 sau îl scrii tu.</p>
-  <p><strong>Etapa 2.</strong> Livrabilul: Blocul 2 primește contextul și materialul tău și predă artefactul.</p>
+  <p><strong>Etapa 1.</strong> Contextul: îl produce interviul din Promptul 1 sau îl scrii tu.</p>
+  <p><strong>Etapa 2.</strong> Livrabilul: Promptul 2 primește contextul și materialul tău și predă artefactul.</p>
   <p><strong>Etapa 3.</strong> Verificarea: tu treci artefactul prin testul de acceptanță, înainte să te încrezi în el.</p>
-  <p><strong>Etapa 4.</strong> Skill-ul: Blocul 3 împachetează totul într-un agent pe care îl chemi data viitoare fără să mai copiezi nimic.</p>
+  <p><strong>Etapa 4.</strong> Skill-ul: Promptul 3 împachetează totul într-un agent pe care îl chemi data viitoare fără să mai copiezi nimic.</p>
 </div>
   </section>
 
@@ -540,11 +532,11 @@
 
 <p>Ventora Distribuție e organizația demo: un distribuitor de echipamente HVAC din Transilvania, cu 22 de oameni și depozit lângă Cluj. Vinde centrale termice, chillere și unități de ventilație firmelor de instalații și dezvoltatorilor mici și medii; nu montează și nu proiectează — vinde marfa și o livrează în șantier. În 2025 a făcut 6,5 milioane de lei; obiectivul pe 2026 e 8 milioane, dar la șapte luni e sub ritm. Cea mai mare provocare: trei clienți îi fac aproape jumătate din venit și o strâng pe preț, într-o piață în care distribuitorii naționali intră cu discounturi greu de susținut.</p>
 
-<p>Copiază blocul de mai jos într-o conversație nouă în claude.ai. Contextul firmei demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat) și decizia de analizat sunt deja integrate.</p>
+<p>Copiază promptul de mai jos într-o conversație nouă în claude.ai. Contextul firmei demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat) și decizia de analizat sunt deja integrate.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="boardroom-demo-bloc">Copiază</button>
   </div>
   <p class="legend">Găsești subliniate informațiile pe care îți recomand să le modifici în prompt în funcție de ce dorești să afli.</p>
@@ -635,13 +627,13 @@ Reguli:
 <h3 id="boardroom-hibrid">Boardroom cu interviu, pe date demo</h3>
 <p class="durata">25-30 de minute · nu-ți trebuie nicio cifră</p>
 
-<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#boardroom-b1">Blocul 1</a> și <a href="#boardroom-b2">Blocul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+<p>Promptul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#boardroom-b1">Promptul 1</a> și <a href="#boardroom-b2">Promptul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
 
-<p>Decizia pentru Blocul 2 e aici, gata de copiat:</p>
+<p>Decizia pentru Promptul 2 e aici, gata de copiat:</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Materialul pentru Blocul 2</span>
+    <span class="prompt-label">Materialul pentru Promptul 2</span>
     <button class="copy-btn" type="button" data-copy="boardroom-hibrid-material">Copiază</button>
   </div>
   <pre id="boardroom-hibrid-material">Lansez sau nu un serviciu de mentenanță pe abonament — contract anual, două revizii și intervenții prioritare — pentru care ar trebui să angajez doi tehnicieni.</pre>
@@ -650,13 +642,13 @@ Reguli:
 <h3 id="boardroom-organizatia-ta">Boardroom cu organizația ta</h3>
 <p class="durata">35-40 de minute · ai nevoie de cifrele din caseta de sus</p>
 
-<h4 id="boardroom-b1">Blocul 1: copiază-l într-o conversație nouă</h4>
+<h4 id="boardroom-b1">Promptul 1: copiază-l într-o conversație nouă</h4>
 
-<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
+<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Promptul 2.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="boardroom-bloc-1">Copiază</button>
   </div>
   <pre id="boardroom-bloc-1">Ești consiliul meu strategic. Înainte de prima ședință, ai nevoie să mă cunoști.
@@ -693,15 +685,15 @@ Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări ș
 Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
 </div>
 
-<h4 id="boardroom-b2">Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+<h4 id="boardroom-b2">Promptul 2: copiază-l într-o conversație NOUĂ</h4>
 
-<p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
+<p>E important să deschizi o conversație nouă, ca să poți folosi direct aici răspunsurile de la pasul anterior.</p>
 
 <p>Înainte de orice altceva, copiază în conversație informațiile pe care le-ai primit de la Claude în prima conversație, plus decizia pe care vrei să o iei, într-o singură propoziție. Abia după aceea copiază promptul de mai jos.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="boardroom-bloc-2">Copiază</button>
   </div>
   <pre id="boardroom-bloc-2">Ești consiliul meu strategic: consilierii din contextul pe care ți l-am dat mă ajută să iau decizia de mai sus, contrazicându-se între ei.
@@ -755,15 +747,25 @@ Reguli:
   </li>
 </ol>
 
-<h4>Blocul 3: copiază-l la final, în aceeași conversație</h4>
+<div class="verifica">
+<p><strong>Verifică înainte să salvezi skill-ul.</strong> Promptul 3 împachetează comportamentul pe care agentul îl are acum. Ce nu prinzi aici, salvezi. Trei lucruri, două minute:</p>
+<ul>
+  <li>O cifră: alege una din artefact și caut-o în ce i-ai dat. Dacă nu e acolo, trebuie să scrie lângă ea că e estimare, cu calculul.</li>
+  <li>Un gol: ceva ce n-avea de unde să știe. Trebuie să apară ca întrebare rămasă, nu completat cu o presupunere.</li>
+  <li>O afirmație tare: decizia recomandată, un termen, un preț. Ce e cel mai ușor de luat de bun.</li>
+</ul>
+<p>Dacă identifici o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea. Abia apoi Promptul 3.</p>
+</div>
 
-<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază următorul bloc în aceeași conversație cu Blocul 2:</p>
+<h4>Promptul 3: copiază-l la final, în aceeași conversație</h4>
+
+<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază promptul de mai jos în aceeași conversație cu Promptul 2:</p>
 
 <p class="ps"><em>P.S.: Dacă ai terminat mai repede agentul și încă mai ai timp, poți face acest pas chiar acum, live în sală.</em></p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="boardroom-bloc-3">Copiază</button>
   </div>
   <pre id="boardroom-bloc-3">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema data viitoare când am o decizie de luat, fără să mai copiez nimic de mână. Păstrează consiliul, regulile de vot și formatul artefactului. La final spune-mi cum îl chem la lucru.</pre>
@@ -771,7 +773,7 @@ Reguli:
 
 <h4>Unde ajunge skill-ul</h4>
 
-<p>După Blocul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
+<p>După Promptul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
 
 <p>Dacă Claude îți propune să salveze un skill, apasă save. Îl vei găsi în contul tău la <strong>Customize</strong>, <strong>Skills</strong>. Dacă nu ți-l propune, salvează instrucțiunile într-un <strong>Project</strong>:</p>
 
@@ -816,11 +818,11 @@ Reguli:
 
 <p>Ventora Distribuție e organizația demo: un distribuitor de echipamente HVAC din Transilvania, cu 22 de oameni și depozit lângă Cluj. Vinde centrale termice, chillere și unități de ventilație firmelor de instalații și dezvoltatorilor mici și medii; nu montează și nu proiectează — vinde marfa și o livrează în șantier. În 2025 a făcut 6,5 milioane de lei; obiectivul pe 2026 e 8 milioane, dar la șapte luni e sub ritm. Cea mai mare provocare: trei clienți îi fac aproape jumătate din venit și o strâng pe preț, într-o piață în care distribuitorii naționali intră cu discounturi greu de susținut.</p>
 
-<p>Copiază blocul de mai jos într-o conversație nouă în claude.ai. Contextul organizației demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat) și transcriptul unei ședințe de-ale ei sunt deja integrate.</p>
+<p>Copiază promptul de mai jos într-o conversație nouă în claude.ai. Contextul organizației demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat) și transcriptul unei ședințe de-ale ei sunt deja integrate.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="meeting-assistant-demo-bloc">Copiază</button>
   </div>
   <p class="legend">Găsești subliniate informațiile pe care îți recomand să le modifici în prompt în funcție de ce dorești să afli.</p>
@@ -917,13 +919,13 @@ Reguli:
 <h3 id="meeting-assistant-hibrid">Meeting Assistant cu interviu, pe date demo</h3>
 <p class="durata">25-30 de minute · nu-ți trebuie niciun material</p>
 
-<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#meeting-assistant-b1">Blocul 1</a> și <a href="#meeting-assistant-b2">Blocul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+<p>Promptul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#meeting-assistant-b1">Promptul 1</a> și <a href="#meeting-assistant-b2">Promptul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
 
-<p>Ședința pentru Blocul 2 e aici, gata de copiat:</p>
+<p>Ședința pentru Promptul 2 e aici, gata de copiat:</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Materialul pentru Blocul 2</span>
+    <span class="prompt-label">Materialul pentru Promptul 2</span>
     <button class="copy-btn" type="button" data-copy="meeting-assistant-hibrid-material">Copiază</button>
   </div>
   <pre id="meeting-assistant-hibrid-material">Ședință de luni, echipa Ventora. Prezenți: Andrei (patron), Cristina (vânzări), Mihai (depozit/logistică), Bogdan (tehnic). ~40 min.
@@ -949,13 +951,13 @@ Andrei: și încă ceva, la ședința cu furnizorul de joi vin eu și Cristina. 
 <h3 id="meeting-assistant-organizatia-ta">Meeting Assistant cu organizația ta</h3>
 <p class="durata">40-45 de minute · ai nevoie de materialele din caseta de sus</p>
 
-<h4 id="meeting-assistant-b1">Blocul 1: copiază-l într-o conversație nouă</h4>
+<h4 id="meeting-assistant-b1">Promptul 1: copiază-l într-o conversație nouă</h4>
 
-<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
+<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Promptul 2.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="meeting-assistant-bloc-1">Copiază</button>
   </div>
   <pre id="meeting-assistant-bloc-1">Ești asistentul meu de ședințe. Înainte să scrii prima minută, ai nevoie să mă cunoști.
@@ -989,15 +991,15 @@ Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări ș
 Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
 </div>
 
-<h4 id="meeting-assistant-b2">Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+<h4 id="meeting-assistant-b2">Promptul 2: copiază-l într-o conversație NOUĂ</h4>
 
-<p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
+<p>E important să deschizi o conversație nouă, ca să poți folosi direct aici răspunsurile de la pasul anterior.</p>
 
 <p>Înainte de orice altceva, copiază în conversație informațiile pe care le-ai primit de la Claude în prima conversație, plus notițele sau transcriptul unei întâlniri recente. Abia după aceea copiază promptul de mai jos.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="meeting-assistant-bloc-2">Copiază</button>
   </div>
   <pre id="meeting-assistant-bloc-2">Ești asistentul meu de ședințe. Transformi ședința de mai sus în trei lucruri pe care le pot folosi imediat.
@@ -1040,15 +1042,25 @@ Reguli:
   </li>
 </ol>
 
-<h4>Blocul 3: copiază-l la final, în aceeași conversație</h4>
+<div class="verifica">
+<p><strong>Verifică înainte să salvezi skill-ul.</strong> Promptul 3 împachetează comportamentul pe care agentul îl are acum. Ce nu prinzi aici, salvezi. Trei lucruri, două minute:</p>
+<ul>
+  <li>O cifră: alege una din artefact și caut-o în ce i-ai dat. Dacă nu e acolo, trebuie să scrie lângă ea că e estimare, cu calculul.</li>
+  <li>Un gol: ceva ce n-avea de unde să știe. Trebuie să apară ca întrebare rămasă, nu completat cu o presupunere.</li>
+  <li>O afirmație tare: decizia recomandată, un termen, un preț. Ce e cel mai ușor de luat de bun.</li>
+</ul>
+<p>Dacă identifici o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea. Abia apoi Promptul 3.</p>
+</div>
 
-<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază următorul bloc în aceeași conversație cu Blocul 2:</p>
+<h4>Promptul 3: copiază-l la final, în aceeași conversație</h4>
+
+<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază promptul de mai jos în aceeași conversație cu Promptul 2:</p>
 
 <p class="ps"><em>P.S.: Dacă ai terminat mai repede agentul și încă mai ai timp, poți face acest pas chiar acum, live în sală.</em></p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="meeting-assistant-bloc-3">Copiază</button>
   </div>
   <pre id="meeting-assistant-bloc-3">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema data viitoare când ies dintr-o ședință, fără să mai copiez nimic de mână. Păstrează regula de aur, formatul celor trei livrabile și stilul meu de email. La final spune-mi cum îl chem la lucru.</pre>
@@ -1056,7 +1068,7 @@ Reguli:
 
 <h4>Unde ajunge skill-ul</h4>
 
-<p>După Blocul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
+<p>După Promptul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
 
 <p>Dacă Claude îți propune să salveze un skill, apasă save. Îl vei găsi în contul tău la <strong>Customize</strong>, <strong>Skills</strong>. Dacă nu ți-l propune, salvează instrucțiunile într-un <strong>Project</strong>:</p>
 
@@ -1101,11 +1113,11 @@ Reguli:
 
 <p>Ventora Distribuție e organizația demo: un distribuitor de echipamente HVAC din Transilvania, cu 22 de oameni și depozit lângă Cluj. Vinde centrale termice, chillere și unități de ventilație firmelor de instalații și dezvoltatorilor mici și medii; nu montează și nu proiectează — vinde marfa și o livrează în șantier. În 2025 a făcut 6,5 milioane de lei; obiectivul pe 2026 e 8 milioane, dar la șapte luni e sub ritm. Cea mai mare provocare: trei clienți îi fac aproape jumătate din venit și o strâng pe preț, într-o piață în care distribuitorii naționali intră cu discounturi greu de susținut.</p>
 
-<p>Copiază blocul de mai jos într-o conversație nouă în claude.ai. Contextul firmei demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat), oferta ei care a funcționat și notițele unui prospect nou sunt deja integrate.</p>
+<p>Copiază promptul de mai jos într-o conversație nouă în claude.ai. Contextul firmei demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat), oferta ei care a funcționat și notițele unui prospect nou sunt deja integrate.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="offer-demo-bloc">Copiază</button>
   </div>
   <p class="legend">Găsești subliniate informațiile pe care îți recomand să le modifici în prompt în funcție de ce dorești să afli.</p>
@@ -1237,13 +1249,13 @@ Reguli:
 <h3 id="offer-hibrid">Offer cu interviu, pe date demo</h3>
 <p class="durata">30-35 de minute · nu-ți trebuie niciun material</p>
 
-<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#offer-b1">Blocul 1</a> și <a href="#offer-b2">Blocul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+<p>Promptul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#offer-b1">Promptul 1</a> și <a href="#offer-b2">Promptul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
 
-<p>Oferta-referință și notițele prospectului pentru Blocul 2 sunt aici, gata de copiat:</p>
+<p>Oferta-referință și notițele prospectului pentru Promptul 2 sunt aici, gata de copiat:</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Materialul pentru Blocul 2</span>
+    <span class="prompt-label">Materialul pentru Promptul 2</span>
     <button class="copy-btn" type="button" data-copy="offer-hibrid-material">Copiază</button>
   </div>
   <pre id="offer-hibrid-material">OFERTA-REFERINȚĂ — de aici iei structura și tonul, nu conținutul:
@@ -1303,13 +1315,13 @@ Notițe discuție Aurelian Cîmpean, Domus Rezidențial (dezvoltator mic, Flore�
 <h3 id="offer-organizatia-ta">Offer cu organizația ta</h3>
 <p class="durata">40-45 de minute · ai nevoie de cele două materiale din caseta de sus</p>
 
-<h4 id="offer-b1">Blocul 1: copiază-l într-o conversație nouă</h4>
+<h4 id="offer-b1">Promptul 1: copiază-l într-o conversație nouă</h4>
 
-<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
+<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Promptul 2.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="offer-bloc-1">Copiază</button>
   </div>
   <pre id="offer-bloc-1">Ești omul care îmi pregătește propunerile comerciale. Înainte să scrii prima schiță, ai nevoie să mă cunoști.
@@ -1345,15 +1357,15 @@ Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări ș
 Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
 </div>
 
-<h4 id="offer-b2">Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+<h4 id="offer-b2">Promptul 2: copiază-l într-o conversație NOUĂ</h4>
 
-<p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
+<p>E important să deschizi o conversație nouă, ca să poți folosi direct aici răspunsurile de la pasul anterior.</p>
 
 <p>Înainte de orice altceva, copiază în conversație informațiile pe care le-ai primit de la Claude în prima conversație, plus o ofertă de-a ta care a funcționat și notițele din discuția cu prospectul. Abia după aceea copiază promptul de mai jos.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="offer-bloc-2">Copiază</button>
   </div>
   <pre id="offer-bloc-2">Ești omul care îmi pregătește propunerile comerciale. Transformi notițele de mai sus, din discuția cu prospectul, într-o schiță de ofertă pe care o pot completa și trimite.
@@ -1396,15 +1408,25 @@ Reguli:
   </li>
 </ol>
 
-<h4>Blocul 3: copiază-l la final, în aceeași conversație</h4>
+<div class="verifica">
+<p><strong>Verifică înainte să salvezi skill-ul.</strong> Promptul 3 împachetează comportamentul pe care agentul îl are acum. Ce nu prinzi aici, salvezi. Trei lucruri, două minute:</p>
+<ul>
+  <li>O cifră: alege una din artefact și caut-o în ce i-ai dat. Dacă nu e acolo, trebuie să scrie lângă ea că e estimare, cu calculul.</li>
+  <li>Un gol: ceva ce n-avea de unde să știe. Trebuie să apară ca întrebare rămasă, nu completat cu o presupunere.</li>
+  <li>O afirmație tare: decizia recomandată, un termen, un preț. Ce e cel mai ușor de luat de bun.</li>
+</ul>
+<p>Dacă identifici o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea. Abia apoi Promptul 3.</p>
+</div>
 
-<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază următorul bloc în aceeași conversație cu Blocul 2:</p>
+<h4>Promptul 3: copiază-l la final, în aceeași conversație</h4>
+
+<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază promptul de mai jos în aceeași conversație cu Promptul 2:</p>
 
 <p class="ps"><em>P.S.: Dacă ai terminat mai repede agentul și încă mai ai timp, poți face acest pas chiar acum, live în sală.</em></p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="offer-bloc-3">Copiază</button>
   </div>
   <pre id="offer-bloc-3">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema data viitoare când ies dintr-o discuție cu un prospect, fără să mai copiez nimic de mână. Păstrează regula de aur, lista serviciilor mele, structura ofertei-referință și formatul artefactului. La final spune-mi cum îl chem la lucru.</pre>
@@ -1412,7 +1434,7 @@ Reguli:
 
 <h4>Unde ajunge skill-ul</h4>
 
-<p>După Blocul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
+<p>După Promptul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
 
 <p>Dacă Claude îți propune să salveze un skill, apasă save. Îl vei găsi în contul tău la <strong>Customize</strong>, <strong>Skills</strong>. Dacă nu ți-l propune, salvează instrucțiunile într-un <strong>Project</strong>:</p>
 
@@ -1457,11 +1479,11 @@ Reguli:
 
 <p>Ventora Distribuție e organizația demo: un distribuitor de echipamente HVAC din Transilvania, cu 22 de oameni și depozit lângă Cluj. Vinde centrale termice, chillere și unități de ventilație firmelor de instalații și dezvoltatorilor mici și medii; nu montează și nu proiectează — vinde marfa și o livrează în șantier. În 2025 a făcut 6,5 milioane de lei; obiectivul pe 2026 e 8 milioane, dar la șapte luni e sub ritm. Cea mai mare provocare: trei clienți îi fac aproape jumătate din venit și o strâng pe preț, într-o piață în care distribuitorii naționali intră cu discounturi greu de susținut.</p>
 
-<p>Copiază blocul de mai jos într-o conversație nouă în claude.ai. Contextul firmei demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat), obiectivele ei pe an și statusul la șapte luni sunt deja integrate.</p>
+<p>Copiază promptul de mai jos într-o conversație nouă în claude.ai. Contextul firmei demo (Ventora Distribuție, un distribuitor de echipamente HVAC inventat), obiectivele ei pe an și statusul la șapte luni sunt deja integrate.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="cockpit-demo-bloc">Copiază</button>
   </div>
   <p class="legend">Găsești subliniate informațiile pe care îți recomand să le modifici în prompt în funcție de ce dorești să afli.</p>
@@ -1577,13 +1599,13 @@ Reguli:
 <h3 id="cockpit-hibrid">Cockpit cu interviu, pe date demo</h3>
 <p class="durata">30-35 de minute · nu-ți trebuie nicio cifră</p>
 
-<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#cockpit-b1">Blocul 1</a> și <a href="#cockpit-b2">Blocul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+<p>Promptul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#cockpit-b1">Promptul 1</a> și <a href="#cockpit-b2">Promptul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
 
-<p>Statusul pentru Blocul 2 e aici, gata de copiat:</p>
+<p>Statusul pentru Promptul 2 e aici, gata de copiat:</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Materialul pentru Blocul 2</span>
+    <span class="prompt-label">Materialul pentru Promptul 2</span>
     <button class="copy-btn" type="button" data-copy="cockpit-hibrid-material">Copiază</button>
   </div>
   <pre id="cockpit-hibrid-material">STATUSUL VENTORA LA 29 AUGUST 2026 (șapte luni închise)
@@ -1623,13 +1645,13 @@ Am 10 ore pe săptămână pentru orice nu e vânzare curentă și stins incendi
 <h3 id="cockpit-organizatia-ta">Cockpit cu organizația ta</h3>
 <p class="durata">40-45 de minute · ai nevoie de cifrele din caseta de sus</p>
 
-<h4 id="cockpit-b1">Blocul 1: copiază-l într-o conversație nouă</h4>
+<h4 id="cockpit-b1">Promptul 1: copiază-l într-o conversație nouă</h4>
 
-<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
+<p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Promptul 2.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="cockpit-bloc-1">Copiază</button>
   </div>
   <pre id="cockpit-bloc-1">Ești omul care îmi spune lunar unde stau cu firma. Înainte de primul raport, ai nevoie să mă cunoști.
@@ -1665,15 +1687,15 @@ Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări ș
 Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
 </div>
 
-<h4 id="cockpit-b2">Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+<h4 id="cockpit-b2">Promptul 2: copiază-l într-o conversație NOUĂ</h4>
 
-<p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
+<p>E important să deschizi o conversație nouă, ca să poți folosi direct aici răspunsurile de la pasul anterior.</p>
 
 <p>Înainte de orice altceva, copiază în conversație informațiile pe care le-ai primit de la Claude în prima conversație, plus statusul de acum al firmei. Abia după aceea copiază promptul de mai jos.</p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="cockpit-bloc-2">Copiază</button>
   </div>
   <pre id="cockpit-bloc-2">Ești omul care îmi spune lunar unde stau cu firma. Citești tot ce ți-am dat mai sus și îmi predai un tablou de bord de o pagină.
@@ -1716,15 +1738,25 @@ Reguli:
   </li>
 </ol>
 
-<h4>Blocul 3: copiază-l la final, în aceeași conversație</h4>
+<div class="verifica">
+<p><strong>Verifică înainte să salvezi skill-ul.</strong> Promptul 3 împachetează comportamentul pe care agentul îl are acum. Ce nu prinzi aici, salvezi. Trei lucruri, două minute:</p>
+<ul>
+  <li>O cifră: alege una din artefact și caut-o în ce i-ai dat. Dacă nu e acolo, trebuie să scrie lângă ea că e estimare, cu calculul.</li>
+  <li>Un gol: ceva ce n-avea de unde să știe. Trebuie să apară ca întrebare rămasă, nu completat cu o presupunere.</li>
+  <li>O afirmație tare: decizia recomandată, un termen, un preț. Ce e cel mai ușor de luat de bun.</li>
+</ul>
+<p>Dacă identifici o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea. Abia apoi Promptul 3.</p>
+</div>
 
-<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază următorul bloc în aceeași conversație cu Blocul 2:</p>
+<h4>Promptul 3: copiază-l la final, în aceeași conversație</h4>
+
+<p>Ăsta e pasul care îți construiește un angajat pe care îl poți chema la treaba oricând. După ce ajungi acasă, rezervă-ți 5 minute în calendar și copiază promptul de mai jos în aceeași conversație cu Promptul 2:</p>
 
 <p class="ps"><em>P.S.: Dacă ai terminat mai repede agentul și încă mai ai timp, poți face acest pas chiar acum, live în sală.</em></p>
 
 <div class="prompt">
   <div class="prompt-top">
-    <span class="prompt-label">Blocul de copiat</span>
+    <span class="prompt-label">Promptul de copiat</span>
     <button class="copy-btn" type="button" data-copy="cockpit-bloc-3">Copiază</button>
   </div>
   <pre id="cockpit-bloc-3">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema în fiecare lună, fără să mai copiez nimic de mână. Păstrează regula de aur, obiectivele mele, pragul de alarmă și formatul artefactului. Cifrele mele se schimbă de la o lună la alta, așa că spune-mi cum să ți le dau data viitoare fără să refac tot. La final spune-mi cum îl chem la lucru.</pre>
@@ -1732,7 +1764,7 @@ Reguli:
 
 <h4>Unde ajunge skill-ul</h4>
 
-<p>După Blocul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
+<p>După Promptul 3, Claude îți propune skill-ul pe un card, iar tu apeși save.</p>
 
 <p>Dacă Claude îți propune să salveze un skill, apasă save. Îl vei găsi în contul tău la <strong>Customize</strong>, <strong>Skills</strong>. Dacă nu ți-l propune, salvează instrucțiunile într-un <strong>Project</strong>:</p>
 
@@ -1752,7 +1784,7 @@ Reguli:
   <section class="agent" id="sec-fisa-ventora">
 <h2 id="fisa-ventora">Vrei să vezi interviul, dar fără datele firmei tale?</h2>
 
-<p>Blocurile demo de mai sus sunt construite să sară peste interviu, dar poate vrei să vezi cum decurge acesta, fără să expui informațiile despre organizația ta. De aceea, găsești mai jos răspunsurile despre organizația fictivă Ventora.</p>
+<p>Prompturile demo de mai sus sunt construite să sară peste interviu, dar poate vrei să vezi cum decurge acesta, fără să expui informațiile despre organizația ta. De aceea, găsești mai jos răspunsurile despre organizația fictivă Ventora.</p>
 
 <p><strong>Cine ești în firma asta.</strong> Andrei Pop, patron și administrator. Firma e din 2011, a ta de la început. Ai doi investitori intrați în 2022, care au împreună o treime; le dai socoteală trimestrial și sunt singurii care mai citesc rapoartele tale în afară de tine.</p>
 
