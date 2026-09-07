@@ -152,7 +152,7 @@
   }
   h4{
     font-family:var(--font-mono);font-weight:600;font-size:0.95rem;
-    color:var(--ink);margin:32px 0 8px;
+    color:var(--ink);margin:32px 0 8px;scroll-margin-top:124px;
   }
   p{margin:0 0 14px;}
   strong{color:var(--ink);font-weight:600;}
@@ -474,14 +474,22 @@ Reguli:
 <h3 id="boardroom-hibrid">Boardroom cu interviu, pe date demo</h3>
 <p class="durata">25-30 de minute · nu-ți trebuie nicio cifră</p>
 
-<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe blocurile de mai jos exact ca la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#boardroom-b1">Blocul 1</a> și <a href="#boardroom-b2">Blocul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
 
-<p>Decizia pentru Blocul 2 o iei din blocul demo de mai sus, de sub „DECIZIA PE CARE O AM DE LUAT".</p>
+<p>Decizia pentru Blocul 2 e aici, gata de copiat:</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Materialul pentru Blocul 2</span>
+    <button class="copy-btn" type="button" data-copy="boardroom-hibrid-material">Copiază</button>
+  </div>
+  <pre id="boardroom-hibrid-material">Lansez sau nu un serviciu de mentenanță pe abonament — contract anual, două revizii și intervenții prioritare — pentru care ar trebui să angajez doi tehnicieni.</pre>
+</div>
 
 <h3 id="boardroom-organizatia-ta">Boardroom cu organizația ta</h3>
 <p class="durata">35-40 de minute · ai nevoie de cifrele din caseta de sus</p>
 
-<h4>Blocul 1: copiază-l într-o conversație nouă</h4>
+<h4 id="boardroom-b1">Blocul 1: copiază-l într-o conversație nouă</h4>
 
 <p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
 
@@ -524,7 +532,7 @@ Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări ș
 Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
 </div>
 
-<h4>Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+<h4 id="boardroom-b2">Blocul 2: copiază-l într-o conversație NOUĂ</h4>
 
 <p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
 
@@ -748,14 +756,39 @@ Reguli:
 <h3 id="meeting-assistant-hibrid">Meeting Assistant cu interviu, pe date demo</h3>
 <p class="durata">25-30 de minute · nu-ți trebuie niciun material</p>
 
-<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe blocurile de mai jos exact ca la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#meeting-assistant-b1">Blocul 1</a> și <a href="#meeting-assistant-b2">Blocul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
 
-<p>Ședința pentru Blocul 2 o iei din blocul demo de mai sus: selectează din el de la „ȘEDINȚA:" până înainte de „Regula de aur".</p>
+<p>Ședința pentru Blocul 2 e aici, gata de copiat:</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Materialul pentru Blocul 2</span>
+    <button class="copy-btn" type="button" data-copy="meeting-assistant-hibrid-material">Copiază</button>
+  </div>
+  <pre id="meeting-assistant-hibrid-material">Ședință de luni, echipa Ventora. Prezenți: Andrei (patron), Cristina (vânzări), Mihai (depozit/logistică), Bogdan (tehnic). ~40 min.
+
+Andrei: începem cu Delta Instal. Au cerut revizuire de preț pe comanda de chillere.
+Cristina: da, vor 6% jos. Le-am zis că maxim 3. Dacă nu, pierdem comanda, e a treia oară anul ăsta când negociază așa.
+Andrei: mergem pe 3, dar cu plata la 30 de zile, nu 45. Trimite oferta revizuită până vineri.
+Cristina: ok, vineri.
+Mihai: și transportatorul iar ne-a lăsat. Livrarea de miercuri a ajuns joi seara, clientul a sunat de patru ori. E a doua oară luna asta. Nu se poate așa, serios, eu nu mai am nervi să sun după ei.
+Andrei: știu, e enervant.
+Mihai: și nici măcar nu răspund la telefon după 5.
+Cristina: apropo, ar trebui să ne uităm și la ideea aia cu abonamentele de mentenanță. Dacă am avea venit lunar, nu ne-ar mai strânge Delta așa.
+Bogdan: ar trebui doi oameni. Și mașini.
+Andrei: da, discutăm săptămâna viitoare, nu acum.
+Cristina: sau un showroom în Oradea, să nu mai mergem noi peste tot.
+(nimeni nu răspunde)
+Bogdan: eu am nevoie de lista echipamentelor care mai sunt în garanție, că mă sună lumea și nu știu ce să zic.
+Andrei: fă-o tu, ai acces în sistem.
+Bogdan: ok.
+Andrei: și încă ceva, la ședința cu furnizorul de joi vin eu și Cristina. Mihai, tu rămâi pe recepția marfă.</pre>
+</div>
 
 <h3 id="meeting-assistant-organizatia-ta">Meeting Assistant cu organizația ta</h3>
 <p class="durata">40-45 de minute · ai nevoie de materialele din caseta de sus</p>
 
-<h4>Blocul 1: copiază-l într-o conversație nouă</h4>
+<h4 id="meeting-assistant-b1">Blocul 1: copiază-l într-o conversație nouă</h4>
 
 <p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
 
@@ -795,7 +828,7 @@ Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări ș
 Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
 </div>
 
-<h4>Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+<h4 id="meeting-assistant-b2">Blocul 2: copiază-l într-o conversație NOUĂ</h4>
 
 <p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
 
@@ -1043,14 +1076,73 @@ Reguli:
 <h3 id="offer-hibrid">Offer cu interviu, pe date demo</h3>
 <p class="durata">30-35 de minute · nu-ți trebuie niciun material</p>
 
-<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe blocurile de mai jos exact ca la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#offer-b1">Blocul 1</a> și <a href="#offer-b2">Blocul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
 
-<p>Oferta-referință și notițele prospectului pentru Blocul 2 le iei din blocul demo de mai sus: selectează din el de la „OFERTA-REFERINȚĂ" până înainte de „Regula de aur".</p>
+<p>Oferta-referință și notițele prospectului pentru Blocul 2 sunt aici, gata de copiat:</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Materialul pentru Blocul 2</span>
+    <button class="copy-btn" type="button" data-copy="offer-hibrid-material">Copiază</button>
+  </div>
+  <pre id="offer-hibrid-material">OFERTA-REFERINȚĂ — de aici iei structura și tonul, nu conținutul:
+
+Către: Instal Prodex SRL, în atenția dlui Sorin Mureșan
+De la: Ventora Distribuție SRL
+Subiect: Ofertă echipamente — bloc Bună Ziua, corp A
+Data: 14 aprilie 2026
+
+Domnule Mureșan,
+
+În urma discuției de vineri și a proiectului de instalații primit, mai jos oferta pentru corpul A.
+
+CE AM ÎNȚELES
+Aveți nevoie de sursa termică și de ventilația pentru 34 de apartamente, cu livrare eșalonată pe măsură ce avansați cu etajele. Ați spus că v-a rămas prost de la furnizorul anterior că marfa a venit toată odată și ați ținut-o două luni în șantier.
+
+CE PROPUNEM
+1. Centrală termică în condensație 120 kW, cu automatizare — 2 buc.
+2. Unități de ventilație cu recuperare de căldură, 34 buc., câte una pe apartament
+3. Accesorii de montaj și piese de legătură, conform listei anexate
+
+Dimensionarea am făcut-o noi, pe proiectul dumneavoastră, și e inclusă.
+
+PREȚ
+Centrale: 2 x 41.500 lei = 83.000 lei
+Unități ventilație: 34 x 4.200 lei = 142.800 lei
+Accesorii: 18.400 lei
+Total: 244.200 lei, fără TVA. Prețurile includ discountul de volum de 6%.
+
+LIVRARE ȘI CONDIȚII
+Livrare în trei tranșe, la comanda dumneavoastră, cu 5 zile lucrătoare de la anunț. Transport inclus, șantierul e în raza noastră.
+Plata la 30 de zile de la fiecare livrare. Prima tranșă se comandă la confirmare.
+Oferta e valabilă 30 de zile; după, reconfirmăm prețurile la producător.
+
+CE URMEAZĂ
+Dacă vă convine, îmi confirmați pe email și blocăm marfa pentru prima tranșă. Dacă vreți să schimbăm ceva la configurație, ne vedem la dumneavoastră săptămâna viitoare, oricând în afară de joi.
+
+Cu stimă,
+Andrei Pop
+Ventora Distribuție SRL
+
+PROSPECTUL — de aici iei conținutul:
+
+Notițe discuție Aurelian Cîmpean, Domus Rezidențial (dezvoltator mic, Florești) — 26 august, la telefon, ~20 min
+
+- două blocuri în Florești, P+4, 48 de apartamente în total. Primul se termină prin noiembrie, al doilea abia s-a autorizat
+- vine de la Instal Prodex, Sorin i-a dat numărul meu
+- vrea centrale în condensație și ventilație, ca la Bună Ziua. Zice că "vrea aceeași soluție, funcționează"
+- nu are încă proiectul de instalații final, îl face un proiectant din Turda, îl trimite "săptămâna viitoare"
+- a întrebat de două ori dacă facem și montajul. I-am zis că nu, dar n-a părut să înțeleagă — a revenit la final cu "deci voi îmi puneți tot"
+- a întrebat și de mentenanță după recepție: "cine se ocupă când se strică ceva la un an"
+- despre bani: n-a dat cifră. A zis "am un buget, dar depinde ce iese din proiect". A pomenit că a luat o ofertă și de la altcineva, nu a zis de la cine
+- vrea prima livrare "cât mai repede", fără dată
+- plata: a întrebat dacă mergem la 60 de zile. I-am zis că discutăm</pre>
+</div>
 
 <h3 id="offer-organizatia-ta">Offer cu organizația ta</h3>
 <p class="durata">40-45 de minute · ai nevoie de cele două materiale din caseta de sus</p>
 
-<h4>Blocul 1: copiază-l într-o conversație nouă</h4>
+<h4 id="offer-b1">Blocul 1: copiază-l într-o conversație nouă</h4>
 
 <p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
 
@@ -1092,7 +1184,7 @@ Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări ș
 Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
 </div>
 
-<h4>Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+<h4 id="offer-b2">Blocul 2: copiază-l într-o conversație NOUĂ</h4>
 
 <p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
 
@@ -1324,14 +1416,53 @@ Reguli:
 <h3 id="cockpit-hibrid">Cockpit cu interviu, pe date demo</h3>
 <p class="durata">30-35 de minute · nu-ți trebuie nicio cifră</p>
 
-<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe blocurile de mai jos exact ca la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
+<p>Blocul demo de mai sus sare peste interviu. Dacă vrei să vezi și interviul, dar fără să dai datele firmei tale, mergi pe <a href="#cockpit-b1">Blocul 1</a> și <a href="#cockpit-b2">Blocul 2</a> de la drumul cu organizația ta, doar că la întrebările lui Claude răspunzi din <a href="#fisa-ventora"><strong>Fișa Ventora</strong></a>.</p>
 
-<p>Statusul pentru Blocul 2 îl iei din blocul demo de mai sus: selectează din el de la „STATUSUL DE ACUM:" până înainte de „Regula de aur".</p>
+<p>Statusul pentru Blocul 2 e aici, gata de copiat:</p>
+
+<div class="prompt">
+  <div class="prompt-top">
+    <span class="prompt-label">Materialul pentru Blocul 2</span>
+    <button class="copy-btn" type="button" data-copy="cockpit-hibrid-material">Copiază</button>
+  </div>
+  <pre id="cockpit-hibrid-material">STATUSUL VENTORA LA 29 AUGUST 2026 (șapte luni închise)
+
+BANI
+Realizat ianuarie-iulie: 3,6 milioane de lei din ținta de 8 milioane.
+Marja netă la șapte luni: 9,8%.
+Facturat și neîncasat: 640.000 de lei, din care 180.000 sunt peste 60 de zile (Delta Instal 120.000, Hidroterm Alba 60.000).
+August nu e închis încă, dar arată în jur de 480.000.
+
+CLIENȚI
+Delta Instal — 22% din venitul de anul ăsta. Ultima comandă 18 august. Au renegociat prețul de trei ori anul ăsta; ultima dată au cerut 6% și au primit 3%, cu plata mutată la 30 de zile. Oferta revizuită trimisă vineri, 22 august.
+Proinstal Cluj — 15%. Ultima comandă 11 august. Relație bună, nu negociază.
+Termoline — 11%. Ultima comandă 4 august.
+Hidroterm Alba — 6%. Ultima comandă 12 iunie. De atunci nimic, și au și o factură restantă.
+Instal Prodex — 5%. Livrarea a doua din cele trei, făcută pe 20 august. A treia se comandă în septembrie.
+Restul: 15 clienți mici, sub 3% fiecare.
+
+OFERTE TRIMISE, ÎN AȘTEPTARE
+Instal Prodex, corp B — 210.000 lei, trimisă 19 august. Au zis că răspund după ce închid corpul A.
+Climaterm Mureș — 96.000 lei, trimisă 3 iulie. Niciun răspuns, nu am sunat.
+Delta Instal, revizuită — 340.000 lei, trimisă 22 august.
+Un dezvoltator din Florești (Domus Rezidențial) — discuție telefonică pe 26 august, ofertă încă netrimisă, aștept proiectul de instalații.
+
+PROIECTE INTERNE
+Sistemul nou de gestiune a stocului — implementarea a început în aprilie, e blocată din iunie: furnizorul așteaptă de la mine lista de categorii de produse aprobată.
+Angajarea unui al treilea om pe vânzări — am decis în februarie că o facem, n-am scos anunțul.
+Serviciul de mentenanță pe abonament — discutat în ședințe din martie, amânat de fiecare dată. Ultima amânare, luni 24 august: "discutăm săptămâna viitoare".
+Showroom în Oradea — idee ridicată de Cristina, n-am discutat-o niciodată serios.
+
+BLOCAJE ȘI SUPĂRĂRI
+Transportatorul extern a întârziat două livrări luna asta. Mihai din depozit e la capătul răbdării.
+Distribuitorii naționali intră în Transilvania cu discounturi pe care nu le pot susține la marja mea.
+Am 10 ore pe săptămână pentru orice nu e vânzare curentă și stins incendii, și de obicei le pierd pe stins incendii.</pre>
+</div>
 
 <h3 id="cockpit-organizatia-ta">Cockpit cu organizația ta</h3>
 <p class="durata">40-45 de minute · ai nevoie de cifrele din caseta de sus</p>
 
-<h4>Blocul 1: copiază-l într-o conversație nouă</h4>
+<h4 id="cockpit-b1">Blocul 1: copiază-l într-o conversație nouă</h4>
 
 <p>Claude te intervievează, apoi îți construiește contextul de business, pe care îl vei folosi mai jos, în Blocul 2.</p>
 
@@ -1373,7 +1504,7 @@ Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări ș
 Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare".</pre>
 </div>
 
-<h4>Blocul 2: copiază-l într-o conversație NOUĂ</h4>
+<h4 id="cockpit-b2">Blocul 2: copiază-l într-o conversație NOUĂ</h4>
 
 <p>E important să deschizi o conversație nouă, ca să poți folosi răspunsurile din blocul anterior direct în prompt.</p>
 
