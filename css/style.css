@@ -853,7 +853,7 @@ body.has-announce-bar .mobile-menu { top: 36px; }
 .video-section .section-header { margin-bottom: 2.5rem; }
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
 }
 .video-wrap {
@@ -1558,6 +1558,8 @@ footer {
   .service { grid-template-columns: 1fr; }
 
   .frameworks-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .video-grid { grid-template-columns: repeat(2, 1fr); }
 
   .stats-grid { grid-template-columns: repeat(3, 1fr); }
 
