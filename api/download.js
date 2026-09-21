@@ -10,7 +10,7 @@ const SHEETS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxJjD_2faU9XQLxO
 const BOOKING_URL = 'https://calendar.app.google/97NFSpQYzKkJmkuL9';
 
 // Schelet comun de email (header Upvance, CTA lavender, footer)
-const emailShell = ({ title, bodyHtml, footerNote, signoff = 'Mulțumesc și lectură plăcută,' }) => `
+const emailShell = ({ title, bodyHtml, footerNote, signoff = 'Mulțumesc și lectură plăcută,', signatureTitle = 'Futures of Work Strategist | Building AI Agency in Organizations' }) => `
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -39,9 +39,9 @@ const emailShell = ({ title, bodyHtml, footerNote, signoff = 'Mulțumesc și lec
     </div>
     <div class="body">
       ${bodyHtml}
-      <p>${signoff}</p>
+      ${signoff ? `<p>${signoff}</p>` : ''}
       <p class="sig-name">Raluca Păduraru</p>
-      <p class="sig-title">Futures of Work Strategist | Building AI Agency in Organizations</p>
+      <p class="sig-title">${signatureTitle}</p>
     </div>
     <div class="footer">
       <p>${footerNote}<br>
@@ -127,6 +127,24 @@ const RESOURCES = {
       });
     },
   },
+  'ghid-adoptie-ai': {
+    pdfUrl: 'https://ralucapaduraru.ro/downloads/ghid-adoptie-ai.pdf',
+    subject: 'Ghidul tău pentru primele 90 de zile de adopție AI',
+    notifySubject: (name, company) => `Nou download ghid adopție AI: ${name} (${company || 'N/A'})`,
+    emailHtml: function () {
+      return emailShell({
+        title: 'Ghidul tău pentru primele 90 de zile de adopție AI',
+        footerNote: 'Ai primit acest email deoarece ai completat formularul de pe ralucapaduraru.ro/ghid-adoptie.',
+        signoff: '',
+        signatureTitle: 'Futures of Work Strategist',
+        bodyHtml: `
+      <p>Bună,</p>
+      <p>Mai jos găsești ghidul „Ai primit mandatul să te ocupi de AI. De unde începi?”.</p>
+      <a class="cta" style="color:#111111" href="${this.pdfUrl}" target="_blank">Descarcă ghidul &rarr;</a>
+      <p>Te ajută să clarifici mandatul, să pregătești echipa, să organizezi primul pilot și să duci o recomandare argumentată către conducere.</p>`,
+      });
+    },
+  },
 };
 
 module.exports = async (req, res) => {
@@ -137,7 +155,7 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ message: 'Method not allowed' });
 
-  const { resource, name, email, company, role, website, prenume, nume, telefon } = req.body || {};
+  const { resource, name, email, company, role, website, prenume, nume, telefon, mandat } = req.body || {};
 
   // Honeypot: boții completează câmpul ascuns => răspuns 200 fals, fără acțiune
   if (website) return res.status(200).json({ message: 'OK' });
@@ -170,7 +188,7 @@ module.exports = async (req, res) => {
     // Log lead to Google Sheets (non-critical)
     fetch(SHEETS_WEBHOOK, {
       method: 'POST',
-      body: JSON.stringify({ nume: nume || name, prenume: prenume || '', email, telefon: telefon || '', rol: role, companie: company, sursa: slug }),
+      body: JSON.stringify({ nume: nume || name, prenume: prenume || '', email, telefon: telefon || '', rol: role, companie: company, sursa: slug, mandat: mandat || '' }),
     }).catch(() => {}); // non-critical, ignore errors
 
     // Also notify Raluca of new lead
@@ -178,7 +196,7 @@ module.exports = async (req, res) => {
       from: 'Site ralucapaduraru.ro <contact@upvance.global>',
       to: ['raluca@upvance.global'],
       subject: cfg.notifySubject(name, company),
-      html: `<p><b>Nume:</b> ${name}<br><b>Email:</b> ${email}<br><b>Telefon:</b> ${telefon || '-'}<br><b>Companie:</b> ${company || '-'}<br><b>Rol:</b> ${role || '-'}<br><b>Sursă:</b> ${slug}</p>`,
+      html: `<p><b>Nume:</b> ${name}<br><b>Email:</b> ${email}<br><b>Telefon:</b> ${telefon || '-'}<br><b>Companie:</b> ${company || '-'}<br><b>Rol:</b> ${role || '-'}${mandat ? `<br><b>Mandat AI:</b> ${mandat}` : ''}<br><b>Sursă:</b> ${slug}</p>`,
     }).catch(() => {}); // non-critical, ignore errors
 
     return res.status(200).json({ message: 'Trimis pe email!' });
