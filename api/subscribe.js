@@ -78,9 +78,9 @@ const GHID_CONFIRMATION_EMAIL_HTML = (email) => `
       <p>Ce vei găsi în el:</p>
       <ul>
         <li>Traseul primelor 90 de zile: mandatul, echipa, regulile, primul pilot, măsurarea și raportul către conducere</li>
-        <li>9 fișe de lucru pe care le copiezi și le completezi</li>
+        <li>9 fișe de lucru, de la fișa de mandat la raportul de 90 de zile</li>
         <li>Un exemplu de onboarding pregătit cu AI, urmărit de la solicitare la planul final</li>
-        <li>Articolele care te privesc ca angajator: AI Act, Codul muncii, GDPR</li>
+        <li>Ce trebuie clarificat cu fiecare stakeholder înainte de primul test, ancorat în legislația în vigoare</li>
       </ul>
       <p>Până atunci, dacă ai o întrebare despre adopția AI în echipa ta, răspunde la acest email.</p>
       <p class="sig-name">Raluca Păduraru</p>
