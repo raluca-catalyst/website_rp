@@ -26,6 +26,7 @@
     { "source": "/build-your-cortex", "destination": "/build-your-cortex.html" },
     { "source": "/feedback-materiale", "destination": "/feedback-materiale.html" },
     { "source": "/people-architects", "destination": "/people-architects.html" },
+    { "source": "/people-architects-materiale", "destination": "/people-architects-materiale.html" },
     { "source": "/ghid-adoptie", "destination": "/ghid-adoptie.html" }
   ],
   "headers": [

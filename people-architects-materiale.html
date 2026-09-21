@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Raluca Păduraru">
+<meta name="robots" content="noindex, nofollow">
+<title>Materiale de sală · People Architects</title>
+<meta name="description" content="Materialele de sală pentru People Architects, 25 septembrie 2026: 12 trend cards HR &amp; AI și 6 cartonașe cu ce poate face AI-ul în HR.">
+<link rel="canonical" href="https://www.ralucapaduraru.ro/people-architects-materiale">
+<link rel="icon" type="image/svg+xml" href="/images/pa/favicon.svg">
+
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot → GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>/* Trend cards — varianta web (responsivă, pentru integrare într-o pagină).
+   Tot ce ține de aspect stă în variabilele de mai jos: schimbi cele 5 culori
+   și cardul trece pe altă paletă (ex. fundal închis) fără să atingi restul.
+   Toate selectoarele sunt prefixate .tc- ca să nu se ciocnească la integrare. */
+.tc-scope {
+  --tc-accent: #7c3aed;
+  --tc-text: #1a1a1a;
+  --tc-muted: rgba(0,0,0,0.66);
+  --tc-rule: #7c3aed;
+  --tc-bg: #ffffff;
+  --tc-line: color-mix(in srgb, var(--tc-text) 14%, transparent);
+  --tc-font-head: 'JetBrains Mono';
+  --tc-font-body: 'Barlow';
+}
+
+body.tc-page { margin: 0; background: var(--tc-bg); }
+.tc-scope * { box-sizing: border-box; }
+
+.tc-scope {
+  font-family: var(--tc-font-body), "Segoe UI", system-ui, sans-serif;
+  color: var(--tc-text);
+  background: var(--tc-bg);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* ---------- cardul ---------- */
+.tc-card {
+  border: 1px solid var(--tc-line);
+  border-radius: 10px;
+  background: var(--tc-bg);
+  margin: 0 0 14px 0;
+  overflow: hidden;
+}
+.tc-card[open] { border-color: var(--tc-accent); }
+
+/* rândul strâns: marcaj + titlu + fraza de orientare */
+.tc-head {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 20px;
+  display: block;
+  position: relative;
+  padding-right: 52px;
+}
+.tc-head::-webkit-details-marker { display: none; }
+.tc-head:hover { background: color-mix(in srgb, var(--tc-accent) 5%, transparent); }
+.tc-head:focus-visible { outline: 2px solid var(--tc-accent); outline-offset: -2px; }
+
+/* Marcajul e piesa de design care face setul util: sala vede pe loc unde are
+   consens (Trend, plin) și unde are doar o bănuială (Weak Signal, gol). Dacă
+   arată la fel, distincția se pierde la scanare. */
+.tc-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+  border: 1.5px solid var(--tc-accent); border-radius: 3px;
+  padding: 2px 7px; margin-bottom: 9px;
+}
+.tc-tag--trend { background: var(--tc-accent); color: var(--tc-bg); }
+.tc-tag--weak {
+  background: transparent; color: var(--tc-muted);
+  border-style: dashed; border-color: var(--tc-muted);
+}
+.tc-area { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--tc-muted); margin-left: 9px; }
+.tc-title {
+  font-family: var(--tc-font-head), var(--tc-font-body), sans-serif;
+  font-weight: 700; font-size: 20px; line-height: 1.25; letter-spacing: -0.01em;
+  margin: 0 0 7px 0;
+}
+.tc-summary { font-size: 15px; line-height: 1.45; color: var(--tc-muted); margin: 0; }
+
+/* săgeata de deschidere */
+.tc-head::after {
+  content: ""; position: absolute; right: 22px; top: 26px;
+  width: 9px; height: 9px;
+  border-right: 2px solid var(--tc-accent); border-bottom: 2px solid var(--tc-accent);
+  transform: rotate(45deg); transition: transform 0.15s ease;
+}
+.tc-card[open] .tc-head::after { transform: rotate(-135deg); }
+
+/* ---------- corpul deschis ---------- */
+.tc-body { padding: 4px 20px 22px; border-top: 1px solid var(--tc-line); margin-top: 2px; }
+.tc-grid { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 26px 34px; margin-top: 18px; }
+.tc-col { display: flex; flex-direction: column; gap: 22px; }
+
+.tc-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; margin: 0 0 9px 0; }
+.tc-label::before { content: ""; display: block; width: 40px; height: 3px; background: var(--tc-accent); margin-bottom: 7px; }
+
+.tc-scope ul { margin: 0; padding: 0; list-style: none; }
+.tc-scope li { position: relative; padding-left: 14px; line-height: 1.45; margin-bottom: 6px; font-size: 14px; }
+.tc-scope li::before { content: "•"; position: absolute; left: 0; top: 0; color: var(--tc-muted); }
+.tc-examples li { margin-bottom: 10px; }
+.tc-impacts li { padding-left: 18px; }
+.tc-impacts li.up::before { content: "▲"; color: #1a8a4a; font-size: 10px; top: 3px; }
+.tc-impacts li.down::before { content: "▼"; color: var(--tc-accent); font-size: 10px; top: 3px; }
+.tc-impacts li.flat::before { content: "•"; }
+
+.tc-phase-label { color: var(--tc-accent); font-weight: 700; font-size: 15px; margin: 0 0 4px 0; }
+.tc-phase-note { font-size: 13.5px; line-height: 1.45; margin: 0; }
+
+.tc-foot { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--tc-line); font-size: 13px; line-height: 1.45; color: var(--tc-muted); }
+.tc-foot .tc-item { margin-bottom: 5px; }
+.tc-foot b { color: var(--tc-text); }
+
+/* ---------- telefon ---------- */
+@media (max-width: 720px) {
+  .tc-scope { padding: 16px 12px 36px; }
+  .tc-head { padding: 15px 16px; padding-right: 44px; }
+  .tc-title { font-size: 17px; }
+  .tc-summary { font-size: 14.5px; }
+  .tc-body { padding: 4px 16px 20px; }
+  .tc-grid { grid-template-columns: 1fr; gap: 24px; }
+  .tc-col { gap: 24px; }
+}
+
+@media print {
+  .tc-card { break-inside: avoid; border-color: var(--tc-line); }
+  .tc-head::after { display: none; }
+}
+
+/* ---------- antet, navigare pe arii, sectiuni, bio (adaugate 14 sep) ---------- */
+.pa-hero { padding: 8px 0 30px; }
+.pa-hero h1 {
+  font-family: var(--tc-font-head), var(--tc-font-body), sans-serif;
+  font-weight: 700; font-size: 44px; line-height: 1.08; letter-spacing: -0.02em;
+  margin: 0 0 14px 0;
+}
+.pa-hero h1::before {
+  content: ""; display: block; width: 62px; height: 4px;
+  background: var(--tc-accent); margin-bottom: 18px;
+}
+.pa-meta {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--tc-accent); margin: 0 0 12px 0;
+}
+.pa-lede { font-size: 16.5px; line-height: 1.5; color: var(--tc-muted); margin: 0; }
+
+/* Navigarea nu e sticky: pe telefon ar manca din prima ecranare, iar specul
+   atelierului cere toate cele 12 carduri vizibile de la inceput. */
+.pa-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 34px 0; }
+.pa-nav a {
+  display: inline-flex; align-items: baseline; gap: 6px;
+  font-size: 13.5px; font-weight: 600; text-decoration: none;
+  color: var(--tc-text); background: var(--tc-bg);
+  border: 1px solid var(--tc-line); border-radius: 999px;
+  padding: 8px 15px; transition: border-color 0.15s ease, background 0.15s ease;
+}
+.pa-nav a:hover, .pa-nav a:focus-visible {
+  border-color: var(--tc-accent);
+  background: color-mix(in srgb, var(--tc-accent) 7%, transparent);
+}
+.pa-nav a:focus-visible { outline: 2px solid var(--tc-accent); outline-offset: 2px; }
+.pa-nav .pa-n { font-size: 11px; font-weight: 700; color: var(--tc-accent); }
+
+.pa-sec { scroll-margin-top: 16px; margin: 0 0 40px 0; }
+.pa-sec-head {
+  display: flex; align-items: baseline; gap: 12px;
+  border-top: 2px solid var(--tc-accent);
+  padding-top: 12px; margin: 0 0 16px 0;
+}
+.pa-sec-head h2 {
+  font-family: var(--tc-font-head), var(--tc-font-body), sans-serif;
+  font-weight: 700; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em;
+  margin: 0; flex: 1 1 auto;
+}
+.pa-sec-head .pa-count {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--tc-muted); white-space: nowrap;
+}
+
+/* ---------- despre Raluca ---------- */
+.pa-bio { margin-top: 54px; padding-top: 34px; border-top: 1px solid var(--tc-line); }
+.pa-bio h2 {
+  font-family: var(--tc-font-head), var(--tc-font-body), sans-serif;
+  font-weight: 700; font-size: 24px; letter-spacing: -0.01em; margin: 0 0 20px 0;
+}
+.pa-bio-top { display: flex; gap: 26px; align-items: flex-start; }
+.pa-bio-photo {
+  width: 132px; height: 132px; flex: none; border-radius: 10px;
+  object-fit: cover; object-position: center top;
+  border: 1px solid var(--tc-line);
+}
+.pa-bio-text p { font-size: 15.5px; line-height: 1.55; margin: 0 0 12px 0; }
+.pa-bio-text p:last-child { margin-bottom: 0; }
+
+.pa-bio-links { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 0; }
+.pa-bio-links a {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13.5px; font-weight: 600; text-decoration: none; color: var(--tc-text);
+  border: 1px solid var(--tc-line); border-radius: 999px; padding: 8px 15px;
+}
+.pa-bio-links a:hover { border-color: var(--tc-accent); background: color-mix(in srgb, var(--tc-accent) 7%, transparent); }
+.pa-bio-links svg { width: 15px; height: 15px; flex: none; }
+
+.pa-inits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+.pa-init { border: 1px solid var(--tc-line); border-radius: 10px; padding: 16px 18px; }
+.pa-init h3 { font-size: 15px; line-height: 1.3; margin: 0 0 7px 0; }
+.pa-init h3 a { color: var(--tc-accent); text-decoration: none; }
+.pa-init h3 a:hover { text-decoration: underline; }
+.pa-init p { font-size: 13.5px; line-height: 1.45; color: var(--tc-muted); margin: 0; }
+
+.pa-foot { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--tc-line); font-size: 12.5px; color: var(--tc-muted); }
+
+@media (max-width: 720px) {
+  .pa-hero { padding: 4px 0 24px; }
+  .pa-hero h1 { font-size: 31px; }
+  .pa-hero h1::before { width: 48px; height: 3px; margin-bottom: 14px; }
+  .pa-meta { font-size: 11px; letter-spacing: 0.06em; }
+  .pa-lede { font-size: 15.5px; }
+  .pa-nav { gap: 7px; margin-bottom: 28px; }
+  .pa-nav a { font-size: 13px; padding: 8px 13px; }
+  .pa-sec { margin-bottom: 32px; }
+  .pa-sec-head h2 { font-size: 18px; }
+  .pa-bio { margin-top: 42px; }
+  .pa-bio h2 { font-size: 21px; }
+  .pa-bio-top { flex-direction: column; gap: 18px; }
+  .pa-bio-photo { width: 108px; height: 108px; }
+  .pa-inits { grid-template-columns: 1fr; gap: 14px; }
+}
+
+/* ---------- pagina de materiale: cele 3 parti, buton, cartonase, formular (21 sep) ---------- */
+.pa-part { scroll-margin-top: 16px; margin: 0 0 40px 0; }
+.pa-part + .pa-part { margin-top: 56px; }
+.pa-part-head {
+  font-family: var(--tc-font-head), var(--tc-font-body), sans-serif;
+  font-weight: 700; font-size: 30px; line-height: 1.12; letter-spacing: -0.02em;
+  margin: 0 0 12px 0;
+}
+.pa-part-head::before {
+  content: ""; display: block; width: 62px; height: 4px;
+  background: var(--tc-accent); margin-bottom: 16px;
+}
+.pa-part .pa-lede { margin-bottom: 22px; }
+
+.pa-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--tc-font-head), monospace; font-weight: 700; font-size: 13px;
+  letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  color: #ffffff; background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  border-radius: 6px; padding: 13px 20px; margin: 0 0 26px 0;
+  box-shadow: 0 0 18px rgba(124,58,237,0.28);
+}
+.pa-btn:hover { background: linear-gradient(135deg, #8b5cf6, #7c3aed); transform: translateY(-1px); }
+.pa-btn svg { width: 16px; height: 16px; flex: none; }
+.pa-btn small { font-family: var(--tc-font-body), sans-serif; font-weight: 400; font-size: 12px; text-transform: none; letter-spacing: 0; opacity: 0.85; }
+
+.pa-c6 .tc-grid { grid-template-columns: 1fr 1.15fr; }
+.pa-c6 .tc-label { margin-top: 0; }
+.pa-c6 p { margin: 0; font-size: 14px; line-height: 1.5; }
+
+
+@media (max-width: 720px) {
+  .pa-part-head { font-size: 24px; }
+  .pa-part + .pa-part { margin-top: 44px; }
+  .pa-c6 .tc-grid { grid-template-columns: 1fr; }
+  .pa-btn { width: 100%; justify-content: center; }
+}
+
+@media print {
+  .pa-nav, .pa-btn { display: none; }
+  .pa-sec-head { break-after: avoid; }
+}
+</style>
+</head>
+<body class="tc-page">
+<div class="tc-scope">
+<header class="pa-hero">
+  <h1>Materiale de sală</h1>
+  <p class="pa-meta">People Architects &middot; 25 septembrie 2026 &middot; Nagarro</p>
+  <p class="pa-lede">Tot ce folosim azi, pe telefon: cele 12 trenduri HR &amp; AI pentru atelierul de la 16:00 și cele 6 cartonașe cu ce poate face AI-ul pentru atelierul Corinei.</p>
+</header>
+<nav class="pa-nav" aria-label="Părțile paginii">
+  <a href="#radar">Radar HR &amp; AI <span class="pa-n">12</span></a>
+  <a href="#cartonase">Cartonașe AI <span class="pa-n">6</span></a>
+</nav>
+
+<div class="pa-part" id="radar">
+<h2 class="pa-part-head">Radar HR &amp; AI</h2>
+<p class="pa-meta">12 carduri &middot; 4 arii &middot; atelierul de la 16:00</p>
+<p class="pa-lede">Fiecare card se deschide la un tap. Masa ta are trei carduri, iar aria e marcată pe fiecare. Eticheta spune unde există deja consens (Trend) și unde avem doar o bănuială (Weak Signal).</p>
+<a class="pa-btn" href="/downloads/radar-hr-ai-people-architects.pdf" download onclick="gtag('event','file_download',{event_category:'download',event_label:'radar-hr-ai-pa'})">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+  Descarcă cele 12 carduri <small>PDF, 14 pagini</small>
+</a>
+<nav class="pa-nav" aria-label="Ariile radarului">
+  <a href="#tehnologie">Tehnologie <span class="pa-n">3</span></a>
+  <a href="#recrutare">Recrutare <span class="pa-n">3</span></a>
+  <a href="#roluri">Roluri <span class="pa-n">3</span></a>
+  <a href="#reguli">Reguli <span class="pa-n">3</span></a>
+</nav>
+
+<section class="pa-sec" id="tehnologie">
+  <div class="pa-sec-head"><h2>Tehnologie &amp; sisteme</h2><span class="pa-count">3 carduri</span></div>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Trend</span><span class="tc-area">Arie: Tehnologie &amp; sisteme</span>
+    <h3 class="tc-title">Agenții apar în sistemul de HR pe care îl aveți deja</h3>
+    <p class="tc-summary">Capabilitatea agentică nu se mai vinde separat: vine împachetată în suita de HR pe care organizația o are deja licențiată, deci apare fără proiect de achiziție și fără comitet care s-o aprobe. Oracle a pus 8 aplicații agentice în Fusion Cloud HCM în aprilie 2026, fără cost suplimentar, iar SAP 13 asistenți pentru cei peste 10.000 de clienți SuccessFactors — dar agenții de HR rămân categoria de agenți cel mai rar folosită, 38%.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>Modelele planifică pași și apelează unelte, nu doar răspund</li><li>Furnizorul are deja datele, fluxurile și permisiunile</li><li>Integrarea, pasul cel mai scump, dispare</li><li>Competiția s-a mutat pe cine execută, nu cine sugerează</li><li>Agentul inclus în abonament devine strategie de retenție</li><li>Echipele de HR sunt mai mici și mai încărcate</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Execuția în locul asistenței</li><li>Guvernanță la livrare în locul reparației ulterioare</li><li>Explicabilitatea în locul vitezei brute</li><li>Activare la reînnoire în locul proiectului cu buget</li><li>Un proprietar numit în locul răspunderii difuze</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">În consolidare</p><p class="tc-phase-note">Arhitectura s-a impus la toți furnizorii mari într-o fereastră de 12 luni, dar adopția e în urma anunțurilor: într-un sondaj pe 621 de organizații (mai 2026), agenții de HR și recrutare erau categoria cel mai rar citată, 38%, sub automatizarea de fluxuri, 54%.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Oracle, 9 apr. 2026: 8 aplicații agentice în Fusion Cloud HCM, fără cost suplimentar. [anunț de furnizor]</li><li>SAP, iun. 2026: 13 asistenți Joule în disponibilitate generală, pentru peste 10.000 de clienți SuccessFactors. [anunț de furnizor]</li><li>Contentstack, mai 2026, 621 de organizații: agenții de HR și recrutare, cel mai rar citați dintre șase categorii — 38%.</li><li>Contentstack, mai 2026: 42% spun că lipsa unui proprietar intern clar le-a întârziat inițiativele agentice.</li><li>Gartner: peste 40% din proiectele de AI agentic vor fi anulate până la finalul lui 2027.</li><li>MIT NANDA, 2025: 95% dintre pilotările enterprise de AI generativ, fără impact financiar măsurabil.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>Oracle, Workday și SAP, aceeași mișcare în 12 luni</li><li>Microsoft și Google Cloud, agenții scoși din sistemul de origine</li><li>Josh Bersin Company, cercetarea care măsoară maturitatea reală</li><li>Gartner, frâna instituțională a entuziasmului</li><li>Comisia Europeană, prin clasificarea HR ca risc ridicat</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">HR-ul mic și suprasolicitat capătă execuție fără proiect IT separat: cererile administrative se rezolvă singure, iar oamenii se mută spre consiliere și judecată.</li><li class="down">Agenții incluși în licență se activează fără guvernanță tocmai pentru că „vin gratis” — iar decizii despre cine avansează ajung automatizate fără ca cineva să fi evaluat riscul. Exact tiparul din Mobley v. Workday, proces pe un algoritm de screening deschis din 2023 și încă în curs în iunie 2026.</li><li class="flat">Tensiune: împachetarea scoate proiectul de achiziție, dar odată cu el scoate și momentul în care cineva ar fi întrebat dacă unealta e potrivită pentru decizii de angajare.</li><li class="flat">Tensiune: decalajul dintre banii investiți și rezultatele dovedite e deja documentat — capacitatea plătită poate rămâne nefolosită, ca la valul de RPA de acum un deceniu.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> În UE, AI Act clasifică recrutarea, evaluarea performanței, promovarea și concedierea drept risc ridicat (Anexa III, pct. 4). Obligațiile depline — supraveghere umană efectivă, informarea angajaților, drept la explicație — au fost însă amânate la 2 dec. 2027 prin Regulamentul (UE) 2026/1744, în vigoare din 27 iul. 2026. Ce se aplică deja și în România: interdicțiile din art. 5, inclusiv deducerea emoțiilor angajaților, și alfabetizarea AI, din feb. 2025; transparența din art. 50, din aug. 2026; și GDPR art. 22, de opt ani. ANCOM e autoritatea desemnată, dar la 4 aug. 2026 legea națională de sancționare încă lipsea.</div><div class="tc-item"><b>De ce contează:</b> Întrebarea nu mai e „cumpărăm AI?”, ci „cine e product managerul agenților care au apărut deja în sistemul nostru?”</div><div class="tc-item"><b>Surse:</b> 20 de surse, în documentul de research; anunțurile de furnizor marcate ca atare pe card</div></div>
+  </div>
+</details>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Trend</span><span class="tc-area">Arie: Tehnologie &amp; sisteme</span>
+    <h3 class="tc-title">Organigrama se rescrie pe competențe, iar inventarul îl face AI-ul</h3>
+    <p class="tc-summary">Organizația nu se mai descrie ca listă de posturi, ci ca hartă de competențe — iar harta nu se mai completează din chestionare anuale, ci se deduce automat din munca digitală. 77% dintre profesioniștii de HR chestionați de McKinsey au deja o taxonomie de competențe, dar doar 41% au adaptat-o la propriul business.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>Fișa postului îmbătrânește mai repede decât se rescrie</li><li>Inferența din muncă e mai ieftină decât chestionarul</li><li>Munca traversează granițele funcțiilor, organigrama nu</li><li>Furnizorii mari tratează competențele ca infrastructură</li><li>Deficitul de talent forțează lărgirea bazinului de candidați</li><li>Angajații cer decizii pe competențe, nu pe diplomă</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Competențe demonstrate în locul diplomei și vechimii</li><li>Semnal continuu din muncă în locul auto-raportării anuale</li><li>Sarcina ca unitate de planificare în locul postului fix</li><li>Mobilitate internă în locul ierarhiei liniare de carieră</li><li>Profil verificat de om în locul scorului inferat</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">În consolidare</p><p class="tc-phase-note">Intenția și taxonomia sunt aproape norma — 77% dintre cei 1.925 de profesioniști de HR chestionați în 7 țări (dec. 2024) au una —, dar doar 41% au adaptat-o la business, iar inventarul automat a ajuns la scară abia în 2025-2026.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>T-Mobile, 2025-2026: competențe și sarcini cartografiate pentru 100% din posturi, în sub 6 luni. [studiu de caz de furnizor]</li><li>Ericsson, 2025-2026: „semnătură de competențe” vie pentru o bază de 100.000 de angajați. [studiu de caz de furnizor]</li><li>McKinsey, dec. 2024, 1.925 de profesioniști HR: 77% au taxonomie de competențe, doar 41% adaptată.</li><li>Deloitte, oct. 2025: 93% spun că ieșirea din construcția pe posturi fixe e importantă pentru succes.</li><li>TechCrunch, iun. 2024: Workday, SAP și ServiceNow investesc simultan în același startup de skills intelligence, rundă de 43 mil. USD.</li><li>LinkedIn, mart. 2025: abordarea pe competențe lărgește median bazinul de candidați eligibili de 6,1 ori.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>TechWolf, inferența competențelor din activitatea digitală</li><li>Workday, SAP și ServiceNow, prima investiție comună</li><li>Standard Chartered, pașapoartele digitale de competențe</li><li>IBM, competențele mutate în sistemul de recompensare</li><li>World Economic Forum, măsurătoarea instabilității competențelor</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">Harta devine destul de fiabilă cât să redistribui oameni intern în loc să angajezi extern, iar cei fără diplomă sau titlu clasic intră în bazin.</li><li class="down">Scoruri deduse automat și nevalidate de un om ajung să alimenteze decizii de realocare sau salariu pe care angajatul nu le poate verifica și nici contesta.</li><li class="flat">Tensiune: taxonomia proprie e precisă, dar scumpă de întreținut; cea standard e ieftină și prea generică pentru deciziile fine, exact cele care schimbă cariere.</li><li class="flat">Tensiune: limbajul de „realocare pe competențe” poate acoperi reduceri de personal decise dinainte, fiindcă descrie același gest în termeni de dezvoltare.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> Datele sunt vest-europene și americane, iar decalajul e mare chiar în interiorul Europei: 90% dintre organizațiile din Marea Britanie au o taxonomie de competențe, față de 69% în Germania și 61% în Franța; pentru Europa de Est nu există date agregate. În România, 50% dintre companii investesc în soluții AI pentru HR (studiu SD Worx, 2026), dar niciun caz public de inventar automat de competențe. Obligația de alfabetizare AI din AI Act (art. 4, din 2 feb. 2025) se aplică deja oricărui sistem care deduce sau scorează competențele angajaților.</div><div class="tc-item"><b>De ce contează:</b> Dacă organigrama voastră se rescrie pe competențe, întrebarea nu e ce unealtă cumpărați, ci cine verifică ce a dedus sistemul despre fiecare om.</div><div class="tc-item"><b>Surse:</b> 15 surse, în documentul de research; două exemple sunt studii de caz publicate de furnizor, marcate ca atare</div></div>
+  </div>
+</details>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--weak">Weak Signal</span><span class="tc-area">Arie: Tehnologie &amp; sisteme</span>
+    <h3 class="tc-title">HR-ul își construiește singur agenți, fără să treacă prin IT</h3>
+    <p class="tc-summary">Uneltele no-code au coborât pragul până acolo unde un specialist de HR fără cod asamblează singur un bot de tichete sau un asistent de evaluare — fără caiet de sarcini și fără coadă la IT. Gartner estimează peste 150.000 de agenți per companie Fortune 500 până în 2028, față de sub 15 în 2025, iar doar 13% dintre organizații cred că au guvernanța potrivită.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>Uneltele no-code se descriu în limbaj natural</li><li>Coada la IT e blocajul, nu ambiția</li><li>Platformele comerciale costă cât un proiect</li><li>Reflexul de acasă intră în munca de birou</li><li>Furnizorii livrează șabloane de agent gata făcute</li><li>Formarea dedicată a coborât pragul de intrare</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Prototip testat în locul caietului de sarcini</li><li>Proprietate pe unealtă în locul dependenței de furnizor</li><li>Viteza individuală în locul politicii scrise</li><li>Inventarul acoperă agenții construiți, nu doar cumpărați</li><li>Fluența AI ca abilitate de bază în HR</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">Emergent</p><p class="tc-phase-note">Există hackathoane interne, postări ale unor lideri de HR și cursuri noi — nu procese instituționalizate și niciun standard de facto. Baza e minusculă: sub 15 agenți per companie în 2025, iar în Europa doar 19% din procesele de HR sunt îmbunătățite efectiv cu genAI.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>NerdWallet, ian.-mart. 2026: 2 unelte puse în producție de echipa de HR — botul de tichete Nova și asistentul de evaluări Neddy — fără ingineri. [postări publice ale echipei]</li><li>Zapier, 2026: propriul departament de HR și-a construit peste 30 de automatizări și agenți interni.</li><li>AIHR, 2026: peste 85.000 de profesioniști HR au urmat cursul de construit agenți, fără cerință de cod.</li><li>Nokod, 2026: utilizatorii de business depășesc numeric dezvoltatorii 4 la 1, iar 80% dintre echipele de securitate n-au vizibilitate completă.</li><li>Gartner, 28 apr. 2026: peste 150.000 de agenți per companie Fortune 500 până în 2028, față de sub 15 în 2025.</li><li>McKinsey, dec. 2024, 1.925 de profesioniști HR: doar 19% din procesele de HR europene sunt îmbunătățite cu genAI, 32% sunt în pilot.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>NerdWallet, hackweek-ul intern al echipei de HR</li><li>Echipa de HR a Zapier, kitul făcut public</li><li>AIHR, competența transformată în curs</li><li>Microsoft, șabloane de agent pentru non-dezvoltatori</li><li>Gartner, care numește și măsoară fenomenul</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">HR testează o idee în zile, nu în luni de achiziție, și ajunge la furnizor cu cerințe reale, nu cu presupuneri culese dintr-un demo.</li><li class="down">Un agent asamblat ad-hoc ajunge să proceseze salarii, evaluări și cazuri disciplinare fără control de acces și fără jurnal — invizibil pentru echipa de securitate.</li><li class="flat">Tensiune: dacă agentul construit de HR influențează o promovare sau o concediere, angajatorul rămâne răspunzător ca deployer sub AI Act, indiferent cine l-a asamblat.</li><li class="flat">Tensiune: fără documentare, fiecare agent devine un silo legat de omul care l-a construit; când acela pleacă, agentul rămâne nesusținut și, de regulă, uitat.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> Pentru varianta exactă a trendului — HR care construiește fără IT — nu am găsit niciun caz documentat în România sau în UE; semnalul local merge invers, spre agenți de HR livrați de furnizor (Papervee, Outcome1.AI, ambii în 2026). Adopția e și ea în urmă: 19% din procesele de HR europene sunt îmbunătățite cu genAI, față de 35% în SUA. Ce se aplică deja integral: sub AI Act, un agent folosit în recrutare sau în managementul angajaților e sistem cu risc ridicat, cumpărat sau asamblat intern, la fel.</div><div class="tc-item"><b>De ce contează:</b> Dacă cineva din echipa voastră și-a construit deja un agent, întrebarea nu e dacă îi dați voie, ci dacă știți că există.</div><div class="tc-item"><b>Surse:</b> 19 surse, în documentul de research; exemplele NerdWallet vin din postări publice ale echipei, marcate ca atare</div></div>
+  </div>
+</details>
+</section>
+
+<section class="pa-sec" id="recrutare">
+  <div class="pa-sec-head"><h2>Recrutare</h2><span class="pa-count">3 carduri</span></div>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Trend</span><span class="tc-area">Arie: Recrutare</span>
+    <h3 class="tc-title">Prima conversație cu candidatul o conduce un agent, nu un om</h3>
+    <p class="tc-summary">Interviul de screening nu mai e un formular sau un video unidirecțional, ci un dialog purtat de un model de limbaj care pune și întrebări de follow-up — iar recrutorul intră în proces abia după. 63% dintre candidații americani spun că au trecut deja printr-unul, dar 70% dintre ei n-au fost anunțați dinainte.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>Candidații aplică cu AI, volumul depășește orice echipă</li><li>Modelele poartă dialog, nu mai completează formulare</li><li>Piața cere ocuparea rolurilor mai repede</li><li>Agentul răspunde și în afara programului de lucru</li><li>Costul per screening scade sub cel uman</li><li>Reglementarea împinge folosirea la vedere, nu ascunsă</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Aceleași întrebări pentru toți în locul triajului inegal</li><li>Acces non-stop în locul programului de recrutor</li><li>Informare obligatorie în locul scorului nedeclarat</li><li>Supraveghere umană la decizie în locul automatizării totale</li><li>Fluența cu AI ca prag, alături de experiență</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">În consolidare</p><p class="tc-phase-note">În șase luni, interviul condus de AI a trecut de la fază de testare la 63% dintre candidații americani (sondaj pe 2.950 de candidați din 5 țări, apr. 2026). Ce a rămas mult în urmă e transparența: 70% n-au fost anunțați clar înainte de interviu.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Greenhouse, apr. 2026, 2.950 de candidați din 5 țări: 63% dintre americani au trecut deja printr-un interviu cu AI.</li><li>Greenhouse, apr. 2026: 38% dintre candidații americani s-au retras dintr-un proces fiindcă includea un interviu cu AI.</li><li>Coinbase, din aug. 2025: interviul „Milo” pentru rolurile sub nivel de director, la circa 1,5 mil. de candidaturi pe an.</li><li>McDonald&#x27;s, platforma McHire cu asistentul Olivia: timpul de angajare redus cu peste 60%, la circa 7,5 zile.</li><li>Zapier, 2026: evaluează de până la 5 ori mai mulți candidați; 1 din 3 ajunși la interviu n-ar fi trecut de screeningul pe CV.</li><li>Sapia.ai, 2026: peste 10 milioane de interviuri conversaționale realizate cumulat, pentru clienți ca Qantas și Starbucks.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>Paradox, asistentul Olivia la angajatori de volum</li><li>Sapia.ai, interviul structurat mutat în chat</li><li>HireVue, pionierul screeningului video automat</li><li>LinkedIn, Hiring Assistant ca amplificator global</li><li>Uniunea Europeană, recrutarea clasificată risc ridicat</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">Companiile cu sute de mii de candidaturi pot da o formă de evaluare reală tuturor, nu doar celor cu CV-uri optimizate pentru filtre.</li><li class="down">Candidați buni, dar care nu comunică bine cu un bot, ies din proces înainte ca vreun om să le vadă profilul, fără o cale reală de recurs.</li><li class="flat">Tensiune: candidații nu resping AI-ul, ci opacitatea — 38% s-au retras dintr-un proces, iar motivul cel mai des invocat e evaluarea fără niciun om de față.</li><li class="flat">Tensiune: candidații raportează aceleași rate de discriminare percepută la AI și la oameni. Automatizarea nu repară o grilă de evaluare proastă, doar o rulează mai repede.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> Sub AI Act, un sistem folosit pentru selecția candidaților e cu risc ridicat, iar obligațiile se aplică deja în România: informarea candidatului, supraveghere umană efectivă și păstrarea logurilor cel puțin șase luni. Furnizori globali care recrutează și aici au lansat deja interviul condus de AI (Experis / ManpowerGroup, „Sophie”, primăvara 2026), dar nu există niciun caz public de companie românească ce a înlocuit prima conversație cu un agent; presa locală descrie deocamdată triaj automat de CV-uri, nu interviuri.</div><div class="tc-item"><b>De ce contează:</b> Dacă prima conversație cu candidatul o poartă un agent, întrebarea pentru HR nu e ce unealtă cumpărați, ci cine scrie întrebările și cine citește ce a răspuns omul.</div><div class="tc-item"><b>Surse:</b> 19 surse, în documentul de research; cifrele de candidați vin dintr-un sondaj pe 2.950 de oameni, redeschis la sursă</div></div>
+  </div>
+</details>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Trend</span><span class="tc-area">Arie: Recrutare</span>
+    <h3 class="tc-title">Verificarea identității revine în recrutare: candidatul de pe ecran poate fi generat</h3>
+    <p class="tc-summary">Interviul video de la distanță nu mai dovedește că omul din fața camerei e cine spune: un deepfake în timp real se construiește în circa o oră, cu hardware ieftin și fără experiență tehnică. Gartner estimează că până în 2028 unul din patru profiluri de candidat va fi cel puțin parțial fals, iar 41% dintre liderii de securitate spun că au angajat deja unul.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>Deepfake-ul în timp real a devenit ieftin și simplu</li><li>Angajarea integral remote a scos verificarea fizică</li><li>Volumul de candidaturi lasă verificarea pe ultimul loc</li><li>Frauda de angajare s-a profesionalizat ca sursă de venit</li><li>Rolurile IT vizate dau acces la sisteme sensibile</li><li>AI Act obligă la semnalarea conținutului generat</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Prezență verificabilă în locul încrederii pe cuvânt</li><li>Verificare continuă în locul controlului unic la angajare</li><li>Urme reale de activitate în locul CV-ului declarativ</li><li>Răspundere comună HR și securitate în locul separării</li><li>Semnalare obligatorie în locul auto-reglementării</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">În consolidare</p><p class="tc-phase-note">Cisco, Google și McKinsey au schimbat public procesul de angajare în 2025, dar furnizorii dedicați au lansat produse de verificare a candidatului abia în mart. 2026 — piața tocmai se formează. Decalajul e de conștientizare: 41% au angajat deja un candidat fraudulos, doar 35% îl trec la riscuri prioritare.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Gartner, 31 iul. 2025, sondaj pe 3.000 de candidați: 6% recunosc că au participat la o fraudă de interviu.</li><li>GetReal Security, dec. 2025: 41% dintre liderii de securitate au angajat și integrat deja un candidat fraudulos.</li><li>Pindrop, 2025: din 827 de candidaturi pentru un post de dezvoltator, circa 100 — 12,5% — foloseau identități false.</li><li>CrowdStrike, iul. 2024 - iun. 2025: peste 320 de cazuri de angajare frauduloasă, cu 220% mai multe decât în perioada anterioară.</li><li>Coda Search/Staffing, 2025: cererile clienților pentru interviuri față în față au crescut de la 5% în 2024 la 30%.</li><li>Google și McKinsey, 2025: cel puțin o rundă de interviu în persoană înainte de ofertă, motivată de riscul de fraudă.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>Pindrop, care și-a testat propriul proces de recrutare</li><li>CrowdStrike, care a documentat și numit operațiunea</li><li>LinkedIn, verificarea profilurilor dusă la scară</li><li>Persona și iProov, verificarea candidatului în ATS</li><li>Unsprezece guverne, primul avertisment comun</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">Verificarea mutată la etapa de candidatură rulează în câteva secunde, direct în sistemul de recrutare, deci apără accesul la sisteme fără să încetinească procesul.</li><li class="down">Companiile mijlocii, fără buget de verificare biometrică, devin ținta preferată: frauda nu dispare, se mută spre cine e mai puțin pregătit.</li><li class="flat">Tensiune: verificarea strictă elimină și candidați legitimi fără acte digitale ușor de validat sau fără conexiune stabilă — exact talentul din piețele emergente.</li><li class="flat">Tensiune: colectarea de date biometrice ale candidaților se normalizează fără politici de retenție, ceea ce mută problema din securitate în conformitate cu GDPR.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> Articolul 50 din AI Act, în vigoare din 2 aug. 2026, obligă la semnalarea conținutului deepfake în toată Uniunea, inclusiv în fluxurile de verificare a identității. Pentru România nu există niciun sondaj dedicat: semnalele sunt un caz viral relatat de o recrutoare dintr-o companie de tehnologie și un avertisment FBI preluat de presa locală. România apare, într-un articol bazat pe date CrowdStrike, printre țările folosite ca „fermă de laptopuri” în schema nord-coreeană — adică drept infrastructură a fraudei, nu drept piață măsurată.</div><div class="tc-item"><b>De ce contează:</b> Interviul video a fost, cinci ani, dovada suficientă că omul e cine spune. Nu mai e — iar cine repară procesul nu e IT-ul, e recrutarea.</div><div class="tc-item"><b>Surse:</b> 21 de surse, în documentul de research; cifrele de pe card redeschise la sursa primară</div></div>
+  </div>
+</details>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--weak">Weak Signal</span><span class="tc-area">Arie: Recrutare</span>
+    <h3 class="tc-title">Sourcing-ul trece de la CV la dovezi din munca reală</h3>
+    <p class="tc-summary">CV-ul s-a devalorizat exact pe măsură ce a devenit ușor de generat, așa că angajatorii cer în locul lui dovezi pe care un prompt nu le poate produce: probe de lucru, simulări, portofolii publice. 85% dintre angajatorii din SUA și Marea Britanie spun că fac deja o formă de recrutare pe competențe, dar 72% deduc în continuare competențele tot din CV.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>CV-ul generat cu AI nu mai e dovadă</li><li>Testul practic prezice mai bine decât povestea din CV</li><li>Deficitul de talent forțează lărgirea bazinului</li><li>Recrutorii caută deja după competențe, nu după diplomă</li><li>AI Act cere criterii justificabile, nu impresii</li><li>Instituțiile internaționale au dat vocabularul comun</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Dovadă verificabilă în locul declarației din CV</li><li>Competență demonstrată în locul credențialului formal</li><li>Identitate verificată în locul încrederii implicite</li><li>Predicția performanței în locul pedigree-ului</li><li>Acces pentru autodidacți în locul filtrului academic</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">Emergent</p><p class="tc-phase-note">Adopția declarată e mare, practica e alta: 72% dintre companii deduc în continuare competențele din CV, doar 26% dintre lideri au încredere în propria abordare, iar 50% spun direct că nu reușesc să valideze competențele (418 lideri de HR, companii peste 2.500 de angajați, mai 2025).</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>TestGorilla, apr. 2025, 1.084 de decidenți din SUA și UK: 85% fac recrutare pe competențe, față de 81% cu un an înainte.</li><li>TestGorilla, apr. 2025: 53% dintre angajatori au renunțat la cerința de diplomă, față de 30% cu un an înainte.</li><li>Aptitude Research, mai 2025, 418 lideri de HR: 72% deduc competențele din CV, doar 26% au încredere în abordarea proprie.</li><li>IBM, 2021: cerința de diplomă eliminată la peste 50% din posturile din SUA; până în 2023, aproape 20% din angajări fără diplomă.</li><li>Unilever, 2016-2017: CV-ul scos de la prima etapă la entry-level; timpul până la ofertă a scăzut de la 4 luni la 4 săptămâni.</li><li>LinkedIn, 2025, țări OECD: 14% din căutările recrutorilor filtrează după competențe, față de sub 2% după diplomă.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>Ginni Rometty (IBM), conceptul de „new collar jobs”</li><li>Pymetrics, jocurile care au înlocuit CV-ul la Unilever</li><li>Aptitude Research, măsurătoarea decalajului discurs-practică</li><li>OECD și Comisia Europeană, cadrul „skills-first”</li><li>Peste 20 de guvernatori americani, în sectorul public</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">Autodidacții și oamenii cu parcurs netradițional devin vizibili printr-o probă de lucru reală, fără ca angajatorul să piardă predictibilitatea angajării.</li><li class="down">Infrastructura de validare rămâne în urma discursului, iar probele se adaugă peste procesul vechi: un strat birocratic în plus, care elimină candidați buni fără timp de testare.</li><li class="flat">Tensiune: proba de lucru mută costul recrutării pe candidat, înainte de orice ofertă fermă — exact pe segmentul care are cel mai puțin timp disponibil.</li><li class="flat">Tensiune: apărarea împotriva fraudei (interviu live obligatoriu, zi de probă la birou) reintroduce bariere geografice, contrazicând chiar promisiunea de acces lărgit.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> La nivel european, „skills-first” a devenit politică oficială: OECD și Comisia Europeană au lansat împreună raportul „A Skills-First Labour Market” în iun. 2026, în cadrul European Skills and VET Week. În România, peste 40% dintre managerii de HR chestionați într-un sondaj din 2025 spun că preferă candidați cu experiență demonstrabilă chiar fără studii superioare. Pentru varianta strictă a trendului — sourcing pornit din probe de lucru, nu teste adăugate peste CV — nu există date publice românești.</div><div class="tc-item"><b>De ce contează:</b> Întrebarea nu e dacă treceți pe competențe, ci ce dovadă acceptați ca fiind competență — pentru că deocamdată, în majoritatea companiilor, dovada e tot CV-ul.</div><div class="tc-item"><b>Surse:</b> 14 surse, în documentul de research; cifrele de adopție redeschise la sursa primară, cu N declarat</div></div>
+  </div>
+</details>
+</section>
+
+<section class="pa-sec" id="roluri">
+  <div class="pa-sec-head"><h2>Roluri &amp; competențe</h2><span class="pa-count">3 carduri</span></div>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Trend</span><span class="tc-area">Arie: Roluri &amp; competențe</span>
+    <h3 class="tc-title">AI-ul intră în anunțuri ca cerință de bază, cu primă de salariu</h3>
+    <p class="tc-summary">Competențele de AI au ieșit din fișele de post tehnice și se cer acum în HR, vânzări și marketing — iar diferența se vede în bani, nu doar în limbaj. Joburile care cer explicit competențe AI cresc de aproape opt ori mai repede decât piața totală, cu o primă salarială medie de 62%, într-o analiză pe peste un miliard de anunțuri.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>Bariera tehnică a căzut; AI-ul se operează prin conversație</li><li>Decalajul de productivitate dintre firme se adâncește</li><li>Cererea crește mai repede decât oferta de oameni</li><li>Competențele se schimbă prea repede pentru formare internă</li><li>Mandatele de la vârf coboară în criteriile de angajare</li><li>AI-ul din anunț e și semnal de imagine</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Fluența cu unealta în locul diplomei ca prim filtru</li><li>Dovada că AI-ul n-o poate face în locul angajării</li><li>Judecată și inițiativă cerute încă de la intrare</li><li>AI literacy ca literă de bază în rolurile „umane”</li><li>Valoare măsurată pe sector în locul unei grile unice</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">În consolidare</p><p class="tc-phase-note">Trei ediții consecutive ale aceluiași barometru arată aceeași direcție: prima salarială a urcat 25% → 56% → 62% în trei ani. Volumul rămâne însă mic — doar 1,7% dintre anunțurile din UE cer competențe AI aprofundate, iar în România 5% dintre firme foloseau AI în 2025, față de 20% media UE.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>PwC, 15 iun. 2026, peste 1 miliard de anunțuri de pe șase continente: primă salarială medie de 62% pentru competențele AI.</li><li>PwC, iun. 2026: joburile care cer competențe AI cresc cu 69%, față de 9% piața totală — de aproape opt ori mai repede.</li><li>ResumeBuilder, ian. 2025, 1.000 de manageri de angajare din SUA: 47% pun abilitățile AI pe primul loc între competențele hard.</li><li>LinkedIn, 2025: joburile care cer o competență de „AI literacy” s-au înmulțit de peste 6 ori într-un an.</li><li>eJobs, oct. 2025, România: circa 5.000 de anunțuri active cer competențe AI, inclusiv în vânzări, financiar și HR.</li><li>IW Köln, 2026: anunțurile din UE cu competențe AI aprofundate au crescut de la 0,7% în 2022 la 1,7% în 2025.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>PwC, barometrul care a dat metodologia de măsurare</li><li>Shopify, prima politică internă făcută publică</li><li>LinkedIn, taxonomia de „AI literacy” din anunțuri</li><li>eJobs și bestjobs, măsurătoarea pieței românești</li><li>World Economic Forum, agenda globală de competențe</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">Profesioniștii netehnici care își construiesc fluența captează prima fără să-și schimbe cariera: premiul se aplică rolului care cere AI, nu departamentului de IT.</li><li class="down">Cerința ajunge în anunț mai repede decât investiția în formare — în România, jumătate dintre angajatori spun că nici candidații, nici angajații lor nu cunosc uneltele pe care le cer.</li><li class="flat">Tensiune: același barometru pune recrutorul printre rolurile pe care AI-ul le „profesionalizează” — cresc și posturile, și salariile — dar cere de șapte ori mai des abilități de senior încă de la entry-level.</li><li class="flat">Tensiune: aproape un sfert dintre anunțurile care menționează AI nu spun la ce va fi folosit, așa că cerința devine semnal de imagine și diluează informația pentru candidat.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> Cifra de 62% e globală și nu există un echivalent măsurat pentru România — comentariile locale pe marginea barometrului se referă tot la cifrele globale. În UE, cererea e reală, dar inegală: de la 4,1% din anunțuri în Luxemburg la 0,8% în Letonia. România e ultima din Uniune la adopție: 5% dintre firmele cu peste 10 angajați foloseau cel puțin o tehnologie AI majoră în 2025, față de 20% media UE. Cererea apare totuși deja în anunțurile locale, în HR și vânzări, înaintea adopției din companii.</div><div class="tc-item"><b>De ce contează:</b> Dacă scrieți „AI literacy” în anunț, întrebarea următoare e ce dovadă cereți la interviu și ce formare oferiți după. Altfel cerința rămâne un cuvânt.</div><div class="tc-item"><b>Surse:</b> 10 surse, în documentul de research; barometrul global redeschis la sursa primară</div></div>
+  </div>
+</details>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--weak">Weak Signal</span><span class="tc-area">Arie: Roluri &amp; competențe</span>
+    <h3 class="tc-title">Joburile care nu există încă au ajuns în anunțuri, cu salariu</h3>
+    <p class="tc-summary">Marii angajatori nu mai lasă redesignul muncii cu AI pe seama entuziasmului individual: îl scriu în fișa postului, cu autoritate și grilă salarială. Medtronic a publicat în iulie 2026 un rol de redesign al muncii la nivel de sarcină, la 145.600-218.400 USD/an.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>Agenții duc fluxuri întregi; cineva trebuie să le împartă</li><li>CHRO are agenda, dar nu are capacitatea</li><li>Piloturile fără redesign de rol nu scalează</li><li>Responsabilitatea pe care o au toți nu e a nimănui</li><li>Consiliile cer randament măsurabil, nu experimente</li><li>Grilele salariale publice fac tiparul copiabil</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Mandat formal în locul inițiativei individuale</li><li>Coordonarea fluxului în locul execuției pe bucăți</li><li>Drepturi de decizie scrise în locul cutumei</li><li>Capacitate dedicată în locul „HR le face pe toate”</li><li>Explicabilitatea deciziei în locul discreției angajatorului</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">Emergent</p><p class="tc-phase-note">Rolul îngust e încă la o mână de companii, descris în mai 2026 ca abordare emergentă — în timp ce valul din jur e deja măsurat: 822 de titluri de job cu AI în SUA, față de 264 în 2022.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Medtronic, 27 iul. 2026: redesign al muncii la nivel de sarcină, 145.600-218.400 USD/an, Minneapolis, on-site.</li><li>Agilent, iun. 2026: „Lead, AI Workforce Strategy”, 210.528-328.950 USD/an, partener al Chief AI Officer.</li><li>Indeed, 8 iul. 2026: titlurile de job cu AI în SUA, de la 264 (2022) la 822 — 1 din 12 anunțuri.</li><li>Indeed, 8 iul. 2026: 63% dintre titlurile cu AI din SUA sunt în afara ocupațiilor tehnice.</li><li>Heidrick &amp; Struggles, 14 mai 2026: ghid formal pentru rolul de VP AI Workforce Transformation.</li><li>Germania, T1 2026: 288 de titluri atinse de AI, prima din Europa — față de 822 în SUA.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>Heidrick &amp; Struggles, ghidul de creare a rolului</li><li>Medtronic, prima fișă cu metodologia scrisă în ea</li><li>Agilent, varianta care raportează lângă Chief AI Officer</li><li>Indeed Hiring Lab, măsurătoarea independentă</li><li>World Economic Forum, vocabularul de „arhitect al muncii”</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">Se scrie explicit cine decide, omul sau sistemul; profesioniștilor de HR și organization design li se deschide o cale de carieră plătită la nivel executiv.</li><li class="down">Sub eticheta „work redesign”, rolul poate ajunge să execute reduceri decise dinainte, nu design. Semnal timpuriu: presă sindicală, nu date de piață.</li><li class="flat">Tensiune: cine ține rolul — HR, strategie sau tehnologie — decide dacă redesignul pornește de la oameni sau de la ce poate tehnologia. Cele două exemple raportează în locuri diferite.</li><li class="flat">Tensiune: fără drepturi de decizie scrise, răspunderea pentru o decizie greșită nu e nici a angajatului, nici a sistemului, nici a arhitectului rolului.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> Toate cifrele sunt americane. În România, un sondaj eJobs (apr. 2026, 196 de companii) găsea doar 5,2% dintre companii cu AI integrat strategic și 47,4% cu folosire sporadică, la inițiativa angajaților. Titlul și grila publică sunt încă de import; munca se face deja, fără nume.</div><div class="tc-item"><b>De ce contează:</b> Întrebarea pentru sala asta nu e când ajunge rolul la noi, ci cine îl face deja fără să aibă titlul.</div><div class="tc-item"><b>Surse:</b> 12 surse, în documentul de research; cifrele de pe card redeschise la sursa primară</div></div>
+  </div>
+</details>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--weak">Weak Signal</span><span class="tc-area">Arie: Roluri &amp; competențe</span>
+    <h3 class="tc-title">Folosirea AI-ului intră în fișa de evaluare, ca criteriu de performanță</h3>
+    <p class="tc-summary">Câțiva angajatori mari au trecut de la „vă încurajăm să folosiți AI” la a scrie asta în formularul de evaluare și în criteriile de promovare. Dar linia pe care se rupe totul e distincția dintre a folosi AI și a produce mai bine cu AI: Meta recompensează explicit impactul, nu consumul, iar Duolingo și-a retras în 2026 propriul criteriu de utilizare.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>Investiția uriașă în AI cere un semn vizibil de adopție</li><li>Logurile de utilizare fac măsurarea ieftină</li><li>Declarația de la CEO coboară în criteriile managerului</li><li>Angajatorii mari se imită între ei</li><li>Reducerile de posturi cer mai mult output per om</li><li>Fluența cu AI devine argument de retenție</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Utilizare demonstrată în locul intenției declarate</li><li>Impact măsurat în locul volumului de utilizare</li><li>Fluența AI ca literație de bază, nu specializare</li><li>Formare în locul sancțiunii la rezistență</li><li>Criteriu comunicat în scris în locul practicii informale</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">Emergent</p><p class="tc-phase-note">Practica e la o mână de angajatori mari, iar contra-mișcarea a apărut deja: Duolingo și-a retras criteriul de utilizare în 2026, Amazon și-a închis clasamentul intern după ce angajații l-au manipulat, iar Accenture și-a rugat oamenii să folosească mai puțin AI, din cost. Nu există încă niciun standard de HR.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Shopify, mart. 2025: memo intern al CEO-ului — întrebări despre utilizarea AI adăugate în evaluarea de performanță și în peer review.</li><li>Meta, 13 nov. 2025: „impactul generat prin AI” devine așteptare de bază din 2026, dar metricile de utilizare individuală rămân explicit în afara evaluării.</li><li>JPMorgan Chase, mart. 2026: obiective de adopție AI pentru circa 65.000 de angajați din tehnologie, urmărite pe tablou de bord.</li><li>UBS, sept. 2026: fluența AI legată direct de angajare, promovare și salariu, pentru toți angajații.</li><li>Amazon, mai 2026: clasamentul intern de utilizare, închis după ce angajații l-au umflat cu sarcini artificiale.</li><li>Duolingo, 2026: retragere publică a deciziei din 2025 de a face din folosirea AI o metrică de performanță de sine stătătoare.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>Tobi Lütke (Shopify), primul memo făcut public</li><li>Janelle Gale (Meta), extinderea dincolo de inginerie</li><li>JPMorgan Chase, varianta cu tablou de bord la scară</li><li>Duolingo, primul marșarier public documentat</li><li>SHRM, care întreabă dacă metrica are voie să existe</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">Un criteriu bine calibrat scoate folosirea AI din zona de inițiativă personală și o face vizibilă, deci recompensabilă, pentru oameni care altfel n-ar fi fost observați.</li><li class="down">Criteriul prost calibrat produce muncă falsă: angajați care generează sarcini artificiale ca să bifeze metrica, cu costuri de calcul reale și zero valoare.</li><li class="flat">Tensiune: nimeni nu are încă un răspuns operațional la întrebarea cum separi „a folosit AI” de „a produs rezultate mai bune cu AI” — iar cele două nu coincid automat.</li><li class="flat">Tensiune: dacă evaluarea ajunge să alimenteze automat o decizie de promovare sau de concediere, intră sub GDPR art. 22 și sub regimul de risc ridicat din AI Act.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> Niciun angajator din România sau din UE nu a introdus public un astfel de criteriu — practica e americană, elvețiană și australiană. Precondiția lipsește oricum: 5,2% dintre firmele românești folosesc vreo tehnologie AI, față de 20% media UE. Iar Codul muncii cere ca orice criteriu nou de evaluare să fie comunicat salariatului în prealabil, prin contract sau regulament intern — deci varianta „managerul a zis la ședință” nu produce un criteriu valabil.</div><div class="tc-item"><b>De ce contează:</b> Înainte să puneți AI în fișa de evaluare, întrebarea e ce măsurați: folosirea sau rezultatul. Cele trei companii care au dat înapoi măsurau folosirea.</div><div class="tc-item"><b>Surse:</b> 20 de surse, în documentul de research; eticheta de fază schimbată în sesiune, după verificarea la sursă</div></div>
+  </div>
+</details>
+</section>
+
+<section class="pa-sec" id="reguli">
+  <div class="pa-sec-head"><h2>Reguli &amp; răspundere</h2><span class="pa-count">3 carduri</span></div>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Trend</span><span class="tc-area">Arie: Reguli &amp; răspundere</span>
+    <h3 class="tc-title">Transparența algoritmică la angajare capătă termene și audit obligatoriu</h3>
+    <p class="tc-summary">Angajarea asistată de algoritmi iese din zona gri: legile cer anunț către candidat, documentație și, pe alocuri, audit independent de discriminare. Dar calendarul tocmai s-a mutat — UE a amânat obligațiile pentru AI-ul din recrutare de la 2 aug. 2026 la 2 dec. 2027, iar prima lege din lume care a cerut audit a produs 18 rapoarte publicate din 391 de angajatori verificați.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>Litigiile au scos riscul din cutia neagră</li><li>O hotărâre CJUE a închis portița „omul semnează”</li><li>Recrutarea e cea mai răspândită aplicație AI din HR</li><li>Primul val de legi a arătat ce nu funcționează</li><li>Fragmentarea obligă furnizorii la cel mai strict standard</li><li>Standardele tehnice au întârziat, termenele s-au mutat</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Audit documentat în locul declarației de intenție</li><li>Efect măsurat în locul intenției dovedite</li><li>Anunț înainte de evaluare în locul transparenței ulterioare</li><li>Verificare pe tot ciclul de viață în locul testului unic</li><li>Candidatul ca parte cu drepturi în locul obiectului selecției</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">În consolidare</p><p class="tc-phase-note">Cadrul conceptual s-a fixat — angajarea e „risc ridicat” aproape peste tot unde există lege — dar termenele se mișcă: UE a amânat cu 16 luni, Colorado și-a rescris legea din temelii, Illinois și-a retras propriile reguli de aplicare la două săptămâni după publicare. Aproape toate jurisdicțiile mari țintesc acum 2027.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>UE, 27 iul. 2026: Regulamentul 2026/1744 mută obligațiile pentru AI-ul din recrutare de la 2 aug. 2026 la 2 dec. 2027.</li><li>New York City, din 5 iul. 2023: prima lege din lume cu audit anual de discriminare și anunț cu 10 zile lucrătoare înainte.</li><li>Studiu FAccT, 2024, 391 de angajatori din NYC: 18 au publicat raport de audit (5%), 13 un anunț de transparență (3%).</li><li>Același studiu: din 386 de măsurători publicate, doar 9 arătau un raport de impact sub pragul de 0,8 — restul treceau testul.</li><li>Illinois, din 1 ian. 2026: efectul discriminatoriu al AI în angajare devine sancționabil fără apărarea „n-am avut intenție”.</li><li>Colorado, mai 2026: lege rescrisă, aplicabilă din 1 ian. 2027, cu amenzi de până la 20.000 USD per încălcare.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>Consiliul Local New York City, prima lege din lume</li><li>Comisia Europeană, primul cadru comprehensiv</li><li>Curtea de Justiție a UE, prin hotărârea SCHUFA</li><li>Illinois, regulile puse în legea drepturilor civile</li><li>California Privacy Protection Agency, cel mai detaliat set</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">Angajatorii obligați la audit ajung să valideze efectiv algoritmii de selecție și să publice rezultate verificabile, ceea ce dă candidaților o bază de încredere, nu o promisiune.</li><li class="down">Legea lasă angajatorul să decidă singur dacă intră sub incidența ei, așa că absența unui audit nu dovedește nimic — cercetătorii nu pot calcula nici măcar o rată de neconformare.</li><li class="flat">Tensiune: auditul anual independent e la îndemâna companiilor mari; pentru cele mici, costul conformării consolidează avantajul jucătorilor mari fără să protejeze vreun candidat în plus.</li><li class="flat">Tensiune: amânarea dă 16 luni de pregătire, dar deschide și un interval în care obligațiile există pe hârtie, iar mecanismele de control nu sunt încă funcționale.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> AI Act se aplică direct în România, fără transpunere. Recrutarea, evaluarea, promovarea și concedierea sunt în Anexa III — risc ridicat — dar obligațiile complete au fost amânate la 2 dec. 2027, inclusiv datoria angajatorului de a-și informa oamenii că sunt supuși unui astfel de sistem. Ce se aplică deja: alfabetizarea AI și interdicțiile din art. 5 (din 2 feb. 2025) și transparența din art. 50 (din 2 aug. 2026), care cere ca omul să știe când vorbește cu un sistem AI. ANCOM a fost desemnată autoritate de supraveghere în mart. 2026, dar la 4 aug. 2026 legea națională de sancționare încă lipsea. ANSPDCP are însă, din 2018, autoritate deplină pe deciziile automate, prin GDPR art. 22.</div><div class="tc-item"><b>De ce contează:</b> Amânarea nu e o pauză, e o fereastră. Iar ce se aplică azi la o decizie automată de angajare nu e AI Act-ul, ci GDPR art. 22 — pe care îl aveți deja de opt ani.</div><div class="tc-item"><b>Surse:</b> 22 de surse, în documentul de research; termenele europene redeschise în Jurnalul Oficial</div></div>
+  </div>
+</details>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Trend</span><span class="tc-area">Arie: Reguli &amp; răspundere</span>
+    <h3 class="tc-title">Procesele pe discriminare algoritmică îl cheamă în instanță și pe furnizor</h3>
+    <p class="tc-summary">Pentru prima dată, într-un proces de discriminare la angajare stă nu doar angajatorul, ci și furnizorul de software. În Mobley v. Workday, instanța federală din California a certificat provizoriu un colectiv național al aplicanților de peste 40 de ani, notificarea a produs mii de înscrieri — iar după trei ani de litigiu nu există încă nicio decizie pe fond.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>Ghidurile EEOC au deschis teoria „furnizorul e agent”</li><li>Câteva platforme filtrează majoritatea aplicanților</li><li>Legile locale au dat pârghii juridice concrete</li><li>AI Act a separat obligațiile furnizorului de ale angajatorului</li><li>Prioritatea federală a scăzut, litigiile private au continuat</li><li>Volumul de aplicații face tiparul vizibil statistic</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Explicabilitate individuală în locul acurateței agregate</li><li>Răspundere partajată în locul unui singur vinovat</li><li>Audit public în locul auto-certificării interne</li><li>Informarea candidatului în locul procesării tăcute</li><li>Control uman verificabil în locul aprobării formale</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">În consolidare</p><p class="tc-phase-note">Litigiul-reper înaintează procedural de trei ani — colectiv certificat provizoriu, mii de înscrieri, apel intermediar respins în iul. 2026 — dar nu există nicio decizie pe fond, iar cererea de decertificare e încă pe rol. Partea normativă e cu un pas în urmă: obligațiile europene au fost amânate la dec. 2027.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Mobley v. Workday, 16 mai 2025: colectiv național certificat provizoriu pentru aplicanții de 40+ ani, din 24 sept. 2020 încoace.</li><li>Aceeași cauză, 2 iul. 2026: apelul intermediar al Workday respins, cu mii de aplicanți deja înscriși în colectiv.</li><li>EEOC v. iTutorGroup, aug. 2023: 365.000 USD pentru peste 200 de aplicanți respinși automat pe criteriu de vârstă, fără recunoașterea vinovăției.</li><li>Deyerler v. HireVue, 26 feb. 2024: cererea de închidere a cazului, respinsă în cea mai mare parte; acțiunea colectivă pe date biometrice continuă.</li><li>Tribunalul din Bologna, 31 dec. 2020: algoritmul Deliveroo declarat discriminatoriu, cu 50.000 EUR daune.</li><li>Controlorul statului New York, 2 dec. 2025: din 32 de audituri verificate, 17 cazuri de neconformitate ratate de autoritatea locală.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>EEOC, teoria „furnizorul e agent al angajatorului”</li><li>Derek Mobley și echipa de avocați a reclamanților</li><li>AARP Foundation, intervenția pe criteriul de vârstă</li><li>Sindicatele CGIL, primul caz câștigat în Europa</li><li>Uniunea Europeană, distincția furnizor-utilizator</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">Presiunea litigiilor obligă furnizorii să documenteze ce evaluează algoritmul și cine îl supraveghează, iar angajatorii pot cere prin contract acces la dovezile astea.</li><li class="down">Companiile mari absorb costul conformării, dar firma mică ce cumpără același soft la pachet rămâne expusă ca simplu utilizator, fără resurse să-și verifice furnizorul.</li><li class="flat">Tensiune: cine dovedește ce a făcut algoritmul, dacă furnizorul invocă secret comercial, iar angajatorul n-are acces la cod? Nicio jurisdicție nu a tras încă linia.</li><li class="flat">Tensiune: multe echipe de HR confundă „recrutorul aprobă scorul” cu supraveghere umană reală — exact premisa pe care instanțele au început s-o respingă.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> Nu există niciun caz analog în România: CNCD confirma în sept. 2025 că nu a avut încă sesizări pe discriminare prin AI. Cel mai apropiat precedent european, hotărârea Deliveroo de la Bologna, e din 2020, privește managementul algoritmic al curierilor, nu recrutarea, și precedă AI Act-ul. Obligațiile europene care ar fi tras furnizorii la răspundere au fost amânate la 2 dec. 2027 — dar GDPR art. 22 se aplică de opt ani, iar interdicția de a deduce emoțiile angajaților e în vigoare din feb. 2025.</div><div class="tc-item"><b>De ce contează:</b> Întrebarea de pus furnizorului vostru de screening nu e dacă e conform, ci ce poate arăta despre o decizie individuală. Asta se cere în instanță.</div><div class="tc-item"><b>Surse:</b> 24 de surse, în documentul de research; stadiul procesual redeschis în dosarul instanței</div></div>
+  </div>
+</details>
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--weak">Weak Signal</span><span class="tc-area">Arie: Reguli &amp; răspundere</span>
+    <h3 class="tc-title">Sindicatele și consiliile de lucrători negociază clauze de AI în contract</h3>
+    <p class="tc-summary">Introducerea AI-ului la locul de muncă începe să iasă din zona deciziei unilaterale de management și să intre în negociere colectivă. În Germania, țara cu cea mai lungă tradiție de co-determinare, firmele care raportau un acord de întreprindere dedicat AI au crescut de la 4 la 31 într-un singur an, dintr-un eșantion de 440.</p>
+  </summary>
+  <div class="tc-body">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Forțe</p><ul><li>AI Act dă temei legal cererii de informare</li><li>Consiliile germane pot plăti experți pe banii angajatorului</li><li>Fiecare implementare atinge praguri de co-determinare existente</li><li>Grevele din SUA au arătat că se poate obține consimțământ</li><li>Proiecte europene formează negociatori chiar pe AI</li><li>Concedierile au legat AI-ul de neîncredere</li></ul></div>
+        <div><p class="tc-label">Valori</p><ul><li>Aprobare prealabilă în locul notificării după fapt</li><li>Logica deciziei la vedere în locul cutiei negre</li><li>Formare plătită de angajator în locul recalificării individuale</li><li>Reevaluare la fiecare schimbare în locul aprobării unice</li><li>Cadru sectorial în locul negocierii firmă cu firmă</li></ul></div>
+        <div><p class="tc-label">Fază</p><p class="tc-phase-label">Emergent</p><p class="tc-phase-note">Mișcarea e reală, dar pornește de la o bază minusculă: în Germania, acordurile de întreprindere dedicate AI au urcat de la 4 la 31 într-un an, dintr-un eșantion de 440 de firme. La nivel european, 20% dintre sindicatele chestionate aveau o clauză de AI în 2023, iar 42% erau în discuții.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Weizenbaum-Institut, 2025, 440 de firme germane: acordurile dedicate AI au urcat de la 4 (2024) la 31; disputa pe definiția AI, de la 22% la 28%.</li><li>Deutsche Telekom, oct. 2022: manifest AI cu drept de veto al consiliului pe sistemele cu risc foarte ridicat și interdicția recunoașterii emoțiilor angajaților.</li><li>IBM Germania, 2024: acord de grup cu 5 categorii de risc; categoria 5 — sisteme care ar decide măsuri individuale de personal — e complet interzisă.</li><li>Telecomunicații, Italia, dec. 2025: acord național pentru 200.000 de lucrători, cu grup de lucru permanent pe impactul AI și al managementului algoritmic.</li><li>România, sectorul bancar: CCM nr. 557 din 11 mai 2026 — prima clauză sectorială de AI, cu obligația de formare în sarcina angajatorului.</li><li>UNI Europa, 2023, sondaj în 32 de țări: 20% dintre sindicate aveau deja o clauză de AI, iar 42% erau în negociere pe subiect.</li></ul></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Inovatori</p><ul><li>Consiliul de grup Deutsche Telekom, modelul de manifest</li><li>IG Metall NRW, texte-model gata de negociat</li><li>UNI Europa, sondajul și acordul național italian</li><li>Arbeiterkammer Austria, formulări gata de inserat</li><li>FSIF, prima clauză sectorială din România</li></ul></div>
+        <div><p class="tc-label">Impact</p><ul class="tc-impacts"><li class="up">Consiliile devin coproiectanți ai implementării încă din faza de pilot: aprobarea inițială durează mai mult, dar rezistența internă de după scade.</li><li class="down">Negocierea devine un front de blocaj în plus — la Oracle România, refuzul companiei de a negocia contractul colectiv a ajuns în plângeri la Inspecția Muncii și la Comisia Europeană.</li><li class="flat">Tensiune: un consiliu poate interzice o categorie întreagă de sisteme, ca la IBM Germania, chiar dacă managementul consideră că beneficiul depășește riscul. Legea nu spune cine are ultimul cuvânt.</li><li class="flat">Tensiune: firmele fără consiliu sau contract colectiv rămân în afara oricărei protecții, așa că decalajul nu se deschide între țări, ci între angajați ai aceleiași piețe.</li></ul></div>
+      </div>
+    </div>
+    <div class="tc-foot"><div class="tc-item"><b>Lentilă RO/EU:</b> România nu are echivalentul consiliului de lucrători german sau austriac, cu drept de veto asupra tehnologiei de control — reprezentarea merge prin sindicat și negociere colectivă. Singura dovadă concretă e contractul din sectorul bancar (nr. 557 din 11 mai 2026, publicat în Monitorul Oficial pe 28 mai), care obligă angajatorul să asigure formare despre funcționarea, limitele și riscurile sistemelor AI — dar nu dă drept de veto și nici transparență algoritmică. Condiția de bază e ea însăși fragilă: în sept. 2026, Cartel Alfa denunța public blocarea negocierilor sectoriale.</div><div class="tc-item"><b>De ce contează:</b> Dacă în România clauza asta a apărut întâi în bănci, întrebarea e cine o cere a doua oară — și dacă HR-ul o scrie sau o primește scrisă.</div><div class="tc-item"><b>Surse:</b> 13 surse, în documentul de research; clauza românească verificată în contractul publicat în Monitorul Oficial</div></div>
+  </div>
+</details>
+</section>
+</div>
+
+<div class="pa-part" id="cartonase">
+<h2 class="pa-part-head">Ce poate face AI-ul pentru tine: 6 cartonașe</h2>
+<p class="pa-meta">6 cartonașe &middot; atelierul Corinei</p>
+<p class="pa-lede">Șase lucruri concrete pe care le face AI-ul în munca de HR, scrise pentru cineva care nu l-a folosit niciodată. Le deschizi în atelierul Corinei, la caseta „Felia", când masa trebuie să spună concret ce face AI-ul. Fiecare cartonaș are situația, ce face, exemple și la ce să fii atent.</p>
+
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Cartonaș 1</span>
+    <h3 class="tc-title">Citește tot și îți spune ce iese</h3>
+    <p class="tc-summary">Situația: ai 200 de răspunsuri la un chestionar și nu ai o zi întreagă să le citești.</p>
+  </summary>
+  <div class="tc-body pa-c6">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Ce face</p><p>Le citește pe toate și îți spune ce se repetă, ce teme apar, ce a zis doar o singură persoană.</p></div>
+        <div><p class="tc-label">Atenție</p><p>Îți dă ce se repetă des. Un lucru important, spus de un singur om, se poate pierde. Cere-i separat: „ce a apărut o singură dată?"</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Răspunsurile deschise dintr-un chestionar de engagement.</li><li>Notițele de la 30 de interviuri de plecare.</li><li>Comentariile din evaluările anuale.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</details>
+
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Cartonaș 2</span>
+    <h3 class="tc-title">Îți scrie prima variantă</h3>
+    <p class="tc-summary">Situația: trebuie să scrii un document pe care l-ai mai scris de zece ori, dar pentru altă poziție.</p>
+  </summary>
+  <div class="tc-body pa-c6">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Ce face</p><p>Îi dai unul scris de tine, îi spui pentru ce vrei altul, și îți scrie prima variantă în aceeași formă. Tu rămâi pe corectat.</p></div>
+        <div><p class="tc-label">Atenție</p><p>E o primă variantă, are nevoie de trecerea ta. Iar dacă documentul pe care i l-ai dat avea o formulare proastă, o copiază și el.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Ai fișa de post de la L&amp;D și vrei una pentru Recrutare.</li><li>Ai planul de onboarding pentru vânzări și vrei unul pentru IT.</li><li>Un ghid de întrebări pentru interviu.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</details>
+
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Cartonaș 3</span>
+    <h3 class="tc-title">Răspunde la aceleași întrebări, în locul tău</h3>
+    <p class="tc-summary">Situația: primești de 20 de ori pe lună aceeași întrebare despre concedii, beneficii sau proceduri.</p>
+  </summary>
+  <div class="tc-body pa-c6">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Ce face</p><p>Îi dai documentele voastre interne și răspunde oamenilor din ele, oricând, inclusiv sâmbătă la 11 noaptea.</p></div>
+        <div><p class="tc-label">Atenție</p><p>Dacă răspunsul nu e scris nicăieri, tot îți dă unul și sună convingător. Funcționează exact cât de bine e scrisă documentația voastră.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Câte zile de concediu mi-au rămas și cum le cer.</li><li>Ce acoperă abonamentul medical.</li><li>Cui mă adresez pentru o adeverință.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</details>
+
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Cartonaș 4</span>
+    <h3 class="tc-title">Sortează și trimite mai departe</h3>
+    <p class="tc-summary">Situația: îți vin lucruri de la mulți oameni și cineva trebuie să le pună pe categorii și să le dea mai departe.</p>
+  </summary>
+  <div class="tc-body pa-c6">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Ce face</p><p>Se uită la fiecare, decide în ce categorie intră și cui îi revine.</p></div>
+        <div><p class="tc-label">Atenție</p><p>Unde e granița dintre categorii decideți voi, nu el. Și când sortează oameni (candidați, angajați pentru promovare), legea europeană (AI Act) o tratează ca zonă cu risc mare: e nevoie de om care verifică și de explicații pentru cel sortat. E cartonașul unde trebuie să scrii cel mai mult la „Unde decide omul" și la „Riscuri și owner".</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Sesizările care intră pe adresa de HR, împărțite pe tipuri și trimise persoanei potrivite.</li><li>CV-urile primite, puse lângă rolurile deschise.</li><li>Cazurile delicate, marcate ca să le vadă un om imediat.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</details>
+
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Cartonaș 5</span>
+    <h3 class="tc-title">Scoate exact ce-ți trebuie dintr-un teanc</h3>
+    <p class="tc-summary">Situația: ai zeci de documente și din fiecare îți trebuie doar două-trei lucruri.</p>
+  </summary>
+  <div class="tc-body pa-c6">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Ce face</p><p>Se uită prin toate și îți scoate doar ce ai cerut, pus într-un tabel.</p></div>
+        <div><p class="tc-label">Atenție</p><p>Dacă informația lipsește dintr-un document, poate să scrie ceva plauzibil în loc de „nu apare". Spune-i din start să lase gol când nu găsește.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Din 80 de CV-uri, doar anii de experiență și limbile vorbite.</li><li>Dintr-un 1:1, ce ați stabilit că face fiecare până data viitoare.</li><li>Dintr-un plan de dezvoltare, termenele.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</details>
+
+<details class="tc-card">
+  <summary class="tc-head">
+    <span class="tc-tag tc-tag--trend">Cartonaș 6</span>
+    <h3 class="tc-title">Repetă cu tine conversația grea</h3>
+    <p class="tc-summary">Situația: ai mâine o discuție care nu-ți convine și vrei să o exersezi înainte.</p>
+  </summary>
+  <div class="tc-body pa-c6">
+    <div class="tc-grid">
+      <div class="tc-col">
+        <div><p class="tc-label">Ce face</p><p>Joacă el rolul celuilalt și tu exersezi pe bune, de câte ori vrei, fără martori.</p></div>
+        <div><p class="tc-label">Atenție</p><p>E mai calm și mai cooperant decât omul real. Cere-i explicit să fie dificil.</p></div>
+      </div>
+      <div class="tc-col">
+        <div><p class="tc-label">Exemple</p><ul class="tc-examples"><li>Îi spui unui manager că felul în care dă feedback echipei e o problemă.</li><li>Anunți o schimbare care nu va fi pe placul nimănui.</li><li>Exersezi întrebările grele ale unui candidat senior.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</details>
+</div>
+
+
+<section class="pa-bio">
+  <h2>Despre Raluca</h2>
+  <div class="pa-bio-top">
+    <img class="pa-bio-photo" src="/images/pa/raluca-paduraru.webp" alt="Raluca Păduraru" width="132" height="132" loading="lazy">
+    <div class="pa-bio-text">
+      <p>Raluca Păduraru este Futures of Work Strategist și fondator Upvance Global.</p>
+      <p>Lucrează de 2 decenii în dezvoltarea oamenilor și a echipelor, iar în ultimii 2 ani a facilitat peste 1.000 de ore de laboratoare cu și despre AI, cu peste 5.500 de oameni, de la antreprenori la echipe de management din corporații. Raluca transformă echipele non-tehnice în AI Business Translators, adică oameni care înțeleg problemele de business, le rezolvă cu ajutorul AI și construiesc sisteme care rămân în organizație.</p>
+      <p>Este Certified Foresight Practitioner, APF Emerging Fellow și autoarea mai multor studii și rapoarte despre viitorul muncii în România și despre felul în care utilizăm AI la job în România.</p>
+    </div>
+  </div>
+
+  <div class="pa-bio-links">
+    <a href="https://www.ralucapaduraru.ro/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.4 3.8 5.5 3.8 9S14.5 18.6 12 21c-2.5-2.4-3.8-5.5-3.8-9S9.5 5.4 12 3z"/></svg>
+      Website
+    </a>
+    <a href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.3 8.65 22 10.6 22 14.1V21h-4v-6.2c0-1.55-.55-2.6-1.93-2.6-1.05 0-1.68.7-1.95 1.38-.1.25-.12.6-.12.95V21H9V9z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+
+  <div class="pa-inits">
+    <div class="pa-init">
+      <h3><a href="https://ralucapaduraru.substack.com/" target="_blank" rel="noopener">Newsletter The Leadership Catalyst</a></h3>
+      <p>Newsletter săptămânal despre mindset AI, gândire anticipativă (foresight) și use case-uri practice.</p>
+    </div>
+    <div class="pa-init">
+      <h3><a href="https://www.ralucapaduraru.ro/romanian-state-of-ai/" target="_blank" rel="noopener">Romanian State of AI</a></h3>
+      <p>Primul studiu academic despre utilizarea AI la locul de muncă în România. Preluat de Pro TV, Capital, Revista Cariere.</p>
+    </div>
+    <div class="pa-init">
+      <h3><a href="https://www.ralucapaduraru.ro/viitoruri" target="_blank" rel="noopener">4 viitoruri ale muncii în România 2030</a></h3>
+      <p>Primul raport de foresight dedicat pieței muncii din România. Scenarii ancorate în date și strategii acționabile.</p>
+    </div>
+  </div>
+</section>
+
+<p class="pa-foot">&copy; 2026 Raluca Păduraru &middot; materiale de sală pentru People Architects, 25 septembrie 2026.</p>
+</div>
+
+</body>
+</html>
