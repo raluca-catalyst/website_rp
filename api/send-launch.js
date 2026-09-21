@@ -1,5 +1,8 @@
 // api/send-launch.js — Send launch email to all waiting list subscribers
-// Call manually on April 3 at 11:00: GET /api/send-launch?secret=YOUR_ADMIN_SECRET
+// Call manually in launch day:
+//   GET /api/send-launch?secret=YOUR_ADMIN_SECRET                        (viitoruri, implicit)
+//   GET /api/send-launch?secret=YOUR_ADMIN_SECRET&list=ghid-adoptie-ai
+// Add &dry=1 to preview the recipients without sending.
 // Returns { sent, failed, total }
 
 const { Resend } = require('resend');
@@ -7,6 +10,7 @@ const { Resend } = require('resend');
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const PDF_URL = 'https://ralucapaduraru.ro/downloads/viitoruri-2030.pdf';
+const GHID_PDF_URL = 'https://ralucapaduraru.ro/downloads/ghid-adoptie-ai.pdf';
 
 const LAUNCH_EMAIL_HTML = `
 <!DOCTYPE html>
@@ -65,6 +69,79 @@ const LAUNCH_EMAIL_HTML = `
 </html>
 `;
 
+const GHID_LAUNCH_EMAIL_HTML = `
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+    .wrap { max-width: 560px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; }
+    .header { background: #ffffff; padding: 32px 40px 24px; border-bottom: 1px solid #eee; }
+    .header h1 { color: #9B8AF0; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 10px; }
+    .header h2 { color: #111111; font-size: 22px; font-weight: 700; margin: 0; line-height: 1.3; }
+    .body { padding: 36px 40px; }
+    .body p { font-size: 15px; color: #444; line-height: 1.7; margin: 0 0 16px; }
+    .body ul { padding-left: 20px; margin: 0 0 20px; }
+    .body ul li { font-size: 15px; color: #444; line-height: 1.7; margin-bottom: 6px; }
+    .cta { display: inline-block; background: #9B8AF0; color: #ffffff; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; margin: 12px 0 24px; }
+    .footer { background: #f9f9f9; padding: 24px 40px; border-top: 1px solid #eee; }
+    .footer p { font-size: 12px; color: #888; line-height: 1.6; margin: 0; }
+    .sig-name { font-size: 14px; color: #333; font-weight: 600; margin-top: 24px; margin-bottom: 2px; }
+    .sig-title { font-size: 13px; color: #666; margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>Upvance Global</h1>
+      <h2>Ghidul e gata. Descarcă-l acum.</h2>
+    </div>
+    <div class="body">
+      <p>Bună,</p>
+      <p>Ți-am promis că pe 8 octombrie primești ghidul. Iată-l.</p>
+      <a class="cta" href="${GHID_PDF_URL}" target="_blank">Descarcă &bdquo;Ai primit mandatul să te ocupi de AI. De unde începi?&rdquo; &rarr;</a>
+      <p>Ce găsești în cele 77 de pagini:</p>
+      <ul>
+        <li>Traseul primelor 90 de zile: mandatul, echipa, regulile, primul pilot, măsurarea și raportul către conducere</li>
+        <li>9 fișe de lucru, de la fișa de mandat la raportul de 90 de zile</li>
+        <li>Un exemplu practic de onboarding, urmărit de la solicitare până la planul final</li>
+        <li>Ce trebuie clarificat cu fiecare stakeholder înainte de primul test, ancorat în legislația în vigoare</li>
+      </ul>
+      <p>După ce îl parcurgi, dă-mi un reply cu un gând. Ce ți-a fost cel mai greu de clarificat până acum în adopția AI? Răspunsurile mă ajută să construiesc materiale tot mai aproape de ce se întâmplă în organizații.</p>
+      <p>P.S. Dacă ți se pare util, trimite-l unui coleg care a primit același mandat.<br>
+      Link: <a href="https://ralucapaduraru.ro/ghid-adoptie" style="color:#9B8AF0">ralucapaduraru.ro/ghid-adoptie</a></p>
+      <p>Lectură plăcută,</p>
+      <p class="sig-name">Raluca Păduraru</p>
+      <p class="sig-title">Futures of Work Strategist</p>
+    </div>
+    <div class="footer">
+      <p>Ai primit acest email deoarece te-ai înscris pe lista de așteptare pentru ghidul de adopție AI pe ralucapaduraru.ro/ghid-adoptie.<br>
+      Pentru a te retrage de pe listă, trimite un email la <a href="mailto:contact@upvance.global" style="color:#9B8AF0">contact@upvance.global</a>.</p>
+    </div>
+  </div>
+</body>
+</html>
+`;
+
+// Lansări: fiecare cu audiența ei Resend și cu emailul ei.
+// Query: ?list=<cheie> — lipsă => 'viitoruri' (backwards compatible)
+const LAUNCHES = {
+  'viitoruri': {
+    audienceName: 'Viitoruri 2030',
+    subject: 'Raportul e gata. Descărcă-l acum.',
+    html: LAUNCH_EMAIL_HTML,
+    botName: 'Viitoruri Bot',
+  },
+  'ghid-adoptie-ai': {
+    audienceName: 'Ghid adoptie AI',
+    subject: 'Ghidul e gata. Descărcă-l acum.',
+    html: GHID_LAUNCH_EMAIL_HTML,
+    botName: 'Ghid Bot',
+  },
+};
+
 module.exports = async (req, res) => {
   if (req.method !== 'GET') return res.status(405).json({ message: 'Method not allowed' });
 
@@ -77,14 +154,21 @@ module.exports = async (req, res) => {
   // Dry run mode: ?dry=1 to preview without sending
   const isDryRun = req.query?.dry === '1';
 
+  // Which launch: ?list=viitoruri | ghid-adoptie-ai (default: viitoruri)
+  const listKey = req.query?.list || 'viitoruri';
+  const cfg = LAUNCHES[listKey];
+  if (!cfg) {
+    return res.status(400).json({ message: `Unknown list "${listKey}". Available: ${Object.keys(LAUNCHES).join(', ')}` });
+  }
+
   try {
-    // Find the Viitoruri 2030 audience
+    // Find the audience for this launch
     const { data: audienceList, error: listErr } = await resend.audiences.list();
     if (listErr) throw new Error('Could not list audiences: ' + listErr.message);
 
-    const audience = audienceList?.data?.find(a => a.name === 'Viitoruri 2030');
+    const audience = audienceList?.data?.find(a => a.name === cfg.audienceName);
     if (!audience) {
-      return res.status(404).json({ message: 'Audience "Viitoruri 2030" not found. Nobody subscribed yet?' });
+      return res.status(404).json({ message: `Audience "${cfg.audienceName}" not found. Nobody subscribed yet?` });
     }
 
     // Fetch all contacts
@@ -100,6 +184,9 @@ module.exports = async (req, res) => {
     if (isDryRun) {
       return res.status(200).json({
         dry_run: true,
+        list: listKey,
+        audience: cfg.audienceName,
+        subject: cfg.subject,
         total: emails.length,
         preview: emails.slice(0, 10),
         message: `Dry run: would send to ${emails.length} subscribers`,
@@ -121,8 +208,8 @@ module.exports = async (req, res) => {
         from: 'Raluca P\u0103duraru <contact@upvance.global>',
         reply_to: 'contact@upvance.global',
         to: [email],
-        subject: 'Raportul e gata. Desc\u0103rc\u0103-l acum.',
-        html: LAUNCH_EMAIL_HTML,
+        subject: cfg.subject,
+        html: cfg.html,
       }));
 
       const { data, error } = await resend.batch.send(messages);
@@ -141,13 +228,13 @@ module.exports = async (req, res) => {
 
     // Notify Raluca of completion
     await resend.emails.send({
-      from: 'Viitoruri Bot <contact@upvance.global>',
+      from: `${cfg.botName} <contact@upvance.global>`,
       to: ['raluca@upvance.global'],
-      subject: `Launch emails trimise: ${sent}/${emails.length}`,
-      html: `<p>Launch email blast finalizat.<br><b>Trimise:</b> ${sent}<br><b>Eșecuri:</b> ${failed}<br><b>Total subscribers:</b> ${emails.length}</p>`,
+      subject: `Launch emails trimise (${listKey}): ${sent}/${emails.length}`,
+      html: `<p>Launch email blast finalizat pentru <b>${cfg.audienceName}</b>.<br><b>Trimise:</b> ${sent}<br><b>Eșecuri:</b> ${failed}<br><b>Total subscribers:</b> ${emails.length}</p>`,
     }).catch(() => {});
 
-    return res.status(200).json({ sent, failed, total: emails.length });
+    return res.status(200).json({ list: listKey, sent, failed, total: emails.length });
 
   } catch (err) {
     console.error('Send-launch error:', err);

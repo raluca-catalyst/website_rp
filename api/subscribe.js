@@ -82,7 +82,7 @@ const GHID_CONFIRMATION_EMAIL_HTML = (email) => `
         <li>Un exemplu de onboarding pregătit cu AI, urmărit de la solicitare la planul final</li>
         <li>Ce trebuie clarificat cu fiecare stakeholder înainte de primul test, ancorat în legislația în vigoare</li>
       </ul>
-      <p>Până atunci, dacă ai o întrebare despre adopția AI în echipa ta, răspunde la acest email.</p>
+      <p>Până atunci, dacă vrei să mă întrebi ceva despre adopția AI, dă un reply acestui mail.</p>
       <p class="sig-name">Raluca Păduraru</p>
       <p class="sig-title">Futures of Work Strategist</p>
     </div>
