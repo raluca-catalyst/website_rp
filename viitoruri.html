@@ -572,6 +572,7 @@
           <input type="email" id="wl-email" name="email" placeholder="adresa ta de email" required autocomplete="email" />
           <button type="submit" class="btn-submit" id="wl-btn">Anunță-mă la lansare</button>
         </form>
+        <div id="cf-ts" style="margin-top:14px;"></div>
         <div id="wl-msg" class="cs-form-msg"></div>
         <p class="cs-fine-print">
           Vei primi raportul gratuit pe email pe 3 aprilie, la ora 13:00.<br />
@@ -957,6 +958,13 @@
       const btn   = document.getElementById('wl-btn');
       const msg   = document.getElementById('wl-msg');
       if (!email) return;
+      const cfToken = (window.turnstile && tsId !== null) ? turnstile.getResponse(tsId) : '';
+      if (!cfToken) {
+        msg.className = 'cs-form-msg error';
+        msg.textContent = 'Se incarca verificarea de securitate. Mai incearca o data in cateva secunde.';
+        msg.style.display = 'block';
+        return;
+      }
       btn.disabled = true;
       btn.textContent = 'Se înregistrează...';
       msg.className = 'cs-form-msg';
@@ -966,7 +974,7 @@
         const res = await fetch(API_BASE + '/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email })
+          body: JSON.stringify({ email, cfToken })
         });
         const data = await res.json();
         if (res.ok) {
@@ -985,6 +993,8 @@
         msg.style.display = 'block';
         btn.disabled = false;
         btn.textContent = 'Anunta-ma la lansare';
+      } finally {
+        if (window.turnstile && tsId !== null) turnstile.reset(tsId);
       }
     });
 
@@ -1031,6 +1041,18 @@
       }
     });
   </script>
+
+  <script>
+  var tsId = null;
+  function onTurnstileLoad() {
+    tsId = turnstile.render('#cf-ts', {
+      sitekey: '0x4AAAAAAE_AsNly5RaCiPvl',
+      action: 'subscribe'
+    });
+  }
+  </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit"
+          async defer data-cookieconsent="ignore"></script>
 
 </body>
 </html>

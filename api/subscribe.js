@@ -5,6 +5,33 @@ const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const TURNSTILE_HOSTNAMES = new Set(
+  (process.env.TURNSTILE_HOSTNAMES || '').split(',').map(s => s.trim()).filter(Boolean)
+);
+
+// Verifică token-ul Turnstile la Cloudflare. Aici se oprește spamul, nu în pagină.
+async function verifyTurnstile(token, expectedAction, ip) {
+  if (typeof token !== 'string' || !token || token.length > 2048) return false;
+  if (TURNSTILE_HOSTNAMES.size === 0 || !process.env.TURNSTILE_SECRET) return false;
+  try {
+    const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      signal: AbortSignal.timeout(10000),
+      body: new URLSearchParams({
+        secret: process.env.TURNSTILE_SECRET,
+        response: token,
+        remoteip: ip || ''
+      })
+    });
+    if (!r.ok) return false;
+    const d = await r.json();
+    return d.success === true && d.action === expectedAction && TURNSTILE_HOSTNAMES.has(d.hostname);
+  } catch (err) {
+    return false;
+  }
+}
+
 // Liste de așteptare: fiecare cu propria audiență Resend și propriul email de confirmare.
 // Body: { email, list? }  — list lipsă => 'viitoruri' (backwards compatible)
 const LISTS = {
@@ -160,10 +187,16 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ message: 'Method not allowed' });
 
-  const { email, list } = req.body || {};
+  const { email, list, cfToken } = req.body || {};
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ message: 'Email invalid.' });
+  }
+
+  const clientIp = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  const humanOk = await verifyTurnstile(cfToken, 'subscribe', clientIp);
+  if (!humanOk) {
+    return res.status(400).json({ message: 'Verificarea de securitate a esuat. Reincarca pagina si incearca din nou.' });
   }
 
   const cfg = LISTS[list || 'viitoruri'];

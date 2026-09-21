@@ -2,6 +2,33 @@ const { Resend } = require('resend');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const TURNSTILE_HOSTNAMES = new Set(
+  (process.env.TURNSTILE_HOSTNAMES || '').split(',').map(s => s.trim()).filter(Boolean)
+);
+
+// Verifică token-ul Turnstile la Cloudflare. Aici se oprește spamul, nu în pagină.
+async function verifyTurnstile(token, expectedAction, ip) {
+  if (typeof token !== 'string' || !token || token.length > 2048) return false;
+  if (TURNSTILE_HOSTNAMES.size === 0 || !process.env.TURNSTILE_SECRET) return false;
+  try {
+    const r = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      signal: AbortSignal.timeout(10000),
+      body: new URLSearchParams({
+        secret: process.env.TURNSTILE_SECRET,
+        response: token,
+        remoteip: ip || ''
+      })
+    });
+    if (!r.ok) return false;
+    const d = await r.json();
+    return d.success === true && d.action === expectedAction && TURNSTILE_HOSTNAMES.has(d.hostname);
+  } catch (err) {
+    return false;
+  }
+}
+
 function escapeHtml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -25,11 +52,19 @@ module.exports = async (req, res) => {
     contactPrefs,
     gdpr,
     newsletter,
-    website
+    cfRef,
+    cfToken
   } = req.body || {};
 
   // Honeypot: bot a completat câmpul ascuns — respinge silențios
-  if (website) {
+  if (cfRef) {
+    return res.status(200).json({ ok: true });
+  }
+
+  // Turnstile: respingem tăcut, ca botul să nu afle pe ce a picat
+  const clientIp = (req.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  const humanOk = await verifyTurnstile(cfToken, 'contact', clientIp);
+  if (!humanOk) {
     return res.status(200).json({ ok: true });
   }
 

@@ -243,9 +243,11 @@
               </div>
 
               <div style="position:absolute;left:-9999px;opacity:0;pointer-events:none;" aria-hidden="true">
-                <label for="cf-website">Website</label>
-                <input type="text" id="cf-website" name="website" tabindex="-1" autocomplete="off" />
+                <label for="cf-ref">Referință</label>
+                <input type="text" id="cf-ref" name="cf-ref" tabindex="-1" autocomplete="off" />
               </div>
+
+              <div id="cf-ts" style="margin-bottom:16px;"></div>
 
               <div class="form-submit-row">
                 <button type="submit" class="btn-submit" id="cf-submit">
@@ -283,6 +285,17 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit"
+          async defer data-cookieconsent="ignore"></script>
+  <script>
+  var tsId = null;
+  function onTurnstileLoad() {
+    tsId = turnstile.render('#cf-ts', {
+      sitekey: '0x4AAAAAAE_AsNly5RaCiPvl',
+      action: 'contact'
+    });
+  }
+  </script>
   <script>
   (function initContactForm() {
     var form = document.getElementById('contact-form');
@@ -321,13 +334,20 @@
         return;
       }
 
+      var cfToken = (window.turnstile && tsId !== null) ? turnstile.getResponse(tsId) : '';
+      if (!cfToken) {
+        status.textContent = 'Se încarcă verificarea de securitate. Mai încearcă o dată în câteva secunde.';
+        status.className = 'form-status error';
+        return;
+      }
+
       submitBtn.disabled = true;
       submitBtn.innerHTML = 'Se trimite...';
 
       fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, email: email, phone: phone, role: role, company: company, message: message, gdpr: gdpr, newsletter: newsletter, contactPrefs: contactPrefs, website: (document.getElementById('cf-website') || {}).value || '' })
+        body: JSON.stringify({ name: name, email: email, phone: phone, role: role, company: company, message: message, gdpr: gdpr, newsletter: newsletter, contactPrefs: contactPrefs, cfRef: (document.getElementById('cf-ref') || {}).value || '', cfToken: cfToken })
       })
       .then(function(res) { return res.json().then(function(data) { return { ok: res.ok, data: data }; }); })
       .then(function(result) {
@@ -347,6 +367,7 @@
       .finally(function() {
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Trimite formularul ' + arrowSvg;
+        if (window.turnstile && tsId !== null) turnstile.reset(tsId);
       });
     });
   })();
