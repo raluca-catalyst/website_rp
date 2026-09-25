@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Raluca Păduraru" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>HR Maturity Assessment · Future HR Leader</title>
-  <meta name="description" content="Instrument de autoevaluare pentru participanții la programul Future HR Leader: unde e funcția HR azi, pe procese, date, competențe și cultură." />
+  <title>HR Maturity Assessment · HR Management în era AI</title>
+  <meta name="description" content="Instrument de autoevaluare pentru participanții la cursul HR Management în era AI: transformare, oameni și automatizări. Unde e funcția HR azi, pe procese, date, competențe și cultură." />
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -249,8 +249,8 @@
       .lvl.on { background: #7c3aed !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .bar-track { background: rgba(124,58,237,0.1) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .bar-fill { background: #7c3aed !important; box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      details.answers > summary { display: none; }
-      details.answers .answers-list { display: block !important; }
+      /* butonul rotund de cookie e fixat în colț și s-ar repeta pe fiecare pagină */
+      #CookiebotWidget, #CybotCookiebotDialog { display: none !important; }
       footer.credit p { color: rgba(0,0,0,0.5); }
       main { padding: 0; }
     }
@@ -261,7 +261,7 @@
   <header class="top">
     <div class="wrap">
       <a href="/" class="logo" aria-label="Raluca Păduraru, pagina principală"><img src="/images/logo.png" alt="Raluca Păduraru" /></a>
-      <span class="label">Future HR Leader · Basetolearn</span>
+      <span class="label">HR Management în era AI · Basetolearn</span>
     </div>
   </header>
 
@@ -305,7 +305,7 @@
       <section class="results hidden" id="results">
         <div class="print-only">
           <img src="/images/logo.png" alt="Raluca Păduraru" style="height:28px" />
-          <p style="margin-top:8px">HR Maturity Assessment · Future HR Leader · Basetolearn · <span id="print-date"></span></p>
+          <p style="margin-top:8px">HR Maturity Assessment · HR Management în era AI: transformare, oameni și automatizări · Basetolearn · <span id="print-date"></span></p>
         </div>
 
         <div class="card card-featured">
@@ -330,7 +330,7 @@
           <div class="kicker">Pentru tema de acasă · Secțiunea 1 din blueprint</div>
           <h3 style="margin-bottom:1rem">Punctul de plecare</h3>
           <ol id="r-homework"></ol>
-          <p style="font-size:0.88rem;margin:0">Scorul îl refolosești la Lecția 9, în dashboardul pentru board. Salvează-l.</p>
+          <p style="font-size:0.88rem;margin:0">Scorul e punctul de plecare pentru curs, o auto-evaluare. În cadrul lecției 9 o să îl atașezi în dashboardul pentru board, alături de obiectivul pe 12 luni și KPIs care arată dacă vă apropiați de el.</p>
         </div>
 
         <div class="card no-print">
@@ -350,7 +350,7 @@
           </form>
         </div>
 
-        <div class="card">
+        <div class="card no-print">
           <details class="answers">
             <summary>Răspunsurile tale</summary>
             <div class="answers-list" id="r-answers"></div>
@@ -363,7 +363,7 @@
 
   <footer class="credit">
     <div class="wrap">
-      <p>Instrument construit de Raluca Păduraru pentru programul Future HR Leader (Basetolearn). Adaptat după HR Automation Explorer 2030 (E. Corazzin).</p>
+      <p>Instrument construit de Raluca Păduraru pentru cursul HR Management în era AI: transformare, oameni și automatizări (Basetolearn). Adaptat după HR Automation Explorer 2030 (E. Corazzin).</p>
       <p class="no-print"><a href="/privacy.html">Politica de confidențialitate</a></p>
     </div>
   </footer>
@@ -596,10 +596,6 @@
     $('back-btn').addEventListener('click', () => { if (current > 0) { current--; renderQuestion(); } });
     $('next-btn').addEventListener('click', next);
     $('print-btn').addEventListener('click', () => window.print());
-    // Lista de răspunsuri trebuie să apară în PDF chiar dacă e strânsă pe ecran.
-    let answersWasOpen = false;
-    window.addEventListener('beforeprint', () => { const d = document.querySelector('details.answers'); answersWasOpen = d.open; d.open = true; });
-    window.addEventListener('afterprint', () => { document.querySelector('details.answers').open = answersWasOpen; });
     $('restart-btn').addEventListener('click', () => {
       order = QUESTIONS.map(q => shuffle([0, 1, 2, 3]));
       answers = new Array(QUESTIONS.length).fill(null);

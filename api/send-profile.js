@@ -54,25 +54,84 @@ function computeProfile(scores) {
   return { dimScores, total, level, weakest: ranked.slice(0, 2).map(r => r.i), strongest: ranked[3].i };
 }
 
+// Emailul oglindește pagina de rezultate, în varianta de print (fundal alb):
+// cardul de nivel cu scala, profilul pe dimensiuni cu bare, tema de acasă.
+// Graficele sunt tabele, nu div-uri, ca să arate la fel și în Outlook.
+const MONO = "'JetBrains Mono','Courier New',monospace";
+const VIOLET = '#7c3aed';
+
+function kicker(text) {
+  return `<p style="font-family:${MONO};font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:${VIOLET};margin:0 0 6px">${text}</p>`;
+}
+
+function card(inner, featured) {
+  const style = featured
+    ? `background:#f6f2ff;border:1px solid #ddd0fb;border-top:2px solid ${VIOLET};`
+    : 'background:#ffffff;border:1px solid #ddd0fb;';
+  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="${style}border-radius:12px;margin:0 0 16px">
+    <tr><td style="padding:20px 22px">${inner}</td></tr></table>`;
+}
+
+function levelScale(current) {
+  const cells = LEVELS.map((l, i) => {
+    const on = i === current;
+    const style = on
+      ? `background:${VIOLET};color:#ffffff;border:1px solid ${VIOLET};`
+      : 'background:#ffffff;color:#8a8a8a;border:1px solid #ddd0fb;';
+    return `<td width="25%" style="padding:0 3px"><div style="${style}border-radius:6px;padding:7px 2px;text-align:center;font-family:${MONO};font-size:11px;line-height:1.4">${l.name}<br>${l.min}-${l.max}</div></td>`;
+  }).join('');
+  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:16px 0 0"><tr>${cells}</tr></table>`;
+}
+
+function bar(score) {
+  const pct = Math.round(score / 15 * 100);
+  const fill = `<td width="${pct}%" style="background:${VIOLET};height:12px;border-radius:6px;font-size:0;line-height:0">&nbsp;</td>`;
+  const rest = '<td style="height:12px;font-size:0;line-height:0">&nbsp;</td>';
+  const cells = pct <= 0 ? rest : pct >= 100 ? fill.replace(` width="${pct}%"`, '') : fill + rest;
+  return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#ede9fe;border-radius:6px"><tr>${cells}</tr></table>`;
+}
+
 function emailHtml(p) {
   const lvl = LEVELS[p.level];
   const weakName = DIMS[p.weakest[0]];
   const nextLevel = p.level < LEVELS.length - 1
-    ? `Ce ar trebui să fie adevărat peste 12 luni ca să ajungeți la nivelul următor, <strong>${LEVELS[p.level + 1].name}</strong>?`
-    : 'Ce ar trebui să fie adevărat peste 12 luni ca să rămâneți la nivelul <strong>Integrat</strong> pe măsură ce AI avansează?';
+    ? `Ce ar trebui să fie adevărat peste 12 luni ca să ajungeți la nivelul următor, <strong style="color:#1a1a1a">${LEVELS[p.level + 1].name}</strong>?`
+    : 'Ce ar trebui să fie adevărat peste 12 luni ca să rămâneți la nivelul <strong style="color:#1a1a1a">Integrat</strong> pe măsură ce AI avansează?';
+  const date = new Date().toLocaleDateString('ro-RO', { timeZone: 'Europe/Bucharest' });
+  const txt = 'font-size:14px;color:#555555;line-height:1.65';
+
+  const levelCard = card(`
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr>
+      <td valign="bottom">${kicker('Nivelul funcției HR')}
+        <p style="font-family:${MONO};font-size:24px;font-weight:700;color:#1a1a1a;margin:0;line-height:1.2">${lvl.name}</p></td>
+      <td valign="bottom" align="right" style="font-family:${MONO};font-size:40px;font-weight:700;color:${VIOLET};line-height:1;white-space:nowrap">${p.total}<span style="font-size:16px;color:#8a8a8a;font-weight:500"> / 60</span></td>
+    </tr></table>
+    ${levelScale(p.level)}
+    <p style="${txt};margin:16px 0 0">${lvl.desc}</p>`, true);
 
   const bars = DIMS.map((d, i) => {
-    const pct = Math.round(p.dimScores[i] / 15 * 100);
-    const mark = p.weakest.includes(i) ? ' <span style="color:#7c3aed;font-size:12px">· de lucrat</span>' : '';
-    return `
-      <tr><td style="padding:10px 0 4px;font-size:14px;color:#1a1a1a"><strong>${d}</strong>${mark}</td>
-          <td style="padding:10px 0 4px;font-size:14px;color:#7c3aed;text-align:right"><strong>${p.dimScores[i]} / 15</strong></td></tr>
-      <tr><td colspan="2" style="padding:0 0 4px">
-        <div style="background:#ede9fe;border-radius:6px;height:10px;width:100%">
-          <div style="background:#7c3aed;border-radius:6px;height:10px;width:${pct}%"></div>
-        </div>
-      </td></tr>`;
+    const mark = p.weakest.includes(i) ? `<span style="color:${VIOLET};font-size:11px">&nbsp;&nbsp;· de lucrat</span>` : '';
+    return `<table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 14px">
+      <tr><td style="font-family:${MONO};font-size:13px;color:#1a1a1a;padding:0 0 5px">${d}${mark}</td>
+          <td align="right" style="font-family:${MONO};font-size:13px;color:${VIOLET};padding:0 0 5px">${p.dimScores[i]} / 15</td></tr>
+      <tr><td colspan="2">${bar(p.dimScores[i])}</td></tr></table>`;
   }).join('');
+
+  const dimsCard = card(`
+    ${kicker('Profilul pe dimensiuni')}
+    <p style="${txt};margin:0 0 14px">Fiecare dimensiune are maximum 15 puncte. Cele două cele mai slabe sunt marcate.</p>
+    ${bars}`);
+
+  const li = t => `<li style="${txt};margin:0 0 10px">${t}</li>`;
+  const homeworkCard = card(`
+    ${kicker('Pentru tema de acasă · Secțiunea 1 din blueprint')}
+    <p style="font-family:${MONO};font-size:16px;font-weight:700;color:#1a1a1a;margin:0 0 12px">Punctul de plecare</p>
+    <ol style="margin:0 0 6px;padding-left:20px">
+      ${li(`<strong style="color:#1a1a1a">Unde e funcția HR azi?</strong> Pornește de la scorul tău (${p.total} din 60, nivelul ${lvl.name}), de la dimensiunea cea mai puternică (${DIMS[p.strongest]}) și de la cea mai slabă (${weakName}).`)}
+      ${li(`<strong style="color:#1a1a1a">Ce ar schimba AI în mandatul HR la voi?</strong> Începe cu dimensiunea „${weakName}”.`)}
+      ${li(`<strong style="color:#1a1a1a">Unde vreți să ajungeți?</strong> ${nextLevel}`)}
+    </ol>
+    <p style="font-size:13px;color:#555555;line-height:1.65;margin:0">Scorul e punctul de plecare pentru curs, o auto-evaluare. În cadrul lecției 9 o să îl atașezi în dashboardul pentru board, alături de obiectivul pe 12 luni și KPIs care arată dacă vă apropiați de el.</p>`);
 
   return `
 <!DOCTYPE html>
@@ -81,29 +140,16 @@ function emailHtml(p) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="font-family:'Helvetica Neue',Arial,sans-serif;background:#f4f4f4;margin:0;padding:20px">
-  <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden">
-    <div style="padding:32px 40px 24px;border-bottom:1px solid #eee">
-      <p style="color:#7c3aed;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 10px">Future HR Leader · HR Maturity Assessment</p>
-      <h1 style="color:#111111;font-size:22px;font-weight:700;margin:0;line-height:1.3">Nivelul funcției HR: ${lvl.name} (${p.total} din 60)</h1>
-    </div>
-    <div style="padding:32px 40px">
-      <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 20px">${lvl.desc}</p>
-      <p style="font-size:12px;color:#7c3aed;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 4px">Profilul pe dimensiuni</p>
-      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 24px">${bars}</table>
-      <p style="font-size:12px;color:#7c3aed;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 8px">Pentru tema de acasă · Secțiunea 1 din blueprint</p>
-      <ol style="padding-left:20px;margin:0 0 20px">
-        <li style="font-size:15px;color:#444;line-height:1.7;margin-bottom:8px"><strong>Unde e funcția HR azi?</strong> Pornește de la scorul tău (${p.total} din 60, nivelul ${lvl.name}), de la dimensiunea cea mai puternică (${DIMS[p.strongest]}) și de la cea mai slabă (${weakName}).</li>
-        <li style="font-size:15px;color:#444;line-height:1.7;margin-bottom:8px"><strong>Ce ar schimba AI în mandatul HR la voi?</strong> Începe cu dimensiunea „${weakName}”.</li>
-        <li style="font-size:15px;color:#444;line-height:1.7;margin-bottom:8px"><strong>Unde vreți să ajungeți?</strong> ${nextLevel}</li>
-      </ol>
-      <p style="font-size:15px;color:#444;line-height:1.7;margin:0 0 16px">Păstrează emailul: scorul îl refolosești la Lecția 9, în dashboardul pentru board.</p>
-      <p style="font-size:14px;color:#333;font-weight:600;margin:24px 0 2px">Raluca Păduraru</p>
-      <p style="font-size:13px;color:#666;margin:0">Futures of Work Strategist</p>
-    </div>
-    <div style="background:#f9f9f9;padding:24px 40px;border-top:1px solid #eee">
-      <p style="font-size:12px;color:#888;line-height:1.6;margin:0">Ai primit acest email pentru că ai cerut profilul pe ralucapaduraru.ro/hr-maturity, în programul Future HR Leader (Basetolearn). Adresa ta nu a fost salvată și nu primești alte emailuri de la noi. Instrument adaptat după HR Automation Explorer 2030 (E. Corazzin).</p>
-    </div>
+<body style="font-family:'Barlow','Helvetica Neue',Arial,sans-serif;background:#f4f4f4;margin:0;padding:20px">
+  <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;padding:28px 24px">
+    <img src="https://www.ralucapaduraru.ro/images/logo.png" alt="Raluca Păduraru" height="28" style="height:28px;display:block">
+    <p style="font-size:13px;color:#777777;line-height:1.5;margin:8px 0 20px">HR Maturity Assessment · HR Management în era AI: transformare, oameni și automatizări · Basetolearn · ${date}</p>
+    ${levelCard}
+    ${dimsCard}
+    ${homeworkCard}
+    <p style="font-size:14px;color:#333333;font-weight:600;margin:20px 0 2px">Raluca Păduraru</p>
+    <p style="font-size:13px;color:#666666;margin:0 0 20px">Futures of Work Strategist</p>
+    <p style="font-size:12px;color:#888888;line-height:1.6;margin:0;border-top:1px solid #eeeeee;padding-top:16px">Ai primit acest email pentru că ai cerut profilul pe ralucapaduraru.ro/hr-maturity, în cursul HR Management în era AI: transformare, oameni și automatizări (Basetolearn). Adresa ta nu a fost salvată și nu primești alte emailuri de la noi. Instrument adaptat după HR Automation Explorer 2030 (E. Corazzin).</p>
   </div>
 </body>
 </html>`;
