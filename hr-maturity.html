@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>HR Maturity Assessment · Future HR Leader</title>
+  <meta name="description" content="Instrument de autoevaluare pentru participanții la programul Future HR Leader: unde e funcția HR azi, pe procese, date, competențe și cultură." />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" />
+
+  <!-- Cookiebot + GA -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+      ad_personalization: "denied", ad_storage: "denied",
+      ad_user_data: "denied", analytics_storage: "denied",
+      functionality_storage: "denied", personalization_storage: "denied",
+      security_storage: "granted", wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+  </script>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+  <script>
+    function updateGAConsent() {
+      if (typeof Cookiebot === 'undefined') return;
+      gtag('consent', 'update', {
+        ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+        functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+        personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+      });
+    }
+    window.addEventListener('CookiebotOnAccept', updateGAConsent, false);
+    window.addEventListener('CookiebotOnDecline', updateGAConsent, false);
+    window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M4ET119Z1X');
+  </script>
+
+  <style>
+    :root {
+      --bg: #0e0b1e;
+      --bg-mid: #160e35;
+      --card: rgba(255,255,255,0.045);
+      --border: rgba(167,139,250,0.14);
+      --lavender: #a78bfa;
+      --lavender-lt: #c4b5fd;
+      --lavender-dk: #7c3aed;
+      --text: #f1eefd;
+      --text-sec: rgba(241,238,253,0.58);
+      --text-muted: rgba(241,238,253,0.32);
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-body: 'Barlow', sans-serif;
+      --radius: 12px;
+      --transition: 0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 90% 55% at 50% -5%, #2d1569 0%, transparent 65%),
+        radial-gradient(ellipse 55% 35% at 95% 15%, rgba(109,40,217,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 25% at 5% 85%, rgba(91,33,182,0.12) 0%, transparent 55%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    h1, h2, h3 { font-family: var(--font-mono); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
+    h1 { font-size: clamp(1.7rem, 4vw, 2.6rem); }
+    h2 { font-size: clamp(1.25rem, 3vw, 1.7rem); }
+    h3 { font-size: clamp(1rem, 2vw, 1.15rem); }
+    p { color: var(--text-sec); margin: 0 0 1rem; }
+    .accent { color: var(--lavender-lt); }
+    .hidden { display: none !important; }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+    /* Header */
+    .top { padding: 1.5rem 0 1rem; }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .logo img { height: 34px; filter: brightness(0) invert(1); opacity: 0.88; display: block; }
+
+    .label {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.13em; text-transform: uppercase; color: var(--lavender);
+      padding: 0.28rem 0.75rem; border: 1px solid var(--border); border-radius: 100px;
+      background: rgba(167,139,250,0.06);
+    }
+    .label::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--lavender); box-shadow: 0 0 7px var(--lavender);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(1.5); } }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.74rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.8rem 1.4rem; border-radius: 6px; border: none; cursor: pointer;
+      text-decoration: none; position: relative; overflow: hidden; transition: all var(--transition);
+    }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); color: #fff;
+      border: 1px solid rgba(167,139,250,0.28);
+      box-shadow: 0 0 18px rgba(124,58,237,0.28), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .btn-primary::after {
+      content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 3px;
+      background: var(--lavender-lt); border-radius: 2px 0 0 2px; box-shadow: -3px 0 10px var(--lavender);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+      box-shadow: 0 0 28px rgba(124,58,237,0.45), inset 0 1px 0 rgba(255,255,255,0.1);
+      transform: translateY(-1px);
+    }
+    .btn-outline { background: transparent; color: var(--text-sec); border: 1px solid var(--border); }
+    .btn-outline:hover:not(:disabled) { border-color: rgba(167,139,250,0.32); color: var(--text); background: rgba(167,139,250,0.05); }
+
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+    }
+    .card-featured {
+      background: linear-gradient(145deg, rgba(124,58,237,0.14) 0%, rgba(167,139,250,0.06) 100%);
+      border-top: 2px solid var(--lavender);
+    }
+
+    main { padding: 1.5rem 0 4rem; }
+
+    /* Intro */
+    .intro h1 { margin: 1rem 0 1.25rem; }
+    .dims { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin: 1.5rem 0; }
+    .dim-chip {
+      font-family: var(--font-mono); font-size: 0.78rem; text-align: center;
+      padding: 0.9rem 0.5rem; border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--card); color: var(--lavender-lt);
+    }
+    .note { font-size: 0.86rem; color: var(--text-muted); border-left: 2px solid var(--border); padding-left: 0.9rem; margin: 1.5rem 0; }
+    .note strong { color: var(--text-sec); font-weight: 600; }
+
+    /* Quiz */
+    .progress-meta { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.6rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .progress-meta .dim-name { color: var(--lavender); }
+    .progress { height: 4px; background: rgba(167,139,250,0.12); border-radius: 4px; overflow: hidden; margin-bottom: 2rem; }
+    .progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--lavender-dk), var(--lavender)); box-shadow: 0 0 10px var(--lavender); transition: width 0.35s ease; }
+    .question h2 { margin-bottom: 1.5rem; }
+    .options { display: grid; gap: 0.75rem; }
+    .option {
+      display: block; width: 100%; text-align: left; cursor: pointer;
+      font-family: var(--font-body); font-size: 1rem; line-height: 1.5; color: var(--text);
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1rem 1.15rem; transition: all var(--transition);
+    }
+    .option:hover { background: rgba(167,139,250,0.07); border-color: rgba(167,139,250,0.32); }
+    .option.selected { background: rgba(124,58,237,0.2); border-color: var(--lavender); box-shadow: 0 0 16px rgba(124,58,237,0.25); }
+    .quiz-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.75rem; }
+
+    /* Results */
+    .results > * + * { margin-top: 1.25rem; }
+    .result-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+    .score-big { font-family: var(--font-mono); font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 700; color: var(--lavender-lt); line-height: 1; }
+    .score-big small { font-size: 0.4em; color: var(--text-muted); font-weight: 500; }
+    .level-name { font-family: var(--font-mono); font-size: clamp(1.3rem, 3.5vw, 1.9rem); font-weight: 700; margin-top: 0.4rem; }
+    .kicker { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender); margin-bottom: 0.4rem; }
+    .levels-scale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; margin-top: 1.25rem; }
+    .lvl { font-family: var(--font-mono); font-size: 0.66rem; text-align: center; padding: 0.45rem 0.25rem; border-radius: 6px; border: 1px solid var(--border); color: var(--text-muted); }
+    .lvl.on { color: #fff; border-color: var(--lavender); background: rgba(124,58,237,0.3); }
+    .lvl span { display: block; opacity: 0.8; }
+
+    .bars { display: grid; gap: 1rem; }
+    .bar-row .bar-label { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.82rem; margin-bottom: 0.35rem; }
+    .bar-row .bar-label .v { color: var(--lavender-lt); }
+    .bar-track { height: 12px; background: rgba(167,139,250,0.1); border-radius: 6px; overflow: hidden; }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, var(--lavender-dk), var(--lavender)); border-radius: 6px; box-shadow: 0 0 10px rgba(167,139,250,0.5); }
+    .bar-row.weak .bar-label span:first-child::after { content: '  · de lucrat'; color: var(--lavender); font-size: 0.72rem; }
+
+    .homework ol { margin: 0; padding-left: 1.2rem; }
+    .homework li { color: var(--text-sec); margin-bottom: 0.75rem; }
+    .homework li strong { color: var(--text); font-weight: 600; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .email-form { display: grid; gap: 0.75rem; margin-top: 1rem; }
+    .email-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .email-row input {
+      flex: 1 1 240px; min-width: 0; font-family: var(--font-body); font-size: 1rem;
+      padding: 0.75rem 0.9rem; border-radius: 6px; border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); color: var(--text);
+    }
+    .email-row input:focus { outline: none; border-color: var(--lavender); }
+    .form-msg { font-size: 0.9rem; margin: 0; }
+    .form-msg.ok { color: var(--lavender-lt); }
+    .form-msg.err { color: #fca5a5; }
+
+    details.answers summary { cursor: pointer; font-family: var(--font-mono); font-size: 0.82rem; color: var(--lavender); }
+    .answers-list { margin-top: 1rem; }
+    .answers-list h3 { margin: 1.1rem 0 0.5rem; color: var(--lavender-lt); font-size: 0.9rem; }
+    .answers-list p { font-size: 0.92rem; margin: 0 0 0.55rem; }
+    .answers-list p strong { color: var(--text); font-weight: 600; display: block; }
+
+    footer.credit { border-top: 1px solid var(--border); padding: 1.5rem 0 2.5rem; }
+    footer.credit p { font-size: 0.8rem; color: var(--text-muted); margin: 0 0 0.4rem; }
+    footer.credit a { color: var(--lavender); }
+
+    .print-only { display: none; }
+
+    @media (max-width: 560px) {
+      .dims { grid-template-columns: repeat(2, 1fr); }
+      .card { padding: 1.25rem; }
+      .quiz-nav .btn, .actions .btn { flex: 1 1 auto; }
+      .lvl { font-size: 0.58rem; }
+    }
+
+    /* Print: fundal alb, text negru, titluri lavandă */
+    @media print {
+      @page { size: A4 portrait; margin: 14mm; }
+      body { background: #fff !important; background-image: none !important; color: #1a1a1a; font-size: 12px; }
+      p, .homework li, .answers-list p { color: rgba(0,0,0,0.72) !important; }
+      .top, .intro, .quiz, .no-print, footer.credit .no-print { display: none !important; }
+      .logo img { filter: none; opacity: 1; }
+      .print-only { display: block; }
+      .card { background: #fff !important; border: 1px solid rgba(124,58,237,0.25) !important; box-shadow: none !important; padding: 12px 14px; break-inside: avoid; }
+      .card-featured { background: rgba(167,139,250,0.06) !important; border-top: 2px solid #7c3aed !important; }
+      .score-big, .bar-row .bar-label .v, .answers-list h3, .kicker, .accent { color: #7c3aed !important; }
+      .level-name, h1, h2, h3, .answers-list p strong, .homework li strong { color: #1a1a1a !important; }
+      .lvl { color: rgba(0,0,0,0.5); border-color: rgba(124,58,237,0.25); }
+      .lvl.on { background: #7c3aed !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .bar-track { background: rgba(124,58,237,0.1) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .bar-fill { background: #7c3aed !important; box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      details.answers > summary { display: none; }
+      details.answers .answers-list { display: block !important; }
+      footer.credit p { color: rgba(0,0,0,0.5); }
+      main { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="wrap">
+      <a href="/" class="logo" aria-label="Raluca Păduraru, pagina principală"><img src="/images/logo.png" alt="Raluca Păduraru" /></a>
+      <span class="label">Future HR Leader · Basetolearn</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <!-- Intro -->
+      <section class="intro" id="intro">
+        <span class="label">Lecția 1 · HR Maturity Assessment</span>
+        <h1>Unde e funcția HR <span class="accent">azi</span>?</h1>
+        <p>20 de întrebări scurte, pe patru dimensiuni. La final primești un scor, un nivel de maturitate și profilul funcției HR din organizația ta. Durează cam 12 minute.</p>
+        <div class="dims" aria-hidden="true">
+          <div class="dim-chip">Procese</div>
+          <div class="dim-chip">Date</div>
+          <div class="dim-chip">Competențe</div>
+          <div class="dim-chip">Cultură</div>
+        </div>
+        <p>Răspunde pentru funcția HR din organizația ta, așa cum e azi, nu cum ar trebui să fie. Dacă ești între două variante, alege-o pe cea mai conservatoare. Nu există răspunsuri bune sau rele: e fotografia punctului de plecare.</p>
+        <p class="note"><strong>Confidențialitate.</strong> Răspunsurile tale nu se salvează nicăieri. Profilul se calculează pe dispozitivul tău. Pleacă de aici doar dacă ceri să-l primești pe email, și doar la adresa ta.</p>
+        <button class="btn btn-primary" id="start-btn" type="button">Începe</button>
+      </section>
+
+      <!-- Quiz -->
+      <section class="quiz hidden" id="quiz" aria-live="polite">
+        <div class="progress-meta">
+          <span class="dim-name" id="q-dim"></span>
+          <span id="q-count"></span>
+        </div>
+        <div class="progress"><div class="progress-bar" id="q-bar"></div></div>
+        <div class="question">
+          <h2 id="q-text"></h2>
+          <div class="options" id="q-options" role="radiogroup"></div>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn-outline" id="back-btn" type="button">Înapoi</button>
+          <button class="btn btn-primary" id="next-btn" type="button" disabled>Mai departe</button>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="results hidden" id="results">
+        <div class="print-only">
+          <img src="/images/logo.png" alt="Raluca Păduraru" style="height:28px" />
+          <p style="margin-top:8px">HR Maturity Assessment · Future HR Leader · Basetolearn · <span id="print-date"></span></p>
+        </div>
+
+        <div class="card card-featured">
+          <div class="result-head">
+            <div>
+              <div class="kicker">Nivelul funcției HR</div>
+              <div class="level-name" id="r-level"></div>
+            </div>
+            <div class="score-big"><span id="r-score"></span><small> / 60</small></div>
+          </div>
+          <div class="levels-scale" id="r-scale"></div>
+          <p style="margin-top:1.25rem;margin-bottom:0" id="r-desc"></p>
+        </div>
+
+        <div class="card">
+          <div class="kicker">Profilul pe dimensiuni</div>
+          <p style="font-size:0.9rem">Fiecare dimensiune are maximum 15 puncte. Cele două cele mai slabe sunt marcate.</p>
+          <div class="bars" id="r-bars"></div>
+        </div>
+
+        <div class="card homework">
+          <div class="kicker">Pentru tema de acasă · Secțiunea 1 din blueprint</div>
+          <h3 style="margin-bottom:1rem">Punctul de plecare</h3>
+          <ol id="r-homework"></ol>
+          <p style="font-size:0.88rem;margin:0">Scorul îl refolosești la Lecția 9, în dashboardul pentru board. Salvează-l.</p>
+        </div>
+
+        <div class="card no-print">
+          <div class="kicker">Păstrează profilul</div>
+          <div class="actions">
+            <button class="btn btn-primary" id="print-btn" type="button">Salvează ca PDF</button>
+            <button class="btn btn-outline" id="restart-btn" type="button">Reia de la început</button>
+          </div>
+          <form class="email-form" id="email-form" novalidate>
+            <p style="margin:0.5rem 0 0">Sau primește profilul pe email. Adresa se folosește doar pentru trimiterea asta și nu se păstrează.</p>
+            <div class="email-row">
+              <input type="email" id="email" name="email" placeholder="adresa ta de email" autocomplete="email" required />
+              <button class="btn btn-primary" id="email-btn" type="submit">Trimite-mi profilul</button>
+            </div>
+            <div id="cf-ts"></div>
+            <p class="form-msg hidden" id="email-msg" role="status"></p>
+          </form>
+        </div>
+
+        <div class="card">
+          <details class="answers">
+            <summary>Răspunsurile tale</summary>
+            <div class="answers-list" id="r-answers"></div>
+          </details>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="credit">
+    <div class="wrap">
+      <p>Instrument construit de Raluca Păduraru pentru programul Future HR Leader (Basetolearn). Adaptat după HR Automation Explorer 2030 (E. Corazzin).</p>
+      <p class="no-print"><a href="/privacy.html">Politica de confidențialitate</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const API_BASE = '/api';
+
+    const DIMS = ['Procese', 'Date', 'Competențe', 'Cultură'];
+
+    // Variantele sunt ordonate aici după scor (0-3); pe pagină apar amestecate.
+    const QUESTIONS = [
+      { id: 'P1', dim: 0, text: "Cum ajung candidații de la aplicare la interviu?", options: [
+        "Citim fiecare CV manual, fără criterii scrise, cum apucă fiecare recrutor.",
+        "Folosim un ATS care filtrează automat CV-urile după cuvinte-cheie.",
+        "Un instrument AI ordonează candidații după criterii scrise de noi.",
+        "AI-ul face triajul pe criterii verificate pentru bias. Decide un om." ] },
+      { id: 'P2', dim: 0, text: "Cum primesc angajații răspuns la întrebările de HR (concedii, adeverințe, beneficii)?", options: [
+        "Pe email sau la biroul HR, fiecare întrebare rezolvată manual, pe rând.",
+        "Avem un intranet sau o pagină cu întrebări frecvente, actualizată ocazional.",
+        "Un asistent AI răspunde la întrebările comune ale angajaților.",
+        "Un asistent AI răspunde, iar cazurile sensibile ajung automat la HR." ] },
+      { id: 'P3', dim: 0, text: "Cât din timpul echipei HR se duce pe muncă administrativă?", options: [
+        "Aproape tot. Pentru munca strategică nu mai rămâne timp deloc.",
+        "Majoritatea. Munca strategică se face doar când apucăm.",
+        "Cam jumătate, și știm asta pentru că am măsurat.",
+        "Sub o treime. Timpul câștigat merge pe muncă strategică." ] },
+      { id: 'P4', dim: 0, text: "Cum se schimbă rolul oamenilor din HR odată cu AI?", options: [
+        "Nu s-a schimbat nimic. Oamenii fac aceleași lucruri ca înainte.",
+        "Au apărut sarcini noi, puse peste cele vechi, fără să plece nimic.",
+        "O parte din rutină a trecut la AI, iar timpul merge spre consiliere.",
+        "Am redesenat rolurile: ce face AI, ce face omul, ce fac împreună." ] },
+      { id: 'P5', dim: 0, text: "Cum se face evaluarea performanței?", options: [
+        "O dată pe an, cu un calificativ dat de manager din memorie.",
+        "De două ori pe an, pe baza unor obiective scrise dinainte.",
+        "Obiectivele se urmăresc tot timpul, iar datele se adună automat.",
+        "Feedback continuu, sintetizat cu AI. Evaluarea și decizia rămân la manager." ] },
+      { id: 'D1', dim: 1, text: "Unde stau datele despre oameni?", options: [
+        "În fișiere Excel separate, împrăștiate pe la fiecare om din echipă.",
+        "Într-un sistem de HR, dar le completăm și le extragem manual.",
+        "Într-un sistem integrat, cu rapoarte care se generează singure.",
+        "Într-un sistem integrat, cu reguli despre ce date intră în AI." ] },
+      { id: 'D2', dim: 1, text: "Cât de mult ajută datele la deciziile despre oameni?", options: [
+        "Doar numărăm oamenii, atunci când ni se cere o cifră anume.",
+        "Avem rapoarte standard (fluctuație, absenteism), dar le citim rar.",
+        "Folosim datele ca să înțelegem de ce s-a întâmplat ceva.",
+        "Folosim datele ca să anticipăm. Decizia finală rămâne la un om." ] },
+      { id: 'D3', dim: 1, text: "Pe ce orizont planificați forța de muncă?", options: [
+        "Reactiv: angajăm pe cineva abia când pleacă altcineva.",
+        "O dată pe an, odată cu bugetul, pentru anul următor.",
+        "Avem o hartă a competențelor necesare în următorii 2 ani.",
+        "Un plan pe 3-5 ani, cu mai multe scenarii de viitor." ] },
+      { id: 'D4', dim: 1, text: "Dacă scoți aceeași cifră din sisteme diferite (HRIS, ERP, BI, Excel), iese la fel?", options: [
+        "Nu. Fiecare sistem dă altă cifră și nu știm care e corectă.",
+        "Uneori da, alteori nu. Potrivim cifrele de mână înainte de raport.",
+        "De obicei da. Știm ce sistem e sursa oficială pentru fiecare dată.",
+        "Da. Avem o singură sursă oficială, cu un om responsabil de ea." ] },
+      { id: 'D5', dim: 1, text: "Poți pune datele despre oameni lângă datele de business (vânzări, producție, costuri)?", options: [
+        "Nu. Datele de oameni și cele de business sunt în lumi separate.",
+        "Doar manual, cu mult efort, pentru rapoarte ocazionale.",
+        "Da, în câteva rapoarte care se repetă periodic.",
+        "Da, sistematic. Datele despre oameni intră în deciziile de business." ] },
+      { id: 'C1', dim: 2, text: "Cum folosește echipa HR AI-ul generativ (ChatGPT, Copilot, Gemini, Claude)?", options: [
+        "Deloc, sau nu știm dacă și cum îl folosește cineva.",
+        "Câțiva colegi îl încearcă, fiecare pe cont propriu și cum știe.",
+        "Îl folosim regulat pe câteva sarcini: anunțuri, comunicări, rezumate.",
+        "Îl folosim în majoritatea proceselor, cu reguli și verificare umană." ] },
+      { id: 'C2', dim: 2, text: "Cum învață echipa HR să lucreze cu AI și cu date?", options: [
+        "Nu există nimic organizat. Fiecare învață singur, dacă are timp.",
+        "Prin workshopuri ocazionale, atunci când apare o ocazie sau un buget.",
+        "Printr-un program structurat, pentru toată echipa de HR.",
+        "Program structurat, plus oameni dedicați pe analiza datelor și pe AI." ] },
+      { id: 'C3', dim: 2, text: "Apar competențele de lucru cu AI în fișele de post și în evaluări?", options: [
+        "Nu. Nu apar nici în fișele de post, nici în evaluări.",
+        "Am discutat despre asta, dar nu apar încă nicăieri.",
+        "Apar în fișele de post pentru câteva roluri.",
+        "Apar în fișe și în evaluări, iar oamenii sunt sprijiniți." ] },
+      { id: 'C4', dim: 2, text: "Se rescriu responsabilitățile rolurilor pe măsură ce AI preia o parte din muncă?", options: [
+        "Nu. Fișele de post rămân exact cum au fost scrise.",
+        "Se actualizează doar la angajări noi sau la reorganizări.",
+        "Am început să rescriem câteva roluri, pornind de la sarcinile trecute la AI.",
+        "Regulat: HR și managerii văd ce sarcini se schimbă și rescriu rolurile." ] },
+      { id: 'C5', dim: 2, text: "Ce fel de training despre lucrul cu AI au primit angajații?", options: [
+        "Niciunul. Nu s-a organizat nimic pe tema asta până acum.",
+        "Webinarii sau prezentări generale despre ce este AI.",
+        "Training practic, pe sarcini reale, pentru câteva echipe.",
+        "Training practic pe roluri, pentru toată organizația, cu sprijin după." ] },
+      { id: 'K1', dim: 3, text: "Există reguli clare despre cum se folosește AI în organizație?", options: [
+        "Nu există reguli. Fiecare face cum crede de cuviință.",
+        "Există o interdicție generală sau un email de avertizare trimis tuturor.",
+        "Există o politică scrisă, dar puțini oameni o cunosc.",
+        "Reguli pe tipuri de muncă: liber, doar ca sprijin sau interzis." ] },
+      { id: 'K2', dim: 3, text: "Cât de deschis vorbesc oamenii despre folosirea AI la muncă?", options: [
+        "AI-ul se folosește pe ascuns sau nu se vorbește deloc despre el.",
+        "Se vorbește, dar mai mult cu teamă: de greșeli, de pierderea jobului.",
+        "Oamenii își spun deschis ce folosesc și cum îl folosesc.",
+        "Oamenii își spun ce a mers și ce nu. Managerii dau exemplul." ] },
+      { id: 'K3', dim: 3, text: "Când se schimbă felul în care se lucrează, cine e implicat?", options: [
+        "Schimbarea se anunță de sus, fără nicio explicație.",
+        "Schimbarea se anunță și se explică de ce e nevoie de ea.",
+        "Oamenii afectați sunt consultați înainte de schimbare.",
+        "Oamenii afectați proiectează schimbarea împreună cu HR și managerii." ] },
+      { id: 'K4', dim: 3, text: "Există un owner pentru transformarea cu AI?", options: [
+        "Nu. Fiecare departament face ce crede el de cuviință, separat.",
+        "Se ocupă IT-ul, mai ales de unelte și de securitate.",
+        "Există un owner numit, dar fără buget sau fără un mandat clar.",
+        "Un owner cu mandat și buget, care lucrează cu HR, IT și business." ] },
+      { id: 'K5', dim: 3, text: "Ce licențe de lucru cu AI a cumpărat organizația?", options: [
+        "Niciuna. Cine folosește AI o face de pe contul personal.",
+        "Câteva licențe, date doar câtorva oameni, de obicei la cerere.",
+        "Licențe pentru echipe întregi, dar puțini le folosesc regulat.",
+        "Licențe pentru cine are nevoie, cu folosirea urmărită și sprijinită." ] },
+    ];
+
+    const LEVELS = [
+      { name: 'Administrativ', min: 0, max: 19, desc: 'Funcția HR e în mare parte manuală și tranzacțională. Timpul se duce pe operațiuni, iar AI-ul nu are încă pe ce să se sprijine: date, reguli, competențe.' },
+      { name: 'Experimental', min: 20, max: 37, desc: 'Există încercări, dar inegale: câțiva oameni, câteva procese. Primul câștig vine din a pune ordine în date și în reguli, înainte de unelte noi.' },
+      { name: 'Structurat', min: 38, max: 49, desc: 'Peste medie. AI-ul e folosit cu reguli pe câteva procese. Miza e să treci de la sarcini izolate la procese reproiectate.' },
+      { name: 'Integrat', min: 50, max: 60, desc: 'La frontieră. AI-ul e parte din felul în care lucrează funcția, cu oameni în buclă. Miza devine guvernanța și rolul HR ca funcție care proiectează organizația.' },
+    ];
+
+    function shuffle(arr) {
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    // Ordinea amestecată se fixează o dată pe încărcare, ca „Înapoi" să arate aceeași ordine.
+    let order = QUESTIONS.map(q => shuffle([0, 1, 2, 3]));
+    let answers = new Array(QUESTIONS.length).fill(null);
+    let current = 0;
+
+    const $ = id => document.getElementById(id);
+
+    function show(section) {
+      ['intro', 'quiz', 'results'].forEach(s => $(s).classList.toggle('hidden', s !== section));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderQuestion() {
+      const q = QUESTIONS[current];
+      $('q-dim').textContent = DIMS[q.dim];
+      $('q-count').textContent = 'Întrebarea ' + (current + 1) + ' din ' + QUESTIONS.length;
+      $('q-bar').style.width = (current / QUESTIONS.length * 100) + '%';
+      $('q-text').textContent = q.text;
+      const box = $('q-options');
+      box.innerHTML = '';
+      order[current].forEach(score => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'option' + (answers[current] === score ? ' selected' : '');
+        b.setAttribute('role', 'radio');
+        b.setAttribute('aria-checked', answers[current] === score ? 'true' : 'false');
+        b.textContent = q.options[score];
+        b.addEventListener('click', () => select(score));
+        box.appendChild(b);
+      });
+      $('back-btn').style.visibility = current === 0 ? 'hidden' : 'visible';
+      $('next-btn').disabled = answers[current] === null;
+      $('next-btn').textContent = current === QUESTIONS.length - 1 ? 'Vezi profilul' : 'Mai departe';
+    }
+
+    function select(score) {
+      answers[current] = score;
+      renderQuestion();
+      // Trecere automată la următoarea întrebare, după o pauză scurtă ca alegerea să se vadă.
+      setTimeout(() => { if (answers[current] === score) next(); }, 350);
+    }
+
+    function next() {
+      if (answers[current] === null) return;
+      if (current < QUESTIONS.length - 1) { current++; renderQuestion(); }
+      else { renderResults(); show('results'); }
+    }
+
+    function levelFor(total) { return LEVELS.findIndex(l => total >= l.min && total <= l.max); }
+
+    function computeProfile() {
+      const dimScores = [0, 0, 0, 0];
+      QUESTIONS.forEach((q, i) => { dimScores[q.dim] += answers[i]; });
+      const total = dimScores.reduce((a, b) => a + b, 0);
+      const ranked = dimScores.map((s, i) => ({ s, i })).sort((a, b) => a.s - b.s || a.i - b.i);
+      const weakest = ranked.slice(0, 2).map(r => r.i);
+      const strongest = ranked[ranked.length - 1].i;
+      return { dimScores, total, level: levelFor(total), weakest, strongest };
+    }
+
+    function renderResults() {
+      const p = computeProfile();
+      const lvl = LEVELS[p.level];
+      $('r-score').textContent = p.total;
+      $('r-level').textContent = lvl.name;
+      $('r-desc').textContent = lvl.desc;
+      $('print-date').textContent = new Date().toLocaleDateString('ro-RO');
+
+      $('r-scale').innerHTML = LEVELS.map((l, i) =>
+        '<div class="lvl' + (i === p.level ? ' on' : '') + '">' + l.name + '<span>' + l.min + '-' + l.max + '</span></div>'
+      ).join('');
+
+      $('r-bars').innerHTML = DIMS.map((d, i) =>
+        '<div class="bar-row' + (p.weakest.includes(i) ? ' weak' : '') + '">' +
+          '<div class="bar-label"><span>' + d + '</span><span class="v">' + p.dimScores[i] + ' / 15</span></div>' +
+          '<div class="bar-track"><div class="bar-fill" style="width:' + (p.dimScores[i] / 15 * 100) + '%"></div></div>' +
+        '</div>'
+      ).join('');
+
+      const weakName = DIMS[p.weakest[0]];
+      const nextLevel = p.level < LEVELS.length - 1
+        ? 'Ce ar trebui să fie adevărat peste 12 luni ca să ajungeți la nivelul următor, <strong>' + LEVELS[p.level + 1].name + '</strong>?'
+        : 'Ce ar trebui să fie adevărat peste 12 luni ca să rămâneți la nivelul <strong>Integrat</strong> pe măsură ce AI avansează?';
+      $('r-homework').innerHTML = [
+        '<strong>Unde e funcția HR azi?</strong> Pornește de la scorul tău (' + p.total + ' din 60, nivelul ' + lvl.name + '), de la dimensiunea cea mai puternică (' + DIMS[p.strongest] + ') și de la cea mai slabă (' + weakName + ').',
+        '<strong>Ce ar schimba AI în mandatul HR la voi?</strong> Începe cu dimensiunea „' + weakName + '”.',
+        '<strong>Unde vreți să ajungeți?</strong> ' + nextLevel,
+      ].map(t => '<li>' + t + '</li>').join('');
+
+      $('r-answers').innerHTML = DIMS.map((d, di) =>
+        '<h3>' + d + '</h3>' +
+        QUESTIONS.map((q, qi) => q.dim !== di ? '' :
+          '<p><strong>' + q.text + '</strong>' + q.options[answers[qi]] + ' (' + answers[qi] + ' / 3)</p>'
+        ).join('')
+      ).join('');
+
+      if (typeof gtag === 'function') gtag('event', 'hr_maturity_complete', { event_category: 'tool', event_label: 'future_hr_leader' });
+    }
+
+    $('start-btn').addEventListener('click', () => { current = 0; renderQuestion(); show('quiz'); });
+    $('back-btn').addEventListener('click', () => { if (current > 0) { current--; renderQuestion(); } });
+    $('next-btn').addEventListener('click', next);
+    $('print-btn').addEventListener('click', () => window.print());
+    // Lista de răspunsuri trebuie să apară în PDF chiar dacă e strânsă pe ecran.
+    let answersWasOpen = false;
+    window.addEventListener('beforeprint', () => { const d = document.querySelector('details.answers'); answersWasOpen = d.open; d.open = true; });
+    window.addEventListener('afterprint', () => { document.querySelector('details.answers').open = answersWasOpen; });
+    $('restart-btn').addEventListener('click', () => {
+      order = QUESTIONS.map(q => shuffle([0, 1, 2, 3]));
+      answers = new Array(QUESTIONS.length).fill(null);
+      current = 0;
+      renderQuestion();
+      show('quiz');
+    });
+
+    $('email-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const email = $('email').value.trim();
+      const btn = $('email-btn');
+      const msg = $('email-msg');
+      const say = (text, cls) => { msg.textContent = text; msg.className = 'form-msg ' + cls; };
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say('Verifică adresa de email.', 'err'); return; }
+      const cfToken = (window.turnstile && tsId !== null) ? turnstile.getResponse(tsId) : '';
+      if (!cfToken) { say('Se încarcă verificarea de securitate. Mai încearcă o dată în câteva secunde.', 'err'); return; }
+      btn.disabled = true;
+      btn.textContent = 'Se trimite...';
+      try {
+        const res = await fetch(API_BASE + '/send-profile', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, scores: answers, cfToken })
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.message || 'Eroare');
+        say('Profilul a plecat. Verifică și folderul de spam.', 'ok');
+        btn.textContent = 'Trimis';
+        if (typeof gtag === 'function') gtag('event', 'hr_maturity_email', { event_category: 'tool', event_label: 'future_hr_leader' });
+      } catch (err) {
+        say('Ceva nu a mers. Salvează profilul ca PDF sau încearcă din nou.', 'err');
+        btn.disabled = false;
+        btn.textContent = 'Trimite-mi profilul';
+      } finally {
+        if (window.turnstile && tsId !== null) turnstile.reset(tsId);
+      }
+    });
+  </script>
+
+  <script>
+    var tsId = null;
+    function onTurnstileLoad() {
+      tsId = turnstile.render('#cf-ts', {
+        sitekey: '0x4AAAAAAE_AsNly5RaCiPvl',
+        action: 'hr_maturity'
+      });
+    }
+  </script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit"
+          async defer data-cookieconsent="ignore"></script>
+
+</body>
+</html>

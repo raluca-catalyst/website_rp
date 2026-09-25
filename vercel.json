@@ -27,7 +27,8 @@
     { "source": "/feedback-materiale", "destination": "/feedback-materiale.html" },
     { "source": "/people-architects", "destination": "/people-architects.html" },
     { "source": "/people-architects-materiale", "destination": "/people-architects-materiale.html" },
-    { "source": "/ghid-adoptie", "destination": "/ghid-adoptie.html" }
+    { "source": "/ghid-adoptie", "destination": "/ghid-adoptie.html" },
+    { "source": "/hr-maturity", "destination": "/hr-maturity.html" }
   ],
   "headers": [
     {
