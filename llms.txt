@@ -1,14 +1,14 @@
 # Raluca Păduraru — ralucapaduraru.ro
 
-> Raluca Păduraru este AI Strategist, Certified Foresight Practitioner și co-fondatoare Upvance Global. Transformă echipele non-tehnice în AI Business Translators — oameni care capătă AI agency, înțeleg problemele de business, le rezolvă cu ajutorul AI și construiesc sisteme care rămân în organizație. Livrează workshopuri pentru organizații cu 50–500 de angajați.
+> Raluca Păduraru este Futures of Work Strategist, Certified Foresight Practitioner și co-fondatoare Upvance Global. Transformă echipele non-tehnice în AI Business Translators — oameni care capătă AI agency, înțeleg problemele de business, le rezolvă cu ajutorul AI și construiesc sisteme care rămân în organizație. Livrează workshopuri pentru organizații cu 50–500 de angajați.
 
 ## Cine este Raluca
 
-Raluca Păduraru este educator de AI fluency și consultant independent (Upvance Global). Transformă echipele non-tehnice în AI Business Translators: oameni cu AI agency — discernământ și capacitate de acțiune — care înțeleg probleme de business, le rezolvă cu ajutorul AI și construiesc sisteme sustenabile în organizație. Specializată în: workshopuri de adopție AI, frameworks de prompting și guvernanță AI, foresight strategic.
+Raluca Păduraru este Futures of Work Strategist și consultant independent (Upvance Global). Transformă echipele non-tehnice în AI Business Translators: oameni cu AI agency — discernământ și capacitate de acțiune — care înțeleg probleme de business, le rezolvă cu ajutorul AI și construiesc sisteme sustenabile în organizație. Specializată în: workshopuri de adopție AI, frameworks de prompting și guvernanță AI, foresight strategic.
 
 ## Pagini principale
 
-- [Despre Raluca](https://www.ralucapaduraru.ro/about.html) — Parcurs, expertiză și abordare: AI Strategist și Foresight Practitioner pentru echipe non-tehnice
+- [Despre Raluca](https://www.ralucapaduraru.ro/about.html) — Parcurs, expertiză și abordare: Futures of Work Strategist și Certified Foresight Practitioner pentru echipe non-tehnice
 - [Framework-uri AI](https://www.ralucapaduraru.ro/frameworks/) — Instrumente testate de AI fluency: 4D, M.O.D.E.L., F.O.R.C.E. și altele
 - [Impact & Comunitate](https://www.ralucapaduraru.ro/impact.html) — Rezultate, comunitate și inițiative din jurul adopției AI în România
 - [Întrebări frecvente (FAQ)](https://www.ralucapaduraru.ro/faq.html) — Răspunsuri despre workshopuri, training AI, foresight și colaborare
@@ -27,18 +27,20 @@ Raluca Păduraru este educator de AI fluency și consultant independent (Upvance
 
 ## Resurse
 
+- [Ghid de adopție AI: primele 90 de zile](https://www.ralucapaduraru.ro/ghid-adoptie) — Ghid practic și gratuit pentru cine a primit mandatul să se ocupe de AI în organizație: mandatul, echipa, regulile, primul pilot, măsurarea și raportul către conducere. 77 de pagini, 10 capitole, 9 fișe de lucru, un exemplu practic urmărit prin tot ghidul
 - [Romanian State of AI 2026](https://www.ralucapaduraru.ro/romanian-state-of-ai/) — Al doilea an de măsurare a maturității AI în organizațiile din România: 514 respondenți, comparație cu 2025, raport complet cu distribuții deschise
 - [30 de date verificate despre AI și muncă](https://www.ralucapaduraru.ro/resources/30-cifre-ai-munca/) — 30 de cifre despre inteligența artificială și muncă, fiecare cu sursa originală și cu capcana de citire; plus 6 cifre celebre demontate la sursă
 - [Blueprint AI Fluency](https://www.ralucapaduraru.ro/resources/blueprint-ai-fluency/) — Ghid practic pentru organizații care vor să construiască AI fluency intern
 - [AI Evolution Arc](https://www.ralucapaduraru.ro/resources/ai-evolution-arc/) — Hartă a evoluției AI și impactul asupra muncii
 - [EU AI Act Compliance Checklist](https://www.ralucapaduraru.ro/resources/eu-ai-act-checklist/) — Checklist de conformitate la Regulamentul UE 2024/1689 pentru organizații care folosesc sisteme AI
-- [Viitoruri 2030](https://www.ralucapaduraru.ro/viitoruri.html) — Raport de foresight: patru scenarii pentru viitorul muncii în România
+- [Viitoruri 2030](https://www.ralucapaduraru.ro/viitoruri) — Raport de foresight: patru scenarii pentru viitorul muncii în România
 
 ## Programe & produse
 
 - [AI Agency for Leaders](https://www.ralucapaduraru.ro/#services) — Program pentru echipe de leadership: diagnostic de maturitate AI, roadmap strategic și plan de acțiune pe 90 de zile. Keynote 1 - 2 ore sau laborator de 4 ore - 1 zi.
 - [AI Agency for Teams](https://www.ralucapaduraru.ro/#services) — Training AI pe rol, cu framework-urile 4D, M.O.D.E.L. și F.O.R.C.E., configurabil de la 4 ore la 2 zile. Conform EU AI Act.
 - [Futures of Work Lab](https://www.ralucapaduraru.ro/#services) — Laborator de foresight pentru echipe de leadership: scenarii de viitor, semnale slabe și playbook strategic, facilitat de un Certified Foresight Practitioner (TFSX).
+- [Build Your Cortex](https://www.ralucapaduraru.ro/build-your-cortex) — Workshop de o zi în care îți construiești un sistem AI personal care te cunoaște și lucrează cu tine ca să livreze rezultate. Ediția a doua: 16 octombrie 2026, Nagarro Orhideea Towers, București, 20 de locuri, 1.197 RON.
 - [Mentorat AI 1:1 — Sistemul tău de lucru cu AI](https://www.ralucapaduraru.ro/mentorat-ai) — Mentorat 1:1 online, 3 sesiuni de 90 de minute, pentru manageri și antreprenori non-tehnici. Diagnostic, construcție, consolidare: pleci cu un sistem personal de lucru cu AI, construit pe cazurile tale. Ediție back to school, toamna 2026: pachetul de 3 sesiuni e epuizat, sesiunea individuală (1.310 RON) rămâne disponibilă.
 
 ## Articole (Reflecții)
@@ -56,4 +58,4 @@ Raluca Păduraru este educator de AI fluency și consultant independent (Upvance
 - LinkedIn: https://www.linkedin.com/in/paduraru-raluca/
 - Newsletter: https://www.ralucapaduraru.ro/reflectii.html
 - Booking: https://calendar.app.google/97NFSpQYzKkJmkuL9
-- Contact: https://www.ralucapaduraru.ro/contact.html
+- Contact: https://www.ralucapaduraru.ro/contact

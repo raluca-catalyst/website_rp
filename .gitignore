@@ -5,8 +5,7 @@ package.json
 # Notițe de lucru — nu se publică niciodată
 .superpowers/
 docs/
-SEO-ACTION-PLAN.md
-SEO-AUDIT-REPORT.md
+SEO-*.md
 
 .vercel
 .env*
