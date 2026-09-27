@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>HR Transformation Blueprint · HR Management în era AI</title>
+  <meta name="description" content="Proiectul final al cursului HR Management în era AI: transformare, oameni și automatizări. Planul de transformare a funcției HR, construit secțiune cu secțiune." />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" />
+
+  <!-- Cookiebot + GA -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+      ad_personalization: "denied", ad_storage: "denied",
+      ad_user_data: "denied", analytics_storage: "denied",
+      functionality_storage: "denied", personalization_storage: "denied",
+      security_storage: "granted", wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+  </script>
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+  <script>
+    function updateGAConsent() {
+      if (typeof Cookiebot === 'undefined') return;
+      gtag('consent', 'update', {
+        ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+        analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+        functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+        personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+      });
+    }
+    window.addEventListener('CookiebotOnAccept', updateGAConsent, false);
+    window.addEventListener('CookiebotOnDecline', updateGAConsent, false);
+    window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-M4ET119Z1X');
+  </script>
+
+  <style>
+    :root {
+      --bg: #0e0b1e;
+      --bg-mid: #160e35;
+      --card: rgba(255,255,255,0.045);
+      --border: rgba(167,139,250,0.14);
+      --lavender: #a78bfa;
+      --lavender-lt: #c4b5fd;
+      --lavender-dk: #7c3aed;
+      --text: #f1eefd;
+      --text-sec: rgba(241,238,253,0.58);
+      --text-muted: rgba(241,238,253,0.32);
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-body: 'Barlow', sans-serif;
+      --radius: 12px;
+      --transition: 0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 90% 55% at 50% -5%, #2d1569 0%, transparent 65%),
+        radial-gradient(ellipse 55% 35% at 95% 15%, rgba(109,40,217,0.18) 0%, transparent 55%),
+        radial-gradient(ellipse 45% 25% at 5% 85%, rgba(91,33,182,0.12) 0%, transparent 55%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    h1, h2, h3 { font-family: var(--font-mono); font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin: 0; }
+    h1 { font-size: clamp(1.7rem, 4vw, 2.6rem); }
+    h2 { font-size: clamp(1.1rem, 2.6vw, 1.35rem); }
+    h3 { font-size: clamp(1rem, 2vw, 1.15rem); }
+    p { color: var(--text-sec); margin: 0 0 1rem; }
+    .accent { color: var(--lavender-lt); }
+    .brand-lc { text-transform: none; }
+    .hidden { display: none !important; }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+
+    /* Header */
+    .top { padding: 1.5rem 0 1rem; }
+    .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .logo img { height: 34px; filter: brightness(0) invert(1); opacity: 0.88; display: block; }
+    .logos { display: flex; align-items: center; gap: 1rem; }
+    .logo-sep { width: 1px; height: 30px; background: var(--border); }
+    .partner-logo { height: 44px; width: auto; filter: brightness(0) invert(1); opacity: 0.88; display: block; }
+
+    .label {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500;
+      letter-spacing: 0.13em; text-transform: uppercase; color: var(--lavender);
+      padding: 0.28rem 0.75rem; border: 1px solid var(--border); border-radius: 100px;
+      background: rgba(167,139,250,0.06);
+    }
+    .label::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--lavender); box-shadow: 0 0 7px var(--lavender);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.45; transform: scale(1.5); } }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-size: 0.74rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.8rem 1.4rem; border-radius: 6px; border: none; cursor: pointer;
+      text-decoration: none; position: relative; overflow: hidden; transition: all var(--transition);
+    }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+    .btn-primary {
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); color: #fff;
+      border: 1px solid rgba(167,139,250,0.28);
+      box-shadow: 0 0 18px rgba(124,58,237,0.28), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .btn-primary::after {
+      content: ''; position: absolute; right: 0; top: 20%; height: 60%; width: 3px;
+      background: var(--lavender-lt); border-radius: 2px 0 0 2px; box-shadow: -3px 0 10px var(--lavender);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+      box-shadow: 0 0 28px rgba(124,58,237,0.45), inset 0 1px 0 rgba(255,255,255,0.1);
+      transform: translateY(-1px);
+    }
+    .btn-outline { background: transparent; color: var(--text-sec); border: 1px solid var(--border); }
+    .btn-outline:hover:not(:disabled) { border-color: rgba(167,139,250,0.32); color: var(--text); background: rgba(167,139,250,0.05); }
+
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem;
+    }
+    .card-featured {
+      background: linear-gradient(145deg, rgba(124,58,237,0.14) 0%, rgba(167,139,250,0.06) 100%);
+      border-top: 2px solid var(--lavender);
+    }
+
+    main { padding: 1.5rem 0 4rem; }
+    main .wrap > * + * { margin-top: 1.25rem; }
+
+    .kicker { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender); margin-bottom: 0.4rem; }
+    .note { font-size: 0.86rem; color: var(--text-muted); border-left: 2px solid var(--border); padding-left: 0.9rem; margin: 1rem 0 0; }
+    .note strong { color: var(--text-sec); font-weight: 600; }
+
+    /* Intro */
+    .intro h1 { margin: 1rem 0 0.6rem; }
+    .subtitle { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-sec); margin-bottom: 1.5rem; }
+    .field-label { display: block; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lavender); margin-bottom: 0.4rem; }
+    input[type="text"], input[type="number"], textarea {
+      width: 100%; font-family: var(--font-body); font-size: 1rem; line-height: 1.55;
+      padding: 0.75rem 0.9rem; border-radius: 6px; border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04); color: var(--text);
+    }
+    input:focus, textarea:focus { outline: none; border-color: var(--lavender); box-shadow: 0 0 0 3px rgba(167,139,250,0.12); }
+    textarea { min-height: 7.5rem; resize: vertical; overflow: hidden; }
+    ::placeholder { color: var(--text-muted); }
+
+    .warning { border: 1px solid rgba(167,139,250,0.45); border-left: 3px solid var(--lavender); background: rgba(124,58,237,0.12); }
+    .warning p { color: var(--text); margin: 0; }
+    .warning strong { color: var(--lavender-lt); }
+    .warning .err { color: #fca5a5; margin-top: 0.75rem; }
+
+    .howto ul { margin: 0; padding-left: 1.2rem; }
+    .howto li { color: var(--text-sec); margin-bottom: 0.4rem; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .reminder { font-size: 0.86rem; color: var(--text-muted); margin: 0.75rem 0 0; }
+    .form-msg { font-size: 0.9rem; margin: 0.75rem 0 0; }
+    .form-msg.ok { color: var(--lavender-lt); }
+    .form-msg.err { color: #fca5a5; }
+    .confirm-box { margin-top: 0.9rem; padding: 0.9rem 1rem; border: 1px solid rgba(252,165,165,0.4); border-radius: 8px; background: rgba(252,165,165,0.06); }
+    .confirm-box p { color: var(--text); margin: 0 0 0.75rem; font-size: 0.92rem; }
+
+    /* Secțiunile (acordeon) */
+    .sec { padding: 0; overflow: hidden; }
+    .sec-head {
+      display: flex; align-items: center; gap: 1rem; width: 100%; text-align: left; cursor: pointer;
+      background: transparent; border: none; color: var(--text); padding: 1.25rem 1.5rem; font: inherit;
+    }
+    .sec-head:hover { background: rgba(167,139,250,0.05); }
+    .sec-num { font-family: var(--font-mono); font-weight: 700; font-size: 1.1rem; color: var(--lavender-lt); min-width: 1.4rem; }
+    .sec-title { flex: 1; min-width: 0; }
+    .sec-title h2 { font-size: clamp(1rem, 2.4vw, 1.2rem); }
+    .sec-when { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem; letter-spacing: 0.04em; }
+    .status {
+      font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.22rem 0.6rem; border-radius: 100px; border: 1px solid var(--border); color: var(--text-muted); white-space: nowrap;
+    }
+    .status.started { color: var(--lavender-lt); border-color: var(--lavender); background: rgba(124,58,237,0.2); }
+    .chev { color: var(--lavender); font-family: var(--font-mono); transition: transform var(--transition); }
+    .sec.open .chev { transform: rotate(90deg); }
+    .sec-body { display: none; padding: 0 1.5rem 1.5rem; border-top: 1px solid var(--border); }
+    .sec.open .sec-body { display: block; }
+    .part-label { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lavender); margin: 1.5rem 0 0; }
+    .q { margin-top: 1.25rem; }
+    .q label { display: block; color: var(--text); font-weight: 500; margin-bottom: 0.5rem; }
+    .print-answer { display: none; }
+    .sec-actions { margin-top: 1.5rem; }
+
+    /* Rezultatul din assessment, în Secțiunea 1 */
+    .assess { margin-top: 1.25rem; padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: rgba(124,58,237,0.08); }
+    .result-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+    .score-big { font-family: var(--font-mono); font-size: clamp(2rem, 6vw, 2.8rem); font-weight: 700; color: var(--lavender-lt); line-height: 1; }
+    .score-big small { font-size: 0.4em; color: var(--text-muted); font-weight: 500; }
+    .level-name { font-family: var(--font-mono); font-size: clamp(1.15rem, 3vw, 1.5rem); font-weight: 700; margin-top: 0.4rem; }
+    .levels-scale { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; margin: 1.1rem 0; }
+    .lvl { font-family: var(--font-mono); font-size: 0.66rem; text-align: center; padding: 0.45rem 0.25rem; border-radius: 6px; border: 1px solid var(--border); color: var(--text-muted); }
+    .lvl.on { color: #fff; border-color: var(--lavender); background: rgba(124,58,237,0.3); }
+    .lvl span { display: block; opacity: 0.8; }
+    .bars { display: grid; gap: 0.8rem; }
+    .bar-row .bar-label { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.82rem; margin-bottom: 0.35rem; }
+    .bar-row .bar-label .v { color: var(--lavender-lt); }
+    .bar-track { height: 12px; background: rgba(167,139,250,0.1); border-radius: 6px; overflow: hidden; }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, var(--lavender-dk), var(--lavender)); border-radius: 6px; box-shadow: 0 0 10px rgba(167,139,250,0.5); }
+    .bar-row.weak .bar-label span:first-child::after { content: '  · de lucrat'; color: var(--lavender); font-size: 0.72rem; }
+    .manual-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 0.75rem; }
+    .manual-grid label { display: block; font-family: var(--font-mono); font-size: 0.74rem; color: var(--lavender-lt); margin-bottom: 0.3rem; }
+    .assess a, .howto a { color: var(--lavender); }
+
+    /* Parcursul */
+    .journey { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; margin-top: 0.75rem; }
+    .step {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 0.1rem; text-align: left; cursor: pointer;
+      font: inherit; color: var(--text-sec); background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem 0.65rem; transition: all var(--transition);
+    }
+    .step:hover { border-color: rgba(167,139,250,0.32); }
+    .step .n { font-family: var(--font-mono); font-weight: 700; font-size: 0.95rem; color: var(--text-muted); }
+    .step .d { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+    .step .t { font-size: 0.82rem; line-height: 1.3; }
+    .step.started { background: rgba(124,58,237,0.22); border-color: var(--lavender); color: var(--text); }
+    .step.started .n, .step.started .d { color: var(--lavender-lt); }
+
+    /* Rânduri editabile (oportunități, KPI) */
+    .rows { display: grid; gap: 0.5rem; }
+    .row-edit { display: grid; grid-template-columns: 1fr auto auto auto; gap: 0.5rem; align-items: center; }
+    .row-edit.kpi { grid-template-columns: 1.6fr 1fr 1fr auto; }
+    .row-edit input { padding: 0.6rem 0.75rem; }
+    select {
+      font-family: var(--font-body); font-size: 0.92rem; padding: 0.6rem 0.6rem; border-radius: 6px;
+      border: 1px solid var(--border); background: rgba(255,255,255,0.04); color: var(--text);
+    }
+    select option { background: #160e35; color: var(--text); }
+    .icon-btn { background: transparent; border: 1px solid var(--border); color: var(--text-sec); border-radius: 6px; padding: 0.5rem 0.75rem; cursor: pointer; font-size: 1rem; line-height: 1; }
+    .icon-btn:hover { color: var(--text); border-color: rgba(167,139,250,0.32); }
+    .add-btn { margin-top: 0.6rem; padding: 0.6rem 1rem; }
+    .matrix-empty, .matrix-loose { font-size: 0.86rem; color: var(--text-muted); margin: 0.75rem 0 0; }
+
+    /* Matricea 2x2 */
+    .matrix-wrap { margin-top: 1rem; }
+    .matrix-grid { display: grid; grid-template-columns: auto 1fr; gap: 0.4rem; }
+    .axis-y, .axis-x { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lavender); }
+    .axis-y { writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; }
+    .axis-x { text-align: right; }
+    .matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .quad { min-height: 110px; border: 1px solid var(--border); border-radius: 8px; padding: 0.55rem; background: rgba(255,255,255,0.03); display: flex; flex-direction: column; gap: 0.35rem; }
+    .quad.hot { background: rgba(124,58,237,0.18); border-color: var(--lavender); }
+    .quad-label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+    .quad.hot .quad-label { color: var(--lavender-lt); }
+    .chip { font-size: 0.84rem; line-height: 1.3; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(167,139,250,0.16); color: var(--text); }
+
+    /* Mini-dashboard KPI */
+    .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 0.6rem; margin-top: 1rem; }
+    .tile { border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem 0.85rem; background: rgba(255,255,255,0.03); }
+    .tile.start { background: rgba(124,58,237,0.18); border-color: var(--lavender); }
+    .tile .k { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--lavender); line-height: 1.35; }
+    .tile .vals { display: flex; align-items: flex-end; gap: 0.6rem; margin-top: 0.45rem; flex-wrap: wrap; }
+    .tile .val small { display: block; font-size: 0.66rem; color: var(--text-muted); }
+    .tile .now { font-family: var(--font-mono); font-size: 1rem; color: var(--text); }
+    .tile .target { font-family: var(--font-mono); font-size: 1rem; font-weight: 700; color: var(--lavender-lt); }
+    .tile .arrow { color: var(--lavender); padding-bottom: 0.1rem; }
+
+    /* Roadmap pe trei coloane */
+    .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    .q.col { border-top: 2px solid var(--lavender); padding-top: 0.75rem; }
+
+    footer.credit { border-top: 1px solid var(--border); padding: 1.5rem 0 2.5rem; }
+    footer.credit p { font-size: 0.8rem; color: var(--text-muted); margin: 0 0 0.4rem; }
+    footer.credit a { color: var(--lavender); }
+
+    .print-only { display: none; }
+
+    @media (max-width: 560px) {
+      .card { padding: 1.25rem; }
+      .sec { padding: 0; }
+      .sec-head { padding: 1rem 1.1rem; gap: 0.7rem; }
+      .sec-body { padding: 0 1.1rem 1.25rem; }
+      .actions .btn { flex: 1 1 auto; }
+      .lvl { font-size: 0.58rem; }
+      .manual-grid { grid-template-columns: repeat(2, 1fr); }
+      .chev { display: none; }
+      .journey { grid-template-columns: repeat(2, 1fr); }
+      .row-edit, .row-edit.kpi { grid-template-columns: 1fr 1fr auto; }
+      .row-edit > input:first-child { grid-column: 1 / -1; }
+      .cols { grid-template-columns: 1fr; }
+      .quad { min-height: 80px; }
+    }
+
+    /* Print: fundal alb, text negru, titluri lavandă; toate secțiunile deschise */
+    @media print {
+      @page { size: A4 portrait; margin: 14mm; }
+      body { background: #fff !important; background-image: none !important; color: #1a1a1a; font-size: 12px; }
+      p, .howto li { color: rgba(0,0,0,0.72) !important; }
+      .top, .no-print, .warning, .howto, .status, .chev, .sec-actions, textarea, .manual-grid, .assess-empty { display: none !important; }
+      .logo img { filter: none; opacity: 1; }
+      .print-only { display: block; }
+      main { padding: 0; }
+      main .wrap > * + * { margin-top: 10px; }
+      .card { background: #fff !important; border: 1px solid rgba(124,58,237,0.25) !important; box-shadow: none !important; }
+      .sec-head { padding: 10px 14px; background: #7c3aed !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .sec-body { display: block !important; border-top: none; padding: 0 14px 12px; }
+      /* Blueprint-ul întreg: prima pagină e coperta (titlu + parcurs), fiecare secțiune pe pagina ei. */
+      .sec { break-before: page; }
+      body.print-one .sec { break-before: auto; }
+      body.print-one .sec:not(.print-target), body.print-one .journey-card { display: none !important; }
+      .add-btn, .row-edit, .rows, .matrix-empty { display: none !important; }
+      .journey { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+      .step { background: #fff !important; border: 1px solid rgba(124,58,237,0.3) !important; color: rgba(0,0,0,0.6) !important; padding: 6px 8px; }
+      .step .n, .step .d { color: rgba(0,0,0,0.45) !important; }
+      .step.started { background: #7c3aed !important; border-color: #7c3aed !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .step.started .n, .step.started .d { color: rgba(255,255,255,0.85) !important; }
+      .quad { background: #fff !important; border-color: rgba(124,58,237,0.3) !important; min-height: 90px; }
+      .quad.hot { background: rgba(124,58,237,0.08) !important; border-color: #7c3aed !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .quad-label, .matrix-loose { color: rgba(0,0,0,0.5) !important; }
+      .chip { background: rgba(124,58,237,0.12) !important; color: #1a1a1a !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .axis-y, .axis-x, .tile .k { color: #7c3aed !important; }
+      .matrix-grid, .tiles { break-inside: avoid; }
+      .tile { background: #fff !important; border-color: rgba(124,58,237,0.3) !important; }
+      .tile.start { background: rgba(124,58,237,0.08) !important; border-color: #7c3aed !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .tile .now { color: #1a1a1a !important; }
+      .tile .target { color: #7c3aed !important; }
+      .tile .val small { color: rgba(0,0,0,0.5) !important; }
+      .q.col { border-top-color: #7c3aed; }
+      h1, h2, h3, .q label, .level-name { color: #1a1a1a !important; }
+      .sec-num, .kicker, .part-label, .score-big, .bar-row .bar-label .v, .accent { color: #7c3aed !important; }
+      .sec-when, .subtitle, .score-big small { color: rgba(0,0,0,0.55) !important; }
+      .sec-head h2, .sec-head .sec-num { color: #fff !important; }
+      .sec-head .sec-when { color: rgba(255,255,255,0.8) !important; }
+      .q { break-inside: avoid-page; }
+      .print-answer {
+        display: block; white-space: pre-wrap; color: #1a1a1a; font-size: 12px; line-height: 1.55;
+        padding: 8px 10px; border: 1px solid rgba(124,58,237,0.2); border-radius: 6px;
+        background: rgba(124,58,237,0.04); -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .print-answer.empty { color: rgba(0,0,0,0.4); font-style: italic; }
+      .assess { background: rgba(167,139,250,0.06) !important; border: 1px solid rgba(124,58,237,0.25) !important; break-inside: avoid; }
+      .lvl { color: rgba(0,0,0,0.5); border-color: rgba(124,58,237,0.25); }
+      .lvl.on { background: #7c3aed !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .bar-track { background: rgba(124,58,237,0.1) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .bar-fill { background: #7c3aed !important; box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      /* butonul rotund de cookie e fixat în colț și s-ar repeta pe fiecare pagină */
+      #CookiebotWidget, #CybotCookiebotDialog { display: none !important; }
+      footer.credit p { color: rgba(0,0,0,0.5); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">
+    <div class="wrap">
+      <div class="logos">
+        <a href="/" class="logo" aria-label="Raluca Păduraru, pagina principală"><img src="/images/logo.png" alt="Raluca Păduraru" /></a>
+        <span class="logo-sep" aria-hidden="true"></span>
+        <img class="partner-logo" src="/images/basetolearn-logo.png" alt="basetolearn" />
+      </div>
+      <span class="label">HR Management în era AI · <span class="brand-lc">basetolearn</span></span>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <div class="print-only">
+        <div class="logos">
+          <img src="/images/logo.png" alt="Raluca Păduraru" style="height:28px" />
+          <span class="logo-sep" aria-hidden="true"></span>
+          <img src="/images/basetolearn-logo.png" alt="basetolearn" style="height:36px" />
+        </div>
+        <p style="margin-top:8px">Proiectul final · descărcat pe <span id="print-date"></span></p>
+      </div>
+
+      <!-- Intro -->
+      <section class="intro">
+        <span class="label no-print">Proiectul final</span>
+        <h1>HR Transformation Blueprint<span class="accent" id="print-org"></span></h1>
+        <p class="subtitle">HR Management în era AI: transformare, oameni și automatizări · basetolearn</p>
+        <div class="no-print">
+          <label class="field-label" for="org">Organizația ta</label>
+          <input type="text" id="org" autocomplete="organization" placeholder="numele organizației sau o etichetă a ta" />
+        </div>
+      </section>
+
+      <div class="card warning" role="note">
+        <p><strong>Nu salvăm nimic din ce scrii.</strong> Tot ce completezi rămâne doar în browserul de pe acest calculator. Ca să nu pierzi rezultatul muncii tale: lucrează din același browser, descarcă o copie de siguranță după fiecare lecție și păstrează PDF-ul descărcat după completarea fiecărei secțiuni. Dacă schimbi calculatorul, încarci copia și continui de unde ai rămas.</p>
+        <p class="err hidden" id="storage-err">Browserul tău nu permite salvarea automată pe acest calculator. Ce scrii se pierde la închiderea paginii: descarcă o copie înainte să pleci.</p>
+      </div>
+
+      <div class="card no-print">
+        <div class="kicker">Copia de siguranță</div>
+        <div class="actions">
+          <button class="btn btn-primary" id="export-btn" type="button">Salvează o copie</button>
+          <button class="btn btn-outline" id="import-btn" type="button">Încarcă copia</button>
+          <input type="file" id="import-file" accept=".json,application/json" class="hidden" />
+        </div>
+        <p class="reminder">După fiecare lecție, salvează o copie nouă. Pe alt calculator, o încarci aici și continui.</p>
+        <p class="reminder">Copia e fișierul .json descărcat cu „Salvează o copie”, cu un nume de forma blueprint-hr-….json. La „Încarcă copia” apar doar fișierele de felul ăsta.</p>
+        <div class="confirm-box hidden" id="import-confirm">
+          <p>Pe pagină ai deja text. Copia îl înlocuiește în întregime.</p>
+          <div class="actions">
+            <button class="btn btn-primary" id="import-yes" type="button">Înlocuiește</button>
+            <button class="btn btn-outline" id="import-no" type="button">Renunță</button>
+          </div>
+        </div>
+        <p class="form-msg hidden" id="import-msg" role="status"></p>
+      </div>
+
+      <div class="card howto">
+        <div class="kicker">Cum folosești pagina</div>
+        <ul>
+          <li>Completezi fiecare secțiune după lecția indicată. 1-2 pagini per secțiune ajung.</li>
+          <li>Întrebările de sub fiecare secțiune sunt ghidaj. Poți răspunde pe rând sau poți scrie liber, cât timp acoperi ce cer ele.</li>
+          <li>Lucrezi cu date anonimizate: numele devine rol, cifra devine interval.</li>
+        </ul>
+      </div>
+
+      <div class="card journey-card">
+        <div class="kicker">Parcursul tău, lecție cu lecție</div>
+        <div class="journey" id="journey"></div>
+      </div>
+
+      <div id="sections"></div>
+
+      <div class="card card-featured no-print">
+        <div class="kicker">Blueprint-ul întreg</div>
+        <p>Toate cele 10 secțiuni, într-un singur PDF, cu rezultatul din HR Maturity Assessment în Secțiunea 1.</p>
+        <div class="actions">
+          <button class="btn btn-primary" id="print-all-btn" type="button">Descarcă blueprint-ul întreg</button>
+        </div>
+        <p class="reminder">Se deschide fereastra de printare. La destinație alege „Salvează ca PDF”.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="credit">
+    <div class="wrap">
+      <p>Instrument construit de Raluca Păduraru pentru cursul HR Management în era AI: transformare, oameni și automatizări (basetolearn).</p>
+      <p class="no-print"><a href="/privacy.html">Politica de confidențialitate</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const STORE_KEY = 'rp_blueprint_v1';
+    const ASSESS_KEY = 'rp_hr_maturity_v1';
+
+    // Identice cu hr-maturity.html, ca pragurile să nu se despartă.
+    const DIMS = ['Procese', 'Date', 'Competențe', 'Cultură'];
+    const LEVELS = [
+      { name: 'Administrativ', min: 0, max: 19 },
+      { name: 'Experimental', min: 20, max: 37 },
+      { name: 'Structurat', min: 38, max: 49 },
+      { name: 'Integrat', min: 50, max: 60 },
+    ];
+
+    // Fiecare întrebare are propriul câmp; id-urile rămân stabile, ca vechile copii să se încarce.
+    const SECTIONS = [
+      // Secțiunile urmează calendarul lecțiilor; etichetele pun data și tema, nu numărul lecției.
+      { n: 1, title: 'Punctul de plecare', when: 'după lecția din 5 octombrie · HR Leadership într-o lume în schimbare', assessment: true, parts: [
+        { qs: [
+          ['s1q1', 'Unde e funcția HR azi? Pornește de la scorul din HR Maturity Assessment, de la nivel, de la dimensiunea cea mai puternică și de la cea mai slabă.'],
+          ['s1q2', 'Ce ar schimba AI în mandatul HR la voi? O primă ipoteză, începând cu dimensiunea cea mai slabă.'],
+          ['s1q3', 'Ce ar trebui să fie adevărat peste 12 luni ca să ajungeți la nivelul următor?'] ] } ] },
+      { n: 2, title: 'Forța de muncă și competențele viitorului: analiza', when: 'după lecția din 7 octombrie · Future Skills & Workforce Transformation', parts: [
+        { qs: [
+          ['s2q1', 'Ce 2-3 roluri-cheie din organizația ta se schimbă și ce sarcini trec, parțial, la AI? Ce competențe critice vă trebuie în următorii 2-3 ani și unde sunt gap-urile prioritare?'] ] } ] },
+      { n: 3, title: 'Oameni și cultură: pregătirea pentru schimbare', when: 'după lecția din 12 octombrie · Leadership uman', parts: [
+        { qs: [
+          ['s3q1', 'Cine sunt oamenii-cheie pentru transformare și unde se poziționează față de ea?'],
+          ['s3q2', 'De unde vine rezistența la schimbare la voi și cum o recunoști?'],
+          ['s3q3', 'Ce ar face oamenii să se simtă în siguranță să încerce lucruri noi cu AI?'] ] } ] },
+      { n: 4, title: 'Principiile de guvernanță AI', when: 'după lecția din 14 octombrie · AI ca partener: fundamente', parts: [
+        { qs: [
+          ['s7q1', '4-5 principii de guvernanță AI pentru funcția ta: ce rămâne uman, ce se poate delega, ce date nu se folosesc.'] ] } ] },
+      { n: 5, title: 'Planul de schimbare', when: 'după lecția din 22 octombrie · Change Leadership', parts: [
+        { qs: [
+          ['s6q1', 'Cum comunici schimbarea și cui, în ce ordine?'],
+          ['s6q2', 'Cine sunt sponsorii și ce rol au managerii de linie?'],
+          ['s6q3', 'Ce faci cu rezistența identificată în Secțiunea 3?'] ] } ] },
+      { n: 6, title: 'Harta de oportunități AI', when: 'după lecția din 23 octombrie · Lucrul cu AI și harta de oportunități', parts: [
+        { qs: [
+          ['s4q1', 'Unde poate ajuta AI funcția HR la voi: unde e doar asistent, unde poate fi agent, unde nu are ce căuta?'],
+          { type: 'opps', text: 'Care sunt oportunitățile, puse pe matricea impact × fezabilitate? Adaugă-le pe rând și alege pentru fiecare impactul și fezabilitatea.' },
+          ['s4q3', 'Ce oportunitate duci la redesign în lecția din 26 octombrie și de ce pe aceea?'] ] } ] },
+      { n: 7, title: 'Redesign de proces', when: 'după lecția din 26 octombrie · Redesign-ul proceselor de HR', parts: [
+        { qs: [
+          ['s5q1', 'Ce proces ai ales și cum arată azi: pași, timp, puncte de fricțiune?'],
+          ['s5q2', 'Cum arată reproiectat cu AI: ce se automatizează, ce rămâne uman, unde sunt punctele de control?'],
+          ['s5q3', 'Care e planul de implementare și după ce indicatori știi că a mers?'] ] } ] },
+      { n: 8, title: 'Forța de muncă și competențele viitorului: dezvoltarea', when: 'după lecția din 28 octombrie · Construirea unei organizații care învață', parts: [
+        { qs: [
+          ['s2q2', 'Pornind de la gap-urile din Secțiunea 2: ce competențe construiți întâi și pentru cine? Cum arată planul de reskilling și upskilling: priorități, ordine, cui se adresează? Cum arată traseele de dezvoltare pe categorii de roluri, construite cu F.O.R.C.E.?'] ] } ] },
+      { n: 9, title: 'Impact și KPI', when: 'după lecția din 2 noiembrie · HR strategic și relația cu businessul', parts: [
+        { qs: [
+          { type: 'kpis', text: 'Ce 4-5 KPIs arată impactul transformării? Pentru fiecare, scrie unde sunteți azi și ținta peste 12 luni.' },
+          ['s7q2', 'Cum arată dashboardul pentru board: scorul din assessment ca punct de plecare, obiectivul pe 12 luni și KPIs care arată dacă vă apropiați de el?'] ] } ] },
+      { n: 10, title: 'Roadmap pe 12 luni', when: 'după lecția din 4 noiembrie · Workshop de integrare', parts: [
+        { qs: [
+          ['s8q1', 'Ce inițiative din secțiunile 2-9 intră în roadmap și în ce ordine?'] ] },
+        { cols: true, qs: [
+          ['s8h1', 'Orizontul 1 de timp: ce se întâmplă în primele 3 luni?'],
+          ['s8h2', 'Orizontul 2 de timp: ce se întâmplă în lunile 3-6?'],
+          ['s8h3', 'Orizontul 3 de timp: ce se întâmplă în lunile 6-12?'] ] },
+        { qs: [
+          ['s8q3', 'Cine e owner pe fiecare inițiativă?'] ] } ] },
+    ];
+
+    // Numele scurte pentru parcurs (copertă + harta de sus), în ordinea secțiunilor.
+    const JOURNEY = [
+      ['5 oct', 'Punctul de plecare'], ['7 oct', 'Competențe: analiza'], ['12 oct', 'Oameni și cultură'],
+      ['14 oct', 'Guvernanța AI'], ['22 oct', 'Planul de schimbare'], ['23 oct', 'Harta de oportunități'],
+      ['26 oct', 'Redesign de proces'], ['28 oct', 'Competențe: dezvoltarea'], ['2 nov', 'Impact și KPI'],
+      ['4 nov', 'Roadmap pe 12 luni'],
+    ];
+    const MAX_OPPS = 12;
+    const MAX_KPIS = 8;
+    let oppSec = null, kpiSec = null;
+
+    const $ = id => document.getElementById(id);
+
+    function emptyState() {
+      return { app: 'rp_blueprint', v: 1, org: '', answers: {}, manual: [null, null, null, null], assessment: null, open: 1, opps: [], kpis: [] };
+    }
+
+    // ---------- Stocare (totul în try/catch: pagina merge și cu stocarea blocată) ----------
+    let storageOk = true;
+    function readJSON(key) {
+      try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : null; }
+      catch (e) { return null; }
+    }
+    function persist() {
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); }
+      catch (e) { if (storageOk) { storageOk = false; $('storage-err').classList.remove('hidden'); } }
+    }
+    try { localStorage.setItem('rp_blueprint_probe', '1'); localStorage.removeItem('rp_blueprint_probe'); }
+    catch (e) { storageOk = false; }
+
+    function validAssessment(a) {
+      return a && typeof a === 'object' && Number.isFinite(a.total) && Array.isArray(a.dimScores) && a.dimScores.length === 4
+        && a.dimScores.every(s => Number.isFinite(s) && s >= 0 && s <= 15);
+    }
+
+    function normalize(obj) {
+      const s = emptyState();
+      if (typeof obj.org === 'string') s.org = obj.org;
+      if (obj.answers && typeof obj.answers === 'object') {
+        Object.keys(obj.answers).forEach(k => { if (typeof obj.answers[k] === 'string') s.answers[k] = obj.answers[k]; });
+      }
+      if (Array.isArray(obj.manual) && obj.manual.length === 4) s.manual = obj.manual.map(clampScore);
+      if (validAssessment(obj.assessment)) s.assessment = obj.assessment;
+      if (Number.isInteger(obj.open) && obj.open >= 0 && obj.open <= SECTIONS.length) s.open = obj.open;
+      const str = v => (typeof v === 'string' ? v : '');
+      if (Array.isArray(obj.opps)) s.opps = obj.opps.slice(0, MAX_OPPS).filter(o => o && typeof o === 'object').map(o => ({
+        name: str(o.name), impact: ['mare', 'mic'].includes(o.impact) ? o.impact : '', fez: ['mare', 'mica'].includes(o.fez) ? o.fez : '' }));
+      if (Array.isArray(obj.kpis)) s.kpis = obj.kpis.slice(0, MAX_KPIS).filter(k => k && typeof k === 'object').map(k => ({
+        name: str(k.name), now: str(k.now), target: str(k.target) }));
+      return s;
+    }
+
+    let state = (function () {
+      const saved = readJSON(STORE_KEY);
+      return saved && saved.app === 'rp_blueprint' ? normalize(saved) : emptyState();
+    })();
+
+    // Rezultatul din assessment: câștigă cel mai recent, dintre cel din browser și cel din copie.
+    function syncAssessment() {
+      const fresh = readJSON(ASSESS_KEY);
+      if (validAssessment(fresh) && (!state.assessment || (fresh.ts || 0) > (state.assessment.ts || 0))) {
+        state.assessment = fresh;
+        persist();
+      }
+    }
+
+    function clampScore(v) {
+      if (v === null || v === undefined || v === '') return null;
+      const n = Math.round(Number(v));
+      if (!Number.isFinite(n)) return null;
+      return Math.min(15, Math.max(0, n));
+    }
+    function levelFor(total) { return LEVELS.findIndex(l => total >= l.min && total <= l.max); }
+
+    // ---------- Construcția secțiunilor ----------
+    function el(tag, cls, text) {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text !== undefined) e.textContent = text;
+      return e;
+    }
+
+    function autosize(t) { t.style.height = 'auto'; t.style.height = t.scrollHeight + 2 + 'px'; }
+
+    function setPrintAnswer(div, text) {
+      const has = text.trim() !== '';
+      div.textContent = has ? text : '(necompletat)';
+      div.classList.toggle('empty', !has);
+    }
+
+    function buildSections() {
+      const box = $('sections');
+      box.innerHTML = '';
+      SECTIONS.forEach(sec => {
+        const card = el('section', 'card sec');
+        card.id = 'sec-' + sec.n;
+        card.dataset.n = sec.n;
+
+        const head = el('button', 'sec-head');
+        head.type = 'button';
+        head.setAttribute('aria-expanded', 'false');
+        head.setAttribute('aria-controls', 'sec-body-' + sec.n);
+        head.appendChild(el('span', 'sec-num', String(sec.n)));
+        const title = el('div', 'sec-title');
+        title.appendChild(el('h2', '', sec.title));
+        title.appendChild(el('div', 'sec-when', sec.when));
+        head.appendChild(title);
+        head.appendChild(el('span', 'status', 'goală'));
+        head.appendChild(el('span', 'chev', '›'));
+        head.addEventListener('click', () => toggle(sec.n));
+        card.appendChild(head);
+
+        const body = el('div', 'sec-body');
+        body.id = 'sec-body-' + sec.n;
+        if (sec.assessment) body.appendChild(el('div', 'assess')).id = 'assess';
+
+        sec.parts.forEach(part => {
+          if (part.label) body.appendChild(el('div', 'part-label', part.label));
+          const holder = part.cols ? body.appendChild(el('div', 'cols')) : body;
+          part.qs.forEach(item => {
+            if (item.type === 'opps') { holder.appendChild(buildOpps(item.text, sec)); return; }
+            if (item.type === 'kpis') { holder.appendChild(buildKpis(item.text, sec)); return; }
+            const [id, text] = item;
+            const q = el('div', part.cols ? 'q col' : 'q');
+            const lab = el('label', '', text);
+            lab.htmlFor = id;
+            const ta = el('textarea');
+            ta.id = id;
+            ta.value = state.answers[id] || '';
+            ta.placeholder = 'Scrie aici.';
+            const pa = el('div', 'print-answer');
+            setPrintAnswer(pa, ta.value);
+            ta.addEventListener('input', () => {
+              state.answers[id] = ta.value;
+              setPrintAnswer(pa, ta.value);
+              autosize(ta);
+              updateStatus(sec);
+              persist();
+            });
+            q.appendChild(lab); q.appendChild(ta); q.appendChild(pa);
+            holder.appendChild(q);
+          });
+        });
+
+        const act = el('div', 'actions sec-actions');
+        const dl = el('button', 'btn btn-outline', 'Descarcă secțiunea');
+        dl.type = 'button';
+        dl.addEventListener('click', () => printSection(sec.n));
+        act.appendChild(dl);
+        body.appendChild(act);
+
+        card.appendChild(body);
+        box.appendChild(card);
+        updateStatus(sec);
+      });
+      renderAssessment();
+      renderOppRows(oppSec, false);
+      renderKpiRows(kpiSec, false);
+      renderMatrix();
+      renderTiles();
+      renderJourney();
+      setOpen(state.open);
+    }
+
+    function sectionStarted(sec) {
+      return sec.parts.some(p => p.qs.some(item => {
+        if (item.type === 'opps') return state.opps.some(o => o.name.trim() !== '');
+        if (item.type === 'kpis') return state.kpis.some(k => k.name.trim() !== '');
+        return (state.answers[item[0]] || '').trim() !== '';
+      }));
+    }
+
+    function updateStatus(sec) {
+      const started = sectionStarted(sec);
+      const chip = document.querySelector('#sec-' + sec.n + ' .status');
+      chip.textContent = started ? 'începută' : 'goală';
+      chip.classList.toggle('started', started);
+      const step = $('step-' + sec.n);
+      if (step) step.classList.toggle('started', started);
+    }
+
+    // ---------- Parcursul: 10 pași, plini când secțiunea e începută ----------
+    function renderJourney() {
+      const box = $('journey');
+      box.innerHTML = '';
+      SECTIONS.forEach((sec, i) => {
+        const b = el('button', 'step' + (sectionStarted(sec) ? ' started' : ''));
+        b.type = 'button';
+        b.id = 'step-' + sec.n;
+        const n = el('span', 'n', String(sec.n));
+        b.appendChild(n);
+        b.appendChild(el('span', 'd', JOURNEY[i][0]));
+        b.appendChild(el('span', 't', JOURNEY[i][1]));
+        b.addEventListener('click', () => {
+          setOpen(sec.n); persist();
+          $('sec-' + sec.n).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        box.appendChild(b);
+      });
+    }
+
+    // ---------- Harta de oportunități: rânduri + matricea 2x2 ----------
+    function selectEl(options, value, label) {
+      const s = el('select');
+      s.setAttribute('aria-label', label);
+      options.forEach(([v, t]) => { const o = el('option', '', t); o.value = v; s.appendChild(o); });
+      s.value = value;
+      return s;
+    }
+
+    function buildOpps(text, sec) {
+      const q = el('div', 'q');
+      q.appendChild(el('label', '', text));
+      const rows = el('div', 'rows');
+      rows.id = 'opp-rows';
+      q.appendChild(rows);
+      const add = el('button', 'btn btn-outline add-btn', '+ Adaugă o oportunitate');
+      add.type = 'button';
+      add.id = 'opp-add';
+      add.addEventListener('click', () => {
+        if (state.opps.length >= MAX_OPPS) return;
+        state.opps.push({ name: '', impact: '', fez: '' });
+        renderOppRows(sec, true); renderMatrix(); persist();
+      });
+      q.appendChild(add);
+      const m = el('div', 'matrix-wrap');
+      m.id = 'matrix';
+      q.appendChild(m);
+      oppSec = sec;
+      return q;
+    }
+
+    function renderOppRows(sec, focusLast) {
+      const box = $('opp-rows');
+      if (!box) return;
+      box.innerHTML = '';
+      state.opps.forEach((o, i) => {
+        const r = el('div', 'row-edit');
+        const name = el('input');
+        name.type = 'text';
+        name.value = o.name;
+        name.placeholder = 'Oportunitatea ' + (i + 1);
+        name.setAttribute('aria-label', 'Oportunitatea ' + (i + 1));
+        name.addEventListener('input', () => { o.name = name.value; renderMatrix(); updateStatus(sec); persist(); });
+        const imp = selectEl([['', 'Impact…'], ['mare', 'Impact mare'], ['mic', 'Impact mic']], o.impact, 'Impactul');
+        imp.addEventListener('change', () => { o.impact = imp.value; renderMatrix(); persist(); });
+        const fez = selectEl([['', 'Fezabilitate…'], ['mare', 'Fezabilitate mare'], ['mica', 'Fezabilitate mică']], o.fez, 'Fezabilitatea');
+        fez.addEventListener('change', () => { o.fez = fez.value; renderMatrix(); persist(); });
+        const del = el('button', 'icon-btn', '×');
+        del.type = 'button';
+        del.setAttribute('aria-label', 'Șterge oportunitatea ' + (i + 1));
+        del.addEventListener('click', () => { state.opps.splice(i, 1); renderOppRows(sec, false); renderMatrix(); updateStatus(sec); persist(); });
+        r.appendChild(name); r.appendChild(imp); r.appendChild(fez); r.appendChild(del);
+        box.appendChild(r);
+        if (focusLast && i === state.opps.length - 1) setTimeout(() => name.focus(), 0);
+      });
+      const add = $('opp-add');
+      if (add) add.disabled = state.opps.length >= MAX_OPPS;
+    }
+
+    function renderMatrix() {
+      const m = $('matrix');
+      if (!m) return;
+      const named = state.opps.map((o, i) => Object.assign({ i }, o)).filter(o => o.name.trim() !== '');
+      m.innerHTML = '';
+      if (!named.length) { m.appendChild(el('p', 'matrix-empty', 'Matricea se desenează pe măsură ce adaugi oportunități.')); return; }
+      // Sus: impact mare. Dreapta: fezabilitate mare.
+      const quads = [
+        ['mare', 'mica', 'Impact mare · fezabilitate mică'], ['mare', 'mare', 'Impact mare · fezabilitate mare'],
+        ['mic', 'mica', 'Impact mic · fezabilitate mică'], ['mic', 'mare', 'Impact mic · fezabilitate mare'],
+      ];
+      const grid = el('div', 'matrix-grid');
+      grid.appendChild(el('div', 'axis-y', 'Impact ↑'));
+      const mx = el('div', 'matrix');
+      quads.forEach(([imp, fez, label]) => {
+        const qd = el('div', 'quad' + (imp === 'mare' && fez === 'mare' ? ' hot' : ''));
+        qd.appendChild(el('div', 'quad-label', label));
+        named.filter(o => o.impact === imp && o.fez === fez).forEach(o => qd.appendChild(el('div', 'chip', (o.i + 1) + '. ' + o.name.trim())));
+        mx.appendChild(qd);
+      });
+      grid.appendChild(mx);
+      grid.appendChild(el('div', ''));
+      grid.appendChild(el('div', 'axis-x', 'Fezabilitate →'));
+      m.appendChild(grid);
+      const loose = named.filter(o => !o.impact || !o.fez);
+      if (loose.length) m.appendChild(el('p', 'matrix-loose', 'De plasat (alege impactul și fezabilitatea): ' + loose.map(o => (o.i + 1) + '. ' + o.name.trim()).join(' · ')));
+    }
+
+    // ---------- KPI: rânduri + mini-dashboard ----------
+    function buildKpis(text, sec) {
+      const q = el('div', 'q');
+      q.appendChild(el('label', '', text));
+      const rows = el('div', 'rows');
+      rows.id = 'kpi-rows';
+      q.appendChild(rows);
+      const add = el('button', 'btn btn-outline add-btn', '+ Adaugă un KPI');
+      add.type = 'button';
+      add.id = 'kpi-add';
+      add.addEventListener('click', () => {
+        if (state.kpis.length >= MAX_KPIS) return;
+        state.kpis.push({ name: '', now: '', target: '' });
+        renderKpiRows(sec, true); renderTiles(); persist();
+      });
+      q.appendChild(add);
+      const t = el('div', 'tiles');
+      t.id = 'tiles';
+      q.appendChild(t);
+      kpiSec = sec;
+      return q;
+    }
+
+    function renderKpiRows(sec, focusLast) {
+      const box = $('kpi-rows');
+      if (!box) return;
+      box.innerHTML = '';
+      state.kpis.forEach((k, i) => {
+        const r = el('div', 'row-edit kpi');
+        const mk = (field, ph, label) => {
+          const inp = el('input');
+          inp.type = 'text';
+          inp.value = k[field];
+          inp.placeholder = ph;
+          inp.setAttribute('aria-label', label + ', KPI ' + (i + 1));
+          inp.addEventListener('input', () => { k[field] = inp.value; renderTiles(); updateStatus(sec); persist(); });
+          return inp;
+        };
+        const name = mk('name', 'KPI ' + (i + 1), 'Numele');
+        r.appendChild(name);
+        r.appendChild(mk('now', 'azi', 'Azi'));
+        r.appendChild(mk('target', 'peste 12 luni', 'Ținta peste 12 luni'));
+        const del = el('button', 'icon-btn', '×');
+        del.type = 'button';
+        del.setAttribute('aria-label', 'Șterge KPI ' + (i + 1));
+        del.addEventListener('click', () => { state.kpis.splice(i, 1); renderKpiRows(sec, false); renderTiles(); updateStatus(sec); persist(); });
+        r.appendChild(del);
+        box.appendChild(r);
+        if (focusLast && i === state.kpis.length - 1) setTimeout(() => name.focus(), 0);
+      });
+      const add = $('kpi-add');
+      if (add) add.disabled = state.kpis.length >= MAX_KPIS;
+    }
+
+    function currentScore() {
+      if (state.assessment) {
+        const t = state.assessment.dimScores.map(Number).reduce((x, y) => x + y, 0);
+        return { total: t, level: LEVELS[levelFor(t)].name };
+      }
+      if (state.manual.every(v => v !== null)) {
+        const t = state.manual.reduce((x, y) => x + y, 0);
+        return { total: t, level: LEVELS[levelFor(t)].name };
+      }
+      return null;
+    }
+
+    function tile(cls, name, now, target) {
+      const t = el('div', 'tile' + cls);
+      t.appendChild(el('div', 'k', name));
+      const v = el('div', 'vals');
+      const a = el('div', 'val');
+      a.appendChild(el('small', '', 'azi'));
+      a.appendChild(el('span', 'now', now || '–'));
+      v.appendChild(a);
+      if (target !== null) {
+        v.appendChild(el('span', 'arrow', '→'));
+        const b = el('div', 'val');
+        b.appendChild(el('small', '', 'peste 12 luni'));
+        b.appendChild(el('span', 'target', target || '–'));
+        v.appendChild(b);
+      }
+      t.appendChild(v);
+      return t;
+    }
+
+    function renderTiles() {
+      const box = $('tiles');
+      if (!box) return;
+      box.innerHTML = '';
+      const named = state.kpis.filter(k => k.name.trim() !== '');
+      if (!named.length) { box.appendChild(el('p', 'matrix-empty', 'Dashboardul se construiește pe măsură ce adaugi KPI-uri.')); return; }
+      const sc = currentScore();
+      if (sc) box.appendChild(tile(' start', 'Punctul de plecare · HR Maturity', sc.total + ' / 60 · ' + sc.level, null));
+      named.forEach(k => box.appendChild(tile('', k.name.trim(), k.now.trim(), k.target.trim())));
+    }
+
+    function setOpen(n) {
+      state.open = n;
+      document.querySelectorAll('.sec').forEach(card => {
+        const on = Number(card.dataset.n) === n;
+        card.classList.toggle('open', on);
+        card.querySelector('.sec-head').setAttribute('aria-expanded', on ? 'true' : 'false');
+        if (on) card.querySelectorAll('textarea').forEach(autosize);
+      });
+    }
+
+    function toggle(n) {
+      setOpen(state.open === n ? 0 : n);
+      persist();
+      if (state.open === n) {
+        const card = $('sec-' + n);
+        const top = card.getBoundingClientRect().top;
+        if (top < 0) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // ---------- Secțiunea 1: rezultatul din assessment ----------
+    function profileHTML(dimScores, total, dateText, sourceText) {
+      const lvl = levelFor(total);
+      const ranked = dimScores.map((s, i) => ({ s, i })).sort((a, b) => a.s - b.s || a.i - b.i);
+      const weakest = ranked.slice(0, 2).map(r => r.i);
+      return '<div class="kicker">' + sourceText + (dateText ? ' · ' + dateText : '') + '</div>' +
+        '<div class="result-head"><div><div class="level-name">' + LEVELS[lvl].name + '</div></div>' +
+        '<div class="score-big">' + total + '<small> / 60</small></div></div>' +
+        '<div class="levels-scale">' + LEVELS.map((l, i) =>
+          '<div class="lvl' + (i === lvl ? ' on' : '') + '">' + l.name + '<span>' + l.min + '-' + l.max + '</span></div>').join('') + '</div>' +
+        '<div class="bars">' + DIMS.map((d, i) =>
+          '<div class="bar-row' + (weakest.includes(i) ? ' weak' : '') + '">' +
+            '<div class="bar-label"><span>' + d + '</span><span class="v">' + dimScores[i] + ' / 15</span></div>' +
+            '<div class="bar-track"><div class="bar-fill" style="width:' + (dimScores[i] / 15 * 100) + '%"></div></div>' +
+          '</div>').join('') + '</div>';
+    }
+
+    function renderAssessment() {
+      const box = $('assess');
+      const a = state.assessment;
+      if (a) {
+        const scores = a.dimScores.map(Number);
+        box.innerHTML = profileHTML(scores, scores.reduce((x, y) => x + y, 0), a.date || '', 'Rezultatul din HR Maturity Assessment');
+        return;
+      }
+      box.innerHTML =
+        '<div class="assess-empty"><div class="kicker">Rezultatul din HR Maturity Assessment</div>' +
+        '<p style="margin:0">Nu găsim rezultatul în acest browser. Poți face assessmentul <a href="/hr-maturity">aici</a>, din același browser, sau treci de mână scorurile pe dimensiuni, din PDF-ul salvat (0-15 fiecare).</p></div>' +
+        '<div class="manual-grid">' + DIMS.map((d, i) =>
+          '<div><label for="m' + i + '">' + d + '</label><input type="number" id="m' + i + '" min="0" max="15" step="1" inputmode="numeric" /></div>').join('') + '</div>' +
+        '<div id="manual-result" style="margin-top:1rem"></div>';
+      DIMS.forEach((d, i) => {
+        const inp = $('m' + i);
+        if (state.manual[i] !== null) inp.value = state.manual[i];
+        inp.addEventListener('input', () => { state.manual[i] = clampScore(inp.value); renderManual(); persist(); });
+        inp.addEventListener('blur', () => { inp.value = state.manual[i] === null ? '' : state.manual[i]; });
+      });
+      renderManual();
+    }
+
+    function renderManual() {
+      const out = $('manual-result');
+      if (!out) return;
+      renderTiles();
+      if (state.manual.some(v => v === null)) { out.innerHTML = ''; return; }
+      const total = state.manual.reduce((x, y) => x + y, 0);
+      out.innerHTML = profileHTML(state.manual, total, '', 'Scorurile tale, trecute de mână');
+    }
+
+    // ---------- Organizația ----------
+    function renderOrg() {
+      $('org').value = state.org;
+      $('print-org').textContent = state.org.trim() ? ' · ' + state.org.trim() : '';
+    }
+    $('org').addEventListener('input', () => {
+      state.org = $('org').value;
+      $('print-org').textContent = state.org.trim() ? ' · ' + state.org.trim() : '';
+      persist();
+    });
+
+    // ---------- Copia de siguranță ----------
+    function say(text, cls) { const m = $('import-msg'); m.textContent = text; m.className = 'form-msg ' + cls; }
+
+    function slug(s) {
+      return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+    }
+
+    $('export-btn').addEventListener('click', () => {
+      const data = Object.assign({}, state, { savedAt: new Date().toISOString() });
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const a = document.createElement('a');
+      const d = new Date().toISOString().slice(0, 10);
+      a.href = URL.createObjectURL(blob);
+      a.download = 'blueprint-hr' + (state.org.trim() ? '-' + slug(state.org) : '') + '-' + d + '.json';
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      say('Copia s-a descărcat. Păstreaz-o într-un loc pe care îl găsești ușor.', 'ok');
+      if (typeof gtag === 'function') gtag('event', 'blueprint_backup', { event_category: 'tool', event_label: 'future_hr_leader' });
+    });
+
+    let pending = null;
+    function hasContent() {
+      return state.org.trim() !== '' || Object.values(state.answers).some(v => v.trim() !== '') || state.manual.some(v => v !== null)
+        || state.opps.some(o => o.name.trim() !== '') || state.kpis.some(k => k.name.trim() !== '');
+    }
+    function applyImport(obj) {
+      const fresh = state.assessment;
+      state = normalize(obj);
+      if (!state.assessment && fresh) state.assessment = fresh;
+      syncAssessment();
+      persist();
+      renderOrg();
+      buildSections();
+      $('import-confirm').classList.add('hidden');
+      say('Copia s-a încărcat. Continui de unde ai rămas.', 'ok');
+    }
+
+    $('import-btn').addEventListener('click', () => $('import-file').click());
+    $('import-file').addEventListener('change', e => {
+      const file = e.target.files[0];
+      e.target.value = '';
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        let obj = null;
+        try { obj = JSON.parse(reader.result); } catch (err) { obj = null; }
+        if (!obj || obj.app !== 'rp_blueprint' || obj.v !== 1) {
+          say('Fișierul nu e o copie a blueprint-ului. Alege fișierul .json descărcat de pe pagina asta.', 'err');
+          return;
+        }
+        if (hasContent()) { pending = obj; $('import-confirm').classList.remove('hidden'); $('import-msg').classList.add('hidden'); }
+        else applyImport(obj);
+      };
+      reader.onerror = () => say('Fișierul nu s-a putut citi. Încearcă din nou.', 'err');
+      reader.readAsText(file);
+    });
+    $('import-yes').addEventListener('click', () => { if (pending) applyImport(pending); pending = null; });
+    $('import-no').addEventListener('click', () => { pending = null; $('import-confirm').classList.add('hidden'); });
+
+    // ---------- PDF ----------
+    function stampDate() { $('print-date').textContent = new Date().toLocaleDateString('ro-RO'); }
+
+    function printSection(n) {
+      stampDate();
+      document.body.classList.add('print-one');
+      $('sec-' + n).classList.add('print-target');
+      // Titlul paginii devine numele PDF-ului; fiecare secțiune primește numele ei.
+      document.title = 'Blueprint HR · Secțiunea ' + n + (state.org.trim() ? ' · ' + state.org.trim() : '');
+      window.print();
+      if (typeof gtag === 'function') gtag('event', 'blueprint_pdf_section', { event_category: 'tool', event_label: 'sectiunea_' + n });
+    }
+    const PAGE_TITLE = document.title;
+    function clearPrint() {
+      document.title = PAGE_TITLE;
+      document.body.classList.remove('print-one');
+      document.querySelectorAll('.print-target').forEach(c => c.classList.remove('print-target'));
+    }
+    window.addEventListener('afterprint', clearPrint);
+
+    $('print-all-btn').addEventListener('click', () => {
+      clearPrint();
+      stampDate();
+      window.print();
+      if (typeof gtag === 'function') gtag('event', 'blueprint_pdf_full', { event_category: 'tool', event_label: 'future_hr_leader' });
+    });
+    // Ctrl+P din browser tipărește tot blueprint-ul.
+    window.addEventListener('beforeprint', stampDate);
+
+    // ---------- Pornire ----------
+    if (!storageOk) $('storage-err').classList.remove('hidden');
+    syncAssessment();
+    renderOrg();
+    buildSections();
+  </script>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-// api/send-profile.js — Trimite profilul HR Maturity Assessment pe email (Future HR Leader, Basetolearn)
+// api/send-profile.js — Trimite profilul HR Maturity Assessment pe email (Future HR Leader, basetolearn)
 // POST /api/send-profile
 // Body: { email, scores: [20 × 0-3], cfToken }
 // Nu salvează nimic: adresa se folosește doar pentru trimiterea asta. Textul emailului e fix,
@@ -131,7 +131,7 @@ function emailHtml(p) {
       ${li(`<strong style="color:#1a1a1a">Ce ar schimba AI în mandatul HR la voi?</strong> Începe cu dimensiunea „${weakName}”.`)}
       ${li(`<strong style="color:#1a1a1a">Unde vreți să ajungeți?</strong> ${nextLevel}`)}
     </ol>
-    <p style="font-size:13px;color:#555555;line-height:1.65;margin:0">Scorul e punctul de plecare pentru curs, o auto-evaluare. În cadrul lecției 9 o să îl atașezi în dashboardul pentru board, alături de obiectivul pe 12 luni și KPIs care arată dacă vă apropiați de el.</p>`);
+    <p style="font-size:13px;color:#555555;line-height:1.65;margin:0">Scorul e punctul de plecare pentru curs, o auto-evaluare. În lecția din 2 noiembrie o să îl atașezi în dashboardul pentru board, alături de obiectivul pe 12 luni și KPIs care arată dacă vă apropiați de el.</p>`);
 
   return `
 <!DOCTYPE html>
@@ -143,13 +143,13 @@ function emailHtml(p) {
 <body style="font-family:'Barlow','Helvetica Neue',Arial,sans-serif;background:#f4f4f4;margin:0;padding:20px">
   <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;padding:28px 24px">
     <img src="https://www.ralucapaduraru.ro/images/logo.png" alt="Raluca Păduraru" height="28" style="height:28px;display:block">
-    <p style="font-size:13px;color:#777777;line-height:1.5;margin:8px 0 20px">HR Maturity Assessment · HR Management în era AI: transformare, oameni și automatizări · Basetolearn · ${date}</p>
+    <p style="font-size:13px;color:#777777;line-height:1.5;margin:8px 0 20px">HR Maturity Assessment · HR Management în era AI: transformare, oameni și automatizări · basetolearn · ${date}</p>
     ${levelCard}
     ${dimsCard}
     ${homeworkCard}
     <p style="font-size:14px;color:#333333;font-weight:600;margin:20px 0 2px">Raluca Păduraru</p>
     <p style="font-size:13px;color:#666666;margin:0 0 20px">Futures of Work Strategist</p>
-    <p style="font-size:12px;color:#888888;line-height:1.6;margin:0;border-top:1px solid #eeeeee;padding-top:16px">Ai primit acest email pentru că ai cerut profilul pe ralucapaduraru.ro/hr-maturity, în cursul HR Management în era AI: transformare, oameni și automatizări (Basetolearn). Adresa ta nu a fost salvată și nu primești alte emailuri de la noi. Instrument adaptat după HR Automation Explorer 2030 (E. Corazzin).</p>
+    <p style="font-size:12px;color:#888888;line-height:1.6;margin:0;border-top:1px solid #eeeeee;padding-top:16px">Ai primit acest email pentru că ai cerut profilul pe ralucapaduraru.ro/hr-maturity, în cursul HR Management în era AI: transformare, oameni și automatizări (basetolearn). Adresa ta nu a fost salvată și nu primești alte emailuri de la noi. Instrument adaptat după HR Automation Explorer 2030 (E. Corazzin).</p>
   </div>
 </body>
 </html>`;

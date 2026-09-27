@@ -90,6 +90,7 @@
     h3 { font-size: clamp(1rem, 2vw, 1.15rem); }
     p { color: var(--text-sec); margin: 0 0 1rem; }
     .accent { color: var(--lavender-lt); }
+    .brand-lc { text-transform: none; }
     .hidden { display: none !important; }
 
     .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
@@ -261,7 +262,7 @@
   <header class="top">
     <div class="wrap">
       <a href="/" class="logo" aria-label="Raluca Păduraru, pagina principală"><img src="/images/logo.png" alt="Raluca Păduraru" /></a>
-      <span class="label">HR Management în era AI · Basetolearn</span>
+      <span class="label">HR Management în era AI · <span class="brand-lc">basetolearn</span></span>
     </div>
   </header>
 
@@ -280,7 +281,7 @@
           <div class="dim-chip">Cultură</div>
         </div>
         <p>Răspunde pentru funcția HR din organizația ta, așa cum e azi, nu cum ar trebui să fie. Dacă ești între două variante, alege-o pe cea mai conservatoare. Nu există răspunsuri bune sau rele: e fotografia punctului de plecare.</p>
-        <p class="note"><strong>Confidențialitate.</strong> Răspunsurile tale nu se salvează nicăieri. Profilul se calculează pe dispozitivul tău. Pleacă de aici doar dacă ceri să-l primești pe email, și doar la adresa ta.</p>
+        <p class="note"><strong>Confidențialitate.</strong> Răspunsurile tale nu pleacă de pe dispozitivul tău. Rezultatul rămâne în browser, ca să-l preia blueprint-ul. Profilul se calculează pe dispozitivul tău. Pleacă de aici doar dacă ceri să-l primești pe email, și doar la adresa ta.</p>
         <button class="btn btn-primary" id="start-btn" type="button">Începe</button>
       </section>
 
@@ -305,7 +306,7 @@
       <section class="results hidden" id="results">
         <div class="print-only">
           <img src="/images/logo.png" alt="Raluca Păduraru" style="height:28px" />
-          <p style="margin-top:8px">HR Maturity Assessment · HR Management în era AI: transformare, oameni și automatizări · Basetolearn · <span id="print-date"></span></p>
+          <p style="margin-top:8px">HR Maturity Assessment · HR Management în era AI: transformare, oameni și automatizări · basetolearn · <span id="print-date"></span></p>
         </div>
 
         <div class="card card-featured">
@@ -330,7 +331,8 @@
           <div class="kicker">Pentru tema de acasă · Secțiunea 1 din blueprint</div>
           <h3 style="margin-bottom:1rem">Punctul de plecare</h3>
           <ol id="r-homework"></ol>
-          <p style="font-size:0.88rem;margin:0">Scorul e punctul de plecare pentru curs, o auto-evaluare. În cadrul lecției 9 o să îl atașezi în dashboardul pentru board, alături de obiectivul pe 12 luni și KPIs care arată dacă vă apropiați de el.</p>
+          <p style="font-size:0.88rem;margin:0">Scorul e punctul de plecare pentru curs, o auto-evaluare. În lecția din 2 noiembrie o să îl atașezi în dashboardul pentru board, alături de obiectivul pe 12 luni și KPIs care arată dacă vă apropiați de el.</p>
+          <p class="no-print" style="margin:1rem 0 0"><a class="btn btn-outline" href="/blueprint">Scrie Secțiunea 1 în blueprint</a></p>
         </div>
 
         <div class="card no-print">
@@ -363,7 +365,7 @@
 
   <footer class="credit">
     <div class="wrap">
-      <p>Instrument construit de Raluca Păduraru pentru cursul HR Management în era AI: transformare, oameni și automatizări (Basetolearn). Adaptat după HR Automation Explorer 2030 (E. Corazzin).</p>
+      <p>Instrument construit de Raluca Păduraru pentru cursul HR Management în era AI: transformare, oameni și automatizări (basetolearn). Adaptat după HR Automation Explorer 2030 (E. Corazzin).</p>
       <p class="no-print"><a href="/privacy.html">Politica de confidențialitate</a></p>
     </div>
   </footer>
@@ -588,6 +590,14 @@
           '<p><strong>' + q.text + '</strong>' + q.options[answers[qi]] + ' (' + answers[qi] + ' / 3)</p>'
         ).join('')
       ).join('');
+
+      // Rezultatul rămâne în browser, ca să-l preia blueprint.html (Secțiunea 1).
+      try {
+        localStorage.setItem('rp_hr_maturity_v1', JSON.stringify({
+          ts: Date.now(), date: new Date().toLocaleDateString('ro-RO'),
+          total: p.total, level: lvl.name, dimScores: p.dimScores
+        }));
+      } catch (e) {}
 
       if (typeof gtag === 'function') gtag('event', 'hr_maturity_complete', { event_category: 'tool', event_label: 'future_hr_leader' });
     }
