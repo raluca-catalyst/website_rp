@@ -287,6 +287,25 @@
     .tile .target { font-family: var(--font-mono); font-size: 1rem; font-weight: 700; color: var(--lavender-lt); }
     .tile .arrow { color: var(--lavender); padding-bottom: 0.1rem; }
 
+    /* Harta de competențe (Secțiunea 2) + gap-urile prioritare (Secțiunea 8) */
+    .skill-row { border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem; background: rgba(255,255,255,0.03); }
+    .skill-row.prio { border-color: var(--lavender); background: rgba(124,58,237,0.1); }
+    .skill-top { display: flex; gap: 0.5rem; align-items: center; }
+    .skill-top input { flex: 1; min-width: 0; padding: 0.6rem 0.75rem; }
+    .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.6rem; }
+    .skill-grid .full { grid-column: 1 / -1; }
+    .skill-grid textarea { min-height: 4.5rem; font-size: 0.95rem; padding: 0.6rem 0.75rem; }
+    .q .mini-label { display: block; font-family: var(--font-mono); font-size: 0.66rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--lavender); margin-bottom: 0.3rem; }
+    .q .prio-check { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0.5rem 0 0; font-size: 0.9rem; font-weight: 400; color: var(--text-sec); cursor: pointer; }
+    .q .prio-check input { accent-color: var(--lavender-dk); width: 1rem; height: 1rem; margin: 0; }
+    .q .prio-check.off { opacity: 0.45; cursor: not-allowed; }
+    .prio-count { font-size: 0.86rem; color: var(--text-muted); margin: 0.6rem 0 0; }
+    .gaps-box { margin-top: 1.25rem; padding: 1rem 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: rgba(124,58,237,0.08); }
+    .gaps-box ol { margin: 0; padding-left: 1.2rem; }
+    .gaps-box li { color: var(--text); margin-bottom: 0.35rem; }
+    .gaps-box li span { color: var(--text-sec); }
+    .gaps-box .matrix-empty { margin: 0; }
+
     /* Roadmap pe trei coloane */
     .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
     .q.col { border-top: 2px solid var(--lavender); padding-top: 0.75rem; }
@@ -311,6 +330,7 @@
       .row-edit > input:first-child { grid-column: 1 / -1; }
       .cols { grid-template-columns: 1fr; }
       .quad { min-height: 80px; }
+      .skill-grid { grid-template-columns: 1fr; }
     }
 
     /* Print: fundal alb, text negru, titluri lavandă; toate secțiunile deschise */
@@ -348,6 +368,22 @@
       .tile .target { color: #7c3aed !important; }
       .tile .val small { color: rgba(0,0,0,0.5) !important; }
       .q.col { border-top-color: #7c3aed; }
+      .q.skills-q { break-inside: auto; }
+      .skill-table { width: 100%; border-collapse: collapse; font-size: 11px; margin-top: 6px; }
+      .skill-table th {
+        background: #7c3aed !important; color: #fff !important; text-align: left; padding: 6px 8px;
+        font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase;
+        -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      }
+      .skill-table td { border: 1px solid rgba(124,58,237,0.25); padding: 6px 8px; vertical-align: top; white-space: pre-wrap; color: #1a1a1a; line-height: 1.45; }
+      .skill-table tr { break-inside: avoid; }
+      .skill-table tr.prio td { background: rgba(124,58,237,0.08) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .skill-table td.role { font-weight: 600; }
+      .skill-table .tag { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #7c3aed; }
+      .gaps-box { background: rgba(167,139,250,0.06) !important; border: 1px solid rgba(124,58,237,0.25) !important; break-inside: avoid; }
+      .gaps-box.none { display: none !important; }
+      .gaps-box li { color: #1a1a1a !important; }
+      .gaps-box li span { color: rgba(0,0,0,0.65) !important; }
       h1, h2, h3, .q label, .level-name { color: #1a1a1a !important; }
       .sec-num, .kicker, .part-label, .score-big, .bar-row .bar-label .v, .accent { color: #7c3aed !important; }
       .sec-when, .subtitle, .score-big small { color: rgba(0,0,0,0.55) !important; }
@@ -489,7 +525,8 @@
           ['s1q3', 'Ce ar trebui să fie adevărat peste 12 luni ca să ajungeți la nivelul următor?'] ] } ] },
       { n: 2, title: 'Forța de muncă și competențele viitorului: analiza', when: 'după lecția din 7 octombrie · Future Skills & Workforce Transformation', parts: [
         { qs: [
-          ['s2q1', 'Ce 2-3 roluri-cheie din organizația ta se schimbă și ce sarcini trec, parțial, la AI? Ce competențe critice vă trebuie în următorii 2-3 ani și unde sunt gap-urile prioritare?'] ] } ] },
+          { type: 'skills', text: 'Harta de competențe: adaugă 2-3 roluri-cheie din organizația ta. Pentru fiecare, scrie ce competențe au oamenii azi, ce le va trebui în 2-3 ani, odată cu AI, și care e gap-ul. Bifează cele mai mari 2-3 gap-uri ca prioritare.' },
+          ['s2q1', 'Ce sarcini din aceste roluri trec, parțial sau integral, la AI? De ce ai ales ca prioritare gap-urile bifate?'] ] } ] },
       { n: 3, title: 'Oameni și cultură: pregătirea pentru schimbare', when: 'după lecția din 12 octombrie · Leadership uman', parts: [
         { qs: [
           ['s3q1', 'Cine sunt oamenii-cheie pentru transformare și unde se poziționează față de ea?'],
@@ -515,7 +552,8 @@
           ['s5q3', 'Care e planul de implementare și după ce indicatori știi că a mers?'] ] } ] },
       { n: 8, title: 'Forța de muncă și competențele viitorului: dezvoltarea', when: 'după lecția din 28 octombrie · Construirea unei organizații care învață', parts: [
         { qs: [
-          ['s2q2', 'Pornind de la gap-urile din Secțiunea 2: ce competențe construiți întâi și pentru cine? Cum arată planul de reskilling și upskilling: priorități, ordine, cui se adresează? Cum arată traseele de dezvoltare pe categorii de roluri, construite cu F.O.R.C.E.?'] ] } ] },
+          { type: 'gaps' },
+          ['s2q2','Pornind de la gap-urile din Secțiunea 2: ce competențe construiți întâi și pentru cine? Cum arată planul de reskilling și upskilling: priorități, ordine, cui se adresează? Cum arată traseele de dezvoltare pe categorii de roluri, construite cu F.O.R.C.E.?'] ] } ] },
       { n: 9, title: 'Impact și KPI', when: 'după lecția din 2 noiembrie · HR strategic și relația cu businessul', parts: [
         { qs: [
           { type: 'kpis', text: 'Ce 4-5 KPIs arată impactul transformării? Pentru fiecare, scrie unde sunteți azi și ținta peste 12 luni.' },
@@ -540,12 +578,14 @@
     ];
     const MAX_OPPS = 12;
     const MAX_KPIS = 8;
-    let oppSec = null, kpiSec = null;
+    const MAX_SKILLS = 5;
+    const MAX_PRIO = 3;
+    let oppSec = null, kpiSec = null, skillSec = null;
 
     const $ = id => document.getElementById(id);
 
     function emptyState() {
-      return { app: 'rp_blueprint', v: 1, org: '', answers: {}, manual: [null, null, null, null], assessment: null, open: 1, opps: [], kpis: [] };
+      return { app: 'rp_blueprint', v: 1, org: '', answers: {}, manual: [null, null, null, null], assessment: null, open: 1, opps: [], kpis: [], skills: [] };
     }
 
     // ---------- Stocare (totul în try/catch: pagina merge și cu stocarea blocată) ----------
@@ -580,6 +620,15 @@
         name: str(o.name), impact: ['mare', 'mic'].includes(o.impact) ? o.impact : '', fez: ['mare', 'mica'].includes(o.fez) ? o.fez : '' }));
       if (Array.isArray(obj.kpis)) s.kpis = obj.kpis.slice(0, MAX_KPIS).filter(k => k && typeof k === 'object').map(k => ({
         name: str(k.name), now: str(k.now), target: str(k.target) }));
+      // Copiile de dinainte de harta de competențe n-au câmpul skills: rămân cu tabelul gol.
+      if (Array.isArray(obj.skills)) {
+        let prios = 0;
+        s.skills = obj.skills.slice(0, MAX_SKILLS).filter(r => r && typeof r === 'object').map(r => {
+          const prio = r.prio === true && prios < MAX_PRIO;
+          if (prio) prios++;
+          return { role: str(r.role), now: str(r.now), need: str(r.need), gap: str(r.gap), prio };
+        });
+      }
       return s;
     }
 
@@ -653,6 +702,8 @@
           part.qs.forEach(item => {
             if (item.type === 'opps') { holder.appendChild(buildOpps(item.text, sec)); return; }
             if (item.type === 'kpis') { holder.appendChild(buildKpis(item.text, sec)); return; }
+            if (item.type === 'skills') { holder.appendChild(buildSkills(item.text, sec)); return; }
+            if (item.type === 'gaps') { const g = el('div', 'gaps-box'); g.id = 'prio-gaps'; holder.appendChild(g); return; }
             const [id, text] = item;
             const q = el('div', part.cols ? 'q col' : 'q');
             const lab = el('label', '', text);
@@ -689,6 +740,9 @@
       renderAssessment();
       renderOppRows(oppSec, false);
       renderKpiRows(kpiSec, false);
+      renderSkillRows(skillSec, false);
+      renderSkillTable();
+      renderPrioGaps();
       renderMatrix();
       renderTiles();
       renderJourney();
@@ -699,6 +753,8 @@
       return sec.parts.some(p => p.qs.some(item => {
         if (item.type === 'opps') return state.opps.some(o => o.name.trim() !== '');
         if (item.type === 'kpis') return state.kpis.some(k => k.name.trim() !== '');
+        if (item.type === 'skills') return state.skills.some(skillFilled);
+        if (item.type === 'gaps') return false;
         return (state.answers[item[0]] || '').trim() !== '';
       }));
     }
@@ -817,6 +873,139 @@
       m.appendChild(grid);
       const loose = named.filter(o => !o.impact || !o.fez);
       if (loose.length) m.appendChild(el('p', 'matrix-loose', 'De plasat (alege impactul și fezabilitatea): ' + loose.map(o => (o.i + 1) + '. ' + o.name.trim()).join(' · ')));
+    }
+
+    // ---------- Harta de competențe: câte un rând pe rol, cu gap-urile prioritare bifate ----------
+    function skillFilled(s) { return [s.role, s.now, s.need, s.gap].some(v => v.trim() !== ''); }
+
+    function buildSkills(text, sec) {
+      const q = el('div', 'q skills-q');
+      q.appendChild(el('label', '', text));
+      const rows = el('div', 'rows');
+      rows.id = 'skill-rows';
+      q.appendChild(rows);
+      const add = el('button', 'btn btn-outline add-btn', '+ Adaugă un rol');
+      add.type = 'button';
+      add.id = 'skill-add';
+      add.addEventListener('click', () => {
+        if (state.skills.length >= MAX_SKILLS) return;
+        state.skills.push({ role: '', now: '', need: '', gap: '', prio: false });
+        renderSkillRows(sec, true); renderSkillTable(); persist();
+      });
+      q.appendChild(add);
+      const cnt = el('p', 'prio-count no-print');
+      cnt.id = 'prio-count';
+      q.appendChild(cnt);
+      const t = el('div', 'print-only');
+      t.id = 'skill-table';
+      q.appendChild(t);
+      skillSec = sec;
+      return q;
+    }
+
+    function skillsChanged(sec) { renderSkillTable(); renderPrioGaps(); updateStatus(sec); persist(); }
+
+    function renderSkillRows(sec, focusLast) {
+      const box = $('skill-rows');
+      if (!box) return;
+      box.innerHTML = '';
+      const prioCount = state.skills.filter(s => s.prio).length;
+      state.skills.forEach((s, i) => {
+        const r = el('div', 'skill-row' + (s.prio ? ' prio' : ''));
+        const top = el('div', 'skill-top');
+        const role = el('input');
+        role.type = 'text';
+        role.value = s.role;
+        role.placeholder = 'Rolul ' + (i + 1) + ', de exemplu recruiter';
+        role.setAttribute('aria-label', 'Rolul ' + (i + 1));
+        role.addEventListener('input', () => { s.role = role.value; skillsChanged(sec); });
+        const del = el('button', 'icon-btn', '×');
+        del.type = 'button';
+        del.setAttribute('aria-label', 'Șterge rolul ' + (i + 1));
+        del.addEventListener('click', () => { state.skills.splice(i, 1); renderSkillRows(sec, false); skillsChanged(sec); });
+        top.appendChild(role); top.appendChild(del);
+        r.appendChild(top);
+
+        const grid = el('div', 'skill-grid');
+        const field = (key, label, cls) => {
+          const w = el('div', cls || '');
+          const lab = el('label', 'mini-label', label);
+          lab.htmlFor = 'sk' + i + key;
+          const ta = el('textarea');
+          ta.id = 'sk' + i + key;
+          ta.value = s[key];
+          ta.placeholder = 'Scrie aici.';
+          ta.addEventListener('input', () => { s[key] = ta.value; autosize(ta); skillsChanged(sec); });
+          w.appendChild(lab); w.appendChild(ta);
+          return w;
+        };
+        grid.appendChild(field('now', 'Ce competențe au azi'));
+        grid.appendChild(field('need', 'Ce le trebuie în 2-3 ani'));
+        const g = field('gap', 'Gap-ul', 'full');
+        const chk = el('label', 'prio-check');
+        const cb = el('input');
+        cb.type = 'checkbox';
+        cb.checked = s.prio;
+        // Maximum 3 bife: după a treia, celelalte căsuțe se blochează.
+        if (!s.prio && prioCount >= MAX_PRIO) { cb.disabled = true; chk.classList.add('off'); }
+        cb.addEventListener('change', () => { s.prio = cb.checked; renderSkillRows(sec, false); skillsChanged(sec); });
+        chk.appendChild(cb); chk.appendChild(document.createTextNode('Gap prioritar'));
+        g.appendChild(chk);
+        grid.appendChild(g);
+        r.appendChild(grid);
+        box.appendChild(r);
+        if (focusLast && i === state.skills.length - 1) setTimeout(() => role.focus(), 0);
+      });
+      box.querySelectorAll('textarea').forEach(autosize);
+      const add = $('skill-add');
+      if (add) add.disabled = state.skills.length >= MAX_SKILLS;
+      const cnt = $('prio-count');
+      if (cnt) cnt.textContent = state.skills.length ? 'Gap-uri prioritare bifate: ' + prioCount + ' din maximum ' + MAX_PRIO + '.' : '';
+    }
+
+    // Tabelul din PDF: aceleași rânduri, cu gap-urile prioritare marcate.
+    function renderSkillTable() {
+      const box = $('skill-table');
+      if (!box) return;
+      box.innerHTML = '';
+      const filled = state.skills.filter(skillFilled);
+      if (!filled.length) { box.appendChild(el('div', 'print-answer empty', '(necompletat)')); return; }
+      const table = el('table', 'skill-table');
+      const hr = el('tr');
+      ['Rolul', 'Competențe azi', 'Ce le trebuie în 2-3 ani', 'Gap-ul'].forEach(h => hr.appendChild(el('th', '', h)));
+      table.appendChild(el('thead')).appendChild(hr);
+      const tb = el('tbody');
+      filled.forEach(s => {
+        const tr = el('tr', s.prio ? 'prio' : '');
+        tr.appendChild(el('td', 'role', s.role.trim()));
+        tr.appendChild(el('td', '', s.now.trim()));
+        tr.appendChild(el('td', '', s.need.trim()));
+        const gap = el('td', '', s.gap.trim());
+        if (s.prio) gap.appendChild(el('span', 'tag', 'Prioritar'));
+        tr.appendChild(gap);
+        tb.appendChild(tr);
+      });
+      table.appendChild(tb);
+      box.appendChild(table);
+    }
+
+    // Secțiunea 8 pornește de la gap-urile bifate în Secțiunea 2.
+    function renderPrioGaps() {
+      const box = $('prio-gaps');
+      if (!box) return;
+      box.innerHTML = '';
+      box.appendChild(el('div', 'kicker', 'Gap-urile prioritare din Secțiunea 2'));
+      const pr = state.skills.filter(s => s.prio && skillFilled(s));
+      box.classList.toggle('none', !pr.length);
+      if (!pr.length) { box.appendChild(el('p', 'matrix-empty', 'Bifează în Secțiunea 2 gap-urile prioritare.')); return; }
+      const ol = el('ol');
+      pr.forEach(s => {
+        const li = el('li');
+        li.appendChild(el('strong', '', s.role.trim() || 'Rol fără nume'));
+        li.appendChild(el('span', '', ' · ' + (s.gap.trim() || 'gap necompletat')));
+        ol.appendChild(li);
+      });
+      box.appendChild(ol);
     }
 
     // ---------- KPI: rânduri + mini-dashboard ----------
@@ -1018,7 +1207,7 @@
     let pending = null;
     function hasContent() {
       return state.org.trim() !== '' || Object.values(state.answers).some(v => v.trim() !== '') || state.manual.some(v => v !== null)
-        || state.opps.some(o => o.name.trim() !== '') || state.kpis.some(k => k.name.trim() !== '');
+        || state.opps.some(o => o.name.trim() !== '') || state.kpis.some(k => k.name.trim() !== '') || state.skills.some(skillFilled);
     }
     function applyImport(obj) {
       const fresh = state.assessment;
