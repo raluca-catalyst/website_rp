@@ -19,7 +19,10 @@
     { "source": "/summer-mentoring",      "destination": "/mentorat-ai", "permanent": true },
     { "source": "/summer-mentoring.html", "destination": "/mentorat-ai", "permanent": true },
     { "source": "/people-architects",      "destination": "/", "permanent": true },
-    { "source": "/people-architects.html", "destination": "/", "permanent": true }
+    { "source": "/people-architects.html", "destination": "/", "permanent": true },
+    { "source": "/people-architects-materiale",      "destination": "/trend-cards", "permanent": true },
+    { "source": "/people-architects-materiale.html", "destination": "/trend-cards", "permanent": true },
+    { "source": "/downloads/radar-hr-ai-people-architects.pdf", "destination": "/downloads/radar-hr-ai.pdf", "permanent": true }
   ],
   "rewrites": [
     { "source": "/viitoruri", "destination": "/viitoruri.html" },
@@ -27,7 +30,7 @@
     { "source": "/mentorat-ai", "destination": "/mentorat-ai.html" },
     { "source": "/build-your-cortex", "destination": "/build-your-cortex.html" },
     { "source": "/feedback-materiale", "destination": "/feedback-materiale.html" },
-    { "source": "/people-architects-materiale", "destination": "/people-architects-materiale.html" },
+    { "source": "/trend-cards", "destination": "/trend-cards.html" },
     { "source": "/ghid-adoptie", "destination": "/ghid-adoptie.html" },
     { "source": "/hr-maturity", "destination": "/hr-maturity.html" },
     { "source": "/blueprint", "destination": "/blueprint.html" }
