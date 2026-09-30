@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Raluca Păduraru">
+<meta name="robots" content="noindex, nofollow">
+<title>AI-ul, în favoarea ta · The Social Incubator · 6 octombrie 2026</title>
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon-180.png">
+<!--
+  Fișa de lucru pentru telefon, atelier voluntariat The Social Incubator, 6 oct 2026.
+  Sursa textului: wiki/workshop-design/social-incubator/fisa-participant.md
+  Brandul asociației (asociatiasocialincubator.org), o singură temă luminoasă.
+-->
+
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot -> GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* BRANDUL The Social Incubator (CSS-ul site-ului, citit pe 30 sep 2026) */
+  :root{
+    --bg:#ffffff;
+    --card:#faf6fa;
+    --card2:#f3eaf3;
+    --ink:#383838;
+    --soft:#383838;
+    --gray:#666666;
+    --line:#e3d3e2;
+    --main:#93268f;
+    --main-dark:#751675;
+    --main-ink:#ffffff;
+    --cta:#ed3911;
+    --ok:#89b600;
+    --font:'Public Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.55;font-size:17px}
+  a{color:var(--main)}
+  strong,b{font-weight:700}
+
+  header{background:var(--main);color:#fff;padding:28px 16px 26px}
+  header .wrapin{max-width:720px;margin:0 auto}
+  header .tag{font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;opacity:.9;margin-bottom:10px}
+  header h1{font-size:34px;font-weight:800;line-height:1.1}
+  header p{margin-top:10px;font-size:18px}
+
+  .navwrap{background:var(--bg);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line)}
+  .nav{max-width:720px;margin:0 auto;display:flex;overflow-x:auto;padding:0 8px;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .navbtn{background:none;border:none;color:var(--gray);padding:13px 10px;cursor:pointer;font-size:15px;font-family:var(--font);font-weight:600;white-space:nowrap;border-bottom:3px solid transparent}
+  .navbtn.active{color:var(--main);border-bottom-color:var(--main)}
+
+  main{max-width:720px;margin:0 auto;padding:20px 16px 50px}
+
+  .box{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--main);padding:20px 18px;margin-bottom:18px}
+  .box.alt{border-top-color:var(--cta)}
+  .box h2{font-size:26px;font-weight:800;line-height:1.2;margin-bottom:10px;color:var(--main-dark)}
+  .box h3{font-size:21px;font-weight:800;line-height:1.25;color:var(--main-dark)}
+  .box p{margin-bottom:10px}
+  .hd{display:flex;align-items:center;gap:12px;margin:26px 0 8px}
+  .hd:first-child{margin-top:0}
+  .num{font-size:16px;font-weight:800;color:#fff;background:var(--main);min-width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:50%}
+  .step{border-top:1px solid var(--line);padding-top:6px;margin-top:22px}
+
+  ul.bul,ol.bul{padding-left:24px;margin:8px 0 12px}
+  ul.bul li,ol.bul li{margin-bottom:6px}
+
+  .rule{background:#fff;border:2px solid var(--cta);padding:14px 16px;margin:12px 0}
+  .rule p{margin-bottom:6px} .rule p:last-child{margin-bottom:0}
+  .def{background:var(--card2);border-left:4px solid var(--main);padding:12px 14px;margin:10px 0 14px}
+
+  .run{background:#fff;border:1px solid var(--line);padding:14px 16px 8px;margin:12px 0}
+  .run .rl{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--main);margin-bottom:8px;font-weight:700}
+  .run ol{padding-left:22px}
+  .run li{margin-bottom:8px}
+
+  .q{margin:18px 0}
+  .qq{font-weight:700;font-size:18px}
+  .ex{font-size:16px;background:#fff;border-left:3px solid var(--line);padding:8px 12px;margin-top:8px}
+  .ex .no{color:var(--gray);font-weight:700}
+  .ex .yes{color:var(--main);font-weight:700}
+  .fblock{display:block;width:100%;min-height:90px;border:2px solid var(--line);background:#fff;padding:10px 12px;outline:none;margin-top:10px;white-space:pre-wrap;font-family:var(--font);font-size:17px;border-radius:4px}
+  .fblock.short{min-height:50px}
+  .fblock:focus{border-color:var(--main)}
+  .fblock:empty:before{content:attr(data-ph);color:var(--gray);opacity:.8}
+
+  .choice{display:grid;grid-template-columns:1fr;gap:10px;margin:12px 0}
+  .drumbtn,.optbtn{display:block;width:100%;text-align:left;font-family:var(--font);color:var(--ink);background:#fff;border:2px solid var(--line);padding:16px;cursor:pointer;border-radius:6px;font-size:17px}
+  .drumbtn .ct{display:block;font-size:19px;font-weight:800}
+  .drumbtn .cd{display:block;font-size:16px;color:var(--gray);margin-top:2px}
+  .drumbtn.on,.optbtn.on{border-color:var(--main);background:var(--card2)}
+  .drumbtn.on .ct{color:var(--main)}
+  .optbtn.on{font-weight:700}
+  .optbtn.on:before{content:"✓ ";color:var(--main);font-weight:800}
+  .dv{display:none} .dv.show{display:block}
+  .drumnow{background:var(--card2);padding:10px 12px;margin:14px 0 4px;font-size:16px}
+  .persona{font-size:18px;background:#fff;border-left:4px solid var(--cta);padding:12px 14px;margin:10px 0}
+
+  .mat{border:2px solid var(--main);margin:14px 0;background:#fff;border-radius:6px;overflow:hidden}
+  .mat .mh{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 12px;background:var(--card2)}
+  .mat .mt{font-weight:700;font-size:16px}
+  .mat pre{font-family:var(--font);font-size:16px;line-height:1.5;white-space:pre-wrap;word-wrap:break-word;padding:12px 14px;margin:0}
+  .btn{font-family:var(--font);background:var(--main);color:#fff;border:none;padding:12px 22px;font-size:17px;font-weight:800;cursor:pointer;border-radius:6px}
+  .btn.done{background:var(--main-dark)}
+  .big{display:block;width:100%;margin-top:10px}
+
+  .gata{border-top:2px dashed var(--line);margin-top:18px;padding-top:12px}
+  .gata b{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--main);display:block;margin-bottom:2px}
+
+  .next{margin:6px 0 20px}
+  .nextbtn{display:block;width:100%;background:#fff;color:var(--main);border:2px solid var(--main);padding:13px 16px;font-size:17px;font-weight:800;font-family:var(--font);cursor:pointer;border-radius:6px}
+
+  .opt{background:#fff;border:1px dashed var(--line);padding:14px 16px;margin-top:20px}
+  .opt .ol{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);font-weight:700;margin-bottom:4px}
+
+  .q3 ol{padding-left:0;list-style:none;counter-reset:q}
+  .q3 li{counter-increment:q;display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+  .q3 li:before{content:counter(q);font-weight:800;color:#fff;background:var(--main);min-width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+  .q3 .qt{font-size:21px;font-weight:800;color:var(--main-dark);display:block}
+  .final{font-size:19px;font-weight:700;color:var(--main-dark);border-top:2px solid var(--line);padding-top:14px;margin-top:6px}
+
+  footer{max-width:720px;margin:0 auto;padding:0 16px 40px;font-size:14px;color:var(--gray)}
+  @media(max-width:380px){header h1{font-size:29px}.box{padding:16px 14px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrapin">
+    <div class="tag">The Social Incubator · 6 octombrie 2026</div>
+    <h1>AI-ul, în favoarea ta</h1>
+    <p>Azi puneți AI-ul să lucreze pentru voi. Și voi decideți ce e adevărat.</p>
+  </div>
+</header>
+
+<div class="navwrap">
+  <nav class="nav">
+    <button class="navbtn active" data-go="start">Start</button>
+    <button class="navbtn" data-go="p1">Partea 1</button>
+    <button class="navbtn" data-go="p2">Partea 2</button>
+    <button class="navbtn" data-go="q3">Cele 3 întrebări</button>
+  </nav>
+</div>
+
+<main>
+
+  <section class="box" id="start">
+    <h2>La final veți putea să verificați răspunsurile primite de la AI.</h2>
+    <p><strong>Pașii de azi:</strong></p>
+    <ol class="bul">
+      <li><a href="#p1" data-go="p1"><strong>Partea 1: Verificați sursa.</strong></a> Aflați de unde știe AI-ul ce vă spune.</li>
+      <li><a href="#p2" data-go="p2"><strong>Partea 2: Provocarea voastră.</strong></a> Puneți AI-ul să ajute un personaj.</li>
+      <li><a href="#q3" data-go="q3"><strong>Cele 3 întrebări.</strong></a> Le puteți refolosi oricând pe viitor.</li>
+    </ol>
+
+    <div class="rule">
+      <p><strong>Regula zilei</strong></p>
+      <p>Lucrăm doar cu personaje inventate.</p>
+      <p>Nu scrieți în AI numele vostru, adresa voastră sau lucruri despre viața voastră.</p>
+    </div>
+
+    <p><strong>Cum folosiți pagina:</strong></p>
+    <ul class="bul">
+      <li>Scrieți direct în căsuțele de mai jos. Ce scrieți rămâne salvat pe telefon.</li>
+      <li>Folosiți butonul <strong>Copiază</strong> ca să puteți trimite tot mesajul pe care l-ați scris în căsuță către AI.</li>
+    </ul>
+  </section>
+  <div class="next"><button class="nextbtn" data-go="p1">Mergeți la Partea 1 →</button></div>
+
+  <!-- PARTEA 1 -->
+  <section class="box alt" id="p1">
+    <h2>Partea 1 · Verificați sursa</h2>
+    <div class="def"><strong>Sursa</strong> = de unde vine o informație. Poate fi o carte, un site sau un om care se pricepe.</div>
+
+    <div class="run">
+      <div class="rl">Ce faceți</div>
+      <ol>
+        <li>Deschideți aplicația AI. Începeți o conversație nouă.</li>
+        <li>Copiați mesajul de mai jos în conversația cu AI:
+          <div class="mat">
+            <div class="mh"><div class="mt">Mesajul pentru AI</div></div>
+            <pre id="view1"></pre>
+          </div>
+          <button class="btn big" data-copy="m_1">Copiază</button>
+        </li>
+        <li>Trimiteți-l.</li>
+        <li>Citiți răspunsul.</li>
+      </ol>
+    </div>
+
+    <div class="run" style="margin-top:18px">
+      <div class="rl">Acum verificați</div>
+      <ol>
+        <li>Apăsați pe linkul primit de la AI.</li>
+        <li>Se deschide pagina?</li>
+        <li>Apar și acolo informațiile oferite de AI?</li>
+      </ol>
+    </div>
+
+    <div class="q">
+      <div class="qq">Ce număr v-a spus AI-ul?</div>
+      <span class="fblock short" contenteditable="true" data-k="p1_nr" data-ph="scrieți aici"></span>
+    </div>
+
+    <div class="q">
+      <div class="qq">Ce ați găsit? Alegeți una.</div>
+      <div class="choice" data-opt="p1_gasit">
+        <button class="optbtn" data-v="1">Sursa există și spune același lucru.</button>
+        <button class="optbtn" data-v="2">Sursa există, dar spune altceva.</button>
+        <button class="optbtn" data-v="3">Linkul nu merge sau pagina nu există.</button>
+        <button class="optbtn" data-v="4">AI-ul nu ne-a dat niciun link.</button>
+      </div>
+    </div>
+
+    <div class="gata"><b>Ați terminat când</b> ați ales una dintre variante.</div>
+  </section>
+  <div class="next"><button class="nextbtn" data-go="p2">Mergeți la Partea 2 →</button></div>
+
+  <!-- PARTEA 2 -->
+  <section class="box" id="p2">
+    <h2>Partea 2 · Provocarea voastră</h2>
+    <p>Alegeți o provocare. Personajele sunt inventate.</p>
+    <div class="choice">
+      <button class="drumbtn" data-drum="A"><span class="ct">Prima chirie</span><span class="cd">Andrei, 19 ani</span></button>
+      <button class="drumbtn" data-drum="B"><span class="ct">Primul interviu</span><span class="cd">Ioana, 18 ani</span></button>
+      <button class="drumbtn" data-drum="C"><span class="ct">Primul salariu</span><span class="cd">Mihai, 20 de ani</span></button>
+    </div>
+
+    <div class="dv" data-dv="0"><p><strong>Alegeți întâi o provocare, mai sus.</strong></p></div>
+
+    <div class="dv" data-dv="ABC">
+      <p class="drumnow"></p>
+
+      <!-- personajul + pasul 1, câte unul pe provocare -->
+      <div class="dv" data-dv="A">
+        <p class="persona">Andrei are 19 ani. S-a angajat de curând. Vrea să stea singur, în chirie, pentru prima dată.</p>
+        <div class="step">
+          <div class="hd"><span class="num">1</span><h3>Gândiți voi, fără AI</h3></div>
+          <p>Lăsați AI-ul închis. Răspundeți voi la 2 întrebări.</p>
+          <div class="q">
+            <div class="qq">1. Ce vrea Andrei să afle? Scrieți 3 lucruri.</div>
+            <div class="ex"><span class="no">Așa nu:</span> „Cum găsesc o chirie."<br><span class="yes">Așa da:</span> „Cât costă o cameră." Voi mai scrieți încă 2.</div>
+            <span class="fblock" contenteditable="true" data-k="A1" data-ph="scrieți aici"></span>
+          </div>
+          <div class="q">
+            <div class="qq">2. Cum arată un răspuns bun pentru Andrei?</div>
+            <div class="ex"><span class="no">Așa nu:</span> „Să fie bun."<br><span class="yes">Așa da:</span> „O listă scurtă, cu pași."</div>
+            <span class="fblock short" contenteditable="true" data-k="A2" data-ph="scrieți aici"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dv" data-dv="B">
+        <p class="persona">Ioana are 18 ani. Peste 3 zile are primul ei interviu de angajare. Jobul: vânzătoare într-un magazin de haine.</p>
+        <div class="step">
+          <div class="hd"><span class="num">1</span><h3>Gândiți voi, fără AI</h3></div>
+          <p>Lăsați AI-ul închis. Răspundeți voi la 2 întrebări.</p>
+          <div class="q">
+            <div class="qq">1. Ce vrea Ioana să afle? Scrieți 3 lucruri.</div>
+            <div class="ex"><span class="no">Așa nu:</span> „Cum e la interviu."<br><span class="yes">Așa da:</span> „Ce întrebări o să primească." Voi mai scrieți încă 2.</div>
+            <span class="fblock" contenteditable="true" data-k="B1" data-ph="scrieți aici"></span>
+          </div>
+          <div class="q">
+            <div class="qq">2. Cum arată un răspuns bun pentru Ioana?</div>
+            <div class="ex"><span class="no">Așa nu:</span> „Să fie bun."<br><span class="yes">Așa da:</span> „5 întrebări, fiecare cu un răspuns scurt."</div>
+            <span class="fblock short" contenteditable="true" data-k="B2" data-ph="scrieți aici"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dv" data-dv="C">
+        <p class="persona">Mihai are 20 de ani. A primit primul lui salariu: 2.600 de lei. Vrea să-i ajungă toată luna. Și vrea să pună ceva deoparte.</p>
+        <div class="step">
+          <div class="hd"><span class="num">1</span><h3>Gândiți voi, fără AI</h3></div>
+          <p>Lăsați AI-ul închis. Răspundeți voi la 2 întrebări.</p>
+          <div class="q">
+            <div class="qq">1. Ce vrea Mihai să afle? Scrieți 3 lucruri.</div>
+            <div class="ex"><span class="no">Așa nu:</span> „Cum să nu cheltuiesc tot."<br><span class="yes">Așa da:</span> „Cât poate pune deoparte." Voi mai scrieți încă 2.</div>
+            <span class="fblock" contenteditable="true" data-k="C1" data-ph="scrieți aici"></span>
+          </div>
+          <div class="q">
+            <div class="qq">2. Cum arată un răspuns bun pentru Mihai?</div>
+            <div class="ex"><span class="no">Așa nu:</span> „Să fie bun."<br><span class="yes">Așa da:</span> „Un tabel simplu, în lei."</div>
+            <span class="fblock short" contenteditable="true" data-k="C2" data-ph="scrieți aici"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gata"><b>Ați terminat când</b> ați scris ceva la ambele întrebări.</div>
+
+      <!-- PASUL 2 -->
+      <div class="step">
+        <div class="hd"><span class="num">2</span><h3>Trimiteți mesajul la AI</h3></div>
+        <div class="run">
+          <ol>
+            <li>Deschideți aplicația AI. Începeți o conversație nouă.</li>
+            <li>Copiați mesajul de mai jos în conversația cu AI. Are deja răspunsurile voastre:
+              <div class="mat">
+                <div class="mh"><div class="mt">Mesajul pentru AI</div></div>
+                <pre id="view2"></pre>
+              </div>
+              <button class="btn big" id="copy2">Copiază</button>
+            </li>
+            <li>Trimiteți-l.</li>
+            <li>Citiți răspunsul.</li>
+          </ol>
+        </div>
+        <div class="gata"><b>Ați terminat când</b> AI-ul v-a dat un răspuns.</div>
+      </div>
+
+      <!-- PASUL 3 -->
+      <div class="step">
+        <div class="hd"><span class="num">3</span><h3>AI-ul vă pune întrebări</h3></div>
+        <p>Acum AI-ul vă întreabă pe voi. Răspundeți ca și cum ați fi <span class="pname"></span>. Puteți inventa. Nu scrieți nimic despre voi.</p>
+        <div class="run">
+          <ol>
+            <li>Copiați mesajul de mai jos în <strong>aceeași</strong> conversație cu AI:
+              <div class="mat">
+                <div class="mh"><div class="mt">Mesajul pentru AI</div></div>
+                <pre id="view3"></pre>
+              </div>
+              <button class="btn big" data-copy="m_3">Copiază</button>
+            </li>
+            <li>Trimiteți-l.</li>
+            <li>Răspundeți la fiecare întrebare, pe rând.</li>
+          </ol>
+        </div>
+        <div class="gata"><b>Ați terminat când</b> AI-ul v-a dat un răspuns îmbunătățit după ce i-ați răspuns la întrebări.</div>
+      </div>
+
+      <!-- PASUL 4 -->
+      <div class="step">
+        <div class="hd"><span class="num">4</span><h3>Verificați un lucru</h3></div>
+        <p>Alegeți un lucru din răspunsul nou: o cifră, un sfat sau o regulă.</p>
+        <p>Puneți-vă aceste 3 întrebări despre lucrul ales. Răspundeți voi, în grupă. Unde nu știți răspunsul, căutați-l: întrebați AI-ul de unde știe, căutați pe Google sau întrebați un om care se pricepe.</p>
+        <ol class="bul">
+          <li><strong>Cine zice?</strong></li>
+          <li><strong>De unde știe?</strong></li>
+          <li><strong>Ce lipsește?</strong></li>
+        </ol>
+        <div class="q">
+          <div class="qq">Ce ați verificat?</div>
+          <div class="ex"><span class="yes">Exemplu:</span> <span class="dv" data-dv="A">„AI-ul zice că o cameră costă 1.000 de lei pe lună."</span><span class="dv" data-dv="B">„AI-ul zice că Ioana trebuie să aducă un CV printat."</span><span class="dv" data-dv="C">„AI-ul zice că Mihai să pună deoparte 500 de lei pe lună."</span></div>
+          <span class="fblock short" contenteditable="true" data-k="v1" data-ph="scrieți aici"></span>
+        </div>
+        <div class="q">
+          <div class="qq">Ce ați găsit?</div>
+          <span class="fblock" contenteditable="true" data-k="v2" data-ph="scrieți aici"></span>
+        </div>
+        <div class="gata"><b>Ați terminat când</b> ați scris ce ați găsit.</div>
+      </div>
+
+      <!-- PASUL 5 -->
+      <div class="step">
+        <div class="hd"><span class="num">5</span><h3>Voi decideți</h3></div>
+        <div class="q">
+          <div class="qq">Ce păstrați din răspuns?</div>
+          <span class="fblock" contenteditable="true" data-k="d1" data-ph="scrieți aici"></span>
+        </div>
+        <div class="q">
+          <div class="qq">Ce nu păstrați? De ce?</div>
+          <span class="fblock" contenteditable="true" data-k="d2" data-ph="scrieți aici"></span>
+        </div>
+        <div class="gata"><b>Ați terminat când</b> știți exact ce e ok și ce e greșit în răspunsul primit de la AI.</div>
+      </div>
+
+      <div class="opt">
+        <div class="ol">Opțional, dacă mai rămâne timp</div>
+        <p><strong>Dacă terminați mai repede:</strong> alegeți altă provocare și faceți din nou pașii 1-5.</p>
+      </div>
+    </div>
+  </section>
+  <div class="next"><button class="nextbtn" data-go="q3">Cele 3 întrebări →</button></div>
+
+  <!-- CELE 3 ÎNTREBĂRI -->
+  <section class="box q3" id="q3">
+    <h2>Cele 3 întrebări</h2>
+    <p>Înainte să crezi ce zice AI-ul, întreabă:</p>
+    <ol>
+      <li><div><span class="qt">Cine zice?</span>Există un om, o carte sau un site pe care îl poți găsi?</div></li>
+      <li><div><span class="qt">De unde știe?</span>Îți arată de unde are informația?</div></li>
+      <li><div><span class="qt">Ce lipsește?</span>Ce nu ți-a spus?</div></li>
+    </ol>
+    <p>Le puteți folosi oricând: la teme, la știri, la ce vedeți pe TikTok.</p>
+    <p class="final">AI-ul spune multe lucruri foarte sigur pe el. Doar că, de multe ori, nu spune adevărul. Tu ești responsabil de a verifica răspunsurile primite.</p>
+  </section>
+
+</main>
+
+<footer>AI-ul, în favoarea ta · Raluca Păduraru · The Social Incubator · 2026</footer>
+
+<!-- MESAJELE PENTRU AI: text simplu. {Q1}/{Q2} se înlocuiesc din JS. -->
+<script type="text/plain" id="m_1">Câte flori vizitează o albină într-o zi? Spune-mi de unde știi. Dă-mi numele sursei și linkul.</script>
+<script type="text/plain" id="per_A">Andrei are 19 ani. S-a angajat de curând. Vrea să stea singur, în chirie, pentru prima dată.</script>
+<script type="text/plain" id="per_B">Ioana are 18 ani. Peste 3 zile are primul ei interviu de angajare. Jobul: vânzătoare într-un magazin de haine.</script>
+<script type="text/plain" id="per_C">Mihai are 20 de ani. A primit primul lui salariu: 2.600 de lei. Vrea să-i ajungă toată luna. Și vrea să pună ceva deoparte.</script>
+<script type="text/plain" id="m_2">Ajută-mă cu o situație. E un personaj inventat, pentru un exercițiu.
+{PERSONAJ}
+Ce vrea să afle:
+{Q1}
+Cum arată un răspuns bun:
+{Q2}
+Reguli:
+- Scrie simplu, ca pentru cineva care face asta prima dată.
+- Nu inventa. Dacă nu ești sigur de ceva, spune asta.
+- Când dai o cifră, spune de unde o ai.</script>
+<script type="text/plain" id="m_3">Înainte să folosesc răspunsul tău: ce 3 întrebări mi-ai pune, ca să-l faci mai bun? Pune-le pe rând, câte una. Așteaptă răspunsul meu după fiecare. La final, scrie din nou răspunsul, mai bun.</script>
+
+<script>
+var STORE = 'si-fisa-6oct';
+var NAMES = { A: 'Andrei', B: 'Ioana', C: 'Mihai' };
+function raw(id){ var el = document.getElementById(id); return el ? el.textContent.replace(/^\n/, '') : ''; }
+
+/* salvare locală */
+var saved = {};
+try { saved = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch(e) { saved = {}; }
+function persist(){ try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch(e) {} }
+document.querySelectorAll('[contenteditable="true"][data-k]').forEach(function(el){
+  var k = el.getAttribute('data-k');
+  if (saved[k]) el.innerText = saved[k];
+  el.addEventListener('input', function(){ saved[k] = el.innerText; persist(); updateViews(); });
+});
+
+/* alegerea de la Partea 1 */
+document.querySelectorAll('[data-opt]').forEach(function(group){
+  var k = group.getAttribute('data-opt');
+  var btns = group.querySelectorAll('.optbtn');
+  function mark(){ btns.forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-v') === saved[k]); }); }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ saved[k] = b.getAttribute('data-v'); persist(); mark(); }); });
+  mark();
+});
+
+/* copiere, cu rezervă */
+function copyText(t){
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).catch(function(){ return legacyCopy(t); });
+  return legacyCopy(t);
+}
+function legacyCopy(t){
+  return new Promise(function(resolve, reject){
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.top = '-1000px'; ta.style.fontSize = '16px';
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, t.length);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    ok ? resolve() : reject();
+  });
+}
+function flash(btn, txt){
+  var old = btn.getAttribute('data-label') || btn.textContent;
+  btn.setAttribute('data-label', old);
+  btn.textContent = txt; btn.classList.add('done');
+  setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1800);
+}
+function doCopy(btn, text){
+  copyText(text).then(function(){ flash(btn, 'Copiat ✓'); }).catch(function(){ flash(btn, 'Țineți apăsat pe text și copiați'); });
+}
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){ doCopy(btn, raw(btn.getAttribute('data-copy'))); });
+});
+
+/* provocarea aleasă */
+var drum = (saved._drum === 'A' || saved._drum === 'B' || saved._drum === 'C') ? saved._drum : '';
+function val(k){ var el = document.querySelector('[data-k="' + k + '"]'); return el ? el.innerText.trim() : ''; }
+function msg2(){
+  var q1 = val(drum + '1'), q2 = val(drum + '2');
+  return raw('m_2')
+    .replace('{PERSONAJ}', raw('per_' + drum))
+    .replace('{Q1}', q1 || '(aici intră ce ați scris la întrebarea 1)')
+    .replace('{Q2}', q2 || '(aici intră ce ați scris la întrebarea 2)');
+}
+function updateViews(){
+  document.getElementById('view1').textContent = raw('m_1');
+  document.getElementById('view3').textContent = raw('m_3');
+  if (drum) document.getElementById('view2').textContent = msg2();
+}
+function syncDrum(){
+  document.querySelectorAll('.drumbtn').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-drum') === drum); });
+  document.querySelectorAll('.dv').forEach(function(d){
+    var k = d.getAttribute('data-dv');
+    d.classList.toggle('show', drum ? k.indexOf(drum) > -1 : k === '0');
+  });
+  var dn = document.querySelector('.drumnow');
+  if (dn && drum) dn.innerHTML = 'Lucrați cu <b>' + NAMES[drum] + '</b>. <a href="#p2" data-go-drum="1">Schimbați provocarea</a>';
+  document.querySelectorAll('.pname').forEach(function(s){ s.textContent = drum ? NAMES[drum] : 'personaj'; });
+  updateViews();
+}
+document.querySelectorAll('.drumbtn').forEach(function(b){
+  b.addEventListener('click', function(){ drum = b.getAttribute('data-drum'); saved._drum = drum; persist(); syncDrum(); });
+});
+document.querySelector('.drumnow').addEventListener('click', function(e){ if (e.target.tagName === 'A') { e.preventDefault(); goTo('p2'); } });
+document.getElementById('copy2').addEventListener('click', function(){
+  var b = this;
+  if (!val(drum + '1') || !val(drum + '2')) { flash(b, 'Scrieți întâi la pasul 1'); return; }
+  doCopy(b, msg2());
+});
+
+/* navigare */
+var navBtns = Array.prototype.slice.call(document.querySelectorAll('.navbtn'));
+var secIds = navBtns.map(function(b){ return b.getAttribute('data-go'); });
+function goTo(id){
+  var el = document.getElementById(id);
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 56, behavior: 'smooth' });
+}
+document.querySelectorAll('[data-go]').forEach(function(el){
+  el.addEventListener('click', function(e){ e.preventDefault(); goTo(el.getAttribute('data-go')); });
+});
+function markActive(){
+  var best = 0;
+  for (var i = 0; i < secIds.length; i++){ var el = document.getElementById(secIds[i]); if (el && el.getBoundingClientRect().top - 80 <= 0) best = i; }
+  navBtns.forEach(function(b, i){ b.classList.toggle('active', i === best); });
+}
+window.addEventListener('scroll', markActive, { passive: true });
+
+syncDrum();
+</script>
+</body>
+</html>
