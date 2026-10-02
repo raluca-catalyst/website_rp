@@ -28,6 +28,7 @@
     { "source": "/viitoruri", "destination": "/viitoruri.html" },
     { "source": "/contact",   "destination": "/contact.html"   },
     { "source": "/mentorat-ai", "destination": "/mentorat-ai.html" },
+    { "source": "/keynote", "destination": "/keynote.html" },
     { "source": "/build-your-cortex", "destination": "/build-your-cortex.html" },
     { "source": "/feedback-materiale", "destination": "/feedback-materiale.html" },
     { "source": "/trend-cards", "destination": "/trend-cards.html" },
