@@ -602,7 +602,7 @@
 <ul><li>linkul site-ului tău sau al paginii de prezentare</li><li>ce vinzi și cui, cu tarifele reale</li><li>unde ești față de obiectivul anului</li><li>câți oameni sunteți și câte ore ai tu, realist, pe săptămână</li><li>cea mai mare provocare de acum și ce nu e negociabil pentru tine</li></ul>
 <p>Pașii prin care construiești fiecare agent sunt următorii:</p>
 <ol><li><strong>Etapa 1 · Interviul</strong>, într-o conversație nouă: copiezi Prompt builder-ul, iar asistentul te intervievează și îți dă contextul de business.</li><li><strong>Etapa 2 · Pagina</strong>, într-o conversație NOUĂ: pui contextul, materialele cerute de agent și promptul de generare în același mesaj, apoi trimiți.</li><li><strong>Etapa 3 · Verificarea</strong>: verifici rezultatul.</li><li><strong>Etapa 4 · Skill-ul</strong>, în aceeași conversație cu Etapa 2: copiezi promptul de salvare și salvezi instrucțiunile agentului ca skill. Data viitoare când vrei să faci același task, deschizi o conversație nouă și-i spui ce vrei, iar el deja știe ce are de făcut.</li></ol>
-<p>În prima rundă urmărești să evaluezi un prim output. Poți salva skill-ul ulterior.</p>
+<p>În sesiune urmărești să evaluezi un prim output. Skill-ul îl poți salva și acasă, iar pagina rămâne disponibilă ca să aprofundezi.</p>
 <p>Dacă nu vrei să folosești date reale sau îți lipsește materialul cerut de agent, alege drumul <a class="jump" href="#ventora"><strong>Cu organizația demo (Ventora SRL)</strong></a>. Acolo ai deja tot ce trebuie pentru exercițiu. Pe drumul cu organizația ta poți lăsa unele informații necompletate; asistentul le va marca drept necunoscute.</p></div>
 <p>Nimic de deschis pe laptop: asistentul te întreabă, echipă cu echipă, ce se face în firmă într-o săptămână obișnuită.</p>
 <h3 class="etapa-t" id="firma-ta-harta-e1">Etapa 1 · Interviul: copiază Prompt builder-ul într-o conversație nouă</h3>
@@ -694,7 +694,7 @@ Reguli:
 <p>Dacă identifici o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea. Abia apoi Etapa 4.</p></div>
 <h3 class="etapa-t" id="firma-ta-harta-e4">Etapa 4 · Skill-ul: copiază promptul de salvare la final, în aceeași conversație</h3>
 <div class="flux"><span class="flux-p">Aceeași conversație</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">copiază promptul de salvare</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">AI-ul salvează skill-ul</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">îl testezi într-o conversație nouă</span></div>
-<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Fă pasul în runda a doua sau acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
+<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Dacă nu apuci în sesiune, îl poți face acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
 <div class="prompt"><div class="prompt-top"><span class="prompt-label">Prompt de salvare</span><button class="copy-btn" type="button" data-copy="firma-ta-harta-p3">Copiază</button></div><pre id="firma-ta-harta-p3">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema data viitoare când vreau să refac harta AI a firmei, fără să rescriu instrucțiunile. La prima utilizare a skill-ului, începe cu întrebările din „de aflat data viitoare”, apoi fă interviul complet: câte o întrebare pe rând, pe fiecare secțiune a contextului meu de business, inclusiv activitățile fiecărei echipe, cu orele. Păstrează cele 4 trepte, regulile despre ore, decizii și date sensibile, și formatul paginii. Lasă pe dinafară orice element decorativ care nu ține de analiză, cum sunt mascotele. La final spune-mi cum îl chem la lucru.</pre></div>
 <p class="pas-titlu"><strong>Unde ajunge skill-ul</strong></p>
 <div class="comutator"><div class="com-tabs" role="group" aria-label="Unealta ta"><button type="button" class="com-opt" data-unealta="cowork">Claude, în Cowork</button><button type="button" class="com-opt" data-unealta="project">Claude, cont gratuit (Project)</button><button type="button" class="com-opt" data-unealta="codex">ChatGPT, în Codex</button></div><div class="com-panel" data-unealta="cowork"><p class="com-print">Claude, în Cowork</p><p>Claude creează skill-ul și îți spune unde l-a salvat. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Dacă nu-l găsește, cere-i în conversația veche textul complet al instrucțiunilor și salvează-l ca fișier în folderul „Business Forward”.</p></div><div class="com-panel" data-unealta="project"><p class="com-print">Claude, cont gratuit (Project)</p><ol><li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia.”</li><li>În meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după agent, de exemplu <em>Boardroom</em>.</li><li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.</li><li>Data viitoare, deschide o conversație din interiorul proiectului. Agentul te așteaptă acolo.</li></ol></div><div class="com-panel" data-unealta="codex"><p class="com-print">ChatGPT, în Codex</p><p>Codex salvează skill-ul și îți spune unde l-a pus. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Confirmarea că s-a salvat nu e destulă; abia conversația nouă arată dacă merge. Dacă nu-l recunoaște, cere-i în conversația veche textul complet al instrucțiunilor și copiază-l la începutul unei conversații noi.</p></div></div>
@@ -711,7 +711,7 @@ Reguli:
 <ul><li>linkul site-ului tău sau al paginii de prezentare</li><li>ce vinzi și cui, cu tarifele reale</li><li>unde ești față de obiectivul anului</li><li>câți oameni sunteți și câte ore ai tu, realist, pe săptămână</li><li>cea mai mare provocare de acum și ce nu e negociabil pentru tine</li></ul>
 <p>Pașii prin care construiești fiecare agent sunt următorii:</p>
 <ol><li><strong>Etapa 1 · Interviul</strong>, într-o conversație nouă: copiezi Prompt builder-ul, iar asistentul te intervievează și îți dă contextul de business.</li><li><strong>Etapa 2 · Pagina</strong>, într-o conversație NOUĂ: pui contextul, materialele cerute de agent și promptul de generare în același mesaj, apoi trimiți.</li><li><strong>Etapa 3 · Verificarea</strong>: verifici rezultatul.</li><li><strong>Etapa 4 · Skill-ul</strong>, în aceeași conversație cu Etapa 2: copiezi promptul de salvare și salvezi instrucțiunile agentului ca skill. Data viitoare când vrei să faci același task, deschizi o conversație nouă și-i spui ce vrei, iar el deja știe ce are de făcut.</li></ol>
-<p>În prima rundă urmărești să evaluezi un prim output. Poți salva skill-ul ulterior.</p>
+<p>În sesiune urmărești să evaluezi un prim output. Skill-ul îl poți salva și acasă, iar pagina rămâne disponibilă ca să aprofundezi.</p>
 <p>Dacă nu vrei să folosești date reale sau îți lipsește materialul cerut de agent, alege drumul <a class="jump" href="#ventora"><strong>Cu organizația demo (Ventora SRL)</strong></a>. Acolo ai deja tot ce trebuie pentru exercițiu. Pe drumul cu organizația ta poți lăsa unele informații necompletate; asistentul le va marca drept necunoscute.</p></div>
 <p>Construiești un plan pentru primele 30 de zile: ce se schimbă în munca oamenilor, cum le explici schimbarea și cu ce începeți. Nu ai nevoie de documente pregătite. Dacă ai făcut Harta AI a firmei, pornește de la prima inițiativă de acolo.</p>
 <h3 class="etapa-t" id="firma-ta-schimbare-e1">Etapa 1 · Interviul: copiază Prompt builder-ul într-o conversație nouă</h3>
@@ -811,7 +811,7 @@ Reguli:
 <p>Dacă identifici o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea. Abia apoi Etapa 4.</p></div>
 <h3 class="etapa-t" id="firma-ta-schimbare-e4">Etapa 4 · Skill-ul: copiază promptul de salvare la final, în aceeași conversație</h3>
 <div class="flux"><span class="flux-p">Aceeași conversație</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">copiază promptul de salvare</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">AI-ul salvează skill-ul</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">îl testezi într-o conversație nouă</span></div>
-<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Fă pasul în runda a doua sau acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
+<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Dacă nu apuci în sesiune, îl poți face acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
 <div class="prompt"><div class="prompt-top"><span class="prompt-label">Prompt de salvare</span><button class="copy-btn" type="button" data-copy="firma-ta-schimbare-p3">Copiază</button></div><pre id="firma-ta-schimbare-p3">Transformă modul de lucru verificat aici într-un skill pentru planificarea unei schimbări. Păstrează contextul stabil al firmei, regulile despre oameni, decizii și date sensibile, butonul „Mod echipă” și formatul paginii, inclusiv corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește; nu repeta întrebările deja lămurite. La fiecare plan nou, cere inițiativa și informațiile actualizate despre oamenii afectați. Nu prelua reacțiile sau planul anterior ca fapte actuale. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. La final, spune-mi cum chem skill-ul și ce informații îi dau.</pre></div>
 <p class="pas-titlu"><strong>Unde ajunge skill-ul</strong></p>
 <div class="comutator"><div class="com-tabs" role="group" aria-label="Unealta ta"><button type="button" class="com-opt" data-unealta="cowork">Claude, în Cowork</button><button type="button" class="com-opt" data-unealta="project">Claude, cont gratuit (Project)</button><button type="button" class="com-opt" data-unealta="codex">ChatGPT, în Codex</button></div><div class="com-panel" data-unealta="cowork"><p class="com-print">Claude, în Cowork</p><p>Claude creează skill-ul și îți spune unde l-a salvat. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Dacă nu-l găsește, cere-i în conversația veche textul complet al instrucțiunilor și salvează-l ca fișier în folderul „Business Forward”.</p></div><div class="com-panel" data-unealta="project"><p class="com-print">Claude, cont gratuit (Project)</p><ol><li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia.”</li><li>În meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după agent, de exemplu <em>Boardroom</em>.</li><li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.</li><li>Data viitoare, deschide o conversație din interiorul proiectului. Agentul te așteaptă acolo.</li></ol></div><div class="com-panel" data-unealta="codex"><p class="com-print">ChatGPT, în Codex</p><p>Codex salvează skill-ul și îți spune unde l-a pus. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Confirmarea că s-a salvat nu e destulă; abia conversația nouă arată dacă merge. Dacă nu-l recunoaște, cere-i în conversația veche textul complet al instrucțiunilor și copiază-l la începutul unei conversații noi.</p></div></div>
@@ -827,7 +827,7 @@ Reguli:
 <ul><li>linkul site-ului tău sau al paginii de prezentare</li><li>ce vinzi și cui, cu tarifele reale</li><li>unde ești față de obiectivul anului</li><li>câți oameni sunteți și câte ore ai tu, realist, pe săptămână</li><li>cea mai mare provocare de acum și ce nu e negociabil pentru tine</li></ul>
 <p>Pașii prin care construiești fiecare agent sunt următorii:</p>
 <ol><li><strong>Etapa 1 · Interviul</strong>, într-o conversație nouă: copiezi Prompt builder-ul, iar asistentul te intervievează și îți dă contextul de business.</li><li><strong>Etapa 2 · Pagina</strong>, într-o conversație NOUĂ: pui contextul, materialele cerute de agent și promptul de generare în același mesaj, apoi trimiți.</li><li><strong>Etapa 3 · Verificarea</strong>: verifici rezultatul.</li><li><strong>Etapa 4 · Skill-ul</strong>, în aceeași conversație cu Etapa 2: copiezi promptul de salvare și salvezi instrucțiunile agentului ca skill. Data viitoare când vrei să faci același task, deschizi o conversație nouă și-i spui ce vrei, iar el deja știe ce are de făcut.</li></ol>
-<p>În prima rundă urmărești să evaluezi un prim output. Poți salva skill-ul ulterior.</p>
+<p>În sesiune urmărești să evaluezi un prim output. Skill-ul îl poți salva și acasă, iar pagina rămâne disponibilă ca să aprofundezi.</p>
 <p>Dacă nu vrei să folosești date reale sau îți lipsește materialul cerut de agent, alege drumul <a class="jump" href="#ventora"><strong>Cu organizația demo (Ventora SRL)</strong></a>. Acolo ai deja tot ce trebuie pentru exercițiu. Pe drumul cu organizația ta poți lăsa unele informații necompletate; asistentul le va marca drept necunoscute.</p></div>
 <p>Nimic de deschis pe laptop: asistentul te intervievează și pleci cu o decizie de-a ta analizată.</p>
 <h3 class="etapa-t" id="firma-ta-boardroom-e1">Etapa 1 · Interviul: copiază Prompt builder-ul într-o conversație nouă</h3>
@@ -923,7 +923,7 @@ Reguli:
 <p>Dacă identifici o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea. Abia apoi Etapa 4.</p></div>
 <h3 class="etapa-t" id="firma-ta-boardroom-e4">Etapa 4 · Skill-ul: copiază promptul de salvare la final, în aceeași conversație</h3>
 <div class="flux"><span class="flux-p">Aceeași conversație</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">copiază promptul de salvare</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">AI-ul salvează skill-ul</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">îl testezi într-o conversație nouă</span></div>
-<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Fă pasul în runda a doua sau acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
+<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Dacă nu apuci în sesiune, îl poți face acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
 <div class="prompt"><div class="prompt-top"><span class="prompt-label">Prompt de salvare</span><button class="copy-btn" type="button" data-copy="firma-ta-boardroom-p3">Copiază</button></div><pre id="firma-ta-boardroom-p3">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema data viitoare când am o decizie de luat, fără să rescriu instrucțiunile. La prima utilizare a skill-ului, începe cu întrebările din „de aflat data viitoare”, apoi fă interviul complet: câte o întrebare pe rând, pe fiecare secțiune a contextului meu de business. Păstrează consiliul, regulile de vot și formatul paginii. Lasă pe dinafară orice element decorativ care nu ține de analiză, cum sunt mascotele. La final spune-mi cum îl chem la lucru.</pre></div>
 <p class="pas-titlu"><strong>Unde ajunge skill-ul</strong></p>
 <div class="comutator"><div class="com-tabs" role="group" aria-label="Unealta ta"><button type="button" class="com-opt" data-unealta="cowork">Claude, în Cowork</button><button type="button" class="com-opt" data-unealta="project">Claude, cont gratuit (Project)</button><button type="button" class="com-opt" data-unealta="codex">ChatGPT, în Codex</button></div><div class="com-panel" data-unealta="cowork"><p class="com-print">Claude, în Cowork</p><p>Claude creează skill-ul și îți spune unde l-a salvat. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Dacă nu-l găsește, cere-i în conversația veche textul complet al instrucțiunilor și salvează-l ca fișier în folderul „Business Forward”.</p></div><div class="com-panel" data-unealta="project"><p class="com-print">Claude, cont gratuit (Project)</p><ol><li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia.”</li><li>În meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după agent, de exemplu <em>Boardroom</em>.</li><li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.</li><li>Data viitoare, deschide o conversație din interiorul proiectului. Agentul te așteaptă acolo.</li></ol></div><div class="com-panel" data-unealta="codex"><p class="com-print">ChatGPT, în Codex</p><p>Codex salvează skill-ul și îți spune unde l-a pus. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Confirmarea că s-a salvat nu e destulă; abia conversația nouă arată dacă merge. Dacă nu-l recunoaște, cere-i în conversația veche textul complet al instrucțiunilor și copiază-l la începutul unei conversații noi.</p></div></div>
@@ -939,7 +939,7 @@ Reguli:
 <ul><li>linkul site-ului tău sau al paginii de prezentare</li><li>ce vinzi și cui, cu tarifele reale</li><li>unde ești față de obiectivul anului</li><li>câți oameni sunteți și câte ore ai tu, realist, pe săptămână</li><li>cea mai mare provocare de acum și ce nu e negociabil pentru tine</li></ul>
 <p>Pașii prin care construiești fiecare agent sunt următorii:</p>
 <ol><li><strong>Etapa 1 · Interviul</strong>, într-o conversație nouă: copiezi Prompt builder-ul, iar asistentul te intervievează și îți dă contextul de business.</li><li><strong>Etapa 2 · Pagina</strong>, într-o conversație NOUĂ: pui contextul, materialele cerute de agent și promptul de generare în același mesaj, apoi trimiți.</li><li><strong>Etapa 3 · Verificarea</strong>: verifici rezultatul.</li><li><strong>Etapa 4 · Skill-ul</strong>, în aceeași conversație cu Etapa 2: copiezi promptul de salvare și salvezi instrucțiunile agentului ca skill. Data viitoare când vrei să faci același task, deschizi o conversație nouă și-i spui ce vrei, iar el deja știe ce are de făcut.</li></ol>
-<p>În prima rundă urmărești să evaluezi un prim output. Poți salva skill-ul ulterior.</p>
+<p>În sesiune urmărești să evaluezi un prim output. Skill-ul îl poți salva și acasă, iar pagina rămâne disponibilă ca să aprofundezi.</p>
 <p>Dacă nu vrei să folosești date reale sau îți lipsește materialul cerut de agent, alege drumul <a class="jump" href="#ventora"><strong>Cu organizația demo (Ventora SRL)</strong></a>. Acolo ai deja tot ce trebuie pentru exercițiu. Pe drumul cu organizația ta poți lăsa unele informații necompletate; asistentul le va marca drept necunoscute.</p></div>
 <p>Pleci cu minuta unei ședințe și cu un email de follow-up de verificat înainte de trimitere. Pregătește notițele ședinței și, dacă ai la îndemână, un email scris de tine din care asistentul să învețe tonul. Fără email poți continua; fără notițele ședinței, alege <a class="jump" href="#ventora/meeting"><strong>Cu organizația demo (Ventora SRL)</strong></a>.</p>
 <h3 class="etapa-t" id="firma-ta-meeting-e1">Etapa 1 · Interviul: copiază Prompt builder-ul într-o conversație nouă</h3>
@@ -1022,7 +1022,7 @@ Reguli:
 <p>Dacă identifici o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea. Abia apoi Etapa 4.</p></div>
 <h3 class="etapa-t" id="firma-ta-meeting-e4">Etapa 4 · Skill-ul: copiază promptul de salvare la final, în aceeași conversație</h3>
 <div class="flux"><span class="flux-p">Aceeași conversație</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">copiază promptul de salvare</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">AI-ul salvează skill-ul</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">îl testezi într-o conversație nouă</span></div>
-<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Fă pasul în runda a doua sau acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
+<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Dacă nu apuci în sesiune, îl poți face acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
 <div class="prompt"><div class="prompt-top"><span class="prompt-label">Prompt de salvare</span><button class="copy-btn" type="button" data-copy="firma-ta-meeting-p3">Copiază</button></div><pre id="firma-ta-meeting-p3">Transformă modul de lucru verificat aici într-un skill pentru minute și emailuri de follow-up. Păstrează contextul stabil al firmei, regula de aur, formatul paginii, stilul meu de email și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește; nu repeta întrebările deja lămurite. La fiecare utilizare, cere notițele sau transcriptul ședinței noi. Nu refolosi deciziile, oamenii sau termenele ședinței de probă ca date pentru următoarea. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. La final, spune-mi cum chem skill-ul și ce material îi dau.</pre></div>
 <p class="pas-titlu"><strong>Unde ajunge skill-ul</strong></p>
 <div class="comutator"><div class="com-tabs" role="group" aria-label="Unealta ta"><button type="button" class="com-opt" data-unealta="cowork">Claude, în Cowork</button><button type="button" class="com-opt" data-unealta="project">Claude, cont gratuit (Project)</button><button type="button" class="com-opt" data-unealta="codex">ChatGPT, în Codex</button></div><div class="com-panel" data-unealta="cowork"><p class="com-print">Claude, în Cowork</p><p>Claude creează skill-ul și îți spune unde l-a salvat. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Dacă nu-l găsește, cere-i în conversația veche textul complet al instrucțiunilor și salvează-l ca fișier în folderul „Business Forward”.</p></div><div class="com-panel" data-unealta="project"><p class="com-print">Claude, cont gratuit (Project)</p><ol><li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia.”</li><li>În meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după agent, de exemplu <em>Boardroom</em>.</li><li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.</li><li>Data viitoare, deschide o conversație din interiorul proiectului. Agentul te așteaptă acolo.</li></ol></div><div class="com-panel" data-unealta="codex"><p class="com-print">ChatGPT, în Codex</p><p>Codex salvează skill-ul și îți spune unde l-a pus. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Confirmarea că s-a salvat nu e destulă; abia conversația nouă arată dacă merge. Dacă nu-l recunoaște, cere-i în conversația veche textul complet al instrucțiunilor și copiază-l la începutul unei conversații noi.</p></div></div>
@@ -1038,7 +1038,7 @@ Reguli:
 <ul><li>linkul site-ului tău sau al paginii de prezentare</li><li>ce vinzi și cui, cu tarifele reale</li><li>unde ești față de obiectivul anului</li><li>câți oameni sunteți și câte ore ai tu, realist, pe săptămână</li><li>cea mai mare provocare de acum și ce nu e negociabil pentru tine</li></ul>
 <p>Pașii prin care construiești fiecare agent sunt următorii:</p>
 <ol><li><strong>Etapa 1 · Interviul</strong>, într-o conversație nouă: copiezi Prompt builder-ul, iar asistentul te intervievează și îți dă contextul de business.</li><li><strong>Etapa 2 · Pagina</strong>, într-o conversație NOUĂ: pui contextul, materialele cerute de agent și promptul de generare în același mesaj, apoi trimiți.</li><li><strong>Etapa 3 · Verificarea</strong>: verifici rezultatul.</li><li><strong>Etapa 4 · Skill-ul</strong>, în aceeași conversație cu Etapa 2: copiezi promptul de salvare și salvezi instrucțiunile agentului ca skill. Data viitoare când vrei să faci același task, deschizi o conversație nouă și-i spui ce vrei, iar el deja știe ce are de făcut.</li></ol>
-<p>În prima rundă urmărești să evaluezi un prim output. Poți salva skill-ul ulterior.</p>
+<p>În sesiune urmărești să evaluezi un prim output. Skill-ul îl poți salva și acasă, iar pagina rămâne disponibilă ca să aprofundezi.</p>
 <p>Dacă nu vrei să folosești date reale sau îți lipsește materialul cerut de agent, alege drumul <a class="jump" href="#ventora"><strong>Cu organizația demo (Ventora SRL)</strong></a>. Acolo ai deja tot ce trebuie pentru exercițiu. Pe drumul cu organizația ta poți lăsa unele informații necompletate; asistentul le va marca drept necunoscute.</p></div>
 <p>Pleci cu o ofertă pentru un client potențial, gata de trimis după ce confirmi câteva puncte, plus documentul tău de lucru. Oferta are structura unei propuneri comerciale bune, pagină cu pagină; din oferta ta veche preia tonul și condițiile obișnuite. Pregătește înainte să începi lista de prețuri sau tarife, oferta-model și notițele discuției. Fără prețuri, oferta iese cu goluri în locul cifrelor. Dacă îți lipsește unul dintre materiale, alege <a class="jump" href="#ventora/offer"><strong>Cu organizația demo (Ventora SRL)</strong></a>.</p>
 <h3 class="etapa-t" id="firma-ta-offer-e1">Etapa 1 · Interviul: copiază Prompt builder-ul într-o conversație nouă</h3>
@@ -1143,7 +1143,7 @@ Reguli:
 <p>Dacă identifici o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea. Abia apoi Etapa 4.</p></div>
 <h3 class="etapa-t" id="firma-ta-offer-e4">Etapa 4 · Skill-ul: copiază promptul de salvare la final, în aceeași conversație</h3>
 <div class="flux"><span class="flux-p">Aceeași conversație</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">copiază promptul de salvare</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">AI-ul salvează skill-ul</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">îl testezi într-o conversație nouă</span></div>
-<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Fă pasul în runda a doua sau acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
+<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Dacă nu apuci în sesiune, îl poți face acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
 <div class="prompt"><div class="prompt-top"><span class="prompt-label">Prompt de salvare</span><button class="copy-btn" type="button" data-copy="firma-ta-offer-p3">Copiază</button></div><pre id="firma-ta-offer-p3">Transformă modul de lucru verificat aici într-un skill pentru schițe de oferte. Păstrează contextul stabil al firmei, lista produselor și serviciilor, regulile despre prețuri și promisiuni, tonul și condițiile obișnuite din oferta-model, structura ofertei pe pagini, formatul paginilor, documentul de lucru și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește; nu repeta întrebările deja lămurite. Pentru fiecare ofertă nouă, cere notițele discuției și confirmarea tarifelor și condițiilor aplicabile. Nu prelua detaliile clientului anterior. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. La final, spune-mi cum chem skill-ul și ce materiale îi dau.</pre></div>
 <p class="pas-titlu"><strong>Unde ajunge skill-ul</strong></p>
 <div class="comutator"><div class="com-tabs" role="group" aria-label="Unealta ta"><button type="button" class="com-opt" data-unealta="cowork">Claude, în Cowork</button><button type="button" class="com-opt" data-unealta="project">Claude, cont gratuit (Project)</button><button type="button" class="com-opt" data-unealta="codex">ChatGPT, în Codex</button></div><div class="com-panel" data-unealta="cowork"><p class="com-print">Claude, în Cowork</p><p>Claude creează skill-ul și îți spune unde l-a salvat. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Dacă nu-l găsește, cere-i în conversația veche textul complet al instrucțiunilor și salvează-l ca fișier în folderul „Business Forward”.</p></div><div class="com-panel" data-unealta="project"><p class="com-print">Claude, cont gratuit (Project)</p><ol><li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia.”</li><li>În meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după agent, de exemplu <em>Boardroom</em>.</li><li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.</li><li>Data viitoare, deschide o conversație din interiorul proiectului. Agentul te așteaptă acolo.</li></ol></div><div class="com-panel" data-unealta="codex"><p class="com-print">ChatGPT, în Codex</p><p>Codex salvează skill-ul și îți spune unde l-a pus. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Confirmarea că s-a salvat nu e destulă; abia conversația nouă arată dacă merge. Dacă nu-l recunoaște, cere-i în conversația veche textul complet al instrucțiunilor și copiază-l la începutul unei conversații noi.</p></div></div>
@@ -1159,7 +1159,7 @@ Reguli:
 <ul><li>linkul site-ului tău sau al paginii de prezentare</li><li>ce vinzi și cui, cu tarifele reale</li><li>unde ești față de obiectivul anului</li><li>câți oameni sunteți și câte ore ai tu, realist, pe săptămână</li><li>cea mai mare provocare de acum și ce nu e negociabil pentru tine</li></ul>
 <p>Pașii prin care construiești fiecare agent sunt următorii:</p>
 <ol><li><strong>Etapa 1 · Interviul</strong>, într-o conversație nouă: copiezi Prompt builder-ul, iar asistentul te intervievează și îți dă contextul de business.</li><li><strong>Etapa 2 · Pagina</strong>, într-o conversație NOUĂ: pui contextul, materialele cerute de agent și promptul de generare în același mesaj, apoi trimiți.</li><li><strong>Etapa 3 · Verificarea</strong>: verifici rezultatul.</li><li><strong>Etapa 4 · Skill-ul</strong>, în aceeași conversație cu Etapa 2: copiezi promptul de salvare și salvezi instrucțiunile agentului ca skill. Data viitoare când vrei să faci același task, deschizi o conversație nouă și-i spui ce vrei, iar el deja știe ce are de făcut.</li></ol>
-<p>În prima rundă urmărești să evaluezi un prim output. Poți salva skill-ul ulterior.</p>
+<p>În sesiune urmărești să evaluezi un prim output. Skill-ul îl poți salva și acasă, iar pagina rămâne disponibilă ca să aprofundezi.</p>
 <p>Dacă nu vrei să folosești date reale sau îți lipsește materialul cerut de agent, alege drumul <a class="jump" href="#ventora"><strong>Cu organizația demo (Ventora SRL)</strong></a>. Acolo ai deja tot ce trebuie pentru exercițiu. Pe drumul cu organizația ta poți lăsa unele informații necompletate; asistentul le va marca drept necunoscute.</p></div>
 <p>Vezi unde se află firma față de obiective și alegi cel mult 3 acțiuni pentru perioada următoare. Pregătește cifrele și perioada la care se referă, plus câteva note despre clienți, proiecte și blocaje. Marchează cifrele aproximative ca estimări. Dacă nu ai suficiente informații la îndemână, alege <a class="jump" href="#ventora/cockpit"><strong>Cu organizația demo (Ventora SRL)</strong></a>.</p>
 <h3 class="etapa-t" id="firma-ta-cockpit-e1">Etapa 1 · Interviul: copiază Prompt builder-ul într-o conversație nouă</h3>
@@ -1245,7 +1245,7 @@ Reguli:
 <p>Dacă identifici o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea. Abia apoi Etapa 4.</p></div>
 <h3 class="etapa-t" id="firma-ta-cockpit-e4">Etapa 4 · Skill-ul: copiază promptul de salvare la final, în aceeași conversație</h3>
 <div class="flux"><span class="flux-p">Aceeași conversație</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">copiază promptul de salvare</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">AI-ul salvează skill-ul</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">îl testezi într-o conversație nouă</span></div>
-<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Fă pasul în runda a doua sau acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
+<p>Acum salvezi modul de lucru al agentului, ca să-l poți folosi din nou. Dacă nu apuci în sesiune, îl poți face acasă. Copiază promptul în conversația în care ai construit și verificat pagina:</p>
 <div class="prompt"><div class="prompt-top"><span class="prompt-label">Prompt de salvare</span><button class="copy-btn" type="button" data-copy="firma-ta-cockpit-p3">Copiază</button></div><pre id="firma-ta-cockpit-p3">Transformă modul de lucru verificat aici într-un skill pentru tabloul de bord lunar. Păstrează contextul stabil al firmei, obiectivele, pragul de alarmă dacă este cunoscut, regulile de calcul, formatul paginii și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește; nu repeta întrebările deja lămurite. În fiecare lună, cere situația actualizată, data raportării și perioada acoperită de cifre; verifică dacă s-au schimbat obiectivele sau pragul de alarmă. Nu folosi cifrele lunii precedente ca situație curentă. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. La final, spune-mi cum chem skill-ul și cum îi dau datele lunii noi.</pre></div>
 <p class="pas-titlu"><strong>Unde ajunge skill-ul</strong></p>
 <div class="comutator"><div class="com-tabs" role="group" aria-label="Unealta ta"><button type="button" class="com-opt" data-unealta="cowork">Claude, în Cowork</button><button type="button" class="com-opt" data-unealta="project">Claude, cont gratuit (Project)</button><button type="button" class="com-opt" data-unealta="codex">ChatGPT, în Codex</button></div><div class="com-panel" data-unealta="cowork"><p class="com-print">Claude, în Cowork</p><p>Claude creează skill-ul și îți spune unde l-a salvat. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Dacă nu-l găsește, cere-i în conversația veche textul complet al instrucțiunilor și salvează-l ca fișier în folderul „Business Forward”.</p></div><div class="com-panel" data-unealta="project"><p class="com-print">Claude, cont gratuit (Project)</p><ol><li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia.”</li><li>În meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după agent, de exemplu <em>Boardroom</em>.</li><li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.</li><li>Data viitoare, deschide o conversație din interiorul proiectului. Agentul te așteaptă acolo.</li></ol></div><div class="com-panel" data-unealta="codex"><p class="com-print">ChatGPT, în Codex</p><p>Codex salvează skill-ul și îți spune unde l-a pus. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Confirmarea că s-a salvat nu e destulă; abia conversația nouă arată dacă merge. Dacă nu-l recunoaște, cere-i în conversația veche textul complet al instrucțiunilor și copiază-l la începutul unei conversații noi.</p></div></div>
@@ -1883,9 +1883,13 @@ Reguli:
 <p>Special pentru tine, un cadou care te ajută să planifici adopția AI: roadmap-ul de adopție AI cu 4 faze.</p>
 <p class="pas-titlu"><strong>Ce obții</strong></p>
 <ul><li>Un an de adopție AI pe o singură pagină: 4 faze și 8 fluxuri de lucru.</li><li>Ce faci în fiecare fază, pe fiecare flux: de la conducere și comunicarea cu echipa la reguli, procese și cultură.</li><li>Reperele fiecărei faze, de la sponsorul numit la bilanțul anului.</li></ul>
-<p>Înainte să descarci roadmap-ul, notează 3 lucruri:</p>
+<p>Înainte să descarci roadmap-ul, scrie steaua nordului și inițiativa ta. La descărcare primești, lângă roadmap, și o fișă PDF cu ce ai scris aici.</p>
 <div class="pas-urmator">
-<label>Ce inițiativă aleg<input type="text" data-k="initiativa"></label>
+<label>Steaua nordului: metrica de business pe care vreau s-o mișc<input type="text" data-k="steaua"></label>
+<label>Inițiativa AI care o servește<input type="text" data-k="initiativa"></label>
+<label>Cine din echipă e afectat<input type="text" data-k="afectati"></label>
+<label>Ce pierd oamenii afectați<input type="text" data-k="pierd"></label>
+<label>Ce câștigă<input type="text" data-k="castiga"></label>
 <label>Cu cine o verific<input type="text" data-k="cu-cine"></label>
 <label>Când fac primul pas<input type="text" data-k="cand"></label>
 </div>
@@ -2075,12 +2079,107 @@ Reguli:
     marcheaza();
   })();
 
-  // cele 3 rânduri dinaintea roadmap-ului rămân salvate în browserul participantului
+  // rândurile dinaintea roadmap-ului rămân salvate în browserul participantului
   document.querySelectorAll('.pas-urmator input[data-k]').forEach(function (inp) {
     var cheie = 'bfwd-pas-' + inp.getAttribute('data-k');
     try { inp.value = localStorage.getItem(cheie) || ''; } catch (e) {}
     inp.addEventListener('input', function () { try { localStorage.setItem(cheie, inp.value); } catch (e) {} });
   });
+
+  // la descărcarea roadmap-ului pleacă și fișa „Steaua mea a nordului”, ca PDF în brand (decizia Ralucăi, 2 oct).
+  // Biblioteca (html2pdf, cdnjs) se încarcă doar când omul începe să scrie în câmpuri. Dacă nu se încarcă, pleacă un .txt.
+  (function () {
+    var buton = document.querySelector('a.descarca');
+    if (!buton) return;
+    var LIB = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+    var incarcare = null;
+    function lib() {
+      if (window.html2pdf) return Promise.resolve();
+      if (!incarcare) incarcare = new Promise(function (ok, nu) {
+        var s = document.createElement('script');
+        s.src = LIB; s.onload = ok; s.onerror = function () { incarcare = null; nu(); };
+        document.head.appendChild(s);
+      });
+      return incarcare;
+    }
+    document.querySelectorAll('.pas-urmator input').forEach(function (inp) {
+      inp.addEventListener('focus', function () { lib().catch(function () {}); }, { once: true });
+    });
+
+    var CAMPURI = [
+      ['steaua', 'Metrica de business pe care vreau s-o mișc'],
+      ['initiativa', 'Inițiativa AI care o servește'],
+      ['afectati', 'Cine din echipă e afectat'],
+      ['pierd', 'Ce pierd oamenii afectați'],
+      ['castiga', 'Ce câștigă'],
+      ['cu-cine', 'Cu cine o verific'],
+      ['cand', 'Când fac primul pas']
+    ];
+    function val(k) {
+      var i = document.querySelector('.pas-urmator input[data-k="' + k + '"]');
+      return i ? i.value.trim() : '';
+    }
+    function fisa() {
+      var d = document.createElement('div');
+      d.innerHTML =
+        '<style>' +
+        '.sn,.sn *{box-sizing:border-box;}' +
+        '.sn{width:180mm;background:#fff;color:#1a1a1a;font-family:Barlow,Arial,sans-serif;font-size:13px;line-height:1.45;padding:2mm 0;}' +
+        '.sn-k{font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#7c3aed;}' +
+        '.sn-h{font-family:"JetBrains Mono",monospace;font-size:26px;font-weight:700;letter-spacing:-.02em;color:#312e81;margin:2mm 0 6mm;}' +
+        '.sn-l{font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#6b6880;margin-bottom:1.5mm;}' +
+        '.sn-v{white-space:pre-wrap;word-wrap:break-word;font-size:14px;min-height:12mm;}' +
+        '.sn-b{border:1px solid #e4e0f0;border-left:3px solid #a78bfa;border-radius:3px;padding:3.5mm 4mm;margin-bottom:4mm;}' +
+        '.sn-star{background:#312e81;border:none;border-radius:4px;padding:6mm;}' +
+        '.sn-star .sn-l{color:#c4b5fd;}' +
+        '.sn-star .sn-v{color:#fff;font-family:"JetBrains Mono",monospace;font-size:19px;font-weight:700;min-height:16mm;}' +
+        '.sn-r{display:flex;gap:4mm;} .sn-r .sn-b{flex:1;}' +
+        '.sn-c{border-left-color:#7c3aed;background:#f6f2ff;}' +
+        '.sn-f{margin-top:6mm;padding-top:3mm;border-top:1px solid #e4e0f0;font-family:"JetBrains Mono",monospace;font-size:8.5px;letter-spacing:.04em;color:#6b6880;}' +
+        '</style>' +
+        '<div class="sn">' +
+        '<div class="sn-k">Business Forward · Make AI Work · 9 octombrie 2026</div>' +
+        '<div class="sn-h">Steaua mea a nordului</div>' +
+        '<div class="sn-b sn-star"><div class="sn-l"></div><div class="sn-v" data-s="steaua"></div></div>' +
+        '<div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="initiativa"></div></div>' +
+        '<div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="afectati"></div></div>' +
+        '<div class="sn-r"><div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="pierd"></div></div>' +
+        '<div class="sn-b sn-c"><div class="sn-l"></div><div class="sn-v" data-s="castiga"></div></div></div>' +
+        '<div class="sn-r"><div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="cu-cine"></div></div>' +
+        '<div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="cand"></div></div></div>' +
+        '<div class="sn-f">Roadmap-ul de adopție AI e în PDF-ul descărcat odată cu fișa asta · ralucapaduraru.ro/business-forward · Raluca Păduraru</div>' +
+        '</div>';
+      CAMPURI.forEach(function (c) {
+        var v = d.querySelector('[data-s="' + c[0] + '"]');
+        v.textContent = val(c[0]);
+        v.previousSibling.textContent = c[1];
+      });
+      return d;
+    }
+    function txt() {
+      var randuri = ['Steaua mea a nordului · Business Forward · 9 octombrie 2026', ''];
+      CAMPURI.forEach(function (c) { randuri.push(c[1] + ':', val(c[0]) || '(necompletat)', ''); });
+      randuri.push('Pagina cu toți agenții: ralucapaduraru.ro/business-forward');
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob(['\ufeff' + randuri.join('\r\n')], { type: 'text/plain;charset=utf-8' }));
+      a.download = 'steaua-nordului.txt';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    }
+    buton.addEventListener('click', function () {
+      lib().then(function () {
+        return window.html2pdf().set({
+          margin: 12,
+          filename: 'steaua-nordului.pdf',
+          image: { type: 'jpeg', quality: 0.95 },
+          // scrollX/Y: 0, altfel fișa iese goală când pagina e derulată până la roadmap
+          html2canvas: { scale: 2, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0 },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        }).from(fisa()).save();
+      }).catch(function () { txt(); });
+    });
+  })();
 
   (function () {
     var opts = document.querySelectorAll('.theme-opt');
