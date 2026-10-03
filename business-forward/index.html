@@ -1883,7 +1883,7 @@ Reguli:
 <p>Special pentru tine, un cadou care te ajută să planifici adopția AI: roadmap-ul de adopție AI cu 4 faze.</p>
 <p class="pas-titlu"><strong>Ce obții</strong></p>
 <ul><li>Un an de adopție AI pe o singură pagină: 4 faze și 8 fluxuri de lucru.</li><li>Ce faci în fiecare fază, pe fiecare flux: de la conducere și comunicarea cu echipa la reguli, procese și cultură.</li><li>Reperele fiecărei faze, de la sponsorul numit la bilanțul anului.</li></ul>
-<p>Înainte să descarci roadmap-ul, scrie steaua nordului și inițiativa ta. La descărcare primești, lângă roadmap, și o fișă PDF cu ce ai scris aici.</p>
+<p>Înainte să descarci roadmap-ul, scrie steaua nordului și inițiativa ta. Ce scrii aici apare pe pagina 3 a roadmap-ului descărcat.</p>
 <div class="pas-urmator">
 <label>Steaua nordului: metrica de business pe care vreau s-o mișc<input type="text" data-k="steaua"></label>
 <label>Inițiativa AI care o servește<input type="text" data-k="initiativa"></label>
@@ -2086,20 +2086,28 @@ Reguli:
     inp.addEventListener('input', function () { try { localStorage.setItem(cheie, inp.value); } catch (e) {} });
   });
 
-  // la descărcarea roadmap-ului pleacă și fișa „Steaua mea a nordului”, ca PDF în brand (decizia Ralucăi, 2 oct).
-  // Biblioteca (html2pdf, cdnjs) se încarcă doar când omul începe să scrie în câmpuri. Dacă nu se încarcă, pleacă un .txt.
+  // fișa „Steaua mea a nordului” intră ca pagina 3 în PDF-ul roadmap-ului (decizia Ralucăi, 3 oct).
+  // Bibliotecile (html2pdf face fișa, pdf-lib o lipește; ambele de pe cdnjs) se încarcă doar când omul începe
+  // să scrie în câmpuri sau apasă butonul. Dacă nu se încarcă, pleacă roadmap-ul cu 2 pagini și un .txt.
   (function () {
     var buton = document.querySelector('a.descarca');
     if (!buton) return;
-    var LIB = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+    var LIBS = [
+      ['html2pdf', 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js'],
+      ['PDFLib', 'https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js']
+    ];
     var incarcare = null;
-    function lib() {
-      if (window.html2pdf) return Promise.resolve();
-      if (!incarcare) incarcare = new Promise(function (ok, nu) {
+    function script(nume, src) {
+      if (window[nume]) return Promise.resolve();
+      return new Promise(function (ok, nu) {
         var s = document.createElement('script');
-        s.src = LIB; s.onload = ok; s.onerror = function () { incarcare = null; nu(); };
+        s.src = src; s.onload = ok; s.onerror = nu;
         document.head.appendChild(s);
       });
+    }
+    function lib() {
+      if (!incarcare) incarcare = Promise.all(LIBS.map(function (l) { return script(l[0], l[1]); }))
+        .catch(function (e) { incarcare = null; throw e; });
       return incarcare;
     }
     document.querySelectorAll('.pas-urmator input').forEach(function (inp) {
@@ -2124,7 +2132,7 @@ Reguli:
       d.innerHTML =
         '<style>' +
         '.sn,.sn *{box-sizing:border-box;}' +
-        '.sn{width:180mm;background:#fff;color:#1a1a1a;font-family:Barlow,Arial,sans-serif;font-size:13px;line-height:1.45;padding:2mm 0;}' +
+        '.sn{width:100%;background:#fff;color:#1a1a1a;font-family:Barlow,Arial,sans-serif;font-size:13px;line-height:1.45;padding:2mm 0;}' +
         '.sn-k{font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:#7c3aed;}' +
         '.sn-h{font-family:"JetBrains Mono",monospace;font-size:26px;font-weight:700;letter-spacing:-.02em;color:#312e81;margin:2mm 0 6mm;}' +
         '.sn-l{font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#6b6880;margin-bottom:1.5mm;}' +
@@ -2141,13 +2149,13 @@ Reguli:
         '<div class="sn-k">Business Forward · Make AI Work · 9 octombrie 2026</div>' +
         '<div class="sn-h">Steaua mea a nordului</div>' +
         '<div class="sn-b sn-star"><div class="sn-l"></div><div class="sn-v" data-s="steaua"></div></div>' +
-        '<div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="initiativa"></div></div>' +
-        '<div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="afectati"></div></div>' +
+        '<div class="sn-r"><div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="initiativa"></div></div>' +
+        '<div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="afectati"></div></div></div>' +
         '<div class="sn-r"><div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="pierd"></div></div>' +
         '<div class="sn-b sn-c"><div class="sn-l"></div><div class="sn-v" data-s="castiga"></div></div></div>' +
         '<div class="sn-r"><div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="cu-cine"></div></div>' +
         '<div class="sn-b"><div class="sn-l"></div><div class="sn-v" data-s="cand"></div></div></div>' +
-        '<div class="sn-f">Roadmap-ul de adopție AI e în PDF-ul descărcat odată cu fișa asta · ralucapaduraru.ro/business-forward · Raluca Păduraru</div>' +
+        '<div class="sn-f">Business Forward · 9 octombrie 2026 · Raluca Păduraru · ralucapaduraru.ro</div>' +
         '</div>';
       CAMPURI.forEach(function (c) {
         var v = d.querySelector('[data-s="' + c[0] + '"]');
@@ -2156,28 +2164,53 @@ Reguli:
       });
       return d;
     }
+    function descarca(href, nume) {
+      var a = document.createElement('a');
+      a.href = href;
+      a.download = nume;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () { if (href.indexOf('blob:') === 0) URL.revokeObjectURL(href); a.remove(); }, 1000);
+    }
     function txt() {
       var randuri = ['Steaua mea a nordului · Business Forward · 9 octombrie 2026', ''];
       CAMPURI.forEach(function (c) { randuri.push(c[1] + ':', val(c[0]) || '(necompletat)', ''); });
       randuri.push('Pagina cu toți agenții: ralucapaduraru.ro/business-forward');
-      var a = document.createElement('a');
-      a.href = URL.createObjectURL(new Blob(['\ufeff' + randuri.join('\r\n')], { type: 'text/plain;charset=utf-8' }));
-      a.download = 'steaua-nordului.txt';
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+      descarca(URL.createObjectURL(new Blob(['\ufeff' + randuri.join('\r\n')], { type: 'text/plain;charset=utf-8' })), 'steaua-nordului.txt');
     }
-    buton.addEventListener('click', function () {
-      lib().then(function () {
+    var NUME = buton.getAttribute('href').split('/').pop();
+    var lucreaza = false;
+    buton.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (lucreaza) return;
+      lucreaza = true;
+      var roadmap = fetch(buton.href).then(function (r) {
+        if (!r.ok) throw new Error('roadmap ' + r.status);
+        return r.arrayBuffer();
+      });
+      Promise.all([roadmap, lib()]).then(function (rez) {
         return window.html2pdf().set({
           margin: 12,
-          filename: 'steaua-nordului.pdf',
           image: { type: 'jpeg', quality: 0.95 },
-          // scrollX/Y: 0, altfel fișa iese goală când pagina e derulată până la roadmap
-          html2canvas: { scale: 2, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0 },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        }).from(fisa()).save();
-      }).catch(function () { txt(); });
+          // scrollX/Y: 0, altfel fișa iese goală când pagina e derulată până la roadmap;
+          // windowWidth fără bara de scroll, altfel fișa iese mutată spre dreapta și tăiată pe margine
+          html2canvas: { scale: 2, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0, windowWidth: document.documentElement.clientWidth },
+          // landscape, ca primele două pagini ale roadmap-ului
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
+        }).from(fisa()).outputPdf('arraybuffer').then(function (fisaPdf) {
+          return Promise.all([PDFLib.PDFDocument.load(rez[0]), PDFLib.PDFDocument.load(fisaPdf)]);
+        });
+      }).then(function (doc) {
+        return doc[0].copyPages(doc[1], doc[1].getPageIndices()).then(function (pagini) {
+          pagini.forEach(function (p) { doc[0].addPage(p); });
+          return doc[0].save();
+        });
+      }).then(function (octeti) {
+        descarca(URL.createObjectURL(new Blob([octeti], { type: 'application/pdf' })), NUME);
+      }).catch(function () {
+        descarca(buton.href, NUME);
+        txt();
+      }).then(function () { lucreaza = false; });
     });
   })();
 
