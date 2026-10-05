@@ -345,6 +345,7 @@
 
     /* ===== CE AU SCRIS PARTICIPANȚII ===== */
     .byc-wrote{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1.25rem; max-width:900px; margin:0 auto; }
+    .byc-wrote figure:last-child:nth-child(odd){ grid-column:1 / -1; }
     @media (max-width:720px){ .byc-wrote{ grid-template-columns:1fr; } }
     .byc-wrote figure{ background:var(--card); border:1px solid var(--border-card); border-radius:var(--radius);
       padding:1.6rem 1.5rem; margin:0; }
@@ -823,6 +824,10 @@
           <figure>
             <blockquote>„this workshop wasn't just an interesting learning experience, it has already changed the way I work."</blockquote>
             <figcaption>Andreea Copaciu &middot; CEO g7 Marketing</figcaption>
+          </figure>
+          <figure>
+            <blockquote>„Sistemul e absolut demențial! Chiar e ce căutam și mă folosesc din plin de el."</blockquote>
+            <figcaption class="anon">Participant la prima ediție &middot; sondaj la 3 săptămâni</figcaption>
           </figure>
         </div>
       </div>
