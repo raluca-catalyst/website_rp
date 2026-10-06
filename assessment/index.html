@@ -434,8 +434,8 @@
             <h2 class="survey-step-title">Câteva detalii despre tine și rolul tău</h2>
 
             <div class="survey-question" id="q-C1">
-              <p class="survey-question-text">Numele și prenumele tău:</p>
-              <input type="text" class="survey-input" data-key="C1_nume" data-required="1" placeholder="Ex: Andrei Popescu" autocomplete="name" />
+              <p class="survey-question-text">Numele și prenumele tău (opțional):</p>
+              <input type="text" class="survey-input" data-key="C1_nume" placeholder="Ex: Andrei Popescu" autocomplete="name" />
               <p class="field-note">Răspunsurile tale sunt folosite exclusiv pentru a personaliza laboratorul. Un raport agregat, fără date individuale identificabile, va fi transmis organizației. Răspunsurile tale individuale nu vor fi publicate sau partajate.</p>
             </div>
 
@@ -619,6 +619,36 @@
                 <label class="option-item"><input type="radio" name="N9" value="Nu știu"><span class="option-dot"></span>Nu știu</label>
               </div>
             </div>
+
+            <div class="survey-question" id="q-N10">
+              <p class="survey-question-text">Când primești de la AI un output generic, cum îi poți îmbunătăți semnificativ calitatea?</p>
+              <div class="options-list" data-type="single" data-key="N10_context" data-required="1">
+                <label class="option-item"><input type="radio" name="N10" value="Achiziționezi o versiune mai nouă sau mai scumpă a instrumentului."><span class="option-dot"></span>Achiziționezi o versiune mai nouă sau mai scumpă a instrumentului.</label>
+                <label class="option-item"><input type="radio" name="N10" value="Îi dai mai mult context despre task și despre criteriile de evaluare."><span class="option-dot"></span>Îi dai mai mult context despre task și despre criteriile de evaluare.</label>
+                <label class="option-item"><input type="radio" name="N10" value="Îi dai o serie de formulări speciale sau cuvinte-cheie (hacks) pe care AI-ul le recunoaște."><span class="option-dot"></span>Îi dai o serie de formulări speciale sau cuvinte-cheie (hacks) pe care AI-ul le recunoaște.</label>
+                <label class="option-item"><input type="radio" name="N10" value="Nu știu"><span class="option-dot"></span>Nu știu</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-N11">
+              <p class="survey-question-text">Ai construit un agent care trebuie să lucreze pe documentele echipei. Cum ajunge să lucreze corect pe ele?</p>
+              <div class="options-list" data-type="single" data-key="N11_agent_knowledge" data-required="1">
+                <label class="option-item"><input type="radio" name="N11" value="Îl antrenezi o perioadă, conversând cu el, până învață singur cum lucrează echipa."><span class="option-dot"></span>Îl antrenezi o perioadă, conversând cu el, până învață singur cum lucrează echipa.</label>
+                <label class="option-item"><input type="radio" name="N11" value="Încarci documentele o singură dată, iar agentul le ține minte definitiv."><span class="option-dot"></span>Încarci documentele o singură dată, iar agentul le ține minte definitiv.</label>
+                <label class="option-item"><input type="radio" name="N11" value="Îi dai acces la documentele de care are nevoie împreună cu instrucțiuni clare despre task, context și limitări."><span class="option-dot"></span>Îi dai acces la documentele de care are nevoie împreună cu instrucțiuni clare despre task, context și limitări.</label>
+                <label class="option-item"><input type="radio" name="N11" value="Nu știu"><span class="option-dot"></span>Nu știu</label>
+              </div>
+            </div>
+
+            <div class="survey-question" id="q-N12">
+              <p class="survey-question-text">Un LLM aprobat de companie include într-un răspuns multe cifre și informații. Ce faci înainte să le folosești?</p>
+              <div class="options-list" data-type="single" data-key="N12_verificare" data-required="1">
+                <label class="option-item"><input type="radio" name="N12" value="Verifici totul în fișierele sursă, pentru că AI-ul poate genera informații credibile, dar greșite."><span class="option-dot"></span>Verifici totul în fișierele sursă, pentru că AI-ul poate genera informații credibile, dar greșite.</label>
+                <label class="option-item"><input type="radio" name="N12" value="Nimic: dacă instrumentul e aprobat de companie, informația e corectă."><span class="option-dot"></span>Nimic: dacă instrumentul e aprobat de companie, informația e corectă.</label>
+                <label class="option-item"><input type="radio" name="N12" value="Îl folosești dacă răspunsul e bine structurat și convingător."><span class="option-dot"></span>Îl folosești dacă răspunsul e bine structurat și convingător.</label>
+                <label class="option-item"><input type="radio" name="N12" value="Nu știu"><span class="option-dot"></span>Nu știu</label>
+              </div>
+            </div>
           </div>
 
           <!-- STEP 3 — Pasul 4: Pain points & use-cases -->
@@ -742,7 +772,9 @@ const ALL_KEYS = [
   'S3_functii',
   'N1_frecventa', 'N2_timp_economisit', 'N3_workflow', 'N3_workflow_descriere', 'N4_aratat', 'N4_aratat_ce', 'N5_nivel_autoeval', 'N6_atitudine', 'N7_obstacol', 'N8_abt_potential', 'N9_agent_vs_asistent',
   'P1_proces', 'P2_timp_pierdut', 'P3_fail', 'P3_nefolosit', 'P4_documente',
-  'F1_succes'
+  'F1_succes',
+  // Adăugate 6 oct 2026, la final ca să nu decaleze coloanele existente din sheet
+  'N10_context', 'N11_agent_knowledge', 'N12_verificare'
 ];
 
 // S1 value -> S2 key suffix. Niciunul / Nu știu nu declanșează S2.
