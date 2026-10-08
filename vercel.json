@@ -86,13 +86,6 @@
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex" }
       ]
-    },
-    {
-      "source": "/cortex/skills/(.*)",
-      "headers": [
-        { "key": "Content-Type", "value": "application/octet-stream" },
-        { "key": "Content-Disposition", "value": "attachment" }
-      ]
     }
   ]
 }
