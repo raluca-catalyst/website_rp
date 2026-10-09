@@ -1677,6 +1677,11 @@ footer {
 }
 
 @media (max-width: 600px) {
+  /* grile scrise inline in pagini: pe telefon cardurile trec unul sub altul,
+     iar matricea 2x2 ramane matrice, dar se strange ca sa incapa in ecran */
+  .grid-stack { grid-template-columns: 1fr !important; }
+  .grid-matrice { grid-template-columns: 22px minmax(0, 1fr) minmax(0, 1fr) !important; gap: 6px !important; }
+  .grid-matrice > div { min-width: 0; padding: 12px 10px !important; overflow-wrap: break-word; hyphens: auto; }
   .container { padding: 0 1rem; }
   .frameworks-grid { grid-template-columns: 1fr; }
   .framework-card { border-right: none; }
