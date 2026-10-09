@@ -263,22 +263,40 @@
 
     // granitele dintre sectiuni. Firul se opreste deasupra CTA-ului de jos;
     // paginile fara CTA il opresc la capatul ultimei sectiuni.
-    const tops = blocks.slice(1).map(top);
-    if (!blocks[blocks.length - 1].classList.contains('footer-cta')) {
-      tops.push(main.offsetHeight - 40);
+    // Traversarea nu sta pe granita propriu-zisa (unele sectiuni n-au spatiu
+    // deasupra cardului), ci la mijlocul golului dintre continutul celor doua.
+    const edge = (el, side) => {
+      const c = el.querySelector(':scope > .container') || el;
+      const kids = [...c.children].filter(k => k !== svg && k.offsetHeight > 0 &&
+        getComputedStyle(k).position !== 'absolute' && getComputedStyle(k).position !== 'fixed');
+      if (!kids.length) return null;
+      const ys = kids.map(k => { const r = k.getBoundingClientRect(); return side === 'top' ? r.top : r.bottom; });
+      return (side === 'top' ? Math.min(...ys) : Math.max(...ys)) + window.scrollY - mainTop;
+    };
+    const tops = blocks.slice(1).map((b, i) => {
+      const lo = edge(blocks[i], 'bottom'), hi = edge(b, 'top');
+      return lo !== null && hi !== null && hi > lo ? (lo + hi) / 2 : top(b);
+    });
+    const lastBlock = blocks[blocks.length - 1];
+    if (!lastBlock.classList.contains('footer-cta')) {
+      const lo = edge(lastBlock, 'bottom');
+      tops.push(lo !== null && lo < main.offsetHeight ? (lo + main.offsetHeight) / 2 : main.offsetHeight - 40);
     }
     const last = tops[tops.length - 1];
 
     // pornirea: in primul ecran, ca punctul sa se vada de la inceput.
-    // Cu margine larga, firul intra pe orizontala, ca pe coperta caruselului;
-    // pe ecran ingust ar taia textul, asa ca porneste direct pe verticala.
-    let y0 = Math.min(tops[0], window.innerHeight - mainTop - 90);
+    // Firul intra pe orizontala (ca pe coperta caruselului) doar daca golul de
+    // sub prima sectiune e in primul ecran; altfel ar taia o poza sau textul,
+    // asa ca porneste direct pe verticala, pe margine. La fel pe ecran ingust.
     const narrow = xL <= 16;
+    const fold = window.innerHeight - mainTop - 90;
+    const flat = !narrow && tops[0] <= fold;
+    let y0 = flat ? tops[0] : Math.min(tops[0] - R, (window.innerHeight - mainTop) * 0.6);
     node.setAttribute('r', narrow ? 5 : 7);  // pe telefon punctul nu are voie sa acopere textul
     halo.setAttribute('r', narrow ? 9 : 15);
-    let d = narrow
-      ? `M ${xR} ${y0}`
-      : `M ${cl} ${y0} L ${xR - R} ${y0} Q ${xR} ${y0} ${xR} ${y0 + R}`;
+    let d = flat
+      ? `M ${cl} ${y0} L ${xR - R} ${y0} Q ${xR} ${y0} ${xR} ${y0 + R}`
+      : `M ${xR} ${y0}`;
 
     // Pe homepage firul pleaca din cercul portretului din dreapta, nu de sub
     // titlu, ca sa nu treaca peste text si peste iconitele de social.
