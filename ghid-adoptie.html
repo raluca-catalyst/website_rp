@@ -298,14 +298,14 @@
     }
     .stat-block::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--purple) 0%, transparent 100%);
+      background: linear-gradient(90deg, var(--amber) 0%, transparent 100%);
     }
     .stat-block:hover { background: var(--surface); }
     .stat-num {
       font-family: var(--font-mono);
       font-size: clamp(2.6rem, 5vw, 4rem);
       font-weight: 900; line-height: 1;
-      color: var(--purple); margin-bottom: 12px;
+      color: var(--amber); margin-bottom: 12px;
       font-variant-numeric: tabular-nums;
     }
     .stat-label-g { font-size: 0.95rem; color: var(--text-sec); line-height: 1.55; }
@@ -366,8 +366,8 @@
     .map-step:last-child { padding-bottom: 6px; }
     .map-step-num {
       flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
-      background: var(--purple-glow); border: 1px solid rgba(155,138,240,0.35);
-      color: var(--purple-light);
+      background: rgba(245,181,74,0.10); border: 1px solid rgba(245,181,74,0.55);
+      color: var(--amber);
       font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
     }
