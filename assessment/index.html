@@ -433,6 +433,11 @@
           <div class="survey-step" id="step-0">
             <h2 class="survey-step-title">Câteva detalii despre tine și rolul tău</h2>
 
+            <div class="survey-question" id="q-C0">
+              <p class="survey-question-text">Din ce organizație faci parte?</p>
+              <input type="text" class="survey-input" data-key="C0_organizatie" data-required="1" placeholder="Numele companiei tale" autocomplete="organization" />
+            </div>
+
             <div class="survey-question" id="q-C1">
               <p class="survey-question-text">Numele și prenumele tău (opțional):</p>
               <input type="text" class="survey-input" data-key="C1_nume" placeholder="Ex: Andrei Popescu" autocomplete="name" />
@@ -774,7 +779,9 @@ const ALL_KEYS = [
   'P1_proces', 'P2_timp_pierdut', 'P3_fail', 'P3_nefolosit', 'P4_documente',
   'F1_succes',
   // Adăugate 6 oct 2026, la final ca să nu decaleze coloanele existente din sheet
-  'N10_context', 'N11_agent_knowledge', 'N12_verificare'
+  'N10_context', 'N11_agent_knowledge', 'N12_verificare',
+  // Adăugat 9 oct 2026 (coloana AK din sheet): clienți diferiți completează simultan
+  'C0_organizatie'
 ];
 
 // S1 value -> S2 key suffix. Niciunul / Nu știu nu declanșează S2.
@@ -881,6 +888,10 @@ function validateStep(stepIndex) {
         }
       }
     }
+
+    // TEXT (câmp scurt obligatoriu)
+    const txt = q.querySelector(':scope > input[type=text][data-required]');
+    if (txt && txt.value.trim() === '') ok = false;
 
     // DROPDOWN
     const sel = q.querySelector(':scope > select[data-required]');
@@ -1000,6 +1011,10 @@ function buildPayload() {
   // DROPDOWN
   document.querySelectorAll('select[data-key]').forEach(sel => {
     formData[sel.dataset.key] = sel.value;
+  });
+  // Câmpuri de text simple (organizație, nume)
+  document.querySelectorAll('input[type=text][data-key]:not(.altul-input)').forEach(inp => {
+    formData[inp.dataset.key] = inp.value.trim();
   });
   // "Altul" text inputs
   document.querySelectorAll('.altul-input[data-key]').forEach(inp => {
