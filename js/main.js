@@ -272,13 +272,26 @@
     // pornirea: in primul ecran, ca punctul sa se vada de la inceput.
     // Cu margine larga, firul intra pe orizontala, ca pe coperta caruselului;
     // pe ecran ingust ar taia textul, asa ca porneste direct pe verticala.
-    const y0 = Math.min(tops[0], window.innerHeight - mainTop - 90);
+    let y0 = Math.min(tops[0], window.innerHeight - mainTop - 90);
     const narrow = xL <= 16;
     node.setAttribute('r', narrow ? 5 : 7);  // pe telefon punctul nu are voie sa acopere textul
     halo.setAttribute('r', narrow ? 9 : 15);
     let d = narrow
       ? `M ${xR} ${y0}`
       : `M ${cl} ${y0} L ${xR - R} ${y0} Q ${xR} ${y0} ${xR} ${y0 + R}`;
+
+    // Pe homepage firul pleaca din cercul portretului din dreapta, nu de sub
+    // titlu, ca sa nu treaca peste text si peste iconitele de social.
+    const pic = blocks[0].querySelector('.hero-circle');
+    if (pic && pic.offsetWidth) {
+      const r = pic.getBoundingClientRect();
+      const px = r.right - main.getBoundingClientRect().left;
+      const py = r.top + r.height / 2 + window.scrollY - mainTop;
+      if (xR - px > R + 8 && py < tops[0] - R) {
+        y0 = py;
+        d = `M ${px} ${py} L ${xR - R} ${py} Q ${xR} ${py} ${xR} ${py + R}`;
+      }
+    }
     let x = xR;
     let prev = y0;
     const cross = [y0]; // y-ul fiecarei traversari orizontale
