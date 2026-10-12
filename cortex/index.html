@@ -234,6 +234,7 @@
 
   .file{display:flex;align-items:center;gap:12px;justify-content:space-between;border:1px solid var(--line);background:var(--card2);padding:11px 14px;margin-bottom:8px;flex-wrap:wrap}
   .file code{display:block;background:none;padding:0;color:var(--gray);margin-top:2px}
+  .file a.btn{text-decoration:none}
 
   .next{display:flex;justify-content:flex-end;margin-bottom:18px}
   .nextbtn{background:transparent;color:var(--main);border:1.5px solid var(--main);padding:9px 16px;font-size:15px;font-weight:600;font-family:var(--body);cursor:pointer}
@@ -287,6 +288,7 @@
     <button class="navbtn m-pas" data-go="e7"><span class="nt">7 · Gândește-te cum îl vei folosi în viitor</span><span class="no">Obiectiv: Cortex știe ce urmează să mai testați și când.</span><span class="ns">Acum că specialistul funcționează, stabilești când îl folosești din nou.</span></button>
     <button class="navbtn m-free" data-go="parcurs"><span class="nt">Foaia de parcurs</span></button>
     <button class="navbtn" data-go="rapid"><span class="nt">Dacă termini mai repede</span></button>
+    <button class="navbtn" data-go="certificat"><span class="nt">Certificatul tău</span></button>
   </nav>
 </div>
 
@@ -554,6 +556,33 @@
       <div class="skel"><div><div class="sn">Raport de board</div><div class="sd">Un memo de o pagină: unde stai față de obiectiv, ce stagnează, ce decizii te așteaptă.</div></div><div><button class="btn ghost sm" data-dl="s_raport-de-board" data-name="raport-de-board-SKILL.md">Descarcă</button></div></div>
       <div class="skel" id="sk-cockpit"><div><div class="sn">Cockpit</div><div class="sd">Un dashboard care îți arată dintr-o privire banii față de obiectiv, venitul pe luni, cu sursa fiecărei sume, și maximum 3 acțiuni prioritare.</div><div class="sd">E specialistul din <a href="#rezultat" data-mode-go="free:rezultat">exemplul cu cockpit-ul</a>.</div></div><div><button class="btn ghost sm" data-dl="s_cockpit" data-name="cockpit-SKILL.md">Descarcă</button></div></div>
       <div class="skel"><div><div class="sn">Slide-uri</div><div class="sd">Construiește prezentări PowerPoint în brandul tău.</div></div><div><button class="btn ghost sm" data-dl="s_slide-uri" data-name="slide-uri-SKILL.md">Descarcă</button></div></div>
+    </div>
+  </section>
+
+  <!-- ===================== COMUN: Certificatul (se deschide automat pe 16 oct, la 17:20; ?cert=1 îl deschide pentru verificare) ===================== -->
+  <section class="plain noprint" id="certificat">
+    <h2>Certificatul tău</h2>
+    <p class="sub" id="certLock">Certificatele de participare se pot descărca de la ora 17:20.</p>
+    <div id="certList" hidden>
+      <p class="sub">Găsește-ți numele în listă și descarcă certificatul de participare.</p>
+      <div class="file"><div>Alexandru Mănescu</div><a class="btn ghost sm" href="certificate/certificat-byc-alexandru-manescu.pdf" download="Certificat Build Your Cortex - Alexandru Manescu.pdf">Descarcă</a></div>
+      <div class="file"><div>Alina Mihaela Stan</div><a class="btn ghost sm" href="certificate/certificat-byc-alina-mihaela-stan.pdf" download="Certificat Build Your Cortex - Alina Mihaela Stan.pdf">Descarcă</a></div>
+      <div class="file"><div>Anca Oloeriu</div><a class="btn ghost sm" href="certificate/certificat-byc-anca-oloeriu.pdf" download="Certificat Build Your Cortex - Anca Oloeriu.pdf">Descarcă</a></div>
+      <div class="file"><div>Andreea Homoranu</div><a class="btn ghost sm" href="certificate/certificat-byc-andreea-homoranu.pdf" download="Certificat Build Your Cortex - Andreea Homoranu.pdf">Descarcă</a></div>
+      <div class="file"><div>Andrei Sandu</div><a class="btn ghost sm" href="certificate/certificat-byc-andrei-sandu.pdf" download="Certificat Build Your Cortex - Andrei Sandu.pdf">Descarcă</a></div>
+      <div class="file"><div>Carmen Ștefania Cergan</div><a class="btn ghost sm" href="certificate/certificat-byc-carmen-stefania-cergan.pdf" download="Certificat Build Your Cortex - Carmen Stefania Cergan.pdf">Descarcă</a></div>
+      <div class="file"><div>Carolina Roșu</div><a class="btn ghost sm" href="certificate/certificat-byc-carolina-rosu.pdf" download="Certificat Build Your Cortex - Carolina Rosu.pdf">Descarcă</a></div>
+      <div class="file"><div>Delia Manolache</div><a class="btn ghost sm" href="certificate/certificat-byc-delia-manolache.pdf" download="Certificat Build Your Cortex - Delia Manolache.pdf">Descarcă</a></div>
+      <div class="file"><div>Denisa Panaite Casu</div><a class="btn ghost sm" href="certificate/certificat-byc-denisa-panaite-casu.pdf" download="Certificat Build Your Cortex - Denisa Panaite Casu.pdf">Descarcă</a></div>
+      <div class="file"><div>Gabriela Pepino</div><a class="btn ghost sm" href="certificate/certificat-byc-gabriela-pepino.pdf" download="Certificat Build Your Cortex - Gabriela Pepino.pdf">Descarcă</a></div>
+      <div class="file"><div>Ioana-Daria Lupu</div><a class="btn ghost sm" href="certificate/certificat-byc-ioana-daria-lupu.pdf" download="Certificat Build Your Cortex - Ioana-Daria Lupu.pdf">Descarcă</a></div>
+      <div class="file"><div>Iulia Domșa</div><a class="btn ghost sm" href="certificate/certificat-byc-iulia-domsa.pdf" download="Certificat Build Your Cortex - Iulia Domsa.pdf">Descarcă</a></div>
+      <div class="file"><div>Mihaela Florescu</div><a class="btn ghost sm" href="certificate/certificat-byc-mihaela-florescu.pdf" download="Certificat Build Your Cortex - Mihaela Florescu.pdf">Descarcă</a></div>
+      <div class="file"><div>Mihai Oprea</div><a class="btn ghost sm" href="certificate/certificat-byc-mihai-oprea.pdf" download="Certificat Build Your Cortex - Mihai Oprea.pdf">Descarcă</a></div>
+      <div class="file"><div>Oana Bacain</div><a class="btn ghost sm" href="certificate/certificat-byc-oana-bacain.pdf" download="Certificat Build Your Cortex - Oana Bacain.pdf">Descarcă</a></div>
+      <div class="file"><div>Ortansa David</div><a class="btn ghost sm" href="certificate/certificat-byc-ortansa-david.pdf" download="Certificat Build Your Cortex - Ortansa David.pdf">Descarcă</a></div>
+      <div class="file"><div>Raluca Ștefania Preda</div><a class="btn ghost sm" href="certificate/certificat-byc-raluca-stefania-preda.pdf" download="Certificat Build Your Cortex - Raluca Stefania Preda.pdf">Descarcă</a></div>
+      <div class="file"><div>Simona Hainagiu</div><a class="btn ghost sm" href="certificate/certificat-byc-simona-hainagiu.pdf" download="Certificat Build Your Cortex - Simona Hainagiu.pdf">Descarcă</a></div>
     </div>
   </section>
 
@@ -1360,6 +1389,17 @@ function syncDrum(){
 document.querySelectorAll('.drumbtn').forEach(function(b){
   b.addEventListener('click', function(){ drum = b.getAttribute('data-drum'); saved._drum = drum; persist(); syncDrum(); markActive(); });
 });
+
+/* certificatele: se deschid singure pe 16 oct, la 17:20 (ora României); ?cert=1 le deschide oricând */
+(function(){
+  var T = Date.parse('2026-10-16T17:20:00+03:00'), force = /[?&]cert=1/.test(location.search);
+  var lock = document.getElementById('certLock'), list = document.getElementById('certList');
+  function check(){
+    if (force || Date.now() >= T) { lock.hidden = true; list.hidden = false; return true; }
+    return false;
+  }
+  if (!check()) var t = setInterval(function(){ if (check()) clearInterval(t); }, 20000);
+})();
 
 /* navigare */
 var ANEXE = ['galerie', 'sk-cockpit'];
