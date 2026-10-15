@@ -158,6 +158,8 @@
     .kicker { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender); margin-bottom: 0.4rem; }
     .note { font-size: 0.86rem; color: var(--text-muted); border-left: 2px solid var(--border); padding-left: 0.9rem; margin: 1rem 0 0; }
     .note strong { color: var(--text-sec); font-weight: 600; }
+    .note a { color: var(--lavender); text-decoration: underline; text-underline-offset: 3px; }
+    .note a:hover { color: var(--lavender-lt); }
 
     /* Intro */
     .intro h1 { margin: 1rem 0 0.6rem; }
@@ -544,7 +546,8 @@
         { qs: [
           ['s4q1', 'Identifică oportunitățile unde se poate implementa AI în HR la voi. Notează pentru fiecare în parte cum vei folosi AI-ul: ca asistent sau ca agent.'],
           { type: 'opps', text: 'Cum arată fiecare dintre aceste oportunități pe matricea impact x fezabilitate? Adaugă-le rând pe rând și alege pentru fiecare impactul și fezabilitatea.' },
-          ['s4q3', 'Ce oportunitate vrei să abordezi în lecția de redesign? De ce o alegi pe aceasta?'] ] } ] },
+          ['s4q3', 'Ce oportunitate vrei să abordezi în lecția de redesign? De ce o alegi pe aceasta?'],
+          { type: 'file', text: 'Pentru lecția de redesign: descarcă template-ul de hartă de proces, completeaz-o cu pașii de proces din spatele oportunității alese și salveaz-o într-un folder pe laptop.', href: '/downloads/harta-procesului.pdf', label: 'Descarcă harta procesului (PDF de completat)' } ] } ] },
       { n: 7, title: 'Redesign de proces', when: 'după lecția din 26 octombrie · Redesign-ul proceselor de HR', parts: [
         { qs: [
           ['s5q1', 'Ce proces ai ales și cum arată azi: pași, timp, puncte de fricțiune?'],
@@ -704,6 +707,7 @@
             if (item.type === 'kpis') { holder.appendChild(buildKpis(item.text, sec)); return; }
             if (item.type === 'skills') { holder.appendChild(buildSkills(item.text, sec)); return; }
             if (item.type === 'gaps') { const g = el('div', 'gaps-box'); g.id = 'prio-gaps'; holder.appendChild(g); return; }
+            if (item.type === 'file') { const n = el('p', 'note', item.text + ' '); const a = el('a', '', item.label); a.href = item.href; a.setAttribute('download', ''); n.appendChild(el('br')); n.appendChild(el('strong')).appendChild(a); holder.appendChild(n); return; }
             const [id, text] = item;
             const q = el('div', part.cols ? 'q col' : 'q');
             const lab = el('label', '', text);
@@ -755,6 +759,7 @@
         if (item.type === 'kpis') return state.kpis.some(k => k.name.trim() !== '');
         if (item.type === 'skills') return state.skills.some(skillFilled);
         if (item.type === 'gaps') return false;
+        if (item.type === 'file') return false;
         return (state.answers[item[0]] || '').trim() !== '';
       }));
     }
