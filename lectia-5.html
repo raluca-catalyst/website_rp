@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Raluca Păduraru">
+<meta name="robots" content="noindex, nofollow">
+<title>Lucrul cu AI · HR Management în era AI</title>
+<meta name="description" content="Pagina de lucru pentru lecția 5 a cursului HR Management în era AI: task-ul tău prin M.O.D.E.L. și misiunea pe grupe.">
+<!--
+  Construită cu skill-ul fisa-lucru-raluca, din template (G7, 1 oct 2026). Textul-sursă: pagina-l5-text.md.
+  Build: python C:/Users/keimy/.claude/skills/fisa-lucru-raluca/scripts/build.py pagina-l5.template.html
+  O singură temă (stilul blueprint-ului de pe ralucapaduraru.ro). Fără câmpuri de completat: participanții scriu direct în AI.
+-->
+<script>
+/* TEMA: pornește după setarea laptopului; alegerea participantului se ține minte. Rulează înainte de randare, ca să nu clipească pagina. */
+(function(){
+  var t = null;
+  try { t = localStorage.getItem('basetolearn-l5-lucru-tema'); } catch(e) {}
+  if (t !== 'dark' && t !== 'light') t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Cookiebot + GA (ca pe blueprint) -->
+<script data-cookieconsent="ignore">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("consent", "default", {
+    ad_personalization: "denied", ad_storage: "denied",
+    ad_user_data: "denied", analytics_storage: "denied",
+    functionality_storage: "denied", personalization_storage: "denied",
+    security_storage: "granted", wait_for_update: 500,
+  });
+  gtag("set", "ads_data_redaction", true);
+  gtag("set", "url_passthrough", false);
+</script>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept', updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline', updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<style>
+  /* BRANDUL: stilul blueprint-ului (ralucapaduraru.ro/blueprint), cu 2 teme (Raluca, 15 oct).
+     Tema luminoasă = tokenii Upvance luminoși (fisa-lucru-raluca, references/branding.md); tema închisă = blueprint-ul. */
+  :root{
+    --bg:#ffffff;
+    --card:#f7f4ff;
+    --card2:#f4f1fb;
+    --ink:#1d1836;
+    --soft:#3a3553;
+    --gray:#635e7d;
+    --line:rgba(124,58,237,0.16);
+    --main:#7c3aed;
+    --main-ink:#ffffff;
+    --a1:#7c3aed; --a2:#8b5cf6; --a3:#6d28d9;
+    --head:'JetBrains Mono',monospace;
+    --body:'Barlow',sans-serif;
+    --acc:var(--a1);
+    --glow:none;
+  }
+  html[data-theme="dark"]{
+    --bg:#0e0b1e;
+    --card:#17122e;
+    --card2:#120e26;
+    --ink:#f1eefd;
+    --soft:#cdc7e6;
+    --gray:#9a93bd;
+    --line:rgba(167,139,250,0.20);
+    --main:#a78bfa;
+    --main-ink:#0e0b1e;
+    --a1:#a78bfa; --a2:#c4b5fd; --a3:#b79cff;
+    --glow:radial-gradient(ellipse 90% 55% at 50% -5%, #2d1569 0%, transparent 65%),radial-gradient(ellipse 55% 35% at 95% 15%, rgba(109,40,217,0.18) 0%, transparent 55%);
+  }
+  .a1{--acc:var(--a1)} .a2{--acc:var(--a2)} .a3{--acc:var(--a3)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px;
+    background-image:var(--glow);background-attachment:fixed}
+  .themebox{margin-top:18px;display:flex;gap:6px}
+  .themebox button{font-family:var(--head);font-size:12px;background:transparent;color:var(--gray);border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+  .themebox button.on{color:var(--main);border-color:var(--main)}
+  a{color:var(--main)}
+  p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+
+  header{padding:40px 24px 34px;border-bottom:1px solid var(--line)}
+  header .wrapin{max-width:880px;margin:0 auto}
+  header .tag{font-family:var(--head);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--main);margin-bottom:12px;font-weight:500}
+  header h1{font-family:var(--head);font-size:40px;font-weight:700;line-height:1.12;letter-spacing:-0.02em}
+  header p{margin-top:14px;font-size:18px;color:var(--soft)}
+  header ol{margin-top:8px;padding-left:24px;font-size:18px;color:var(--soft)}
+  header ol li{margin-bottom:4px}
+
+  .navwrap{background:var(--bg);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line)}
+  .nav{max-width:1100px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:0 12px;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .navbtn{background:none;border:none;color:var(--gray);padding:12px;cursor:pointer;font-size:13px;font-family:var(--head);white-space:nowrap;border-bottom:2px solid transparent}
+  .navbtn:hover{color:var(--ink)}
+  .navbtn.active{color:var(--ink);border-bottom-color:var(--main)}
+  .navbtn .no,.navbtn .ns{display:none}
+  @media(max-width:1000px){.nav{flex-wrap:wrap;overflow-x:visible}}
+
+  /* BARA LATERALĂ (references/lectii.md §3) */
+  @media(min-width:1180px){
+    .layout{display:grid;grid-template-columns:290px minmax(0,1fr);align-items:start}
+    header{padding-left:calc(290px + 24px)}
+    .layout footer{grid-column:2;width:100%}
+    .navwrap{height:100vh;overflow-y:auto;border-bottom:none;border-right:1px solid var(--line);background:var(--bg)}
+    .nav{flex-direction:column;gap:0;max-width:none;overflow:visible;padding:24px 0}
+    .navbtn{display:block;width:100%;text-align:left;white-space:normal;line-height:1.4;padding:12px 20px;border-bottom:none;border-left:3px solid transparent}
+    .navbtn .nt{display:block;font-size:14px;font-weight:700}
+    .navbtn.active{background:var(--card);border-left-color:var(--main)}
+    .navbtn.active .no{display:block;font-family:var(--body);font-style:italic;font-size:14px;color:var(--soft);margin-top:6px}
+    .navbtn.active .ns{display:block;font-family:var(--body);font-size:14px;color:var(--ink);margin-top:6px}
+  }
+
+  main{max-width:880px;margin:0 auto;padding:28px 16px 70px}
+
+  details.ajutor{border:1px solid var(--line);background:var(--card2);margin:16px 0}
+  details.ajutor summary{cursor:pointer;padding:12px 16px;font-size:15px;font-weight:600;color:var(--main)}
+  details.ajutor .ain{padding:0 16px 14px}
+
+  .box{background:var(--card);border:1px solid var(--line);margin-bottom:16px;padding:24px}
+  .hd{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .num{font-family:var(--head);font-size:14px;font-weight:700;color:var(--main-ink);background:var(--main);width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .box h3{font-family:var(--head);font-size:23px;font-weight:700;line-height:1.25;letter-spacing:-0.01em}
+  .box h4{font-family:var(--head);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin:24px 0 8px;font-weight:600}
+  .box p{margin-bottom:10px}
+  .lead{color:var(--ink);font-weight:600}
+  ul.bul,ol.bul{padding-left:24px;margin:8px 0}
+  ul.bul li,ol.bul li{margin-bottom:6px}
+
+  .note{background:color-mix(in srgb,var(--acc) 12%,transparent);border-left:3px solid var(--acc);padding:14px 18px;margin:14px 0}
+  .note p{margin-bottom:8px} .note p:last-child{margin-bottom:0}
+  .note ul{padding-left:22px;margin-top:6px} .note li{margin-bottom:5px}
+
+  /* M.O.D.E.L., pe forma slide-ului 6 */
+  .model{background:var(--card2);border:1px solid var(--line);padding:6px 18px;margin:14px 0 18px}
+  .mrow{display:grid;grid-template-columns:34px 190px 1fr;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+  .mrow:last-child{border-bottom:none}
+  .ml{font-family:var(--head);font-size:26px;font-weight:700;color:var(--main);line-height:1}
+  .mt{font-weight:700}
+  .mq{color:var(--soft)}
+  @media(max-width:640px){.mrow{grid-template-columns:30px 1fr}.mq{grid-column:2}}
+
+  .ex dl{margin:6px 0}
+  .ex dt{font-family:var(--head);font-size:13px;font-weight:700;color:var(--main);margin-top:12px}
+  .ex dd{margin:4px 0 0;color:var(--soft)}
+  .ex dd ol{padding-left:22px}
+
+  .choice{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 6px}
+  .drumbtn{display:block;text-align:left;font-family:var(--body);color:var(--ink);background:var(--card2);border:1.5px solid var(--line);padding:16px 18px;cursor:pointer}
+  .drumbtn .ct{display:block;font-family:var(--head);font-size:15px;font-weight:700;line-height:1.3}
+  .drumbtn .cd{display:block;font-size:14px;color:var(--gray);margin-top:8px;line-height:1.45}
+  .drumbtn .cd b{color:var(--soft);font-weight:600}
+  .drumbtn.on{border-color:var(--main);background:color-mix(in srgb,var(--main) 10%,var(--card2))} .drumbtn.on .ct{color:var(--main)}
+  @media(max-width:760px){.choice{grid-template-columns:1fr}}
+  .dv{display:none} .dv.show{display:block}
+  .drumnow{font-size:15px;color:var(--soft);margin:14px 0 4px}
+
+  .gata{border-top:1px dashed var(--line);margin-top:20px;padding-top:12px;font-size:16px;color:var(--soft)}
+  .gata b{font-family:var(--head);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--main);display:block;margin-bottom:4px}
+
+  .mat{border:1px solid var(--line);margin:12px 0;background:var(--card2)}
+  .mat .mh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px}
+  .mat .mtx{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.5;color:var(--ink);flex:1;min-width:220px}
+  .btns{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{font-family:var(--head);background:var(--main);color:var(--main-ink);border:none;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--main);border:1.5px solid var(--main)}
+  .btn.sm{padding:7px 12px;font-size:12px}
+  .btn.done{opacity:.8}
+
+  .file{display:flex;align-items:center;gap:12px;justify-content:space-between;border:1px solid var(--line);background:var(--card2);padding:11px 14px;margin-bottom:8px;flex-wrap:wrap}
+  .file code{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:var(--gray);display:block}
+
+  .next{display:flex;justify-content:flex-end;margin-bottom:18px}
+  .nextbtn{background:transparent;color:var(--main);border:1.5px solid var(--main);padding:9px 16px;font-size:13px;font-weight:600;font-family:var(--head);cursor:pointer}
+
+  .backbtn{position:fixed;right:18px;bottom:18px;z-index:120;display:none;font-family:var(--head);background:var(--main);color:var(--main-ink);border:none;padding:11px 18px;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+  .backbtn.show{display:block}
+
+  footer{max-width:880px;margin:0 auto;padding:0 16px 50px;font-size:13px;color:var(--gray)}
+  @media(max-width:640px){header h1{font-size:30px}.box{padding:18px}}
+
+  @media print{
+    :root,html[data-theme="dark"]{--glow:none;--bg:#fff;--card:#fff;--card2:#f6f6f8;--ink:#111;--soft:#333;--gray:#555;--line:#bbb;--main:#111;--main-ink:#fff;--a1:#333;--a2:#333;--a3:#333}
+    body{background:#fff;background-image:none;color:#111;font-size:11pt}
+    header{background:#fff;border-bottom:2px solid #111;padding:0 0 12px}
+    main{padding:12px 0 0;max-width:none}
+    .navwrap,.noprint,.btn,.next,.btns,.backbtn{display:none !important}
+    .layout{display:block !important}
+    .dv{display:block !important}
+    .box,.note,.file,.mat,.model,details.ajutor{background:#fff !important;border:1px solid #bbb;color:#111}
+    .num{background:#111 !important;color:#fff !important}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrapin">
+    <div class="tag">HR Management în era AI</div>
+    <h1>Lucrul cu AI</h1>
+    <p>Până la final, vei obține 2 lucruri:</p>
+    <ol>
+      <li>lucru individual: task-ul tău lucrat cu ajutorul framework-ului M.O.D.E.L.</li>
+      <li>lucru în echipă: un artefact vizual pe care îl construiți cu AI pentru a rezolva o problemă</li>
+    </ol>
+    <div class="themebox noprint"><button data-theme-choice="light">Temă light</button><button data-theme-choice="dark">Temă dark</button></div>
+  </div>
+</header>
+
+<div class="layout">
+
+<div class="navwrap noprint">
+  <nav class="nav">
+    <button class="navbtn active" data-go="p1"><span class="nt">1 · Task-ul tău, prin M.O.D.E.L.</span><span class="no">Obiectiv: prima versiune a task-ului tău, cerută prin M.O.D.E.L.</span><span class="ns">Pornești de la task-ul pe care l-ai pregătit acasă.</span></button>
+    <button class="navbtn" data-go="p2"><span class="nt">2 · AI-ul te poate ajuta să înțelegi mai bine ce vrei să obții</span><span class="no">Obiectiv: o versiune nouă și tabelul cu ce s-a schimbat.</span><span class="ns">Acum că ai prima versiune, îl lași pe AI să te întrebe ce-i lipsește.</span></button>
+    <button class="navbtn" data-go="p3"><span class="nt">3 · Misiunea pe grupe</span><span class="no">Obiectiv: un PDF construit de AI, verificat și corectat de grupă.</span><span class="ns">Acum că ai lucrat singur, faceți împreună ceva un pic mai complex.</span></button>
+  </nav>
+</div>
+
+<main>
+
+  <!-- 1 · TASK-UL TĂU -->
+  <section class="box a1" id="p1">
+    <div class="hd"><span class="num">1</span><h3>Task-ul tău, prin M.O.D.E.L.</h3></div>
+    <p>Îți amintești task-ul pe care ți l-ai ales? Abordează întrebările de mai jos prin prisma acestuia.</p>
+    <div class="model" id="model">
+      <div class="mrow"><span class="ml">M</span><span class="mt">Multipli experți</span><span class="mq">Ce echipă de experți ar putea lucra împreună pentru a rezolva task-ul?</span></div>
+      <div class="mrow"><span class="ml">O</span><span class="mt">Obiective</span><span class="mq">Care e obiectivul? Este măsurabil? Cum vei evalua că a fost îndeplinit?</span></div>
+      <div class="mrow"><span class="ml">D</span><span class="mt">Date de context</span><span class="mq">Ce informații sunt necesare pentru ca task-ul să fie realizat și obiectivul atins? Include și constrângerile.</span></div>
+      <div class="mrow"><span class="ml">E</span><span class="mt">Etape de lucru</span><span class="mq">Dacă ai face tu acest task, care sunt pașii pe care i-ai urma?</span></div>
+      <div class="mrow"><span class="ml">L</span><span class="mt">Loop check</span><span class="mq">Care sunt criteriile pe baza cărora evaluezi calitatea task-ului? Care e minimul necesar?</span></div>
+    </div>
+    <ol class="bul">
+      <li>Deschide instrumentul AI cu care lucrezi.</li>
+      <li>Scrie promptul direct în AI, incluzând contextul necesar pentru realizarea task-ului (inclusiv fișierele necesare pentru a ajunge la un rezultat bun și exemple de tip așa da). Întrebările de mai sus te-au ajutat să înțelegi ce context trebuie să incluzi.</li>
+      <li>Trimite promptul și evaluează răspunsul.</li>
+    </ol>
+    <div class="note"><p>Regula din prima lecție rămâne: date anonimizate, nimic care identifică un om.</p></div>
+    <div class="note a2"><p><strong>Sugestie:</strong> dacă n-ai pregătit nimic acasă, alege un task pe care îl faci des și scrie contextul din memorie.</p></div>
+    <details class="ajutor ex">
+      <summary>Vezi un exemplu completat</summary>
+      <div class="ain">
+        <dl>
+          <dt>M Multipli experți</dt>
+          <dd>Acționează ca un mix între un recruiter senior pe roluri de HR + un specialist în employer branding.</dd>
+          <dt>O Obiective</dt>
+          <dd>Scrie un anunț de maximum 300 de cuvinte pentru rolul de HR Business Partner, care atrage oameni cu experiență în lucrul cu managerii de linie. Include 5 responsabilități reale și 4 cerințe obligatorii.</dd>
+          <dt>D Date de context</dt>
+          <dd>Fișa postului (atașată).<br>Ce face echipa în care intră omul și ce oferim.<br>2 anunțuri mai vechi care au mers bine, ca model de ton (atașate).</dd>
+          <dt>E Etape de lucru</dt>
+          <dd>Pentru a scrie anunțul, te rog să urmezi acești pași:
+            <ol>
+              <li>Extrage responsabilitățile din fișa postului</li>
+              <li>Separă cerințele obligatorii de cele <em>nice to have</em></li>
+              <li>Scrie anunțul</li>
+              <li>Verifică limbajul: neutru de gen, fără jargon intern</li>
+            </ol>
+          </dd>
+          <dt>L Loop check</dt>
+          <dd>Verifică: fiecare cerință din anunț apare în fișa postului.<br>Notează claritatea 1-10; dacă e sub 9, rescrie.</dd>
+        </dl>
+      </div>
+    </details>
+    <div class="gata"><b>Este gata când</b> ai prima versiune a task-ului tău.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p2">2 · AI-ul te poate ajuta să înțelegi mai bine ce vrei să obții →</button></div>
+
+  <!-- 2 · ÎNTREABĂ-MĂ ÎNAINTE SĂ REFACI -->
+  <section class="box a2" id="p2">
+    <div class="hd"><span class="num">2</span><h3>AI-ul te poate ajuta să înțelegi mai bine ce vrei să obții</h3></div>
+    <p>Rămâi în aceeași conversație.</p>
+    <ol class="bul">
+      <li>Copiază în conversație:
+        <div class="mat"><div class="mh"><div class="mtx" id="q1">Vreau să ducem acest output la nivelul următor. Pune-mi 6 întrebări care să te ajute să înțelegi exact ce vreau să obțin.</div><div class="btns"><button class="btn sm" data-copy="q1">Copiază</button></div></div></div>
+      </li>
+      <li>Răspunde la ele. Apoi copiază:
+        <div class="mat"><div class="mh"><div class="mtx" id="q2">Pune-mi încă 6 întrebări de clarificare.</div><div class="btns"><button class="btn sm" data-copy="q2">Copiază</button></div></div></div>
+      </li>
+      <li>Răspunde și la ele. Apoi copiază:
+        <div class="mat"><div class="mh"><div class="mtx" id="q3">Dă-mi versiunea nouă și un tabel cu 2 coloane: ce ai schimbat · de ce.</div><div class="btns"><button class="btn sm" data-copy="q3">Copiază</button></div></div></div>
+      </li>
+    </ol>
+    <div class="note"><p><strong>Cum răspunzi la întrebări:</strong> Evită să mergi în detaliu excesiv și evită să fii prea vag. Răspunde cum ai răspunde unui coleg care urmează să preia acest task cât tu ești într-un concediu sabatic de 1 an.</p></div>
+    <div class="note a3"><p><strong>Sugestie:</strong> citește tabelul. Rezultatul s-a îmbunătățit sau doar s-a schimbat?</p></div>
+    <div class="gata"><b>Este gata când</b> ai versiunea nouă și tabelul.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p3">3 · Misiunea pe grupe →</button></div>
+
+  <!-- 3 · MISIUNEA PE GRUPE -->
+  <section class="box a1" id="p3">
+    <div class="hd"><span class="num">3</span><h3>Misiunea pe grupe</h3></div>
+    <p>Unul dintre voi scrie promptul și dă share screen, iar ceilalți îl ghidează prin M.O.D.E.L.</p>
+    <p>Toate misiunile sunt pe Nordavia Distribuție, o companie <strong>fictivă</strong> care se ocupă de distribuție și are 320 de angajați.</p>
+
+    <h4>Alegeți misiunea</h4>
+    <div class="choice noprint">
+      <button class="drumbtn" data-drum="1"><span class="ct">1 · Raportul devenit prezentare</span><span class="cd"><b>Input:</b> un raport și ghidul de brand<br><b>Output:</b> 6 slide-uri 16:9</span></button>
+      <button class="drumbtn" data-drum="2"><span class="ct">2 · Sondajul devenit sinteză</span><span class="cd"><b>Input:</b> 40 de comentarii dintr-un sondaj de engagement<br><b>Output:</b> temele, cu citate, și 3 recomandări, pe o pagină A4</span></button>
+      <button class="drumbtn" data-drum="3"><span class="ct">3 · Politica devenită FAQ</span><span class="cd"><b>Input:</b> politica de lucru hibrid<br><b>Output:</b> FAQ-ul pentru angajați și mesajul de anunț, pe A4</span></button>
+    </div>
+
+    <div class="dv" data-dv="0"><div class="note"><p>Alegeți întâi misiunea, de pe unul dintre cele 3 butoane.</p></div></div>
+    <p class="drumnow"></p>
+
+    <div class="dv" data-dv="1">
+      <h4>Misiunea 1: Raportul devenit prezentare</h4>
+      <p>Sunteți în echipa de HR. Prezentați comitetului de direcție rezultatele programului de onboarding și cereți bugetul pentru etapa următoare. Prezentarea trebuie să arate ca toate prezentările companiei.</p>
+      <h4>Input</h4>
+      <div class="file"><div>Raportul programului de onboarding<code>nordavia-raport-onboarding.txt</code></div><button class="btn ghost sm" data-dl="r_1" data-name="nordavia-raport-onboarding.txt">Descarcă</button></div>
+      <div class="file"><div>Ghidul de brand<code>nordavia-ghid-brand.txt</code></div><button class="btn ghost sm" data-dl="r_2" data-name="nordavia-ghid-brand.txt">Descarcă</button></div>
+      <h4>Ce trebuie să iasă la final</h4>
+      <div class="note"><p>Un PDF cu 6 slide-uri 16:9, pe care l-ați putea proiecta mâine în comitetul de direcție.</p>
+        <ul>
+          <li>Arată ca o prezentare Nordavia: culorile, fonturile și logo-ul din ghidul de brand.</li>
+          <li>Prezentarea menționează cum a mers programul de onboarding, ce riscuri au apărut și de ce buget e nevoie pe mai departe.</li>
+          <li>Prezentarea se încheie cu decizia pe care o așteptați de la comitet.</li>
+          <li>Fiecare cifră de pe slide-uri e cea din raport.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dv" data-dv="2">
+      <h4>Misiunea 2: Sondajul devenit sinteză</h4>
+      <p>Sunteți în echipa de HR. Managementul vrea să afle, pe o pagină, ce spun angajații în sondajul de engagement și ce ar trebui făcut.</p>
+      <h4>Input</h4>
+      <div class="file"><div>Comentariile din sondajul de engagement<code>nordavia-comentarii-sondaj.txt</code></div><button class="btn ghost sm" data-dl="r_3" data-name="nordavia-comentarii-sondaj.txt">Descarcă</button></div>
+      <h4>Ce trebuie să iasă la final</h4>
+      <div class="note"><p>Un PDF de o pagină A4, pe care managementul îl citește în 5 minute.</p>
+        <ul>
+          <li>Sinteza menționează temele care apar cel mai des în comentarii și în câte comentarii apare fiecare.</li>
+          <li>Fiecare temă vine însoțită de 1-2 citate din comentarii.</li>
+          <li>Sinteza se încheie cu 3 recomandări concrete pentru management, fiecare legată de una din temele centrale.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dv" data-dv="3">
+      <h4>Misiunea 3: Politica devenită FAQ</h4>
+      <p>Sunteți în echipa de HR. Politica de lucru hibrid intră în vigoare pe 1 ianuarie, dar e scrisă ca un regulament. Angajații au nevoie să înțeleagă ce se schimbă pentru ei.</p>
+      <h4>Input</h4>
+      <div class="file"><div>Politica privind munca în regim hibrid<code>nordavia-politica-lucru-hibrid.txt</code></div><button class="btn ghost sm" data-dl="r_4" data-name="nordavia-politica-lucru-hibrid.txt">Descarcă</button></div>
+      <h4>Ce trebuie să iasă la final</h4>
+      <div class="note"><p>Un PDF A4, cu 2 părți, pe care HR-ul l-ar putea trimite mâine angajaților.</p>
+        <ul>
+          <li><strong>FAQ-ul</strong> răspunde la 8-10 întrebări pe care și le-ar pune un angajat când citește politica, scurt și în limbaj colocvial.</li>
+          <li>Fiecare răspuns spune în ce articol din politică se găsește regula.</li>
+          <li><strong>Mesajul de anunț</strong> e emailul de la HR către angajați, de maximum 200 de cuvinte, care spune ce se schimbă, de când și unde găsesc FAQ-ul.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dv" data-dv="123">
+      <h4>Pașii</h4>
+      <ol class="bul">
+        <li>Descărcați fișierele misiunii.</li>
+        <li>Înainte de a deschide AI-ul, gândiți-vă împreună la răspunsul la <a href="#model" data-go="model">întrebările M.O.D.E.L.</a></li>
+        <li>Scrieți promptul într-o conversație nouă și atașați fișierele. La final, adăugați rândul de format de mai jos.</li>
+        <li>Verificați rezultatul și solicitați îmbunătățiri (dacă e cazul).</li>
+        <li>Salvați rezultatul ca PDF.</li>
+      </ol>
+
+      <h4>Rândul de format</h4>
+      <div class="dv" data-dv="1"><div class="mat"><div class="mh"><div class="mtx" id="f1">Dă-mi rezultatul ca pagină HTML, cu fiecare slide pe o pagină 16:9, gata de salvat ca PDF.</div><div class="btns"><button class="btn sm" data-copy="f1">Copiază</button></div></div></div></div>
+      <div class="dv" data-dv="23"><div class="mat"><div class="mh"><div class="mtx" id="f2">Dă-mi rezultatul ca pagină HTML, pe pagini A4, gata de salvat ca PDF.</div><div class="btns"><button class="btn sm" data-copy="f2">Copiază</button></div></div></div></div>
+
+      <h4>Unde apare rezultatul</h4>
+      <ul class="bul">
+        <li><strong>Claude:</strong> în panoul din dreapta. Nu apăsa „Publish”: pune pagina pe internet, cu link public.</li>
+        <li><strong>ChatGPT:</strong> în Canvas sau ca bloc de cod. Apasă „Preview”.</li>
+        <li><strong>Gemini:</strong> în Canvas. Dacă vezi cod, apasă „Download”.</li>
+        <li><strong>Copilot:</strong> ca fișier de descărcat din OneDrive sau SharePoint. Deschide-l în browser.</li>
+        <li><strong>Dacă tot vezi cod:</strong> „Vreau să-mi dai pagina randată, nu codul.”</li>
+      </ul>
+
+      <h4>Cum salvați PDF-ul</h4>
+      <p>Descărcați pagina, deschideți-o în browser și apăsați Ctrl+P (pe Mac, Cmd+P). La destinație alegeți „Save as PDF”.</p>
+
+      <div class="gata"><b>Este gata când</b> PDF-ul are tot ce scrie la „Ce trebuie să iasă la final”.</div>
+      <div class="note a2"><p><strong>În plen prezentați:</strong> ce ați construit? Ce din ce a făcut AI-ul a necesitat corecții suplimentare?</p></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>HR Management în era AI · Lecția 5 · Raluca Păduraru</footer>
+</div>
+
+<button class="backbtn noprint" id="backBtn">← Înapoi unde erai</button>
+
+<!-- FIȘIERELE MISIUNILOR, încorporate la build -->
+<script type="text/plain" id="r_1">NORDAVIA DISTRIBUȚIE
+Raportul programului de onboarding, trimestrul 3, 2026
+Pregătit de: echipa de HR
+Pentru: comitetul de direcție
+
+Notă: Nordavia Distribuție este o companie fictivă, creată pentru exercițiu.
+
+
+1. CONTEXT
+
+Nordavia Distribuție are 320 de angajați, în sediul central din Cluj-Napoca și în 2 depozite (Cluj și Brașov). În 2025, 26% dintre angajații noi au plecat în primele 90 de zile. Cei mai mulți plecau din depozite.
+
+În aprilie 2026 am pornit un program nou de onboarding, cu 4 piese:
+- un buddy pentru fiecare angajat nou, ales din aceeași echipă;
+- un plan de 30 de zile, scris de manager înainte de prima zi;
+- o discuție 1:1 cu managerul la 30 de zile;
+- un chestionar scurt de satisfacție la finalul primei luni.
+
+Raportul urmărește cohortele angajate între aprilie și iunie 2026, măsurate în trimestrul 3.
+
+
+2. REZULTATE
+
+Angajați noi în cohortă: 46 (31 în depozite, 15 la sediul central).
+
+Retenția la 90 de zile: 40 din 46 erau încă în companie, adică 87%. În 2025, retenția la 90 de zile a fost 74%.
+
+Timpul până la productivitate: în medie 7 săptămâni, față de 10 săptămâni în 2025. Productivitatea e măsurată de manager, pe criteriile din fișa postului.
+
+Satisfacția cu onboarding-ul: 4,3 din 5, din 41 de răspunsuri la chestionar.
+
+Buddy: 38 din 46 de angajați noi au avut un buddy din prima zi. Ceilalți 8 au primit unul după prima săptămână, pentru că echipa nu avea pe nimeni disponibil.
+
+Discuția de 30 de zile cu managerul: a avut loc în 29 din 46 de cazuri, adică 63%. La sediul central: 14 din 15. În depozite: 15 din 31.
+
+Costul programului în trimestrul 3: 18.500 de lei (materiale, 2 sesiuni de pregătire pentru buddy, orele de coordonare din HR).
+
+
+3. CE AU SPUS ANGAJAȚII NOI
+
+Din chestionar, cele mai des pomenite lucruri bune:
+- buddy-ul (pomenit în 27 de răspunsuri);
+- faptul că știau din prima zi ce au de făcut în prima lună (19 răspunsuri).
+
+Cele mai des pomenite lucruri de îmbunătățit:
+- discuția cu managerul a lipsit sau a fost amânată (12 răspunsuri, 10 dintre ele din depozite);
+- prea multe informații în prima săptămână (9 răspunsuri).
+
+
+4. RISCUL PRINCIPAL
+
+În depozite, managerii de tură au ținut discuția de 30 de zile doar în 15 din 31 de cazuri. Toți cei 6 angajați care au plecat în primele 90 de zile lucrau în depozite, iar 5 dintre ei nu avuseseră discuția de 30 de zile.
+
+Managerii de tură spun că nu au timp în program pentru discuții 1:1 și că nu au fost pregătiți pentru ele.
+
+
+5. CE CEREM COMITETULUI
+
+Aprobarea unui buget de 42.000 de lei pentru trimestrul 4 2026 și trimestrul 1 2027, pentru:
+- extinderea programului la toate turele din ambele depozite;
+- o sesiune de pregătire de 4 ore pentru cei 12 manageri de tură, despre discuția de 30 de zile;
+- 1 oră pe săptămână rezervată în programul fiecărui manager de tură pentru discuțiile 1:1.
+
+Decizia ne trebuie până la 15 noiembrie 2026, ca să putem planifica turele din decembrie.
+</script>
+<script type="text/plain" id="r_2">NORDAVIA DISTRIBUȚIE
+Ghidul de brand pentru prezentări interne
+
+Notă: Nordavia Distribuție este o companie fictivă, creată pentru exercițiu.
+
+
+CULORI
+
+Bleumarin Nordavia: #0F3D5E
+Culoarea principală. Titluri, logo, fundalul slide-ului de copertă.
+
+Portocaliu cald: #F2A541
+Culoarea de accent. Cifrele importante și un singur element evidențiat pe slide. Niciodată pentru text lung.
+
+Verde-gri: #5C8A8A
+Culoare secundară. Grafice, linii, etichete.
+
+Crem: #F7F5F0
+Fundalul slide-urilor de conținut.
+
+Antracit: #1E1E1E
+Textul de bază.
+
+Regulă: maximum 3 culori pe un slide, în afară de fundal.
+
+
+FONTURI (din Google Fonts)
+
+Titluri: Montserrat, Bold (700).
+Text: Source Sans 3, Regular (400) și Semibold (600).
+Cifrele mari: Montserrat, Bold, în portocaliu cald.
+
+
+LOGO
+
+Logo-ul este cuvântul NORDAVIA, scris cu Montserrat Bold, cu majuscule, în bleumarin, urmat de un punct rotund portocaliu.
+Pe fundal bleumarin, cuvântul se scrie în crem, iar punctul rămâne portocaliu.
+Locul logo-ului: colțul din stânga sus, pe fiecare slide.
+
+
+AȘEZAREA PE SLIDE
+
+Formatul: 16:9.
+Titlul stă în stânga sus, sub logo.
+O singură idee pe slide.
+Maximum 40 de cuvinte pe slide.
+Jos, pe fiecare slide de conținut, în verde-gri, cu litere mici: Nordavia Distribuție · Uz intern
+
+
+TONUL
+
+Scriem clar și cald, cum vorbim cu un coleg.
+Propoziții scurte, la diateza activă.
+Fără jargon și fără prescurtări interne pe care nu le știe toată lumea.
+Cifrele se scriu cu cifre: 46 de angajați, nu patruzeci și șase.
+</script>
+<script type="text/plain" id="r_3">NORDAVIA DISTRIBUȚIE
+Sondajul anual de engagement, septembrie 2026
+Răspunsurile la întrebarea deschisă: „Ce ar trebui să schimbe compania ca să-ți fie mai bine la muncă?”
+
+Notă: Nordavia Distribuție este o companie fictivă, creată pentru exercițiu. Răspunsurile sunt anonime. Lângă fiecare răspuns e doar departamentul.
+Au răspuns 214 din 320 de angajați. Mai jos sunt cele 40 de răspunsuri lăsate la întrebarea deschisă.
+
+
+1. [Depozit] Pe tura de noapte suntem constant cu 2 oameni mai puțin decât ar trebui. Ne descurcăm, dar nu se mai poate așa mult timp.
+2. [Vânzări] Aș vrea să știu cum se iau deciziile despre ținte. Primim cifrele pe mail și atât.
+3. [Depozit] Scannerele vechi se blochează de câteva ori pe tură. Pierdem timp și ne enervăm degeaba.
+4. [Financiar] Mi-ar plăcea să pot lucra de acasă măcar o zi pe săptămână. Munca mea se poate face de oriunde.
+5. [IT] Mi-e bine aici. Echipa e super și șeful ne ascultă.
+6. [Depozit] Când cineva lipsește, tura se lungește și pentru restul. Orele astea nu se văd nicăieri.
+7. [HR] Avem prea multe instrumente care nu vorbesc între ele. Introduc aceleași date în 3 locuri.
+8. [Vânzări] Bonusul se calculează după o formulă pe care n-o înțelege nimeni din echipă.
+9. [Transport] Ar ajuta să aflăm traseele de a doua zi mai devreme, nu la 8 seara.
+10. [Depozit] Managerul meu de tură e corect, dar e mereu pe fugă. Nu apucăm să vorbim.
+11. [Financiar] Nu văd ce urmează pentru mine aici. Sunt pe același post de 4 ani.
+12. [Vânzări] Ședința de luni durează 2 ore și jumătate din ea nu ne privește.
+13. [Depozit] Ar fi bine să avem un loc de pauză ca lumea. Acum stăm pe paleți.
+14. [IT] Ne-ar prinde bine un buget de training. Tehnologia se schimbă mai repede decât apucăm să învățăm.
+15. [Transport] Salariul nu a mai crescut de 2 ani, iar prețurile au crescut.
+16. [Depozit] Când greșești, afli imediat. Când faci bine, nu zice nimeni nimic.
+17. [HR] Mi-ar plăcea ca managerii să vină mai pregătiți la evaluările anuale. Unii completează formularul în ziua discuției.
+18. [Vânzări] Lucrez bine cu colegii, dar între vânzări și depozit e o tensiune care ne costă clienți.
+19. [Financiar] Programul flexibil ar ajuta mult, mai ales pentru cei cu copii mici.
+20. [Depozit] Ne-ar trebui instruire pe utilajele noi. Am învățat de la colegi, din mers.
+21. [Transport] Mașinile sunt bine întreținute. Asta contează mult pentru noi și se vede.
+22. [Depozit] Aș vrea să știu dacă am șanse să ajung șef de tură și ce trebuie să fac pentru asta.
+23. [IT] Prioritățile se schimbă de la o săptămână la alta. Proiectele încep și nu se mai termină.
+24. [Vânzări] Mai multă recunoaștere pentru cine aduce clienți noi, nu doar pentru cine are cifră mare.
+25. [Depozit] Tura de weekend ar trebui plătită altfel. Acum e la fel ca în timpul săptămânii.
+26. [HR] Comunicarea de sus în jos vine prea târziu. Aflăm schimbările din zvonuri.
+27. [Financiar] Închiderea de lună e un coșmar din cauza datelor care vin târziu de la depozite.
+28. [Transport] Dispeceratul ne sună și în timpul condusului. Nu e sigur.
+29. [Depozit] Colegii noi sunt aruncați direct pe tură. Programul de buddy a ajutat, dar nu la toată lumea.
+30. [Vânzări] Mi-ar plăcea un plan de carieră clar. Acum pare că avansează cine e mai vizibil.
+31. [IT] Lucrul de acasă de 2 zile pe săptămână merge foarte bine. Vă rog să nu-l schimbați.
+32. [Depozit] Echipamentul de protecție se termină și așteptăm săptămâni după el.
+33. [Financiar] Directorii ar putea să treacă mai des pe la noi, nu doar când e o problemă.
+34. [Transport] Ar ajuta un tichet de masă mai mare. Pe drum mâncăm cum apucăm.
+35. [Depozit] Îmi place ce fac și îmi plac colegii. Doar că suntem prea puțini.
+36. [HR] Am vrea mai mult timp pentru proiectele de dezvoltare. Acum facem mai ales administrare.
+37. [Vânzări] CRM-ul e lent și nu merge pe telefon. Pe teren e aproape inutil.
+38. [Depozit] Ar fi bine ca cineva de la HR să vină și în tura de noapte. Pe noi nu ne vede nimeni.
+39. [IT] Feedback-ul vine doar o dată pe an, la evaluare. E prea rar ca să schimbi ceva.
+40. [Transport] Cea mai mare problemă e oboseala. Cursele lungi sunt planificate una după alta.
+</script>
+<script type="text/plain" id="r_4">NORDAVIA DISTRIBUȚIE
+Politica privind munca în regim hibrid
+Cod document: POL-HR-014, versiunea 1
+Data intrării în vigoare: 1 ianuarie 2027
+Aprobată de: Directorul General, la propunerea Departamentului de Resurse Umane
+
+Notă: Nordavia Distribuție este o companie fictivă, creată pentru exercițiu. Politica nu reprezintă consultanță juridică.
+
+
+ARTICOLUL 1. SCOPUL POLITICII
+
+1.1. Prezenta politică stabilește condițiile în care angajații Nordavia Distribuție pot desfășura o parte din activitate în afara sediului angajatorului, în regim de telemuncă, precum și obligațiile ce revin angajaților și managerilor în acest context.
+1.2. Politica urmărește menținerea colaborării în cadrul echipelor, asigurarea continuității activității și creșterea flexibilității pentru angajați, în limitele impuse de natura posturilor.
+
+
+ARTICOLUL 2. DOMENIUL DE APLICARE
+
+2.1. Politica se aplică angajaților cu contract individual de muncă pe durată nedeterminată, care își desfășoară activitatea la sediul central din Cluj-Napoca, în cadrul departamentelor Financiar, Resurse Umane, IT, Vânzări (personal de birou) și Achiziții.
+2.2. Politica nu se aplică personalului din depozite, personalului de transport și agenților de vânzări de teren, ale căror atribuții impun prezența fizică la locul de muncă.
+2.3. Angajații aflați în perioada de probă pot solicita regimul hibrid numai după finalizarea perioadei de probă.
+
+
+ARTICOLUL 3. ZILELE DE PREZENȚĂ LA SEDIU
+
+3.1. Angajații care lucrează în regim hibrid au obligația de a fi prezenți la sediu cel puțin 3 zile lucrătoare pe săptămână.
+3.2. Ziua de marți este zi de prezență obligatorie pentru toți angajații din sfera de aplicare a prezentei politici.
+3.3. Managerul direct poate stabili o a doua zi de prezență comună pentru echipa sa, cu informarea echipei cu cel puțin 2 săptămâni înainte.
+3.4. Zilele de telemuncă nu se reportează de la o săptămână la alta și nu pot fi cumulate.
+
+
+ARTICOLUL 4. INTERVALUL ORAR DE DISPONIBILITATE
+
+4.1. Indiferent de locul de desfășurare a activității, angajații au obligația de a fi disponibili pentru colegi și pentru manager în intervalul orar 10:00-15:00, de luni până vineri.
+4.2. În afara acestui interval, angajații își pot organiza programul de lucru, cu respectarea duratei normale a timpului de muncă și a termenelor stabilite.
+4.3. Angajatul nu are obligația de a răspunde la mesaje și apeluri în afara programului de lucru, cu excepția situațiilor de urgență definite în procedurile interne ale fiecărui departament.
+
+
+ARTICOLUL 5. SOLICITAREA REGIMULUI HIBRID
+
+5.1. Angajatul care dorește să lucreze în regim hibrid depune o solicitare scrisă, prin platforma internă de HR, adresată managerului direct.
+5.2. Managerul direct răspunde solicitării în termen de 10 zile lucrătoare de la depunere.
+5.3. Refuzul solicitării trebuie motivat în scris, cu referire la cerințele postului sau la nevoile echipei.
+5.4. Regimul hibrid se consemnează într-un act adițional la contractul individual de muncă, întocmit de Departamentul de Resurse Umane.
+5.5. Oricare dintre părți poate solicita revenirea la activitatea exclusiv la sediu, cu un preaviz de 30 de zile calendaristice.
+
+
+ARTICOLUL 6. ECHIPAMENTE ȘI CHELTUIELI
+
+6.1. Angajatorul pune la dispoziția angajatului un laptop, căști și acces securizat la rețeaua companiei.
+6.2. Angajatul răspunde de păstrarea în bune condiții a echipamentelor primite și anunță departamentul IT în termen de 24 de ore în caz de defecțiune, pierdere sau furt.
+6.3. Angajatul care lucrează în regim hibrid primește o sumă lunară de 100 de lei pentru acoperirea cheltuielilor cu utilitățile și conexiunea la internet, acordată proporțional cu numărul de zile de telemuncă efectiv prestate.
+6.4. Angajatorul nu suportă costuri legate de mobilierul sau amenajarea spațiului de lucru de la domiciliu.
+
+
+ARTICOLUL 7. SECURITATEA INFORMAȚIILOR
+
+7.1. Activitatea în regim de telemuncă se desfășoară exclusiv pe echipamentele puse la dispoziție de angajator.
+7.2. Este interzis lucrul cu documente ale companiei în spații publice în care informațiile pot fi văzute sau auzite de persoane neautorizate.
+7.3. Este interzisă utilizarea rețelelor wireless publice fără conectarea la rețeaua privată virtuală (VPN) a companiei.
+7.4. Documentele tipărite care conțin date ale companiei sau date personale nu se scot din sediu.
+
+
+ARTICOLUL 8. SĂNĂTATE ȘI SECURITATE ÎN MUNCĂ
+
+8.1. Angajatul declară, în actul adițional, că locul de muncă de la domiciliu îndeplinește condițiile minime de siguranță.
+8.2. Angajatorul organizează anual o instruire privind organizarea ergonomică a locului de muncă de la domiciliu, cu participare obligatorie pentru angajații în regim hibrid.
+
+
+ARTICOLUL 9. EXCEPȚII
+
+9.1. În situații temporare, precum îngrijirea unui membru de familie, recuperarea după o afecțiune medicală sau condiții meteo extreme, angajatul poate solicita, cu aprobarea managerului direct și a Departamentului de Resurse Umane, un număr mai mare de zile de telemuncă, pe o perioadă de maximum 3 luni.
+9.2. În perioadele de închidere de an financiar, de audit sau de inventar, managerul direct poate solicita prezența la sediu în toate zilele lucrătoare, cu informarea echipei cu cel puțin 5 zile lucrătoare înainte.
+
+
+ARTICOLUL 10. EVALUAREA POLITICII
+
+10.1. Departamentul de Resurse Umane evaluează aplicarea prezentei politici după 6 luni de la intrarea în vigoare, pe baza unui chestionar adresat angajaților și managerilor și a indicatorilor de performanță ai departamentelor.
+10.2. Rezultatele evaluării se prezintă Directorului General, care poate decide modificarea politicii.
+
+
+ARTICOLUL 11. DISPOZIȚII FINALE
+
+11.1. Prezenta politică se completează cu prevederile Regulamentului Intern și ale contractului colectiv de muncă aplicabil.
+11.2. Întrebările privind aplicarea politicii se adresează Departamentului de Resurse Umane, la adresa de e-mail hr@nordavia.example.
+</script>
+
+<script>
+var STORE = 'basetolearn-l5-lucru-v1';  /* ține minte doar misiunea aleasă */
+function raw(id){ var el = document.getElementById(id); return el ? el.textContent.replace(/^\n/, '').replace(/<\\\//g, '</') : ''; }
+
+var saved = {};
+try { saved = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch(e) { saved = {}; }
+function persist(){ try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch(e) {} }
+
+/* copiere, cu rezervă pentru browserele fără clipboard API */
+function copyText(t){
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).catch(function(){ return legacyCopy(t); });
+  return legacyCopy(t);
+}
+function legacyCopy(t){
+  return new Promise(function(resolve, reject){
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.top = '-1000px';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    ok ? resolve() : reject();
+  });
+}
+function flash(btn, txt){
+  var old = btn.textContent;
+  btn.textContent = txt; btn.classList.add('done');
+  setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1700);
+}
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var t = document.getElementById(btn.getAttribute('data-copy')).textContent.trim();
+    copyText(t).then(function(){ flash(btn, 'Copiat'); }).catch(function(){ flash(btn, 'Selectează și copiază manual'); });
+  });
+});
+
+/* descărcare: .txt cu BOM, ca diacriticele să se vadă corect peste tot */
+function download(text, name){
+  var bom = /\.(txt|csv)$/i.test(name) ? '\ufeff' : '';
+  var blob = new Blob([bom + text], { type: 'text/plain;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+}
+document.querySelectorAll('[data-dl]').forEach(function(btn){
+  btn.addEventListener('click', function(){ download(raw(btn.getAttribute('data-dl')), btn.getAttribute('data-name')); flash(btn, 'Descărcat'); });
+});
+
+/* misiunea aleasă: se vede doar ea */
+var NUME = { '1': 'Raportul devenit prezentare', '2': 'Sondajul devenit sinteză', '3': 'Politica devenită FAQ' };
+var drum = NUME[saved._drum] ? saved._drum : '';
+function syncDrum(){
+  document.querySelectorAll('.drumbtn').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-drum') === drum); });
+  document.querySelectorAll('.dv').forEach(function(d){
+    var k = d.getAttribute('data-dv');
+    d.classList.toggle('show', drum ? k.indexOf(drum) > -1 : k === '0');
+  });
+  var dn = document.querySelector('.drumnow');
+  if (dn) dn.innerHTML = drum ? 'Lucrați pe <b>misiunea ' + drum + ', ' + NUME[drum] + '</b>. Ca s-o schimbați, apăsați alt buton de mai sus.' : '';
+}
+document.querySelectorAll('.drumbtn').forEach(function(b){
+  b.addEventListener('click', function(){ drum = b.getAttribute('data-drum'); saved._drum = drum; persist(); syncDrum(); });
+});
+
+/* navigare + „Înapoi unde erai" după saltul la întrebările M.O.D.E.L. */
+var ANEXE = ['model'];
+var navBtns = Array.prototype.slice.call(document.querySelectorAll('.navbtn'));
+var secIds = navBtns.map(function(b){ return b.getAttribute('data-go'); });
+function navOff(){ var nw = document.querySelector('.navwrap'); return nw.offsetHeight < window.innerHeight / 2 ? nw.offsetHeight + 12 : 24; }
+function goTo(id){
+  var el = document.getElementById(id);
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - navOff(), behavior: 'smooth' });
+}
+var backBtn = document.getElementById('backBtn'), backStack = [];
+document.querySelectorAll('[data-go]').forEach(function(el){
+  el.addEventListener('click', function(e){
+    e.preventDefault();
+    var id = el.getAttribute('data-go');
+    if (ANEXE.indexOf(id) > -1 && !el.classList.contains('navbtn')) { backStack.push(window.scrollY); backBtn.classList.add('show'); }
+    goTo(id);
+  });
+});
+backBtn.addEventListener('click', function(){
+  var y = backStack.pop();
+  if (y !== undefined) window.scrollTo({ top: y, behavior: 'smooth' });
+  if (!backStack.length) backBtn.classList.remove('show');
+});
+/* etapa devine curentă când titlul ei trece de ~40% din ecran; la capătul paginii se aprinde ultima */
+function markActive(){
+  var best = 0, off = Math.max(navOff() + 30, window.innerHeight * 0.4);
+  for (var i = 0; i < secIds.length; i++){ var el = document.getElementById(secIds[i]); if (el && el.getBoundingClientRect().top - off <= 0) best = i; }
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) best = secIds.length - 1;
+  navBtns.forEach(function(b, i){ b.classList.toggle('active', i === best); });
+}
+window.addEventListener('scroll', markActive, { passive: true });
+
+/* tema: butoanele din antet */
+document.querySelectorAll('[data-theme-choice]').forEach(function(o){
+  o.addEventListener('click', function(){
+    var t = o.getAttribute('data-theme-choice');
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem('basetolearn-l5-lucru-tema', t); } catch(e) {}
+    markTheme();
+  });
+});
+function markTheme(){
+  var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  document.querySelectorAll('[data-theme-choice]').forEach(function(o){ o.classList.toggle('on', o.getAttribute('data-theme-choice') === cur); });
+}
+markTheme();
+
+syncDrum();
+</script>
+</body>
+</html>
