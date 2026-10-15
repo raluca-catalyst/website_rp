@@ -542,9 +542,9 @@
           ['s6q3', 'Ce faci cu rezistența identificată în Secțiunea 3?'] ] } ] },
       { n: 6, title: 'Harta de oportunități AI', when: 'după lecția din 23 octombrie · Lucrul cu AI și harta de oportunități', parts: [
         { qs: [
-          ['s4q1', 'Unde poate ajuta AI funcția HR la voi: unde e doar asistent, unde poate fi agent, unde nu are ce căuta?'],
-          { type: 'opps', text: 'Care sunt oportunitățile, puse pe matricea impact × fezabilitate? Adaugă-le pe rând și alege pentru fiecare impactul și fezabilitatea.' },
-          ['s4q3', 'Ce oportunitate duci la redesign în lecția din 26 octombrie și de ce pe aceea?'] ] } ] },
+          ['s4q1', 'Identifică oportunitățile unde se poate implementa AI în HR la voi. Notează pentru fiecare în parte cum vei folosi AI-ul: ca asistent sau ca agent.'],
+          { type: 'opps', text: 'Cum arată fiecare dintre aceste oportunități pe matricea impact x fezabilitate? Adaugă-le rând pe rând și alege pentru fiecare impactul și fezabilitatea.' },
+          ['s4q3', 'Ce oportunitate vrei să abordezi în lecția de redesign? De ce o alegi pe aceasta?'] ] } ] },
       { n: 7, title: 'Redesign de proces', when: 'după lecția din 26 octombrie · Redesign-ul proceselor de HR', parts: [
         { qs: [
           ['s5q1', 'Ce proces ai ales și cum arată azi: pași, timp, puncte de fricțiune?'],
@@ -852,7 +852,7 @@
       if (!m) return;
       const named = state.opps.map((o, i) => Object.assign({ i }, o)).filter(o => o.name.trim() !== '');
       m.innerHTML = '';
-      if (!named.length) { m.appendChild(el('p', 'matrix-empty', 'Matricea se desenează pe măsură ce adaugi oportunități.')); return; }
+      if (!named.length) { m.appendChild(el('p', 'matrix-empty', 'Matricea se conturează pe măsură ce adaugi oportunități.')); return; }
       // Sus: impact mare. Dreapta: fezabilitate mare.
       const quads = [
         ['mare', 'mica', 'Impact mare · fezabilitate mică'], ['mare', 'mare', 'Impact mare · fezabilitate mare'],
