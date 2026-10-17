@@ -278,19 +278,20 @@
 
     /* POZE DIN SALĂ */
     .byc-photos { margin: 0; }
-    .byc-photos + .byc-photos { margin-top: 2.2rem; }
-    .byc-photo-grid { display: grid; gap: 1rem; }
-    .byc-photo-grid.ed1 { grid-template-columns: 1fr 1fr; }
-    .byc-photo-grid.ed2 { grid-template-columns: repeat(4, 1fr); }
-    .byc-photo-grid.ed2-video { display: flex; justify-content: center; margin-top: 1rem; }
-    .byc-photo-grid img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--radius); border: 1px solid var(--border-card); }
-    .byc-photo-grid.ed1 img { aspect-ratio: 16 / 10; }
-    .byc-photo-grid.ed2 img, .byc-photo-grid.ed2-video img { aspect-ratio: 3 / 4; }
-    .byc-photo-grid.ed2-video img { width: calc((100% - 3rem) / 8); }
+    .byc-mosaic { display: grid; gap: 0.75rem; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px;
+      grid-template-areas: "a a b c" "a a b d" "e f g h"; }
+    .byc-mosaic img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--radius); border: 1px solid var(--border-card); }
+    .byc-mosaic .m-a { grid-area: a; }
+    .byc-mosaic .m-b { grid-area: b; object-position: 85% center; }
+    .byc-mosaic .m-c { grid-area: c; object-position: 65% center; }
+    .byc-mosaic .m-d { grid-area: d; object-position: center 35%; }
+    .byc-mosaic .m-e { grid-area: e; object-position: center 60%; }
+    .byc-mosaic .m-f { grid-area: f; object-position: center 55%; }
+    .byc-mosaic .m-g { grid-area: g; object-position: center 70%; }
+    .byc-mosaic .m-h { grid-area: h; object-position: center 55%; }
     @media (max-width: 720px) {
-      .byc-photo-grid.ed1 { grid-template-columns: 1fr; }
-      .byc-photo-grid.ed2 { grid-template-columns: 1fr 1fr; }
-      .byc-photo-grid.ed2-video img { width: calc((100% - 1rem) / 4); }
+      .byc-mosaic { grid-template-columns: 1fr 1fr; grid-auto-rows: 140px; gap: 0.5rem;
+        grid-template-areas: "a a" "a a" "b c" "b d" "e f" "g h"; }
     }
 
     /* PENTRU CINE / CE-ȚI TREBUIE / TEMA */
@@ -816,24 +817,17 @@
       <div class="container">
         <p class="label">Din sală</p>
         <figure class="byc-photos">
-          <div class="byc-photo-grid ed1">
-            <img src="images/byc/ed1-deschidere.jpg" alt="Raluca Păduraru deschide ziua de lucru la prima ediție Build Your Cortex, cu participanții la laptopuri" width="1600" height="903" loading="lazy" />
-            <img src="images/byc/ed1-sala.jpg" alt="Participanții la prima ediție Build Your Cortex lucrează la laptopuri, în timp ce Raluca Păduraru prezintă" width="1600" height="1067" loading="lazy" />
+          <div class="byc-mosaic">
+            <img class="m-a" src="images/byc/ed1-sala.jpg" alt="Participanții la prima ediție Build Your Cortex lucrează la laptopuri, în timp ce Raluca Păduraru prezintă" width="1600" height="1067" loading="lazy" />
+            <img class="m-b" src="images/byc/ed2-ras-flipchart.jpg" alt="Raluca Păduraru râde lângă flipchartul cu „If you can dream it, you can build it”, la ediția a doua Build Your Cortex" width="900" height="1200" loading="lazy" />
+            <img class="m-c" src="images/byc/ed1-deschidere.jpg" alt="Raluca Păduraru deschide ziua de lucru la prima ediție Build Your Cortex, cu participanții la laptopuri" width="1600" height="903" loading="lazy" />
+            <img class="m-d" src="images/byc/ed2-selfie.jpg" alt="Raluca Păduraru în sală la ediția a doua Build Your Cortex, cu participanții la lucru în spate" width="800" height="1372" loading="lazy" />
+            <img class="m-e" src="images/byc/ed2-flipchart-sala.jpg" alt="Raluca Păduraru vorbește lângă flipchartul cu „If you can dream it, you can build it”, la ediția a doua Build Your Cortex" width="900" height="1200" loading="lazy" />
+            <img class="m-f" src="images/byc/ed2-sala-1.jpg" alt="Participanții la ediția a doua Build Your Cortex lucrează la mese rotunde, cu laptopurile deschise" width="478" height="850" loading="lazy" />
+            <img class="m-g" src="images/byc/ed2-prezentare.jpg" alt="Participanții la ediția a doua Build Your Cortex lucrează la laptopuri, în timp ce Raluca Păduraru vorbește în fața sălii" width="900" height="1200" loading="lazy" />
+            <img class="m-h" src="images/byc/ed2-sala-2.jpg" alt="Un grup de participanți la ediția a doua Build Your Cortex lucrează împreună la o masă" width="478" height="850" loading="lazy" />
           </div>
-          <figcaption>Ediția 1, Palatul Universul: deschiderea zilei.</figcaption>
-        </figure>
-        <figure class="byc-photos">
-          <div class="byc-photo-grid ed2">
-            <img src="images/byc/ed2-flipchart-sala.jpg" alt="Raluca Păduraru vorbește lângă flipchartul cu „If you can dream it, you can build it”, la ediția a doua Build Your Cortex" width="900" height="1200" loading="lazy" />
-            <img src="images/byc/ed2-ras-flipchart.jpg" alt="Raluca Păduraru râde lângă flipchartul cu „If you can dream it, you can build it”, la ediția a doua Build Your Cortex" width="900" height="1200" loading="lazy" />
-            <img src="images/byc/ed2-prezentare.jpg" alt="Participanții la ediția a doua Build Your Cortex lucrează la laptopuri, în timp ce Raluca Păduraru vorbește în fața sălii" width="900" height="1200" loading="lazy" />
-            <img src="images/byc/ed2-selfie.jpg" alt="Raluca Păduraru în sală la ediția a doua Build Your Cortex, cu participanții la lucru în spate" width="800" height="1372" loading="lazy" />
-          </div>
-          <div class="byc-photo-grid ed2-video">
-            <img src="images/byc/ed2-sala-1.jpg" alt="Participanții la ediția a doua Build Your Cortex lucrează la mese rotunde, cu laptopurile deschise" width="478" height="850" loading="lazy" />
-            <img src="images/byc/ed2-sala-2.jpg" alt="Un grup de participanți la ediția a doua Build Your Cortex lucrează împreună la o masă" width="478" height="850" loading="lazy" />
-          </div>
-          <figcaption>Ediția 2, 16 octombrie 2026.</figcaption>
+          <figcaption>Ediția 1, Palatul Universul, și ediția 2, 16 octombrie 2026.</figcaption>
         </figure>
       </div>
     </section>
