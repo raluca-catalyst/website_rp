@@ -217,6 +217,12 @@
   .btn{font-family:var(--body);background:var(--main);color:var(--main-ink);border:none;padding:9px 16px;font-size:15px;font-weight:700;cursor:pointer}
   .btn.ghost{background:transparent;color:var(--main);border:1.5px solid var(--main)}
   .btn.sm{padding:7px 12px;font-size:14px}
+  .poze-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+  @media(max-width:760px){.poze-grid{grid-template-columns:repeat(2,1fr)}}
+  .poza{margin:0;border:1px solid var(--line);background:var(--card2);padding:8px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+  .poza img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .poza.video{max-width:360px}
+  .poza video{width:100%;display:block;background:#000}
   .btn.done{opacity:.8}
   .dlrow{margin:8px 0 4px}
 
@@ -289,6 +295,7 @@
     <button class="navbtn m-free" data-go="parcurs"><span class="nt">Foaia de parcurs</span></button>
     <button class="navbtn" data-go="rapid"><span class="nt">Dacă termini mai repede</span></button>
     <button class="navbtn" data-go="certificat"><span class="nt">Certificatul tău</span></button>
+    <button class="navbtn" data-go="poze"><span class="nt">Poze din sală</span></button>
   </nav>
 </div>
 
@@ -585,6 +592,22 @@
       <div class="file"><div>Ortansa David</div><a class="btn ghost sm" href="/cortex/certificate/certificat-byc-ortansa-david.pdf" download="Certificat Build Your Cortex - Ortansa David.pdf">Descarcă</a></div>
       <div class="file"><div>Raluca Ștefania Preda</div><a class="btn ghost sm" href="/cortex/certificate/certificat-byc-raluca-stefania-preda.pdf" download="Certificat Build Your Cortex - Raluca Stefania Preda.pdf">Descarcă</a></div>
     </div>
+  </section>
+
+  <!-- ===================== COMUN: Poze și video din sală (17 oct) ===================== -->
+  <section class="plain noprint" id="poze">
+    <h2>Poze din sală</h2>
+    <p class="sub">Câteva momente din 16 octombrie. Le poți descărca pe toate.</p>
+    <div class="poze-grid">
+      <figure class="poza"><img src="/cortex/poze/mini/byc2-01.jpg" alt="Build Your Cortex, 16 octombrie" loading="lazy"><a class="btn ghost sm" href="/cortex/poze/byc2-01.jpg" download="Build Your Cortex 16 oct - 1.jpg">Descarcă</a></figure>
+      <figure class="poza"><img src="/cortex/poze/mini/byc2-02.jpg" alt="Flipchart: If you can dream it, you can build it" loading="lazy"><a class="btn ghost sm" href="/cortex/poze/byc2-02.jpg" download="Build Your Cortex 16 oct - 2.jpg">Descarcă</a></figure>
+      <figure class="poza"><img src="/cortex/poze/mini/byc2-03.jpg" alt="Poză de grup, Build Your Cortex" loading="lazy"><a class="btn ghost sm" href="/cortex/poze/byc2-03.jpg" download="Build Your Cortex 16 oct - 3.jpg">Descarcă</a></figure>
+      <figure class="poza"><img src="/cortex/poze/mini/byc2-04.jpg" alt="Poză de grup, Build Your Cortex" loading="lazy"><a class="btn ghost sm" href="/cortex/poze/byc2-04.jpg" download="Build Your Cortex 16 oct - 4.jpg">Descarcă</a></figure>
+      <figure class="poza"><img src="/cortex/poze/mini/byc2-05.jpg" alt="Poză de grup, Build Your Cortex" loading="lazy"><a class="btn ghost sm" href="/cortex/poze/byc2-05.jpg" download="Build Your Cortex 16 oct - 5.jpg">Descarcă</a></figure>
+      <figure class="poza"><img src="/cortex/poze/mini/byc2-06.jpg" alt="Poză de grup, Build Your Cortex" loading="lazy"><a class="btn ghost sm" href="/cortex/poze/byc2-06.jpg" download="Build Your Cortex 16 oct - 6.jpg">Descarcă</a></figure>
+    </div>
+    <h3 style="margin-top:22px">Video</h3>
+    <figure class="poza video"><video src="/cortex/poze/byc2-video.mp4" controls preload="metadata" playsinline></video><a class="btn ghost sm" href="/cortex/poze/byc2-video.mp4" download="Build Your Cortex 16 oct - video.mp4">Descarcă</a></figure>
   </section>
 
 </main>
