@@ -277,9 +277,18 @@
     .byc-dense p { font-size: 0.97rem; margin-bottom: 0.9rem; }
 
     /* POZE DIN SALĂ */
-    .byc-photos { display: grid; grid-template-columns: 1fr; gap: 1.25rem; align-items: start; }
-    .byc-photos figure { margin: 0; }
-    .byc-photos img { width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--border-card); }
+    .byc-photos { margin: 0; }
+    .byc-photos + .byc-photos { margin-top: 2.2rem; }
+    .byc-photo-grid { display: grid; gap: 1rem; }
+    .byc-photo-grid.ed1 { grid-template-columns: 1fr 1fr; }
+    .byc-photo-grid.ed2 { grid-template-columns: repeat(3, 1fr); }
+    .byc-photo-grid img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--radius); border: 1px solid var(--border-card); }
+    .byc-photo-grid.ed1 img { aspect-ratio: 16 / 10; }
+    .byc-photo-grid.ed2 img { aspect-ratio: 3 / 4; }
+    @media (max-width: 720px) {
+      .byc-photo-grid.ed1 { grid-template-columns: 1fr; }
+      .byc-photo-grid.ed2 { grid-template-columns: 1fr 1fr; }
+    }
 
     /* PENTRU CINE / CE-ȚI TREBUIE / TEMA */
     .byc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
@@ -799,16 +808,28 @@
       </div>
     </section>
 
-    <!-- ====================== POZE DIN SALĂ, EDIȚIA 1 ====================== -->
+    <!-- ====================== POZE DIN SALĂ, EDIȚIILE 1 ȘI 2 ====================== -->
     <section class="byc-section section-alt">
       <div class="container">
         <p class="label">Din sală</p>
-        <div class="byc-photos">
-          <figure>
+        <figure class="byc-photos">
+          <div class="byc-photo-grid ed1">
             <img src="images/byc/ed1-deschidere.jpg" alt="Raluca Păduraru deschide ziua de lucru la prima ediție Build Your Cortex, cu participanții la laptopuri" width="1600" height="903" loading="lazy" />
-            <figcaption>Ediția 1, Palatul Universul: deschiderea zilei.</figcaption>
-          </figure>
-        </div>
+            <img src="images/byc/ed1-sala.jpg" alt="Participanții la prima ediție Build Your Cortex lucrează la laptopuri, în timp ce Raluca Păduraru prezintă" width="1600" height="1067" loading="lazy" />
+          </div>
+          <figcaption>Ediția 1, Palatul Universul: deschiderea zilei.</figcaption>
+        </figure>
+        <figure class="byc-photos">
+          <div class="byc-photo-grid ed2">
+            <img src="images/byc/ed2-flipchart-sala.jpg" alt="Raluca Păduraru vorbește lângă flipchartul cu „If you can dream it, you can build it”, la ediția a doua Build Your Cortex" width="900" height="1200" loading="lazy" />
+            <img src="images/byc/ed2-sala-1.jpg" alt="Participanții la ediția a doua Build Your Cortex lucrează la mese rotunde, cu laptopurile deschise" width="478" height="850" loading="lazy" />
+            <img src="images/byc/ed2-selfie.jpg" alt="Raluca Păduraru în sală la ediția a doua Build Your Cortex, cu participanții la lucru în spate" width="800" height="1372" loading="lazy" />
+            <img src="images/byc/ed2-sala-2.jpg" alt="Un grup de participanți la ediția a doua Build Your Cortex lucrează împreună la o masă" width="478" height="850" loading="lazy" />
+            <img src="images/byc/ed2-prezentare.jpg" alt="Participanții la ediția a doua Build Your Cortex lucrează la laptopuri, în timp ce Raluca Păduraru vorbește în fața sălii" width="900" height="1200" loading="lazy" />
+            <img src="images/byc/ed2-sala-3.jpg" alt="Participanți la ediția a doua Build Your Cortex lucrează lângă geamurile sălii" width="478" height="850" loading="lazy" />
+          </div>
+          <figcaption>Ediția 2, 16 octombrie 2026.</figcaption>
+        </figure>
       </div>
     </section>
 
