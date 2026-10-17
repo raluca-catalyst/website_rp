@@ -193,84 +193,196 @@
 
   <style>
     /* ===== Build Your Cortex landing — scoped ===== */
+    /* Regula paginii: textul ocupă toată lățimea containerului, paragrafele sunt justify cu despărțire în silabe. */
     .byc-section { padding: clamp(3.25rem, 6vw, 5rem) 0; }
     .byc-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.15; margin: 0 0 1.4rem; }
-    .byc-section p { color: var(--text-sec); margin-bottom: 1rem; font-size: 1.02rem; line-height: 1.7; }
+    .byc-section p { color: var(--text-sec); margin-bottom: 1rem; font-size: 1.02rem; line-height: 1.7; text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
     .byc-section p:last-child { margin-bottom: 0; }
     .byc-section p strong { color: var(--text); }
-    .byc-lead-block { max-width: 820px; margin: 0 auto; text-align: center; }
-    .byc-section-intro { color: var(--text-muted); margin-bottom: 2.25rem; }
+    .byc-section-intro { margin-bottom: 2.25rem; }
+    .byc-section .byc-after-people { margin: 1.8rem 0 0.6rem; }
+    .byc-section .label, .byc-proof .label { margin: 0 0 0.9rem; }
+    .byc-section p.label { font-size: 0.7rem; line-height: 1.4; color: var(--lavender); text-align: left; hyphens: manual; }
 
     /* HERO */
-    .byc-hero { padding: 7.5rem 0 3.5rem; text-align: center; }
-    .byc-hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.08; margin: 0 auto 1.3rem; max-width: 20ch; }
-    .byc-hero-sub { font-family: var(--font-mono); font-size: clamp(1.05rem, 2.2vw, 1.35rem); color: var(--lavender-lt); max-width: 56ch; margin: 0 auto 1.3rem; line-height: 1.4; }
-    .byc-hero-lead { font-size: 1.18rem; color: var(--text-sec); max-width: 58ch; margin: 0 auto 2rem; line-height: 1.6; }
+    .byc-hero { padding: 7.5rem 0 3rem; text-align: center; }
+    .byc-hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.8rem); line-height: 1.08; margin: 0 0 1.4rem; text-wrap: balance; }
+    .byc-hero-lead { font-size: clamp(1.08rem, 1.9vw, 1.25rem); color: var(--text); margin: 0 0 2rem; line-height: 1.6; }
+    .byc-hero-after { font-size: 0.98rem; color: var(--text-sec); margin: 1.1rem 0 0; line-height: 1.6; }
 
-    /* CARDURI (cu ce pleci acasă) */
-    .byc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+    /* POZA DE GRUP */
+    .byc-group { padding: 0 0 2.5rem; }
+    .byc-group-photo { margin: 0; }
+    .byc-group-photo img { width: 100%; height: auto; display: block; border-radius: var(--radius-lg);
+      -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); mask-image: linear-gradient(to bottom, #000 72%, transparent 100%); }
+    .byc-group-photo figcaption, .byc-photos figcaption { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em; color: var(--text-sec); margin-top: 0.7rem; }
+
+    /* DOVADA PE DOUĂ EDIȚII */
+    .byc-proof { padding: 2.8rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .byc-editions { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+    .byc-edition { background: var(--card); border: 1px solid var(--border-card); border-radius: var(--radius); padding: 1.6rem 1.5rem; }
+    .byc-edition-tag { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lavender-lt); margin: 0 0 1.3rem; }
+    .byc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .byc-stat .v { font-family: var(--font-mono); font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 700; color: var(--amber); line-height: 1; margin-bottom: 0.5rem; }
+    .byc-stat .l { font-size: 0.86rem; color: var(--text-muted); line-height: 1.5; }
+    .byc-proof-note { color: var(--text-sec); font-size: 0.98rem; line-height: 1.7; margin: 0; text-align: justify; hyphens: auto; }
+
+    /* CITAT INLINE */
+    .byc-quote { border-left: 2px solid rgba(167,139,250,0.55); padding-left: 1.2rem; margin: 1.8rem 0 0; text-align: left; }
+    .byc-quote p { font-size: 0.98rem; color: var(--text-sec); line-height: 1.7; margin: 0 0 0.5rem; font-style: italic; }
+    .byc-quote .who { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; color: var(--lavender-lt); font-style: normal; }
+
+    /* 3 OAMENI, 3 SISTEME */
+    .byc-people { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .byc-person { background: var(--card); border: 1px solid var(--border-card); border-radius: var(--radius);
+      padding: 1.7rem 1.5rem; display: grid; grid-template-rows: subgrid; grid-row: span 4; row-gap: 0; }
+    @supports not (grid-template-rows: subgrid) {
+      .byc-person { display: flex; flex-direction: column; }
+      .byc-person blockquote { margin-top: auto; }
+    }
+    .byc-person h3 { font-size: 1.02rem; margin: 0 0 0.15rem; }
+    .byc-person .role { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.05em; color: var(--lavender-lt); margin: 0 0 1.2rem; text-align: left; }
+    .byc-ba { list-style: none; padding: 0; margin: 0 0 1.2rem; }
+    .byc-ba li { font-size: 0.94rem; color: var(--text-sec); line-height: 1.6; margin-bottom: 0.7rem; }
+    .byc-ba li:last-child { margin-bottom: 0; }
+    .byc-ba .k { display: block; font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.11em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .byc-person blockquote { margin: 0; padding-top: 1.1rem; border-top: 1px solid var(--border); font-size: 0.92rem; color: var(--text-sec); line-height: 1.65; font-style: italic; }
+
+    /* CE AU CONSTRUIT LA EDIȚIA 2 */
+    .byc-built { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .byc-built-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.2rem; position: relative; }
+    .byc-built-card::before { content: ""; display: block; width: 8px; height: 8px; border-radius: 50%; background: var(--lavender); box-shadow: 0 0 10px rgba(167,139,250,0.7); margin-bottom: 0.8rem; }
+    .byc-section .byc-built-card p { font-size: 0.94rem; color: var(--text); text-align: left; hyphens: manual; }
+
+    /* CU CE PLECI ACASĂ */
+    .byc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
     .byc-card { background: var(--card); border: 1px solid var(--border-card); border-radius: var(--radius); padding: 1.6rem 1.5rem; border-top: 2px solid var(--lavender); }
     .byc-card h3 { font-size: 1.05rem; color: var(--lavender-lt); margin-bottom: 0.6rem; }
     .byc-card p { font-size: 0.95rem; margin-bottom: 0; }
-
-    /* ARC (cum arată ziua) */
-    .byc-arc { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; }
-    .byc-step { background: var(--card); border: 1px solid var(--border-card); border-radius: var(--radius); padding: 1.6rem 1.5rem; }
-    .byc-step .num { font-family: var(--font-mono); font-size: 1.6rem; color: var(--amber); margin-bottom: 0.6rem; line-height: 1; }
-    .byc-step h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
-    .byc-step p { font-size: 0.94rem; margin-bottom: 0; }
-
-    /* PENTRU CINE / CE-ȚI TREBUIE */
-    .byc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .byc-col { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem 1.6rem; }
-    .byc-col h3 { font-size: 1.08rem; margin-bottom: 1rem; }
-    .byc-col p { font-size: 0.98rem; }
-    .byc-col ul { list-style: none; padding: 0; margin: 0; }
-    .byc-col li { position: relative; padding-left: 1.6rem; margin-bottom: 0.8rem; color: var(--text-sec); font-size: 0.97rem; line-height: 1.55; }
-    .byc-col.check li::before { content: "✓"; position: absolute; left: 0; color: var(--lavender-lt); font-weight: 700; }
-    .byc-col.cross li::before { content: "✕"; position: absolute; left: 0; color: var(--text-muted); }
-    .byc-col li:last-child { margin-bottom: 0; }
-
-    /* CE-ȚI TREBUIE */
-    .byc-needs { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem 1.6rem; margin-top: 1.25rem; }
-    .byc-needs h3 { font-size: 1.08rem; margin-bottom: 1rem; }
-    .byc-needs ul { list-style: none; padding: 0; margin: 0; }
-    .byc-needs li { position: relative; padding-left: 1.6rem; margin-bottom: 0.8rem; color: var(--text-sec); font-size: 0.97rem; line-height: 1.55; }
-    .byc-needs li::before { content: "✓"; position: absolute; left: 0; color: var(--lavender-lt); font-weight: 700; }
     .byc-needs-note { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin: 1.2rem 0 0; }
 
-    /* PROGRAM */
-    .byc-program { list-style: none; padding: 0; margin: 0 0 2.5rem; max-width: 720px; }
+    /* CUM ARATĂ ZIUA */
+    .byc-program { list-style: none; padding: 0; margin: 0 0 2.2rem; }
     .byc-program li { display: flex; gap: 1.1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); color: var(--text-sec); font-size: 1rem; line-height: 1.6; }
     .byc-program li:last-child { border-bottom: none; }
     .byc-program .t { font-family: var(--font-mono); font-size: 0.85rem; color: var(--lavender-lt); flex-shrink: 0; width: 120px; }
+    .byc-steps { list-style: none; padding: 0; margin: 0; counter-reset: none; }
+    .byc-steps li { display: grid; grid-template-columns: 3.2rem 1fr; gap: 1rem; padding: 1.3rem 0; border-top: 1px solid var(--border); }
+    .byc-steps li:last-child { border-bottom: 1px solid var(--border); }
+    .byc-steps .num { font-family: var(--font-mono); font-size: 1.9rem; font-weight: 700; color: var(--amber); line-height: 1; }
+    .byc-steps h3 { font-size: clamp(1.02rem, 1.8vw, 1.18rem); margin: 0 0 0.4rem; color: var(--text); }
+    .byc-section .byc-steps p { margin: 0; font-size: 1rem; }
+    .byc-dense { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.9rem 1.7rem; margin: 2.5rem 0 0; }
+    .byc-dense h3 { font-size: 1.08rem; margin: 0 0 0.9rem; }
+    .byc-dense p { font-size: 0.97rem; margin-bottom: 0.9rem; }
 
-    /* DETALII + PREȚ */
-    .byc-detalii { list-style: none; padding: 0; margin: 0 0 2.25rem; max-width: 640px; }
+    /* POZE DIN SALĂ */
+    .byc-photos { display: grid; grid-template-columns: 1fr; gap: 1.25rem; align-items: start; }
+    .byc-photos figure { margin: 0; }
+    .byc-photos img { width: 100%; height: auto; display: block; border-radius: var(--radius); border: 1px solid var(--border-card); }
+
+    /* PENTRU CINE / CE-ȚI TREBUIE / TEMA */
+    .byc-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .byc-cols-gap { margin-top: 2.2rem; }
+    .byc-col, .byc-needs { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem 1.6rem; }
+    .byc-col h3, .byc-needs h3, .byc-homework h3 { font-size: 1.08rem; margin-bottom: 1rem; }
+    .byc-col ul, .byc-needs ul { list-style: none; padding: 0; margin: 0; }
+    .byc-col li, .byc-needs li { position: relative; padding-left: 1.6rem; margin-bottom: 0.8rem; color: var(--text-sec); font-size: 0.97rem; line-height: 1.55; }
+    .byc-col.check li::before, .byc-needs li::before { content: "✓"; position: absolute; left: 0; color: var(--lavender-lt); font-weight: 700; }
+    .byc-col.cross li::before { content: "✕"; position: absolute; left: 0; color: var(--text-muted); }
+    .byc-col li:last-child, .byc-needs li:last-child { margin-bottom: 0; }
+    .byc-homework { background: linear-gradient(160deg, rgba(124,58,237,0.20), rgba(124,58,237,0.06)); border: 1px solid rgba(167,139,250,0.35); border-top: 3px solid var(--lavender); border-radius: var(--radius); padding: 1.8rem 1.6rem; }
+    .byc-section .byc-homework p { color: var(--text); font-size: 1.02rem; }
+
+    /* CU CINE */
+    .byc-author { display: grid; grid-template-columns: 180px 1fr; column-gap: 2rem; align-items: start; }
+    .byc-author-photo { grid-row: span 2; }
+    .byc-author-photo img { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--border-card); display: block; }
+    .byc-author h2 { margin-bottom: 0.3rem; align-self: end; }
+    .byc-author-role { font-family: var(--font-mono); font-size: 0.75rem !important; letter-spacing: 0.05em; color: var(--lavender-lt) !important; margin: 0 !important; text-align: left !important; }
+    .byc-author ul { grid-column: 1 / -1; list-style: none; padding: 0; margin: 1.6rem 0 0; }
+    .byc-author li { position: relative; padding-left: 1.5rem; margin-bottom: 0.9rem; color: var(--text-sec); font-size: 0.97rem; line-height: 1.6; text-align: justify; hyphens: auto; }
+    .byc-author li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 6px; height: 6px; border-radius: 50%; background: var(--lavender); }
+    .byc-author li:last-child { margin-bottom: 0; }
+    .byc-author a { color: var(--lavender-lt); }
+
+    /* CE AU SCRIS PARTICIPANȚII */
+    .byc-wrote { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .byc-wrote figure:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .byc-wrote figure { background: var(--card); border: 1px solid var(--border-card); border-radius: var(--radius); padding: 1.6rem 1.5rem; margin: 0; }
+    .byc-wrote blockquote { margin: 0 0 1rem; font-size: 0.96rem; color: var(--text-sec); line-height: 1.7; font-style: italic; }
+    .byc-wrote figcaption { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em; color: var(--lavender-lt); line-height: 1.5; }
+    .byc-wrote figcaption.anon { color: var(--text-sec); }
+
+    /* ÎNTREBĂRI FRECVENTE */
+    .byc-faq details { border-top: 1px solid var(--border); }
+    .byc-faq details:last-child { border-bottom: 1px solid var(--border); }
+    .byc-faq summary { cursor: pointer; list-style: none; padding: 1.15rem 2.2rem 1.15rem 0; position: relative; font-family: var(--font-mono); font-weight: 600; font-size: 0.98rem; color: var(--text); }
+    .byc-faq summary::-webkit-details-marker { display: none; }
+    .byc-faq summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); font-size: 1.3rem; color: var(--lavender); transition: transform 0.2s; }
+    .byc-faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+    .byc-faq details p { margin: 0 0 1.2rem; }
+
+    /* IF YOU CAN DREAM IT */
+    .byc-dream { position: relative; min-height: clamp(320px, 46vw, 520px); display: flex; align-items: center;
+      background: linear-gradient(90deg, rgba(14,11,30,0.95) 0%, rgba(14,11,30,0.7) 55%, rgba(14,11,30,0.35) 100%), url("images/byc/ed2-flipchart.jpg") center 22% / cover no-repeat; }
+    .byc-dream-line { font-family: var(--font-mono); font-weight: 700; font-size: clamp(1.9rem, 5.2vw, 4rem); line-height: 1.1; letter-spacing: -0.02em; color: var(--text); margin: 0; text-shadow: 0 2px 24px rgba(14,11,30,0.6); }
+
+    /* DETALII, PREȚ ȘI FORMULAR */
+    .byc-signup { display: grid; grid-template-columns: 1fr 1.15fr; gap: 2rem; align-items: start; }
+    .byc-detalii { list-style: none; padding: 0; margin: 0 0 1.6rem; }
     .byc-detalii li { display: flex; gap: 0.9rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); color: var(--text-sec); font-size: 1rem; line-height: 1.6; }
     .byc-detalii li:last-child { border-bottom: none; }
-    .byc-detalii .k { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lavender-lt); flex-shrink: 0; width: 86px; padding-top: 0.25rem; }
-    .byc-detalii a { color: var(--lavender-lt); }
-
-    .byc-price-card { background: var(--card); border: 1px solid rgba(167,139,250,0.45); border-radius: var(--radius-lg); padding: 2.2rem 2rem; max-width: 520px; box-shadow: 0 0 0 1px rgba(167,139,250,0.18), 0 18px 50px -28px rgba(124,58,237,0.55); }
-    .byc-price-tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender-lt); margin-bottom: 1rem; }
+    .byc-detalii .k { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lavender-lt); flex-shrink: 0; width: 76px; padding-top: 0.25rem; }
+    .byc-price-card { background: var(--card); border: 1px solid rgba(167,139,250,0.45); border-radius: var(--radius-lg); padding: 1.8rem 1.8rem; box-shadow: 0 0 0 1px rgba(167,139,250,0.18), 0 18px 50px -28px rgba(124,58,237,0.55); }
+    .byc-price-tag { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.9rem; }
     .byc-amount { font-family: var(--font-mono); font-size: 2.4rem; font-weight: 700; color: var(--text); line-height: 1; }
-    .byc-amount-sub { margin-top: 0.6rem; font-size: 0.92rem; color: var(--text-muted); }
-    .byc-amount-sub .old { text-decoration: line-through; margin-right: 0.6rem; }
-    .byc-amount-sub .sep { margin-right: 0.6rem; color: var(--text-muted); }
-    .byc-amount-sub .save { color: var(--lavender-lt); }
+    .byc-section .byc-price-note { color: var(--text-muted); font-size: 0.92rem; margin: 0.9rem 0 0; }
 
-    /* secțiune centrată (Detalii și preț) */
-    .byc-center h2 { text-align: center; }
-    .byc-center .byc-detalii { margin-left: auto; margin-right: auto; }
-    .byc-center .byc-price-card { margin-left: auto; margin-right: auto; }
-    .byc-center .byc-price-note { margin-left: auto; margin-right: auto; text-align: center; }
-    .byc-price-card .btn { width: 100%; justify-content: center; margin-top: 1.8rem; }
-    .byc-price-note { color: var(--text-muted); font-size: 0.9rem; margin-top: 1.4rem; line-height: 1.6; max-width: 520px; }
+    /* formular */
+    .byc-form-wrap { background: var(--card); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 1.8rem 1.6rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; text-align: left; }
+    .form-field label { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-sec); }
+    .form-field input, .form-field textarea { background: rgba(14,11,30,0.6); border: 1px solid var(--border); border-radius: var(--radius); padding: 13px 16px; font-family: inherit; font-size: 0.95rem; color: var(--text); outline: none; transition: border-color 0.2s; resize: vertical; }
+    .form-field input:focus, .form-field textarea:focus { border-color: var(--lavender); }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--text-muted); }
+    .form-check { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 22px; text-align: left; }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--lavender); cursor: pointer; }
+    .form-check label { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; cursor: pointer; }
+    .form-submit-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .form-submit-wrap .btn { width: 100%; justify-content: center; }
+    .byc-section .form-privacy { font-size: 0.75rem; color: var(--text-muted); text-align: center; margin: 0; }
+    .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
+    .byc-form-msg { margin-top: 16px; font-size: 0.9rem; border-radius: var(--radius); padding: 12px 16px; text-align: center; display: none; }
+    .byc-form-msg.error { display: block; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3); color: var(--lavender-lt); }
+    .byc-done h3 { font-size: 1.3rem; margin: 0 0 1rem; color: var(--text); }
+    .byc-share { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.4rem; }
+
+    /* buton fix pe telefon */
+    .byc-sticky { display: none; }
+    @media (max-width: 860px) {
+      .byc-sticky { display: block; position: fixed; left: 16px; right: 16px; bottom: 14px; z-index: 90; text-align: center;
+        font-family: var(--font-mono); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: #fff;
+        background: linear-gradient(135deg, #7c3aed, #6d28d9); border-radius: 6px; padding: 14px 12px; box-shadow: 0 0 18px rgba(124,58,237,0.45);
+        transition: opacity 0.25s, transform 0.25s; }
+      .byc-sticky.is-hidden { opacity: 0; transform: translateY(20px); pointer-events: none; }
+      body { padding-bottom: 72px; }
+    }
 
     @media (max-width: 860px) {
       .byc-hero { padding: 6rem 0 2.5rem; }
-      .byc-cols { grid-template-columns: 1fr; }
+      .byc-editions, .byc-cols, .byc-signup, .byc-grid, .byc-photos { grid-template-columns: 1fr; }
+      .byc-built { grid-template-columns: 1fr; }
+      .byc-wrote { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; row-gap: 0; }
+      .byc-stats { grid-template-columns: 1fr 1fr 1fr; gap: 0.7rem; }
+      .byc-stat .l { font-size: 0.78rem; }
+      .byc-built { grid-template-columns: 1fr; }
+      .byc-author { grid-template-columns: 96px 1fr; column-gap: 1.1rem; }
+      .byc-dream { background-position: 30% 22%; }
     }
 
     /* ===== CORTEX THEME ===== */
@@ -299,113 +411,9 @@
       text-align:center; transform:rotate(-6deg); position:relative; }
     .byc-seal::before{ content:''; position:absolute; inset:4px; border-radius:50%; border:1px solid rgba(245,181,74,0.25); }
     .byc-seal .s1{ font-family:var(--font-mono); font-weight:700; font-size:0.68rem; letter-spacing:0.12em; color:var(--amber); }
-    .byc-seal .s1-logo{ width:64px; height:auto; display:block; margin-bottom:3px; }
     .byc-seal .s2{ font-family:var(--font-mono); font-weight:700; font-size:1.02rem; color:var(--text); line-height:1.15; margin-top:3px; }
     .byc-seal .s3{ font-family:var(--font-mono); font-weight:500; font-size:0.56rem; letter-spacing:0.14em; color:rgba(245,181,74,0.85); margin-top:5px; }
-    .byc-price-tag{ color:var(--amber) !important; }
-
-    /* formular de înscriere */
-    .byc-form-wrap{ max-width:600px; margin:0 auto; }
-    .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-    .form-field{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; text-align:left; }
-    .form-field label{ font-family:var(--font-mono); font-size:0.7rem; font-weight:600;
-      letter-spacing:0.1em; text-transform:uppercase; color:var(--text-sec); }
-    .form-field input{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-      padding:13px 16px; font-family:inherit; font-size:0.95rem; color:var(--text); outline:none; transition:border-color 0.2s; }
-    .form-field input:focus{ border-color:var(--lavender); }
-    .form-field input::placeholder{ color:var(--text-muted); }
-    .form-check{ display:flex; gap:12px; align-items:flex-start; margin-bottom:24px; text-align:left; }
-    .form-check input[type="checkbox"]{ width:18px; height:18px; flex-shrink:0; margin-top:2px; accent-color:var(--lavender); cursor:pointer; }
-    .form-check label{ font-size:0.85rem; color:var(--text-sec); line-height:1.6; cursor:pointer; }
-    .form-submit-wrap{ display:flex; flex-direction:column; align-items:center; gap:12px; }
-    .form-submit-wrap .btn{ width:100%; justify-content:center; }
-    .form-privacy{ font-size:0.75rem; color:var(--text-muted); text-align:center; }
-    .hp-field{ position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden; }
-    .byc-form-msg{ margin-top:16px; font-size:0.9rem; border-radius:var(--radius); padding:12px 16px; text-align:center; display:none; }
-    .byc-form-msg.success{ display:block; background:rgba(107,158,116,0.15); border:1px solid rgba(107,158,116,0.4); color:#7BC78A; }
-    .byc-form-msg.error{ display:block; background:rgba(167,139,250,0.1); border:1px solid rgba(167,139,250,0.3); color:var(--lavender-lt); }
-    @media (max-width:600px){ .form-row{ grid-template-columns:1fr; } }
-
-    /* Agenda: etapele nestate sub cele 6 ore de lucru */
-    .byc-program{ margin-bottom: 1.4rem !important; }
-    .byc-day-detail{ border-left: 2px solid var(--border); padding-left: clamp(1rem, 2.5vw, 1.75rem); margin-left: 0.25rem; }
-    .byc-arc-intro{ font-family: var(--font-mono); font-size: 0.82rem; letter-spacing: 0.03em; color: var(--lavender-lt); margin: 0 0 1.15rem !important; }
-
-    /* ===== DOVADA EDIȚIEI 1 ===== */
-    .byc-proof{ padding: 2.6rem 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-    .byc-proof-inner{ max-width:880px; margin:0 auto; }
-    .byc-proof-tag{ font-family:var(--font-mono); font-size:0.7rem; font-weight:700; letter-spacing:0.12em;
-      text-transform:uppercase; color:var(--lavender-lt); margin:0 0 1.4rem; text-align:center; }
-    .byc-stats{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem; margin-bottom:1.5rem; }
-    .byc-stat{ text-align:center; }
-    .byc-stat .v{ font-family:var(--font-mono); font-size:clamp(1.7rem, 4vw, 2.4rem); font-weight:700;
-      color:var(--amber); line-height:1; margin-bottom:0.5rem; }
-    .byc-stat .l{ font-size:0.88rem; color:var(--text-muted); line-height:1.5; }
-    .byc-proof-note{ text-align:center; color:var(--text-sec); font-size:0.95rem; line-height:1.7; margin:0; }
-    @media (max-width:640px){ .byc-stats{ grid-template-columns:1fr; gap:1.6rem; } }
-
-    /* ===== CITAT INLINE ===== */
-    .byc-quote{ border-left:2px solid rgba(167,139,250,0.55); padding-left:1.2rem; margin:1.8rem 0 0;
-      text-align:left; }
-    .byc-lead-block .byc-quote{ max-width:60ch; }
-    .byc-lead-block .byc-quote{ margin-left:auto; margin-right:auto; }
-    .byc-quote p{ font-size:0.98rem; color:var(--text-sec); line-height:1.7; margin:0 0 0.5rem; font-style:italic; }
-    .byc-quote .who{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.06em;
-      color:var(--lavender-lt); font-style:normal; }
-
-    /* ===== TREI OAMENI, TREI SISTEME ===== */
-    .byc-people{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.25rem; }
-    /* subgrid: cele 3 carduri își aliniază titlul, rolul, lista și linia de deasupra citatului */
-    .byc-person{ background:var(--card); border:1px solid var(--border-card); border-radius:var(--radius);
-      padding:1.7rem 1.5rem; display:grid; grid-template-rows:subgrid; grid-row:span 4; row-gap:0; }
-    @supports not (grid-template-rows: subgrid){
-      .byc-person{ display:flex; flex-direction:column; }
-      .byc-person blockquote{ margin-top:auto; }
-    }
-    .byc-person h3{ font-size:1.02rem; margin:0 0 0.15rem; }
-    .byc-person .role{ font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.05em;
-      color:var(--lavender-lt); margin:0 0 1.2rem; }
-    .byc-ba{ list-style:none; padding:0; margin:0 0 1.2rem; }
-    .byc-ba li{ font-size:0.94rem; color:var(--text-sec); line-height:1.6; margin-bottom:0.7rem; }
-    .byc-ba li:last-child{ margin-bottom:0; }
-    .byc-ba .k{ display:block; font-family:var(--font-mono); font-size:0.64rem; letter-spacing:0.11em;
-      text-transform:uppercase; color:var(--text-muted); margin-bottom:0.25rem; }
-    .byc-person blockquote{ margin:0; padding-top:1.1rem; border-top:1px solid var(--border);
-      font-size:0.92rem; color:var(--text-sec); line-height:1.65; font-style:italic; }
-
-    /* ===== E O ZI DENSĂ ===== */
-    .byc-dense{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
-      padding:1.9rem 1.7rem; margin:2.5rem 0 0; }
-    .byc-dense h3{ font-size:1.08rem; margin:0 0 0.9rem; }
-    .byc-dense p{ font-size:0.97rem; margin-bottom:0.9rem; }
-
-    /* ===== CINE TE ÎNVAȚĂ ===== */
-    .byc-author{ display:grid; grid-template-columns:200px 1fr; gap:2.2rem; align-items:start; max-width:880px; margin:0 auto; }
-    .byc-author-photo img{ width:100%; height:auto; border-radius:var(--radius);
-      border:1px solid var(--border-card); display:block; }
-    .byc-author h2{ margin-bottom:0.3rem; }
-    .byc-author-role{ font-family:var(--font-mono); font-size:0.75rem; letter-spacing:0.05em;
-      color:var(--lavender-lt); margin:0 0 1.2rem !important; }
-    .byc-author ul{ list-style:none; padding:0; margin:0; }
-    .byc-author li{ position:relative; padding-left:1.5rem; margin-bottom:0.9rem; color:var(--text-sec);
-      font-size:0.97rem; line-height:1.6; }
-    .byc-author li::before{ content:""; position:absolute; left:0; top:0.6em; width:6px; height:6px;
-      border-radius:50%; background:var(--lavender); }
-    .byc-author li:last-child{ margin-bottom:0; }
-    .byc-author a{ color:var(--lavender-lt); }
-    @media (max-width:720px){ .byc-author{ grid-template-columns:1fr; gap:1.5rem; }
-      .byc-author-photo{ max-width:200px; } }
-
-    /* ===== CE AU SCRIS PARTICIPANȚII ===== */
-    .byc-wrote{ display:grid; grid-template-columns:repeat(2, 1fr); gap:1.25rem; max-width:900px; margin:0 auto; }
-    .byc-wrote figure:last-child:nth-child(odd){ grid-column:1 / -1; }
-    @media (max-width:720px){ .byc-wrote{ grid-template-columns:1fr; } }
-    .byc-wrote figure{ background:var(--card); border:1px solid var(--border-card); border-radius:var(--radius);
-      padding:1.6rem 1.5rem; margin:0; }
-    .byc-wrote blockquote{ margin:0 0 1rem; font-size:0.96rem; color:var(--text-sec); line-height:1.7; font-style:italic; }
-    .byc-wrote figcaption{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.05em; color:var(--lavender-lt); line-height:1.5; }
-    .byc-wrote figcaption .anon{ color:var(--text-muted); }
-</style>
+  </style>
 </head>
 <body>
 
@@ -625,71 +633,82 @@
       </g>
     </svg>
       <div class="container">
-        <div class="byc-seal"><span class="s1">EDIȚIA 3</span><span class="s2">14 ian<br>2027</span><span class="s3">BUCUREȘTI</span></div>
-        <h1>Tot ce știi despre AI e din 2024. Bun venit în 2026!</h1>
-        <p class="byc-hero-sub">Acum poți fi CEO-ul unui sistem.</p>
-        <p class="byc-hero-lead">În ianuarie îți construiești Cortexul care te cunoaște și lucrează cot la cot cu tine ca să livreze rezultate. La finalul zilei pleci cu el funcțional, gata de pus la treabă.</p>
+        <div class="byc-seal"><span class="s1">EDIȚIA 3</span><span class="s2">14 ian<br>2027</span><span class="s3">BUILD YOUR CORTEX</span></div>
+        <h1>Fii <span style="white-space:nowrap">CEO-ul</span> propriei echipe AI.</h1>
+        <p class="byc-hero-lead">Un Cortex e sistemul tău personal de lucru cu AI. Îți cunoaște obiectivele și știe regulile pe baza cărora lucrezi. Are acces la informațiile cu care lucrezi zi de zi și înțelege cum te poate ajuta.</p>
         <a href="#inscriere" class="btn btn-primary">
           Înscrie-te pe lista de așteptare
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
+        <p class="byc-hero-after">Îți construiești sistemul personal de lucru cu AI și pleci cu el funcțional, antrenat pe munca ta.</p>
       </div>
     </section>
 
-    <!-- ====================== DOVADA EDIȚIEI 1 ====================== -->
+    <!-- ====================== POZA DE GRUP, EDIȚIA 2 ====================== -->
+    <section class="byc-group">
+      <div class="container">
+        <figure class="byc-group-photo">
+          <img src="images/byc/ed2-grup.jpg" alt="Participanții la ediția a doua Build Your Cortex, împreună cu Raluca Păduraru, la finalul zilei" width="1672" height="941" loading="lazy" />
+          <figcaption>Ediția a doua, 16 octombrie 2026, la finalul zilei de construcție.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====================== DOVADA, DOUĂ EDIȚII ====================== -->
     <section class="byc-proof">
       <div class="container">
-        <div class="byc-proof-inner">
-          <p class="byc-proof-tag">Prima ediție, 6 august 2026, Palatul Universul</p>
-          <div class="byc-stats">
-            <div class="byc-stat">
-              <div class="v">17</div>
-              <div class="l">participanți, într-o sală care s-a umplut cu o lună înainte de eveniment</div>
-            </div>
-            <div class="byc-stat">
-              <div class="v">100</div>
-              <div class="l">NPS, din 17 respondenți</div>
-            </div>
-            <div class="byc-stat">
-              <div class="v">17/17</div>
-              <div class="l">au declarat că aplică în munca lor ce au construit în ziua aceea</div>
+        <p class="label">2 ediții, același rezultat</p>
+        <div class="byc-editions">
+          <div class="byc-edition">
+            <p class="byc-edition-tag">Ediția 1 &middot; 6 august 2026 &middot; Palatul Universul</p>
+            <div class="byc-stats">
+              <div class="byc-stat"><div class="v">17</div><div class="l">participanți, într-o sală care s-a umplut cu o lună înainte</div></div>
+              <div class="byc-stat"><div class="v">100</div><div class="l">NPS, de la toți respondenții</div></div>
+              <div class="byc-stat"><div class="v">100%</div><div class="l">toți respondenții aplică în munca lor ce au construit</div></div>
             </div>
           </div>
-          <p class="byc-proof-note">Toată sala a plecat cu directorul de operațiuni angajat și cu cel puțin un specialist integrat în sistem. Pe 16 octombrie am facilitat ediția a doua, cu sala plină. Ediția a treia e programată estimativ pe 14 ianuarie. Dacă vrei să afli primul când se deschid înscrierile, înscrie-te pe lista de așteptare.</p>
+          <div class="byc-edition">
+            <p class="byc-edition-tag">Ediția 2 &middot; 16 octombrie 2026 &middot; sala plină</p>
+            <div class="byc-stats">
+              <div class="byc-stat"><div class="v">16</div><div class="l">participanți</div></div>
+              <div class="byc-stat"><div class="v">100</div><div class="l">NPS, de la toți respondenții</div></div>
+              <div class="byc-stat"><div class="v">100%</div><div class="l">toți respondenții aplică în munca lor ce au construit</div></div>
+            </div>
+          </div>
         </div>
+        <p class="byc-proof-note">Ediția a treia e programată estimativ pe 14 ianuarie 2027. Dacă vrei să afli primul când se deschid înscrierile, înscrie-te pe lista de așteptare.</p>
       </div>
     </section>
 
     <!-- ====================== PROBLEMA ====================== -->
     <section class="byc-section section-alt">
       <div class="container">
-        <div class="byc-lead-block">
-          <h2>Asistenții AI standard nu te cunosc.</h2>
-          <p>Fiecare conversație e luată de la zero. Le explici de fiecare dată cine ești, cu ce te ocupi, cum gândești, ce ai mai vorbit data trecută. Și tot așa ori de câte ori o iei de la capăt. Rezultatul e că primești niște răspunsuri generice, pe care le rescrii oricum. Lucrezi pentru instrument, în loc să lucreze el pentru tine.</p>
-          <p>Un Cortex schimbă relația. E un sistem care reține contextul tău, învață din ceea ce construiți împreună și pe care-l ai mereu la îndemână. Nu mai execuți tu fiecare mic pas, ci devii CEO-ul unei mini-echipe proprii.</p>
-          <div class="byc-quote">
-            <p>„AI becomes truly powerful when it's built around your own way of working."</p>
-            <span class="who">Andreea Copaciu, CEO g7 Marketing &middot; participantă la prima ediție</span>
-          </div>
+        <h2>Asistenții AI standard nu te cunosc.</h2>
+        <p>Fiecare conversație e luată de la zero. Le explici de fiecare dată cine ești, cu ce te ocupi, cum gândești, ce ai mai vorbit data trecută. Și tot așa ori de câte ori o iei de la capăt. Rezultatul e că primești niște răspunsuri generice, pe care le rescrii oricum. Lucrezi pentru instrument, în loc să lucreze el pentru tine.</p>
+        <p>Un Cortex schimbă relația. E un sistem care reține contextul tău, învață din ceea ce construiți împreună și pe care-l ai mereu la îndemână. Nu mai execuți tu fiecare mic pas, ci devii CEO-ul unei mini-echipe proprii.</p>
+        <div class="byc-quote">
+          <p>„AI becomes truly powerful when it's built around your own way of working.”</p>
+          <span class="who">Andreea Copaciu, CEO g7 Marketing &middot; participantă la prima ediție</span>
         </div>
       </div>
     </section>
 
-    <!-- ====================== TREI OAMENI, TREI SISTEME ====================== -->
+    <!-- ====================== CE CONSTRUIESC OAMENII ====================== -->
     <section class="byc-section">
       <div class="container">
+        <p class="label">Ce construiesc oamenii</p>
         <h2>3 oameni, 3 sisteme</h2>
-        <p class="byc-section-intro">Iată cum a decurs prima ediție, prin ochii lor. Fiecare a venit cu o altă problemă și cu un alt obiectiv și fiecare a plecat cu un alt sistem. Toate la fel de performante.</p>
+        <p class="byc-section-intro">Iată cum a arătat prima ediție prin ochii participanților.</p>
         <div class="byc-people">
 
           <div class="byc-person">
             <h3>Corina Neagu</h3>
             <p class="role">Consultant HR senior, Leadership &amp; HR Strategist</p>
             <ul class="byc-ba">
-              <li><span class="k">A venit cu</span>„Eu nu sunt o persoană tehnică." Voia să-și eficientizeze recrutarea și să-și planifice mai bine banii și timpul.</li>
+              <li><span class="k">A venit cu</span>„Eu nu sunt o persoană tehnică.” Voia să-și eficientizeze recrutarea și să-și planifice mai bine banii și timpul.</li>
               <li><span class="k">A plecat cu</span>Un board pe care l-a pus să ia decizii, un plan pe finalul lui 2026 și pe 2027, și câțiva angajați AI.</li>
             </ul>
-            <blockquote>„Am înțeles că inteligența artificială nu este un monstruleț cu colți, ci poate fi chiar prietenoasă dacă-ți dedici timp, interes să o cunoști."</blockquote>
+            <blockquote>„Am înțeles că inteligența artificială nu este un monstruleț cu colți, ci poate fi chiar prietenoasă dacă-ți dedici timp, interes să o cunoști.”</blockquote>
           </div>
 
           <div class="byc-person">
@@ -699,7 +718,7 @@
               <li><span class="k">A venit cu</span>Trei exceluri cu evenimente și remindere peste remindere de follow-up, de care obosea doar imaginându-și-le.</li>
               <li><span class="k">A plecat cu</span>Un sistem care ține minte în locul ei cui a scris, ce a promis și cum scrie ea.</li>
             </ul>
-            <blockquote>„Acum am un sistem care ține minte cui am scris, ce am promis și cum scriu eu, nu cum scrie un robot."</blockquote>
+            <blockquote>„Acum am un sistem care ține minte cui am scris, ce am promis și cum scriu eu, nu cum scrie un robot.”</blockquote>
           </div>
 
           <div class="byc-person">
@@ -709,9 +728,17 @@
               <li><span class="k">A venit cu</span>Dorința de a lucra mai structurat, cu un sistem construit în jurul felului ei de a gândi și de a decide.</li>
               <li><span class="k">A plecat cu</span>Un Cortex propriu, pe care l-a pus la treabă chiar a doua zi, pe o prezentare de pitch.</li>
             </ul>
-            <blockquote>„Today was my first full day putting it to work, and I was genuinely surprised by how much value it brought. It helped me move faster, think more clearly, and approach my work with better structure and context."</blockquote>
+            <blockquote>„Today was my first full day putting it to work, and I was genuinely surprised by how much value it brought. It helped me move faster, think more clearly, and approach my work with better structure and context.”</blockquote>
           </div>
 
+        </div>
+
+        <p class="byc-section-intro byc-after-people">Fiecare a venit cu o altă problemă și cu un alt obiectiv și fiecare a plecat cu un alt sistem. Toate la fel de performante.</p>
+        <p class="byc-section-intro">Și la ediția a doua participanții au construit agenții de care aveau nevoie.</p>
+        <div class="byc-built">
+          <div class="byc-built-card"><p>Un raport de vânzări care dura 30 de minute, gata în 5.</p></div>
+          <div class="byc-built-card"><p>Un anonimizator de date, construit de o participantă singură, în aceeași zi.</p></div>
+          <div class="byc-built-card"><p>„Mimi”, primul angajat AI al unei participante, cu nume propriu.</p></div>
         </div>
       </div>
     </section>
@@ -723,31 +750,23 @@
         <p class="byc-section-intro">Nu pleci cu notițe și bune intenții. Pleci cu un sistem care funcționează deja, construit pentru a performa pe task-urile și obiectivele tale.</p>
         <div class="byc-grid">
           <div class="byc-card">
-            <h3>Cartierul tău general</h3>
-            <p>Un sistem AI personal, cu structură funcțională, care îți ține laolaltă contextul, sursele și munca.</p>
+            <h3>Directorul de operațiuni</h3>
+            <p>Creierul de coordonare al sistemului, personalizat pe obiectivul tău. Știe ce resurse ai, încotro te îndrepți și cum să te susțină.</p>
           </div>
           <div class="byc-card">
-            <h3>Directorul de Operațiuni</h3>
-            <p>Creierul de coordonare al sistemului, personalizat pe obiectivul tău. Știe ce resurse ai, încotro te îndrepți și cum să te susțină.</p>
+            <h3>Angajații tăi AI</h3>
+            <p>Fiecare cu fișa lui de post, gata de personalizat pe contextul tău: voce, follow-up, oferte, sinteză de surse, consiliu de perspective.</p>
           </div>
           <div class="byc-card">
             <h3>Lecția transferabilă</h3>
             <p>Înțelegi cum să gestionezi acest sistem singur și cum să construiești oricând un nou sistem pentru proiecte viitoare.</p>
           </div>
           <div class="byc-card">
-            <h3>Zona care se actualizează singură</h3>
-            <p>Sistemul observă tipare și se îmbunătățește în timp. Lucrează și învață și când tu ești în pauza de prânz.</p>
-          </div>
-          <div class="byc-card">
             <h3>Agency = discernământ + acțiune</h3>
             <p>Îți hrănești sistemul cu surse adevărate și înveți să-i ceri socoteală, fără să accepți totul fără discernământ.</p>
           </div>
-          <div class="byc-card">
-            <h3>Angajații tăi AI</h3>
-            <p>Fiecare cu fișa lui de post, gata de personalizat pe contextul tău: voce, follow-up, oferte, sinteză de surse, consiliu de perspective.</p>
-          </div>
         </div>
-        <p class="byc-needs-note">Pleci și cu pachetul complet de fișe de post și cu metodologia scrisă, ca să-ți continui angajările acasă, în ritmul tău.</p>
+        <p class="byc-needs-note">Pleci și cu pachetul complet de fișe de post și cu metodologia scrisă, ca să continui construcția acasă, în ritmul tău.</p>
       </div>
     </section>
 
@@ -756,50 +775,45 @@
       <div class="container">
         <h2>Cum arată ziua</h2>
         <ul class="byc-program">
-          <li><span class="t">9:30 - 10:00</span><span>Setup asistat: instalăm și configurăm împreună sistemul, ca să intri în ziua de lucru ready to go. Te aștept la 9:30, dacă nu ești sigur că ai pregătit tot.</span></li>
-          <li><span class="t">10:00 - 10:30</span><span>Networking &amp; welcome</span></li>
-          <li><span class="t">10:30 - 17:30</span><span>Îți construiești propriul CORTEX, personalizat complet pe nevoile tale.</span></li>
+          <li><span class="t">9:30 – 10:00</span><span>Setup asistat: instalăm și configurăm împreună sistemul, ca să intri în ziua de lucru ready to go. Te aștept la 9:30, dacă nu ești sigur că ai pregătit tot.</span></li>
+          <li><span class="t">10:00 – 10:30</span><span>Networking &amp; welcome</span></li>
+          <li><span class="t">10:30 – 17:30</span><span>Îți construiești propriul Cortex, în 5 pași.</span></li>
         </ul>
-        <div class="byc-day-detail">
-          <p class="byc-arc-intro">Cele 4 etape de construcție:</p>
-          <div class="byc-arc">
-          <div class="byc-step">
-            <div class="num">1</div>
-            <h3>Nu mai ești executantul</h3>
-            <p>Vezi cum arată un sistem CORTEX matur și înțelegi exact ce construiești în cursul zilei.</p>
-          </div>
-          <div class="byc-step">
-            <div class="num">2</div>
-            <h3>Cartierul tău general</h3>
-            <p>Îți construiești sistemul și-ți angajezi un director de operațiuni, special croit pentru obiectivul tău.</p>
-          </div>
-          <div class="byc-step">
-            <div class="num">3</div>
-            <h3>Îl hrănești și îi ceri socoteală</h3>
-            <p>Inserezi propriul tău context în sistem și înveți să-i verifici munca.</p>
-          </div>
-          <div class="byc-step">
-            <div class="num">4</div>
-            <h3>Îți angajezi primul specialist</h3>
-            <p>Îl treci prin interviu, îl integrezi în sistem și pleci cu primul artefact produs de el.</p>
-          </div>
-          </div>
-        </div>
+        <ol class="byc-steps">
+          <li><span class="num">1</span><div><h3>Vezi un sistem matur, în funcțiune.</h3><p>Știi de la început exact ce construiești până seara.</p></div></li>
+          <li><span class="num">2</span><div><h3>Îți angajezi directorul de operațiuni.</h3><p>Pornește de la pre-work-ul tău. Află obiectivele, regulile și standardele tale, ca să nu le mai explici la fiecare conversație.</p></div></li>
+          <li><span class="num">3</span><div><h3>Sistemul învață din materialele tale.</h3><p>Îi dai documente reale și primești un prim rezultat construit pe ele.</p></div></li>
+          <li><span class="num">4</span><div><h3>Îți angajezi primul specialist.</h3><p>Alegi un task recurent și-l transformi într-un agent care rulează automat.</p></div></li>
+          <li><span class="num">5</span><div><h3>Pleci cu un plan clar de acțiune.</h3><p>Transformi tot ce ai experimentat la Build Your Cortex în mod de lucru curent.</p></div></li>
+        </ol>
 
         <div class="byc-dense">
           <h3>Îți spun încă de pe acum: va fi o zi densă.</h3>
           <p>Se muncește serios, iar efortul nu e tehnic: stă în a-ți clarifica ție intențiile, prioritățile și criteriile, ca sistemul să le poată prelua.</p>
           <p>Obiectivul zilei e ca până la 17:30 să-ți fi angajat directorul de operațiuni și să fi făcut onboarding-ul primului specialist integrat. Restul echipei o construiești acasă, în ritmul tău, cu materialele și metodologia pe care le primești.</p>
           <div class="byc-quote">
-            <p>„Ușor și greu în același timp, foarte insightful, instrumente clare și aplicabile, cu beneficii evidente; muncești la început destul de mult dar pe partea de clarificare intenții, criterii, etc, nu tehnic. Super investiție!"</p>
+            <p>„Ușor și greu în același timp, foarte insightful, instrumente clare și aplicabile, cu beneficii evidente; muncești la început destul de mult dar pe partea de clarificare intenții, criterii, etc, nu tehnic. Super investiție!”</p>
             <span class="who">Participant la prima ediție &middot; formular anonim</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== PENTRU CINE E ====================== -->
+    <!-- ====================== POZE DIN SALĂ, EDIȚIA 1 ====================== -->
     <section class="byc-section section-alt">
+      <div class="container">
+        <p class="label">Din sală</p>
+        <div class="byc-photos">
+          <figure>
+            <img src="images/byc/ed1-deschidere.jpg" alt="Raluca Păduraru deschide ziua de lucru la prima ediție Build Your Cortex, cu participanții la laptopuri" width="1600" height="903" loading="lazy" />
+            <figcaption>Ediția 1, Palatul Universul: deschiderea zilei.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PENTRU CINE E ====================== -->
+    <section class="byc-section">
       <div class="container">
         <h2>Pentru cine e</h2>
         <div class="byc-cols">
@@ -821,148 +835,213 @@
           </div>
         </div>
         <div class="byc-quote">
-          <p>„După workshopul ăsta am simțit că am scăpat de sindromul impostorului legat de folosirea AI."</p>
+          <p>„După workshopul ăsta am simțit că am scăpat de sindromul impostorului legat de folosirea AI.”</p>
           <span class="who">Participant la prima ediție &middot; formular anonim</span>
         </div>
-        <div class="byc-needs">
-          <h3>Ce-ți trebuie</h3>
-          <ul>
-            <li>Un laptop și deschiderea de a construi în ziua respectivă</li>
-            <li>Claude Code sau Claude Cowork, cu aplicația Claude Desktop instalată</li>
-            <li>Un cont Claude plătit: Pro, Max sau Enterprise</li>
-          </ul>
-          <p class="byc-needs-note">Înainte de eveniment îți trimit pe mail pașii exacți, ca să vii cu tot instalat. Dar dacă nu ești sigur că ai configurat totul corect, vino la 9:30: facem împreună setup-ul, ca să intri în ziua de lucru cu sistemul gata.</p>
+        <div class="byc-cols byc-cols-gap">
+          <div class="byc-needs">
+            <h3>Ce-ți trebuie</h3>
+            <ul>
+              <li>Un laptop și deschiderea de a construi în ziua respectivă.</li>
+              <li>Claude: aplicația Claude Desktop instalată, cu un cont plătit (Pro, Max sau Enterprise).</li>
+              <li>Sau Codex: aplicația instalată, logată cu un cont ChatGPT plătit.</li>
+            </ul>
+          </div>
+          <div class="byc-homework">
+            <h3>Pre-work</h3>
+            <p>Înainte de laborator vei primi o temă pe mail. Aceasta este extrem de importantă pentru că te ajută să decizi CE vrei să construiești, astfel ca în sală să te poți concentra pe construcția propriu-zisă a cortexului tău.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ====================== CU CINE ÎȚI CONSTRUIEȘTI SISTEMUL ====================== -->
-    <section class="byc-section">
+    <section class="byc-section section-alt">
       <div class="container">
         <div class="byc-author">
           <div class="byc-author-photo">
             <img src="images/raluca-autor-byc.jpg" alt="Raluca Păduraru, facilitator de AI fluency pentru echipe și management non-tehnic" width="800" height="800" loading="lazy" />
           </div>
-          <div>
-            <h2>Cu cine îți construiești sistemul</h2>
-            <p class="byc-author-role">Raluca Păduraru &middot; co-fondator Upvance Global</p>
-            <ul>
-              <li>Transformă liderii și echipele non-tehnice în <a href="/frameworks/ai-business-translator/">AI Business Translators</a>: oameni care înțeleg ce probleme de business merită rezolvate și care știu să folosească AI-ul ca să le rezolve, în beneficiul întregii organizații.</li>
-              <li>Certified Foresight Practitioner (TFSX), Emerging Fellow la Association of Professional Futurists și VP of Digitalization &amp; AI la International Association of Facilitators Romania.</li>
-              <li>Autoarea primului <a href="/viitoruri">raport despre viitorul muncii în România</a> și a primului <a href="/romanian-state-of-ai/">studiu longitudinal despre cum folosesc românii AI la job</a>.</li>
-              <li>Predă pe baza mai multor framework-uri proprii, dezvoltate în peste 1.000 de ore de laboratoare de lucru cu echipe non-tehnice.</li>
-            </ul>
-          </div>
+          <h2>Cu cine îți construiești sistemul</h2>
+          <p class="byc-author-role">Raluca Păduraru &middot; co-fondator Upvance Global</p>
+          <ul>
+            <li>Transformă liderii și echipele non-tehnice în <a href="/frameworks/ai-business-translator/">AI Business Translators</a>: oameni care înțeleg ce probleme de business merită rezolvate și care știu să folosească AI-ul ca să le rezolve, în beneficiul întregii organizații.</li>
+            <li>Certified Foresight Practitioner (TFSX), Emerging Fellow la Association of Professional Futurists și VP of Digitalization &amp; AI la International Association of Facilitators Romania.</li>
+            <li>Autoarea primului <a href="/viitoruri">raport despre viitorul muncii în România</a> și a primului <a href="/romanian-state-of-ai/">studiu longitudinal despre cum folosesc românii AI la job</a>.</li>
+            <li>Predă pe baza mai multor framework-uri proprii, dezvoltate în peste 1.000 de ore de laboratoare de lucru cu echipe non-tehnice.</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- ====================== CE AU SCRIS PARTICIPANȚII ====================== -->
-    <section class="byc-section section-alt">
+    <section class="byc-section">
       <div class="container">
         <h2>Ce au scris participanții</h2>
         <div class="byc-wrote">
           <figure>
-            <blockquote>„Raluca a ținut o sală întreagă cu ușurința unei zeițe din Grecia antică și cu niște skill-uri tehnice serioase, deși spune despre ea că nu e tehnică."</blockquote>
+            <blockquote>„Nu m-am așteptat nicio secundă să reușesc într-o zi ce nu am reușit în luni de zile.”</blockquote>
+            <figcaption>Corina Neagu &middot; consultant HR senior</figcaption>
+          </figure>
+          <figure>
+            <blockquote>„Am făcut într-un workshop ce n-am reușit să fac în 2 ani.”</blockquote>
+            <figcaption class="anon">Participant la ediția a doua &middot; formular anonim</figcaption>
+          </figure>
+          <figure>
+            <blockquote>„Raluca a ținut o sală întreagă cu ușurința unei zeițe din Grecia antică și cu niște skill-uri tehnice serioase, deși spune despre ea că nu e tehnică.”</blockquote>
             <figcaption>Renata Macoveanu &middot; graphic recorder &amp; facilitator vizual</figcaption>
           </figure>
           <figure>
-            <blockquote>„I left with the beginnings of my own AI TEAM! Different roles. Different responsibilities. Clear expectations. Skills and job descriptions."</blockquote>
+            <blockquote>„Pot face lucruri concrete încă de mâine.”</blockquote>
+            <figcaption class="anon">Participant la ediția a doua &middot; formular anonim</figcaption>
+          </figure>
+          <figure>
+            <blockquote>„I left with the beginnings of my own AI TEAM! Different roles. Different responsibilities. Clear expectations. Skills and job descriptions.”</blockquote>
             <figcaption>Ana M. Marin &middot; coach &amp; facilitator</figcaption>
           </figure>
           <figure>
-            <blockquote>„Când am realizat că nu trebuie să mai repet ce îmi doresc de fiecare dată. Aur."</blockquote>
-            <figcaption class="anon">Participant la prima ediție &middot; formular anonim</figcaption>
+            <blockquote>„Învățând să lucrez împreună cu Claude, simt că «ating cerul cu mâna».”</blockquote>
+            <figcaption class="anon">Participant la ediția a doua &middot; formular anonim</figcaption>
           </figure>
           <figure>
-            <blockquote>„this workshop wasn't just an interesting learning experience, it has already changed the way I work."</blockquote>
+            <blockquote>„this workshop wasn't just an interesting learning experience, it has already changed the way I work.”</blockquote>
             <figcaption>Andreea Copaciu &middot; CEO g7 Marketing</figcaption>
           </figure>
           <figure>
-            <blockquote>„Sistemul e absolut demențial! Chiar e ce căutam și mă folosesc din plin de el."</blockquote>
+            <blockquote>„Când am început să pun în ordine lucrurile pe care vreau să le automatizez în firmă: facturarea dintre Stripe și FGO, emailurile și comenzile.”</blockquote>
+            <figcaption class="anon">Participant la ediția a doua &middot; formular anonim</figcaption>
+          </figure>
+          <figure>
+            <blockquote>„Sistemul e absolut demențial! Chiar e ce căutam și mă folosesc din plin de el.”</blockquote>
             <figcaption class="anon">Participant la prima ediție &middot; sondaj la 3 săptămâni</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ====================== DETALII ȘI PREȚ ====================== -->
-    <section id="pret" class="byc-section byc-center">
+    <!-- ====================== IF YOU CAN DREAM IT ====================== -->
+    <section class="byc-dream" aria-label="If you can dream it, you can build it.">
       <div class="container">
-        <h2>Detalii și preț</h2>
-        <ul class="byc-detalii">
-          <li><span class="k">Când</span><span>14 ianuarie 2027 (dată estimată), de la 9:30 la 17:30. Data o confirm celor de pe listă până la finalul lui noiembrie.</span></li>
-          <li><span class="k">Setup</span><span>9:30–10:00, opțional. Configurăm împreună sistemul, ca să începi ziua de lucru cu tot pregătit.</span></li>
-          <li><span class="k">Unde</span><span>București.</span></li>
-          <li><span class="k">Locuri</span><span>Limitate. Se ocupă în ordinea efectuării plăților.</span></li>
-        </ul>
+        <p class="byc-dream-line">If you can dream it,<br>you can build it.</p>
+      </div>
+    </section>
 
-        <div class="byc-price-card">
-          <div class="byc-price-tag">Investiție</div>
-          <div class="byc-amount">1.337 lei</div>
-          <a href="#inscriere" class="btn btn-primary">
-            Înscrie-te pe lista de așteptare
-          </a>
-        </div>
-        <p class="byc-price-note" style="max-width:none;">Află primul când se deschid înscrierile.</p>
-        <div class="byc-quote" style="margin-left:auto;margin-right:auto;">
-          <p>„Nu m-am așteptat nicio secundă să reușesc într-o zi ce nu am reușit în luni de zile."</p>
-          <span class="who">Corina Neagu, consultant HR senior &middot; participantă la prima ediție</span>
+    <!-- ====================== DETALII, PREȚ ȘI ÎNSCRIERE ====================== -->
+    <section id="inscriere" class="byc-section">
+      <div class="container">
+        <h2>Înscrie-te pe lista de așteptare pentru ediția din ianuarie</h2>
+        <p class="byc-section-intro">Completează formularul ca să primești toate detaliile. Persoanele înscrise pe lista de așteptare vor afla primele unde și când va avea loc ediția 3.</p>
+        <div class="byc-signup">
+          <div class="byc-signup-info" id="pret">
+            <ul class="byc-detalii">
+              <li><span class="k">Când</span><span>14 ianuarie 2027 (dată estimată), de la 9:30 la 17:30. Data o confirm celor de pe listă până la finalul lui noiembrie.</span></li>
+              <li><span class="k">Setup</span><span>9:30–10:00, opțional. Configurăm împreună sistemul, ca să începi ziua de lucru cu tot pregătit.</span></li>
+              <li><span class="k">Unde</span><span>București.</span></li>
+              <li><span class="k">Locuri</span><span>Limitate. Se ocupă în ordinea efectuării plăților.</span></li>
+            </ul>
+            <div class="byc-price-card">
+              <div class="byc-price-tag">Investiție</div>
+              <div class="byc-amount">1.337 lei</div>
+              <p class="byc-price-note">Află primul când se deschid înscrierile.</p>
+            </div>
+          </div>
+
+          <div class="byc-form-wrap">
+            <form id="byc-form" novalidate>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="byc-nume">Nume *</label>
+                  <input type="text" id="byc-nume" name="nume" required placeholder="Popescu" autocomplete="family-name" />
+                </div>
+                <div class="form-field">
+                  <label for="byc-prenume">Prenume *</label>
+                  <input type="text" id="byc-prenume" name="prenume" required placeholder="Maria" autocomplete="given-name" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="byc-email">Email *</label>
+                  <input type="email" id="byc-email" name="email" required placeholder="tu@companie.ro" autocomplete="email" />
+                </div>
+                <div class="form-field">
+                  <label for="byc-telefon">Telefon *</label>
+                  <input type="tel" id="byc-telefon" name="telefon" required placeholder="07xx xxx xxx" autocomplete="tel" />
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="byc-obiectiv">Ce ai vrea să construiești? (opțional)</label>
+                <textarea id="byc-obiectiv" name="obiectiv" rows="3" maxlength="1000" placeholder="De exemplu: un asistent care îmi scrie ofertele pe baza notițelor din call."></textarea>
+              </div>
+              <div class="hp-field" aria-hidden="true">
+                <label for="byc-website">Website</label>
+                <input type="text" id="byc-website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+              <div class="form-check">
+                <input type="checkbox" id="byc-consent" name="consent" required />
+                <label for="byc-consent">
+                  Sunt de acord să primesc pe email sau telefon informațiile despre ediția din ianuarie a Build Your Cortex, inclusiv detaliile de înscriere și de plată.
+                </label>
+              </div>
+              <div class="form-submit-wrap">
+                <button type="submit" class="btn btn-primary" id="byc-btn">
+                  Trimite
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+                <p class="form-privacy">Datele tale sunt în siguranță și nu vor fi distribuite terților.</p>
+              </div>
+              <div id="byc-form-msg" class="byc-form-msg" role="alert"></div>
+            </form>
+
+            <div id="byc-done" class="byc-done" hidden>
+              <h3>Gata, ești pe listă!</h3>
+              <p>Mailul cu detaliile a plecat spre tine. Verifică și folderul de spam.</p>
+              <p>Știi pe cineva care ar vrea să-și construiască propriul Cortex? Trimite-i link-ul.</p>
+              <div class="byc-share">
+                <a class="btn btn-primary" id="byc-share-wa" href="https://wa.me/?text=Build%20Your%20Cortex%2C%20edi%C8%9Bia%203%3A%20https%3A%2F%2Fwww.ralucapaduraru.ro%2Fbuild-your-cortex" target="_blank" rel="noopener">Trimite pe WhatsApp</a>
+                <button type="button" class="btn btn-outline" id="byc-share-copy">Copiază linkul</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================== ÎNSCRIERE ====================== -->
-    <section id="inscriere" class="byc-section section-alt byc-center">
+    <!-- ====================== ÎNTREBĂRI FRECVENTE ====================== -->
+    <section class="byc-section section-alt">
       <div class="container">
-        <h2>Înscrie-te pe lista de așteptare pentru ediția din ianuarie</h2>
-        <p class="byc-section-intro" style="text-align:center; margin-left:auto; margin-right:auto;">Completează formularul ca să primești toate detaliile. Persoanele înscrise pe lista de așteptare vor afla primele unde și când va avea loc ediția 3.</p>
-        <div class="byc-form-wrap">
-          <form id="byc-form" novalidate>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="byc-nume">Nume *</label>
-                <input type="text" id="byc-nume" name="nume" required placeholder="Popescu" autocomplete="family-name" />
-              </div>
-              <div class="form-field">
-                <label for="byc-prenume">Prenume *</label>
-                <input type="text" id="byc-prenume" name="prenume" required placeholder="Maria" autocomplete="given-name" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="byc-email">Email *</label>
-                <input type="email" id="byc-email" name="email" required placeholder="tu@companie.ro" autocomplete="email" />
-              </div>
-              <div class="form-field">
-                <label for="byc-telefon">Telefon *</label>
-                <input type="tel" id="byc-telefon" name="telefon" required placeholder="07xx xxx xxx" autocomplete="tel" />
-              </div>
-            </div>
-            <div class="hp-field" aria-hidden="true">
-              <label for="byc-website">Website</label>
-              <input type="text" id="byc-website" name="website" tabindex="-1" autocomplete="off" />
-            </div>
-            <div class="form-check">
-              <input type="checkbox" id="byc-consent" name="consent" required />
-              <label for="byc-consent">
-                Sunt de acord să primesc pe email informațiile despre ediția din ianuarie a Build Your Cortex, inclusiv detaliile de înscriere și de plată.
-              </label>
-            </div>
-            <div class="form-submit-wrap">
-              <button type="submit" class="btn btn-primary" id="byc-btn">
-                Trimite
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-              <p class="form-privacy">Datele tale sunt în siguranță și nu vor fi distribuite terților.</p>
-            </div>
-            <div id="byc-form-msg" class="byc-form-msg"></div>
-          </form>
+        <h2>Întrebări frecvente</h2>
+        <div class="byc-faq">
+          <details>
+            <summary>E un curs de prompting?</summary>
+            <p>E un workshop de construcție. Pleci cu un sistem care rămâne al tău: directorul de operațiuni, primul specialist și materialele tale organizate.</p>
+          </details>
+          <details>
+            <summary>Trebuie să fiu tehnic?</summary>
+            <p>Nu. Sistemul se construiește prin conversație, fără cod. Efortul stă în a-ți clarifica obiectivele și criteriile.</p>
+          </details>
+          <details>
+            <summary>Ce cont îmi trebuie?</summary>
+            <p>Merge pe Claude sau pe Codex, cum lucrezi deja. Pentru Claude: aplicația Claude Desktop instalată, cu un cont plătit (Pro, Max sau Enterprise). Pentru Codex: aplicația instalată, logată cu un cont ChatGPT plătit.</p>
+          </details>
+          <details>
+            <summary>Ce am de făcut înainte?</summary>
+            <p>Pre-work-ul, primit pe email. Cine nu e sigur că a instalat tot vine la 9:30, la setup.</p>
+          </details>
+          <details>
+            <summary>Pot primi factură pe firmă?</summary>
+            <p>Da. Completezi CUI-ul la plată, iar de factură mă ocup personal.</p>
+          </details>
+          <details>
+            <summary>Ce se întâmplă după workshop?</summary>
+            <p>Pleci cu fișele de post ale specialiștilor și cu metodologia scrisă, ca să continui construcția acasă, în ritmul tău.</p>
+          </details>
         </div>
       </div>
     </section>
 
   </main>
+
+  <a href="#inscriere" class="byc-sticky" id="byc-sticky">Înscrie-te pe lista de așteptare</a>
 
   <!-- ====================== FOOTER ====================== -->
   <footer>
@@ -991,6 +1070,7 @@
       const email   = document.getElementById('byc-email').value.trim();
       const telefon = document.getElementById('byc-telefon').value.trim();
       const website = document.getElementById('byc-website').value.trim();
+      const obiectiv = document.getElementById('byc-obiectiv').value.trim();
       const consent = document.getElementById('byc-consent').checked;
       const btn     = document.getElementById('byc-btn');
       const msg     = document.getElementById('byc-form-msg');
@@ -1013,15 +1093,16 @@
           body: JSON.stringify({
             resource: 'build-your-cortex-ian',
             name: (prenume + ' ' + nume).trim(),
-            prenume, nume, email, telefon, website
+            prenume, nume, email, telefon, website, obiectiv
           })
         });
         const data = await res.json();
         if (res.ok) {
-          msg.className = 'byc-form-msg success';
-          msg.textContent = 'Mail-ul cu toate detaliile a plecat spre tine. Verifică și folder-ul de spam. Mulțumesc!';
           this.reset();
-          btn.textContent = 'Trimis!';
+          this.hidden = true;
+          const done = document.getElementById('byc-done');
+          done.hidden = false;
+          done.scrollIntoView({ behavior: 'smooth', block: 'center' });
           if (typeof gtag === 'function') gtag('event', 'inscriere_completa', { event_category: 'conversion', event_label: 'build-your-cortex-ian' });
         } else { throw new Error(data.message || 'Eroare la trimitere'); }
       } catch (err) {
@@ -1031,6 +1112,34 @@
         btn.textContent = 'Trimite';
       }
     });
+
+    // Recomandare după înscriere
+    document.getElementById('byc-share-wa').addEventListener('click', function () {
+      if (typeof gtag === 'function') gtag('event', 'share', { method: 'whatsapp', event_label: 'build-your-cortex-ian' });
+    });
+    document.getElementById('byc-share-copy').addEventListener('click', function () {
+      const btn = this;
+      const url = 'https://www.ralucapaduraru.ro/build-your-cortex';
+      const ok = function () { btn.textContent = 'Link copiat'; };
+      if (navigator.clipboard) { navigator.clipboard.writeText(url).then(ok, function () { window.prompt('Copiază linkul:', url); }); }
+      else { window.prompt('Copiază linkul:', url); }
+      if (typeof gtag === 'function') gtag('event', 'share', { method: 'copy_link', event_label: 'build-your-cortex-ian' });
+    });
+
+    // Butonul fix de pe telefon dispare când formularul e pe ecran
+    (function () {
+      const sticky = document.getElementById('byc-sticky');
+      const target = document.getElementById('inscriere');
+      if (!sticky || !target || !('IntersectionObserver' in window)) return;
+      const heroCta = document.querySelector('.byc-hero .btn');
+      const seen = new Map();
+      const io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { seen.set(e.target, e.isIntersecting); });
+        sticky.classList.toggle('is-hidden', Array.from(seen.values()).some(Boolean));
+      }, { threshold: 0.05 });
+      io.observe(target);
+      if (heroCta) io.observe(heroCta);
+    })();
   </script>
 </body>
 </html>

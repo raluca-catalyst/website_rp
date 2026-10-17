@@ -176,7 +176,8 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ message: 'Method not allowed' });
 
-  const { resource, name, email, company, role, website, prenume, nume, telefon, mandat } = req.body || {};
+  const { resource, name, email, company, role, website, prenume, nume, telefon, mandat, obiectiv } = req.body || {};
+  const esc = (v) => String(v || '').slice(0, 1000).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   // Honeypot: boții completează câmpul ascuns => răspuns 200 fals, fără acțiune
   if (website) return res.status(200).json({ message: 'OK' });
@@ -209,7 +210,7 @@ module.exports = async (req, res) => {
     // Log lead to Google Sheets (non-critical)
     fetch(SHEETS_WEBHOOK, {
       method: 'POST',
-      body: JSON.stringify({ nume: nume || name, prenume: prenume || '', email, telefon: telefon || '', rol: role, companie: company, sursa: slug, mandat: mandat || '' }),
+      body: JSON.stringify({ nume: nume || name, prenume: prenume || '', email, telefon: telefon || '', rol: role, companie: company, sursa: slug, mandat: mandat || '', obiectiv: obiectiv ? String(obiectiv).slice(0, 1000) : '' }),
     }).catch(() => {}); // non-critical, ignore errors
 
     // Also notify Raluca of new lead
@@ -217,7 +218,7 @@ module.exports = async (req, res) => {
       from: 'Site ralucapaduraru.ro <contact@upvance.global>',
       to: ['raluca@upvance.global'],
       subject: cfg.notifySubject(name, company),
-      html: `<p><b>Nume:</b> ${name}<br><b>Email:</b> ${email}<br><b>Telefon:</b> ${telefon || '-'}<br><b>Companie:</b> ${company || '-'}<br><b>Rol:</b> ${role || '-'}${mandat ? `<br><b>Mandat AI:</b> ${mandat}` : ''}<br><b>Sursă:</b> ${slug}</p>`,
+      html: `<p><b>Nume:</b> ${name}<br><b>Email:</b> ${email}<br><b>Telefon:</b> ${telefon || '-'}<br><b>Companie:</b> ${company || '-'}<br><b>Rol:</b> ${role || '-'}${mandat ? `<br><b>Mandat AI:</b> ${mandat}` : ''}${obiectiv ? `<br><b>Ce vrea să construiască:</b> ${esc(obiectiv)}` : ''}<br><b>Sursă:</b> ${slug}</p>`,
     }).catch(() => {}); // non-critical, ignore errors
 
     return res.status(200).json({ message: 'Trimis pe email!' });
