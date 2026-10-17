@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Raluca Păduraru">
+<meta name="robots" content="noindex, nofollow">
+<title>Redesign-ul proceselor de HR · HR Management în era AI</title>
+<meta name="description" content="Pagina de lucru pentru lecția 6 a cursului HR Management în era AI: harta procesului tău, redesign-ul și skill-ul care face harta și redesign-ul oricărui proces.">
+<!--
+  Construită cu skill-ul fisa-lucru-raluca, din pagina L5 golită 1:1. Textul-sursă: pagina-l6-text.md.
+  Build: python C:/Users/keimy/.claude/skills/fisa-lucru-raluca/scripts/build.py pagina-l6.template.html
+  Stilul blueprint-ului de pe ralucapaduraru.ro, 2 teme. Fără câmpuri de completat: participanții scriu direct în AI.
+-->
+<script>
+/* TEMA: pornește după setarea laptopului; alegerea se ține minte. Aceeași cheie ca la L5, ca alegerea de acolo să rămână. */
+(function(){
+  var t = null;
+  try { t = localStorage.getItem('basetolearn-l5-lucru-tema'); } catch(e) {}
+  if (t !== 'dark' && t !== 'light') t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Cookiebot + GA (ca pe blueprint) -->
+<script data-cookieconsent="ignore">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("consent", "default", {
+    ad_personalization: "denied", ad_storage: "denied",
+    ad_user_data: "denied", analytics_storage: "denied",
+    functionality_storage: "denied", personalization_storage: "denied",
+    security_storage: "granted", wait_for_update: 500,
+  });
+  gtag("set", "ads_data_redaction", true);
+  gtag("set", "url_passthrough", false);
+</script>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept', updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline', updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<style>
+  /* BRANDUL: stilul blueprint-ului, cu 2 teme, ca la L5. */
+  :root{
+    --bg:#ffffff;
+    --card:#f7f4ff;
+    --card2:#f4f1fb;
+    --ink:#1d1836;
+    --soft:#3a3553;
+    --gray:#635e7d;
+    --line:rgba(124,58,237,0.16);
+    --main:#7c3aed;
+    --main-ink:#ffffff;
+    --a1:#7c3aed; --a2:#8b5cf6; --a3:#6d28d9;
+    --head:'JetBrains Mono',monospace;
+    --body:'Barlow',sans-serif;
+    --acc:var(--a1);
+    --glow:none;
+  }
+  html[data-theme="dark"]{
+    --bg:#0e0b1e;
+    --card:#17122e;
+    --card2:#120e26;
+    --ink:#f1eefd;
+    --soft:#cdc7e6;
+    --gray:#9a93bd;
+    --line:rgba(167,139,250,0.20);
+    --main:#a78bfa;
+    --main-ink:#0e0b1e;
+    --a1:#a78bfa; --a2:#c4b5fd; --a3:#b79cff;
+    --glow:radial-gradient(ellipse 90% 55% at 50% -5%, #2d1569 0%, transparent 65%),radial-gradient(ellipse 55% 35% at 95% 15%, rgba(109,40,217,0.18) 0%, transparent 55%);
+  }
+  .a1{--acc:var(--a1)} .a2{--acc:var(--a2)} .a3{--acc:var(--a3)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px;
+    background-image:var(--glow);background-attachment:fixed}
+  .themebox{margin-top:18px;display:flex;gap:6px}
+  .themebox button{font-family:var(--head);font-size:12px;background:transparent;color:var(--gray);border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+  .themebox button.on{color:var(--main);border-color:var(--main)}
+  a{color:var(--main)}
+  p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+
+  header{padding:40px 24px 34px;border-bottom:1px solid var(--line)}
+  header .wrapin{max-width:880px;margin:0 auto}
+  header .tag{font-family:var(--head);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--main);margin-bottom:12px;font-weight:500}
+  header h1{font-family:var(--head);font-size:40px;font-weight:700;line-height:1.12;letter-spacing:-0.02em}
+  header p{margin-top:14px;font-size:18px;color:var(--soft)}
+  header ol{margin-top:8px;padding-left:24px;font-size:18px;color:var(--soft)}
+  header ol li{margin-bottom:4px}
+
+  .navwrap{background:var(--bg);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line)}
+  .nav{max-width:1100px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:0 12px;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .navbtn{background:none;border:none;color:var(--gray);padding:12px;cursor:pointer;font-size:13px;font-family:var(--head);white-space:nowrap;border-bottom:2px solid transparent}
+  .navbtn:hover{color:var(--ink)}
+  .navbtn.active{color:var(--ink);border-bottom-color:var(--main)}
+  .navbtn .no,.navbtn .ns{display:none}
+  @media(max-width:1000px){.nav{flex-wrap:wrap;overflow-x:visible}}
+
+  /* BARA LATERALĂ (references/lectii.md §3) */
+  @media(min-width:1180px){
+    .layout{display:grid;grid-template-columns:290px minmax(0,1fr);align-items:start}
+    header{padding-left:calc(290px + 24px)}
+    .layout footer{grid-column:2;width:100%}
+    .navwrap{height:100vh;overflow-y:auto;border-bottom:none;border-right:1px solid var(--line);background:var(--bg)}
+    .nav{flex-direction:column;gap:0;max-width:none;overflow:visible;padding:24px 0}
+    .navbtn{display:block;width:100%;text-align:left;white-space:normal;line-height:1.4;padding:12px 20px;border-bottom:none;border-left:3px solid transparent}
+    .navbtn .nt{display:block;font-size:14px;font-weight:700}
+    .navbtn.active{background:var(--card);border-left-color:var(--main)}
+    .navbtn.active .no{display:block;font-family:var(--body);font-style:italic;font-size:14px;color:var(--soft);margin-top:6px}
+    .navbtn.active .ns{display:block;font-family:var(--body);font-size:14px;color:var(--ink);margin-top:6px}
+  }
+
+  main{max-width:880px;margin:0 auto;padding:28px 16px 70px}
+
+  details.ajutor{border:1px solid var(--line);background:var(--card2);margin:16px 0}
+  details.ajutor summary{cursor:pointer;padding:12px 16px;font-size:15px;font-weight:600;color:var(--main)}
+  details.ajutor .ain{padding:0 16px 14px}
+
+  .box{background:var(--card);border:1px solid var(--line);margin-bottom:16px;padding:24px}
+  .hd{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .num{font-family:var(--head);font-size:14px;font-weight:700;color:var(--main-ink);background:var(--main);width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .box h3{font-family:var(--head);font-size:23px;font-weight:700;line-height:1.25;letter-spacing:-0.01em}
+  .box h4{font-family:var(--head);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin:24px 0 8px;font-weight:600}
+  .box h5{font-family:var(--head);font-size:16px;font-weight:700;margin:26px 0 8px;color:var(--ink)}
+  .box p{margin-bottom:10px}
+  ul.bul,ol.bul{padding-left:24px;margin:8px 0}
+  ul.bul li,ol.bul li{margin-bottom:6px}
+
+  .note{background:color-mix(in srgb,var(--acc) 12%,transparent);border-left:3px solid var(--acc);padding:14px 18px;margin:14px 0}
+  .note p{margin-bottom:8px} .note p:last-child{margin-bottom:0}
+  .note ul,.note ol{padding-left:22px;margin-top:6px} .note li{margin-bottom:5px}
+
+  /* cardurile cu tipurile de redesign și punctul de control, pe forma slide-urilor 9 și 10 */
+  .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 16px}
+  .cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card{background:var(--card2);border:1px solid var(--line);border-top:3px solid var(--main);padding:14px 16px}
+  .card .ct{font-family:var(--head);font-size:15px;font-weight:700;color:var(--main);display:block;margin-bottom:6px}
+  .card p{text-align:left;hyphens:manual;margin:0;font-size:16px;color:var(--soft)}
+  @media(max-width:760px){.cards,.cards.two{grid-template-columns:1fr}}
+  .lead{font-weight:600;margin:6px 0 4px}
+  ol.steps>li{margin-bottom:18px}
+  ol.steps .lead{font-weight:400;color:var(--soft);text-align:left}
+
+  table.grid{width:100%;border-collapse:collapse;font-size:16px;margin-top:10px}
+  table.grid th{text-align:left;font-family:var(--head);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--main);padding:9px 10px;border-bottom:1px solid var(--line)}
+  table.grid td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.grid.keys td:first-child{font-weight:700;width:22%}
+  table.grid td.tip{white-space:nowrap;font-weight:600;color:var(--main)}
+  @media(max-width:640px){table.grid{font-size:14px} table.grid td,table.grid th{padding:8px 6px} table.grid td.tip{white-space:normal}}
+  .src{font-size:14px;color:var(--gray);margin-top:10px}
+
+  /* exemplul de mesaj gata de send: arată ce scrie omul și ce atașează */
+  .msgex{border:1.5px dashed var(--main);background:var(--card2);padding:14px 16px;margin:10px 0 6px}
+  .msgex .mtx{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.5;white-space:pre-wrap;color:var(--soft)}
+  .msgex mark{background:color-mix(in srgb,var(--main) 22%,transparent);color:var(--ink);padding:1px 2px}
+  .msgex .att{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:15px;font-weight:600}
+  .msgex .att code{font-family:ui-monospace,Consolas,monospace;font-weight:400;background:color-mix(in srgb,var(--main) 22%,transparent);padding:1px 6px}
+  .msgex .exlbl{font-size:13px;color:var(--gray);margin:8px 0 0}
+
+  .gata{border-top:1px dashed var(--line);margin-top:20px;padding-top:12px;font-size:16px;color:var(--soft)}
+  .gata b{font-family:var(--head);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--main);display:block;margin-bottom:4px}
+  .gata p{margin-bottom:4px}
+
+  .mat{border:1px solid var(--line);margin:12px 0;background:var(--card2)}
+  .mat .mh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;padding:12px 16px}
+  .mat .mtx{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.5;color:var(--ink);flex:1;min-width:220px;white-space:pre-wrap}
+  .btns{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{font-family:var(--head);background:var(--main);color:var(--main-ink);border:none;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn.ghost{background:transparent;color:var(--main);border:1.5px solid var(--main)}
+  .btn.sm{padding:7px 12px;font-size:12px}
+  .btn.done{opacity:.8}
+
+  .file{display:flex;align-items:center;gap:12px;justify-content:space-between;border:1px solid var(--line);background:var(--card2);padding:11px 14px;margin:8px 0;flex-wrap:wrap}
+  .file code{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:var(--gray);display:block}
+
+  .next{display:flex;justify-content:flex-end;margin-bottom:18px}
+  .nextbtn{background:transparent;color:var(--main);border:1.5px solid var(--main);padding:9px 16px;font-size:13px;font-weight:600;font-family:var(--head);cursor:pointer}
+
+  footer{max-width:880px;margin:0 auto;padding:0 16px 50px;font-size:13px;color:var(--gray)}
+  @media(max-width:640px){header h1{font-size:30px}.box{padding:18px}}
+
+  @media print{
+    :root,html[data-theme="dark"]{--glow:none;--bg:#fff;--card:#fff;--card2:#f6f6f8;--ink:#111;--soft:#333;--gray:#555;--line:#bbb;--main:#111;--main-ink:#fff;--a1:#333;--a2:#333;--a3:#333}
+    body{background:#fff;background-image:none;color:#111;font-size:11pt}
+    header{background:#fff;border-bottom:2px solid #111;padding:0 0 12px}
+    main{padding:12px 0 0;max-width:none}
+    .navwrap,.noprint,.btn,.next,.btns{display:none !important}
+    .layout{display:block !important}
+    .box,.note,.file,.mat,.card,details.ajutor{background:#fff !important;border:1px solid #bbb;color:#111}
+    .num{background:#111 !important;color:#fff !important}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrapin">
+    <div class="tag">HR Management în era AI</div>
+    <h1>Redesign-ul proceselor de HR</h1>
+    <p>Până la final, vei obține 2 lucruri:</p>
+    <ol>
+      <li>harta procesului tău, reproiectat cu AI;</li>
+      <li>un skill care te ajută să faci redesign-ul oricărui proces.</li>
+    </ol>
+    <p>La final, arăți colegilor ce ai construit.</p>
+    <div class="themebox noprint"><button data-theme-choice="light">Temă light</button><button data-theme-choice="dark">Temă dark</button></div>
+  </div>
+</header>
+
+<div class="layout">
+
+<div class="navwrap noprint">
+  <nav class="nav">
+    <button class="navbtn active" data-go="p1"><span class="nt">1 · Completează harta procesului tău cu AI</span><span class="no">Obiectiv: harta completă a procesului de azi, ca tabel în conversație.</span><span class="ns">Pornești de la procesul pe care l-ai ales la tema din lecția trecută.</span></button>
+    <button class="navbtn" data-go="p2"><span class="nt">2 · Fă redesign-ul procesului tău</span><span class="no">Obiectiv: fiecare activitate din hartă e categorisită și ai identificat 1-2 puncte de control.</span><span class="ns">Acum că ai harta, decizi tu ce face AI-ul și ce rămâne la tine.</span></button>
+    <button class="navbtn" data-go="p3"><span class="nt">3 · Transformă redesign-ul într-un skill</span><span class="no">Obiectiv: un skill care face harta și redesign-ul oricărui proces, salvat în contul tău și testat.</span><span class="ns">Acum că ai făcut redesign-ul o dată, îl transformi într-un skill pe care îl folosești pe orice proces.</span></button>
+  </nav>
+</div>
+
+<main>
+
+  <!-- 1 · HARTA PROCESULUI -->
+  <section class="box a1" id="p1">
+    <div class="hd"><span class="num">1</span><h3>Completează harta procesului tău cu AI</h3></div>
+
+    <h4>Mesajul pe care-l trimiți către AI va include 3 părți</h4>
+    <ol class="bul">
+      <li><strong>promptul de interviu de mai jos;</strong></li>
+      <li><strong>descrierea procesului tău, doar dacă nu atașezi harta:</strong> pe scurt, procesul și contextul în care rulează, scrise în locul textului [dacă n-ai atașat harta, descrie pe scurt procesul și contextul în care acesta rulează];</li>
+      <li><strong>harta procesului, atașată.</strong> Este PDF-ul pe care l-ai descărcat din Secțiunea 6 a blueprint-ului, la tema din lecția trecută, și l-ai completat cu activitățile procesului.</li>
+    </ol>
+    <p><strong>Dacă n-ai completat harta, trimite primele 2 părți:</strong> promptul și descrierea procesului tău. AI-ul îți va adresa mai multe întrebări. De exemplu: „Procesul meu: recrutarea operatorilor de depozit. Compania are 200 de angajați și angajează aproximativ 10 operatori pe lună. Recrutarea pornește când managerul de tură cere un om nou.”</p>
+
+    <h4>Cum arată mesajul înainte de send</h4>
+    <div class="msgex">
+      <div class="mtx">Vreau să fac harta unui proces din munca mea de HR, ca să-l pot reproiecta cu AI.
+<mark>Procesul meu: recrutarea operatorilor de depozit.</mark>
+Joacă rolul unui coleg cu experiență în HR [...]
+[...] Nu-mi cere nume, date de contact sau alte informații care identifică oameni.</div>
+      <div class="att">Atașat: <code>harta-procesului.pdf</code></div>
+      <p class="exlbl">Exemplu. Procesul și compania sunt inventate.</p>
+    </div>
+
+    <h4>Ce faci</h4>
+    <ol class="bul">
+      <li>Deschide instrumentul AI cu care lucrezi și începe o conversație nouă.</li>
+      <li>Copiază promptul de interviu de mai jos și nu uita să menționezi procesul ales.</li>
+      <li>Atașează harta procesului (PDF-ul pre-completat de tine pe care l-ai descărcat din Secțiunea 6 a blueprint-ului) și trimite mesajul.</li>
+      <li>Răspunde la întrebările AI-ului. Va încerca să acopere detaliile lipsă, dacă e cazul.</li>
+      <li>AI-ul îți va oferi la finalul interviului harta procesului.</li>
+      <li>Citește output-ul și marchează zona care crezi că va produce fricțiune.</li>
+    </ol>
+    <p>Dacă AI-ul îți spune că nu vede ce ai scris în PDF, copiază activitățile direct în mesaj.</p>
+    <div class="note"><p>Regula din prima lecție rămâne: date anonimizate, nimic care identifică un om.</p></div>
+
+    <h4>Promptul de interviu</h4>
+    <div class="mat"><div class="mh"><div class="mtx" id="pi">Vreau să fac harta unui proces din munca mea de HR, ca să-l pot reproiecta cu AI.
+Procesul meu: [dacă n-ai atașat harta, descrie pe scurt procesul și contextul în care acesta rulează]
+
+Joacă rolul unui coleg cu experiență în HR și în Value Stream Mapping, care mă intervievează. Pune-mi o singură întrebare odată și așteaptă răspunsul meu.
+
+Dacă ți-am dat deja activitățile procesului, într-o hartă atașată sau în acest mesaj, întreabă-mă doar ce lipsește. Dacă nu, află de la mine, pe rând:
+1. ce declanșează procesul și cu ce se încheie;
+2. care sunt activitățile, în ordine;
+3. cine face fiecare activitate și cu ce tool-uri;
+4. cât lucrează cineva efectiv la fiecare activitate și cât se așteaptă până la activitatea următoare;
+5. unde se reface ceva sau unde se blochează procesul;
+6. cât de des rulează procesul și după ce se vede că a mers bine.
+
+Grupează întrebările: de exemplu, întreabă-mă timpii pentru toate activitățile într-o singură întrebare. Maximum 10 întrebări. Dacă un răspuns e vag, cere-mi un exemplu concret. Nu inventa cifre: dacă nu știu un timp, lasă câmpul gol.
+
+La final, dă-mi harta procesului ca tabel, cu o coloană pentru fiecare activitate și cu aceste rânduri: Activitatea · Input · Output · Roluri · Tool-uri · Timp efectiv de lucru · Timp de așteptare · Volum mediu · Metrici de rezultat · Puncte de fricțiune. Dacă sunt mai mult de 6 activități, împarte tabelul în 2. Adaugă la final 2 rânduri goale: Tipul de redesign · Punctul de control. Pe acestea le completez eu.
+
+Nu-mi cere nume, date de contact sau alte informații care identifică oameni.</div><div class="btns"><button class="btn sm" data-copy="pi">Copiază</button></div></div></div>
+
+    <div class="note a3"><p><strong>Cum răspunzi la întrebări:</strong> ca la lecția trecută, cum i-ai răspunde unui coleg care îți preia procesul cât ești într-un concediu sabatic de 1 an.</p></div>
+    <div class="gata"><b>Este gata când</b> ai harta procesului tău și ai marcat zona care crezi că va produce fricțiune.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p2">2 · Fă redesign-ul procesului tău →</button></div>
+
+  <!-- 2 · REDESIGN -->
+  <section class="box a2" id="p2">
+    <div class="hd"><span class="num">2</span><h3>Fă redesign-ul procesului tău</h3></div>
+    <p>Primii 2 pași îi faci individual, fără ajutorul AI. Abia ulterior copiezi informațiile în conversația de mai sus.</p>
+
+    <ol class="bul steps">
+      <li><strong>La fiecare activitate, alege tipul: mecanică, hibridă sau umană.</strong>
+        <div class="cards">
+          <div class="card"><span class="ct">Mecanic</span><p>Regula e clară. AI-ul execută activitatea cap-coadă.</p></div>
+          <div class="card"><span class="ct">Hibrid</span><p>AI-ul execută activitatea, dar tu verifici calitatea și iterezi pe marginea ei.</p></div>
+          <div class="card"><span class="ct">Uman</span><p>Activitatea necesită discernământ, asumarea responsabilității sau ține de relaționare.</p></div>
+        </div>
+      </li>
+      <li><strong>Stabilește 1-2 puncte de control.</strong>
+        <p class="lead">Punctul de control e locul în care AI-ul se oprește și te întreabă.</p>
+        <div class="cards two">
+          <div class="card"><span class="ct">Aprobare</span><p>Activitatea impactează bugete, oameni sau are nevoie de date sensibile.</p></div>
+          <div class="card"><span class="ct">Expertiză</span><p>Cunoștințele tale îmbunătățesc valoarea rezultatului.</p></div>
+        </div>
+      </li>
+      <li><strong>Copiază deciziile tale în conversația cu interviul de la etapa 1, ca AI-ul să completeze ultimele 2 rânduri din hartă.</strong>
+        <div class="mat"><div class="mh"><div class="mtx" id="pr">Am făcut redesign-ul procesului. Mai jos sunt tipul fiecărei activități și punctele de control, decise de mine. Nu le schimba și nu le comenta. Completează cu ele ultimele 2 rânduri din hartă și dă-mi harta actualizată.
+[activitatea] · [mecanică, hibridă sau umană] · [punctul de control, dacă are]</div><div class="btns"><button class="btn sm" data-copy="pr">Copiază</button></div></div></div>
+      </li>
+    </ol>
+
+    <details class="ajutor">
+      <summary>Vezi exemplul de la Nordavia</summary>
+      <div class="ain">
+        <table class="grid">
+          <tr><th>Activitatea</th><th>Azi</th><th>Reproiectat</th><th>%</th></tr>
+          <tr><td>Noul angajat completează și semnează formularele de angajare.</td><td>Pe hârtie, urmărite pe email.</td><td class="tip">mecanic</td><td>90%</td></tr>
+          <tr><td>HR-ul cere conturile și accesul la sisteme.</td><td>Manual, la IT, sistem cu sistem.</td><td class="tip">mecanic</td><td>85%</td></tr>
+          <tr><td>HR-ul strânge documentele obligatorii de la noul angajat.</td><td>Le cere de mai multe ori.</td><td class="tip">hibrid · punct de control: aprobare</td><td>80%</td></tr>
+          <tr><td>HR-ul îi prezintă compania, regulile și oamenii.</td><td>Aceeași prezentare pentru toți, în prima zi.</td><td class="tip">hibrid · punct de control: expertiză</td><td>60%</td></tr>
+          <tr><td>Managerul îi alege un coleg care să-l ghideze (buddy).</td><td>Când managerul are timp.</td><td class="tip">hibrid</td><td>40%</td></tr>
+          <tr><td>Noul angajat se integrează în echipă și în cultura companiei.</td><td>Lăsat la întâmplare.</td><td class="tip">uman</td><td>10%</td></tr>
+        </table>
+        <p class="src">Procentele arată cât % din activitate se poate automatiza, în general, pe baza unor estimări prezente în piață.<br>Sursa procentelor: HR Automation Explorer 2030 (E. Corazzin), sinteză din WEF, McKinsey, Gartner, 2025</p>
+      </div>
+    </details>
+
+    <div class="gata"><b>Este gata când</b> fiecare activitate din hartă e categorisită și ai identificat 1-2 puncte de control.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p3">3 · Transformă redesign-ul într-un skill →</button></div>
+
+  <!-- 3 · SKILL-UL -->
+  <section class="box a1" id="p3">
+    <div class="hd"><span class="num">3</span><h3>Transformă redesign-ul într-un skill</h3></div>
+    <p>Rămâi în aceeași conversație. Ai făcut o dată harta și redesign-ul unui proces. Acum transformi tot ce ai făcut mai sus într-un skill, ca să-l poți folosi pe orice alt proces din organizația ta.</p>
+    <table class="grid keys">
+      <tr><th></th><th>Skill-ul tău</th></tr>
+      <tr><td>Ce e</td><td>Fișa de post a unui angajat virtual. Un skill = un task.</td></tr>
+      <tr><td>Când lucrează</td><td>Când îi spui AI-ului să facă acel task.</td></tr>
+      <tr><td>Ce conține</td><td>Care sunt informațiile și documentele de care are nevoie pentru a îndeplini task-ul, care sunt pașii de execuție pentru acel task, care e livrabilul final și pe baza căror criterii evaluezi rezultatul muncii sale.</td></tr>
+      <tr><td>Unde îl salvezi</td><td>În contul tău:<br>Claude: Customize → Skills<br>ChatGPT: Skills<br>Copilot: Agents → Skills</td></tr>
+    </table>
+
+    <div class="note"><p><strong>Cum te ajută skill-ul acesta de fiecare dată când vrei să evaluezi un proces pe această metodologie:</strong></p>
+      <ol>
+        <li>te intervievează despre proces și construiește harta folosind template-ul;</li>
+        <li>după ce îi dai ok-ul pe hartă, te întreabă ce tip de activitate este fiecare activitate din proces: mecanică, hibridă sau umană;</li>
+        <li>după ce ai aprobat toate tipurile de activități, te întreabă care sunt 1-2 puncte de control unde e nevoie de aprobare sau expertiză în proces;</li>
+        <li>după ce confirmi punctele de control, construiește harta completă pe template și-ți dă fișierul PDF.</li>
+      </ol>
+    </div>
+
+    <h5>1 · Spune-i AI-ului să-ți scrie instrucțiunile</h5>
+    <p><strong>Copiază promptul de build de mai jos.</strong> Conversația de mai sus e deja în context, deci nu mai atașezi nimic. AI-ul îți pune câteva întrebări, dacă e cazul, și îți scrie instrucțiunile skill-ului.</p>
+    <div class="mat"><div class="mh"><div class="mtx" id="pb">Vreau să transform ce am făcut în această conversație într-un skill pe care să-l pot folosi pe orice proces din organizația mea.
+
+Skill-ul lucrează mereu pe același template al hărții de proces:
+- pagină A4 orizontală; sus, titlul „Harta procesului” și numele procesului;
+- o coloană pentru fiecare activitate, numerotată în ordine; maximum 6 activități pe pagină, iar restul continuă pe pagina următoare;
+- rândurile, în această ordine: Activitatea · Input · Output · Roluri · Tool-uri · Timp efectiv de lucru · Timp de așteptare · Volum mediu · Metrici de rezultat · Puncte de fricțiune · Tipul de redesign · Punctul de control;
+- ce nu se știe rămâne gol;
+- aspectul: font Arial; titlul și coloana cu numele rândurilor pe albastru închis (#1F3864), cu text alb; rândurile alternează alb și gri deschis (#F2F2F2), cu linii subțiri gri.
+
+Skill-ul face, pe rând, și nu trece la pasul următor fără ok-ul meu:
+1. Mă intervievează despre proces, o întrebare odată: ce declanșează procesul și cu ce se încheie, care sunt activitățile, cine le face și cu ce tool-uri, cât se lucrează efectiv și cât se așteaptă, unde se reface ceva, cât de des rulează procesul și după ce se vede că a mers bine. Apoi îmi arată harta în conversație, pe rândurile din template, fără ultimele 2. Așteaptă ok-ul meu pe hartă.
+2. După ce îi dau ok-ul pe hartă, îmi propune tipul fiecărei activități, într-o listă, cu motivul într-o propoziție:
+- mecanică: regula e clară, AI-ul execută activitatea cap-coadă;
+- hibridă: AI-ul execută activitatea, dar omul verifică calitatea și iterează pe marginea ei;
+- umană: activitatea necesită discernământ, asumarea responsabilității sau ține de relaționare.
+Eu aprob sau schimb tipul fiecărei activități.
+3. După ce am aprobat toate tipurile, mă întreabă care sunt 1-2 puncte de control, adică locurile în care AI-ul se oprește și întreabă omul:
+- aprobare: activitatea impactează bugete, oameni sau are nevoie de date sensibile;
+- expertiză: cunoștințele omului îmbunătățesc valoarea rezultatului.
+4. După ce confirm punctele de control, construiește harta completă pe template, cu toate rândurile, și îmi dă fișierul PDF.
+
+Skill-ul propune, dar nu decide în locul meu. În hartă scrie doar tipurile și punctele de control aprobate de mine.
+
+Folosește ce ai văzut în conversația noastră: ce întrebări au fost utile, ce a lipsit, ce am corectat. Dacă îți lipsește ceva ca să scrii skill-ul, pune-mi maximum 3 întrebări, una odată.
+
+La final, scrie instrucțiunile skill-ului ca pe o fișă de post, în 4 părți:
+- Contextul: pentru cine lucrează, ce primește de fiecare dată, ce nu e negociabil.
+- Regula de aur: ce nu are voie să facă.
+- Livrabilul: ce produce, pas cu pas, și cum arată rezultatul.
+- Ce verific eu: unde se oprește și mă întreabă, și criteriile după care verific rezultatul.
+
+Scrie doar regulile valabile la fiecare folosire, fără datele procesului de azi. Maximum 8.000 de caractere.
+
+Nu-mi cere nume, date de contact sau alte informații care identifică oameni.</div><div class="btns"><button class="btn sm" data-copy="pb">Copiază</button></div></div></div>
+    <p>Răspunde la întrebări. Apoi citește instrucțiunile pe care ți le propune și spune-i ce să corecteze, dacă e cazul. Asigură-te că instrucțiunile menționează clar:</p>
+    <ul class="bul">
+      <li>ce întrebări pune despre proces;</li>
+      <li>cum arată template-ul hărții: rândurile, maximum 6 activități pe pagină, aspectul;</li>
+      <li>că așteaptă ok-ul tău pe hartă înainte să treacă la tipuri;</li>
+      <li>că îți propune tipul fiecărei activități, iar tu aprobi sau schimbi;</li>
+      <li>că te întreabă punctele de control abia după ce ai aprobat toate tipurile;</li>
+      <li>că la final îți dă harta completă ca fișier PDF;</li>
+      <li>ce nu are voie să facă: să scrie în hartă tipuri sau puncte de control pe care nu le-ai aprobat.</li>
+    </ul>
+    <div class="note a2"><p><strong>Exemplu:</strong> dacă instrucțiunile păstrează activitățile procesului tău de azi, spune-i să le scoată. Skill-ul trebuie să meargă pe orice proces.</p></div>
+
+    <h5>2 · Salvează skill-ul</h5>
+    <p>Spune-i AI-ului să-ți dea instrucțiunile ca fișier de skill (.md). În Claude, spune-i să-l facă cu skill creator.</p>
+    <ul class="bul">
+      <li><strong>Claude:</strong> dacă îți oferă butonul de instalare, apasă-l. Dacă nu, descarcă fișierul .md. Apoi Customize → Skills → + → Create skill → Upload a skill și alegi fișierul. Verifică dacă skill-ul apare activ în listă. Dacă secțiunea Skills e gri, accesul depinde de tipul de abonament și de setările organizației.</li>
+      <li><strong>ChatGPT:</strong> Plugins → Skills. Depinde de tipul de abonament și de setările organizației.</li>
+      <li><strong>Copilot:</strong> Agents → New agent. Sub Instructions, încarcă fișierul de skill în câmpul Skills (+ Add). Dă un nume agentului și salvează-l (Create). Depinde de tipul de abonament și de setările organizației.</li>
+      <li><strong>Dacă nu ai skills pe contul tău:</strong> creează un Project și copiază conținutul fișierului de skill în instrucțiunile proiectului.</li>
+    </ul>
+
+    <h5>3 · Testează-l</h5>
+    <p>Deschide o conversație nouă și spune-i AI-ului să facă harta și redesign-ul pentru încă un proces. Dacă lucrezi în Copilot, deschide agentul unde ai salvat skill-ul și spune-i să execute task-ul acolo.</p>
+    <ul class="bul">
+      <li>La prima folosire, skill-ul te poate întreba câteva detalii. Răspunde-i și lasă-l să continue până obții rezultatul.</li>
+      <li>Lasă-l să ajungă până la PDF. Nu corecta încă instrucțiunile skill-ului.</li>
+      <li>Citește rezultatul și notează un lucru concret de verificat.</li>
+    </ul>
+
+    <div class="gata"><b>Este gata când</b><p><strong>Minimum:</strong> ai obținut instrucțiunile pentru skill.</p><p><strong>Obiectivul:</strong> ai rulat skill-ul pe încă un proces.</p></div>
+  </section>
+
+  <!-- DUPĂ LECȚIE -->
+  <section class="box a2" id="dupa">
+    <div class="hd"><h3>După lecție</h3></div>
+    <p>Tema e <strong>Secțiunea 7 din blueprint, Redesign de proces</strong>, până pe 28 octombrie. Harta reproiectată și skill-ul de azi sunt punctul de plecare.</p>
+    <div class="btns"><a class="btn" href="https://www.ralucapaduraru.ro/blueprint#sec-7" target="_blank" rel="noopener">Deschide Secțiunea 7</a></div>
+  </section>
+
+</main>
+
+<footer>HR Management în era AI · Lecția 6 · Raluca Păduraru</footer>
+</div>
+
+<script>
+function raw(id){ var el = document.getElementById(id); return el ? el.textContent.replace(/^\n/, '').replace(/<\\\//g, '</') : ''; }
+
+/* copiere, cu rezervă pentru browserele fără clipboard API */
+function copyText(t){
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).catch(function(){ return legacyCopy(t); });
+  return legacyCopy(t);
+}
+function legacyCopy(t){
+  return new Promise(function(resolve, reject){
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.top = '-1000px';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    ok ? resolve() : reject();
+  });
+}
+function flash(btn, txt){
+  var old = btn.textContent;
+  btn.textContent = txt; btn.classList.add('done');
+  setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1700);
+}
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var t = document.getElementById(btn.getAttribute('data-copy')).textContent.trim();
+    copyText(t).then(function(){ flash(btn, 'Copiat'); }).catch(function(){ flash(btn, 'Selectează și copiază manual'); });
+  });
+});
+
+/* descărcare: .txt cu BOM, ca diacriticele să se vadă corect peste tot */
+function download(text, name){
+  var bom = /\.(txt|csv)$/i.test(name) ? '\ufeff' : '';
+  var blob = new Blob([bom + text], { type: 'text/plain;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+}
+document.querySelectorAll('[data-dl]').forEach(function(btn){
+  btn.addEventListener('click', function(){ download(raw(btn.getAttribute('data-dl')), btn.getAttribute('data-name')); flash(btn, 'Descărcat'); });
+});
+
+/* navigare */
+var navBtns = Array.prototype.slice.call(document.querySelectorAll('.navbtn'));
+var secIds = navBtns.map(function(b){ return b.getAttribute('data-go'); });
+function navOff(){ var nw = document.querySelector('.navwrap'); return nw.offsetHeight < window.innerHeight / 2 ? nw.offsetHeight + 12 : 24; }
+function goTo(id){
+  var el = document.getElementById(id);
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - navOff(), behavior: 'smooth' });
+}
+document.querySelectorAll('[data-go]').forEach(function(el){
+  el.addEventListener('click', function(e){ e.preventDefault(); goTo(el.getAttribute('data-go')); });
+});
+/* etapa devine curentă când titlul ei trece de ~40% din ecran; la capătul paginii se aprinde ultima */
+function markActive(){
+  var best = 0, off = Math.max(navOff() + 30, window.innerHeight * 0.4);
+  for (var i = 0; i < secIds.length; i++){ var el = document.getElementById(secIds[i]); if (el && el.getBoundingClientRect().top - off <= 0) best = i; }
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) best = secIds.length - 1;
+  navBtns.forEach(function(b, i){ b.classList.toggle('active', i === best); });
+}
+window.addEventListener('scroll', markActive, { passive: true });
+
+/* tema: butoanele din antet */
+document.querySelectorAll('[data-theme-choice]').forEach(function(o){
+  o.addEventListener('click', function(){
+    var t = o.getAttribute('data-theme-choice');
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem('basetolearn-l5-lucru-tema', t); } catch(e) {}
+    markTheme();
+  });
+});
+function markTheme(){
+  var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  document.querySelectorAll('[data-theme-choice]').forEach(function(o){ o.classList.toggle('on', o.getAttribute('data-theme-choice') === cur); });
+}
+markTheme();
+</script>
+</body>
+</html>

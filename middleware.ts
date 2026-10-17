@@ -1,17 +1,58 @@
-// Edge Middleware — păzește DOAR /cortex (pagina de resurse Build Your Cortex).
+// Edge Middleware — păzește cu parolă DOAR paginile din PAGINI:
+// /cortex (resursele Build Your Cortex) și /lectia-6 (pagina de lucru basetolearn L6).
 // Restul site-ului nu trece prin matcher, deci rămâne neatins.
 
 export const config = {
-  matcher: ['/cortex', '/cortex/:path*'],
+  matcher: ['/cortex', '/cortex/:path*', '/lectia-6', '/lectia-6.html'],
 };
 
-const PAROLA = 'cortex2026';
-const COOKIE = 'cortex_acces';
-const COOKIE_VAL = 'byc-2026-ok';
-const MAX_AGE = 60 * 60 * 24 * 40; // 40 de zile — pagina e promisă până pe 7 sept 2026
+type Pagina = {
+  parola: string;
+  cookie: string;
+  cookieVal: string;
+  cookiePath: string;
+  maxAge: number;
+  titluTab: string;
+  kicker: string;
+  titlu: string;
+  text: string;
+};
+
+const PAGINI: Record<string, Pagina> = {
+  cortex: {
+    parola: 'cortex2026',
+    cookie: 'cortex_acces',
+    cookieVal: 'byc-2026-ok',
+    cookiePath: '/cortex',
+    maxAge: 60 * 60 * 24 * 40, // 40 de zile — pagina e promisă până pe 7 sept 2026
+    titluTab: 'Acces resurse — Build Your Cortex',
+    kicker: 'Build Your Cortex',
+    titlu: 'Pagina de resurse',
+    text: 'Introdu parola primită în sală.',
+  },
+  'lectia-6': {
+    parola: 'basetolearn1',
+    cookie: 'lectia6_acces',
+    cookieVal: 'btl-l6-ok',
+    cookiePath: '/', // acoperă și /lectia-6, și /lectia-6.html
+    maxAge: 60 * 60 * 24 * 30, // 30 de zile — lecția e pe 26 oct, tema pe 28 oct
+    titluTab: 'Acces · HR Management în era AI',
+    kicker: 'HR Management în era AI',
+    titlu: 'Lecția 6: pagina de lucru',
+    text: 'Introdu parola primită în lecție.',
+  },
+};
+
+function paginaPentru(pathname: string): Pagina | null {
+  if (pathname === '/cortex' || pathname.startsWith('/cortex/')) return PAGINI.cortex;
+  if (pathname === '/lectia-6' || pathname === '/lectia-6.html') return PAGINI['lectia-6'];
+  return null;
+}
 
 export default async function middleware(request: Request): Promise<Response | undefined> {
   const url = new URL(request.url);
+  const p = paginaPentru(url.pathname);
+  if (!p) return undefined;
 
   // Formularul trimite POST cu parola
   if (request.method === 'POST') {
@@ -22,35 +63,35 @@ export default async function middleware(request: Request): Promise<Response | u
     } catch {
       parola = '';
     }
-    if (parola.toLowerCase() === PAROLA) {
+    if (parola.toLowerCase() === p.parola) {
       return new Response(null, {
         status: 303,
         headers: {
           Location: url.pathname,
-          'Set-Cookie': `${COOKIE}=${COOKIE_VAL}; Max-Age=${MAX_AGE}; Path=/cortex; Secure; HttpOnly; SameSite=Lax`,
+          'Set-Cookie': `${p.cookie}=${p.cookieVal}; Max-Age=${p.maxAge}; Path=${p.cookiePath}; Secure; HttpOnly; SameSite=Lax`,
         },
       });
     }
-    return formular(true);
+    return formular(p, true);
   }
 
   // GET cu cookie valid → lasă pagina să se servească
   const cookies = request.headers.get('cookie') || '';
-  if (cookies.split(/;\s*/).some((c) => c === `${COOKIE}=${COOKIE_VAL}`)) {
+  if (cookies.split(/;\s*/).some((c) => c === `${p.cookie}=${p.cookieVal}`)) {
     return undefined;
   }
 
-  return formular(false);
+  return formular(p, false);
 }
 
-function formular(gresit: boolean): Response {
+function formular(p: Pagina, gresit: boolean): Response {
   const html = `<!DOCTYPE html>
 <html lang="ro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Acces resurse — Build Your Cortex</title>
+<title>${p.titluTab}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
@@ -80,9 +121,9 @@ function formular(gresit: boolean): Response {
 </head>
 <body>
   <form class="box" method="POST">
-    <span class="kicker">Build Your Cortex</span>
-    <h1>Pagina de resurse</h1>
-    <p>Introdu parola primită în sală.</p>
+    <span class="kicker">${p.kicker}</span>
+    <h1>${p.titlu}</h1>
+    <p>${p.text}</p>
     <input type="password" name="parola" placeholder="parola" autofocus autocomplete="off">
     <button type="submit">Intră</button>
     ${gresit ? '<p class="err">Parola nu e corectă. Încearcă din nou.</p>' : ''}
