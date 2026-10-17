@@ -238,7 +238,7 @@
 
 <div class="navwrap noprint">
   <nav class="nav">
-    <button class="navbtn active" data-go="p1"><span class="nt">1 · Task-ul tău, prin M.O.D.E.L.</span><span class="no">Obiectiv: prima versiune a task-ului tău, cerută prin M.O.D.E.L.</span><span class="ns">Pornești de la task-ul pe care l-ai pregătit acasă.</span></button>
+    <button class="navbtn active" data-go="p1"><span class="nt">1 · Task-ul tău, prin M.O.D.E.L.</span><span class="no">Obiectiv: obții un prim răspuns de la AI, după ce ți-ai structurat gândurile cu M.O.D.E.L.</span><span class="ns">Pornești de la task-ul pe care l-ai pregătit acasă.</span></button>
     <button class="navbtn" data-go="p2"><span class="nt">2 · AI-ul te poate ajuta să înțelegi mai bine ce vrei să obții</span><span class="no">Obiectiv: o versiune nouă și tabelul cu ce s-a schimbat.</span><span class="ns">Acum că ai prima versiune, îl lași pe AI să te întrebe ce-i lipsește.</span></button>
     <button class="navbtn" data-go="p3"><span class="nt">3 · Misiunea pe grupe</span><span class="no">Obiectiv: un PDF construit de AI, verificat și corectat de grupă.</span><span class="ns">Acum că ai lucrat singur, faceți împreună ceva un pic mai complex.</span></button>
   </nav>
@@ -271,7 +271,7 @@
         <div class="mat"><div class="mh"><div class="mtx">Scrie un anunț de angajare pe baza căruia să primesc aplicații de la cei mai potriviți candidați pentru rolul de HR Business Partner la Nordavia Distribuție. Atașez fișa postului, ghidul de brand Nordavia și 2 anunțuri care au mers bine. Tonul e cel din ghidul de brand. Fiecare cerință din anunț trebuie să fie susținută de una sau mai multe responsabilități din fișa postului.</div></div></div>
       </div>
     </details>
-    <div class="gata"><b>Este gata când</b> ai prima versiune a task-ului tău.</div>
+    <div class="gata"><b>Este gata când</b> ai prima versiune a răspunsului AI.</div>
   </section>
   <div class="next noprint"><button class="nextbtn" data-go="p2">2 · AI-ul te poate ajuta să înțelegi mai bine ce vrei să obții →</button></div>
 
@@ -300,7 +300,7 @@
   <section class="box a1" id="p3">
     <div class="hd"><span class="num">3</span><h3>Misiunea pe grupe</h3></div>
     <p>Unul dintre voi scrie promptul și dă share screen, iar ceilalți îl ghidează prin M.O.D.E.L.</p>
-    <p>Toate misiunile sunt pe Nordavia Distribuție, o companie <strong>fictivă</strong> care se ocupă de distribuție și are 320 de angajați.</p>
+    <p>Alegeți una din misiunile de mai jos. Toate misiunile sunt pe Nordavia Distribuție, o companie <strong>fictivă</strong> care se ocupă de distribuție și are 320 de angajați.</p>
 
     <h4>Alegeți misiunea</h4>
     <div class="choice noprint">
@@ -362,16 +362,15 @@
     <div class="dv" data-dv="123">
       <h4>Pașii</h4>
       <ol class="bul">
-        <li>Descărcați fișierele misiunii.</li>
+        <li>Descărcați fișierele de input pentru misiune.</li>
         <li>Înainte de a deschide AI-ul, gândiți-vă împreună la răspunsul la <a href="#model" data-go="model">întrebările M.O.D.E.L.</a></li>
-        <li>Scrieți promptul într-o conversație nouă și atașați fișierele. La final, adăugați rândul de format de mai jos.</li>
+        <li>Scrieți promptul într-o conversație nouă și atașați fișierele de input descărcate. La final, adăugați rândul de format de mai jos.
+          <div class="dv" data-dv="1"><div class="mat"><div class="mh"><div class="mtx" id="f1">Dă-mi rezultatul ca pagină HTML, cu fiecare slide pe o pagină 16:9, gata de salvat ca PDF.</div><div class="btns"><button class="btn sm" data-copy="f1">Copiază</button></div></div></div></div>
+          <div class="dv" data-dv="23"><div class="mat"><div class="mh"><div class="mtx" id="f2">Dă-mi rezultatul ca pagină HTML, pe pagini A4, gata de salvat ca PDF.</div><div class="btns"><button class="btn sm" data-copy="f2">Copiază</button></div></div></div></div>
+        </li>
         <li>Verificați rezultatul și solicitați îmbunătățiri (dacă e cazul).</li>
         <li>Salvați rezultatul ca PDF.</li>
       </ol>
-
-      <h4>Rândul de format</h4>
-      <div class="dv" data-dv="1"><div class="mat"><div class="mh"><div class="mtx" id="f1">Dă-mi rezultatul ca pagină HTML, cu fiecare slide pe o pagină 16:9, gata de salvat ca PDF.</div><div class="btns"><button class="btn sm" data-copy="f1">Copiază</button></div></div></div></div>
-      <div class="dv" data-dv="23"><div class="mat"><div class="mh"><div class="mtx" id="f2">Dă-mi rezultatul ca pagină HTML, pe pagini A4, gata de salvat ca PDF.</div><div class="btns"><button class="btn sm" data-copy="f2">Copiază</button></div></div></div></div>
 
       <h4>Unde apare rezultatul</h4>
       <ul class="bul">
