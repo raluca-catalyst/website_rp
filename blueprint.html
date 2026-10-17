@@ -307,6 +307,11 @@
     .gaps-box li { color: var(--text); margin-bottom: 0.35rem; }
     .gaps-box li span { color: var(--text-sec); }
     .gaps-box .matrix-empty { margin: 0; }
+    /* Traseele F.O.R.C.E. (Secțiunea 8) */
+    .force-legend { margin: 0.2rem 0 0.75rem; padding-left: 1.1rem; }
+    .force-legend li { font-size: 0.88rem; color: var(--text-sec); margin-bottom: 0.15rem; }
+    .force-legend strong { font-family: var(--font-mono); color: var(--lavender-lt); }
+    .skill-grid select { width: 100%; }
 
     /* Roadmap pe trei coloane */
     .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
@@ -386,6 +391,8 @@
       .gaps-box.none { display: none !important; }
       .gaps-box li { color: #1a1a1a !important; }
       .gaps-box li span { color: rgba(0,0,0,0.65) !important; }
+      .force-legend li { color: rgba(0,0,0,0.72) !important; font-size: 11px; }
+      .force-legend strong { color: #7c3aed !important; }
       h1, h2, h3, .q label, .level-name { color: #1a1a1a !important; }
       .sec-num, .kicker, .part-label, .score-big, .bar-row .bar-label .v, .accent { color: #7c3aed !important; }
       .sec-when, .subtitle, .score-big small { color: rgba(0,0,0,0.55) !important; }
@@ -556,7 +563,8 @@
       { n: 8, title: 'Forța de muncă și competențele viitorului: dezvoltarea', when: 'după lecția din 28 octombrie · Construirea unei organizații care învață', parts: [
         { qs: [
           { type: 'gaps' },
-          ['s2q2','Pornind de la gap-urile din Secțiunea 2: ce competențe construiți întâi și pentru cine? Cum arată planul de reskilling și upskilling: priorități, ordine, cui se adresează? Cum arată traseele de dezvoltare pe categorii de roluri, construite cu F.O.R.C.E.?'] ] } ] },
+          { type: 'paths', text: 'Traseele de dezvoltare cu F.O.R.C.E.: adaugă 2-3 categorii de roluri. Pentru fiecare, alege litera la care lucrează oamenii azi și litera la care trebuie să ajungă în 12 luni. Apoi scrie în ce ordine învață literele și cu ce încep.' },
+          ['s2q2','Pornind de la gap-urile din Secțiunea 2: ce competențe construiți întâi și pentru cine? Cum arată planul de reskilling și upskilling: priorități, ordine, cui se adresează?'] ] } ] },
       { n: 9, title: 'Impact și KPI', when: 'după lecția din 2 noiembrie · HR strategic și relația cu businessul', parts: [
         { qs: [
           { type: 'kpis', text: 'Ce 4-5 KPIs arată impactul transformării? Pentru fiecare, scrie unde sunteți azi și ținta peste 12 luni.' },
@@ -583,12 +591,22 @@
     const MAX_KPIS = 8;
     const MAX_SKILLS = 5;
     const MAX_PRIO = 3;
-    let oppSec = null, kpiSec = null, skillSec = null;
+    const MAX_PATHS = 5;
+    // F.O.R.C.E. citit ca scară: fiecare literă e o capabilitate (lecția din 28 octombrie).
+    const FORCE = [
+      ['F', 'Filtrează', 'structurezi volume mari de informație'],
+      ['O', 'Optimizează', 'rafinezi ceva ce există deja'],
+      ['R', 'Raționează', 'AI-ul e partenerul tău de gândire'],
+      ['C', 'Construiește', 'îți faci singur instrumente'],
+      ['E', 'Execută', 'agenți care lucrează singuri în aplicații'],
+    ];
+    const LETTERS = FORCE.map(f => f[0]);
+    let oppSec = null, kpiSec = null, skillSec = null, pathSec = null;
 
     const $ = id => document.getElementById(id);
 
     function emptyState() {
-      return { app: 'rp_blueprint', v: 1, org: '', answers: {}, manual: [null, null, null, null], assessment: null, open: 1, opps: [], kpis: [], skills: [] };
+      return { app: 'rp_blueprint', v: 1, org: '', answers: {}, manual: [null, null, null, null], assessment: null, open: 1, opps: [], kpis: [], skills: [], paths: [] };
     }
 
     // ---------- Stocare (totul în try/catch: pagina merge și cu stocarea blocată) ----------
@@ -632,6 +650,10 @@
           return { role: str(r.role), now: str(r.now), need: str(r.need), gap: str(r.gap), prio };
         });
       }
+      // Copiile de dinainte de traseele F.O.R.C.E. n-au câmpul paths: rămân cu tabelul gol.
+      if (Array.isArray(obj.paths)) s.paths = obj.paths.slice(0, MAX_PATHS).filter(p => p && typeof p === 'object').map(p => ({
+        role: str(p.role), now: ['-'].concat(LETTERS).includes(p.now) ? p.now : '', target: LETTERS.includes(p.target) ? p.target : '',
+        order: str(p.order), first: str(p.first) }));
       return s;
     }
 
@@ -706,6 +728,7 @@
             if (item.type === 'opps') { holder.appendChild(buildOpps(item.text, sec)); return; }
             if (item.type === 'kpis') { holder.appendChild(buildKpis(item.text, sec)); return; }
             if (item.type === 'skills') { holder.appendChild(buildSkills(item.text, sec)); return; }
+            if (item.type === 'paths') { holder.appendChild(buildPaths(item.text, sec)); return; }
             if (item.type === 'gaps') { const g = el('div', 'gaps-box'); g.id = 'prio-gaps'; holder.appendChild(g); return; }
             if (item.type === 'file') { const n = el('p', 'note', item.text + ' '); const a = el('a', '', item.label); a.href = item.href; a.setAttribute('download', ''); n.appendChild(el('br')); n.appendChild(el('strong')).appendChild(a); holder.appendChild(n); return; }
             const [id, text] = item;
@@ -747,6 +770,8 @@
       renderSkillRows(skillSec, false);
       renderSkillTable();
       renderPrioGaps();
+      renderPathRows(pathSec, false);
+      renderPathTable();
       renderMatrix();
       renderTiles();
       renderJourney();
@@ -758,6 +783,7 @@
         if (item.type === 'opps') return state.opps.some(o => o.name.trim() !== '');
         if (item.type === 'kpis') return state.kpis.some(k => k.name.trim() !== '');
         if (item.type === 'skills') return state.skills.some(skillFilled);
+        if (item.type === 'paths') return state.paths.some(pathFilled);
         if (item.type === 'gaps') return false;
         if (item.type === 'file') return false;
         return (state.answers[item[0]] || '').trim() !== '';
@@ -1013,6 +1039,128 @@
       box.appendChild(ol);
     }
 
+    // ---------- Traseele F.O.R.C.E.: câte un rând pe categoria de rol ----------
+    function pathFilled(p) { return [p.role, p.now, p.target, p.order, p.first].some(v => v.trim() !== ''); }
+    function letterName(v) {
+      if (v === '-') return 'Încă nu folosesc AI';
+      const f = FORCE.find(x => x[0] === v);
+      return f ? f[0] + ' · ' + f[1] : '';
+    }
+
+    function buildPaths(text, sec) {
+      const q = el('div', 'q skills-q');
+      q.appendChild(el('label', '', text));
+      const legend = el('ul', 'force-legend');
+      FORCE.forEach(([l, name, what]) => {
+        const li = el('li');
+        li.appendChild(el('strong', '', l + ' · ' + name));
+        li.appendChild(document.createTextNode(': ' + what));
+        legend.appendChild(li);
+      });
+      q.appendChild(legend);
+      const rows = el('div', 'rows');
+      rows.id = 'path-rows';
+      q.appendChild(rows);
+      const add = el('button', 'btn btn-outline add-btn', '+ Adaugă o categorie de rol');
+      add.type = 'button';
+      add.id = 'path-add';
+      add.addEventListener('click', () => {
+        if (state.paths.length >= MAX_PATHS) return;
+        state.paths.push({ role: '', now: '', target: '', order: '', first: '' });
+        renderPathRows(sec, true); renderPathTable(); persist();
+      });
+      q.appendChild(add);
+      const t = el('div', 'print-only');
+      t.id = 'path-table';
+      q.appendChild(t);
+      pathSec = sec;
+      return q;
+    }
+
+    function pathsChanged(sec) { renderPathTable(); updateStatus(sec); persist(); }
+
+    function renderPathRows(sec, focusLast) {
+      const box = $('path-rows');
+      if (!box) return;
+      box.innerHTML = '';
+      state.paths.forEach((p, i) => {
+        const r = el('div', 'skill-row');
+        const top = el('div', 'skill-top');
+        const role = el('input');
+        role.type = 'text';
+        role.value = p.role;
+        role.placeholder = 'Categoria de rol ' + (i + 1) + ', de exemplu recruiterii';
+        role.setAttribute('aria-label', 'Categoria de rol ' + (i + 1));
+        role.addEventListener('input', () => { p.role = role.value; pathsChanged(sec); });
+        const del = el('button', 'icon-btn', '×');
+        del.type = 'button';
+        del.setAttribute('aria-label', 'Șterge categoria de rol ' + (i + 1));
+        del.addEventListener('click', () => { state.paths.splice(i, 1); renderPathRows(sec, false); pathsChanged(sec); });
+        top.appendChild(role); top.appendChild(del);
+        r.appendChild(top);
+
+        const grid = el('div', 'skill-grid');
+        const pick = (key, label, opts) => {
+          const w = el('div');
+          const lab = el('label', 'mini-label', label);
+          lab.htmlFor = 'pa' + i + key;
+          const s = selectEl(opts, p[key], label);
+          s.id = 'pa' + i + key;
+          s.addEventListener('change', () => { p[key] = s.value; pathsChanged(sec); });
+          w.appendChild(lab); w.appendChild(s);
+          return w;
+        };
+        const letterOpts = LETTERS.map(l => [l, letterName(l)]);
+        grid.appendChild(pick('now', 'Litera de azi', [['', 'Alege…'], ['-', letterName('-')]].concat(letterOpts)));
+        grid.appendChild(pick('target', 'Litera-țintă în 12 luni', [['', 'Alege…']].concat(letterOpts)));
+        const field = (key, label, ph, cls) => {
+          const w = el('div', cls || '');
+          const lab = el('label', 'mini-label', label);
+          lab.htmlFor = 'pa' + i + key;
+          const ta = el('textarea');
+          ta.id = 'pa' + i + key;
+          ta.value = p[key];
+          ta.placeholder = ph;
+          ta.addEventListener('input', () => { p[key] = ta.value; autosize(ta); pathsChanged(sec); });
+          w.appendChild(lab); w.appendChild(ta);
+          return w;
+        };
+        grid.appendChild(field('order', 'În ce ordine învață literele', 'De exemplu: F → O → C.'));
+        grid.appendChild(field('first', 'Cu ce încep', 'Primul lucru pe care îl învață oamenii.'));
+        r.appendChild(grid);
+        box.appendChild(r);
+        if (focusLast && i === state.paths.length - 1) setTimeout(() => role.focus(), 0);
+      });
+      box.querySelectorAll('textarea').forEach(autosize);
+      const add = $('path-add');
+      if (add) add.disabled = state.paths.length >= MAX_PATHS;
+    }
+
+    // Tabelul din PDF: aceleași rânduri.
+    function renderPathTable() {
+      const box = $('path-table');
+      if (!box) return;
+      box.innerHTML = '';
+      const filled = state.paths.filter(pathFilled);
+      if (!filled.length) { box.appendChild(el('div', 'print-answer empty', '(necompletat)')); return; }
+      const table = el('table', 'skill-table');
+      const hr = el('tr');
+      ['Categoria de rol', 'Azi', 'Ținta în 12 luni', 'Ordinea', 'Cu ce încep'].forEach(h => hr.appendChild(el('th', '', h)));
+      table.appendChild(el('thead')).appendChild(hr);
+      const tb = el('tbody');
+      filled.forEach(p => {
+        const tr = el('tr');
+        tr.appendChild(el('td', 'role', p.role.trim()));
+        tr.appendChild(el('td', '', letterName(p.now)));
+        tr.appendChild(el('td', '', letterName(p.target)));
+        tr.appendChild(el('td', '', p.order.trim()));
+        tr.appendChild(el('td', '', p.first.trim()));
+        tb.appendChild(tr);
+      });
+      table.appendChild(tb);
+      box.appendChild(table);
+    }
+
     // ---------- KPI: rânduri + mini-dashboard ----------
     function buildKpis(text, sec) {
       const q = el('div', 'q');
@@ -1212,7 +1360,7 @@
     let pending = null;
     function hasContent() {
       return state.org.trim() !== '' || Object.values(state.answers).some(v => v.trim() !== '') || state.manual.some(v => v !== null)
-        || state.opps.some(o => o.name.trim() !== '') || state.kpis.some(k => k.name.trim() !== '') || state.skills.some(skillFilled);
+        || state.opps.some(o => o.name.trim() !== '') || state.kpis.some(k => k.name.trim() !== '') || state.skills.some(skillFilled) || state.paths.some(pathFilled);
     }
     function applyImport(obj) {
       const fresh = state.assessment;
