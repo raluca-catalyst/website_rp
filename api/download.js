@@ -145,6 +145,27 @@ const RESOURCES = {
       });
     },
   },
+  'build-your-cortex-ian': {
+    subject: 'Ești pe lista de așteptare pentru Build Your Cortex, ediția din ianuarie',
+    notifySubject: (name) => `Nouă înscriere pe lista de așteptare Build Your Cortex (ianuarie): ${name}`,
+    emailHtml: function (data) {
+      const salut = data && data.prenume ? `Salutare, ${data.prenume},` : 'Salutare,';
+      return emailShell({
+        title: 'Build Your Cortex, ediția din ianuarie 2027',
+        signoff: 'Pe curând,',
+        footerNote: 'Ai primit acest email deoarece te-ai înscris prin formularul de pe ralucapaduraru.ro/build-your-cortex.',
+        bodyHtml: `
+      <p>${salut}</p>
+      <p>Felicitări pentru că te-ai înscris pe lista de așteptare pentru <strong>Build Your Cortex</strong>! Iată mai jos detaliile de care ai nevoie acum.</p>
+      <p><strong>Când:</strong> 14 ianuarie 2027, de la 9:30 la 17:30. Momentan, data este doar o estimare și urmează să vin cu o confirmare clară până la final de noiembrie.<br>
+      <strong>Unde:</strong> București. Locul exact urmează să fie confirmat odată cu data.<br>
+      <strong>Investiția:</strong> 1.337 lei.</p>
+      <p>Pentru că te-ai înscris pe lista de așteptare, vei afla primul când se deschid înscrierile. Locurile sunt limitate și se ocupă în ordinea efectuării plăților.</p>
+      <p>Ulterior, lucrăm împreună pentru ca tu să poți deveni CEO-ul propriului sistem de lucru cu AI.</p>
+      <p>Dacă ai orice fel de întrebări, dă-mi un reply la acest email.</p>`,
+      });
+    },
+  },
 };
 
 module.exports = async (req, res) => {

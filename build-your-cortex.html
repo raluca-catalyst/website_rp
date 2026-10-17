@@ -55,19 +55,19 @@
   gtag('config', 'G-M4ET119Z1X');
 </script>
 
-  <meta name="description" content="Build Your Cortex: într-o zi îți construiești un sistem AI personal care lucrează cu tine. 16 octombrie 2026, București. Eveniment sold out, înscrierile s-au închis." />
+  <meta name="description" content="Build Your Cortex: într-o zi îți construiești un sistem AI personal care lucrează cu tine. Ediția 3: 14 ianuarie 2027 (dată estimată), București. Înscrie-te pe lista de așteptare." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ro_RO" />
   <meta property="og:site_name" content="Raluca Păduraru" />
   <meta property="og:title" content="Build Your Cortex: Sistemul tău AI personal, într-o zi" />
-  <meta property="og:description" content="Acum poți fi CEO-ul unui sistem. Într-o zi îți construiești un sistem AI care te cunoaște și lucrează cot la cot cu tine ca să livreze rezultate. Sesiune nouă, 16 octombrie 2026, Nagarro Orhideea Towers. Eveniment sold out, înscrierile s-au închis." />
+  <meta property="og:description" content="Acum poți fi CEO-ul unui sistem. Într-o zi îți construiești un sistem AI care te cunoaște și lucrează cot la cot cu tine ca să livreze rezultate. Ediția 3: 14 ianuarie 2027 (dată estimată), București. Înscrie-te pe lista de așteptare." />
   <meta property="og:url" content="https://www.ralucapaduraru.ro/build-your-cortex" />
   <meta property="og:image" content="https://www.ralucapaduraru.ro/images/og-build-your-cortex.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Build Your Cortex: Sistemul tău AI personal, într-o zi" />
-  <meta name="twitter:description" content="Acum poți fi CEO-ul unui sistem. Sesiune nouă, 16 octombrie 2026, Nagarro Orhideea Towers, București. Eveniment sold out, înscrierile s-au închis." />
+  <meta name="twitter:description" content="Acum poți fi CEO-ul unui sistem. Ediția 3: 14 ianuarie 2027 (dată estimată), București. Înscrie-te pe lista de așteptare." />
   <meta name="twitter:image" content="https://www.ralucapaduraru.ro/images/og-build-your-cortex.jpg" />
   <link rel="canonical" href="https://www.ralucapaduraru.ro/build-your-cortex" />
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
@@ -85,8 +85,39 @@
     "@graph": [
       {
         "@type": "Event",
+        "@id": "https://www.ralucapaduraru.ro/build-your-cortex#event-2027-01-14",
+        "name": "Build Your Cortex (ediția 3)",
+        "description": "Workshop de o zi în care îți construiești un sistem AI personal care te cunoaște și lucrează cot la cot cu tine ca să livreze rezultate. Dată estimată, confirmată celor de pe lista de așteptare până la finalul lui noiembrie 2026.",
+        "startDate": "2027-01-14T09:30:00+02:00",
+        "endDate": "2027-01-14T17:30:00+02:00",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "inLanguage": "ro",
+        "url": "https://www.ralucapaduraru.ro/build-your-cortex",
+        "image": "https://www.ralucapaduraru.ro/images/og-build-your-cortex.jpg",
+        "location": {
+          "@type": "Place",
+          "name": "București",
+          "address": { "@type": "PostalAddress", "addressLocality": "București", "addressCountry": "RO" }
+        },
+        "organizer": { "@type": "Organization", "name": "Upvance Global", "url": "https://upvance.global" },
+        "performer": { "@type": "Person", "name": "Raluca Păduraru", "url": "https://www.ralucapaduraru.ro/" },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Bilet Build Your Cortex (listă de așteptare)",
+            "price": "1337",
+            "priceCurrency": "RON",
+            "availability": "https://schema.org/PreOrder",
+            "url": "https://www.ralucapaduraru.ro/build-your-cortex#inscriere",
+            "validFrom": "2026-10-17"
+          }
+        ]
+      },
+      {
+        "@type": "Event",
         "@id": "https://www.ralucapaduraru.ro/build-your-cortex#event-2026-10-16",
-        "name": "Build Your Cortex",
+        "name": "Build Your Cortex (ediția din 16 octombrie 2026)",
         "description": "Workshop de o zi în care îți construiești un sistem AI personal care te cunoaște și lucrează cot la cot cu tine ca să livreze rezultate. Pleci cu sistemul funcțional și o echipă de specialiști gata de pus la treabă.",
         "startDate": "2026-10-16T09:30:00+03:00",
         "endDate": "2026-10-16T17:30:00+03:00",
@@ -271,6 +302,29 @@
     .byc-seal .s1-logo{ width:64px; height:auto; display:block; margin-bottom:3px; }
     .byc-seal .s2{ font-family:var(--font-mono); font-weight:700; font-size:1.02rem; color:var(--text); line-height:1.15; margin-top:3px; }
     .byc-seal .s3{ font-family:var(--font-mono); font-weight:500; font-size:0.56rem; letter-spacing:0.14em; color:rgba(245,181,74,0.85); margin-top:5px; }
+    .byc-price-tag{ color:var(--amber) !important; }
+
+    /* formular de înscriere */
+    .byc-form-wrap{ max-width:600px; margin:0 auto; }
+    .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .form-field{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; text-align:left; }
+    .form-field label{ font-family:var(--font-mono); font-size:0.7rem; font-weight:600;
+      letter-spacing:0.1em; text-transform:uppercase; color:var(--text-sec); }
+    .form-field input{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+      padding:13px 16px; font-family:inherit; font-size:0.95rem; color:var(--text); outline:none; transition:border-color 0.2s; }
+    .form-field input:focus{ border-color:var(--lavender); }
+    .form-field input::placeholder{ color:var(--text-muted); }
+    .form-check{ display:flex; gap:12px; align-items:flex-start; margin-bottom:24px; text-align:left; }
+    .form-check input[type="checkbox"]{ width:18px; height:18px; flex-shrink:0; margin-top:2px; accent-color:var(--lavender); cursor:pointer; }
+    .form-check label{ font-size:0.85rem; color:var(--text-sec); line-height:1.6; cursor:pointer; }
+    .form-submit-wrap{ display:flex; flex-direction:column; align-items:center; gap:12px; }
+    .form-submit-wrap .btn{ width:100%; justify-content:center; }
+    .form-privacy{ font-size:0.75rem; color:var(--text-muted); text-align:center; }
+    .hp-field{ position:absolute; left:-9999px; opacity:0; height:0; overflow:hidden; }
+    .byc-form-msg{ margin-top:16px; font-size:0.9rem; border-radius:var(--radius); padding:12px 16px; text-align:center; display:none; }
+    .byc-form-msg.success{ display:block; background:rgba(107,158,116,0.15); border:1px solid rgba(107,158,116,0.4); color:#7BC78A; }
+    .byc-form-msg.error{ display:block; background:rgba(167,139,250,0.1); border:1px solid rgba(167,139,250,0.3); color:var(--lavender-lt); }
+    @media (max-width:600px){ .form-row{ grid-template-columns:1fr; } }
 
     /* Agenda: etapele nestate sub cele 6 ore de lucru */
     .byc-program{ margin-bottom: 1.4rem !important; }
@@ -372,7 +426,7 @@
         <li><a href="/contact">Contact</a></li>
       </ul>
       <div class="nav-right">
-        <span class="nav-cta" aria-disabled="true" style="opacity:0.55; filter:grayscale(1); cursor:not-allowed;">SOLD OUT</span>
+        <a href="#inscriere" class="nav-cta">Înscrie-te pe lista de așteptare</a>
         <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -571,13 +625,14 @@
       </g>
     </svg>
       <div class="container">
-        <div class="byc-seal"><span class="s1">SOLD OUT</span><span class="s2">16 oct<br>2026</span><span class="s3">BUCUREȘTI</span></div>
+        <div class="byc-seal"><span class="s1">EDIȚIA 3</span><span class="s2">14 ian<br>2027</span><span class="s3">BUCUREȘTI</span></div>
         <h1>Tot ce știi despre AI e din 2024. Bun venit în 2026!</h1>
         <p class="byc-hero-sub">Acum poți fi CEO-ul unui sistem.</p>
-        <p class="byc-hero-lead">Pe 16 octombrie îți construiești Cortexul care te cunoaște și lucrează cot la cot cu tine ca să livreze rezultate. La finalul zilei pleci cu el funcțional, gata de pus la treabă.</p>
-        <span class="btn btn-primary" aria-disabled="true" style="opacity:0.55; filter:grayscale(1); cursor:not-allowed; pointer-events:none;">
-          SOLD OUT
-        </span>
+        <p class="byc-hero-lead">În ianuarie îți construiești Cortexul care te cunoaște și lucrează cot la cot cu tine ca să livreze rezultate. La finalul zilei pleci cu el funcțional, gata de pus la treabă.</p>
+        <a href="#inscriere" class="btn btn-primary">
+          Înscrie-te pe lista de așteptare
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
     </section>
 
@@ -600,7 +655,7 @@
               <div class="l">au declarat că aplică în munca lor ce au construit în ziua aceea</div>
             </div>
           </div>
-          <p class="byc-proof-note">Toată sala a plecat cu directorul de operațiuni angajat și cu cel puțin un specialist integrat în sistem. Pe 16 octombrie facilitez ediția a doua. Toate locurile sunt ocupate.</p>
+          <p class="byc-proof-note">Toată sala a plecat cu directorul de operațiuni angajat și cu cel puțin un specialist integrat în sistem. Pe 16 octombrie am facilitat ediția a doua, cu sala plină. Ediția a treia e programată estimativ pe 14 ianuarie. Dacă vrei să afli primul când se deschid înscrierile, înscrie-te pe lista de așteptare.</p>
         </div>
       </div>
     </section>
@@ -836,19 +891,20 @@
       <div class="container">
         <h2>Detalii și preț</h2>
         <ul class="byc-detalii">
-          <li><span class="k">Când</span><span>16 octombrie 2026, de la 9:30 la 17:30.</span></li>
+          <li><span class="k">Când</span><span>14 ianuarie 2027 (dată estimată), de la 9:30 la 17:30. Data o confirm celor de pe listă până la finalul lui noiembrie.</span></li>
           <li><span class="k">Setup</span><span>9:30–10:00, opțional. Configurăm împreună sistemul, ca să începi ziua de lucru cu tot pregătit.</span></li>
-          <li><span class="k">Unde</span><span><a href="https://maps.app.goo.gl/LVHNkPvDpswGaFtV6" target="_blank" rel="noopener">Nagarro Orhideea Towers</a>, București.</span></li>
-          <li><span class="k">Locuri</span><span>SOLD OUT.</span></li>
+          <li><span class="k">Unde</span><span>București.</span></li>
+          <li><span class="k">Locuri</span><span>Limitate. Se ocupă în ordinea efectuării plăților.</span></li>
         </ul>
 
-        <div class="byc-price-card" style="opacity:0.55; filter:grayscale(1);">
-          <div class="byc-price-tag">Investiție · Toate locurile au fost ocupate</div>
-          <div class="byc-amount">1.197 lei</div>
-          <div class="btn btn-primary" aria-disabled="true" style="cursor:not-allowed; pointer-events:none;">
-            SOLD OUT
-          </div>
+        <div class="byc-price-card">
+          <div class="byc-price-tag">Investiție</div>
+          <div class="byc-amount">1.337 lei</div>
+          <a href="#inscriere" class="btn btn-primary">
+            Înscrie-te pe lista de așteptare
+          </a>
         </div>
+        <p class="byc-price-note" style="max-width:none;">Află primul când se deschid înscrierile.</p>
         <div class="byc-quote" style="margin-left:auto;margin-right:auto;">
           <p>„Nu m-am așteptat nicio secundă să reușesc într-o zi ce nu am reușit în luni de zile."</p>
           <span class="who">Corina Neagu, consultant HR senior &middot; participantă la prima ediție</span>
@@ -859,14 +915,50 @@
     <!-- ====================== ÎNSCRIERE ====================== -->
     <section id="inscriere" class="byc-section section-alt byc-center">
       <div class="container">
-        <h2>SOLD OUT pentru sesiunea din 16 octombrie</h2>
-        <p class="byc-section-intro" style="text-align:center; margin-left:auto; margin-right:auto;">Sesiunea are loc la Nagarro Orhideea Towers. Toate locurile sunt ocupate.</p>
-        <div style="text-align:center;">
-          <span class="btn btn-primary" aria-disabled="true" style="opacity:0.55; filter:grayscale(1); cursor:not-allowed; pointer-events:none;">
-            SOLD OUT
-          </span>
+        <h2>Înscrie-te pe lista de așteptare pentru ediția din ianuarie</h2>
+        <p class="byc-section-intro" style="text-align:center; margin-left:auto; margin-right:auto;">Completează formularul ca să primești toate detaliile. Persoanele înscrise pe lista de așteptare vor afla primele unde și când va avea loc ediția 3.</p>
+        <div class="byc-form-wrap">
+          <form id="byc-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="byc-nume">Nume *</label>
+                <input type="text" id="byc-nume" name="nume" required placeholder="Popescu" autocomplete="family-name" />
+              </div>
+              <div class="form-field">
+                <label for="byc-prenume">Prenume *</label>
+                <input type="text" id="byc-prenume" name="prenume" required placeholder="Maria" autocomplete="given-name" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="byc-email">Email *</label>
+                <input type="email" id="byc-email" name="email" required placeholder="tu@companie.ro" autocomplete="email" />
+              </div>
+              <div class="form-field">
+                <label for="byc-telefon">Telefon *</label>
+                <input type="tel" id="byc-telefon" name="telefon" required placeholder="07xx xxx xxx" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="hp-field" aria-hidden="true">
+              <label for="byc-website">Website</label>
+              <input type="text" id="byc-website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="byc-consent" name="consent" required />
+              <label for="byc-consent">
+                Sunt de acord să primesc pe email informațiile despre ediția din ianuarie a Build Your Cortex, inclusiv detaliile de înscriere și de plată.
+              </label>
+            </div>
+            <div class="form-submit-wrap">
+              <button type="submit" class="btn btn-primary" id="byc-btn">
+                Trimite
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <p class="form-privacy">Datele tale sunt în siguranță și nu vor fi distribuite terților.</p>
+            </div>
+            <div id="byc-form-msg" class="byc-form-msg"></div>
+          </form>
         </div>
-        <p class="byc-section-intro" style="margin-top:32px; margin-bottom:0; text-align:center; margin-left:auto; margin-right:auto;">Dacă vrei să te anunț în caz că se eliberează vreun loc, scrie-mi la <a href="mailto:raluca@upvance.global">raluca@upvance.global</a></p>
       </div>
     </section>
 
@@ -891,5 +983,54 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    document.getElementById('byc-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const nume    = document.getElementById('byc-nume').value.trim();
+      const prenume = document.getElementById('byc-prenume').value.trim();
+      const email   = document.getElementById('byc-email').value.trim();
+      const telefon = document.getElementById('byc-telefon').value.trim();
+      const website = document.getElementById('byc-website').value.trim();
+      const consent = document.getElementById('byc-consent').checked;
+      const btn     = document.getElementById('byc-btn');
+      const msg     = document.getElementById('byc-form-msg');
+
+      if (!nume || !prenume || !email || !telefon || !consent) {
+        msg.className = 'byc-form-msg error';
+        msg.textContent = 'Te rog completează toate câmpurile și bifează acordul.';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Se trimite...';
+      msg.className = 'byc-form-msg';
+      if (typeof gtag === 'function') gtag('event', 'form_submit', { event_category: 'inscriere', event_label: 'build-your-cortex-ian' });
+
+      try {
+        const res = await fetch('/api/download', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            resource: 'build-your-cortex-ian',
+            name: (prenume + ' ' + nume).trim(),
+            prenume, nume, email, telefon, website
+          })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          msg.className = 'byc-form-msg success';
+          msg.textContent = 'Mail-ul cu toate detaliile a plecat spre tine. Verifică și folder-ul de spam. Mulțumesc!';
+          this.reset();
+          btn.textContent = 'Trimis!';
+          if (typeof gtag === 'function') gtag('event', 'inscriere_completa', { event_category: 'conversion', event_label: 'build-your-cortex-ian' });
+        } else { throw new Error(data.message || 'Eroare la trimitere'); }
+      } catch (err) {
+        msg.className = 'byc-form-msg error';
+        msg.textContent = 'Ceva n-a mers. Încearcă din nou sau scrie-mi la contact@upvance.global.';
+        btn.disabled = false;
+        btn.textContent = 'Trimite';
+      }
+    });
+  </script>
 </body>
 </html>
