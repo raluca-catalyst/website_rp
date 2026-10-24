@@ -225,7 +225,7 @@
 <p>Fiecare use case are două variante:</p>
 <ul>
 <li><strong>Pe cont gratuit:</strong> răspunzi întâi la întrebările M.O.D.E.L., apoi copiezi promptul, completezi spațiile dintre paranteze pătrate, adaugi materia primă și trimiți. Primești o pagină vizuală.</li>
-<li><strong>Pe cont plătit:</strong> asistentul te intervievează întâi, apoi construiește pagina pe contextul tău. La final salvezi modul de lucru ca skill, ca să-l poți refolosi oricând ai nevoie.</li>
+<li><strong>Pe cont plătit:</strong> pornești direct de la skill. Asistentul te intervievează și îți scrie skill-ul V0. Îl rulezi pe taskul tău, verifici rezultatul și, dacă e nevoie, faci update la skill. Apoi îl refolosești oricând ai nevoie.</li>
 </ul></section>
 <section class="box" id="intro1"><div class="hd"><h3>Cele 9 use cases</h3></div><table>
 <thead>
@@ -290,7 +290,7 @@
 <li><strong>Copilot:</strong> încarci fișierul skill-ului într-un agent.</li>
 <li><strong>Gemini:</strong> azi salvezi modul de lucru într-un Gem. Din noiembrie, Gems devin Skills.</li>
 </ul>
-<p>Promptul de salvare din fiecare use case îți dă skill-ul ca fișier. Îl încarci în instrumentul pe care îl folosești.</p></section>
+<p>Pe cont plătit, prima etapă din fiecare use case îți dă skill-ul ca fișier. Îl încarci în instrumentul pe care îl folosești.</p></section>
 <section class="box" id="uc1"><div class="hd"><span class="num">1</span><h3>Din transcript la minuta vizuală</h3></div><p>Transformi transcriptul unei ședințe în 3 lucruri pe care le poți folosi imediat: deciziile separate de discuții, acțiunile cu responsabil și termen și emailul de follow-up în stilul tău.</p>
 <p><strong>Ce materiale trebuie să ai la îndemână:</strong> transcriptul unei ședințe recente (de exemplu, din Teams sau Zoom) sau notițele tale. Dacă ședința are date confidențiale, anonimizează-le.</p><details class="var"><summary>Pe cont gratuit</summary><div class="vin"><p>Deschide o conversație nouă. Pe Claude, lucrează într-un Project. Răspunde-ți întâi la întrebările M.O.D.E.L. de la „Înainte să scrii în AI”. Completează parantezele pătrate, copiază transcriptul la final și trimite. Poți și să atașezi fișierul transcriptului, în limitele contului tău.</p>
 <div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p1">Copiază</button></div><pre class="mtx" id="p1">Vreau minuta vizuală a unei ședințe și emailul de follow-up. Ședința: [cu cine, despre ce, cât a durat]. Minuta o mai citesc [doar participanții / și șeful meu / și alte echipe]. Într-o minută scrisă nu intră niciodată [de exemplu: nemulțumiri despre colegi pe nume, cifre confidențiale].
@@ -321,15 +321,15 @@ Transcriptul sau notițele:
 <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă pagina.</p>
 </div></div></details><details class="var"><summary>Pe cont plătit</summary><div class="vin"><p>Lucrezi în 4 etape:</p>
 <ol>
-<li>asistentul te intervievează, </li>
-<li>construiește output-ul, </li>
-<li>o verifici, </li>
-<li>salvezi modul de lucru ca skill/asistent.</li>
+<li>asistentul te intervievează și îți scrie skill-ul V0,</li>
+<li>rulezi skill-ul pe taskul tău,</li>
+<li>verifici rezultatul,</li>
+<li>dacă e nevoie, faci update la skill.</li>
 </ol>
-<h5>Etapa 1 · Interviul</h5>
-<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie contextul pe baza căruia construiești în etapa 2. 
+<h5>Etapa 1 · Skill-ul V0</h5>
+<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie skill-ul ca fișier SKILL.md.
 Nu știi un răspuns? Spune-i să sară peste întrebare.</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p2">Copiază</button></div><pre class="mtx" id="p2">Ești asistentul meu de ședințe. Înainte să scrii prima minută, ai nevoie să mă cunoști.
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p2">Copiază</button></div><pre class="mtx" id="p2">Vreau să-mi construiești un skill pentru minute de ședință și emailuri de follow-up. Înainte să-l scrii, ai nevoie să mă cunoști.
 
 Pune-mi CEL MULT 5 întrebări, UNA CÂTE UNA, inclusiv eventualele clarificări. Urmează ordinea de mai jos; dacă o clarificare consumă o întrebare, mută ultima temă rămasă la DE AFLAT DATA VIITOARE.
 
@@ -344,32 +344,19 @@ Cere-mi să copiez un email de follow-up pe care l-am trimis eu după o întâln
 ÎNTREBĂRILE 3 și 4, le alegi tu:
 Pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să scrii o minută pe care aș trimite-o fără s-o rescriu. Alege dintre: ce NU vreau să ajungă niciodată într-o minută scrisă · cine mai citește minuta în afară de cei din ședință (șeful meu, alte echipe, clientul) · cum arată un termen realist la noi · pe ce canal trimit follow-up-ul (email, Teams, Slack) și cât de formal.
 
-Nu mă întreba cine a fost în ședință sau despre ce s-a discutat. Toate astea sunt în transcriptul pe care ți-l dau în conversația următoare. Întreabă-mă DOAR ce nu poți afla de acolo.
+Nu mă întreba cine a fost în ședință sau despre ce s-a discutat. Toate astea sunt în transcriptul pe care i-l dau skill-ului de fiecare dată. Întreabă-mă DOAR ce nu poți afla de acolo.
 
 O SINGURĂ temă per întrebare. Ce nu încape în cele două întrebări trece la DE AFLAT DATA VIITOARE.
 
-Reguli:
+Reguli pentru interviu:
 - La răspunsuri vagi, cere-mi concretul: „repede” nu e un termen, „echipa” nu e un nume. Cere o precizare doar dacă informația e esențială și te încadrezi în cele 5 întrebări. Altfel marchează [nerăspuns] și continuă.
 - Pot spune „skip” la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
 
-După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU, organizat pe cinci secțiuni: rolul meu și echipa / cine citește minutele mele / ce nu intră într-o minută scrisă / stilul meu de email și ședințe / de aflat data viitoare. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+După ultima întrebare, scrie skill-ul. De fiecare dată când îi dau transcriptul sau notițele unei ședințe, skill-ul face exact ce scrie mai jos.
 
-Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera. Dacă îți dau o completare după predare, spune-mi doar ce linie să adaug și în ce secțiune.
-
-Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat.</pre></div>
-<h5>Etapa 2 · Artefactul vizual</h5>
-<p>Deschide o conversație NOUĂ. Pregătește un singur mesaj, în ordinea asta:</p>
-<ol>
-<li>Copiază blocul CONTEXTUL MEU primit în etapa 1.</li>
-<li>Adaugă transcriptul sau notițele ședinței. Poți și să atașezi fișierul transcriptului.</li>
-<li>Sub ele, copiază promptul de generare:</li>
-</ol>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p3">Copiază</button></div><pre class="mtx" id="p3">Ești asistentul meu de ședințe. Transformi ședința de mai sus în trei lucruri pe care le pot folosi imediat.
-
-Regula de aur: treci la decizii doar ce s-a hotărât explicit în ședință. Păstrează separat propunerile, întrebările deschise și nemulțumirile exprimate. O nemulțumire spusă tare nu e o decizie. O idee aruncată și nepreluată de nimeni nu e o decizie.
+Transformă ședința în trei lucruri pe care le pot folosi imediat. Regula de aur: treci la decizii doar ce s-a hotărât explicit în ședință. Păstrează separat propunerile, întrebările deschise și nemulțumirile exprimate. O nemulțumire spusă tare nu e o decizie. O idee aruncată și nepreluată de nimeni nu e o decizie.
 
 Construiește un singur fișier HTML, pe care să-l pot deschide în browser și trimite mai departe:
-
 - ședința, sus, într-o linie: cu cine, despre ce, cât a durat; ce lipsește din transcript primește [DE CONFIRMAT]
 - DECIS și DISCUTAT, DAR NEDECIS: două coloane alăturate, la fel de vizibile. Dintr-o privire trebuie să fie clar ce s-a hotărât și ce a rămas deschis.
 - acțiunile, ca listă bifabilă: ce se face · cine · până când. Fiecare acțiune le are pe toate trei. Ce n-a fost spus în ședință primește [DE CONFIRMAT], marcat vizibil, nu ascuns. Nu inventa nume și nu inventa date.
@@ -378,7 +365,6 @@ Construiește un singur fișier HTML, pe care să-l pot deschide în browser și
 - EMAILUL DE FOLLOW-UP, într-un panou separat la final, scris în stilul meu, gata de trimis: adresat oamenilor din ședință, reia deciziile și acțiunile care îi privesc, se termină cu ce aștept de la ei. Pune-l într-un bloc din care pot selecta și copia textul curat, fără decorațiuni în jur.
 
 Cum arată pagina (citește tot punctul ăsta înainte să scrii o linie de cod):
-
 1. Alege ÎNTÂI direcția vizuală și derivă-o din echipa și compania din contextul meu, nu dintr-un șablon. O echipă de HR și una de achiziții nu primesc aceeași pagină. Spune-mi în două rânduri ce direcție ai ales și de ce, apoi construiește după ea.
 2. Paleta: 4-5 culori, cu valorile hex scrise explicit, toate derivate din direcția aleasă. Una singură e accentul și se folosește rar. Contrastul trebuie să țină la citit.
 3. Tipografia duce personalitatea paginii. Două fonturi alese deliberat, unul cu caracter pentru titluri, unul lizibil pentru text, fiecare cu stivă de rezervă din fonturi de sistem. Scara de mărimi cu diferențe mari între niveluri, nu 14-16-18.
@@ -389,37 +375,49 @@ Cum arată pagina (citește tot punctul ăsta înainte să scrii o linie de cod)
 8. Se citește bine pe laptop.
 9. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
 
-Reguli:
+Reguli de lucru:
 - Nu inventa. Ce nu s-a spus în ședință nu intră nici în pagină, nici în email.
-- Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” nu se completează cu presupuneri.
+- Ce e marcat [nerăspuns] sau ce e la DE AFLAT DATA VIITOARE nu se completează cu presupuneri.
 - Ce am spus că nu vreau într-o minută scrisă nu intră nicăieri, nici măcar aluziv.
-- Dacă din ședință nu a ieșit nicio decizie, spune-o pe pagină, cu coloana DECIS goală. Nu promova o discuție la decizie ca să pară că ședința a produs ceva.</pre></div>
-<ol start="4">
-<li>După ce ai copiat toate detaliile, trimite mesajul.</li>
-</ol>
-<p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
-<h5>Etapa 3 · Verificarea</h5>
-<div class="note">
-<p><strong>Verifică înainte să salvezi skill-ul.</strong> Corectează întâi rezultatul: corecțiile din conversația asta intră în skill. </p>
+- Dacă din ședință nu a ieșit nicio decizie, spune-o pe pagină, cu coloana DECIS goală. Nu promova o discuție la decizie ca să pară că ședința a produs ceva.
+
+Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. În skill intră contextul meu din interviu (rolul meu și echipa, cine citește minutele mele, ce nu intră într-o minută scrisă, stilul meu de email și ședințe, DE AFLAT DATA VIITOARE) și tot ce scrie după „skill-ul face exact ce scrie mai jos”, cum e scris. Regulile pentru interviu nu intră în skill. La prima utilizare, skill-ul pune pe rând întrebările de la DE AFLAT DATA VIITOARE și completează doar ce lipsește. La fiecare utilizare, cere transcriptul sau notițele ședinței noi.
+
+Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p><strong>Unde încarci skill-ul</strong></p>
 <ul>
-<li>Deciziile: alege o decizie din artefact și verifică în transcript/notițe dacă chiar așa a fost discuția, sau nu.</li>
-<li>Acțiunile: verifică la una dintre ele responsabilul și termenul. Dacă lipsește din transcript/notițe trebuie să apară cu statusul [DE CONFIRMAT].</li>
-<li>Emailul: compară-l cu stilul descris inițial. Verifică și că păstrează aceleași decizii, responsabili și termene ca minuta.</li>
-</ul>
-<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul. Abia apoi treci la etapa 4.</p>
-</div>
-<h5>Etapa 4 · Skill-ul salvat</h5>
-<p>Salvezi modul de lucru, ca data viitoare să-i dai doar transcriptul. 
-Copiază promptul în aceeași conversație în care ai construit și verificat output-ul:</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p4">Copiază</button></div><pre class="mtx" id="p4">Transformă modul de lucru verificat aici într-un skill pentru minute și emailuri de follow-up. Păstrează contextul meu stabil, regula de aur, formatul paginii, stilul meu de email și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește. La fiecare utilizare, cere transcriptul sau notițele ședinței noi. Nu refolosi deciziile, oamenii sau termenele ședinței de probă. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia. La final, spune-mi ce material îi dau de fiecare dată.</pre></div>
-<p><strong>Unde salvezi skill-ul</strong></p>
-<ul>
-<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit. Data viitoare, într-o conversație nouă, îi spui ce vrei și îi dai transcriptul. Skill-ul pornește singur.</li>
-<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din modul ăsta de lucru”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
+<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit.</li>
+<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din fișierul ăsta”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
 <li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
 <li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
 <li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
 </ul>
+<h5>Etapa 2 · Rulezi skill-ul</h5>
+<p>Deschide o conversație NOUĂ. Pe Gemini, deschizi Gem-ul; pe Copilot, agentul. Pregătește un singur mesaj:</p>
+<ol>
+<li>Copiază rândul de mai jos.</li>
+</ol>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p3">Copiază</button></div><pre class="mtx" id="p3">Fă-mi minuta vizuală și emailul de follow-up pentru ședința de mai jos.</pre></div>
+<ol start="2">
+<li>Sub el, adaugă transcriptul sau notițele ședinței. Poți și să atașezi fișierul transcriptului.</li>
+<li>Trimite mesajul. Pe Claude și pe ChatGPT, skill-ul pornește singur. La prima utilizare, îți pune întâi întrebările rămase de la DE AFLAT DATA VIITOARE.</li>
+</ol>
+<p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
+<h5>Etapa 3 · Verificarea</h5>
+<div class="note">
+<p><strong>Verifică înainte să te încrezi.</strong> Ce corectezi în conversația asta intră în update-ul skill-ului, în etapa 4.</p>
+<ul>
+<li>Deciziile: alege o decizie din artefact și verifică în transcript/notițe dacă chiar așa a fost discuția, sau nu.</li>
+<li>Acțiunile: verifică la una dintre ele responsabilul și termenul. Dacă lipsește din transcript/notițe trebuie să apară cu statusul [DE CONFIRMAT].</li>
+<li>Emailul: compară-l cu stilul descris în interviu. Verifică și că păstrează aceleași decizii, responsabili și termene ca minuta.</li>
+</ul>
+<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul.</p>
+</div>
+<h5>Etapa 4 · Update la skill, dacă e nevoie</h5>
+<p>Ai corectat ceva în etapa 3? Pune corecturile în skill, ca data viitoare rezultatul să iasă bine din prima. Dacă rezultatul a fost bun din prima, skill-ul tău e gata.
+Copiază promptul în aceeași conversație în care ai rulat și verificat skill-ul:</p>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p4">Copiază</button></div><pre class="mtx" id="p4">Actualizează skill-ul folosit în conversația asta cu corecturile pe care ți le-am dat aici. Păstrează tot ce a mers și schimbă doar ce am corectat. Nu adăuga în skill deciziile, oamenii sau termenele din ședința de azi. Spune-mi în 3 rânduri ce ai schimbat. Dă-mi skill-ul actualizat ca fișier SKILL.md, cu același nume. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p>Înlocuiește skill-ul vechi cu fișierul nou, în locul în care l-ai încărcat în etapa 1. Pe Gemini, înlocuiești textul de la instrucțiunile Gem-ului. Dacă nu găsești cum se înlocuiește, șterge skill-ul vechi și încarcă-l pe cel nou.</p>
 <p>Verifică dacă merge: deschide o conversație nouă și dă-i transcriptul altei ședințe.</p></div></details></section>
 <section class="box" id="uc2"><div class="hd"><span class="num">2</span><h3>Consiliul pentru o decizie</h3></div><p>Pui o decizie de-a ta în fața unui consiliu de 3-5 consilieri care se contrazic între ei. Pleci cu argumentele pro și contra din mai multe perspective, cu votul fiecărui consilier, cu 3 slidere pe care muți variabilele deciziei și vezi pe loc cum se schimbă cifrele, și cu lista lucrurilor de aflat înainte să decizi.</p>
 <p><strong>Ce materiale trebuie să ai la îndemână:</strong> o decizie pe care o ai de luat, într-o propoziție, opțiunile pe care le vezi și ce știi deja despre ea: cifre, termene, cine mai e implicat. Dacă decizia atinge date confidențiale, anonimizează-le.</p><details class="var"><summary>Pe cont gratuit</summary><div class="vin"><p>Deschide o conversație nouă. Pe Claude, lucrează într-un Project. Răspunde-ți întâi la întrebările M.O.D.E.L. de la „Înainte să scrii în AI”. Completează parantezele pătrate și trimite.</p>
@@ -450,15 +448,15 @@ Vreau o pagină după care să știu ce argumente cântăresc, unde se contrazic
 <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă pagina.</p>
 </div></div></details><details class="var"><summary>Pe cont plătit</summary><div class="vin"><p>Lucrezi în 4 etape:</p>
 <ol>
-<li>asistentul te intervievează,</li>
-<li>construiește output-ul,</li>
-<li>o verifici,</li>
-<li>salvezi modul de lucru ca skill/asistent.</li>
+<li>asistentul te intervievează și îți scrie skill-ul V0,</li>
+<li>rulezi skill-ul pe taskul tău,</li>
+<li>verifici rezultatul,</li>
+<li>dacă e nevoie, faci update la skill.</li>
 </ol>
-<h5>Etapa 1 · Interviul</h5>
-<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie contextul pe baza căruia construiești în etapa 2.
+<h5>Etapa 1 · Skill-ul V0</h5>
+<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie skill-ul ca fișier SKILL.md.
 Nu știi un răspuns? Spune-i să sară peste întrebare.</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p6">Copiază</button></div><pre class="mtx" id="p6">Ești consiliul meu pentru decizii. Înainte de prima ședință, ai nevoie să mă cunoști.
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p6">Copiază</button></div><pre class="mtx" id="p6">Vreau să-mi construiești un skill pentru deciziile pe care le am de luat. Înainte să-l scrii, ai nevoie să mă cunoști.
 
 Pune-mi CEL MULT 5 întrebări, UNA CÂTE UNA, inclusiv eventualele clarificări. Urmează ordinea de mai jos; dacă o clarificare consumă o întrebare, mută ultima temă rămasă la DE AFLAT DATA VIITOARE.
 
@@ -473,29 +471,19 @@ Cere-mi să aleg 3-5 consilieri. Dă-mi ca exemple roluri: financiarul sceptic �
 ÎNTREBĂRILE 3 și 4, le alegi tu:
 Pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să dezbați bine deciziile pe care le iau în rolul meu. Alege dintre: ce decid singur și ce trebuie să aprobe altcineva · după ce criterii se judecă o decizie la noi (cost, risc, termen, clienți) · ce constrângeri am de obicei (buget, oameni, aprobări) · ce NU e negociabil pentru mine sau pentru echipă · o decizie de-a mea care n-a ieșit bine, și de ce.
 
-Nu mă întreba ce decizie am de luat acum sau ce opțiuni am. Pe astea ți le dau în conversația următoare, împreună cu ce știu despre ele. Întreabă-mă DOAR ce nu poți afla de acolo.
+Nu mă întreba ce decizie am de luat acum sau ce opțiuni am. Pe astea i le dau skill-ului de fiecare dată, împreună cu ce știu despre ele. Întreabă-mă DOAR ce nu poți afla de acolo.
 
 O SINGURĂ temă per întrebare. Ce nu încape în cele două întrebări trece la DE AFLAT DATA VIITOARE.
 
-Reguli:
+Reguli pentru interviu:
 - La răspunsuri vagi, cere-mi concretul: „mult” nu e o cifră, „curând” nu e o dată. Cere o precizare doar dacă informația e esențială și te încadrezi în cele 5 întrebări. Altfel marchează [nerăspuns] și continuă.
 - Pot spune „skip” la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
 - Dacă un consilier ales de mine e o persoană pe care n-o cunoști suficient, spune-mi pe loc și propune-mi un înlocuitor. Nu inventa biografii, poziții publice sau cifre despre nimeni.
 - Consiliul are nevoie de cel puțin o voce care are motiv să spună NU. Dacă lista mea n-o are, spune-mi și propune-mi o înlocuire.
 
-După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU, organizat pe cinci secțiuni: rolul meu și echipa / cum se iau deciziile la noi / constrângeri și non-negociabile / consiliul meu / de aflat data viitoare. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+După ultima întrebare, scrie skill-ul. De fiecare dată când îi dau o decizie, cu opțiunile și ce știu despre ea, skill-ul face exact ce scrie mai jos.
 
-Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera. Dacă îți dau o completare după predare, spune-mi doar ce linie să adaug și în ce secțiune.
-
-Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat.</pre></div>
-<h5>Etapa 2 · Artefactul vizual</h5>
-<p>Deschide o conversație NOUĂ. Pregătește un singur mesaj, în ordinea asta:</p>
-<ol>
-<li>Copiază blocul CONTEXTUL MEU primit în etapa 1.</li>
-<li>Adaugă decizia, într-o propoziție, opțiunile pe care le vezi și ce știi despre ea, cu cifrele pe care le ai.</li>
-<li>Sub ele, copiază promptul de generare:</li>
-</ol>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p7">Copiază</button></div><pre class="mtx" id="p7">Ești consiliul meu pentru decizii: consilierii din contextul de mai sus mă ajută să iau decizia de mai sus, contrazicându-se între ei.
+Consilierii din contextul meu mă ajută să iau decizia pe care ți-o dau, contrazicându-se între ei.
 
 Consiliul: cel din secțiunea „consiliul meu”. Fiecare consilier gândește ca persoana sau rolul pe care l-am ales, dar respectă aceleași reguli de mai jos. Dacă vreun consilier e o persoană pe care n-o cunoști suficient, spune-mi la început și propune-mi un înlocuitor. Nu inventa biografii sau poziții publice.
 
@@ -524,37 +512,49 @@ Cum arată pagina (citește tot punctul ăsta înainte să scrii o linie de cod)
 8. Se citește bine pe laptop.
 9. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
 
-Reguli:
+Reguli de lucru:
 - Nu inventa cifre. Fiecare cifră vine din ce ți-am dat sau e marcată „estimare”, cu calculul arătat.
 - Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” intră la „ce ar trebui să aflu înainte să decid”, nu se completează cu presupuneri.
 - Un vot CONDIȚIONAT nu se numără nici la DA, nici la NU.
-- Dacă toți sunt de acord după runda 1, nu te opri acolo: în runda 2, fiecare caută punctul cel mai slab al celorlalți. Dacă acordul rezistă și la runda asta, spune-mi explicit că a rezistat unui atac. Nu-l transforma în dezacord ca să pari riguros.</pre></div>
-<ol start="4">
-<li>După ce ai copiat toate detaliile, trimite mesajul.</li>
+- Dacă toți sunt de acord după runda 1, nu te opri acolo: în runda 2, fiecare caută punctul cel mai slab al celorlalți. Dacă acordul rezistă și la runda asta, spune-mi explicit că a rezistat unui atac. Nu-l transforma în dezacord ca să pari riguros.
+
+Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. În skill intră contextul meu din interviu (rolul meu și echipa, cum se iau deciziile la noi, constrângeri și non-negociabile, consiliul meu, de aflat data viitoare) și tot ce scrie după „skill-ul face exact ce scrie mai jos”, cum e scris. Regulile pentru interviu nu intră în skill. La prima utilizare, skill-ul pune pe rând întrebările de la DE AFLAT DATA VIITOARE și completează doar ce lipsește. La fiecare utilizare, cere decizia nouă, opțiunile și ce știu despre ea.
+
+Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p><strong>Unde încarci skill-ul</strong></p>
+<ul>
+<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit.</li>
+<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din fișierul ăsta”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
+<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
+<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
+<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
+</ul>
+<h5>Etapa 2 · Rulezi skill-ul</h5>
+<p>Deschide o conversație NOUĂ. Pe Gemini, deschizi Gem-ul; pe Copilot, agentul. Pregătește un singur mesaj:</p>
+<ol>
+<li>Copiază rândul de mai jos.</li>
+</ol>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p7">Copiază</button></div><pre class="mtx" id="p7">Pune decizia de mai jos în fața consiliului meu.</pre></div>
+<ol start="2">
+<li>Sub el, adaugă decizia, într-o propoziție, opțiunile pe care le vezi și ce știi despre ea, cu cifrele pe care le ai.</li>
+<li>Trimite mesajul. Pe Claude și pe ChatGPT, skill-ul pornește singur. La prima utilizare, îți pune întâi întrebările rămase de la DE AFLAT DATA VIITOARE.</li>
 </ol>
 <p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
 <h5>Etapa 3 · Verificarea</h5>
 <div class="note">
-<p><strong>Verifică înainte să salvezi skill-ul.</strong> Corectează întâi rezultatul: corecțiile din conversația asta intră în skill.</p>
+<p><strong>Verifică înainte să te încrezi.</strong> Ce corectezi în conversația asta intră în update-ul skill-ului, în etapa 4.</p>
 <ul>
 <li>Sliderele: valoarea de pornire a fiecăruia vine din ce i-ai dat. Dacă n-ai dat-o, lângă slider trebuie să scrie că e estimare, cu calculul. Mută un slider: cifra de lângă el trebuie să se schimbe.</li>
 <li>Voturile: un vot CONDIȚIONAT are o condiție concretă, pe care o poți verifica, și nu e numărat nici la DA, nici la NU.</li>
 <li>„Ce ar trebui să aflu înainte să decid”: lucruri care chiar lipsesc din ce i-ai dat, inclusiv cele de la „de aflat data viitoare”. Generalitățile nu se pun.</li>
 </ul>
-<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul. Abia apoi treci la etapa 4.</p>
+<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul.</p>
 </div>
-<h5>Etapa 4 · Skill-ul salvat</h5>
-<p>Salvezi modul de lucru, ca data viitoare să-i dai doar decizia.
-Copiază promptul în aceeași conversație în care ai construit și verificat output-ul:</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p8">Copiază</button></div><pre class="mtx" id="p8">Transformă modul de lucru verificat aici într-un skill pentru deciziile pe care le am de luat. Păstrează contextul meu stabil, consiliul, regulile de vot, formatul paginii și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește. La fiecare utilizare, cere decizia nouă, opțiunile și ce știu despre ea. Nu refolosi decizia, cifrele sau voturile din conversația de probă. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia. La final, spune-mi ce material îi dau de fiecare dată.</pre></div>
-<p><strong>Unde salvezi skill-ul</strong></p>
-<ul>
-<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit. Data viitoare, într-o conversație nouă, îi spui ce vrei și îi dai decizia. Skill-ul pornește singur.</li>
-<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din modul ăsta de lucru”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
-<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
-<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
-<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
-</ul>
+<h5>Etapa 4 · Update la skill, dacă e nevoie</h5>
+<p>Ai corectat ceva în etapa 3? Pune corecturile în skill, ca data viitoare rezultatul să iasă bine din prima. Dacă rezultatul a fost bun din prima, skill-ul tău e gata.
+Copiază promptul în aceeași conversație în care ai rulat și verificat skill-ul:</p>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p8">Copiază</button></div><pre class="mtx" id="p8">Actualizează skill-ul folosit în conversația asta cu corecturile pe care ți le-am dat aici. Păstrează tot ce a mers și schimbă doar ce am corectat. Nu adăuga în skill decizia, cifrele sau voturile de azi. Spune-mi în 3 rânduri ce ai schimbat. Dă-mi skill-ul actualizat ca fișier SKILL.md, cu același nume. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p>Înlocuiește skill-ul vechi cu fișierul nou, în locul în care l-ai încărcat în etapa 1. Pe Gemini, înlocuiești textul de la instrucțiunile Gem-ului. Dacă nu găsești cum se înlocuiește, șterge skill-ul vechi și încarcă-l pe cel nou.</p>
 <p>Verifică dacă merge: deschide o conversație nouă și dă-i altă decizie.</p></div></details></section>
 <section class="box" id="uc3"><div class="hd"><span class="num">3</span><h3>Simulatorul de conversații grele</h3></div><p>Repeți o discuție grea înainte s-o ai: AI-ul joacă rolul celuilalt, tu răspunzi ca în realitate. La final primești analiza: ce a mers, unde ai cedat și ce spui data viitoare.</p>
 <p><strong>Ce materiale trebuie să ai la îndemână:</strong> o discuție care te așteaptă (un feedback de dat, o negociere cu alt departament, o cerere către șef), ce vrei să obții din ea și ce știi despre celălalt: cum reacționează de obicei, ce îl interesează, ce obiecții ar putea avea. Nu folosi numele lui; rolul ajunge.</p><details class="var"><summary>Pe cont gratuit</summary><div class="vin"><p>Deschide o conversație nouă. Pe Claude, lucrează într-un Project. Răspunde-ți întâi la întrebările M.O.D.E.L. de la „Înainte să scrii în AI”. Completează parantezele pătrate și trimite. Simulatorul are două părți: întâi vorbești cu celălalt, replică cu replică, apoi scrii „analiză” și primești pagina.</p>
@@ -585,15 +585,15 @@ Când scriu „analiză”, ieși din rol și uită-te la conversație ca un coa
 <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă pagina.</p>
 </div></div></details><details class="var"><summary>Pe cont plătit</summary><div class="vin"><p>Lucrezi în 4 etape:</p>
 <ol>
-<li>asistentul te intervievează,</li>
-<li>construiește output-ul,</li>
-<li>o verifici,</li>
-<li>salvezi modul de lucru ca skill/asistent.</li>
+<li>asistentul te intervievează și îți scrie skill-ul V0,</li>
+<li>rulezi skill-ul pe taskul tău,</li>
+<li>verifici rezultatul,</li>
+<li>dacă e nevoie, faci update la skill.</li>
 </ol>
-<h5>Etapa 1 · Interviul</h5>
-<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie contextul pe baza căruia construiești în etapa 2.
+<h5>Etapa 1 · Skill-ul V0</h5>
+<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie skill-ul ca fișier SKILL.md.
 Nu știi un răspuns? Spune-i să sară peste întrebare.</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p10">Copiază</button></div><pre class="mtx" id="p10">Ești partenerul meu de repetiție pentru conversațiile grele. Înainte de prima repetiție, ai nevoie să mă cunoști.
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p10">Copiază</button></div><pre class="mtx" id="p10">Vreau să-mi construiești un skill pentru repetiția conversațiilor grele. Înainte să-l scrii, ai nevoie să mă cunoști.
 
 Pune-mi CEL MULT 5 întrebări, UNA CÂTE UNA, inclusiv eventualele clarificări. Urmează ordinea de mai jos; dacă o clarificare consumă o întrebare, mută ultima temă rămasă la DE AFLAT DATA VIITOARE.
 
@@ -608,28 +608,18 @@ Aștepți răspunsul meu înainte să treci la următoarea. Nu mi le da pe toate
 ÎNTREBĂRILE 3 și 4, le alegi tu:
 Pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să joci realist și să analizezi bine. Alege dintre: cum vreau să sun într-o conversație grea (direct, calm, cald, ferm) · ce nu cedez niciodată · cine sunt de obicei oamenii de pe partea cealaltă, ca roluri · cât de dur să fie simulatorul · după ce îmi dau seama că o conversație a mers bine.
 
-Nu mă întreba despre conversația care mă așteaptă acum sau despre omul cu care o am. Pe astea ți le dau în conversația următoare. Întreabă-mă DOAR ce nu poți afla de acolo.
+Nu mă întreba despre conversația care mă așteaptă acum sau despre omul cu care o am. Pe astea i le dau skill-ului de fiecare dată. Întreabă-mă DOAR ce nu poți afla de acolo.
 
 O SINGURĂ temă per întrebare. Ce nu încape în cele două întrebări trece la DE AFLAT DATA VIITOARE.
 
-Reguli:
+Reguli pentru interviu:
 - La răspunsuri vagi, cere-mi concretul: „uneori cedez” nu e un moment, „sunt direct” nu e o replică. Cere o precizare doar dacă informația e esențială și te încadrezi în cele 5 întrebări. Altfel marchează [nerăspuns] și continuă.
 - Pot spune „skip” la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
 - Nu-mi cere nume de oameni. Rolul ajunge.
 
-După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU, organizat pe cinci secțiuni: rolul meu și echipa / conversațiile grele pe care le am / unde îmi e greu / cum vreau să sun și ce nu cedez / de aflat data viitoare. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+După ultima întrebare, scrie skill-ul. De fiecare dată când îi dau o conversație grea care mă așteaptă, skill-ul face exact ce scrie mai jos.
 
-Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera. Dacă îți dau o completare după predare, spune-mi doar ce linie să adaug și în ce secțiune.
-
-Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat.</pre></div>
-<h5>Etapa 2 · Artefactul vizual</h5>
-<p>Deschide o conversație NOUĂ. Pregătește un singur mesaj, în ordinea asta:</p>
-<ol>
-<li>Copiază blocul CONTEXTUL MEU primit în etapa 1.</li>
-<li>Adaugă conversația care te așteaptă: despre ce e, ce vrei să obții și ce știi despre celălalt, fără numele lui.</li>
-<li>Sub ele, copiază promptul de generare:</li>
-</ol>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p11">Copiază</button></div><pre class="mtx" id="p11">Ești partenerul meu de repetiție. Joci rolul celuilalt din conversația de mai sus, ca s-o pot repeta înainte s-o am, apoi o analizezi.
+Joci rolul celuilalt din conversația pe care ți-o descriu, ca s-o pot repeta înainte s-o am, apoi o analizezi.
 
 Regula de aur: celălalt reacționează doar pe ce ți-am spus eu despre el. Unde nu știi cum ar reacționa, alegi reacția cea mai realistă pentru rolul lui și o notezi. Nu-i inventa replici din trecut, fapte sau intenții.
 
@@ -657,37 +647,49 @@ Cum arată pagina (citește tot punctul ăsta înainte să scrii o linie de cod)
 8. Se citește bine pe laptop.
 9. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
 
-Reguli:
+Reguli de lucru:
 - Nu inventa replici pe care nu le-am scris. Fiecare citat din pagină e copiat exact din repetiție.
 - Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” nu se completează cu presupuneri.
 - Analiza judecă replicile, nu omul. Fără etichete despre personalitatea mea sau a celuilalt.
-- Dacă repetiția a fost prea scurtă ca să tragi concluzii, spune-mi și propune-mi o a doua rundă.</pre></div>
-<ol start="4">
-<li>După ce ai copiat toate detaliile, trimite mesajul. Asistentul intră în rol și deschide conversația. Răspunzi replică cu replică, ca în realitate. Când vrei să te oprești, scrii „analiză”.</li>
-</ol>
-<p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
-<h5>Etapa 3 · Verificarea</h5>
-<div class="note">
-<p><strong>Verifică înainte să salvezi skill-ul.</strong> Corectează întâi rezultatul: corecțiile din conversația asta intră în skill.</p>
+- Dacă repetiția a fost prea scurtă ca să tragi concluzii, spune-mi și propune-mi o a doua rundă.
+
+Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. În skill intră contextul meu din interviu (rolul meu și echipa, conversațiile grele pe care le am, unde îmi e greu, cum vreau să sun și ce nu cedez, de aflat data viitoare) și tot ce scrie după „skill-ul face exact ce scrie mai jos”, cum e scris. Regulile pentru interviu nu intră în skill. La prima utilizare, skill-ul pune pe rând întrebările de la DE AFLAT DATA VIITOARE și completează doar ce lipsește. La fiecare utilizare, cere conversația nouă, ce vreau să obțin și ce știu despre celălalt.
+
+Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p><strong>Unde încarci skill-ul</strong></p>
 <ul>
-<li>Citatele: alege un punct de la UNDE AI CEDAT și caută replica în repetiție. Trebuie să fie exact ce ai scris.</li>
-<li>Celălalt: citește lista reacțiilor jucate fără să le știe de la tine. Dacă una nu e realistă pentru omul tău, spune-i cum ar reacționa de fapt.</li>
-<li>Replicile pentru data viitoare: citește-le cu voce tare. Trebuie să sune a tine, în stilul din contextul tău.</li>
-</ul>
-<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul. Abia apoi treci la etapa 4.</p>
-</div>
-<h5>Etapa 4 · Skill-ul salvat</h5>
-<p>Salvezi modul de lucru, ca data viitoare să-i dai doar conversația care te așteaptă.
-Copiază promptul în aceeași conversație în care ai construit și verificat output-ul:</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p12">Copiază</button></div><pre class="mtx" id="p12">Transformă modul de lucru verificat aici într-un skill pentru repetiția conversațiilor grele. Păstrează contextul meu stabil, regula de aur despre celălalt, felul în care joci rolul, formatul paginii de analiză și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește. La fiecare utilizare, cere conversația nouă, ce vreau să obțin și ce știu despre celălalt. Nu refolosi omul, replicile sau analiza din repetiția de probă. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia. La final, spune-mi ce material îi dau de fiecare dată.</pre></div>
-<p><strong>Unde salvezi skill-ul</strong></p>
-<ul>
-<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit. Data viitoare, într-o conversație nouă, îi spui ce vrei și îi dai conversația care te așteaptă. Skill-ul pornește singur.</li>
-<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din modul ăsta de lucru”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
+<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit.</li>
+<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din fișierul ăsta”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
 <li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
 <li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
 <li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
 </ul>
+<h5>Etapa 2 · Rulezi skill-ul</h5>
+<p>Deschide o conversație NOUĂ. Pe Gemini, deschizi Gem-ul; pe Copilot, agentul. Pregătește un singur mesaj:</p>
+<ol>
+<li>Copiază rândul de mai jos.</li>
+</ol>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p11">Copiază</button></div><pre class="mtx" id="p11">Vreau să repet conversația grea de mai jos.</pre></div>
+<ol start="2">
+<li>Sub el, adaugă conversația care te așteaptă: despre ce e, ce vrei să obții și ce știi despre celălalt, fără numele lui.</li>
+<li>Trimite mesajul. Pe Claude și pe ChatGPT, skill-ul pornește singur. La prima utilizare, îți pune întâi întrebările rămase de la DE AFLAT DATA VIITOARE. Asistentul intră în rol și deschide conversația. Răspunzi replică cu replică, ca în realitate. Când vrei să te oprești, scrii „analiză”.</li>
+</ol>
+<p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
+<h5>Etapa 3 · Verificarea</h5>
+<div class="note">
+<p><strong>Verifică înainte să te încrezi.</strong> Ce corectezi în conversația asta intră în update-ul skill-ului, în etapa 4.</p>
+<ul>
+<li>Citatele: alege un punct de la UNDE AI CEDAT și caută replica în repetiție. Trebuie să fie exact ce ai scris.</li>
+<li>Celălalt: citește lista reacțiilor jucate fără să le știe de la tine. Dacă una nu e realistă pentru omul tău, spune-i cum ar reacționa de fapt.</li>
+<li>Replicile pentru data viitoare: citește-le cu voce tare. Trebuie să sune a tine, în stilul descris în interviu.</li>
+</ul>
+<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul.</p>
+</div>
+<h5>Etapa 4 · Update la skill, dacă e nevoie</h5>
+<p>Ai corectat ceva în etapa 3? Pune corecturile în skill, ca data viitoare rezultatul să iasă bine din prima. Dacă rezultatul a fost bun din prima, skill-ul tău e gata.
+Copiază promptul în aceeași conversație în care ai rulat și verificat skill-ul:</p>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p12">Copiază</button></div><pre class="mtx" id="p12">Actualizează skill-ul folosit în conversația asta cu corecturile pe care ți le-am dat aici. Păstrează tot ce a mers și schimbă doar ce am corectat. Nu adăuga în skill omul, replicile sau analiza din repetiția de azi. Spune-mi în 3 rânduri ce ai schimbat. Dă-mi skill-ul actualizat ca fișier SKILL.md, cu același nume. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p>Înlocuiește skill-ul vechi cu fișierul nou, în locul în care l-ai încărcat în etapa 1. Pe Gemini, înlocuiești textul de la instrucțiunile Gem-ului. Dacă nu găsești cum se înlocuiește, șterge skill-ul vechi și încarcă-l pe cel nou.</p>
 <p>Verifică dacă merge: deschide o conversație nouă și dă-i altă conversație grea.</p></div></details></section>
 <section class="box" id="uc4"><div class="hd"><span class="num">4</span><h3>Temele din feedback</h3></div><p>Pui la un loc răspunsuri deschise dintr-un sondaj, comentarii de la clienți sau notițe din interviuri și vezi ce se repetă: temele, cât de des apar, citatele care le arată și ce merită făcut.</p>
 <p><strong>Ce materiale trebuie să ai la îndemână:</strong> răspunsurile deschise dintr-un sondaj, comentarii de la clienți sau notițele din câteva interviuri, ca text sau ca fișier. Scoate numele și orice detaliu după care se poate recunoaște cineva.</p><details class="var"><summary>Pe cont gratuit</summary><div class="vin"><p>Deschide o conversație nouă. Pe Claude, lucrează într-un Project. Răspunde-ți întâi la întrebările M.O.D.E.L. de la „Înainte să scrii în AI”. Completează parantezele pătrate, copiază răspunsurile la final și trimite. Poți și să atașezi fișierul cu răspunsuri, în limitele contului tău.</p>
@@ -719,15 +721,15 @@ Răspunsurile:
 <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă pagina.</p>
 </div></div></details><details class="var"><summary>Pe cont plătit</summary><div class="vin"><p>Lucrezi în 4 etape:</p>
 <ol>
-<li>asistentul te intervievează,</li>
-<li>construiește output-ul,</li>
-<li>o verifici,</li>
-<li>salvezi modul de lucru ca skill/asistent.</li>
+<li>asistentul te intervievează și îți scrie skill-ul V0,</li>
+<li>rulezi skill-ul pe taskul tău,</li>
+<li>verifici rezultatul,</li>
+<li>dacă e nevoie, faci update la skill.</li>
 </ol>
-<h5>Etapa 1 · Interviul</h5>
-<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie contextul pe baza căruia construiești în etapa 2.
+<h5>Etapa 1 · Skill-ul V0</h5>
+<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie skill-ul ca fișier SKILL.md.
 Nu știi un răspuns? Spune-i să sară peste întrebare.</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p14">Copiază</button></div><pre class="mtx" id="p14">Ești analistul meu pentru feedback. Înainte de prima analiză, ai nevoie să mă cunoști.
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p14">Copiază</button></div><pre class="mtx" id="p14">Vreau să-mi construiești un skill pentru analiza feedback-ului. Înainte să-l scrii, ai nevoie să mă cunoști.
 
 Pune-mi CEL MULT 5 întrebări, UNA CÂTE UNA, inclusiv eventualele clarificări. Urmează ordinea de mai jos; dacă o clarificare consumă o întrebare, mută ultima temă rămasă la DE AFLAT DATA VIITOARE.
 
@@ -742,27 +744,17 @@ Aștepți răspunsul meu înainte să treci la următoarea. Nu mi le da pe toate
 ÎNTREBĂRILE 3 și 4, le alegi tu:
 Pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să faci o analiză după care pot acționa. Alege dintre: cine mai citește analiza în afară de mine · ce poate schimba echipa mea și ce nu ține de noi · ce teme știu deja că apar, ca să le verifici separat · cum arată la noi o acțiune realistă după un sondaj · ce nu are voie să apară într-o analiză (nume, echipe mici în care oamenii se recunosc).
 
-Nu mă întreba ce scrie în feedback. Răspunsurile ți le dau în conversația următoare. Întreabă-mă DOAR ce nu poți afla de acolo.
+Nu mă întreba ce scrie în feedback. Răspunsurile i le dau skill-ului de fiecare dată. Întreabă-mă DOAR ce nu poți afla de acolo.
 
 O SINGURĂ temă per întrebare. Ce nu încape în cele două întrebări trece la DE AFLAT DATA VIITOARE.
 
-Reguli:
+Reguli pentru interviu:
 - La răspunsuri vagi, cere-mi concretul: „îmbunătățiri” nu e o decizie, „conducerea” nu e un cititor. Cere o precizare doar dacă informația e esențială și te încadrezi în cele 5 întrebări. Altfel marchează [nerăspuns] și continuă.
 - Pot spune „skip” la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
 
-După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU, organizat pe cinci secțiuni: rolul meu și echipa / ce feedback colectez și ce decid cu el / cine citește analiza / ce putem schimba și ce nu / de aflat data viitoare. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+După ultima întrebare, scrie skill-ul. De fiecare dată când îi dau răspunsurile dintr-un sondaj sau alt feedback, skill-ul face exact ce scrie mai jos.
 
-Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera. Dacă îți dau o completare după predare, spune-mi doar ce linie să adaug și în ce secțiune.
-
-Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat.</pre></div>
-<h5>Etapa 2 · Artefactul vizual</h5>
-<p>Deschide o conversație NOUĂ. Pregătește un singur mesaj, în ordinea asta:</p>
-<ol>
-<li>Copiază blocul CONTEXTUL MEU primit în etapa 1.</li>
-<li>Adaugă răspunsurile, fără nume, de unde vin, din ce perioadă și întrebarea la care au răspuns oamenii. Dacă ai, adaugă și temele pe care te aștepți să le găsești. Poți și să atașezi fișierul cu răspunsuri.</li>
-<li>Sub ele, copiază promptul de generare:</li>
-</ol>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p15">Copiază</button></div><pre class="mtx" id="p15">Ești analistul meu pentru feedback. Transformi răspunsurile de mai sus într-o pagină din care văd ce se repetă și ce merită făcut.
+Transformi răspunsurile pe care ți le dau într-o pagină din care văd ce se repetă și ce merită făcut.
 
 Regula de aur: o temă există doar dacă are răspunsuri în spate. Fiecare temă are numărul de răspunsuri care o menționează și citate copiate exact. Ce interpretezi tu se marchează ca interpretare.
 
@@ -770,7 +762,7 @@ Cum lucrezi, în ordinea asta:
 1. Citește toate răspunsurile înainte să grupezi ceva.
 2. Grupează-le pe teme. O temă are cel puțin 2 răspunsuri diferite. Un răspuns se numără o singură dată pe temă, chiar dacă o menționează de mai multe ori, dar poate intra la mai multe teme. La interviuri, un interviu e un răspuns.
 3. Numără răspunsurile pe fiecare temă. Numără, nu estima. Dacă sunt prea multe ca să le numeri sigur, spune-mi și marchează cifrele ca aproximative.
-4. Compară temele cu ce știam deja, din contextul meu sau din mesajul de mai sus: ce se confirmă, ce nu apare, ce e nou. Dacă nu ți-am spus ce mă așteptam să găsesc, sari peste comparație și scrie asta pe pagină.
+4. Compară temele cu ce știam deja, din contextul meu sau din mesajul cu răspunsurile: ce se confirmă, ce nu apare, ce e nou. Dacă nu ți-am spus ce mă așteptam să găsesc, sari peste comparație și scrie asta pe pagină.
 
 Construiește un singur fișier HTML, pe care să-l pot deschide în browser și arăta echipei:
 - sursa, sus, într-o linie: ce fel de feedback, câte răspunsuri, ce perioadă, întrebarea pusă. Ce nu ți-am dat apare ca „nespecificat”.
@@ -792,38 +784,50 @@ Cum arată pagina (citește tot punctul ăsta înainte să scrii o linie de cod)
 8. Se citește bine pe laptop.
 9. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
 
-Reguli:
+Reguli de lucru:
 - Niciun citat inventat, rescris sau „netezit”. Copiezi exact, cu greșelile de scriere cu tot.
 - Niciun nume și niciun detaliu după care se poate recunoaște cineva, nici în citate. Dacă un citat are un nume, îl înlocuiești cu [coleg] sau alegi alt citat.
 - Dai numărul de răspunsuri, nu doar procente.
 - Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” nu se completează cu presupuneri.
-- Dacă răspunsurile sunt prea puține ca să tragi concluzii, spune-mi deschis.</pre></div>
-<ol start="4">
-<li>După ce ai copiat toate detaliile, trimite mesajul.</li>
+- Dacă răspunsurile sunt prea puține ca să tragi concluzii, spune-mi deschis.
+
+Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. În skill intră contextul meu din interviu (rolul meu și echipa, ce feedback colectez și ce decid cu el, cine citește analiza, ce putem schimba și ce nu, de aflat data viitoare) și tot ce scrie după „skill-ul face exact ce scrie mai jos”, cum e scris. Regulile pentru interviu nu intră în skill. La prima utilizare, skill-ul pune pe rând întrebările de la DE AFLAT DATA VIITOARE și completează doar ce lipsește. La fiecare utilizare, cere răspunsurile noi, sursa lor și întrebarea pusă.
+
+Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p><strong>Unde încarci skill-ul</strong></p>
+<ul>
+<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit.</li>
+<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din fișierul ăsta”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
+<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
+<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
+<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
+</ul>
+<h5>Etapa 2 · Rulezi skill-ul</h5>
+<p>Deschide o conversație NOUĂ. Pe Gemini, deschizi Gem-ul; pe Copilot, agentul. Pregătește un singur mesaj:</p>
+<ol>
+<li>Copiază rândul de mai jos.</li>
+</ol>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p15">Copiază</button></div><pre class="mtx" id="p15">Fă-mi analiza feedback-ului de mai jos.</pre></div>
+<ol start="2">
+<li>Sub el, adaugă răspunsurile, fără nume, de unde vin, din ce perioadă și întrebarea la care au răspuns oamenii. Dacă ai, adaugă și temele pe care te aștepți să le găsești. Poți și să atașezi fișierul cu răspunsuri.</li>
+<li>Trimite mesajul. Pe Claude și pe ChatGPT, skill-ul pornește singur. La prima utilizare, îți pune întâi întrebările rămase de la DE AFLAT DATA VIITOARE.</li>
 </ol>
 <p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
 <h5>Etapa 3 · Verificarea</h5>
 <div class="note">
-<p><strong>Verifică înainte să salvezi skill-ul.</strong> Corectează întâi rezultatul: corecțiile din conversația asta intră în skill.</p>
+<p><strong>Verifică înainte să te încrezi.</strong> Ce corectezi în conversația asta intră în update-ul skill-ului, în etapa 4.</p>
 <ul>
 <li>Citatele: alege un citat și caută-l în răspunsurile tale. Trebuie să fie exact.</li>
 <li>Frecvența: alege o temă mică și numără tu răspunsurile care o menționează. Cifra din artefact trebuie să fie aceeași cu a ta. Dacă e marcată „aproximativ”, diferența trebuie să fie mică.</li>
 <li>Acțiunile: fiecare acțiune e legată de o temă din artefact și e ceva ce poate face echipa ta.</li>
 </ul>
-<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul. Abia apoi treci la etapa 4.</p>
+<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul.</p>
 </div>
-<h5>Etapa 4 · Skill-ul salvat</h5>
-<p>Salvezi modul de lucru, ca data viitoare să-i dai doar răspunsurile.
-Copiază promptul în aceeași conversație în care ai construit și verificat output-ul:</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p16">Copiază</button></div><pre class="mtx" id="p16">Transformă modul de lucru verificat aici într-un skill pentru analiza feedback-ului. Păstrează contextul meu stabil, regula de aur, regulile despre citate și nume, formatul paginii și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește. La fiecare utilizare, cere răspunsurile noi, sursa lor și întrebarea pusă. Nu refolosi temele, cifrele sau citatele din analiza de probă. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia. La final, spune-mi ce material îi dau de fiecare dată.</pre></div>
-<p><strong>Unde salvezi skill-ul</strong></p>
-<ul>
-<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit. Data viitoare, într-o conversație nouă, îi spui ce vrei și îi dai răspunsurile. Skill-ul pornește singur.</li>
-<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din modul ăsta de lucru”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
-<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
-<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
-<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
-</ul>
+<h5>Etapa 4 · Update la skill, dacă e nevoie</h5>
+<p>Ai corectat ceva în etapa 3? Pune corecturile în skill, ca data viitoare rezultatul să iasă bine din prima. Dacă rezultatul a fost bun din prima, skill-ul tău e gata.
+Copiază promptul în aceeași conversație în care ai rulat și verificat skill-ul:</p>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p16">Copiază</button></div><pre class="mtx" id="p16">Actualizează skill-ul folosit în conversația asta cu corecturile pe care ți le-am dat aici. Păstrează tot ce a mers și schimbă doar ce am corectat. Nu adăuga în skill temele, cifrele sau citatele din analiza de azi. Spune-mi în 3 rânduri ce ai schimbat. Dă-mi skill-ul actualizat ca fișier SKILL.md, cu același nume. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p>Înlocuiește skill-ul vechi cu fișierul nou, în locul în care l-ai încărcat în etapa 1. Pe Gemini, înlocuiești textul de la instrucțiunile Gem-ului. Dacă nu găsești cum se înlocuiește, șterge skill-ul vechi și încarcă-l pe cel nou.</p>
 <p>Verifică dacă merge: deschide o conversație nouă și dă-i răspunsurile altui sondaj.</p></div></details></section>
 <section class="box" id="uc5"><div class="hd"><span class="num">5</span><h3>Raportul de status din date</h3></div><p>Transformi un tabel cu cifre într-un tablou de bord de o pagină: unde ești față de țintă, ce stagnează și ce așteaptă o decizie de la tine.</p>
 <p><strong>Ce materiale trebuie să ai la îndemână:</strong> un tabel cu cifrele unui proiect sau ale unui indicator pe care îl urmărești (din Excel, ca text sau ca fișier), cu ținta, perioada și data ultimei actualizări. Ca să vezi ce stagnează, tabelul are nevoie de cifre lună cu lună sau de data ultimei mișcări. Dacă cifrele sunt confidențiale, lucrează în instrumentul aprobat de companie sau înlocuiește-le cu cifre de probă.</p><details class="var"><summary>Pe cont gratuit</summary><div class="vin"><p>Deschide o conversație nouă. Pe Claude, lucrează într-un Project. Răspunde-ți întâi la întrebările M.O.D.E.L. de la „Înainte să scrii în AI”. Completează parantezele pătrate, copiază tabelul la final și trimite. Poți și să atașezi fișierul, în limitele contului tău.</p>
@@ -855,15 +859,15 @@ Tabelul:
 <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă pagina.</p>
 </div></div></details><details class="var"><summary>Pe cont plătit</summary><div class="vin"><p>Lucrezi în 4 etape:</p>
 <ol>
-<li>asistentul te intervievează,</li>
-<li>construiește output-ul,</li>
-<li>o verifici,</li>
-<li>salvezi modul de lucru ca skill/asistent.</li>
+<li>asistentul te intervievează și îți scrie skill-ul V0,</li>
+<li>rulezi skill-ul pe taskul tău,</li>
+<li>verifici rezultatul,</li>
+<li>dacă e nevoie, faci update la skill.</li>
 </ol>
-<h5>Etapa 1 · Interviul</h5>
-<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie contextul pe baza căruia construiești în etapa 2.
+<h5>Etapa 1 · Skill-ul V0</h5>
+<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie skill-ul ca fișier SKILL.md.
 Nu știi un răspuns? Spune-i să sară peste întrebare.</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p18">Copiază</button></div><pre class="mtx" id="p18">Ești omul care îmi spune unde stau cu proiectele și indicatorii mei. Înainte de primul raport, ai nevoie să mă cunoști.
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p18">Copiază</button></div><pre class="mtx" id="p18">Vreau să-mi construiești un skill pentru raportul de status. Înainte să-l scrii, ai nevoie să mă cunoști.
 
 Pune-mi CEL MULT 5 întrebări, UNA CÂTE UNA, inclusiv eventualele clarificări. Urmează ordinea de mai jos; dacă o clarificare consumă o întrebare, mută ultima temă rămasă la DE AFLAT DATA VIITOARE.
 
@@ -878,27 +882,17 @@ Cere-mi cel mult trei lucruri pe care le urmăresc în rolul meu (un proiect, un
 ÎNTREBĂRILE 3 și 4, le alegi tu:
 Pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să scrii un raport după care știu ce fac săptămâna asta. Alege dintre: după câte săptămâni fără mișcare mă alarmez · cine mai citește raportul și ce caută în el · ce fel de decizii amân de obicei · cât de des raportez (săptămânal, lunar) · ce cifre vin cu întârziere sau nu sunt de încredere.
 
-Nu mă întreba cifrele de acum sau ce s-a întâmplat luna asta. Toate sunt în tabelul pe care ți-l dau în conversația următoare. Întreabă-mă DOAR ce nu poți afla de acolo.
+Nu mă întreba cifrele de acum sau ce s-a întâmplat luna asta. Toate sunt în tabelul pe care i-l dau skill-ului de fiecare dată. Întreabă-mă DOAR ce nu poți afla de acolo.
 
 O SINGURĂ temă per întrebare. Ce nu încape în cele două întrebări trece la DE AFLAT DATA VIITOARE.
 
-Reguli:
+Reguli pentru interviu:
 - La răspunsuri vagi, cere-mi concretul: „mai mult” nu e o cifră, „la anul” nu e un termen. Cere o precizare doar dacă informația e esențială și te încadrezi în cele 5 întrebări. Altfel marchează [nerăspuns] și continuă.
 - Pot spune „skip” la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
 
-După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU, organizat pe cinci secțiuni: rolul meu și echipa / ce urmăresc, cu ținte și termene / pragul de alarmă și ritmul raportării / cine citește raportul / de aflat data viitoare. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+După ultima întrebare, scrie skill-ul. De fiecare dată când îi dau tabelul cu cifrele, skill-ul face exact ce scrie mai jos.
 
-Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera. Dacă îți dau o completare după predare, spune-mi doar ce linie să adaug și în ce secțiune.
-
-Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat.</pre></div>
-<h5>Etapa 2 · Artefactul vizual</h5>
-<p>Deschide o conversație NOUĂ. Pregătește un singur mesaj, în ordinea asta:</p>
-<ol>
-<li>Copiază blocul CONTEXTUL MEU primit în etapa 1.</li>
-<li>Adaugă tabelul cu cifre, cu unitatea, perioada acoperită și data ultimei actualizări. Marchează estimările și ce nu știi. Scrie și ce așteaptă o decizie de la tine, dacă e ceva. Poți și să atașezi fișierul.</li>
-<li>Sub ele, copiază promptul de generare:</li>
-</ol>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p19">Copiază</button></div><pre class="mtx" id="p19">Ești omul care îmi spune unde stau cu proiectele și indicatorii mei. Citești tot ce ți-am dat mai sus și îmi predai un tablou de bord de o pagină.
+Citești tot ce ți-am dat și îmi predai un tablou de bord de o pagină.
 
 Regula de aur: fiecare cifră trebuie să poată fi urmărită până la datele primite sau la un calcul arătat. Păstrează distincte faptele, estimările și informațiile lipsă. Raportul trebuie să mă ajute să aleg ce fac mai departe.
 
@@ -922,39 +916,51 @@ Cum arată pagina (citește tot punctul ăsta înainte să scrii o linie de cod)
 8. Se citește bine pe laptop.
 9. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
 
-Reguli:
+Reguli de lucru:
 - Fiecare cifră din pagină vine din datele primite sau dintr-un calcul, cu formula lângă rezultat. Dacă indicatorul, unitatea sau perioada sunt neclare, marchează [DE CONFIRMAT] și omite comparația.
 - Pentru ținte care se adună în timp, cum sunt vânzările pe an, calculează „în ritm / sub ritm” doar până la ultima lună încheiată și etichetează calculul „reper liniar, fără ajustare pentru sezonalitate”. Arată separat luna în curs. Pentru procente sau alte ținte care nu se adună de la o lună la alta, compară valoarea cu ținta fără să împarți ținta la numărul de luni.
 - Ce e interpretarea ta se marchează („din ce mi-ai dat pare că…”), nu se scrie ca fapt.
 - Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” intră la „ce n-am putut evalua”, nu se completează cu presupuneri.
 - Fiecare acțiune spune concret ce propui și până când. Termenele propuse sunt recomandări, ca să le pot confirma.
-- Dacă datele sunt prea subțiri ca să scrii raportul, spune-mi deschis, predă ce se poate și listează ce ți-ar trebui data viitoare. Nu compensa golurile cu generalități.</pre></div>
-<ol start="4">
-<li>După ce ai copiat toate detaliile, trimite mesajul.</li>
+- Dacă datele sunt prea subțiri ca să scrii raportul, spune-mi deschis, predă ce se poate și listează ce ți-ar trebui data viitoare. Nu compensa golurile cu generalități.
+
+Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. În skill intră contextul meu din interviu (rolul meu și echipa, ce urmăresc, cu ținte și termene, pragul de alarmă și ritmul raportării, cine citește raportul, de aflat data viitoare) și tot ce scrie după „skill-ul face exact ce scrie mai jos”, cum e scris. Regulile pentru interviu nu intră în skill. La prima utilizare, skill-ul pune pe rând întrebările de la DE AFLAT DATA VIITOARE și completează doar ce lipsește. La fiecare raport, cere tabelul actualizat, data raportării și perioada acoperită; verifică dacă s-au schimbat țintele sau pragul de alarmă.
+
+Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p><strong>Unde încarci skill-ul</strong></p>
+<ul>
+<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit.</li>
+<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din fișierul ăsta”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
+<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
+<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
+<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
+</ul>
+<h5>Etapa 2 · Rulezi skill-ul</h5>
+<p>Deschide o conversație NOUĂ. Pe Gemini, deschizi Gem-ul; pe Copilot, agentul. Pregătește un singur mesaj:</p>
+<ol>
+<li>Copiază rândul de mai jos.</li>
+</ol>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p19">Copiază</button></div><pre class="mtx" id="p19">Fă-mi raportul de status din cifrele de mai jos.</pre></div>
+<ol start="2">
+<li>Sub el, adaugă tabelul cu cifre, cu unitatea, perioada acoperită și data ultimei actualizări. Marchează estimările și ce nu știi. Scrie și ce așteaptă o decizie de la tine, dacă e ceva. Poți și să atașezi fișierul.</li>
+<li>Trimite mesajul. Pe Claude și pe ChatGPT, skill-ul pornește singur. La prima utilizare, îți pune întâi întrebările rămase de la DE AFLAT DATA VIITOARE.</li>
 </ol>
 <p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
 <h5>Etapa 3 · Verificarea</h5>
 <div class="note">
-<p><strong>Verifică înainte să salvezi skill-ul.</strong> Corectează întâi rezultatul: corecțiile din conversația asta intră în skill.</p>
+<p><strong>Verifică înainte să te încrezi.</strong> Ce corectezi în conversația asta intră în update-ul skill-ului, în etapa 4.</p>
 <ul>
 <li>Cifrele: cifra de acum și ținta măsoară același lucru, în aceeași unitate. Calculul e vizibil, iar luna în curs apare separat de lunile încheiate.</li>
 <li>Stagnările: verifică data ultimei mișcări și pragul folosit. Dacă lipsesc, asistentul trebuie să spună că nu poate evalua stagnarea.</li>
 <li>Blocat pe tine: ce așteaptă o decizie de la tine stă la „așteaptă un DA sau un NU de la mine” și nu e pus pe seama altcuiva.</li>
 </ul>
-<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul. Abia apoi treci la etapa 4.</p>
+<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul.</p>
 </div>
-<h5>Etapa 4 · Skill-ul salvat</h5>
-<p>Salvezi modul de lucru, ca data viitoare să-i dai doar tabelul actualizat.
-Copiază promptul în aceeași conversație în care ai construit și verificat output-ul:</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p20">Copiază</button></div><pre class="mtx" id="p20">Transformă modul de lucru verificat aici într-un skill pentru raportul de status. Păstrează contextul meu stabil, țintele, pragul de alarmă dacă e cunoscut, regulile de calcul, formatul paginii și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește. La fiecare raport, cere tabelul actualizat, data raportării și perioada acoperită; verifică dacă s-au schimbat țintele sau pragul de alarmă. Nu folosi cifrele din raportul de probă ca situație curentă. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia. La final, spune-mi ce material îi dau de fiecare dată.</pre></div>
-<p><strong>Unde salvezi skill-ul</strong></p>
-<ul>
-<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit. Data viitoare, într-o conversație nouă, îi spui ce vrei și îi dai tabelul actualizat. Skill-ul pornește singur.</li>
-<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din modul ăsta de lucru”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
-<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
-<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
-<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
-</ul>
+<h5>Etapa 4 · Update la skill, dacă e nevoie</h5>
+<p>Ai corectat ceva în etapa 3? Pune corecturile în skill, ca data viitoare rezultatul să iasă bine din prima. Dacă rezultatul a fost bun din prima, skill-ul tău e gata.
+Copiază promptul în aceeași conversație în care ai rulat și verificat skill-ul:</p>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p20">Copiază</button></div><pre class="mtx" id="p20">Actualizează skill-ul folosit în conversația asta cu corecturile pe care ți le-am dat aici. Păstrează tot ce a mers și schimbă doar ce am corectat. Nu adăuga în skill cifrele din raportul de azi ca situație curentă. Spune-mi în 3 rânduri ce ai schimbat. Dă-mi skill-ul actualizat ca fișier SKILL.md, cu același nume. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p>Înlocuiește skill-ul vechi cu fișierul nou, în locul în care l-ai încărcat în etapa 1. Pe Gemini, înlocuiești textul de la instrucțiunile Gem-ului. Dacă nu găsești cum se înlocuiește, șterge skill-ul vechi și încarcă-l pe cel nou.</p>
 <p>Verifică dacă merge: deschide o conversație nouă și dă-i cifrele din altă lună.</p></div></details></section>
 <section class="box" id="uc6"><div class="hd"><span class="num">6</span><h3>Business case-ul intern</h3></div><p>Transformi notițele despre o inițiativă într-o pagină de business case pe care o poți pune în fața celui care aprobă: problema, soluția, costul, beneficiul, riscurile și ce ceri.</p>
 <p><strong>Ce materiale trebuie să ai la îndemână:</strong> notițele despre inițiativa pe care vrei s-o propui: ce problemă rezolvă, ce soluție ai în minte și cifrele pe care le ai (cost, ore, oameni, termene). Unde nu ai cifre, lasă locul gol; pagina îl marchează ca de confirmat. Dacă cifrele sunt confidențiale, anonimizează-le.</p><details class="var"><summary>Pe cont gratuit</summary><div class="vin"><p>Deschide o conversație nouă. Pe Claude, lucrează într-un Project. Răspunde-ți întâi la întrebările M.O.D.E.L. de la „Înainte să scrii în AI”. Completează parantezele pătrate, copiază notițele la final și trimite.</p>
@@ -986,15 +992,15 @@ Notițele și cifrele mele:
 <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă pagina.</p>
 </div></div></details><details class="var"><summary>Pe cont plătit</summary><div class="vin"><p>Lucrezi în 4 etape:</p>
 <ol>
-<li>asistentul te intervievează,</li>
-<li>construiește output-ul,</li>
-<li>o verifici,</li>
-<li>salvezi modul de lucru ca skill/asistent.</li>
+<li>asistentul te intervievează și îți scrie skill-ul V0,</li>
+<li>rulezi skill-ul pe taskul tău,</li>
+<li>verifici rezultatul,</li>
+<li>dacă e nevoie, faci update la skill.</li>
 </ol>
-<h5>Etapa 1 · Interviul</h5>
-<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie contextul pe baza căruia construiești în etapa 2.
+<h5>Etapa 1 · Skill-ul V0</h5>
+<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie skill-ul ca fișier SKILL.md.
 Nu știi un răspuns? Spune-i să sară peste întrebare.</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p22">Copiază</button></div><pre class="mtx" id="p22">Ești omul care îmi pregătește propunerile interne. Înainte de primul business case, ai nevoie să mă cunoști.
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p22">Copiază</button></div><pre class="mtx" id="p22">Vreau să-mi construiești un skill pentru business case-uri interne. Înainte să-l scrii, ai nevoie să mă cunoști.
 
 Pune-mi CEL MULT 5 întrebări, UNA CÂTE UNA, inclusiv eventualele clarificări. Urmează ordinea de mai jos; dacă o clarificare consumă o întrebare, mută ultima temă rămasă la DE AFLAT DATA VIITOARE.
 
@@ -1009,27 +1015,17 @@ Aștepți răspunsul meu înainte să treci la următoarea. Nu mi le da pe toate
 ÎNTREBĂRILE 3 și 4, le alegi tu:
 Pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să scrii un business case care trece. Alege dintre: cum arată la noi un business case aprobat (lungime, format, ce trebuie să conțină) · ce obiecții primesc de obicei · ce costuri se socotesc la noi (doar bani sau și orele oamenilor) · ce pot cere fără aprobare · o propunere de-a mea care n-a trecut, și de ce.
 
-Nu mă întreba despre inițiativa pe care o propun acum. Notițele și cifrele ți le dau în conversația următoare. Întreabă-mă DOAR ce nu poți afla de acolo.
+Nu mă întreba despre inițiativa pe care o propun acum. Notițele și cifrele i le dau skill-ului de fiecare dată. Întreabă-mă DOAR ce nu poți afla de acolo.
 
 O SINGURĂ temă per întrebare. Ce nu încape în cele două întrebări trece la DE AFLAT DATA VIITOARE.
 
-Reguli:
+Reguli pentru interviu:
 - La răspunsuri vagi, cere-mi concretul: „conducerea” nu e un om care aprobă, „să fie ieftin” nu e un prag. Cere o precizare doar dacă informația e esențială și te încadrezi în cele 5 întrebări. Altfel marchează [nerăspuns] și continuă.
 - Pot spune „skip” la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
 
-După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU, organizat pe cinci secțiuni: rolul meu și echipa / cine aprobă și după ce criterii / cum arată o propunere care trece la noi / obiecțiile obișnuite / de aflat data viitoare. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+După ultima întrebare, scrie skill-ul. De fiecare dată când îi dau notițele despre o inițiativă, skill-ul face exact ce scrie mai jos.
 
-Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera. Dacă îți dau o completare după predare, spune-mi doar ce linie să adaug și în ce secțiune.
-
-Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat.</pre></div>
-<h5>Etapa 2 · Artefactul vizual</h5>
-<p>Deschide o conversație NOUĂ. Pregătește un singur mesaj, în ordinea asta:</p>
-<ol>
-<li>Copiază blocul CONTEXTUL MEU primit în etapa 1.</li>
-<li>Adaugă notițele despre inițiativă și cifrele pe care le ai, cu titlul NOTIȚELE MELE.</li>
-<li>Sub ele, copiază promptul de generare:</li>
-</ol>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p23">Copiază</button></div><pre class="mtx" id="p23">Ești omul care îmi pregătește propunerile interne. Transformi notițele de mai sus într-un business case pe care îl pot pune în fața celui care aprobă, după ce verific câteva puncte.
+Transformi notițele pe care ți le dau într-un business case pe care îl pot pune în fața celui care aprobă, după ce verific câteva puncte.
 
 Regula de aur: folosești doar cifrele din notițele mele și calculele făcute din ele. Marchează cu [DE CONFIRMAT] fiecare informație lipsă. Un business case cu trei goluri cinstite trece de prima întrebare; unul cu trei presupuneri frumoase cade la ea.
 
@@ -1071,37 +1067,49 @@ Cum arată pagina (citește tot punctul ăsta înainte să scrii o linie de cod)
 8. Se citește bine pe laptop și se printează curat, fără documentul de lucru.
 9. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
 
-Reguli:
+Reguli de lucru:
 - Nicio cifră inventată. Unde nu există, câmpul rămâne gol, cu [DE CONFIRMAT]. Nu estima în locul meu, nici măcar ca interval.
 - Beneficiul nu promite economii, rezultate sau garanții care nu reies din notițe.
 - Nu micșora costul ca să pară mai ușor de aprobat. Ce s-ar putea tăia scrii la întrebările celui care aprobă; decizia e a mea.
-- Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” nu se completează cu presupuneri.</pre></div>
-<ol start="4">
-<li>După ce ai copiat toate detaliile, trimite mesajul.</li>
+- Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” nu se completează cu presupuneri.
+
+Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. În skill intră contextul meu din interviu (rolul meu și echipa, cine aprobă și după ce criterii, cum arată o propunere care trece la noi, obiecțiile obișnuite, de aflat data viitoare) și tot ce scrie după „skill-ul face exact ce scrie mai jos”, cum e scris. Regulile pentru interviu nu intră în skill. La prima utilizare, skill-ul pune pe rând întrebările de la DE AFLAT DATA VIITOARE și completează doar ce lipsește. La fiecare utilizare, cere notițele noii inițiative și cifrele ei.
+
+Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p><strong>Unde încarci skill-ul</strong></p>
+<ul>
+<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit.</li>
+<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din fișierul ăsta”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
+<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
+<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
+<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
+</ul>
+<h5>Etapa 2 · Rulezi skill-ul</h5>
+<p>Deschide o conversație NOUĂ. Pe Gemini, deschizi Gem-ul; pe Copilot, agentul. Pregătește un singur mesaj:</p>
+<ol>
+<li>Copiază rândul de mai jos.</li>
+</ol>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p23">Copiază</button></div><pre class="mtx" id="p23">Fă-mi business case-ul pentru inițiativa de mai jos.</pre></div>
+<ol start="2">
+<li>Sub el, adaugă notițele despre inițiativă și cifrele pe care le ai, cu titlul NOTIȚELE MELE.</li>
+<li>Trimite mesajul. Pe Claude și pe ChatGPT, skill-ul pornește singur. La prima utilizare, îți pune întâi întrebările rămase de la DE AFLAT DATA VIITOARE.</li>
 </ol>
 <p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
 <h5>Etapa 3 · Verificarea</h5>
 <div class="note">
-<p><strong>Verifică înainte să salvezi skill-ul.</strong> Corectează întâi rezultatul: corecțiile din conversația asta intră în skill.</p>
+<p><strong>Verifică înainte să te încrezi.</strong> Ce corectezi în conversația asta intră în update-ul skill-ului, în etapa 4.</p>
 <ul>
 <li>Cifrele: refă cu calculatorul un total din artefact. Fiecare cifră vine din notițele tale sau dintr-un calcul arătat, făcut cu cifrele din notițe; unde n-ai dat-o, câmpul e gol, cu [DE CONFIRMAT], fără interval estimat.</li>
 <li>Beneficiul: fiecare beneficiu are în spate ceva din notițele tale. Ce sună bine, dar n-ai spus, e inventat.</li>
 <li>Întrebările celui care aprobă: sunt cele pe care le-ar pune chiar omul tău. Generalitățile nu se pun.</li>
 </ul>
-<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul. Abia apoi treci la etapa 4.</p>
+<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul.</p>
 </div>
-<h5>Etapa 4 · Skill-ul salvat</h5>
-<p>Salvezi modul de lucru, ca data viitoare să-i dai doar notițele noii inițiative.
-Copiază promptul în aceeași conversație în care ai construit și verificat output-ul:</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p24">Copiază</button></div><pre class="mtx" id="p24">Transformă modul de lucru verificat aici într-un skill pentru business case-uri interne. Păstrează contextul meu stabil, regulile despre cifre și promisiuni, structura business case-ului, documentul de lucru, formatul paginii și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește. La fiecare utilizare, cere notițele noii inițiative și cifrele ei. Nu refolosi inițiativa, cifrele sau riscurile din business case-ul de probă. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia. La final, spune-mi ce material îi dau de fiecare dată.</pre></div>
-<p><strong>Unde salvezi skill-ul</strong></p>
-<ul>
-<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit. Data viitoare, într-o conversație nouă, îi spui ce vrei și îi dai notițele inițiativei. Skill-ul pornește singur.</li>
-<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din modul ăsta de lucru”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
-<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
-<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
-<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
-</ul>
+<h5>Etapa 4 · Update la skill, dacă e nevoie</h5>
+<p>Ai corectat ceva în etapa 3? Pune corecturile în skill, ca data viitoare rezultatul să iasă bine din prima. Dacă rezultatul a fost bun din prima, skill-ul tău e gata.
+Copiază promptul în aceeași conversație în care ai rulat și verificat skill-ul:</p>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p24">Copiază</button></div><pre class="mtx" id="p24">Actualizează skill-ul folosit în conversația asta cu corecturile pe care ți le-am dat aici. Păstrează tot ce a mers și schimbă doar ce am corectat. Nu adăuga în skill inițiativa, cifrele sau riscurile din business case-ul de azi. Spune-mi în 3 rânduri ce ai schimbat. Dă-mi skill-ul actualizat ca fișier SKILL.md, cu același nume. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p>Înlocuiește skill-ul vechi cu fișierul nou, în locul în care l-ai încărcat în etapa 1. Pe Gemini, înlocuiești textul de la instrucțiunile Gem-ului. Dacă nu găsești cum se înlocuiește, șterge skill-ul vechi și încarcă-l pe cel nou.</p>
 <p>Verifică dacă merge: deschide o conversație nouă și dă-i notițele altei inițiative.</p></div></details></section>
 <section class="box" id="uc7"><div class="hd"><span class="num">7</span><h3>Prezentarea din brief</h3></div><p>Pornești de la un brief sau de la notițe și primești firul prezentării și textul fiecărui slide, gata de pus în template-ul companiei.</p>
 <p><strong>Ce materiale trebuie să ai la îndemână:</strong> brief-ul sau notițele pentru o prezentare pe care o ai de ținut, plus cine e publicul, cât timp ai și ce vrei să decidă sau să facă publicul la final.</p><details class="var"><summary>Pe cont gratuit</summary><div class="vin"><p>Deschide o conversație nouă. Pe Claude, lucrează într-un Project. Răspunde-ți întâi la întrebările M.O.D.E.L. de la „Înainte să scrii în AI”. Completează parantezele pătrate, copiază brief-ul la final și trimite. Poți și să atașezi fișierul brief-ului, în limitele contului tău.</p>
@@ -1133,15 +1141,15 @@ Brief-ul sau notițele:
 <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă pagina.</p>
 </div></div></details><details class="var"><summary>Pe cont plătit</summary><div class="vin"><p>Lucrezi în 4 etape:</p>
 <ol>
-<li>asistentul te intervievează,</li>
-<li>construiește output-ul,</li>
-<li>o verifici,</li>
-<li>salvezi modul de lucru ca skill/asistent.</li>
+<li>asistentul te intervievează și îți scrie skill-ul V0,</li>
+<li>rulezi skill-ul pe taskul tău,</li>
+<li>verifici rezultatul,</li>
+<li>dacă e nevoie, faci update la skill.</li>
 </ol>
-<h5>Etapa 1 · Interviul</h5>
-<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie contextul pe baza căruia construiești în etapa 2.
+<h5>Etapa 1 · Skill-ul V0</h5>
+<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie skill-ul ca fișier SKILL.md.
 Nu știi un răspuns? Spune-i să sară peste întrebare.</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p26">Copiază</button></div><pre class="mtx" id="p26">Ești omul care îmi construiește prezentările. Înainte de prima prezentare, ai nevoie să mă cunoști.
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p26">Copiază</button></div><pre class="mtx" id="p26">Vreau să-mi construiești un skill pentru prezentări construite din brief. Înainte să-l scrii, ai nevoie să mă cunoști.
 
 Pune-mi CEL MULT 5 întrebări, UNA CÂTE UNA, inclusiv eventualele clarificări. Urmează ordinea de mai jos; dacă o clarificare consumă o întrebare, mută ultima temă rămasă la DE AFLAT DATA VIITOARE.
 
@@ -1156,27 +1164,17 @@ Aștepți răspunsul meu înainte să treci la următoarea. Nu mi le da pe toate
 ÎNTREBĂRILE 3 și 4, le alegi tu:
 Pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să scrii o prezentare pe care aș ține-o fără s-o rescriu. Alege dintre: regulile template-ului companiei (cuvinte pe slide, structură obligatorie) · cum prezint eu (cu mult text sau cu puțin, cu povești sau cu cifre) · ce întrebări primesc mereu de la publicul meu · ce nu merge niciodată la publicul meu.
 
-Nu mă întreba despre prezentarea de acum. Brief-ul, publicul de data asta și timpul ți le dau în conversația următoare. Întreabă-mă DOAR ce nu poți afla de acolo.
+Nu mă întreba despre prezentarea de acum. Brief-ul, publicul de data asta și timpul i le dau skill-ului de fiecare dată. Întreabă-mă DOAR ce nu poți afla de acolo.
 
 O SINGURĂ temă per întrebare. Ce nu încape în cele două întrebări trece la DE AFLAT DATA VIITOARE.
 
-Reguli:
+Reguli pentru interviu:
 - La răspunsuri vagi, cere-mi concretul: „puțin text” nu e o regulă, „conducerea” nu e un public. Cere o precizare doar dacă informația e esențială și te încadrezi în cele 5 întrebări. Altfel marchează [nerăspuns] și continuă.
 - Pot spune „skip” la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
 
-După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU, organizat pe cinci secțiuni: rolul meu și echipa / cui prezint și ce vreau de la ei / regulile template-ului / stilul meu de prezentare / de aflat data viitoare. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+După ultima întrebare, scrie skill-ul. De fiecare dată când îi dau un brief sau notițele pentru o prezentare, skill-ul face exact ce scrie mai jos.
 
-Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera. Dacă îți dau o completare după predare, spune-mi doar ce linie să adaug și în ce secțiune.
-
-Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat.</pre></div>
-<h5>Etapa 2 · Artefactul vizual</h5>
-<p>Deschide o conversație NOUĂ. Pregătește un singur mesaj, în ordinea asta:</p>
-<ol>
-<li>Copiază blocul CONTEXTUL MEU primit în etapa 1.</li>
-<li>Adaugă brief-ul sau notițele, plus publicul de data asta, timpul pe care îl ai și ce vrei să decidă la final. Poți și să atașezi fișierul brief-ului.</li>
-<li>Sub ele, copiază promptul de generare:</li>
-</ol>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p27">Copiază</button></div><pre class="mtx" id="p27">Ești omul care îmi construiește prezentările. Transformi brief-ul de mai sus în firul prezentării și textul fiecărui slide, gata de copiat în template-ul companiei.
+Transformi brief-ul pe care ți-l dau în firul prezentării și textul fiecărui slide, gata de copiat în template-ul companiei.
 
 Regula de aur: fiecare titlu spune mesajul slide-ului, nu tema lui. „Costurile au crescut în ultimele 3 luni” e un titlu; „Costuri” nu e. Nicio cifră, niciun exemplu și niciun studiu care nu e în brief.
 
@@ -1205,38 +1203,50 @@ Cum arată pagina (citește tot punctul ăsta înainte să scrii o linie de cod)
 8. Se citește bine pe laptop.
 9. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
 
-Reguli:
+Reguli de lucru:
 - Unde ar trebui o cifră, un exemplu sau o sursă pe care brief-ul nu le are, pune [DE COMPLETAT]. Nu completa cu „un studiu recent arată”.
 - Respectă limitele template-ului din contextul meu. Dacă un slide nu încape, împarte-l în două; nu micșora textul.
 - Ultimul slide cere publicului o singură decizie sau acțiune, cea din brief.
 - Interzis pe slide-uri: „soluție inovatoare”, „transformare”, „sinergie”, liniuța lungă, construcția „nu doar X, ci și Y”.
-- Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” nu se completează cu presupuneri.</pre></div>
-<ol start="4">
-<li>După ce ai copiat toate detaliile, trimite mesajul.</li>
+- Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” nu se completează cu presupuneri.
+
+Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. În skill intră contextul meu din interviu (rolul meu și echipa, cui prezint și ce vreau de la ei, regulile template-ului, stilul meu de prezentare, de aflat data viitoare) și tot ce scrie după „skill-ul face exact ce scrie mai jos”, cum e scris. Regulile pentru interviu nu intră în skill. La prima utilizare, skill-ul pune pe rând întrebările de la DE AFLAT DATA VIITOARE și completează doar ce lipsește. La fiecare utilizare, cere brief-ul nou, publicul, timpul și ce vreau la final.
+
+Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p><strong>Unde încarci skill-ul</strong></p>
+<ul>
+<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit.</li>
+<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din fișierul ăsta”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
+<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
+<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
+<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
+</ul>
+<h5>Etapa 2 · Rulezi skill-ul</h5>
+<p>Deschide o conversație NOUĂ. Pe Gemini, deschizi Gem-ul; pe Copilot, agentul. Pregătește un singur mesaj:</p>
+<ol>
+<li>Copiază rândul de mai jos.</li>
+</ol>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p27">Copiază</button></div><pre class="mtx" id="p27">Fă-mi prezentarea din brief-ul de mai jos.</pre></div>
+<ol start="2">
+<li>Sub el, adaugă brief-ul sau notițele, plus publicul de data asta, timpul pe care îl ai și ce vrei să decidă la final. Poți și să atașezi fișierul brief-ului.</li>
+<li>Trimite mesajul. Pe Claude și pe ChatGPT, skill-ul pornește singur. La prima utilizare, îți pune întâi întrebările rămase de la DE AFLAT DATA VIITOARE.</li>
 </ol>
 <p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
 <h5>Etapa 3 · Verificarea</h5>
 <div class="note">
-<p><strong>Verifică înainte să salvezi skill-ul.</strong> Corectează întâi rezultatul: corecțiile din conversația asta intră în skill.</p>
+<p><strong>Verifică înainte să te încrezi.</strong> Ce corectezi în conversația asta intră în update-ul skill-ului, în etapa 4.</p>
 <ul>
 <li>Titlurile: citește doar titlurile, în ordine. Spun povestea, iar fiecare spune un mesaj, nu o temă.</li>
 <li>Cifrele și exemplele: alege una și caut-o în brief. Ce nu e acolo apare cu [DE COMPLETAT].</li>
 <li>Întrebările din sală: sunt cele pe care le pune chiar publicul tău. Ce apare „neacoperit” merită un slide sau un răspuns pregătit.</li>
 </ul>
-<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul. Abia apoi treci la etapa 4.</p>
+<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul.</p>
 </div>
-<h5>Etapa 4 · Skill-ul salvat</h5>
-<p>Salvezi modul de lucru, ca data viitoare să-i dai doar brief-ul.
-Copiază promptul în aceeași conversație în care ai construit și verificat output-ul:</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p28">Copiază</button></div><pre class="mtx" id="p28">Transformă modul de lucru verificat aici într-un skill pentru prezentări construite din brief. Păstrează contextul meu stabil, regula de aur despre titluri, limitele template-ului, stilul meu de prezentare, formatul paginii și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește. La fiecare utilizare, cere brief-ul nou, publicul, timpul și ce vreau la final. Nu refolosi subiectul, cifrele sau slide-urile din prezentarea de probă. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia. La final, spune-mi ce material îi dau de fiecare dată.</pre></div>
-<p><strong>Unde salvezi skill-ul</strong></p>
-<ul>
-<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit. Data viitoare, într-o conversație nouă, îi spui ce vrei și îi dai brief-ul. Skill-ul pornește singur.</li>
-<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din modul ăsta de lucru”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
-<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
-<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
-<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
-</ul>
+<h5>Etapa 4 · Update la skill, dacă e nevoie</h5>
+<p>Ai corectat ceva în etapa 3? Pune corecturile în skill, ca data viitoare rezultatul să iasă bine din prima. Dacă rezultatul a fost bun din prima, skill-ul tău e gata.
+Copiază promptul în aceeași conversație în care ai rulat și verificat skill-ul:</p>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p28">Copiază</button></div><pre class="mtx" id="p28">Actualizează skill-ul folosit în conversația asta cu corecturile pe care ți le-am dat aici. Păstrează tot ce a mers și schimbă doar ce am corectat. Nu adăuga în skill subiectul, cifrele sau slide-urile din prezentarea de azi. Spune-mi în 3 rânduri ce ai schimbat. Dă-mi skill-ul actualizat ca fișier SKILL.md, cu același nume. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p>Înlocuiește skill-ul vechi cu fișierul nou, în locul în care l-ai încărcat în etapa 1. Pe Gemini, înlocuiești textul de la instrucțiunile Gem-ului. Dacă nu găsești cum se înlocuiește, șterge skill-ul vechi și încarcă-l pe cel nou.</p>
 <p>Verifică dacă merge: deschide o conversație nouă și dă-i brief-ul altei prezentări.</p></div></details></section>
 <section class="box" id="uc8"><div class="hd"><span class="num">8</span><h3>Ghidul de voce pentru comunicările interne</h3></div><p>Din 3-5 texte scrise de tine sau de echipa ta, AI-ul scoate regulile după care scrieți: tonul, frazele, ce nu spuneți niciodată. Primești ghidul de voce și un text nou scris după el.</p>
 <p><strong>Ce materiale trebuie să ai la îndemână:</strong> 3-5 texte scrise de tine sau de echipa ta: anunțuri interne, emailuri către echipă, un newsletter intern. Alege texte scrise de voi, nu trecute prin AI: altfel ghidul învață vocea AI-ului. Și subiectul unui text nou pe care îl ai de scris.</p><details class="var"><summary>Pe cont gratuit</summary><div class="vin"><p>Deschide o conversație nouă. Pe Claude, lucrează într-un Project. Răspunde-ți întâi la întrebările M.O.D.E.L. de la „Înainte să scrii în AI”. Completează parantezele pătrate, copiază textele la final și trimite.</p>
@@ -1268,15 +1278,15 @@ Textele mele:
 <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă pagina.</p>
 </div></div></details><details class="var"><summary>Pe cont plătit</summary><div class="vin"><p>Lucrezi în 4 etape:</p>
 <ol>
-<li>asistentul te intervievează,</li>
-<li>construiește output-ul,</li>
-<li>o verifici,</li>
-<li>salvezi modul de lucru ca skill/asistent.</li>
+<li>asistentul te intervievează și îți scrie skill-ul V0,</li>
+<li>rulezi skill-ul pe taskul tău,</li>
+<li>verifici rezultatul,</li>
+<li>faci update la skill, cu ghidul scos azi.</li>
 </ol>
-<h5>Etapa 1 · Interviul</h5>
-<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie contextul pe baza căruia construiești în etapa 2.
+<h5>Etapa 1 · Skill-ul V0</h5>
+<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie skill-ul ca fișier SKILL.md.
 Nu știi un răspuns? Spune-i să sară peste întrebare.</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p30">Copiază</button></div><pre class="mtx" id="p30">Ești consultantul meu de voce pentru comunicările interne. Înainte să scrii ghidul, ai nevoie să mă cunoști.
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p30">Copiază</button></div><pre class="mtx" id="p30">Vreau să-mi construiești un skill pentru comunicările interne scrise în vocea noastră. Înainte să-l scrii, ai nevoie să mă cunoști.
 
 Pune-mi CEL MULT 5 întrebări, UNA CÂTE UNA, inclusiv eventualele clarificări. Urmează ordinea de mai jos; dacă o clarificare consumă o întrebare, mută ultima temă rămasă la DE AFLAT DATA VIITOARE.
 
@@ -1291,28 +1301,17 @@ Aștepți răspunsul meu înainte să treci la următoarea. Nu mi le da pe toate
 ÎNTREBĂRILE 3 și 4, le alegi tu:
 Pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să scrii un ghid după care textele sună a noi. Alege dintre: cum vreau să sune comunicările noastre, cu o propoziție care sună exact așa · ce mă enervează la textele de corporație · regulile impuse de companie (tu sau dumneavoastră, limbă, brand) · ce cuvinte nu folosim niciodată · ce limite de lungime avem pe fiecare canal.
 
-Nu-mi cere încă textele și nu mă întreba despre textul nou. Ți le dau în conversația următoare. Întreabă-mă DOAR ce nu poți afla de acolo.
+Nu-mi cere încă textele și nu mă întreba despre textul nou. I le dau skill-ului de fiecare dată. Întreabă-mă DOAR ce nu poți afla de acolo.
 
 O SINGURĂ temă per întrebare. Ce nu încape în cele două întrebări trece la DE AFLAT DATA VIITOARE.
 
-Reguli:
+Reguli pentru interviu:
 - La răspunsuri vagi, cere-mi concretul: la „scriem direct”, cere-mi o propoziție pe care chiar am scris-o și care arată asta. Cere o precizare doar dacă informația e esențială și te încadrezi în cele 5 întrebări. Altfel marchează [nerăspuns] și continuă.
 - Pot spune „skip” la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
 
-După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU, organizat pe cinci secțiuni: rolul meu și echipa / ce scriem și pentru cine / cum vreau să sune / reguli impuse și cuvinte interzise / de aflat data viitoare. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+După ultima întrebare, scrie skill-ul. De fiecare dată când îi dau textele noastre și subiectul unui text nou, skill-ul face exact ce scrie mai jos.
 
-Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera. Dacă îți dau o completare după predare, spune-mi doar ce linie să adaug și în ce secțiune.
-
-Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat.</pre></div>
-<h5>Etapa 2 · Artefactul vizual</h5>
-<p>Deschide o conversație NOUĂ. Pregătește un singur mesaj, în ordinea asta:</p>
-<ol>
-<li>Copiază blocul CONTEXTUL MEU primit în etapa 1.</li>
-<li>Adaugă 3-5 texte scrise de tine sau de echipa ta, fiecare cu titlul TEXTUL 1, TEXTUL 2 și așa mai departe. Alege texte scrise de voi, nu trecute prin AI.</li>
-<li>Adaugă subiectul textului nou, cu titlul TEXTUL NOU, și ce trebuie să afle cititorii.</li>
-<li>Sub ele, copiază promptul de generare:</li>
-</ol>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p31">Copiază</button></div><pre class="mtx" id="p31">Ești consultantul meu de voce pentru comunicările interne. Din textele de mai sus scoți ghidul după care scriem, apoi scrii textul nou după el.
+Din textele pe care ți le dau scoți ghidul după care scriem, apoi scrii textul nou după el.
 
 Regula de aur: fiecare regulă din ghid are în spate un citat exact din textele mele. O regulă fără citat e o preferință de-a ta, nu vocea noastră. Excepție face „ce nu spunem niciodată”: regula vine din contextul meu sau din ce lipsește din toate textele. Scrie lângă ea de unde vine; ce vine din lipsă e marcat „de confirmat”. Ce interpretezi tu se marchează ca interpretare.
 
@@ -1340,37 +1339,50 @@ Cum arată pagina (citește tot punctul ăsta înainte să scrii o linie de cod)
 8. Se citește bine pe laptop.
 9. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
 
-Reguli:
+Reguli de lucru:
 - Niciun citat inventat sau rescris. Copiezi exact din textele mele.
 - Textul nou nu conține cifre, nume sau evenimente pe care nu ți le-am dat. Ce lipsește primește [DE COMPLETAT].
 - Niciun cuvânt din „ce nu spunem niciodată” nu apare în textul nou.
-- Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” nu se completează cu presupuneri.</pre></div>
-<ol start="5">
-<li>După ce ai copiat toate detaliile, trimite mesajul.</li>
+- Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” nu se completează cu presupuneri.
+
+Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. În skill intră contextul meu din interviu (rolul meu și echipa, ce scriem și pentru cine, cum vreau să sune, reguli impuse și cuvinte interzise, de aflat data viitoare) și tot ce scrie după „skill-ul face exact ce scrie mai jos”, cum e scris. Regulile pentru interviu nu intră în skill. La prima utilizare, skill-ul pune pe rând și întrebările de la DE AFLAT DATA VIITOARE și completează doar ce lipsește. La prima utilizare, cere 3-5 texte scrise de mine sau de echipa mea, subiectul textului nou și ce trebuie să afle cititorii. După ce ghidul e scris în skill, cere doar subiectul și ce trebuie să afle cititorii, apoi scrie textul direct în conversație; pagina cu ghidul se reface doar când îți cer să actualizezi ghidul.
+
+Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p><strong>Unde încarci skill-ul</strong></p>
+<ul>
+<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit.</li>
+<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din fișierul ăsta”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
+<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
+<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
+<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
+</ul>
+<h5>Etapa 2 · Rulezi skill-ul</h5>
+<p>Deschide o conversație NOUĂ. Pe Gemini, deschizi Gem-ul; pe Copilot, agentul. Pregătește un singur mesaj:</p>
+<ol>
+<li>Copiază rândul de mai jos.</li>
+</ol>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p31">Copiază</button></div><pre class="mtx" id="p31">Scoate ghidul de voce din textele de mai jos și scrie textul nou după el.</pre></div>
+<ol start="2">
+<li>Sub el, adaugă 3-5 texte scrise de tine sau de echipa ta, fiecare cu titlul TEXTUL 1, TEXTUL 2 și așa mai departe. Alege texte scrise de voi, nu trecute prin AI.</li>
+<li>Adaugă subiectul textului nou, cu titlul TEXTUL NOU, și ce trebuie să afle cititorii.</li>
+<li>Trimite mesajul. Pe Claude și pe ChatGPT, skill-ul pornește singur. La prima utilizare, îți pune întâi întrebările rămase de la DE AFLAT DATA VIITOARE.</li>
 </ol>
 <p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
 <h5>Etapa 3 · Verificarea</h5>
 <div class="note">
-<p><strong>Verifică înainte să salvezi skill-ul.</strong> Corectează întâi rezultatul: corecțiile din conversația asta intră în skill.</p>
+<p><strong>Verifică înainte să te încrezi.</strong> Ce corectezi în conversația asta intră în update-ul skill-ului, în etapa 4.</p>
 <ul>
 <li>Citatele: alege o regulă și caută citatul ei în textele tale. Trebuie să fie exact.</li>
 <li>Textul nou: citește-l cu voce tare. Dacă ar trebui rescris mult, spune-i ce sună fals; corecția intră în ghid.</li>
 <li>Ce nu spunem niciodată: niciun cuvânt de acolo nu apare în textul nou.</li>
 </ul>
-<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul. Abia apoi treci la etapa 4.</p>
+<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul.</p>
 </div>
-<h5>Etapa 4 · Skill-ul salvat</h5>
-<p>Salvezi modul de lucru, ca data viitoare să-i dai doar subiectul textului nou.
-Copiază promptul în aceeași conversație în care ai construit și verificat output-ul:</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p32">Copiază</button></div><pre class="mtx" id="p32">Transformă modul de lucru verificat aici într-un skill pentru comunicările interne scrise în vocea noastră. Păstrează contextul meu stabil, ghidul de voce cu citatele lui, regulile despre fapte și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește. La fiecare utilizare, cere subiectul textului nou și ce trebuie să afle cititorii, apoi scrie textul direct în conversație; pagina cu ghidul se reface doar când îți cer să actualizezi ghidul. Nu refolosi subiectul sau textul de probă. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia. La final, spune-mi ce material îi dau de fiecare dată.</pre></div>
-<p><strong>Unde salvezi skill-ul</strong></p>
-<ul>
-<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit. Data viitoare, într-o conversație nouă, îi spui ce vrei și îi dai subiectul textului nou. Skill-ul pornește singur.</li>
-<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din modul ăsta de lucru”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
-<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
-<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
-<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
-</ul>
+<h5>Etapa 4 · Update la skill</h5>
+<p>La ghidul de voce, faci update-ul oricum: așa ghidul scos azi rămâne în skill, iar data viitoare îi dai doar subiectul textului nou. Dacă ai corectat ceva în etapa 3, corecturile intră în același update.
+Copiază promptul în aceeași conversație în care ai rulat și verificat skill-ul:</p>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p32">Copiază</button></div><pre class="mtx" id="p32">Actualizează skill-ul folosit în conversația asta cu corecturile pe care ți le-am dat aici. Păstrează tot ce a mers și schimbă doar ce am corectat. Adaugă în skill ghidul de voce scos azi, cu citatele lui, ca data viitoare să-ți dau doar subiectul textului nou. Nu adăuga în skill subiectul sau textul de azi. Spune-mi în 3 rânduri ce ai schimbat. Dă-mi skill-ul actualizat ca fișier SKILL.md, cu același nume. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p>Înlocuiește skill-ul vechi cu fișierul nou, în locul în care l-ai încărcat în etapa 1. Pe Gemini, înlocuiești textul de la instrucțiunile Gem-ului. Dacă nu găsești cum se înlocuiește, șterge skill-ul vechi și încarcă-l pe cel nou.</p>
 <p>Verifică dacă merge: deschide o conversație nouă și spune-i să scrie un text pe alt subiect.</p></div></details></section>
 <section class="box" id="uc9"><div class="hd"><span class="num">9</span><h3>Planul de schimbare</h3></div><p>Pregătești echipa pentru o schimbare care vine peste ea: cine e afectat, ce pierde fiecare, ce câștigă, pașii pentru primele 30 de zile și mesajul către echipă.</p>
 <p><strong>Ce materiale trebuie să ai la îndemână:</strong> schimbarea care vine peste echipa ta (un proces nou, un instrument nou): ce se schimbă, de când și cine a decis. Și ce știi despre oamenii afectați: rolul fiecăruia, ce face azi în activitatea care se schimbă și cum a reacționat până acum. Folosește doar rolul sau o etichetă („Colegul 1”), fără nume.</p><details class="var"><summary>Pe cont gratuit</summary><div class="vin"><p>Deschide o conversație nouă. Pe Claude, lucrează într-un Project. Răspunde-ți întâi la întrebările M.O.D.E.L. de la „Înainte să scrii în AI”. Completează parantezele pătrate și trimite.</p>
@@ -1400,15 +1412,15 @@ Construiește pagina ca fișier HTML. Sus: schimbarea într-o propoziție. Stand
 <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă pagina.</p>
 </div></div></details><details class="var"><summary>Pe cont plătit</summary><div class="vin"><p>Lucrezi în 4 etape:</p>
 <ol>
-<li>asistentul te intervievează,</li>
-<li>construiește output-ul,</li>
-<li>o verifici,</li>
-<li>salvezi modul de lucru ca skill/asistent.</li>
+<li>asistentul te intervievează și îți scrie skill-ul V0,</li>
+<li>rulezi skill-ul pe taskul tău,</li>
+<li>verifici rezultatul,</li>
+<li>dacă e nevoie, faci update la skill.</li>
 </ol>
-<h5>Etapa 1 · Interviul</h5>
-<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie contextul pe baza căruia construiești în etapa 2.
+<h5>Etapa 1 · Skill-ul V0</h5>
+<p>Deschide o conversație nouă și copiază promptul de mai jos. Asistentul îți pune cel mult 5 întrebări, apoi îți scrie skill-ul ca fișier SKILL.md.
 Nu știi un răspuns? Spune-i să sară peste întrebare.</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p34">Copiază</button></div><pre class="mtx" id="p34">Ești consultantul meu pentru managementul schimbării. Înainte de primul plan, ai nevoie să știi cum arată echipa mea și cum trecem prin schimbări.
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p34">Copiază</button></div><pre class="mtx" id="p34">Vreau să-mi construiești un skill pentru planificarea unei schimbări în echipă. Înainte să-l scrii, ai nevoie să știi cum arată echipa mea și cum trecem prin schimbări.
 
 Pune-mi CEL MULT 5 întrebări, UNA CÂTE UNA, inclusiv eventualele clarificări. Urmează ordinea de mai jos; dacă o clarificare consumă o întrebare, mută ultima temă rămasă la DE AFLAT DATA VIITOARE.
 
@@ -1423,29 +1435,18 @@ Cere-mi, într-un singur răspuns, oamenii din echipa mea: pentru fiecare, rolul
 ÎNTREBĂRILE 3 și 4, le alegi tu:
 Pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să faci un plan pe care îl pot pune în practică. Alege dintre: cum au reacționat oamenii la schimbările de până acum · ce pot decide eu și ce vine decis de sus · câte ore am realist pe săptămână pentru o schimbare · pe ce canal vorbesc cu echipa despre schimbări (ședință, email, discuții unu la unu) · o schimbare de până acum care n-a prins, și de ce.
 
-Nu mă întreba despre schimbarea de acum. Ce se schimbă, de când și cum a reacționat fiecare la ea ți le dau în conversația următoare. Întreabă-mă DOAR ce nu poți afla de acolo.
+Nu mă întreba despre schimbarea de acum. Ce se schimbă, de când și cum a reacționat fiecare la ea i le dau skill-ului de fiecare dată. Întreabă-mă DOAR ce nu poți afla de acolo.
 
 O SINGURĂ temă per întrebare. Ce nu încape în cele două întrebări trece la DE AFLAT DATA VIITOARE.
 
-Reguli:
+Reguli pentru interviu:
 - La răspunsuri vagi, cere-mi concretul: „echipa” nu e un om, „nu le place” nu e o replică. Cere o precizare doar dacă informația e esențială și te încadrezi în cele 5 întrebări. Altfel marchează [nerăspuns] și continuă.
 - Pot spune „skip” la orice întrebare. O marchezi [nerăspuns] și treci mai departe, fără insistență.
 - Despre oameni nu deduci nimic: ce n-am spus eu despre un om trece la DE AFLAT DATA VIITOARE.
 
-După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL MEU, organizat pe cinci secțiuni: rolul meu și echipa / oamenii din echipă / cum trecem prin schimbări / ce decid eu și ce vine decis / de aflat data viitoare. Maximum 300 de cuvinte. Scrie-l ca să îl pot copia întreg în altă conversație.
+După ultima întrebare, scrie skill-ul. De fiecare dată când îi dau o schimbare care vine peste echipă, skill-ul face exact ce scrie mai jos.
 
-Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l mai regenera. Dacă îți dau o completare după predare, spune-mi doar ce linie să adaug și în ce secțiune.
-
-Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat.</pre></div>
-<h5>Etapa 2 · Artefactul vizual</h5>
-<p>Deschide o conversație NOUĂ. Pregătește un singur mesaj, în ordinea asta:</p>
-<ol>
-<li>Copiază blocul CONTEXTUL MEU primit în etapa 1.</li>
-<li>Adaugă schimbarea: ce se schimbă, de când, cine a decis și ce e deja decis.</li>
-<li>Adaugă, pentru fiecare om afectat, ce știi despre reacția lui la schimbarea asta. Dacă nu știi, scrie „nu știu”.</li>
-<li>Sub ele, copiază promptul de generare:</li>
-</ol>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p35">Copiază</button></div><pre class="mtx" id="p35">Ești consultantul meu pentru managementul schimbării. O schimbare vine peste echipa mea, cea de mai sus, și vreau să-mi duc oamenii prin ea fără să-i pierd pe drum.
+O schimbare vine peste echipa mea și vreau să-mi duc oamenii prin ea fără să-i pierd pe drum.
 
 Cum lucrezi, în ordinea asta:
 
@@ -1453,7 +1454,7 @@ Cum lucrezi, în ordinea asta:
    - ce se schimbă concret în munca lui;
    - ce pierde: un obicei, o responsabilitate, ceva la care se pricepea, timp;
    - ce câștigă, formulat ca propunere de verificat cu el;
-   - ce îngrijorări a exprimat deja, din ce scrie mai sus;
+   - ce îngrijorări a exprimat deja, din ce ți-am scris despre el;
    - ce trebuie să aflu de la el direct, înainte să pornesc.
    Separă observațiile mele de propunerile tale. Dacă reacția unui om nu e cunoscută, scrie „de aflat”; nu-i atribui o teamă sau un entuziasm pe baza rolului ori a vechimii.
 2. Propune un prim câștig pe care echipa să-l poată observa în două săptămâni. Explică de ce merită început cu el și de ce depinde.
@@ -1482,38 +1483,51 @@ Cum arată pagina (citește tot punctul ăsta înainte să scrii o linie de cod)
 8. Se citește bine pe laptop.
 9. La final, uită-te la pagină și scoate un element. Aproape sigur e unul în plus.
 
-Reguli:
+Reguli de lucru:
 - Nu inventa oameni, replici, temeri sau cifre. Lucrezi doar pe ce ți-am dat. Ce nu știi despre un om intră la „ce trebuie să afli de la el”, nu se completează cu presupuneri.
 - Ce e deja decis rămâne decis. Nu apare în plan ca opțiune sau ca ceva de negociat cu echipa.
 - Dacă un pas din plan ar pune date personale ale oamenilor sau date confidențiale ale companiei într-o unealtă AI, spune-mi explicit, lângă el.
 - Ce e marcat [nerăspuns] în contextul meu sau ce e la „de aflat data viitoare” intră la „ce trebuie să afli”, nu se completează cu presupuneri.
-- Nu propui evaluarea oamenilor după cât de repede adoptă schimbarea.</pre></div>
-<ol start="5">
-<li>După ce ai copiat toate detaliile, trimite mesajul.</li>
+- Nu propui evaluarea oamenilor după cât de repede adoptă schimbarea.
+
+Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. În skill intră contextul meu din interviu (rolul meu și echipa, oamenii din echipă, cum trecem prin schimbări, ce decid eu și ce vine decis, de aflat data viitoare) și tot ce scrie după „skill-ul face exact ce scrie mai jos”, cum e scris. Regulile pentru interviu nu intră în skill. La prima utilizare, skill-ul pune pe rând întrebările de la DE AFLAT DATA VIITOARE și completează doar ce lipsește. La fiecare plan nou, cere schimbarea și informațiile actualizate despre oamenii afectați.
+
+Folosește doar informațiile primite de la mine. Ce deduci tu apare separat, ca ipoteză de verificat. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p><strong>Unde încarci skill-ul</strong></p>
+<ul>
+<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit.</li>
+<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din fișierul ăsta”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
+<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
+<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
+<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
+</ul>
+<h5>Etapa 2 · Rulezi skill-ul</h5>
+<p>Deschide o conversație NOUĂ. Pe Gemini, deschizi Gem-ul; pe Copilot, agentul. Pregătește un singur mesaj:</p>
+<ol>
+<li>Copiază rândul de mai jos.</li>
+</ol>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p35">Copiază</button></div><pre class="mtx" id="p35">Fă-mi planul pentru schimbarea de mai jos.</pre></div>
+<ol start="2">
+<li>Sub el, adaugă schimbarea: ce se schimbă, de când, cine a decis și ce e deja decis.</li>
+<li>Adaugă, pentru fiecare om afectat, ce știi despre reacția lui la schimbarea asta. Dacă nu știi, scrie „nu știu”.</li>
+<li>Trimite mesajul. Pe Claude și pe ChatGPT, skill-ul pornește singur. La prima utilizare, îți pune întâi întrebările rămase de la DE AFLAT DATA VIITOARE.</li>
 </ol>
 <p><strong>Unde apare artefactul:</strong> la fel ca pe contul gratuit (vezi „Unde apare rezultatul”).</p>
 <h5>Etapa 3 · Verificarea</h5>
 <div class="note">
-<p><strong>Verifică înainte să salvezi skill-ul.</strong> Corectează întâi rezultatul: corecțiile din conversația asta intră în skill.</p>
+<p><strong>Verifică înainte să te încrezi.</strong> Ce corectezi în conversația asta intră în update-ul skill-ului, în etapa 4.</p>
 <ul>
 <li>Un om: verifică observația pe care se bazează reacția lui de pe hartă. Dacă n-ai spus cum a reacționat, trebuie să apară la „Reacție de aflat”.</li>
 <li>Ce e deja decis: nu apare în plan ca opțiune.</li>
 <li>Modul echipă: apasă butonul și treci mouse-ul peste elemente. Trebuie să vezi doar lista neutră, fără reacții individuale, citate sau întrebări despre persoane.</li>
 </ul>
-<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul. Abia apoi treci la etapa 4.</p>
+<p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă artefactul.</p>
 </div>
-<h5>Etapa 4 · Skill-ul salvat</h5>
-<p>Salvezi modul de lucru, ca data viitoare să-i dai doar schimbarea nouă și ce știi despre oameni.
-Copiază promptul în aceeași conversație în care ai construit și verificat output-ul:</p>
-<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p36">Copiază</button></div><pre class="mtx" id="p36">Transformă modul de lucru verificat aici într-un skill pentru planificarea unei schimbări în echipă. Păstrează contextul meu stabil, regulile despre oameni, decizii și date sensibile, butonul „Mod echipă”, formatul paginii și corecțiile făcute în conversație. La prima utilizare, pune pe rând întrebările din „de aflat data viitoare” și completează doar ce lipsește. La fiecare plan nou, cere schimbarea și informațiile actualizate despre oamenii afectați. Nu prelua reacțiile sau planul de probă ca fapte actuale. Lasă pe dinafară elementele decorative fără rol în analiză, inclusiv mascotele. Scrie skill-ul ca fișier SKILL.md: sus numele și o descriere de 2 rânduri care spune când se folosește, dedesubt instrucțiunile complete. Dă-mi fișierul de descărcat. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia. La final, spune-mi ce material îi dau de fiecare dată.</pre></div>
-<p><strong>Unde salvezi skill-ul</strong></p>
-<ul>
-<li><strong>Claude:</strong> în contul tău, la Customize → Skills, încarci fișierul primit. Data viitoare, într-o conversație nouă, îi spui ce vrei și îi dai schimbarea nouă. Skill-ul pornește singur.</li>
-<li><strong>ChatGPT:</strong> dacă în contul tău apare secțiunea Skills, merge ca la Claude. În bara din stânga alegi Plugins, apoi tab-ul Skills. Apeși Create, apoi Upload from your computer, și încarci fișierul. Mai simplu: îi spui direct în conversație „Creează un skill din modul ăsta de lucru”, iar el te duce până la instalare. Dacă secțiunea Skills nu apare, păstrează fișierul și copiază textul lui la începutul unei conversații noi, de fiecare dată când ai nevoie.</li>
-<li><strong>Gemini:</strong> fă un Gem nou și copiază la instrucțiuni textul din fișier. Din noiembrie, Gems devin Skills.</li>
-<li><strong>Copilot:</strong> dacă licența companiei permite agenți, fă un agent nou și încarcă în el fișierul skill-ului.</li>
-<li><strong>Dacă nu merge, pe Claude sau pe ChatGPT:</strong> atașează fișierul într-o conversație și întreabă-l cum îl salvezi ca skill.</li>
-</ul>
+<h5>Etapa 4 · Update la skill, dacă e nevoie</h5>
+<p>Ai corectat ceva în etapa 3? Pune corecturile în skill, ca data viitoare rezultatul să iasă bine din prima. Dacă rezultatul a fost bun din prima, skill-ul tău e gata.
+Copiază promptul în aceeași conversație în care ai rulat și verificat skill-ul:</p>
+<div class="mat"><div class="ph"><span>Prompt</span><button class="btn sm" data-copy="p36">Copiază</button></div><pre class="mtx" id="p36">Actualizează skill-ul folosit în conversația asta cu corecturile pe care ți le-am dat aici. Păstrează tot ce a mers și schimbă doar ce am corectat. Nu adăuga în skill reacțiile sau planul de azi ca fapte actuale. Spune-mi în 3 rânduri ce ai schimbat. Dă-mi skill-ul actualizat ca fișier SKILL.md, cu același nume. Dacă nu poți crea fișiere, dă-mi textul complet într-un singur bloc, ca să-l pot copia.</pre></div>
+<p>Înlocuiește skill-ul vechi cu fișierul nou, în locul în care l-ai încărcat în etapa 1. Pe Gemini, înlocuiești textul de la instrucțiunile Gem-ului. Dacă nu găsești cum se înlocuiește, șterge skill-ul vechi și încarcă-l pe cel nou.</p>
 <p>Verifică dacă merge: deschide o conversație nouă și dă-i altă schimbare.</p></div></details></section>
 </main>
 
