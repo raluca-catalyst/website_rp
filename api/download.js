@@ -157,7 +157,7 @@ const RESOURCES = {
         bodyHtml: `
       <p>${salut}</p>
       <p>Felicitări pentru că te-ai înscris pe lista de așteptare pentru <strong>Build Your Cortex</strong>! Iată mai jos detaliile de care ai nevoie acum.</p>
-      <p><strong>Când:</strong> 14 ianuarie 2027, de la 9:30 la 17:30. Momentan, data este doar o estimare și urmează să vin cu o confirmare clară până la final de noiembrie.<br>
+      <p><strong>Când:</strong> 28 ianuarie 2027, de la 9:30 la 17:30. Momentan, data este doar o estimare și urmează să vin cu o confirmare clară până la final de noiembrie.<br>
       <strong>Unde:</strong> București. Locul exact urmează să fie confirmat odată cu data.<br>
       <strong>Investiția:</strong> 1.337 lei.</p>
       <p>Pentru că te-ai înscris pe lista de așteptare, vei afla primul când se deschid înscrierile. Locurile sunt limitate și se ocupă în ordinea efectuării plăților.</p>
