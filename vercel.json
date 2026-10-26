@@ -37,6 +37,7 @@
     { "source": "/blueprint", "destination": "/blueprint.html" },
     { "source": "/lectia-5", "destination": "/lectia-5.html" },
     { "source": "/lectia-6", "destination": "/lectia-6.html" },
+    { "source": "/lectia-9", "destination": "/lectia-9.html" },
     { "source": "/ai-action-lab", "destination": "/ai-action-lab.html" }
   ],
   "headers": [
