@@ -10,7 +10,7 @@
 <!--
   Construită cu skill-ul fisa-lucru-raluca, din pagina L6 golită 1:1. Textul-sursă: pagina-l9-text.md.
   Build: python C:/Users/keimy/.claude/skills/fisa-lucru-raluca/scripts/build.py pagina-l9.template.html
-  Stilul blueprint-ului de pe ralucapaduraru.ro, 2 teme. Fără câmpuri de completat: participanții scriu direct în AI și în blueprint. O descărcare: template-ul de business case.
+  Stilul blueprint-ului de pe ralucapaduraru.ro, 2 teme. Fără câmpuri de completat: participanții scriu direct în AI și în blueprint. O descărcare: template-ul de business case, PDF cu câmpuri (/downloads/business-case-l9.pdf, construit cu l9-business-case/build-business-case-pdf.py).
 -->
 <script>
 /* TEMA: pornește după setarea laptopului; alegerea se ține minte. Aceeași cheie ca la L5, ca alegerea de acolo să rămână. */
@@ -230,7 +230,7 @@
       <li>4-5 KPI care arată impactul transformării tale;</li>
       <li>3 întrebări grele de la board, cu răspunsurile tale.</li>
     </ol>
-    <p>Acasă, le pui pe amândouă într-un business case pe o pagină.</p>
+    <p>Acasă, le pui pe amândouă într-un business case de o pagină.</p>
     <div class="themebox noprint"><button data-theme-choice="light">Temă light</button><button data-theme-choice="dark">Temă dark</button></div>
   </div>
 </header>
@@ -241,7 +241,7 @@
   <nav class="nav">
     <button class="navbtn active" data-go="p1"><span class="nt">1 · Alege-ți KPI-ii</span><span class="no">Obiectiv: 4-5 KPI în Secțiunea 9, cel puțin unul pe fiecare nivel al scării, cu unde te afli azi și unde vrei să ajungi peste 12 luni.</span><span class="ns">Pornești de la procesul pe care l-ai reproiectat la tema din Secțiunea 7.</span></button>
     <button class="navbtn" data-go="p2"><span class="nt">2 · Repetă cu AI întrebarea cea mai grea</span><span class="no">Obiectiv: 3 întrebări grele de la board, cu răspunsurile tale.</span><span class="ns">Acum că ai KPI-ii, îi aperi în fața membrului de board care ți-a pus cea mai grea întrebare la simulare.</span></button>
-    <button class="navbtn" data-go="p3"><span class="nt">3 · Business case-ul, acasă</span><span class="no">Obiectiv: business case-ul pentru inițiativa principală, pe template, cu tot ce lipsește marcat [DE CONFIRMAT].</span><span class="ns">Acum că ai KPI-ii și răspunsurile la întrebările grele, le pui pe o singură pagină pentru board.</span></button>
+    <button class="navbtn" data-go="p3"><span class="nt">3 · Homework: Construiește business case-ul</span><span class="no">Obiectiv: business case-ul pentru inițiativa principală, pe template, cu tot ce lipsește marcat [DE CONFIRMAT].</span><span class="ns">Acum că ai KPI-ii și răspunsurile la întrebările grele, le pui pe o singură pagină pentru board.</span></button>
   </nav>
 </div>
 
@@ -285,14 +285,6 @@
           <li><strong>răspunsurile tale din Secțiunea 7 a blueprint-ului</strong>, copiate la finalul promptului, în locul textului [copiază aici răspunsurile din Secțiunea 7].</li>
         </ol>
 
-        <h4>Cum arată mesajul înainte de send</h4>
-        <div class="msgex">
-          <div class="mtx">Vreau să aleg KPI-ii pentru transformarea pe care o propun în HR. [...]
-Procesul meu reproiectat:
-<mark>Onboarding-ul noilor angajați. Azi: 12 activități, 60 de zile până la autonomie, documentele cerute de mai multe ori. Reproiectat cu AI: formularele și conturile se fac automat, prezentarea companiei e personalizată, buddy-ul rămâne uman.</mark></div>
-          <p class="exlbl">Exemplu. Procesul e inventat.</p>
-        </div>
-
         <h4>Promptul de KPI candidați</h4>
         <div class="mat"><div class="mh"><div class="mtx" id="pk">Vreau să aleg KPI-ii pentru transformarea pe care o propun în HR. Mai jos e procesul meu reproiectat cu AI.
 
@@ -309,6 +301,15 @@ Nu-mi cere nume, date de contact sau alte informații care identifică oameni.
 
 Procesul meu reproiectat:
 [copiază aici răspunsurile din Secțiunea 7]</div><div class="btns"><button class="btn sm" data-copy="pk">Copiază</button></div></div></div>
+
+        <h4>Exemplu: mesajul completat, gata de trimis</h4>
+        <div class="msgex">
+          <p class="exlbl" style="margin:0 0 8px">Promptul e scurtat. Cu violet e ce scrii tu.</p>
+          <div class="mtx">Vreau să aleg KPI-ii pentru transformarea pe care o propun în HR. [...]
+Procesul meu reproiectat:
+<mark>Onboarding-ul noilor angajați. Azi: 12 activități, 60 de zile până la autonomie, documentele cerute de mai multe ori. Reproiectat cu AI: formularele și conturile se fac automat, prezentarea companiei e personalizată, buddy-ul rămâne uman.</mark></div>
+          <p class="exlbl">Procesul e inventat.</p>
+        </div>
         <div class="note"><p>Regula din prima lecție rămâne: date anonimizate, nimic care identifică un om.</p></div>
       </div>
     </details>
@@ -320,25 +321,14 @@ Procesul meu reproiectat:
   <!-- 2 · REPETIȚIA CU AI -->
   <section class="box a2" id="p2">
     <div class="hd"><span class="num">2</span><h3>Repetă cu AI întrebarea cea mai grea</h3></div>
-    <p>AI-ul joacă rolul membrului de board care ți-a pus cea mai grea întrebare la simularea boardului. El întreabă, tu răspunzi. Răspunsurile sunt ale tale.</p>
+    <p>AI-ul joacă rolul membrului de board care ți-a pus cea mai grea întrebare la simularea boardului. El întreabă, tu răspunzi.</p>
 
     <h4>Mesajul pe care-l trimiți către AI va include 3 părți</h4>
     <ol class="bul">
       <li><strong>promptul de mai jos;</strong></li>
-      <li><strong>cine a pus întrebarea și întrebarea</strong>, scrise în locul textelor [CEO / CFO / membrul independent] și [scrie aici întrebarea];</li>
+      <li><strong>cine a pus întrebarea și întrebarea propriu-zisă</strong>, scrise în locul textelor [CEO / CFO / membrul independent] și [scrie aici întrebarea];</li>
       <li><strong>KPI-ii tăi din Secțiunea 9</strong>, copiați la final, în locul textului [copiază aici KPI-ii din Secțiunea 9].</li>
     </ol>
-
-    <h4>Cum arată mesajul înainte de send</h4>
-    <div class="msgex">
-      <div class="mtx">Vreau să repet o întrebare grea pe care am primit-o la o simulare de board. [...]
-Joacă rolul membrului de board care a pus întrebarea: <mark>CFO</mark>.
-Întrebarea cea mai grea pe care am primit-o: <mark>„Cât ne costă și în cât timp vedem banii înapoi?”</mark>
-[...]
-KPI-ii mei:
-<mark>Timpul până la autonomie · azi 60 de zile · peste 12 luni 30 de zile</mark></div>
-      <p class="exlbl">Exemplu. Întrebarea și cifrele sunt inventate.</p>
-    </div>
 
     <h4>Ce faci</h4>
     <ol class="bul">
@@ -372,18 +362,30 @@ Nu-mi cere nume, date de contact sau alte informații care identifică oameni.
 KPI-ii mei:
 [copiază aici KPI-ii din Secțiunea 9]</div><div class="btns"><button class="btn sm" data-copy="pr">Copiază</button></div></div></div>
 
+    <h4>Exemplu: mesajul completat, gata de trimis</h4>
+    <div class="msgex">
+      <p class="exlbl" style="margin:0 0 8px">Promptul e scurtat. Cu violet e ce scrii tu.</p>
+      <div class="mtx">Vreau să repet o întrebare grea pe care am primit-o la o simulare de board. [...]
+Joacă rolul membrului de board care a pus întrebarea: <mark>CFO</mark>.
+Întrebarea cea mai grea pe care am primit-o: <mark>„Cât ne costă și în cât timp vedem banii înapoi?”</mark>
+[...]
+KPI-ii mei:
+<mark>Timpul până la autonomie · azi 60 de zile · peste 12 luni 30 de zile</mark></div>
+      <p class="exlbl">Întrebarea și cifrele sunt inventate.</p>
+    </div>
+
     <div class="note a3"><p><strong>Exemplu:</strong> dacă AI-ul acceptă primul tău răspuns și trece mai departe, spune-i: „Ești prea blând. Întreabă-mă ca un membru de board care nu e convins.”</p></div>
     <div class="gata"><b>Este gata când</b> ai 3 întrebări grele și răspunsurile tale, notate. Le folosești acasă, la business case.</div>
   </section>
-  <div class="next noprint"><button class="nextbtn" data-go="p3">3 · Business case-ul, acasă →</button></div>
+  <div class="next noprint"><button class="nextbtn" data-go="p3">3 · Homework: Construiește business case-ul →</button></div>
 
   <!-- 3 · BUSINESS CASE-UL -->
   <section class="box a1" id="p3">
-    <div class="hd"><span class="num">3</span><h3>Business case-ul, acasă</h3></div>
-    <p>Business case-ul îl scrii acasă, pentru inițiativa principală din transformarea ta. La lecția următoare, pe 4 noiembrie, îl folosești la cele 3 slide-uri pentru Demo Day.</p>
+    <div class="hd"><span class="num">3</span><h3>Homework: Construiește business case-ul</h3></div>
+    <p>Scrii acasă business case-ul aferent inițiativei principale din transformarea propusă de tine. O să-l folosești la lecția următoare pentru a-ți construi prezentarea.</p>
 
     <h4>Template-ul de business case</h4>
-    <div class="file"><div><strong>Template-ul de business case</strong><code>template-business-case.txt</code></div><button class="btn sm" data-dl="tpl" data-name="template-business-case.txt">Descarcă template-ul (.txt)</button></div>
+    <div class="file"><div><strong>Template-ul de business case</strong><code>business-case-l9.pdf · PDF cu câmpuri de completat</code></div><a class="btn sm" href="/downloads/business-case-l9.pdf" download>Descarcă template-ul (PDF)</a></div>
     <p>Îl descarci și completezi cele 6 părți.</p>
     <div class="cards">
       <div class="card"><span class="ct">Problema</span><p>Ce se întâmplă azi și cât costă?</p></div>
@@ -395,37 +397,31 @@ KPI-ii mei:
     </div>
     <p>Unde lipsește o cifră, scrii [DE CONFIRMAT].</p>
 
-    <h5>Ai doar notițe? Promptul de mai jos completează template-ul din ele.</h5>
+    <h5>Ai doar notițe? Promptul de mai jos completează template-ul pe baza lor.</h5>
 
-    <h4>Mesajul pe care-l trimiți către AI va include 3 părți</h4>
+    <h4>Mesajul pe care-l trimiți către AI va include 2 părți</h4>
     <ol class="bul">
       <li><strong>promptul de mai jos</strong>, cu parantezele pătrate de sus completate: rolul tău, inițiativa, cine aprobă, ce ceri;</li>
-      <li><strong>notițele tale</strong>, copiate la final: problema, ce schimbi, cifrele pe care le ai (cost, ore, oameni, termene), KPI-ii din Secțiunea 9 și cele 3 întrebări grele cu răspunsurile tale;</li>
-      <li><strong>template-ul, atașat.</strong> E fișierul <code>template-business-case.txt</code> descărcat de aici. Dacă instrumentul tău nu primește fișiere, copiază textul template-ului sub notițe.</li>
+      <li><strong>notițele tale</strong>, copiate la final: problema, ce schimbi, cifrele pe care le ai (cost, ore, oameni, termene), KPI-ii din Secțiunea 9 și cele 3 întrebări grele cu răspunsurile tale.</li>
     </ol>
-
-    <h4>Cum arată mesajul înainte de send</h4>
-    <div class="msgex">
-      <div class="mtx">Vreau să propun boardului inițiativa principală din transformarea mea în HR. Sunt <mark>HR Business Partner în echipa de HR</mark>. Inițiativa: <mark>onboarding-ul reproiectat cu AI</mark>. Aprobă <mark>directorul general, se uită la cost și la timpul până vedem rezultatul</mark>. Cer concret: <mark>bugetul pentru licențe și 2 luni de pilot</mark>.
-[...]
-NOTIȚELE MELE:
-<mark>Azi, un nou angajat devine autonom în 60 de zile. [...]</mark></div>
-      <div class="att">Atașat: <code>template-business-case.txt</code></div>
-      <p class="exlbl">Exemplu. Rolul, inițiativa și cifrele sunt inventate.</p>
-    </div>
+    <p>AI-ul îți dă textul pe cele 6 părți ale template-ului. Copiezi fiecare parte în câmpul ei din PDF.</p>
 
     <h4>Promptul de business case</h4>
-    <div class="mat"><div class="mh"><div class="mtx" id="pc">Vreau să propun boardului inițiativa principală din transformarea mea în HR și am nevoie de un business case pe o pagină. Sunt [ce faci și în ce echipă]. Inițiativa: [de exemplu: „onboarding-ul reproiectat cu AI”]. Aprobă [cine aprobă și după ce criterii, de exemplu: directorul general, se uită la cost și la riscuri]. Cer concret: [buget / oameni / timp / o decizie].
+    <div class="mat"><div class="mh"><div class="mtx" id="pc">Vreau să propun boardului inițiativa principală din transformarea mea în HR și am nevoie de un business case de o pagină. Sunt [ce faci și în ce echipă]. Inițiativa: [de exemplu: „onboarding-ul reproiectat cu AI”]. Aprobă [cine aprobă și după ce criterii, de exemplu: directorul general, se uită la cost și la riscuri]. Cer concret: [buget / oameni / timp / o decizie].
 
-Completează template-ul atașat, parte cu parte, doar din notițele mele de mai jos:
-- Problema: doar din ce e în notițele mele: ce se întâmplă azi, pe cine afectează, cât costă.
-- Soluția: ce schimb, pe scurt.
-- Costul și beneficiul: calculează doar din cifrele mele, pas cu pas. Unde lipsește o cifră, pune [DE CONFIRMAT]. Nu estima în locul meu și nu completa cu presupuneri.
-- Beneficiul: folosește KPI-ii mei, cu unde sunt azi și unde vreau să ajung peste 12 luni. Nu promite nimic ce nu reiese din notițe.
-- Riscurile: ce poate merge prost și ce fac dacă se întâmplă. Folosește și cele 3 întrebări grele, cu răspunsurile mele.
-- Ce cer: decizia pe care o vreau de la board.
+Scrie business case-ul doar din notițele mele de mai jos, pe aceste părți, în ordine:
+Inițiativa · Pentru · Ce cer: câte o propoziție.
+1. Problema: ce se întâmplă azi, pe cine afectează, cât costă. Doar din ce e în notițele mele.
+2. Soluția: ce schimb, pe scurt: ce face AI-ul, ce rămâne la oameni.
+3. Costul: cât investesc, în bani, oameni și timp. Calculează doar din cifrele mele, pas cu pas.
+4. Beneficiul: KPI-ii mei, cu unde sunt azi și unde vreau să ajung peste 12 luni. Nu promite nimic ce nu reiese din notițe.
+5. Riscurile: ce poate merge prost și ce fac dacă se întâmplă. Folosește și cele 3 întrebări grele, cu răspunsurile mele.
+6. Ce cer: decizia pe care o vreau de la board, cu termen.
+De confirmat: tot ce lipsește, într-o listă.
 
-Păstrează structura template-ului și scrie business case-ul ca text, pe o pagină. Sub el, separat: calculul costului și al beneficiului, pas cu pas, și lista cu tot ce e [DE CONFIRMAT].
+Unde lipsește o cifră, pune [DE CONFIRMAT]. Nu estima în locul meu și nu completa cu presupuneri.
+
+Scrie fiecare parte ca text scurt, de maximum 5 rânduri, ca să-l pot copia într-un câmp de formular. Sub business case, separat: calculul costului și al beneficiului, pas cu pas.
 
 Înainte să-mi dai business case-ul, ia fiecare cifră și caut-o în notițele mele sau în calcul. Ce nu găsești devine [DE CONFIRMAT]. Spune-mi în 2 rânduri ce ai marcat.
 
@@ -434,10 +430,20 @@ Nu-mi cere nume, date de contact sau alte informații care identifică oameni.
 NOTIȚELE MELE:
 [copiază aici notițele, cifrele, KPI-ii din Secțiunea 9 și cele 3 întrebări grele cu răspunsurile tale]</div><div class="btns"><button class="btn sm" data-copy="pc">Copiază</button></div></div></div>
 
+    <h4>Exemplu: mesajul completat, gata de trimis</h4>
+    <div class="msgex">
+      <p class="exlbl" style="margin:0 0 8px">Promptul e scurtat. Cu violet e ce scrii tu.</p>
+      <div class="mtx">Vreau să propun boardului inițiativa principală din transformarea mea în HR. Sunt <mark>HR Business Partner în echipa de HR</mark>. Inițiativa: <mark>onboarding-ul reproiectat cu AI</mark>. Aprobă <mark>directorul general, se uită la cost și la timpul până vedem rezultatul</mark>. Cer concret: <mark>bugetul pentru licențe și 2 luni de pilot</mark>.
+[...]
+NOTIȚELE MELE:
+<mark>Azi, un nou angajat devine autonom în 60 de zile. [...]</mark></div>
+      <p class="exlbl">Rolul, inițiativa și cifrele sunt inventate.</p>
+    </div>
+
     <div class="note a2"><p><strong>Verifică înainte să te încrezi.</strong> 3 verificări:</p>
       <ul>
-        <li>Cifrele: refă cu calculatorul costul total sau beneficiul. Fiecare cifră vine din notițele tale sau din calcul.</li>
-        <li>Beneficiul: nu promite nimic ce nu poți susține. „Economisim 20 de ore pe lună” are nevoie de cifrele din spate.</li>
+        <li>Cifrele: asigură-te că sunt corecte calculele și că fiecare cifră are o sursă sigură.</li>
+        <li>Beneficiul: nu promite nimic ce nu poți susține. Afirmații precum „Economisim 20 de ore pe lună” trebuie să fie ancorate în chestiuni concrete.</li>
         <li>De confirmat: fiecare marcaj [DE CONFIRMAT] din business case apare și în lista de la final.</li>
       </ul>
       <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă business case-ul.</p>
@@ -463,41 +469,6 @@ NOTIȚELE MELE:
 
 <footer>HR Management în era AI · Lecția 9 · Raluca Păduraru</footer>
 </div>
-
-<script type="text/plain" id="tpl">BUSINESS CASE, PE O PAGINĂ
-
-Inițiativa: [inițiativa principală din transformarea ta, într-o propoziție]
-Pentru: [cine aprobă]
-Ce cer: [decizia, într-o propoziție]
-
-1. PROBLEMA
-Ce se întâmplă azi și cât costă?
-Pe cine afectează și ce cifră ai pentru azi.
-
-2. SOLUȚIA
-Ce schimbi?
-Procesul reproiectat din Secțiunea 7, pe scurt: ce face AI-ul, ce rămâne la oameni.
-
-3. COSTUL
-Cât investești, în bani, oameni și timp?
-Licențe, orele oamenilor, formare, pilot. Calculul, pas cu pas.
-
-4. BENEFICIUL
-Ce câștigi, în cifre?
-KPI-ii din Secțiunea 9: unde ești azi și unde vrei să ajungi peste 12 luni.
-
-5. RISCURILE
-Ce poate merge prost și ce faci atunci?
-Aici intră cele 3 întrebări grele din repetiția cu AI, cu răspunsurile tale.
-
-6. CE CERI
-Ce decizie vrei de la board?
-Buget, oameni, timp sau o aprobare, cu termen.
-
-DE CONFIRMAT
-Unde lipsește o cifră, scrii [DE CONFIRMAT] în text și o treci și aici.
--
-</script>
 
 <script>
 function raw(id){ var el = document.getElementById(id); return el ? el.textContent.replace(/^\n/, '').replace(/<\\\//g, '</') : ''; }
