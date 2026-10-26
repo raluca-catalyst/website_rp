@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Raluca Păduraru">
+<meta name="robots" content="noindex, nofollow">
+<title>HR strategic și relația cu businessul · HR Management în era AI</title>
+<meta name="description" content="Pagina de lucru pentru lecția 9 a cursului HR Management în era AI: KPI-ii transformării tale, repetiția cu AI pe întrebarea cea mai grea de la board și business case-ul pe o pagină.">
+<!--
+  Construită cu skill-ul fisa-lucru-raluca, din pagina L6 golită 1:1. Textul-sursă: pagina-l9-text.md.
+  Build: python C:/Users/keimy/.claude/skills/fisa-lucru-raluca/scripts/build.py pagina-l9.template.html
+  Stilul blueprint-ului de pe ralucapaduraru.ro, 2 teme. Fără câmpuri de completat: participanții scriu direct în AI și în blueprint. O descărcare: template-ul de business case.
+-->
+<script>
+/* TEMA: pornește după setarea laptopului; alegerea se ține minte. Aceeași cheie ca la L5, ca alegerea de acolo să rămână. */
+(function(){
+  var t = null;
+  try { t = localStorage.getItem('basetolearn-l5-lucru-tema'); } catch(e) {}
+  if (t !== 'dark' && t !== 'light') t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Cookiebot + GA (ca pe blueprint) -->
+<script data-cookieconsent="ignore">
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("consent", "default", {
+    ad_personalization: "denied", ad_storage: "denied",
+    ad_user_data: "denied", analytics_storage: "denied",
+    functionality_storage: "denied", personalization_storage: "denied",
+    security_storage: "granted", wait_for_update: 500,
+  });
+  gtag("set", "ads_data_redaction", true);
+  gtag("set", "url_passthrough", false);
+</script>
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept', updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline', updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<style>
+  /* BRANDUL: stilul blueprint-ului, cu 2 teme, ca la L5. */
+  :root{
+    --bg:#ffffff;
+    --card:#f7f4ff;
+    --card2:#f4f1fb;
+    --ink:#1d1836;
+    --soft:#3a3553;
+    --gray:#635e7d;
+    --line:rgba(124,58,237,0.16);
+    --main:#7c3aed;
+    --main-ink:#ffffff;
+    --a1:#7c3aed; --a2:#8b5cf6; --a3:#6d28d9;
+    --head:'JetBrains Mono',monospace;
+    --body:'Barlow',sans-serif;
+    --acc:var(--a1);
+    --glow:none;
+  }
+  html[data-theme="dark"]{
+    --bg:#0e0b1e;
+    --card:#17122e;
+    --card2:#120e26;
+    --ink:#f1eefd;
+    --soft:#cdc7e6;
+    --gray:#9a93bd;
+    --line:rgba(167,139,250,0.20);
+    --main:#a78bfa;
+    --main-ink:#0e0b1e;
+    --a1:#a78bfa; --a2:#c4b5fd; --a3:#b79cff;
+    --glow:radial-gradient(ellipse 90% 55% at 50% -5%, #2d1569 0%, transparent 65%),radial-gradient(ellipse 55% 35% at 95% 15%, rgba(109,40,217,0.18) 0%, transparent 55%);
+  }
+  .a1{--acc:var(--a1)} .a2{--acc:var(--a2)} .a3{--acc:var(--a3)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px;
+    background-image:var(--glow);background-attachment:fixed}
+  .themebox{margin-top:18px;display:flex;gap:6px}
+  .themebox button{font-family:var(--head);font-size:12px;background:transparent;color:var(--gray);border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+  .themebox button.on{color:var(--main);border-color:var(--main)}
+  a{color:var(--main)}
+  p{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+
+  header{padding:40px 24px 34px;border-bottom:1px solid var(--line)}
+  header .wrapin{max-width:880px;margin:0 auto}
+  header .tag{font-family:var(--head);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--main);margin-bottom:12px;font-weight:500}
+  header h1{font-family:var(--head);font-size:40px;font-weight:700;line-height:1.12;letter-spacing:-0.02em}
+  header p{margin-top:14px;font-size:18px;color:var(--soft)}
+  header ol{margin-top:8px;padding-left:24px;font-size:18px;color:var(--soft)}
+  header ol li{margin-bottom:4px}
+
+  .navwrap{background:var(--bg);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line)}
+  .nav{max-width:1100px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:0 12px;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .navbtn{background:none;border:none;color:var(--gray);padding:12px;cursor:pointer;font-size:13px;font-family:var(--head);white-space:nowrap;border-bottom:2px solid transparent}
+  .navbtn:hover{color:var(--ink)}
+  .navbtn.active{color:var(--ink);border-bottom-color:var(--main)}
+  .navbtn .no,.navbtn .ns{display:none}
+  @media(max-width:1000px){.nav{flex-wrap:wrap;overflow-x:visible}}
+
+  /* BARA LATERALĂ (references/lectii.md §3) */
+  @media(min-width:1180px){
+    .layout{display:grid;grid-template-columns:290px minmax(0,1fr);align-items:start}
+    header{padding-left:calc(290px + 24px)}
+    .layout footer{grid-column:2;width:100%}
+    .navwrap{height:100vh;overflow-y:auto;border-bottom:none;border-right:1px solid var(--line);background:var(--bg)}
+    .nav{flex-direction:column;gap:0;max-width:none;overflow:visible;padding:24px 0}
+    .navbtn{display:block;width:100%;text-align:left;white-space:normal;line-height:1.4;padding:12px 20px;border-bottom:none;border-left:3px solid transparent}
+    .navbtn .nt{display:block;font-size:14px;font-weight:700}
+    .navbtn.active{background:var(--card);border-left-color:var(--main)}
+    .navbtn.active .no{display:block;font-family:var(--body);font-style:italic;font-size:14px;color:var(--soft);margin-top:6px}
+    .navbtn.active .ns{display:block;font-family:var(--body);font-size:14px;color:var(--ink);margin-top:6px}
+  }
+
+  main{max-width:880px;margin:0 auto;padding:28px 16px 70px}
+
+  details.ajutor{border:1px solid var(--line);background:var(--card2);margin:16px 0}
+  details.ajutor summary{cursor:pointer;padding:12px 16px;font-size:15px;font-weight:600;color:var(--main)}
+  details.ajutor .ain{padding:0 16px 14px}
+
+  .box{background:var(--card);border:1px solid var(--line);margin-bottom:16px;padding:24px}
+  .hd{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .num{font-family:var(--head);font-size:14px;font-weight:700;color:var(--main-ink);background:var(--main);width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .box h3{font-family:var(--head);font-size:23px;font-weight:700;line-height:1.25;letter-spacing:-0.01em}
+  .box h4{font-family:var(--head);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin:24px 0 8px;font-weight:600}
+  .box h5{font-family:var(--head);font-size:16px;font-weight:700;margin:26px 0 8px;color:var(--ink)}
+  .box p{margin-bottom:10px}
+  ul.bul,ol.bul{padding-left:24px;margin:8px 0}
+  ul.bul li,ol.bul li{margin-bottom:6px}
+
+  .note{background:color-mix(in srgb,var(--acc) 12%,transparent);border-left:3px solid var(--acc);padding:14px 18px;margin:14px 0}
+  .note p{margin-bottom:8px} .note p:last-child{margin-bottom:0}
+  .note ul,.note ol{padding-left:22px;margin-top:6px} .note li{margin-bottom:5px}
+
+  /* cardurile cu tipurile de redesign și punctul de control, pe forma slide-urilor 9 și 10 */
+  .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0 16px}
+  .cards.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card{background:var(--card2);border:1px solid var(--line);border-top:3px solid var(--main);padding:14px 16px}
+  .card .ct{font-family:var(--head);font-size:15px;font-weight:700;color:var(--main);display:block;margin-bottom:6px}
+  .card p{text-align:left;hyphens:manual;margin:0;font-size:16px;color:var(--soft)}
+  @media(max-width:760px){.cards,.cards.two{grid-template-columns:1fr}}
+  .card p.ex{font-style:italic;margin-top:6px;font-size:15px}
+  .lead{font-weight:600;margin:6px 0 4px}
+  ol.steps>li{margin-bottom:18px}
+  ol.steps .lead{font-weight:400;color:var(--soft);text-align:left}
+
+  table.grid{width:100%;border-collapse:collapse;font-size:16px;margin-top:10px}
+  table.grid th{text-align:left;font-family:var(--head);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--main);padding:9px 10px;border-bottom:1px solid var(--line)}
+  table.grid td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.grid.keys td:first-child{font-weight:700;width:22%}
+  table.grid td.tip{white-space:nowrap;font-weight:600;color:var(--main)}
+  @media(max-width:640px){table.grid{font-size:14px} table.grid td,table.grid th{padding:8px 6px} table.grid td.tip{white-space:normal}}
+  .src{font-size:14px;color:var(--gray);margin-top:10px}
+
+  /* exemplul de mesaj gata de send: arată ce scrie omul și ce atașează */
+  .msgex{border:1.5px dashed var(--main);background:var(--card2);padding:14px 16px;margin:10px 0 6px}
+  .msgex .mtx{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.5;white-space:pre-wrap;color:var(--soft)}
+  .msgex mark{background:color-mix(in srgb,var(--main) 22%,transparent);color:var(--ink);padding:1px 2px}
+  .msgex .att{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:15px;font-weight:600}
+  .msgex .att code{font-family:ui-monospace,Consolas,monospace;font-weight:400;background:color-mix(in srgb,var(--main) 22%,transparent);padding:1px 6px}
+  .msgex .exlbl{font-size:13px;color:var(--gray);margin:8px 0 0}
+
+  .gata{border-top:1px dashed var(--line);margin-top:20px;padding-top:12px;font-size:16px;color:var(--soft)}
+  .gata b{font-family:var(--head);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--main);display:block;margin-bottom:4px}
+  .gata p{margin-bottom:4px}
+
+  .mat{border:1px solid var(--line);margin:12px 0;background:var(--card2)}
+  .mat .mh{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;padding:12px 16px}
+  .mat .mtx{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.5;color:var(--ink);flex:1;min-width:220px;white-space:pre-wrap}
+  .btns{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{font-family:var(--head);background:var(--main);color:var(--main-ink);border:none;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn.ghost{background:transparent;color:var(--main);border:1.5px solid var(--main)}
+  .btn.sm{padding:7px 12px;font-size:12px}
+  .btn.done{opacity:.8}
+
+  .file{display:flex;align-items:center;gap:12px;justify-content:space-between;border:1px solid var(--line);background:var(--card2);padding:11px 14px;margin:8px 0;flex-wrap:wrap}
+  .file code{font-family:ui-monospace,Consolas,monospace;font-size:13px;color:var(--gray);display:block}
+
+  .next{display:flex;justify-content:flex-end;margin-bottom:18px}
+  .nextbtn{background:transparent;color:var(--main);border:1.5px solid var(--main);padding:9px 16px;font-size:13px;font-weight:600;font-family:var(--head);cursor:pointer}
+
+  footer{max-width:880px;margin:0 auto;padding:0 16px 50px;font-size:13px;color:var(--gray)}
+  @media(max-width:640px){header h1{font-size:30px}.box{padding:18px}}
+
+  @media print{
+    :root,html[data-theme="dark"]{--glow:none;--bg:#fff;--card:#fff;--card2:#f6f6f8;--ink:#111;--soft:#333;--gray:#555;--line:#bbb;--main:#111;--main-ink:#fff;--a1:#333;--a2:#333;--a3:#333}
+    body{background:#fff;background-image:none;color:#111;font-size:11pt}
+    header{background:#fff;border-bottom:2px solid #111;padding:0 0 12px}
+    main{padding:12px 0 0;max-width:none}
+    .navwrap,.noprint,.btn,.next,.btns{display:none !important}
+    .layout{display:block !important}
+    .box,.note,.file,.mat,.card,details.ajutor{background:#fff !important;border:1px solid #bbb;color:#111}
+    .num{background:#111 !important;color:#fff !important}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrapin">
+    <div class="tag">HR Management în era AI</div>
+    <h1>HR strategic și relația cu businessul</h1>
+    <p>Până la final, vei obține 2 lucruri:</p>
+    <ol>
+      <li>4-5 KPI care arată impactul transformării tale;</li>
+      <li>3 întrebări grele de la board, cu răspunsurile tale.</li>
+    </ol>
+    <p>Acasă, le pui pe amândouă într-un business case pe o pagină.</p>
+    <div class="themebox noprint"><button data-theme-choice="light">Temă light</button><button data-theme-choice="dark">Temă dark</button></div>
+  </div>
+</header>
+
+<div class="layout">
+
+<div class="navwrap noprint">
+  <nav class="nav">
+    <button class="navbtn active" data-go="p1"><span class="nt">1 · Alege-ți KPI-ii</span><span class="no">Obiectiv: 4-5 KPI în Secțiunea 9, cel puțin unul pe fiecare nivel al scării, cu unde te afli azi și unde vrei să ajungi peste 12 luni.</span><span class="ns">Pornești de la procesul pe care l-ai reproiectat la tema din Secțiunea 7.</span></button>
+    <button class="navbtn" data-go="p2"><span class="nt">2 · Repetă cu AI întrebarea cea mai grea</span><span class="no">Obiectiv: 3 întrebări grele de la board, cu răspunsurile tale.</span><span class="ns">Acum că ai KPI-ii, îi aperi în fața membrului de board care ți-a pus cea mai grea întrebare la simulare.</span></button>
+    <button class="navbtn" data-go="p3"><span class="nt">3 · Business case-ul, acasă</span><span class="no">Obiectiv: business case-ul pentru inițiativa principală, pe template, cu tot ce lipsește marcat [DE CONFIRMAT].</span><span class="ns">Acum că ai KPI-ii și răspunsurile la întrebările grele, le pui pe o singură pagină pentru board.</span></button>
+  </nav>
+</div>
+
+<main>
+
+  <!-- 1 · KPI-II -->
+  <section class="box a1" id="p1">
+    <div class="hd"><span class="num">1</span><h3>Alege-ți KPI-ii</h3></div>
+
+    <h4>Scara KPI-ilor</h4>
+    <div class="cards">
+      <div class="card"><span class="ct">Activitate</span><p><strong>Câți oameni lucrează pe noul proces?</strong></p><p class="ex">Ex: 80% dintre noii angajați trec prin onboarding-ul reproiectat.</p></div>
+      <div class="card"><span class="ct">Rezultat</span><p><strong>Ce s-a schimbat în activitate?</strong></p><p class="ex">Ex: noul angajat devine autonom în 30 de zile, în loc de 60.</p></div>
+      <div class="card"><span class="ct">Business</span><p><strong>Ce câștigă organizația?</strong></p><p class="ex">Ex: plecările din primele 6 luni scad de la 20% la 12%.</p></div>
+    </div>
+
+    <h4>Cum știi unde te afli azi</h4>
+    <div class="cards two">
+      <div class="card"><span class="ct">Sistemul de HR (HRIS)</span><p>fluctuația, absenteismul, vechimea</p></div>
+      <div class="card"><span class="ct">Platforma de recrutare (ATS)</span><p>time-to-hire, numărul de candidați</p></div>
+      <div class="card"><span class="ct">Sondajele</span><p>engagement, eNPS</p></div>
+      <div class="card"><span class="ct">HR Maturity Assessment</span><p>scorul tău de plecare</p></div>
+    </div>
+    <p>Dacă pentru un KPI nu ai încă cifra de azi, primul pas e s-o măsori. Scrie-l oricum în listă.</p>
+
+    <h4>Ce faci</h4>
+    <ol class="bul">
+      <li>Deschide Secțiunea 9 din blueprint.
+        <div class="btns" style="margin:8px 0 4px"><a class="btn sm" href="https://www.ralucapaduraru.ro/blueprint#sec-9" target="_blank" rel="noopener">Deschide Secțiunea 9</a></div></li>
+      <li>Pornește de la procesul reproiectat din Secțiunea 7.</li>
+      <li>Alege 4-5 KPI, cel puțin unul pe fiecare nivel al scării.</li>
+      <li>Pentru fiecare notează cum știi unde te afli azi și unde vrei să ajungi peste 12 luni. În blueprint, cifra de azi intră în câmpul „azi”, iar ținta în câmpul „peste 12 luni”.</li>
+    </ol>
+
+    <details class="ajutor">
+      <summary>Dacă te blochezi, AI-ul îți propune un KPI. Tu alegi. Vrei KPI propuși de AI?</summary>
+      <div class="ain">
+        <h4>Mesajul pe care-l trimiți către AI va include 2 părți</h4>
+        <ol class="bul">
+          <li><strong>promptul de mai jos;</strong></li>
+          <li><strong>răspunsurile tale din Secțiunea 7 a blueprint-ului</strong>, copiate la finalul promptului, în locul textului [copiază aici răspunsurile din Secțiunea 7].</li>
+        </ol>
+
+        <h4>Cum arată mesajul înainte de send</h4>
+        <div class="msgex">
+          <div class="mtx">Vreau să aleg KPI-ii pentru transformarea pe care o propun în HR. [...]
+Procesul meu reproiectat:
+<mark>Onboarding-ul noilor angajați. Azi: 12 activități, 60 de zile până la autonomie, documentele cerute de mai multe ori. Reproiectat cu AI: formularele și conturile se fac automat, prezentarea companiei e personalizată, buddy-ul rămâne uman.</mark></div>
+          <p class="exlbl">Exemplu. Procesul e inventat.</p>
+        </div>
+
+        <h4>Promptul de KPI candidați</h4>
+        <div class="mat"><div class="mh"><div class="mtx" id="pk">Vreau să aleg KPI-ii pentru transformarea pe care o propun în HR. Mai jos e procesul meu reproiectat cu AI.
+
+Propune-mi 8 KPI candidați, pe 3 niveluri:
+- activitate: câți oameni lucrează pe noul proces;
+- rezultat: ce s-a schimbat în activitate (timp, calitate, experiența angajaților);
+- business: ce câștigă organizația (cost, retenție, time-to-hire).
+
+Pentru fiecare KPI, scrie într-un tabel: nivelul · numele KPI-ului · ce măsoară, într-o propoziție · de unde iau cifra de azi (sistemul de HR, platforma de recrutare, sondajele, HR Maturity Assessment sau „de măsurat”).
+
+Nu inventa cifre: nu-mi da nici valoarea de azi, nici ținta. Pe acestea le scriu eu. Dacă din proces nu reiese ceva important, pune-mi maximum 3 întrebări, una odată, înainte de tabel.
+
+Nu-mi cere nume, date de contact sau alte informații care identifică oameni.
+
+Procesul meu reproiectat:
+[copiază aici răspunsurile din Secțiunea 7]</div><div class="btns"><button class="btn sm" data-copy="pk">Copiază</button></div></div></div>
+        <div class="note"><p>Regula din prima lecție rămâne: date anonimizate, nimic care identifică un om.</p></div>
+      </div>
+    </details>
+
+    <div class="gata"><b>Este gata când</b> ai 4-5 KPI în Secțiunea 9, cel puțin unul pe fiecare nivel, și știi pentru fiecare unde te afli azi și unde vrei să ajungi.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p2">2 · Repetă cu AI întrebarea cea mai grea →</button></div>
+
+  <!-- 2 · REPETIȚIA CU AI -->
+  <section class="box a2" id="p2">
+    <div class="hd"><span class="num">2</span><h3>Repetă cu AI întrebarea cea mai grea</h3></div>
+    <p>AI-ul joacă rolul membrului de board care ți-a pus cea mai grea întrebare la simularea boardului. El întreabă, tu răspunzi. Răspunsurile sunt ale tale.</p>
+
+    <h4>Mesajul pe care-l trimiți către AI va include 3 părți</h4>
+    <ol class="bul">
+      <li><strong>promptul de mai jos;</strong></li>
+      <li><strong>cine a pus întrebarea și întrebarea</strong>, scrise în locul textelor [CEO / CFO / membrul independent] și [scrie aici întrebarea];</li>
+      <li><strong>KPI-ii tăi din Secțiunea 9</strong>, copiați la final, în locul textului [copiază aici KPI-ii din Secțiunea 9].</li>
+    </ol>
+
+    <h4>Cum arată mesajul înainte de send</h4>
+    <div class="msgex">
+      <div class="mtx">Vreau să repet o întrebare grea pe care am primit-o la o simulare de board. [...]
+Joacă rolul membrului de board care a pus întrebarea: <mark>CFO</mark>.
+Întrebarea cea mai grea pe care am primit-o: <mark>„Cât ne costă și în cât timp vedem banii înapoi?”</mark>
+[...]
+KPI-ii mei:
+<mark>Timpul până la autonomie · azi 60 de zile · peste 12 luni 30 de zile</mark></div>
+      <p class="exlbl">Exemplu. Întrebarea și cifrele sunt inventate.</p>
+    </div>
+
+    <h4>Ce faci</h4>
+    <ol class="bul">
+      <li>Alege cea mai grea întrebare primită la simularea boardului și de unde a venit.</li>
+      <li>Copiază promptul de mai jos. AI-ul joacă rolul acelui membru de board.</li>
+      <li>Răspunde-i cu cuvintele tale, pe KPI-ii tăi.</li>
+      <li>Notează 3 întrebări grele și răspunsurile tale.</li>
+    </ol>
+
+    <h4>Promptul pentru repetiție</h4>
+    <div class="mat"><div class="mh"><div class="mtx" id="pr">Vreau să repet o întrebare grea pe care am primit-o la o simulare de board, înainte de un board real. Propun o transformare în HR, iar KPI-ii mei sunt mai jos.
+
+Joacă rolul membrului de board care a pus întrebarea: [CEO / CFO / membrul independent].
+- CEO: se uită la strategia companiei pe 3 ani.
+- CFO: vrea să știe cât costă, cât aduce și în cât timp.
+- Membrul independent: se uită la riscuri, inclusiv la cele de conformitate.
+
+Întrebarea cea mai grea pe care am primit-o: [scrie aici întrebarea]
+
+Cum lucrezi:
+1. Începe cu întrebarea mea, în cuvintele tale, ca membru de board.
+2. După fiecare răspuns al meu, pune o întrebare de follow-up pe punctul cel mai slab: o cifră fără sursă, un beneficiu promis fără dovadă, un risc ocolit. O singură întrebare odată.
+3. Nu ceda ușor. Dacă răspunsul meu e vag, spune-mi ce lipsește și întreabă din nou.
+4. Nu-mi da tu răspunsuri și nu-mi sugera ce să spun.
+5. După maximum 6 întrebări, ieși din rol.
+
+La final, dă-mi cele 3 întrebări cele mai grele din conversație și, sub fiecare, răspunsul meu, cu cuvintele mele, fără să-l îmbunătățești. Apoi, într-o propoziție pentru fiecare, unde a fost răspunsul meu cel mai slab.
+
+Nu-mi cere nume, date de contact sau alte informații care identifică oameni.
+
+KPI-ii mei:
+[copiază aici KPI-ii din Secțiunea 9]</div><div class="btns"><button class="btn sm" data-copy="pr">Copiază</button></div></div></div>
+
+    <div class="note a3"><p><strong>Exemplu:</strong> dacă AI-ul acceptă primul tău răspuns și trece mai departe, spune-i: „Ești prea blând. Întreabă-mă ca un membru de board care nu e convins.”</p></div>
+    <div class="gata"><b>Este gata când</b> ai 3 întrebări grele și răspunsurile tale, notate. Le folosești acasă, la business case.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p3">3 · Business case-ul, acasă →</button></div>
+
+  <!-- 3 · BUSINESS CASE-UL -->
+  <section class="box a1" id="p3">
+    <div class="hd"><span class="num">3</span><h3>Business case-ul, acasă</h3></div>
+    <p>Business case-ul îl scrii acasă, pentru inițiativa principală din transformarea ta. La lecția următoare, pe 4 noiembrie, îl folosești la cele 3 slide-uri pentru Demo Day.</p>
+
+    <h4>Template-ul de business case</h4>
+    <div class="file"><div><strong>Template-ul de business case</strong><code>template-business-case.txt</code></div><button class="btn sm" data-dl="tpl" data-name="template-business-case.txt">Descarcă template-ul (.txt)</button></div>
+    <p>Îl descarci și completezi cele 6 părți.</p>
+    <div class="cards">
+      <div class="card"><span class="ct">Problema</span><p>Ce se întâmplă azi și cât costă?</p></div>
+      <div class="card"><span class="ct">Soluția</span><p>Ce schimbi?</p></div>
+      <div class="card"><span class="ct">Costul</span><p>Cât investești, în bani, oameni și timp?</p></div>
+      <div class="card"><span class="ct">Beneficiul</span><p>Ce câștigi, în cifre? Aici intră KPI-ii de azi.</p></div>
+      <div class="card"><span class="ct">Riscurile</span><p>Ce poate merge prost și ce faci atunci? Aici intră răspunsurile din repetiția cu AI.</p></div>
+      <div class="card"><span class="ct">Ce ceri</span><p>Ce decizie vrei de la board?</p></div>
+    </div>
+    <p>Unde lipsește o cifră, scrii [DE CONFIRMAT].</p>
+
+    <h5>Ai doar notițe? Promptul de mai jos completează template-ul din ele.</h5>
+
+    <h4>Mesajul pe care-l trimiți către AI va include 3 părți</h4>
+    <ol class="bul">
+      <li><strong>promptul de mai jos</strong>, cu parantezele pătrate de sus completate: rolul tău, inițiativa, cine aprobă, ce ceri;</li>
+      <li><strong>notițele tale</strong>, copiate la final: problema, ce schimbi, cifrele pe care le ai (cost, ore, oameni, termene), KPI-ii din Secțiunea 9 și cele 3 întrebări grele cu răspunsurile tale;</li>
+      <li><strong>template-ul, atașat.</strong> E fișierul <code>template-business-case.txt</code> descărcat de aici. Dacă instrumentul tău nu primește fișiere, copiază textul template-ului sub notițe.</li>
+    </ol>
+
+    <h4>Cum arată mesajul înainte de send</h4>
+    <div class="msgex">
+      <div class="mtx">Vreau să propun boardului inițiativa principală din transformarea mea în HR. Sunt <mark>HR Business Partner în echipa de HR</mark>. Inițiativa: <mark>onboarding-ul reproiectat cu AI</mark>. Aprobă <mark>directorul general, se uită la cost și la timpul până vedem rezultatul</mark>. Cer concret: <mark>bugetul pentru licențe și 2 luni de pilot</mark>.
+[...]
+NOTIȚELE MELE:
+<mark>Azi, un nou angajat devine autonom în 60 de zile. [...]</mark></div>
+      <div class="att">Atașat: <code>template-business-case.txt</code></div>
+      <p class="exlbl">Exemplu. Rolul, inițiativa și cifrele sunt inventate.</p>
+    </div>
+
+    <h4>Promptul de business case</h4>
+    <div class="mat"><div class="mh"><div class="mtx" id="pc">Vreau să propun boardului inițiativa principală din transformarea mea în HR și am nevoie de un business case pe o pagină. Sunt [ce faci și în ce echipă]. Inițiativa: [de exemplu: „onboarding-ul reproiectat cu AI”]. Aprobă [cine aprobă și după ce criterii, de exemplu: directorul general, se uită la cost și la riscuri]. Cer concret: [buget / oameni / timp / o decizie].
+
+Completează template-ul atașat, parte cu parte, doar din notițele mele de mai jos:
+- Problema: doar din ce e în notițele mele: ce se întâmplă azi, pe cine afectează, cât costă.
+- Soluția: ce schimb, pe scurt.
+- Costul și beneficiul: calculează doar din cifrele mele, pas cu pas. Unde lipsește o cifră, pune [DE CONFIRMAT]. Nu estima în locul meu și nu completa cu presupuneri.
+- Beneficiul: folosește KPI-ii mei, cu unde sunt azi și unde vreau să ajung peste 12 luni. Nu promite nimic ce nu reiese din notițe.
+- Riscurile: ce poate merge prost și ce fac dacă se întâmplă. Folosește și cele 3 întrebări grele, cu răspunsurile mele.
+- Ce cer: decizia pe care o vreau de la board.
+
+Păstrează structura template-ului și scrie business case-ul ca text, pe o pagină. Sub el, separat: calculul costului și al beneficiului, pas cu pas, și lista cu tot ce e [DE CONFIRMAT].
+
+Înainte să-mi dai business case-ul, ia fiecare cifră și caut-o în notițele mele sau în calcul. Ce nu găsești devine [DE CONFIRMAT]. Spune-mi în 2 rânduri ce ai marcat.
+
+Nu-mi cere nume, date de contact sau alte informații care identifică oameni.
+
+NOTIȚELE MELE:
+[copiază aici notițele, cifrele, KPI-ii din Secțiunea 9 și cele 3 întrebări grele cu răspunsurile tale]</div><div class="btns"><button class="btn sm" data-copy="pc">Copiază</button></div></div></div>
+
+    <div class="note a2"><p><strong>Verifică înainte să te încrezi.</strong> 3 verificări:</p>
+      <ul>
+        <li>Cifrele: refă cu calculatorul costul total sau beneficiul. Fiecare cifră vine din notițele tale sau din calcul.</li>
+        <li>Beneficiul: nu promite nimic ce nu poți susține. „Economisim 20 de ore pe lună” are nevoie de cifrele din spate.</li>
+        <li>De confirmat: fiecare marcaj [DE CONFIRMAT] din business case apare și în lista de la final.</li>
+      </ul>
+      <p>Dacă găsești o greșeală, spune-i în aceeași conversație ce a greșit și să refacă business case-ul.</p>
+    </div>
+    <div class="gata"><b>Este gata când</b> ai business case-ul pe template, cu toate cele 6 părți, și știi ce e de confirmat.</div>
+  </section>
+
+  <!-- DUPĂ LECȚIE -->
+  <section class="box a2" id="dupa">
+    <div class="hd"><h3>După lecție</h3></div>
+    <p>Tema, până pe 4 noiembrie, e <strong>Secțiunea 9 din blueprint și business case-ul</strong>:</p>
+    <ol class="bul">
+      <li>Completezi KPI-ii: cum știi unde te afli azi și unde vrei să ajungi peste 12 luni.</li>
+      <li>Scrii cum arată dashboard-ul pentru board: scorul din assessment, obiectivul pe 12 luni și KPI-ii.</li>
+      <li>Completezi template-ul de business case pentru inițiativa principală.</li>
+      <li>Adaugi cele 3 întrebări grele, cu răspunsurile tale.</li>
+    </ol>
+    <p>Descarcă o copie după ce scrii.</p>
+    <div class="btns"><a class="btn" href="https://www.ralucapaduraru.ro/blueprint#sec-9" target="_blank" rel="noopener">Deschide Secțiunea 9</a></div>
+  </section>
+
+</main>
+
+<footer>HR Management în era AI · Lecția 9 · Raluca Păduraru</footer>
+</div>
+
+<script type="text/plain" id="tpl">BUSINESS CASE, PE O PAGINĂ
+
+Inițiativa: [inițiativa principală din transformarea ta, într-o propoziție]
+Pentru: [cine aprobă]
+Ce cer: [decizia, într-o propoziție]
+
+1. PROBLEMA
+Ce se întâmplă azi și cât costă?
+Pe cine afectează și ce cifră ai pentru azi.
+
+2. SOLUȚIA
+Ce schimbi?
+Procesul reproiectat din Secțiunea 7, pe scurt: ce face AI-ul, ce rămâne la oameni.
+
+3. COSTUL
+Cât investești, în bani, oameni și timp?
+Licențe, orele oamenilor, formare, pilot. Calculul, pas cu pas.
+
+4. BENEFICIUL
+Ce câștigi, în cifre?
+KPI-ii din Secțiunea 9: unde ești azi și unde vrei să ajungi peste 12 luni.
+
+5. RISCURILE
+Ce poate merge prost și ce faci atunci?
+Aici intră cele 3 întrebări grele din repetiția cu AI, cu răspunsurile tale.
+
+6. CE CERI
+Ce decizie vrei de la board?
+Buget, oameni, timp sau o aprobare, cu termen.
+
+DE CONFIRMAT
+Unde lipsește o cifră, scrii [DE CONFIRMAT] în text și o treci și aici.
+-
+</script>
+
+<script>
+function raw(id){ var el = document.getElementById(id); return el ? el.textContent.replace(/^\n/, '').replace(/<\\\//g, '</') : ''; }
+
+/* copiere, cu rezervă pentru browserele fără clipboard API */
+function copyText(t){
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).catch(function(){ return legacyCopy(t); });
+  return legacyCopy(t);
+}
+function legacyCopy(t){
+  return new Promise(function(resolve, reject){
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.top = '-1000px';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    ok ? resolve() : reject();
+  });
+}
+function flash(btn, txt){
+  var old = btn.textContent;
+  btn.textContent = txt; btn.classList.add('done');
+  setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1700);
+}
+document.querySelectorAll('[data-copy]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var t = document.getElementById(btn.getAttribute('data-copy')).textContent.trim();
+    copyText(t).then(function(){ flash(btn, 'Copiat'); }).catch(function(){ flash(btn, 'Selectează și copiază manual'); });
+  });
+});
+
+/* descărcare: .txt cu BOM, ca diacriticele să se vadă corect peste tot */
+function download(text, name){
+  var bom = /\.(txt|csv)$/i.test(name) ? '\ufeff' : '';
+  var blob = new Blob([bom + text], { type: 'text/plain;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+}
+document.querySelectorAll('[data-dl]').forEach(function(btn){
+  btn.addEventListener('click', function(){ download(raw(btn.getAttribute('data-dl')), btn.getAttribute('data-name')); flash(btn, 'Descărcat'); });
+});
+
+/* navigare */
+var navBtns = Array.prototype.slice.call(document.querySelectorAll('.navbtn'));
+var secIds = navBtns.map(function(b){ return b.getAttribute('data-go'); });
+function navOff(){ var nw = document.querySelector('.navwrap'); return nw.offsetHeight < window.innerHeight / 2 ? nw.offsetHeight + 12 : 24; }
+function goTo(id){
+  var el = document.getElementById(id);
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - navOff(), behavior: 'smooth' });
+}
+document.querySelectorAll('[data-go]').forEach(function(el){
+  el.addEventListener('click', function(e){ e.preventDefault(); goTo(el.getAttribute('data-go')); });
+});
+/* etapa devine curentă când titlul ei trece de ~40% din ecran; la capătul paginii se aprinde ultima */
+function markActive(){
+  var best = 0, off = Math.max(navOff() + 30, window.innerHeight * 0.4);
+  for (var i = 0; i < secIds.length; i++){ var el = document.getElementById(secIds[i]); if (el && el.getBoundingClientRect().top - off <= 0) best = i; }
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) best = secIds.length - 1;
+  navBtns.forEach(function(b, i){ b.classList.toggle('active', i === best); });
+}
+window.addEventListener('scroll', markActive, { passive: true });
+
+/* tema: butoanele din antet */
+document.querySelectorAll('[data-theme-choice]').forEach(function(o){
+  o.addEventListener('click', function(){
+    var t = o.getAttribute('data-theme-choice');
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem('basetolearn-l5-lucru-tema', t); } catch(e) {}
+    markTheme();
+  });
+});
+function markTheme(){
+  var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  document.querySelectorAll('[data-theme-choice]').forEach(function(o){ o.classList.toggle('on', o.getAttribute('data-theme-choice') === cur); });
+}
+markTheme();
+</script>
+</body>
+</html>

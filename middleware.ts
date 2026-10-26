@@ -1,9 +1,9 @@
 // Edge Middleware — păzește cu parolă DOAR paginile din PAGINI:
-// /cortex (resursele Build Your Cortex) și /lectia-6 (pagina de lucru basetolearn L6).
+// /cortex (resursele Build Your Cortex), /lectia-6 și /lectia-9 (paginile de lucru basetolearn L6 și L9).
 // Restul site-ului nu trece prin matcher, deci rămâne neatins.
 
 export const config = {
-  matcher: ['/cortex', '/cortex/:path*', '/lectia-6', '/lectia-6.html'],
+  matcher: ['/cortex', '/cortex/:path*', '/lectia-6', '/lectia-6.html', '/lectia-9', '/lectia-9.html'],
 };
 
 type Pagina = {
@@ -41,11 +41,23 @@ const PAGINI: Record<string, Pagina> = {
     titlu: 'Lecția 6: pagina de lucru',
     text: 'Introdu parola primită în lecție.',
   },
+  'lectia-9': {
+    parola: 'basetolearn1',
+    cookie: 'lectia9_acces',
+    cookieVal: 'btl-l9-ok',
+    cookiePath: '/', // acoperă și /lectia-9, și /lectia-9.html
+    maxAge: 60 * 60 * 24 * 30, // 30 de zile — lecția e pe 2 nov, tema pe 4 nov
+    titluTab: 'Acces · HR Management în era AI',
+    kicker: 'HR Management în era AI',
+    titlu: 'Lecția 9: pagina de lucru',
+    text: 'Introdu parola primită în lecție.',
+  },
 };
 
 function paginaPentru(pathname: string): Pagina | null {
   if (pathname === '/cortex' || pathname.startsWith('/cortex/')) return PAGINI.cortex;
   if (pathname === '/lectia-6' || pathname === '/lectia-6.html') return PAGINI['lectia-6'];
+  if (pathname === '/lectia-9' || pathname === '/lectia-9.html') return PAGINI['lectia-9'];
   return null;
 }
 
