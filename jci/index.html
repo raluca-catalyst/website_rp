@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Raluca Păduraru">
+<meta name="robots" content="noindex, nofollow">
+<title>Build Your First Skill · JCI Cluj × JCI Bardo · 7 November 2026</title>
+<!--
+  Fișa participantului JCI Cluj × JCI Bardo, 7 nov 2026. Sursa textului: wiki/workshop-design/jci-cluj/fisa-participant.md.
+  Derivat din assets/fisa-template.html (fisa-lucru-raluca), varianta 2 (începător), eveniment open: brand Upvance, 2 teme.
+  Build: python <skill>/scripts/build.py fisa-participant.template.html --out <website_rp>/jci/index.html
+  Cele 4 schelete folosesc mecanica drumurilor (A-D), cu .dv pe literă. Fără eyebrows, fără puncte luminoase.
+-->
+<script>
+(function(){
+  var t = null;
+  try { t = localStorage.getItem('jci-skill-7nov-tema'); } catch(e) {}
+  if (t !== 'dark' && t !== 'light') t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon-180.png">
+
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot -> GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --card:#f7f4ff; --card2:#f4f1fb; --ink:#1d1836; --soft:#3a3553; --gray:#635e7d;
+    --line:rgba(124,58,237,0.16); --main:#7c3aed; --main-ink:#ffffff;
+    --a1:#7c3aed; --a2:#7c3aed; --a3:#7c3aed;
+    --head:'JetBrains Mono',monospace; --body:'Barlow',sans-serif;
+    --acc:var(--a1);
+  }
+  html[data-theme="dark"]{
+    --bg:#14102a; --card:#1c1738; --card2:#171331; --ink:#f3f0ff; --soft:#cfc9e6; --gray:#9d95bf;
+    --line:rgba(167,139,250,0.22); --main:#a78bfa; --main-ink:#14102a; --a1:#a78bfa; --a2:#c4b5fd; --a3:#b79cff;
+  }
+  .a1{--acc:var(--a1)} .a2{--acc:var(--a2)} .a3{--acc:var(--a3)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+  a{color:var(--main)}
+
+  header{padding:40px 24px 34px;border-bottom:1px solid var(--line)}
+  header .wrapin{max-width:880px;margin:0 auto}
+  header h1{font-family:var(--head);font-size:40px;font-weight:600;line-height:1.15}
+  header p{margin-top:12px;font-size:18px;color:var(--soft)}
+  header p.ev{font-size:15px;color:var(--gray);margin-top:6px}
+  .themebox{margin-top:16px;display:flex;gap:6px}
+  .themebox button{font-family:var(--body);font-size:13px;background:transparent;color:var(--gray);border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+  .themebox button.on{color:var(--main);border-color:var(--main)}
+
+  .navwrap{background:var(--bg);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line)}
+  .nav{max-width:1100px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:0 12px;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .navbtn{background:none;border:none;color:var(--gray);padding:12px;cursor:pointer;font-size:13px;font-family:var(--body);white-space:nowrap;border-bottom:2px solid transparent}
+  .navbtn:hover{color:var(--ink)}
+  .navbtn.active{color:var(--ink);border-bottom-color:var(--main)}
+  .navbtn .no,.navbtn .ns{display:none}
+  @media(max-width:1000px){.nav{flex-wrap:wrap;overflow-x:visible}}
+  @media(min-width:1180px){
+    .layout{display:grid;grid-template-columns:290px minmax(0,1fr);align-items:start}
+    header{padding-left:calc(290px + 24px)}
+    .layout footer{grid-column:2;width:100%}
+    .navwrap{height:100vh;overflow-y:auto;border-bottom:none;border-right:1px solid var(--line)}
+    .nav{flex-direction:column;gap:0;max-width:none;overflow:visible;padding:24px 0}
+    .navbtn{display:block;width:100%;text-align:left;white-space:normal;line-height:1.4;padding:12px 20px;border-bottom:none;border-left:3px solid transparent}
+    .navbtn .nt{display:block;font-size:14px;font-weight:700}
+    .navbtn.active{background:var(--card);border-left-color:var(--main)}
+    .navbtn.active .no{display:block;font-style:italic;font-size:13px;color:var(--soft);margin-top:6px}
+    .navbtn.active .ns{display:block;font-size:13px;color:var(--ink);margin-top:6px}
+  }
+
+  main{max-width:880px;margin:0 auto;padding:28px 16px 70px}
+
+  .video-grid{display:grid;grid-template-columns:1fr;gap:14px;margin:10px 0 18px}
+  .video-grid.doi{grid-template-columns:1fr 1fr}
+  @media(max-width:720px){.video-grid.doi{grid-template-columns:1fr}}
+  figure.video{margin:0}
+  figure.video figcaption{font-size:15px;font-weight:700;margin:0 0 6px}
+  figure.video video{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--card2)}
+
+  .howto{background:var(--card2);border-left:3px solid var(--main);padding:16px 20px;margin-bottom:22px}
+  .howto h2{font-family:var(--head);font-size:16px;color:var(--main);margin-bottom:6px}
+  .howto p{color:var(--soft)}
+
+  .box,.plain{background:var(--card);border:1px solid var(--line);margin-bottom:16px;padding:24px}
+  .plain h2{font-family:var(--head);font-size:24px;font-weight:600;margin-bottom:10px}
+  .hd{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+  .num{font-size:14px;font-weight:700;color:var(--main-ink);background:var(--main);width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .box h3{font-family:var(--head);font-size:24px;font-weight:600;line-height:1.2}
+  .obj{font-style:italic;color:var(--soft);margin:2px 0 14px 42px}
+  .box p,.plain p{margin-bottom:10px;text-align:justify;hyphens:auto}
+  ul.bul{padding-left:22px;margin:8px 0 12px}
+  ul.bul li{margin-bottom:6px}
+  .lbl{font-weight:700;color:var(--ink)}
+
+  .note{background:color-mix(in srgb,var(--acc) 12%,transparent);border-left:3px solid var(--acc);padding:14px 18px;margin:14px 0}
+  .note p{margin-bottom:8px} .note p:last-child{margin-bottom:0}
+  .flow{font-size:15px;color:var(--soft);background:var(--card2);padding:10px 14px;margin:6px 0 14px;font-weight:600}
+  .ex{font-size:15px;color:var(--soft);background:var(--card2);border-left:2px solid var(--acc);padding:8px 12px;margin:10px 0}
+  .ex span{color:var(--acc);font-weight:700}
+
+  .field{margin:16px 0}
+  .fk{font-weight:700}
+  .fd{font-size:15px;color:var(--gray)}
+  .fblock{display:block;min-height:36px;border-bottom:1.5px solid var(--line);padding:7px 4px;outline:none;margin-top:8px;white-space:pre-wrap}
+  .fblock:focus{border-bottom-color:var(--main)}
+  .fblock:empty:before{content:attr(data-ph);color:var(--gray);opacity:.7;font-size:14px}
+  .fbig{min-height:70px}
+
+  .choice{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+  .drumbtn{display:block;text-align:left;font-family:var(--body);color:var(--ink);background:var(--card2);border:1.5px solid var(--line);padding:16px 18px;cursor:pointer}
+  .drumbtn .ct{display:block;font-family:var(--head);font-size:16px;font-weight:700}
+  .drumbtn .cd{display:block;font-size:15px;color:var(--soft);margin-top:6px}
+  .drumbtn .cn{display:block;font-size:14px;color:var(--gray);margin-top:6px}
+  .drumbtn.on{border-color:var(--main);background:var(--card)} .drumbtn.on .ct{color:var(--main)}
+  @media(max-width:640px){.choice{grid-template-columns:1fr}}
+  .dv{display:none} .dv.show{display:block}
+  .drumnow{font-size:15px;color:var(--soft);margin-bottom:8px}
+
+  .gata{border-top:1px dashed var(--line);margin-top:20px;padding-top:12px;font-size:16px;color:var(--soft)}
+  .gata b{color:var(--main)}
+
+  .mat{border:1px solid var(--line);margin:14px 0;background:var(--card2)}
+  .mat .mh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .mat .mt{font-weight:700}
+  .mat pre{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace;font-size:13px;line-height:1.6;color:var(--soft);white-space:pre-wrap;padding:14px 16px;max-height:380px;overflow:auto}
+  .btns{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{font-family:var(--body);background:var(--main);color:var(--main-ink);border:none;padding:10px 18px;font-size:15px;font-weight:700;cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--main);border:1.5px solid var(--main)}
+  .btn.done{opacity:.8}
+
+  .file{display:flex;align-items:center;gap:12px;justify-content:space-between;border:1px solid var(--line);background:var(--card2);padding:11px 14px;margin:10px 0;flex-wrap:wrap}
+  .file code{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace;font-size:13px;color:var(--gray);display:block}
+
+  .next{display:flex;justify-content:flex-end;margin-bottom:18px}
+  .nextbtn{background:transparent;color:var(--main);border:1.5px solid var(--main);padding:9px 16px;font-size:15px;font-weight:600;font-family:var(--body);cursor:pointer}
+  .backbtn{position:fixed;right:18px;bottom:18px;z-index:120;display:none;font-family:var(--body);background:var(--main);color:var(--main-ink);border:none;padding:11px 18px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+  .backbtn.show{display:block}
+  .save{border:1px dashed var(--line);padding:16px 18px;margin:18px 0;color:var(--soft)}
+  footer{max-width:880px;margin:0 auto;padding:0 16px 50px;font-size:13px;color:var(--gray)}
+  @media(max-width:640px){header h1{font-size:30px}.box,.plain{padding:18px}.obj{margin-left:0}}
+
+  @media print{
+    :root,html[data-theme="dark"]{--bg:#fff;--card:#fff;--card2:#f6f6f8;--ink:#111;--soft:#333;--gray:#555;--line:#bbb;--main:#111;--main-ink:#fff;--a1:#333;--a2:#333;--a3:#333}
+    body{background:#fff;color:#111;font-size:11pt}
+    header{background:#fff;border-bottom:2px solid #111;padding:0 0 12px}
+    main{padding:12px 0 0;max-width:none}
+    .navwrap,.noprint,.btn,.next,.btns,.themebox,.backbtn,.video-grid{display:none !important}
+    .layout{display:block !important}
+    .box,.plain,.howto,.note,.file,.mat,.ex,.flow{background:#fff !important;border:1px solid #bbb;color:#111}
+    .num{background:#111 !important;color:#fff !important}
+    .fblock{border-bottom:1px solid #999}
+    .fblock:empty:before{content:""}
+    .mat pre{max-height:none}
+  }
+</style>
+</head>
+<body>
+
+<header lang="en">
+  <div class="wrapin">
+    <h1>Build Your First Skill</h1>
+    <p>By the end, you have a skill that does one task you repeat often, tested on a new case.</p>
+    <p class="ev">JCI Cluj × JCI Bardo · How to Boost Your Business with AI · 7 November 2026</p>
+    <div class="themebox noprint"><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button></div>
+  </div>
+</header>
+
+<div class="layout">
+
+<div class="navwrap noprint">
+  <nav class="nav">
+    <button class="navbtn active" data-go="start"><span class="nt">Before You Start</span><span class="no">Open your AI app and know what you need.</span><span class="ns">Before you build anything, you open the right app and check the 3 things you need.</span></button>
+    <button class="navbtn" data-go="p1"><span class="nt">Step 1 · Pick Your Skill</span><span class="no">Choose 1 of the 4 skills and your material.</span><span class="ns">You pick the task you do often and want AI to take over.</span></button>
+    <button class="navbtn" data-go="p2"><span class="nt">Step 2 · The Interview</span><span class="no">Copy the prompt; AI asks you at most 5 questions, then does the task once.</span><span class="ns">Now that you've picked your skill, AI interviews you and shows you a first result.</span></button>
+    <button class="navbtn" data-go="p3"><span class="nt">Step 3 · Check and Improve</span><span class="no">Check the result and ask for fixes in the same conversation.</span><span class="ns">Before you save it, you make sure the result is right: your corrections go into the skill.</span></button>
+    <button class="navbtn" data-go="p4"><span class="nt">Step 4 · Save the Skill</span><span class="no">Turn the conversation into a skill.</span><span class="ns">Now that the result is good, you save the way of working so you never write it again.</span></button>
+    <button class="navbtn" data-go="p5"><span class="nt">Step 5 · Test It</span><span class="no">Use the skill on a new case, in a new conversation.</span><span class="ns">Now that you've saved the skill, you test it on a different situation.</span></button>
+    <button class="navbtn" data-go="p6"><span class="nt">Step 6 · Share in Your Trio</span><span class="no">Show your skill to 2 other participants.</span><span class="ns">Now that your skill works, you show it to others and hear what they would add.</span></button>
+  </nav>
+</div>
+
+<main>
+
+  <div class="howto">
+    <h2>How to Use This Page</h2>
+    <p>The copy buttons copy exactly what you see in the box.</p>
+  </div>
+
+  <section class="plain" id="start">
+    <h2>Before You Start</h2>
+    <p>You work in the desktop app of your AI assistant, on a paid account.</p>
+    <p><span class="lbl">Claude:</span> download the app from <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a>. Open it, sign in and start a new chat. If it asks for a folder, create an empty one called "JCI".</p>
+    <p><span class="lbl">ChatGPT:</span> download the app from <a href="https://openai.com/chatgpt/download/" target="_blank" rel="noopener">openai.com/chatgpt/download</a>. Open it, sign in and choose <strong>Codex</strong>. If it asks for a folder, create an empty one called "JCI".</p>
+    <div class="video-grid doi noprint">
+      <figure class="video"><figcaption>Claude</figcaption><video controls preload="none" playsinline muted poster="cowork.jpg"><source src="cowork.mp4" type="video/mp4"></video></figure>
+      <figure class="video"><figcaption>ChatGPT, in Codex</figcaption><video controls preload="none" playsinline muted poster="codex.jpg"><source src="codex.mp4" type="video/mp4"></video></figure>
+    </div>
+    <p><span class="lbl">Your data:</span> use real material from your work, but leave out what you would not send to an outside supplier: client names, personal data, passwords. Replace them with "Client A" or a rough number.</p>
+    <div class="note" id="demo">
+      <p><strong>No business yet, or no material at hand?</strong> Use our demo business, Lutra Ceramics. It replaces only the material: you follow exactly the same steps.</p>
+      <div class="file"><div>Lutra Ceramics, demo business<code>lutra-ceramics-demo.txt</code></div><button class="btn ghost" data-dl="r_demo" data-name="lutra-ceramics-demo.txt">Download the demo business (.txt)</button></div>
+    </div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p1">Step 1 · Pick Your Skill →</button></div>
+
+  <section class="box" id="p1">
+    <div class="hd"><span class="num">1</span><h3>Pick Your Skill</h3></div>
+    <p class="obj">Choose the task you do often and want AI to take over.</p>
+    <div class="choice noprint">
+      <button class="drumbtn" data-drum="A"><span class="ct">Business Snapshot</span><span class="cd">Every month you give it your numbers. It tells you where your business is, what changed since last month and the 3 things to watch.</span><span class="cn">You need: your numbers for at least 2 months (sales, costs, clients, whatever you track). Demo: the 3 months of Lutra Ceramics.</span></button>
+      <button class="drumbtn" data-drum="B"><span class="ct">Posts in Your Voice</span><span class="cd">You give it a topic. It writes a social media post that sounds like you.</span><span class="cn">You need: 3 posts you wrote and liked, and a topic for your next post. Demo: the 3 posts of Lutra Ceramics.</span></button>
+      <button class="drumbtn" data-drum="C"><span class="ct">Client Replies &amp; Offers</span><span class="cd">You give it a message from a client. It drafts the reply or a simple offer, with your real prices and your tone.</span><span class="cn">You need: a client message you have to answer, and your services with prices. Demo: the first client message and the price list of Lutra Ceramics.</span></button>
+      <button class="drumbtn" data-drum="D"><span class="ct">Your Design Rules</span><span class="cd">It keeps your visual style in everything AI designs for you: colors, fonts, layout, and what you never use.</span><span class="cn">You need: your colors and fonts (or the ones you like), and 2-3 designs you like or dislike. Demo: the brand rules of Lutra Ceramics.</span></button>
+    </div>
+    <div class="gata"><b>At the end of this step you have:</b> your skill picked and your material at hand.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p2">Step 2 · The Interview →</button></div>
+
+  <section class="box" id="p2">
+    <div class="hd"><span class="num">2</span><h3>The Interview</h3></div>
+    <p class="obj">AI asks you at most 5 questions, then does the task once.</p>
+    <div class="dv" data-dv="0"><div class="note"><p>First pick your skill, at <a href="#p1" data-go="p1">Step 1</a>: your prompt appears in the box below.</p></div></div>
+    <div>
+      <p class="drumnow"></p>
+      <div class="flow">New conversation → copy the prompt → answer the questions → AI does the task once</div>
+      <p><span class="lbl">What you send:</span> only the prompt below. AI asks for your material during the interview: then you copy or attach it.</p>
+      <div class="mat">
+        <div class="mh">
+          <div class="mt">Your prompt</div>
+          <div class="btns"><button class="btn" id="copyP">Copy the prompt</button></div>
+        </div>
+        <pre id="viewP"></pre>
+      </div>
+      <p><span class="lbl">How to answer the questions:</span> answer the way you would brief a colleague who takes over this task while you are away for a year. Not too much detail, not too vague.</p>
+      <p><span class="lbl">On the demo path:</span> when AI asks, copy the matching part from the Lutra Ceramics file. For the topic or the client message, use the ones marked "for Step 2".</p>
+    </div>
+    <div class="gata"><b>At the end of this step you have:</b> a first result, made from your answers.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p3">Step 3 · Check and Improve →</button></div>
+
+  <section class="box" id="p3">
+    <div class="hd"><span class="num">3</span><h3>Check and Improve</h3></div>
+    <p class="obj">Check the result and ask for fixes in the same conversation.</p>
+    <p>Your corrections in this conversation go into the skill. 3 checks, for the skill you picked:</p>
+    <div class="dv" data-dv="0"><div class="note"><p>Your 3 checks appear here after you pick your skill at <a href="#p1" data-go="p1">Step 1</a>.</p></div></div>
+    <div class="dv" data-dv="A"><ul class="bul"><li>Pick one number and check it against your data.</li><li>Find something you didn't give it: it should say "missing", not guess.</li><li>Read the 3 things to watch: each one should point to a number of yours.</li></ul></div>
+    <div class="dv" data-dv="B"><ul class="bul"><li>Read the post out loud: would you say it like that?</li><li>Look for any fact you didn't give it.</li><li>Compare the length and the format with your 3 posts.</li></ul></div>
+    <div class="dv" data-dv="C"><ul class="bul"><li>Check every price against your list.</li><li>Look for anything promised that you don't offer.</li><li>Read the tone: would you send it like that to this client?</li></ul></div>
+    <div class="dv" data-dv="D"><ul class="bul"><li>Open the HTML file in your browser.</li><li>Check that only your colors and fonts appear.</li><li>Look for anything you said you never use.</li></ul></div>
+    <p><span class="lbl">If something is off,</span> tell it in the same conversation what's wrong and ask for a new version. If everything is right, go on.</p>
+    <div class="ex"><span>Example:</span> "The post is too long and uses words I never use, like 'game-changer'. Make it half as long and keep my short sentences."</div>
+    <div class="gata"><b>At the end of this step you have:</b> a result you would use.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p4">Step 4 · Save the Skill →</button></div>
+
+  <section class="box" id="p4">
+    <div class="hd"><span class="num">4</span><h3>Save the Skill</h3></div>
+    <p class="obj">Turn the conversation into a skill.</p>
+    <p>Copy this prompt into the same conversation where you checked the result:</p>
+    <div class="mat">
+      <div class="mh">
+        <div class="mt">The save prompt</div>
+        <div class="btns"><button class="btn" id="copyS">Copy the save prompt</button></div>
+      </div>
+      <pre id="viewS"></pre>
+    </div>
+    <div class="flow">Same conversation → copy the save prompt → AI saves the skill → it tells you how to call it</div>
+    <p>If the AI you're using doesn't save the skill, ask it how you can save it as a skill on your account and follow its instructions. Usually, you will need to download a file and upload it in Customize - Skills - Yours (Claude) or Plugins - Skills - Add (ChatGPT).</p>
+    <p><span class="lbl">Where your skill goes:</span></p>
+    <ul class="bul">
+      <li><strong>Claude:</strong> Claude creates the skill and tells you where it saved it.</li>
+      <li><strong>ChatGPT, in Codex:</strong> Codex saves the skill and tells you where it put it. The confirmation that it saved is not enough: the test in Step 5 shows whether it works.</li>
+    </ul>
+    <div class="gata"><b>At the end of this step you have:</b> a saved skill you can reuse each time you need to do this task by simply asking for the task to be completed.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p5">Step 5 · Test It →</button></div>
+
+  <section class="box" id="p5">
+    <div class="hd"><span class="num">5</span><h3>Test It</h3></div>
+    <p class="obj">Use the skill on a new case, in a new conversation.</p>
+    <p>Open a <strong>new conversation</strong> and write, in your own words, what you want.</p>
+    <div class="ex"><span>Example:</span> "Use my business snapshot skill on this month's numbers."</div>
+    <p>The new case: next month's numbers, a new topic, a new client message or a new design. On the demo path, use the ones marked "for Step 5" in the <a href="#demo" data-go="demo">Lutra Ceramics file</a>.</p>
+    <p><span class="lbl">What to watch:</span></p>
+    <ul class="bul">
+      <li>It asks you only for what changes, not the whole interview again.</li>
+      <li>The result follows your rules without you repeating them.</li>
+      <li>What you corrected in Step 3 doesn't come back.</li>
+    </ul>
+    <p><span class="lbl">If something is off:</span> go back to the conversation from Steps 2-4, tell it what to adjust and ask it to update the skill. Then test again in a new conversation.</p>
+    <div class="gata"><b>At the end of this step you have:</b> a tested skill you can rely on.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="p6">Step 6 · Share in Your Trio →</button></div>
+
+  <section class="box" id="p6">
+    <div class="hd"><span class="num">6</span><h3>Share in Your Trio</h3></div>
+    <p class="obj">Show your skill to 2 other participants.</p>
+    <ul class="bul">
+      <li>Show your skill running on your test case.</li>
+      <li>Say what surprised you.</li>
+      <li>Ask the others: what would you add to it?</li>
+    </ul>
+    <p>The page stays online after the session: you can come back and build the other 3 skills.</p>
+  </section>
+
+
+</main>
+
+<footer>JCI Cluj × JCI Bardo · How to Boost Your Business with AI · 7 November 2026 · Raluca Păduraru</footer>
+</div>
+
+<button class="backbtn noprint" id="backBtn">← Back to where you were</button>
+
+<!-- PROMPTURILE (vizibile în casetă; textul din fisa-participant.md, Step 2 și Step 4) -->
+<script type="text/plain" id="p_A">I want to build a skill that turns my monthly numbers into a one-page snapshot of my business: where I am, what changed since last month, and the 3 things I should watch.
+
+First, interview me. Ask me at most 5 questions, one at a time, only about what you need to do this well for me. Wait for my answer before the next question. One of the questions asks for my numbers.
+
+Then do the snapshot once, on my numbers. Use only the numbers I give you: if something is missing, write that it is missing, never guess. Show every calculation next to the result.
+
+Before you show me the result, check it against what I told you matters to me, and fix what doesn't match.</script>
+<script type="text/plain" id="p_B">I want to build a skill that writes social media posts in my voice.
+
+First, interview me. Ask me at most 5 questions, one at a time, only about what you need to write like me. Wait for my answer before the next question. One of the questions asks for 3 posts I wrote and liked.
+
+Then write one post, on a topic I give you. Use only facts I give you: never invent results, numbers or stories.
+
+Before you show me the post, check it against my 3 posts and what I told you matters to me, and fix what doesn't sound like me.</script>
+<script type="text/plain" id="p_C">I want to build a skill that drafts my replies to client messages and simple offers, in my tone and with my real prices.
+
+First, interview me. Ask me at most 5 questions, one at a time, only about what you need to answer my clients well. Wait for my answer before the next question. One of the questions asks for my services and prices.
+
+Then draft one reply, to a client message I give you. Use only my real services and prices: if the client asks for something I didn't mention, write the question I should ask them, never invent a price or a promise.
+
+Before you show me the reply, check it against my prices and what I told you matters to me, and fix what doesn't match.</script>
+<script type="text/plain" id="p_D">I want to build a skill that keeps my visual style in everything you design for me.
+
+First, interview me. Ask me at most 5 questions, one at a time, only about what you need to design in my style: colors, fonts, layout, what I like and what I never use. Wait for my answer before the next question.
+
+Then make one design, as an HTML file I can open in my browser: a social media post or a one-page flyer, on a topic I give you. Use only my rules: don't add colors, fonts or decorations I didn't ask for.
+
+Before you show me the design, check it against my rules, and fix what doesn't match.</script>
+<script type="text/plain" id="p_save">Turn everything we did here into a skill I can call next time, without rewriting the instructions. Keep my answers to your questions, my corrections from this conversation and the check you do before you show me the result. Next time, ask me only for what changes: the new numbers, the new topic, the new client message or the new design. At the end, tell me the name of the skill and how to call it.</script>
+
+<!-- FIRMA DEMO, încorporată la build -->
+<script type="text/plain" id="r_demo">LUTRA CERAMICS (demo business, the name is invented)
+
+WHO WE ARE
+Lutra Ceramics is a small ceramics studio run by Ana, the founder, with one part-time assistant. We make handmade mugs, bowls and plates, sell them online (our own shop and Instagram), make custom pieces for cafés and restaurants, and run pottery workshops at the studio on weekends.
+
+SERVICES AND PRICES (EUR)
+- Mugs: 32-38 per piece. Bowls: 30. Plates: 28.
+- Custom pieces for cafés and restaurants, with their logo: from 20 pieces. Mugs 30 per piece, plates 26 per piece, plus a one-time logo setup of 120. Ready in 5 weeks.
+- Public workshop: 45 per person, 2.5 hours, max 8 people.
+- Private workshop for a group: 480 for up to 12 people, 2.5 hours, at the studio.
+- We don't ship outside the country and we don't do repairs.
+
+MONTHLY NUMBERS (for Business snapshot)
+June
+- Online orders: 64, average 35 per order = 2,240
+- Custom orders: 1 (a café) = 1,200
+- Workshops: 3 sessions, 24 people x 45 = 1,080
+- Total revenue: 4,520
+- Costs: materials 780, kiln electricity 310, studio rent 600, assistant 700, ads 250, shop fees 110 = 2,750
+- Profit: 1,770
+- Returning customers: 18
+July
+- Online orders: 58, average 35 per order = 2,030
+- Custom orders: 0
+- Workshops: 4 sessions, 32 people x 45 = 1,440
+- Total revenue: 3,470
+- Costs: materials 690, kiln electricity 330, studio rent 600, assistant 700, ads 250, shop fees 100 = 2,670
+- Profit: 800
+- Returning customers: 15
+August
+- Online orders: 81, average 36 per order = 2,916
+- Custom orders: 2 (a café and a restaurant) = 2,100
+- Workshops: 4 sessions, 28 people x 45 = 1,260
+- Total revenue: 6,276
+- Costs: materials 1,050, kiln electricity 420, studio rent 600, assistant 700, ads 400, shop fees 140 = 3,310
+- Profit: 2,966
+- Returning customers: not counted this month
+September (for Step 5)
+- Online orders: 95, average 36 per order = 3,420
+- Custom orders: 1 (a hotel) = 1,500
+- Workshops: 3 sessions, 24 people x 45 = 1,080
+- Total revenue: 6,000
+- Costs: materials 1,100, kiln electricity 450, studio rent 600, assistant 700, ads 450, shop fees 160 = 3,460
+- Profit: 2,540
+- Returning customers: 22
+
+THREE POSTS ANA WROTE AND LIKED (for Posts in your voice)
+1. "Every mug that leaves the studio has a small thumbprint under the handle. Mine. It's not a logo, it's proof that someone sat at the wheel and thought about your morning coffee."
+2. "Kiln opening day. 40 pieces went in, 37 came out the way I wanted. The other 3 are on my desk now, holding pens and teaching me patience."
+3. "Saturday's workshop: 8 people, 0 experience, 8 bowls. Wonky, heavy, perfect. Next one is in two weeks, 3 spots left."
+Topic for Step 2: the new autumn glaze, a deep green, available from next week.
+Topic for Step 5: the studio is closed for 1 week for a holiday, orders still ship.
+
+CLIENT MESSAGES (for Client replies & offers)
+For Step 2: "Hi! We're opening a small café in March and we love your mugs. Could you make 40 mugs with our logo? How much would it cost and when could we have them?"
+For Step 5: "Hello, we run a restaurant and need 60 plates for a new menu, ideally with a small mark of our name. We'd also like them shipped to Vienna. What can you offer?"
+
+BRAND RULES (for Your design rules)
+- Colors: terracotta #B5573B, cream #F4EDE4, charcoal #2B2B2B. One accent color per design.
+- Fonts: Fraunces for titles, Inter for text. Never more than 2 fonts.
+- We like: lots of empty space, real photos of hands and clay, short titles.
+- We never use: gradients, stock photos, emoji in visuals, all-caps text.
+Topic for Step 2: an Instagram post announcing the next public workshop, Saturday, 3 spots left.
+Topic for Step 5: a one-page flyer for our stand at the Christmas market.
+</script>
+
+<script>
+var STORE = 'jci-skill-7nov';
+var NAMES = { A:'Business Snapshot', B:'Posts in Your Voice', C:'Client Replies & Offers', D:'Your Design Rules' };
+function raw(id){ var el = document.getElementById(id); return el ? el.textContent.replace(/^\n/, '').replace(/<\\\//g, '</') : ''; }
+
+var saved = {};
+try { saved = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch(e) { saved = {}; }
+function persist(){ try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch(e) {} }
+document.querySelectorAll('[contenteditable="true"][data-k]').forEach(function(el){
+  var k = el.getAttribute('data-k');
+  if (saved[k]) el.innerText = saved[k];
+  el.addEventListener('input', function(){ saved[k] = el.innerText; persist(); });
+});
+
+function copyText(t){
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).catch(function(){ return legacyCopy(t); });
+  return legacyCopy(t);
+}
+function legacyCopy(t){
+  return new Promise(function(resolve, reject){
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.top = '-1000px';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    ok ? resolve() : reject();
+  });
+}
+function flash(btn, txt){
+  var old = btn.textContent;
+  btn.textContent = txt; btn.classList.add('done');
+  setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1700);
+}
+
+function download(text, name){
+  var bom = /\.(txt|csv)$/i.test(name) ? '﻿' : '';
+  var blob = new Blob([bom + text], { type: 'text/plain;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+}
+document.querySelectorAll('[data-dl]').forEach(function(btn){
+  btn.addEventListener('click', function(){ download(raw(btn.getAttribute('data-dl')), btn.getAttribute('data-name')); flash(btn, 'Downloaded'); });
+});
+
+/* scheletul ales (A-D): se vede doar el; caseta arată exact promptul care se copiază */
+var drum = /^[ABCD]$/.test(saved._drum || '') ? saved._drum : '';
+function updateView(){ var v = document.getElementById('viewP'); if (v) v.textContent = drum ? raw('p_' + drum) : 'Your prompt appears here after you pick your skill at Step 1.'; }
+function syncDrum(){
+  document.querySelectorAll('.drumbtn').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-drum') === drum); });
+  document.querySelectorAll('.dv').forEach(function(d){
+    var k = d.getAttribute('data-dv');
+    d.classList.toggle('show', k.indexOf(drum || '0') > -1);
+  });
+  var dn = document.querySelector('.drumnow');
+  if (dn && drum) dn.innerHTML = 'Your skill: <b>' + NAMES[drum].replace('&', '&amp;') + '</b>. <a href="#p1" data-go="p1">Change it</a>';
+  updateView();
+}
+document.querySelectorAll('.drumbtn').forEach(function(b){
+  b.addEventListener('click', function(){ drum = b.getAttribute('data-drum'); saved._drum = drum; persist(); syncDrum(); });
+});
+var dnEl = document.querySelector('.drumnow');
+if (dnEl) dnEl.addEventListener('click', function(e){ if (e.target.tagName === 'A') { e.preventDefault(); goTo('p1'); } });
+document.getElementById('copyP').addEventListener('click', function(){
+  var b = this;
+  if (!drum) { flash(b, 'Pick your skill first'); return; }
+  copyText(raw('p_' + drum)).then(function(){ flash(b, 'Copied'); }).catch(function(){ flash(b, 'Select and copy manually'); });
+});
+document.getElementById('viewS').textContent = raw('p_save');
+document.getElementById('copyS').addEventListener('click', function(){
+  var b = this;
+  copyText(raw('p_save')).then(function(){ flash(b, 'Copied'); }).catch(function(){ flash(b, 'Select and copy manually'); });
+});
+
+/* navigare + „Back to where you were" după saltul spre firma demo */
+var ANEXE = ['demo'];
+var navBtns = Array.prototype.slice.call(document.querySelectorAll('.navbtn'));
+var secIds = navBtns.map(function(b){ return b.getAttribute('data-go'); });
+function navOff(){ var nw = document.querySelector('.navwrap'); return nw.offsetHeight < window.innerHeight / 2 ? nw.offsetHeight + 12 : 24; }
+function goTo(id){
+  var el = document.getElementById(id);
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - navOff(), behavior: 'smooth' });
+}
+var backBtn = document.getElementById('backBtn'), backStack = [];
+document.querySelectorAll('[data-go]').forEach(function(el){
+  el.addEventListener('click', function(e){
+    e.preventDefault();
+    var id = el.getAttribute('data-go');
+    if (ANEXE.indexOf(id) > -1 && !el.classList.contains('navbtn')) { backStack.push(window.scrollY); backBtn.classList.add('show'); }
+    goTo(id);
+  });
+});
+backBtn.addEventListener('click', function(){
+  var y = backStack.pop();
+  if (y !== undefined) window.scrollTo({ top: y, behavior: 'smooth' });
+  if (!backStack.length) backBtn.classList.remove('show');
+});
+function markActive(){
+  var best = 0, off = Math.max(navOff() + 30, window.innerHeight * 0.4);
+  for (var i = 0; i < secIds.length; i++){ var el = document.getElementById(secIds[i]); if (el && el.getBoundingClientRect().top - off <= 0) best = i; }
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) best = secIds.length - 1;
+  navBtns.forEach(function(b, i){ b.classList.toggle('active', i === best); });
+}
+window.addEventListener('scroll', markActive, { passive: true });
+
+document.querySelectorAll('[data-theme-choice]').forEach(function(o){
+  o.addEventListener('click', function(){
+    var t = o.getAttribute('data-theme-choice');
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem(STORE + '-tema', t); } catch(e) {}
+    markTheme();
+  });
+});
+function markTheme(){
+  var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  document.querySelectorAll('[data-theme-choice]').forEach(function(o){ o.classList.toggle('on', o.getAttribute('data-theme-choice') === cur); });
+}
+markTheme();
+
+syncDrum();
+</script>
+</body>
+</html>
