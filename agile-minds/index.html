@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Raluca Păduraru">
+<meta name="robots" content="noindex, nofollow">
+<title>Innovate with AI · Agile Minds RO Forum · 16 November 2026</title>
+<!--
+  Pagina de prompturi pentru grupe, Agile Minds RO Forum, 16 nov 2026.
+  Sursa textului: wiki/pozitionare/conferinte/agile-minds/pagina-prompturi.md (fișele de masă: probleme-si-personas.md).
+  Derivat din assets/fisa-template.html (fisa-lucru-raluca) și din /jci. Eveniment open: brand Upvance, 2 teme.
+  Rezumatele cardurilor din CARDS sunt copiate exact din trend-cards/cards/*.json (câmpul summary).
+  Fără eyebrows, fără puncte luminoase.
+-->
+<script>
+(function(){
+  var t = null;
+  try { t = localStorage.getItem('agile-minds-16nov-tema'); } catch(e) {}
+  if (t !== 'dark' && t !== 'light') t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon-180.png">
+
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot -> GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --card:#f7f4ff; --card2:#f4f1fb; --ink:#1d1836; --soft:#3a3553; --gray:#635e7d;
+    --line:rgba(124,58,237,0.16); --main:#7c3aed; --main-ink:#ffffff;
+    --a1:#7c3aed; --a2:#7c3aed; --a3:#7c3aed;
+    --head:'JetBrains Mono',monospace; --body:'Barlow',sans-serif;
+    --acc:var(--a1);
+  }
+  html[data-theme="dark"]{
+    --bg:#14102a; --card:#1c1738; --card2:#171331; --ink:#f3f0ff; --soft:#cfc9e6; --gray:#9d95bf;
+    --line:rgba(167,139,250,0.22); --main:#a78bfa; --main-ink:#14102a; --a1:#a78bfa; --a2:#c4b5fd; --a3:#b79cff;
+  }
+  .a1{--acc:var(--a1)} .a2{--acc:var(--a2)} .a3{--acc:var(--a3)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+  a{color:var(--main)}
+
+  header{padding:40px 24px 34px;border-bottom:1px solid var(--line)}
+  header .wrapin{max-width:880px;margin:0 auto}
+  header h1{font-family:var(--head);font-size:40px;font-weight:600;line-height:1.15}
+  header p{margin-top:12px;font-size:18px;color:var(--soft);text-align:justify;hyphens:auto}
+  header p.ev{font-size:15px;color:var(--gray);margin-top:6px;text-align:left}
+  .themebox{margin-top:16px;display:flex;gap:6px}
+  .themebox button{font-family:var(--body);font-size:13px;background:transparent;color:var(--gray);border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+  .themebox button.on{color:var(--main);border-color:var(--main)}
+
+  .navwrap{background:var(--bg);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line)}
+  .nav{max-width:1100px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:0 12px;scrollbar-width:none}
+  .nav::-webkit-scrollbar{display:none}
+  .navbtn{background:none;border:none;color:var(--gray);padding:12px;cursor:pointer;font-size:13px;font-family:var(--body);white-space:nowrap;border-bottom:2px solid transparent}
+  .navbtn:hover{color:var(--ink)}
+  .navbtn.active{color:var(--ink);border-bottom-color:var(--main)}
+  .navbtn .no,.navbtn .ns{display:none}
+  @media(max-width:1000px){.nav{flex-wrap:wrap;overflow-x:visible}}
+  @media(min-width:1180px){
+    .layout{display:grid;grid-template-columns:290px minmax(0,1fr);align-items:start}
+    header{padding-left:calc(290px + 24px)}
+    .layout footer{grid-column:2;width:100%}
+    .navwrap{height:100vh;overflow-y:auto;border-bottom:none;border-right:1px solid var(--line)}
+    .nav{flex-direction:column;gap:0;max-width:none;overflow:visible;padding:24px 0}
+    .navbtn{display:block;width:100%;text-align:left;white-space:normal;line-height:1.4;padding:12px 20px;border-bottom:none;border-left:3px solid transparent}
+    .navbtn .nt{display:block;font-size:14px;font-weight:700}
+    .navbtn.active{background:var(--card);border-left-color:var(--main)}
+    .navbtn.active .no{display:block;font-style:italic;font-size:13px;color:var(--soft);margin-top:6px}
+    .navbtn.active .ns{display:block;font-size:13px;color:var(--ink);margin-top:6px}
+  }
+
+  main{max-width:880px;margin:0 auto;padding:28px 16px 70px}
+
+  .howto{background:var(--card2);border-left:3px solid var(--main);padding:16px 20px;margin-bottom:22px}
+  .howto h2{font-family:var(--head);font-size:16px;color:var(--main);margin-bottom:6px}
+  .howto ul{padding-left:20px}
+  .howto li{margin-bottom:5px;color:var(--soft)}
+
+  .box,.plain{background:var(--card);border:1px solid var(--line);margin-bottom:16px;padding:24px}
+  .plain h2{font-family:var(--head);font-size:24px;font-weight:600;margin-bottom:10px}
+  .hd{display:flex;align-items:center;gap:12px;margin-bottom:4px}
+  .num{font-size:14px;font-weight:700;color:var(--main-ink);background:var(--main);width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .box h3{font-family:var(--head);font-size:24px;font-weight:600;line-height:1.2}
+  .box h4,.plain h4{font-family:var(--head);font-size:16px;font-weight:600;color:var(--acc);margin:16px 0 8px}
+  .box p,.plain p{margin-bottom:10px;text-align:justify;hyphens:auto}
+  ul.bul{padding-left:22px;margin:8px 0 12px}
+  ul.bul li{margin-bottom:6px}
+  .lbl{font-weight:700;color:var(--ink)}
+
+  .note{background:color-mix(in srgb,var(--acc) 12%,transparent);border-left:3px solid var(--acc);padding:14px 18px;margin:14px 0}
+  .note p{margin-bottom:8px} .note p:last-child{margin-bottom:0}
+  .ex{font-size:15px;color:var(--soft);background:var(--card2);border-left:2px solid var(--acc);padding:8px 12px;margin:8px 0}
+  .ex span{color:var(--acc);font-weight:700}
+  .ex p{margin:0 0 10px;text-align:left} .ex p:last-child{margin-bottom:0}
+  .ex .exh{font-style:italic}
+  details.later{border:1px dashed var(--line);background:var(--card2);margin:12px 0 0}
+  details.later summary{cursor:pointer;padding:14px 16px;font-weight:700;color:var(--main)}
+  details.later[open]{padding:0 16px 16px}
+  details.later[open] summary{padding-left:0;padding-right:0}
+
+  .q{padding:14px 0;border-top:1px solid var(--line)}
+  .qq{font-weight:700}
+  .field{margin:16px 0}
+  .fk{font-weight:700}
+  .fd{font-size:15px;color:var(--gray)}
+  .fblock{display:block;min-height:36px;border-bottom:1.5px solid var(--line);padding:7px 4px;outline:none;margin-top:8px;white-space:pre-wrap}
+  .fblock:focus{border-bottom-color:var(--main)}
+  .fblock:empty:before{content:attr(data-ph);color:var(--gray);opacity:.7;font-size:14px}
+  .fbig{min-height:70px}
+
+  .choice{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+  .choice.three{grid-template-columns:1fr 1fr 1fr}
+  .drumbtn{display:block;text-align:left;font-family:var(--body);color:var(--ink);background:var(--card2);border:1.5px solid var(--line);padding:16px 18px;cursor:pointer;min-height:56px}
+  .drumbtn .ct{display:block;font-family:var(--head);font-size:16px;font-weight:700}
+  .drumbtn .cd{display:block;font-size:15px;color:var(--soft);margin-top:6px}
+  .drumbtn.on{border-color:var(--main);background:var(--card)} .drumbtn.on .ct{color:var(--main)}
+  @media(max-width:640px){.choice,.choice.three{grid-template-columns:1fr}}
+  .drumbtn.has-ic{display:flex;align-items:center;gap:14px}
+  .drumbtn.lensbtn{flex-direction:column;justify-content:center;text-align:center;gap:8px}
+  .ic{width:48px;height:48px;flex-shrink:0;color:var(--main)}
+  .ic .f{fill:color-mix(in srgb,var(--main) 14%,transparent)}
+  @media(max-width:640px){.drumbtn.lensbtn{flex-direction:row;text-align:left;justify-content:flex-start}}
+  .dv{display:none} .dv.show{display:block}
+  .now{font-size:15px;color:var(--soft);margin:6px 0 8px}
+
+  .gata{border-top:1px dashed var(--line);margin-top:20px;padding-top:12px;font-size:16px;color:var(--soft)}
+  .gata b{color:var(--main)}
+
+  .mat{border:1px solid var(--line);margin:14px 0;background:var(--card2)}
+  .mat .mh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .mat .mt{font-weight:700}
+  .mat .ms{font-size:14px;color:var(--gray)}
+  .mat pre{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace;font-size:13px;line-height:1.6;color:var(--soft);white-space:pre-wrap;word-break:break-word;padding:14px 16px;max-height:380px;overflow:auto}
+  .btns{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{font-family:var(--body);background:var(--main);color:var(--main-ink);border:none;padding:10px 18px;font-size:15px;font-weight:700;cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--main);border:1.5px solid var(--main)}
+  .btn.done{opacity:.8}
+
+  .next{display:flex;justify-content:flex-end;margin-bottom:18px}
+  .nextbtn{background:transparent;color:var(--main);border:1.5px solid var(--main);padding:9px 16px;font-size:15px;font-weight:600;font-family:var(--body);cursor:pointer}
+  .save{border:1px dashed var(--line);padding:16px 18px;margin:18px 0;color:var(--soft)}
+  footer{max-width:880px;margin:0 auto;padding:0 16px 50px;font-size:13px;color:var(--gray)}
+  @media(max-width:640px){header{padding:28px 16px 24px}header h1{font-size:28px}.box,.plain{padding:18px}}
+
+  /* PDF-ul: fundal alb, brandul Upvance pe tema luminoasă (text închis, accente lavender), oricare ar fi tema de pe ecran. */
+  @media print{
+    :root,html[data-theme="dark"]{--bg:#fff;--card:#fff;--card2:#f7f4ff;--ink:#1d1836;--soft:#3a3553;--gray:#635e7d;--line:rgba(124,58,237,0.28);--main:#7c3aed;--main-ink:#fff;--a1:#7c3aed;--a2:#7c3aed;--a3:#7c3aed}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    body{background:#fff;color:var(--ink);font-size:11pt}
+    header{background:#fff;border-bottom:2px solid var(--main);padding:0 0 12px}
+    header h1{color:var(--main)}
+    main{padding:12px 0 0;max-width:none}
+    .navwrap,.noprint,.btn,.next,.btns,.themebox,#wrap{display:none !important}
+    .layout{display:block !important}
+    .box,.plain,.howto,.note,.mat{background:#fff !important;border:1px solid var(--line)}
+    .ex,.q,.field,.gata,.hd{break-inside:avoid-page}
+    .hd{break-after:avoid-page}
+    .fblock{border-bottom:1px solid var(--line)}
+    .fblock:empty:before{content:""}
+    .mat pre{max-height:none;color:var(--soft)}
+    details.later{border:none;background:#fff !important}
+    details.later summary{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrapin">
+    <h1>How to Innovate with AI</h1>
+    <p>By the end you'll have one sparkling idea, 5 customers' reactions to it, and 3 questions to ask real customers this week.</p>
+    <div class="themebox noprint"><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button></div>
+  </div>
+</header>
+
+<div class="layout">
+
+<div class="navwrap noprint">
+  <nav class="nav">
+    <button class="navbtn active" data-go="problem"><span class="nt">Your Problem</span><span class="no">Pick the problem your team works on.</span><span class="ns">Start with the problem and the 2 trends that come with it.</span></button>
+    <button class="navbtn" data-go="s1"><span class="nt">1 · Sense</span><span class="no">Read your 2 trend cards.</span><span class="ns">Before you look at the problem, look at what's coming.</span></button>
+    <button class="navbtn" data-go="s2"><span class="nt">2 · Frame</span><span class="no">Describe the problem in 4 lines.</span><span class="ns">Now that you know what's coming, you pin down the problem.</span></button>
+    <button class="navbtn" data-go="s3"><span class="nt">3 · Your Idea</span><span class="no">Write your own idea, without AI.</span><span class="ns">Human first, AI second: your idea comes before the AI's.</span></button>
+    <button class="navbtn" data-go="s4"><span class="nt">4 · 12 Variations</span><span class="no">Let AI push your idea away from the obvious.</span><span class="ns">Now that you have your own idea, AI takes it somewhere you wouldn't.</span></button>
+    <button class="navbtn" data-go="s5"><span class="nt">5 · Pick One</span><span class="no">Choose one idea and write it in one sentence.</span><span class="ns">From 13 ideas, you keep the one worth testing.</span></button>
+    <button class="navbtn" data-go="s6"><span class="nt">6 · The Council</span><span class="no">Test your idea on 5 synthetic customers.</span><span class="ns">Now that you have one idea, you hear what customers would ask.</span></button>
+    <button class="navbtn" data-go="wrap"><span class="nt">Wrap Up</span><span class="no">Save what you leave with.</span><span class="ns">You leave with an idea and the questions to test it.</span></button>
+  </nav>
+</div>
+
+<main>
+
+  <div class="howto">
+    <h2>How to Use This Page</h2>
+    <ul>
+      <li>Work as a team. One of you will use the phone to fill in this page. Use any LLM you are familiar with.</li>
+      <li>What you type is saved in this browser, even if you close the page.</li>
+      <li>The <strong>Copy</strong> buttons copy the whole prompt, with your answers included.</li>
+    </ul>
+  </div>
+
+  <section class="box a1" id="problem">
+    <div class="hd"><h3>Your Problem</h3></div>
+    <p>Pick the problem your team works on.</p>
+    <div class="choice noprint">
+      <button class="drumbtn has-ic" data-prob="inv"><svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="f" d="M12 36c0-9 8-15 19-15 4 0 8 1 11 3l6-3v7c2 2 3 4 4 6h3v8h-4c-1 2-3 4-5 5v5h-6v-3H28v3h-6v-6c-6-3-10-6-10-10z"/><circle cx="42" cy="33" r="1.8" fill="currentColor" stroke="none"/><path d="M26 21h8"/><circle class="f" cx="30" cy="10" r="5"/><path d="M30 8v4"/></svg><span class="ct">The first investment</span></button>
+      <button class="drumbtn has-ic" data-prob="pat"><svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="f" cx="22" cy="42" r="13"/><circle cx="17.5" cy="40" r="1.8" fill="currentColor" stroke="none"/><circle cx="26.5" cy="40" r="1.8" fill="currentColor" stroke="none"/><circle cx="22" cy="47.5" r="1.8"/><circle cx="34" cy="31" r="1.4"/><path class="f" d="M40 6h12a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6h-6l-5 5v-5a6 6 0 0 1-7-6v-8a6 6 0 0 1 6-6z"/><path d="M42.5 12.5a3.5 3.5 0 1 1 4 3.5v2.5"/><circle cx="46.5" cy="22" r="1" fill="currentColor" stroke="none"/></svg><span class="ct">The patient who forgets</span></button>
+      <button class="drumbtn has-ic" data-prob="b2b"><svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="f" x="10" y="26" width="34" height="28" rx="3"/><path d="M8 26h38l-4-8H12z"/><path d="M18 38c2 2 4 2 6 0M30 38c2 2 4 2 6 0"/><path d="M25 45h4"/><path d="M48 12h7l-7 8h7M44 3h4l-4 5h4"/></svg><span class="ct">The B2B customer in month one</span></button>
+      <button class="drumbtn has-ic" data-prob="own"><svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="f" d="M32 8c-10 0-17 7-17 16 0 6 3 10 7 13v6h20v-6c4-3 7-7 7-13 0-9-7-16-17-16z"/><path d="M25 49h14M27 55h10"/><circle cx="27" cy="23" r="1.8" fill="currentColor" stroke="none"/><circle cx="37" cy="23" r="1.8" fill="currentColor" stroke="none"/><path d="M28 29c2.5 2.5 5.5 2.5 8 0"/><path d="M7 16l-3-2M57 16l3-2M10 30H6M54 30h4"/></svg><span class="ct">Our own problem</span></button>
+    </div>
+
+    <div class="dv" data-pv="inv"><div class="note">
+      <h4>The first investment</h4>
+      <p><strong>The problem:</strong> People who have never invested open their banking app, see the "Invest" button, and don't press it.</p>
+      <p><strong>Your 2 trend cards:</strong></p>
+      <ul class="bul">
+        <li><a href="cards/micro-investing.pdf" target="_blank" rel="noopener"><em>From Big Tickets to €5 Starts: Investing Opens to First-Timers</em></a> (Trend)</li>
+        <li><a href="cards/ai-financial-copilot.pdf" target="_blank" rel="noopener"><em>From Chatbot to Copilot: Bank AI That Explains, Proposes, Acts</em></a> (Weak Signal)</li>
+      </ul>
+    </div></div>
+
+    <div class="dv" data-pv="pat"><div class="note">
+      <h4>The patient who forgets</h4>
+      <p><strong>The problem:</strong> Patients leave the consultation, and by the time they get home, they've forgotten most of what the doctor told them.</p>
+      <p><strong>Your 2 trend cards:</strong></p>
+      <ul class="bul">
+        <li><a href="cards/ambient-ai-consultation.pdf" target="_blank" rel="noopener"><em>Ambient AI Moves from the Doctor's Note to the Patient's Summary</em></a> (Trend)</li>
+        <li><a href="cards/patient-own-ai.pdf" target="_blank" rel="noopener"><em>Patients Bring Their Own AI to Decode Results and Advice</em></a> (Weak Signal)</li>
+      </ul>
+    </div></div>
+
+    <div class="dv" data-pv="b2b"><div class="note">
+      <h4>The B2B customer in month one</h4>
+      <p><strong>The problem:</strong> A company buys your software, and a month later almost nobody on their team has used it.</p>
+      <p><strong>Your 2 trend cards:</strong></p>
+      <ul class="bul">
+        <li><a href="cards/ai-onboarding-in-product.pdf" target="_blank" rel="noopener"><em>From Product Tours to AI That Sets Up the Account With You</em></a> (Trend)</li>
+        <li><a href="cards/customer-is-an-agent.pdf" target="_blank" rel="noopener"><em>Your Next Customer Is an Agent: Products Used Through MCP</em></a> (Weak Signal)</li>
+      </ul>
+    </div></div>
+
+    <div class="dv" data-pv="own"><div class="note">
+      <h4>Our own problem</h4>
+      <p><strong>The problem:</strong> a product problem your team knows well, for customers who aren't you.</p>
+      <p><strong>Your 2 trends:</strong> pick any 2 of the 6 cards from the wall, or name 2 trends you already see coming.</p>
+      <ul class="bul noprint">
+        <li><a href="cards/micro-investing.pdf" target="_blank" rel="noopener">From Big Tickets to €5 Starts</a></li>
+        <li><a href="cards/ai-financial-copilot.pdf" target="_blank" rel="noopener">From Chatbot to Copilot</a></li>
+        <li><a href="cards/ambient-ai-consultation.pdf" target="_blank" rel="noopener">Ambient AI Moves from the Doctor's Note to the Patient's Summary</a></li>
+        <li><a href="cards/patient-own-ai.pdf" target="_blank" rel="noopener">Patients Bring Their Own AI</a></li>
+        <li><a href="cards/ai-onboarding-in-product.pdf" target="_blank" rel="noopener">From Product Tours to AI That Sets Up the Account With You</a></li>
+        <li><a href="cards/customer-is-an-agent.pdf" target="_blank" rel="noopener">Your Next Customer Is an Agent</a></li>
+      </ul>
+      <div class="field"><div class="fk">Trend 1</div><span class="fblock" contenteditable="true" data-k="T1" data-ph="type here"></span></div>
+      <div class="field"><div class="fk">Trend 2</div><span class="fblock" contenteditable="true" data-k="T2" data-ph="type here"></span></div>
+      <p>You'll describe the problem at step 2. Leave out client names and anything confidential.</p>
+    </div></div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="s1">1 · Sense →</button></div>
+
+  <section class="box a2" id="s1">
+    <div class="hd"><span class="num">1</span><h3>Sense</h3></div>
+    <p>Read your 2 trend cards. Look at the Impact section: it shows what could go well and what could go wrong.</p>
+    <div class="gata"><b>Done when</b> you've read the cards.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="s2">2 · Frame →</button></div>
+
+  <section class="box a3" id="s2">
+    <div class="hd"><span class="num">2</span><h3>Frame</h3></div>
+    <p>Describe the problem in 4 lines. Be specific: the AI only knows what you write here.</p>
+    <div class="ex">
+      <p class="exh">Working example of how specific the 4 lines should be for a small construction company that wants to start implementing AI.</p>
+      <p><b>Who it's for</b><br><span>Vague:</span> Companies<br><span>Specific:</span> Founders of small construction companies</p>
+      <p><b>What they're trying to do</b><br><span>Vague:</span> Use AI<br><span>Specific:</span> Choose the first process worth automating</p>
+      <p><b>What blocks them today</b><br><span>Vague:</span> No time<br><span>Specific:</span> They don't know which of their processes to automate first</p>
+      <p><b>What success looks like</b><br><span>Vague:</span> Efficiency<br><span>Specific:</span> They automate one process and know how many hours it saves each week</p>
+    </div>
+    <h4>Your 4 lines</h4>
+    <div class="q">
+      <div class="qq">Who it's for</div>
+      <span class="fblock" contenteditable="true" data-k="F1" data-ph="type here"></span>
+    </div>
+    <div class="q">
+      <div class="qq">What they're trying to do</div>
+      <span class="fblock" contenteditable="true" data-k="F2" data-ph="type here"></span>
+    </div>
+    <div class="q">
+      <div class="qq">What blocks them today</div>
+      <span class="fblock" contenteditable="true" data-k="F3" data-ph="type here"></span>
+    </div>
+    <div class="q">
+      <div class="qq">What success looks like</div>
+      <span class="fblock" contenteditable="true" data-k="F4" data-ph="type here"></span>
+    </div>
+    <div class="gata"><b>Done when</b> all 4 lines are filled in, and a stranger could understand the problem by reading them.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="s3">3 · Your Idea →</button></div>
+
+  <section class="box a1" id="s3">
+    <div class="hd"><span class="num">3</span><h3>Your Idea</h3></div>
+    <p><strong>Human first, AI second.</strong> Before you ask the AI, write your own idea for solving the problem you chose. Pick one lens to look at the problem through:</p>
+    <div class="choice three noprint">
+      <button class="drumbtn has-ic lensbtn" data-lens="alien"><svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 17l-6-9M40 17l6-9"/><circle cx="17" cy="6" r="2.5"/><circle cx="47" cy="6" r="2.5"/><path class="f" d="M32 15c-11 0-18 7-18 17 0 11 9 20 18 20s18-9 18-20c0-10-7-17-18-17z"/><ellipse cx="25" cy="32" rx="4.5" ry="6.5" fill="currentColor" stroke="none"/><ellipse cx="39" cy="32" rx="4.5" ry="6.5" fill="currentColor" stroke="none"/><path d="M28 44c2.5 2 5.5 2 8 0"/></svg><span class="ct">Alien</span></button>
+      <button class="drumbtn has-ic lensbtn" data-lens="extreme"><svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="f" x="20" y="8" width="24" height="46" rx="5"/><path d="M29 48h6"/><circle cx="28" cy="24" r="1.8" fill="currentColor" stroke="none"/><circle cx="36" cy="24" r="1.8" fill="currentColor" stroke="none"/><path d="M27 31c3 3 7 3 10 0"/><path d="M6 20h8M4 30h10M6 40h8"/><path d="M54 14l-5 9h7l-5 9"/></svg><span class="ct">Extreme user</span></button>
+      <button class="drumbtn has-ic lensbtn" data-lens="future"><svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M32 18v-6"/><circle cx="32" cy="9" r="2.5"/><rect class="f" x="14" y="18" width="36" height="28" rx="8"/><circle cx="25" cy="31" r="3" fill="currentColor" stroke="none"/><circle cx="39" cy="31" r="3" fill="currentColor" stroke="none"/><path d="M27 39h10"/><path d="M14 28h-4v8h4M50 28h4v8h-4"/><path d="M24 46v6M40 46v6M20 56h8M36 56h8"/><path d="M48 6a8 8 0 0 1 8 8"/><path d="M57 9.5V14h-4.5"/></svg><span class="ct">Near future</span></button>
+    </div>
+    <ul class="bul">
+      <li><span class="lbl">Alien:</span> someone who has never seen this industry and has none of your assumptions.</li>
+      <li><span class="lbl">Extreme user:</span> someone who uses this 50 times a day, or someone who has never used it.</li>
+      <li><span class="lbl">Near future:</span> the customer sends their AI agent to do this, or AI is 10 times better a year from now.</li>
+    </ul>
+    <p class="now" id="lensNow"></p>
+    <div class="field">
+      <div class="fk">Our idea for solving the problem, in 1-2 sentences</div>
+      <span class="fblock fbig" contenteditable="true" data-k="I1" data-ph="type here"></span>
+    </div>
+    <div class="gata"><b>Done when</b> you've written down your idea.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="s4">4 · 12 Variations →</button></div>
+
+  <section class="box a2" id="s4">
+    <div class="hd"><span class="num">4</span><h3>12 Variations</h3></div>
+    <p>Copy the prompt, open a new chat in your favorite LLM, paste it and send.</p>
+    <p>The prompt already contains your problem, your 2 trends, your idea and the 2 lenses you didn't use.</p>
+    <div class="mat">
+      <div class="mh">
+        <div><div class="mt">The ideation prompt</div><div class="ms">Your answers from steps 2 and 3 are already inside.</div></div>
+        <div class="btns"><button class="btn" id="copy1">Copy</button><button class="btn ghost" id="dl1">Download .txt</button></div>
+      </div>
+      <pre id="view1"></pre>
+    </div>
+    <div class="gata"><b>Done when</b> you have the 12 ideas and the strongest argument against your own idea.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="s5">5 · Pick One →</button></div>
+
+  <section class="box a3" id="s5">
+    <div class="hd"><span class="num">5</span><h3>Pick One</h3></div>
+    <p>From your idea and the 12 variations, keep one: the one worth testing, especially if it scares you a little.</p>
+    <div class="field">
+      <div class="fk">Our idea in one sentence, as a customer would understand it</div>
+      <span class="fblock fbig" contenteditable="true" data-k="C1" data-ph="type here"></span>
+    </div>
+    <div class="gata"><b>Done when</b> you have one sentence that a customer could react to.</div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="s6">6 · The Council →</button></div>
+
+  <section class="box a1" id="s6">
+    <div class="hd"><span class="num">6</span><h3>The Council</h3></div>
+    <details class="later" id="council">
+    <summary>Access this after the workshop</summary>
+    <p>Copy the prompt, open a new chat, paste it and send.</p>
+    <div class="mat">
+      <div class="mh">
+        <div><div class="mt">The council prompt</div><div class="ms">Your customers from step 2 and your idea from step 5 are already inside.</div></div>
+        <div class="btns"><button class="btn" id="copy2">Copy</button><button class="btn ghost" id="dl2">Download .txt</button></div>
+      </div>
+      <pre id="view2"></pre>
+    </div>
+    <p>The council gives you questions. Real customers give you the answers.</p>
+    <h4>The 3 questions we'll ask real customers this week</h4>
+    <div class="field"><div class="fk">Question 1</div><span class="fblock" contenteditable="true" data-k="Q1" data-ph="type here"></span></div>
+    <div class="field"><div class="fk">Question 2</div><span class="fblock" contenteditable="true" data-k="Q2" data-ph="type here"></span></div>
+    <div class="field"><div class="fk">Question 3</div><span class="fblock" contenteditable="true" data-k="Q3" data-ph="type here"></span></div>
+    <div class="gata"><b>Done when</b> you have 3 questions to take to real customers.</div>
+    </details>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="wrap">Wrap Up →</button></div>
+
+  <section class="plain a2" id="wrap">
+    <h2>Wrap Up</h2>
+    <div class="save noprint">
+      <p>Download the entire flow and your notes as a PDF.</p>
+      <div style="margin-top:10px"><button class="btn" id="printBtn">Save as PDF</button></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>Agile Minds RO Forum · How to Innovate in Product with AI · 16 November 2026 · Raluca Păduraru</footer>
+</div>
+
+<!-- PROMPTURILE: textul aprobat pe 1 nov (speech-agile-minds-nov-2026.md). {{...}} se înlocuiesc din JS. -->
+<script type="text/plain" id="p_ideation">I'm working on this product problem:
+- Who it's for: {{F1}}
+- What they're trying to do: {{F2}}
+- What blocks them today: {{F3}}
+- What success looks like: {{F4}}
+
+Trends we already see coming:
+- {{TREND1}}
+- {{TREND2}}
+
+Our team's own idea, through the lens of {{LENS}}, is: {{I1}}
+
+Act as an ideation partner who pushes us away from the obvious. Give us 12 new ideas, 6 through each of the 2 lenses below.
+{{OTHER_LENSES}}
+
+For each idea: one sentence, plus the assumption it breaks. Skip the ideas any competitor would think of first.
+Then tell us which idea is the most different from ours, and the strongest argument against our own idea.</script>
+<script type="text/plain" id="p_council">Act as a council of 5 different customers of this product: {{F1}}.
+Make them different from each other: age, comfort with technology, attitude.
+
+Our idea: {{C1}}.
+
+For each customer: their first reaction in their own words, how it makes them feel, the question they would ask us, what would convince them, and what would make them walk away. Be blunt.
+
+Then give us the 3 questions we should ask 5 real customers this week.</script>
+
+<script>
+var STORE = 'agile-minds-16nov';
+function raw(id){ var el = document.getElementById(id); return el ? el.textContent.replace(/^\n/, '') : ''; }
+
+/* Cardurile: titlul și rezumatul, copiate exact din trend-cards/cards/*.json */
+var CARDS = {"micro-investing": {"t": "From Big Tickets to €5 Starts: Investing Opens to First-Timers", "s": "Fractional shares, automatic savings plans and card round-ups let people start investing with a few euros, removing the price barrier. Fractions made up more than 10% of all share transactions reported in the EU in 2023-2024 (ESMA, 2025)."}, "ai-financial-copilot": {"t": "From Chatbot to Copilot: Bank AI That Explains, Proposes, Acts", "s": "Banking-app AI is moving from answering questions to explaining a customer's money, proposing a next step and, in pilots, carrying it out. Willingness runs ahead of use: 69% of Americans would let a bank AI do a task (2026), but 1% have used one that acts (2025)."}, "ambient-ai-consultation": {"t": "Ambient AI Moves from the Doctor's Note to the Patient's Summary", "s": "Ambient AI scribes listen to the consultation and draft the doctor's note; the same conversation can now become a plain-language summary for the patient. The gap it targets is old: patients forget 40-80% of what clinicians tell them (Netherlands review, 2003)."}, "patient-own-ai": {"t": "Patients Bring Their Own AI to Decode Results and Advice", "s": "Patients paste lab results and doctors' notes into general chatbots to understand them, often before any clinician has explained. In the US, 13% of adults have uploaded personal medical information to an AI tool (KFF, 2026)."}, "ai-onboarding-in-product": {"t": "From Product Tours to AI That Sets Up the Account With You", "s": "B2B products replace tours and onboarding calls with an assistant that reads the customer's own data, drafts the setup and walks a new user to a first useful result. It is early: only 25% of 150 surveyed customer-success leaders have AI built into onboarding end-to-end (OnRamp, 2026)."}, "customer-is-an-agent": {"t": "Your Next Customer Is an Agent: Products Used Through MCP", "s": "Customers start sending AI agents to use software for them through APIs and MCP servers, so a product's most active user may never open the screen. Among 816 tracked SaaS products, official MCP servers rose from 5.8% to 12.3% in a year (Cyclr, 2026)."}};
+var PROB_CARDS = { inv: ['micro-investing', 'ai-financial-copilot'], pat: ['ambient-ai-consultation', 'patient-own-ai'], b2b: ['ai-onboarding-in-product', 'customer-is-an-agent'] };
+var LENSES = {
+  alien:   { name: 'alien',        line: 'Alien: someone who has never seen this industry and has none of our assumptions.' },
+  extreme: { name: 'extreme user', line: 'Extreme user: someone who uses this 50 times a day, or someone who has never used it.' },
+  future:  { name: 'near future',  line: 'Near future: the customer sends their AI agent to do this, or AI is 10 times better a year from now.' }
+};
+var LENS_LABEL = { alien: 'Alien', extreme: 'Extreme user', future: 'Near future' };
+
+/* salvare locală */
+var saved = {};
+try { saved = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch(e) { saved = {}; }
+function persist(){ try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch(e) {} }
+document.querySelectorAll('[contenteditable="true"][data-k]').forEach(function(el){
+  var k = el.getAttribute('data-k');
+  if (saved[k]) el.innerText = saved[k];
+  el.addEventListener('input', function(){ saved[k] = el.innerText; persist(); updateViews(); });
+});
+function val(k){ var el = document.querySelector('[data-k="' + k + '"]'); return el ? el.innerText.trim() : ''; }
+
+/* copiere, cu rezervă pentru browserele fără clipboard API */
+function copyText(t){
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).catch(function(){ return legacyCopy(t); });
+  return legacyCopy(t);
+}
+function legacyCopy(t){
+  return new Promise(function(resolve, reject){
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.top = '-1000px';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    ok ? resolve() : reject();
+  });
+}
+function flash(btn, txt){
+  var old = btn.textContent;
+  btn.textContent = txt; btn.classList.add('done');
+  setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1900);
+}
+function download(text, name){
+  var blob = new Blob(['﻿' + text], { type: 'text/plain;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+}
+
+/* problema și lentila */
+var prob = ['inv', 'pat', 'b2b', 'own'].indexOf(saved._prob) > -1 ? saved._prob : '';
+var lens = LENSES[saved._lens] ? saved._lens : '';
+function syncChoices(){
+  document.querySelectorAll('[data-prob]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-prob') === prob); });
+  document.querySelectorAll('[data-pv]').forEach(function(d){ d.classList.toggle('show', d.getAttribute('data-pv') === prob); });
+  document.querySelectorAll('[data-lens]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lens') === lens); });
+  document.getElementById('lensNow').innerHTML = lens ? 'Your lens: <b>' + LENS_LABEL[lens] + '</b>' : '';
+  updateViews();
+}
+document.querySelectorAll('[data-prob]').forEach(function(b){
+  b.addEventListener('click', function(){ prob = b.getAttribute('data-prob'); saved._prob = prob; persist(); syncChoices(); });
+});
+document.querySelectorAll('[data-lens]').forEach(function(b){
+  b.addEventListener('click', function(){ lens = b.getAttribute('data-lens'); saved._lens = lens; persist(); syncChoices(); });
+});
+
+/* asamblarea prompturilor: ce lipsește rămâne vizibil între paranteze drepte */
+function or(v, ph){ return v || ph; }
+function trends(){
+  if (PROB_CARDS[prob]) return PROB_CARDS[prob].map(function(k){ return CARDS[k].t + ': ' + CARDS[k].s; });
+  if (prob === 'own') return [or(val('T1'), '[trend 1]'), or(val('T2'), '[trend 2]')];
+  return ['[trend card 1: pick your problem first]', '[trend card 2]'];
+}
+function ideationText(){
+  var tr = trends();
+  var others = lens
+    ? Object.keys(LENSES).filter(function(k){ return k !== lens; }).map(function(k){ return '- ' + LENSES[k].line; }).join('\n')
+    : Object.keys(LENSES).map(function(k){ return '- ' + LENSES[k].line; }).join('\n') + '\n[pick your lens at step 3: the page removes it from this list]';
+  return raw('p_ideation')
+    .replace('{{F1}}', or(val('F1'), "[who it's for]"))
+    .replace('{{F2}}', or(val('F2'), "[what they're trying to do]"))
+    .replace('{{F3}}', or(val('F3'), '[what blocks them today]'))
+    .replace('{{F4}}', or(val('F4'), '[what success looks like]'))
+    .replace('{{TREND1}}', tr[0])
+    .replace('{{TREND2}}', tr[1])
+    .replace('{{LENS}}', lens ? LENSES[lens].name : '[your lens]')
+    .replace('{{I1}}', or(val('I1'), '[your idea]'))
+    .replace('{{OTHER_LENSES}}', others);
+}
+function councilText(){
+  return raw('p_council')
+    .replace('{{F1}}', or(val('F1'), "[who it's for]"))
+    .replace('{{C1}}', or(val('C1').replace(/\.\s*$/, ''), '[your idea in one sentence]'));
+}
+function updateViews(){
+  document.getElementById('view1').textContent = ideationText();
+  document.getElementById('view2').textContent = councilText();
+}
+function ready1(){ if (!prob) return 'Pick your problem first'; if (!val('F1')) return 'Fill in step 2 first'; if (!lens) return 'Pick your lens at step 3'; if (!val('I1')) return 'Write your idea first'; return ''; }
+function ready2(){ if (!val('F1')) return 'Fill in step 2 first'; if (!val('C1')) return 'Write your sentence at step 5'; return ''; }
+document.getElementById('copy1').addEventListener('click', function(){
+  var b = this, m = ready1();
+  if (m) { flash(b, m); return; }
+  copyText(ideationText()).then(function(){ flash(b, 'Copied'); }).catch(function(){ flash(b, 'Select and copy by hand'); });
+});
+document.getElementById('copy2').addEventListener('click', function(){
+  var b = this, m = ready2();
+  if (m) { flash(b, m); return; }
+  copyText(councilText()).then(function(){ flash(b, 'Copied'); }).catch(function(){ flash(b, 'Select and copy by hand'); });
+});
+document.getElementById('dl1').addEventListener('click', function(){ download(ideationText(), 'ideation-prompt.txt'); flash(this, 'Downloaded'); });
+document.getElementById('dl2').addEventListener('click', function(){ download(councilText(), 'council-prompt.txt'); flash(this, 'Downloaded'); });
+
+/* navigare */
+var navBtns = Array.prototype.slice.call(document.querySelectorAll('.navbtn'));
+var secIds = navBtns.map(function(b){ return b.getAttribute('data-go'); });
+function navOff(){ var nw = document.querySelector('.navwrap'); return nw.offsetHeight < window.innerHeight / 2 ? nw.offsetHeight + 12 : 24; }
+function goTo(id){
+  var el = document.getElementById(id);
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - navOff(), behavior: 'smooth' });
+}
+document.querySelectorAll('[data-go]').forEach(function(el){
+  el.addEventListener('click', function(e){ e.preventDefault(); goTo(el.getAttribute('data-go')); });
+});
+/* Etapa devine curentă când titlul ei trece de ~40% din ecran (lectii.md §3). */
+function markActive(){
+  var best = 0, off = Math.max(navOff() + 30, window.innerHeight * 0.4);
+  for (var i = 0; i < secIds.length; i++){ var el = document.getElementById(secIds[i]); if (el && el.getBoundingClientRect().top - off <= 0) best = i; }
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) best = secIds.length - 1;
+  navBtns.forEach(function(b, i){ b.classList.toggle('active', i === best); });
+}
+window.addEventListener('scroll', markActive, { passive: true });
+
+/* tema */
+document.querySelectorAll('[data-theme-choice]').forEach(function(o){
+  o.addEventListener('click', function(){
+    var t = o.getAttribute('data-theme-choice');
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem(STORE + '-tema', t); } catch(e) {}
+    markTheme();
+  });
+});
+function markTheme(){
+  var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  document.querySelectorAll('[data-theme-choice]').forEach(function(o){ o.classList.toggle('on', o.getAttribute('data-theme-choice') === cur); });
+}
+markTheme();
+
+/* PDF-ul cuprinde tot fluxul: consiliul ascuns se deschide la print și se închide la loc după */
+var councilEl = document.getElementById('council'), councilWasOpen = false;
+window.addEventListener('beforeprint', function(){ councilWasOpen = councilEl.open; councilEl.open = true; });
+window.addEventListener('afterprint', function(){ councilEl.open = councilWasOpen; });
+document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+syncChoices();
+</script>
+</body>
+</html>
