@@ -148,7 +148,7 @@ const RESOURCES = {
   },
   'agentul-tau': {
     pdfUrl: 'https://www.ralucapaduraru.ro/downloads/ce-are-voie-agentul-tau.pdf',
-    subject: 'PDF-ul tău: Ce are voie agentul tău?',
+    subject: 'Ghidul tău: Ce are voie agentul tău?',
     notifySubject: (name, company) => `Nou download Ce are voie agentul tău: ${name} (${company || 'N/A'})`,
     emailHtml: function () {
       return emailShell({
@@ -158,8 +158,8 @@ const RESOURCES = {
         signatureTitle: 'Futures of Work Strategist',
         bodyHtml: `
       <p>Bună,</p>
-      <p>Mai jos găsești PDF-ul „Ce are voie agentul tău?”.</p>
-      <a class="cta" style="color:#111111" href="${this.pdfUrl}" target="_blank">Descarcă PDF-ul &rarr;</a>
+      <p>Mai jos găsești ghidul „Ce are voie agentul tău?”.</p>
+      <a class="cta" style="color:#111111" href="${this.pdfUrl}" target="_blank">Descarcă ghidul &rarr;</a>
       <p>Are 9 pagini. Dacă vrei să începi direct cu verificarea, promptul e la pagina 5: îl copiezi în agentul tău și citești ce răspunde.</p>
       <p>După ce îi pui întrebările, am o invitație: dă-mi un reply cu o singură propoziție. <strong>La care dintre cele 5 întrebări a răspuns agentul tău cel mai vag?</strong></p>`,
         postscript: `<p>P.S. Dacă vrei să-ți construiești propriul sistem de agenți, cu informația, know-how-ul și regulile tale, asta facem la Build Your Cortex. Într-o zi îți construiești un sistem AI personal, care îți cunoaște obiectivele și știe regulile pe baza cărora lucrezi. Estimez că următoarea ediție va avea loc pe 28 ianuarie 2027, în București. Dacă vrei să afli primul când se deschid înscrierile, intră pe lista de așteptare: <a href="https://www.ralucapaduraru.ro/build-your-cortex#inscriere" style="color:#9B8AF0">Mă înscriu pe lista de așteptare</a></p>`,
