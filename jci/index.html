@@ -160,12 +160,24 @@
   .fblock:empty:before{content:attr(data-ph);color:var(--gray);opacity:.7;font-size:14px}
   .fbig{min-height:70px}
 
-  .choice{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
-  .drumbtn{display:block;text-align:left;font-family:var(--body);color:var(--ink);background:var(--card2);border:1.5px solid var(--line);padding:16px 18px;cursor:pointer}
-  .drumbtn .ct{display:block;font-family:var(--head);font-size:16px;font-weight:700}
-  .drumbtn .cd{display:block;font-size:15px;color:var(--soft);margin-top:6px}
-  .drumbtn .cn{display:block;font-size:14px;color:var(--gray);margin-top:6px}
+  .choice{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+  .drumbtn{display:flex;flex-direction:column;text-align:left;font-family:var(--body);color:var(--ink);background:var(--card2);border:1.5px solid var(--line);padding:0;cursor:pointer;transition:border-color .15s,transform .15s,opacity .15s}
+  .drumbtn:hover{border-color:var(--main);transform:translateY(-2px);opacity:1}
+  .drumbtn .tag{display:none;background:var(--main);color:var(--main-ink);font-size:14px;font-weight:700;padding:7px 22px}
+  .drumbtn .in{display:flex;flex-direction:column;flex:1;padding:22px 22px 18px}
+  .drumbtn .ic{display:block;width:34px;height:34px;color:var(--main);margin-bottom:12px}
+  .drumbtn .ic svg{width:34px;height:34px}
+  .drumbtn .ct{display:block;font-family:var(--head);font-size:20px;font-weight:700;line-height:1.25}
+  .drumbtn .cd{display:block;font-size:16px;color:var(--soft);margin-top:10px}
+  .drumbtn .cn{display:block;font-size:14px;color:var(--gray);margin-top:10px}
+  .drumbtn .cn b{color:var(--ink)}
+  .drumbtn .pk{display:inline-block;align-self:flex-start;margin-top:auto;border:1.5px solid var(--main);color:var(--main);font-size:15px;font-weight:700;padding:8px 14px}
+  .drumbtn .sp{flex:1;min-height:16px}
   .drumbtn.on{border-color:var(--main);background:var(--card)} .drumbtn.on .ct{color:var(--main)}
+  .drumbtn.on .tag{display:block} .drumbtn.on .pk{display:none}
+  .choice.picked .drumbtn:not(.on){opacity:.5}
+  .choice.picked .drumbtn:not(.on):hover{opacity:1}
+  .nextbtn.filled{background:var(--main);color:var(--main-ink)}
   @media(max-width:640px){.choice{grid-template-columns:1fr}}
   .dv{display:none} .dv.show{display:block}
   .drumnow{font-size:15px;color:var(--soft);margin-bottom:8px}
@@ -261,10 +273,10 @@
     <div class="hd"><span class="num">1</span><h3>Pick Your Skill</h3></div>
     <p class="obj">Choose the task you do often and want AI to take over.</p>
     <div class="choice noprint">
-      <button class="drumbtn" data-drum="A"><span class="ct">Business Snapshot</span><span class="cd">Every month you give it your numbers. It tells you where your business is, what changed since last month and the 3 things to watch.</span><span class="cn">You need: your numbers for at least 2 months (sales, costs, clients, whatever you track). Demo: the 3 months of Lutra Ceramics.</span></button>
-      <button class="drumbtn" data-drum="B"><span class="ct">Posts in Your Voice</span><span class="cd">You give it a topic. It writes a social media post that sounds like you.</span><span class="cn">You need: 3 posts you wrote and liked, and a topic for your next post. Demo: the 3 posts of Lutra Ceramics.</span></button>
-      <button class="drumbtn" data-drum="C"><span class="ct">Client Replies &amp; Offers</span><span class="cd">You give it a message from a client. It drafts the reply or a simple offer, with your real prices and your tone.</span><span class="cn">You need: a client message you have to answer, and your services with prices. Demo: the first client message and the price list of Lutra Ceramics.</span></button>
-      <button class="drumbtn" data-drum="D"><span class="ct">Your Design Rules</span><span class="cd">It keeps your visual style in everything AI designs for you: colors, fonts, layout, and what you never use.</span><span class="cn">You need: your colors and fonts (or the ones you like), and 2-3 designs you like or dislike. Demo: the brand rules of Lutra Ceramics.</span></button>
+      <button class="drumbtn" data-drum="A"><span class="tag">✓ Your skill</span><span class="in"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/><path d="M16 8h4v4"/></svg></span><span class="ct">Business Snapshot</span><span class="cd">Every month you give it your numbers. It tells you where your business is, what changed since last month and the 3 things to watch.</span><span class="cn"><b>You need:</b> your numbers for at least 2 months (sales, costs, clients, whatever you track).</span><span class="cn"><b>Demo:</b> the 3 months of Lutra Ceramics.</span><span class="sp"></span><span class="pk">Pick this skill →</span></span></button>
+      <button class="drumbtn" data-drum="B"><span class="tag">✓ Your skill</span><span class="in"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span><span class="ct">Posts in Your Voice</span><span class="cd">You give it a topic. It writes a social media post that sounds like you.</span><span class="cn"><b>You need:</b> 3 posts you wrote and liked, and a topic for your next post.</span><span class="cn"><b>Demo:</b> the 3 posts of Lutra Ceramics.</span><span class="sp"></span><span class="pk">Pick this skill →</span></span></button>
+      <button class="drumbtn" data-drum="C"><span class="tag">✓ Your skill</span><span class="in"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="ct">Client Replies &amp; Offers</span><span class="cd">You give it a message from a client. It drafts the reply or a simple offer, with your real prices and your tone.</span><span class="cn"><b>You need:</b> a client message you have to answer, and your services with prices.</span><span class="cn"><b>Demo:</b> the first client message and the price list of Lutra Ceramics.</span><span class="sp"></span><span class="pk">Pick this skill →</span></span></button>
+      <button class="drumbtn" data-drum="D"><span class="tag">✓ Your skill</span><span class="in"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.6-.8 1.6-1.6 0-.5-.2-.9-.5-1.3-.3-.4-.5-.8-.5-1.3 0-.9.7-1.6 1.6-1.6H16a5 5 0 0 0 5-5c0-4-4-7.2-9-7.2Z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15.5" cy="8" r="1"/></svg></span><span class="ct">Your Design Rules</span><span class="cd">It keeps your visual style in everything AI designs for you: colors, fonts, layout, and what you never use.</span><span class="cn"><b>You need:</b> your colors and fonts (or the ones you like), and 2-3 designs you like or dislike.</span><span class="cn"><b>Demo:</b> the brand rules of Lutra Ceramics.</span><span class="sp"></span><span class="pk">Pick this skill →</span></span></button>
     </div>
     <div class="gata"><b>At the end of this step you have:</b> your skill picked and your material at hand.</div>
   </section>
@@ -515,6 +527,8 @@ var drum = /^[ABCD]$/.test(saved._drum || '') ? saved._drum : '';
 function updateView(){ var v = document.getElementById('viewP'); if (v) v.textContent = drum ? raw('p_' + drum) : 'Your prompt appears here after you pick your skill at Step 1.'; }
 function syncDrum(){
   document.querySelectorAll('.drumbtn').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-drum') === drum); });
+  var ch = document.querySelector('.choice'); if (ch) ch.classList.toggle('picked', !!drum);
+  var nx = document.querySelector('#p1 + .next .nextbtn'); if (nx) nx.classList.toggle('filled', !!drum);
   document.querySelectorAll('.dv').forEach(function(d){
     var k = d.getAttribute('data-dv');
     d.classList.toggle('show', k.indexOf(drum || '0') > -1);
