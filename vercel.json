@@ -33,6 +33,7 @@
     { "source": "/feedback-materiale", "destination": "/feedback-materiale.html" },
     { "source": "/trend-cards", "destination": "/trend-cards.html" },
     { "source": "/ghid-adoptie", "destination": "/ghid-adoptie.html" },
+    { "source": "/agentul-tau", "destination": "/agentul-tau.html" },
     { "source": "/hr-maturity", "destination": "/hr-maturity.html" },
     { "source": "/blueprint", "destination": "/blueprint.html" },
     { "source": "/lectia-5", "destination": "/lectia-5.html" },

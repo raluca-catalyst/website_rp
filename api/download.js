@@ -10,7 +10,7 @@ const SHEETS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbxJjD_2faU9XQLxO
 const BOOKING_URL = 'https://calendar.app.google/97NFSpQYzKkJmkuL9';
 
 // Schelet comun de email (header Upvance, CTA lavender, footer)
-const emailShell = ({ title, bodyHtml, footerNote, signoff = 'Mulțumesc și lectură plăcută,', signatureTitle = 'Futures of Work Strategist | Building AI Agency in Organizations' }) => `
+const emailShell = ({ title, bodyHtml, footerNote, signoff = 'Mulțumesc și lectură plăcută,', signatureTitle = 'Futures of Work Strategist | Building AI Agency in Organizations', postscript = '' }) => `
 <!DOCTYPE html>
 <html lang="ro">
 <head>
@@ -42,6 +42,7 @@ const emailShell = ({ title, bodyHtml, footerNote, signoff = 'Mulțumesc și lec
       ${signoff ? `<p>${signoff}</p>` : ''}
       <p class="sig-name">Raluca Păduraru</p>
       <p class="sig-title">${signatureTitle}</p>
+      ${postscript ? `<div style="margin-top:24px">${postscript}</div>` : ''}
     </div>
     <div class="footer">
       <p>${footerNote}<br>
@@ -145,6 +146,26 @@ const RESOURCES = {
       });
     },
   },
+  'agentul-tau': {
+    pdfUrl: 'https://www.ralucapaduraru.ro/downloads/ce-are-voie-agentul-tau.pdf',
+    subject: 'PDF-ul tău: Ce are voie agentul tău?',
+    notifySubject: (name, company) => `Nou download Ce are voie agentul tău: ${name} (${company || 'N/A'})`,
+    emailHtml: function () {
+      return emailShell({
+        title: 'Ce are voie agentul tău?',
+        footerNote: 'Ai primit acest email deoarece ai completat formularul de pe ralucapaduraru.ro/agentul-tau.',
+        signoff: '',
+        signatureTitle: 'Futures of Work Strategist',
+        bodyHtml: `
+      <p>Bună,</p>
+      <p>Mai jos găsești PDF-ul „Ce are voie agentul tău?”.</p>
+      <a class="cta" style="color:#111111" href="${this.pdfUrl}" target="_blank">Descarcă PDF-ul &rarr;</a>
+      <p>Are 9 pagini. Dacă vrei să începi direct cu verificarea, promptul e la pagina 5: îl copiezi în agentul tău și citești ce răspunde.</p>
+      <p>După ce îi pui întrebările, am o invitație: dă-mi un reply cu o singură propoziție. <strong>La care dintre cele 5 întrebări a răspuns agentul tău cel mai vag?</strong></p>`,
+        postscript: `<p>P.S. Dacă vrei să-ți construiești propriul sistem de agenți, cu informația, know-how-ul și regulile tale, asta facem la Build Your Cortex. Într-o zi îți construiești un sistem AI personal, care îți cunoaște obiectivele și știe regulile pe baza cărora lucrezi. Estimez că următoarea ediție va avea loc pe 28 ianuarie 2027, în București. Dacă vrei să afli primul când se deschid înscrierile, intră pe lista de așteptare: <a href="https://www.ralucapaduraru.ro/build-your-cortex#inscriere" style="color:#9B8AF0">Mă înscriu pe lista de așteptare</a></p>`,
+      });
+    },
+  },
   'build-your-cortex-ian': {
     subject: 'Ești pe lista de așteptare pentru Build Your Cortex, ediția din ianuarie',
     notifySubject: (name) => `Nouă înscriere pe lista de așteptare Build Your Cortex (ianuarie): ${name}`,
@@ -176,7 +197,7 @@ module.exports = async (req, res) => {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ message: 'Method not allowed' });
 
-  const { resource, name, email, company, role, website, prenume, nume, telefon, mandat, obiectiv } = req.body || {};
+  const { resource, name, email, company, role, website, prenume, nume, telefon, mandat, obiectiv, agenti } = req.body || {};
   const esc = (v) => String(v || '').slice(0, 1000).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   // Honeypot: boții completează câmpul ascuns => răspuns 200 fals, fără acțiune
@@ -210,7 +231,7 @@ module.exports = async (req, res) => {
     // Log lead to Google Sheets (non-critical)
     fetch(SHEETS_WEBHOOK, {
       method: 'POST',
-      body: JSON.stringify({ nume: nume || name, prenume: prenume || '', email, telefon: telefon || '', rol: role, companie: company, sursa: slug, mandat: mandat || '', obiectiv: obiectiv ? String(obiectiv).slice(0, 1000) : '' }),
+      body: JSON.stringify({ nume: nume || name, prenume: prenume || '', email, telefon: telefon || '', rol: role, companie: company, sursa: slug, mandat: mandat || '', agenti: agenti || '', obiectiv: obiectiv ? String(obiectiv).slice(0, 1000) : '' }),
     }).catch(() => {}); // non-critical, ignore errors
 
     // Also notify Raluca of new lead
@@ -218,7 +239,7 @@ module.exports = async (req, res) => {
       from: 'Site ralucapaduraru.ro <contact@upvance.global>',
       to: ['raluca@upvance.global'],
       subject: cfg.notifySubject(name, company),
-      html: `<p><b>Nume:</b> ${name}<br><b>Email:</b> ${email}<br><b>Telefon:</b> ${telefon || '-'}<br><b>Companie:</b> ${company || '-'}<br><b>Rol:</b> ${role || '-'}${mandat ? `<br><b>Mandat AI:</b> ${mandat}` : ''}${obiectiv ? `<br><b>Ce vrea să construiască:</b> ${esc(obiectiv)}` : ''}<br><b>Sursă:</b> ${slug}</p>`,
+      html: `<p><b>Nume:</b> ${name}<br><b>Email:</b> ${email}<br><b>Telefon:</b> ${telefon || '-'}<br><b>Companie:</b> ${company || '-'}<br><b>Rol:</b> ${role || '-'}${mandat ? `<br><b>Mandat AI:</b> ${mandat}` : ''}${agenti ? `<br><b>Folosesc agenți AI:</b> ${esc(agenti)}` : ''}${obiectiv ? `<br><b>Ce vrea să construiască:</b> ${esc(obiectiv)}` : ''}<br><b>Sursă:</b> ${slug}</p>`,
     }).catch(() => {}); // non-critical, ignore errors
 
     return res.status(200).json({ message: 'Trimis pe email!' });

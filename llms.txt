@@ -29,6 +29,7 @@ Raluca Păduraru este Futures of Work Strategist și consultant independent (Upv
 ## Resurse
 
 - [Ghid de adopție AI: primele 90 de zile](https://www.ralucapaduraru.ro/ghid-adoptie) — Ghid practic și gratuit pentru cine a primit mandatul să se ocupe de AI în organizație: mandatul, echipa, regulile, primul pilot, măsurarea și raportul către conducere. 77 de pagini, 10 capitole, 9 fișe de lucru, un exemplu practic urmărit prin tot ghidul
+- [Ce are voie agentul tău?](https://www.ralucapaduraru.ro/agentul-tau) — PDF gratuit de 9 pagini pentru decidenți non-tehnici: anatomia agentului AI, 3 cazuri de agenți fără reguli, cele 5 componente ale lesei (permisiunile, bugetul, sursele de instrucțiuni, audit trail-ul, comanda de oprire) și promptul de verificare cu 5 întrebări
 - [Romanian State of AI 2026](https://www.ralucapaduraru.ro/romanian-state-of-ai/) — Al doilea an de măsurare a maturității AI în organizațiile din România: 514 respondenți, comparație cu 2025, raport complet cu distribuții deschise
 - [30 de date verificate despre AI și muncă](https://www.ralucapaduraru.ro/resources/30-cifre-ai-munca/) — 30 de cifre despre inteligența artificială și muncă, fiecare cu sursa originală și cu capcana de citire; plus 6 cifre celebre demontate la sursă
 - [Blueprint AI Fluency](https://www.ralucapaduraru.ro/resources/blueprint-ai-fluency/) — Ghid practic pentru organizații care vor să construiască AI fluency intern
