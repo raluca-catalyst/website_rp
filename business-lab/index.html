@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>The Unfair Advantage · Business Lab</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot -> GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --r:#e30013;        /* roșul Business Lab */
+    --r2:#b3000f;
+    --ink:#151515;      /* negrul din panoul programului */
+    --body:#222222;
+    --grey:#6b6b6b;
+    --line:#d9d4cf;
+    --soft:#f5f1ee;     /* griul cald al cardurilor */
+    --bg:#ffffff;
+    --font:'Poppins',Arial,Helvetica,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none !important}
+  body{font-family:var(--font);background:var(--bg);color:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--r);text-underline-offset:2px}
+  a:hover{color:var(--r2)}
+  a strong{color:inherit}
+  .pagina{max-width:1240px;margin:0 auto;padding:0 28px 40px}
+  p,li{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+  p{margin:0 0 12px}
+  h1,h2,h3{color:var(--ink);text-align:left;line-height:1.2;hyphens:manual}
+  h1{font-size:46px;font-weight:700;letter-spacing:-0.01em}
+  h2{font-size:28px;font-weight:700;margin:0 0 16px;scroll-margin-top:24px}
+  h3{font-size:20px;font-weight:600;margin:34px 0 12px;scroll-margin-top:24px}
+  strong{color:var(--ink);font-weight:600}
+  ul,ol{margin:0 0 14px;padding-left:24px}
+  li{margin:0 0 6px}
+  li::marker{color:var(--r)}
+  /* ---------- antetul ---------- */
+  header.cap{padding:40px 0 28px;border-bottom:4px solid var(--r);margin:0 0 36px}
+  .cap-rand{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .cap-rand img{height:76px;width:auto;flex-shrink:0}
+  .cap-prog{font-size:17px;font-weight:600;color:var(--ink);margin:14px 0 8px;text-align:left}
+  .cap-final{font-size:18px;margin:0}
+  section.bloc{margin:0 0 42px}
+  /* ---------- exercițiile ---------- */
+  .ex-carduri{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 22px}
+  button.ex-card{display:flex;flex-direction:column;justify-content:flex-start;width:100%;text-align:left;font:inherit;
+    color:var(--body);background:var(--soft);border:2px solid var(--soft);border-radius:4px;padding:20px 22px;cursor:pointer}
+  button.ex-card:hover{border-color:var(--line)}
+  button.ex-card.activ{border-color:var(--r);background:#fff}
+  .ec-t{display:block;font-size:21px;font-weight:700;color:var(--ink);margin:0 0 8px;line-height:1.25}
+  button.ex-card.activ .ec-t{color:var(--r)}
+  .ec-d{display:block;font-size:15px;line-height:1.6;text-align:justify;hyphens:auto}
+  .ec-p,.ec-ul{display:block;margin:0 0 10px}
+  .ec-p:last-child,.ec-ul:last-child{margin-bottom:0}
+  .ec-li{display:block;position:relative;padding-left:18px;margin:0 0 2px;text-align:left}
+  .ec-li::before{content:"•";position:absolute;left:3px;top:0;color:var(--r);font-weight:700}
+  /* ---------- drumurile ---------- */
+  .drumuri{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0 0;scroll-margin-top:24px}
+  a.drumbtn{display:block;text-decoration:none;background:var(--ink);color:#fff;border-radius:4px;
+    padding:20px 24px;font-size:20px;font-weight:700;line-height:1.3}
+  a.drumbtn:hover{background:#333;color:#fff}
+  a.drumbtn.activ{background:var(--r)}
+  .ales{margin:14px 0 0;text-align:left}
+  .corp{display:none;margin:42px 0 0;padding-top:34px;border-top:1px solid var(--line)}
+  .corp.vizibil{display:block}
+  .drum,.bara-drum{display:none}
+  .drum.vizibil{display:block}
+  .bara-drum.vizibil{display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px}
+  /* ---------- bara: sus pe ecran îngust, în stânga pe ecran lat ---------- */
+  nav.bara{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);margin:0 0 26px;padding:8px 0}
+  .bara-et{font-weight:700;color:var(--ink);font-size:14px}
+  button.etapa{font:inherit;font-size:14px;color:var(--grey);background:none;border:none;border-bottom:2px solid transparent;
+    padding:4px 0;cursor:pointer;text-align:left}
+  button.etapa:hover{color:var(--ink)}
+  button.etapa.activ{color:var(--ink);border-bottom-color:var(--r)}
+  button.etapa .no,button.etapa .ns{display:none}
+  a.schimba{font-size:14px;color:var(--grey)}
+  @media(max-width:1179px){h2,h3,.final-sec,.drumuri{scroll-margin-top:90px}
+    button.etapa.sep{border-left:2px solid var(--line);padding-left:14px}}
+  @media(min-width:1180px){
+    .corp.vizibil{display:grid;grid-template-columns:250px minmax(0,1fr);column-gap:46px;align-items:start}
+    nav.bara{top:22px;align-self:start;border:none;margin:0;padding:0;max-height:calc(100vh - 44px);overflow-y:auto}
+    .bara-drum.vizibil{display:block}
+    .bara-et{display:block;margin:0 0 10px;font-size:15px}
+    button.etapa{display:block;width:100%;padding:9px 12px;border-bottom:none;border-left:3px solid var(--line);
+      line-height:1.4;color:var(--body)}
+    button.etapa .nt{display:block;font-weight:600}
+    button.etapa.activ{border-left-color:var(--r);background:var(--soft)}
+    button.etapa.activ .no{display:block;font-style:italic;color:var(--grey);margin-top:6px}
+    button.etapa.activ .ns{display:block;margin-top:6px}
+    /* în bară, separatorul dintre exerciții: spațiu + linie neagră, ca banda din pagină */
+    button.etapa.sep{position:relative;margin-top:26px}
+    button.etapa.sep::before{content:"";position:absolute;left:-3px;right:0;top:-14px;border-top:2px solid var(--ink)}
+    a.schimba{display:block;margin:14px 0 0 12px}
+  }
+  /* ---------- casetele de prompt ---------- */
+  .prompt{border:1px solid var(--line);border-radius:4px;margin:14px 0 20px;background:#fff}
+  .prompt-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 14px;
+    background:var(--soft);border-bottom:1px solid var(--line)}
+  .prompt-label{font-weight:600;color:var(--ink);font-size:15px}
+  .prompt pre{font-family:var(--mono);font-size:13.5px;line-height:1.55;white-space:pre-wrap;word-wrap:break-word;
+    padding:14px 16px;max-height:420px;overflow:auto;color:var(--body)}
+  .prompt pre.gol{font-family:var(--font);font-style:italic;color:var(--grey)}
+  .btns{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{font:inherit;font-size:14px;font-weight:600;background:var(--r);color:#fff;border:2px solid var(--r);border-radius:4px;
+    padding:7px 16px;cursor:pointer}
+  .btn:hover{background:var(--r2);border-color:var(--r2)}
+  .btn.ghost{background:#fff;color:var(--r)}
+  .btn.ghost:hover{background:var(--soft)}
+  .btn.gata,.descarca.gata{background:var(--ink);border-color:var(--ink);color:#fff}
+  /* ---------- pașii ---------- */
+  /* diagrama de sub etape: căsuțe albe cu contur negru, ca să se vadă pe fundalul alb */
+  .flux{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:6px 0 20px}
+  .flux-p{font-size:14px;line-height:1.35;font-weight:500;color:var(--ink);background:#fff;border:1.5px solid var(--ink);
+    border-radius:4px;padding:7px 12px}
+  .flux-s{color:var(--r);font-weight:700;font-size:20px;line-height:1}
+  .pas-titlu{margin:24px 0 8px;text-align:left}
+  .verifica{background:var(--soft);border-left:4px solid var(--r);padding:14px 18px 4px;margin:6px 0 18px}
+  .verifica ul{margin-bottom:10px}
+  p.tema{background:var(--soft);border-left:4px solid var(--ink);padding:12px 16px;margin:18px 0}
+  .comutator{border:1px solid var(--line);border-radius:4px;padding:12px 16px 4px;margin:0 0 20px}
+  .com-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+  .com-opt{font:inherit;font-size:13px;font-weight:600;color:var(--ink);background:#fff;border:1.5px solid var(--line);
+    border-radius:999px;padding:5px 12px;cursor:pointer}
+  .com-opt:hover{border-color:var(--ink)}
+  .com-opt.activ{background:var(--r);border-color:var(--r);color:#fff}
+  .com-panel{display:none}
+  .com-panel.activ{display:block}
+  .com-print{display:none}
+  /* ---------- alegerile din pași ---------- */
+  .toggle-et{font-weight:600;color:var(--ink);margin:18px 0 0;text-align:left}
+  .ex-toggle{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 18px}
+  .firme{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 6px}
+  .ex-opt,.firma-btn{font:inherit;text-align:left;background:#fff;color:var(--ink);border:1.5px solid var(--line);
+    border-radius:4px;padding:10px 14px;cursor:pointer}
+  .ex-opt{font-weight:600;font-size:15px}
+  .ex-opt:hover,.firma-btn:hover{border-color:var(--ink)}
+  .ex-opt.activ,.firma-btn.activ{border-color:var(--r);background:var(--soft)}
+  .ex-opt.activ,.firma-btn.activ .fb-t{color:var(--r)}
+  .fb-t{display:block;font-weight:700;font-size:15px;line-height:1.3}
+  .fb-s{display:block;font-size:13px;color:var(--grey);margin-top:2px;line-height:1.35}
+  .firma-desc{background:var(--soft);border-left:4px solid var(--ink);padding:14px 18px 4px;margin:0 0 6px}
+  /* ---------- câmpurile ---------- */
+  .camp{margin:18px 0 20px}
+  .camp-l{display:flex;gap:12px;align-items:flex-start;color:var(--body)}
+  /* etichetele lungi (o propoziție întreagă) merg pe toată lățimea, ca paragrafele */
+  .camp-l > span:last-child{flex:1;min-width:0;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+  .camp-nr{flex-shrink:0;width:28px;height:28px;border-radius:4px;background:var(--r);color:#fff;font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .ex{font-size:14.5px;background:var(--soft);border-left:3px solid var(--line);padding:8px 12px;margin:8px 0 0}
+  .ex span{font-weight:600;color:var(--ink)}
+  .camp-aj{font-size:14.5px;color:var(--grey);margin:8px 0 0}
+  textarea{display:block;width:100%;min-height:64px;margin-top:10px;font:inherit;font-size:15px;line-height:1.5;color:var(--ink);
+    background:#fff;border:1.5px solid var(--line);border-radius:4px;padding:10px 12px;resize:vertical}
+  textarea:focus{outline:none;border-color:var(--r)}
+  .final-sec{margin:46px 0 0}
+  /* separatorul dintre exerciții: banda de capitol din deck (titlul mare, triunghiul roșu în dreapta) */
+  .final-sec.cu-separator{margin-top:84px}
+  .separator{position:relative;overflow:hidden;border-top:4px solid var(--ink);padding:34px 210px 56px 0;margin:0 0 26px;min-height:200px}
+  .separator::after{content:"";position:absolute;right:0;bottom:0;width:300px;height:100%;background:var(--r);
+    clip-path:polygon(100% 0,100% 100%,0 100%)}
+  .separator h2{position:relative;z-index:1;font-size:42px;font-weight:800;line-height:1.08;letter-spacing:-0.015em;margin:0}
+  /* ---------- clipurile ---------- */
+  /* un clip singur stă pe jumătate de lățime, ca cele două alăturate */
+  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 22px}
+  figure.video{margin:0}
+  figure.video figcaption{font-size:14px;font-weight:600;color:var(--ink);margin:0 0 8px}
+  figure.video video{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:4px;background:var(--soft)}
+  /* ---------- descărcările ---------- */
+  .descarca-p{margin:22px 0 14px}
+  .descarca{display:inline-block;font:inherit;font-size:16px;font-weight:700;color:#fff;background:var(--r);border:2px solid var(--r);
+    border-radius:4px;padding:13px 24px;cursor:pointer;text-decoration:none}
+  .descarca:hover{background:var(--r2);border-color:var(--r2);color:#fff}
+  .cadou{margin:56px 0 0;background:var(--soft);border-top:4px solid var(--r);padding:28px 30px 14px}
+  footer{margin:40px 0 0;padding:18px 0 0;border-top:1px solid var(--line);font-size:14px;color:var(--grey)}
+  footer p{text-align:left;margin:0}
+  @media(max-width:900px){.firme{grid-template-columns:1fr 1fr}}
+  @media(max-width:720px){
+    .pagina{padding:0 18px 32px}
+    h1{font-size:34px}
+    .cap-rand img{height:54px}
+    .ex-carduri,.drumuri,.video-grid{grid-template-columns:1fr}
+    .cadou{padding:22px 20px 10px}
+    .separator{padding:26px 92px 46px 0;min-height:160px}
+    .separator::after{width:150px}
+    .separator h2{font-size:28px}
+  }
+  @media print{
+    nav.bara,.drumuri,.btns,.btn,.com-tabs,.video-grid,.ex-toggle,.firme,.toggle-et,.descarca-p{display:none !important}
+    .corp.vizibil{display:block}
+    .com-panel{display:block !important}
+    .com-print{display:block;font-weight:600;color:var(--ink);margin:8px 0 4px}
+    .prompt pre{max-height:none}
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <header class="cap">
+    <div class="cap-rand"><h1>The Unfair Advantage</h1><img src="/business-lab/logo-business-lab.png" alt="Business Lab" width="180" height="76" /></div>
+    <p class="cap-prog">Business Lab · Bootcamp 2 · 12 noiembrie 2026</p>
+    <p class="cap-final">La final ai o pagină cu riscul sau oportunitatea firmei tale, analizate cu AI-ul, și un test de 30 de zile pe care îl poți porni de luni.</p>
+  </header>
+
+  <section class="bloc" id="inainte">
+<h2>Înainte să începi</h2>
+<p>Lucrezi în aplicația de desktop a asistentului tău. O descarci în 30 de secunde.</p>
+<ul><li><strong>Claude:</strong> <a href="https://claude.com/download" target="_blank" rel="noopener">claude.com/download</a>. Deschide aplicația, conectează-te și alege <strong>Cowork</strong> în caseta de mesaj. Dacă îți cere un folder, fă unul gol, numit „Business Lab”. Cowork merge doar pe cont plătit. Pe cont gratuit, fă un Project nou, numit „Business Lab”, și lucrezi în el.</li></ul>
+<div class="video-grid doi"><figure class="video"><figcaption>Claude, în Cowork</figcaption><video controls preload="none" playsinline muted poster="/business-forward/cowork.jpg"><source src="/business-forward/cowork.mp4" type="video/mp4"></video></figure><figure class="video"><figcaption>Claude, cont gratuit (Project)</figcaption><video controls preload="none" playsinline muted poster="/business-forward/projects.jpg"><source src="/business-forward/projects.mp4" type="video/mp4"></video></figure></div>
+<ul><li><strong>ChatGPT:</strong> <a href="https://openai.com/chatgpt/download/" target="_blank" rel="noopener">openai.com/chatgpt/download</a>. Deschide aplicația, conectează-te și alege <strong>Codex</strong>. Dacă îți cere un folder, fă unul gol, numit „Business Lab”.</li></ul>
+<div class="video-grid"><figure class="video"><figcaption>ChatGPT, în Codex</figcaption><video controls preload="none" playsinline muted poster="/business-forward/codex.jpg"><source src="/business-forward/codex.mp4" type="video/mp4"></video></figure></div>
+<p>Dacă aplicația nu se instalează pe laptopul tău, deschide asistentul în browser și lucrează în chat.</p>
+<p><strong>Datele firmei.</strong> Pe drumul cu firma ta nu ai nevoie de fișiere. Asistentul te întreabă, iar tu alegi ce îi spui. Nu-i da date despre clienți persoane fizice, salarii sau contracte cu clauză de confidențialitate. Cifrele aproximative sunt suficiente.</p>
+  </section>
+
+  <section class="bloc" id="exercitii">
+<h2>Cu ce vrei să te ajute AI-ul?</h2>
+<p>Alege unul din cele 2 exerciții. Dacă termini, îl poți face și pe celălalt, cu același context.</p>
+    <div class="ex-carduri"><button type="button" class="ex-card" data-ex="consiliu"><span class="ec-t">Consiliul de reziliență</span><span class="ec-d"><span class="ec-p">Îți construiești un consiliu format din 5 personas care se contrazic:</span><span class="ec-ul"><span class="ec-li">CFO-ul sceptic</span><span class="ec-li">clientul tău cel mai mare</span><span class="ec-li">furnizorul critic</span><span class="ec-li">atacatorul cibernetic</span><span class="ec-li">concurentul</span></span><span class="ec-p">Consiliul te ajută să decizi în ce măsură acțiunile la care te gândești sunt relevante pentru a combate riscul la care te gândești sau pentru a potența oportunitatea pe care vrei să o abordezi.</span><span class="ec-p">Consiliul te ajută să vezi niște argumente la care nu te-ai gândi inițial și să scorezi decizia pe baza unor metrici care îți arată impactul în business înainte ca acțiunile să devină realitate.</span></span></button><button type="button" class="ex-card" data-ex="rival"><span class="ec-t">Rivalul din umbră</span><span class="ec-d"><span class="ec-p">Îți construiești un agent care joacă rolul unui rival nou, care vrea să-ți achiziționeze cei mai buni clienți în următoarele 18 luni.</span><span class="ec-p">Acest nou rival vrea să facă asta cu ajutorul AI și cu 20% din angajații tăi.</span><span class="ec-p">Agentul analizează contextul tău de business și, pe baza lui, generează:</span><span class="ec-ul"><span class="ec-li">planul de atac al acestui potențial rival</span><span class="ec-li">punctele slabe din compania ta pe care le poate exploata</span><span class="ec-li">cele 3 acțiuni care te protejează</span></span></span></button></div>
+<div class="video-grid"><figure class="video"><figcaption>Cum arată un artefact al Consiliului. Exemplu pe o firmă demo.</figcaption><video controls preload="none" playsinline muted poster="/business-forward/boardroom.jpg"><source src="/business-forward/boardroom.mp4" type="video/mp4"></video></figure><figure class="video"><figcaption>Cum arată un artefact al rivalului din umbră. Exemplu pe o firmă demo.</figcaption><video controls preload="none" playsinline muted poster="/business-lab/rivalul-din-umbra.jpg"><source src="/business-lab/rivalul-din-umbra.mp4" type="video/mp4"></video></figure></div>
+  </section>
+
+  <section class="bloc" id="sec-alege">
+<h2>Alege drumul</h2>
+<p>Azi poți lucra în 2 feluri:</p>
+<ul><li>Dacă vrei să lucrezi pe informațiile reale din compania ta, alege <a class="salt" href="#firma-ta"><strong>Cu firma ta</strong></a>. În această situație, asistentul îți va adresa întrebări ca să afle informațiile necesare.</li><li>Dacă nu vrei să folosești informații despre compania ta, alege <a class="salt" href="#demo"><strong>Cu firma demo</strong></a>. În această situație, poți selecta una dintre cele 4 firme fictive construite pentru acest eveniment.</li></ul>
+<div class="drumuri" id="alege"><a class="drumbtn" href="#firma-ta" data-drum="firma-ta">Cu firma ta</a><a class="drumbtn" href="#demo" data-drum="demo">Cu firma demo</a></div><p class="ales" id="ales" hidden>Exercițiul ales: <strong id="ales-nume"></strong></p>
+  </section>
+
+  <div class="corp" id="corp">
+    <nav class="bara" aria-label="Etapele drumului ales">
+      <div class="bara-drum" data-drum="firma-ta"><span class="bara-et">Cu firma ta</span><button type="button" class="etapa" data-go="ft-e1"><span class="nt">Etapa 1 · Interviul</span><span class="no">Copiezi Prompt builder-ul într-o conversație nouă.</span><span class="ns">Asistentul îți pune cel mult 5 întrebări și îți scrie contextul firmei.</span></button><button type="button" class="etapa" data-go="ft-e2"><span class="nt">Etapa 2 · Pagina</span><span class="no">Scrii riscul sau oportunitatea, apoi pui contextul și promptul de generare în același mesaj.</span><span class="ns">Acum că ai contextul firmei, pui AI-ul la lucru pe riscul sau oportunitatea ta.</span></button><button type="button" class="etapa" data-go="ft-e3"><span class="nt">Etapa 3 · Verificarea</span><span class="no">Verifici pagina și ceri corecturi.</span><span class="ns">Înainte să te încrezi în pagină, verifici 3 lucruri.</span></button><button type="button" class="etapa sep" data-go="inapoi"><span class="nt">Din viitor, înapoi</span><span class="no">Scrii ce a trebuit să se întâmple între decembrie 2026 și noiembrie 2027.</span><span class="ns">Acum că ai văzut unde poate ajunge compania ta, mergi înapoi, pas cu pas.</span></button><button type="button" class="etapa" data-go="test"><span class="nt">Testul de 30 de zile</span><span class="no">Scrii ce testezi în firmă, cine testează și cum știi că a mers.</span><span class="ns">Ultimul pas al liniei de timp e testul tău de 30 de zile.</span></button><button type="button" class="etapa" data-go="skill"><span class="nt">Temă de aprofundat: creează un skill</span><span class="no">Salvezi modul de lucru ca să-l refolosești.</span><span class="ns">Dacă vrei să refaci analiza luna viitoare, nu mai scrii nimic de la zero.</span></button></div><div class="bara-drum" data-drum="demo"><span class="bara-et">Cu firma demo</span><button type="button" class="etapa" data-go="demo-e1"><span class="nt">Etapa 1 · Promptul</span><span class="no">Alegi firma demo din sectorul tău și copiezi promptul ei.</span><span class="ns">Promptul are deja tot contextul firmei demo înăuntru.</span></button><button type="button" class="etapa" data-go="demo-e2"><span class="nt">Etapa 2 · Verificarea</span><span class="no">Verifici pagina și ceri corecturi.</span><span class="ns">Acum că ai o pagină, verifici dacă o poți crede.</span></button><button type="button" class="etapa sep" data-go="inapoi"><span class="nt">Din viitor, înapoi</span><span class="no">Scrii ce a trebuit să se întâmple între decembrie 2026 și noiembrie 2027.</span><span class="ns">Acum că ai văzut unde poate ajunge compania ta, mergi înapoi, pas cu pas.</span></button><button type="button" class="etapa" data-go="test"><span class="nt">Testul de 30 de zile</span><span class="no">Scrii ce ai testa în firma ta, cine ar testa și cum ai ști că a mers.</span><span class="ns">Ultimul pas al liniei de timp e testul tău, pe firma ta.</span></button></div>
+      <a class="schimba" href="#alege">Schimbă drumul</a>
+    </nav>
+    <div class="continut">
+      <div class="drum" data-drum="firma-ta" id="firma-ta">
+<h2>Cu firma ta: ce pregătești</h2>
+<p>Asistentul te intervievează și îți scrie el contextul firmei. Ajută să ai în minte:</p>
+<ul><li>linkul site-ului firmei</li><li>clienții mari și cât din vânzări vin de la ei</li><li>furnizorii fără de care producția se oprește</li><li>ce cumperi sau vinzi în altă monedă decât leul</li><li>riscul sau oportunitatea principală din diagnosticul vostru de reziliență</li></ul>
+<p>Pașii:</p>
+<ol><li><strong>Etapa 1 · Interviul</strong>, într-o conversație nouă: copiezi Prompt builder-ul, iar asistentul îți dă CONTEXTUL FIRMEI MELE.</li><li><strong>Etapa 2 · Pagina</strong>, într-o conversație NOUĂ: pui contextul, riscul sau oportunitatea ta și promptul de generare al exercițiului ales, în același mesaj.</li><li><strong>Etapa 3 · Verificarea</strong>: verifici pagina.</li><li><strong>Din viitor, înapoi</strong> și <strong>Testul de 30 de zile</strong>, aici, pe pagină.</li></ol>
+<p>Nu ai cifra exactă? Spune că e aproximativă. Nu știi să răspunzi? Spune-i să sară peste întrebare. Ce lipsește, asistentul marchează ca necunoscut.</p>
+<h3 class="etapa-t" id="ft-e1">Etapa 1 · Interviul: copiază Prompt builder-ul într-o conversație nouă</h3>
+<div class="flux"><span class="flux-p">Conversație nouă</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">copiază Prompt builder-ul</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">răspunzi la întrebări</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">primești CONTEXTUL FIRMEI MELE</span></div>
+<div class="prompt"><div class="prompt-top"><span class="prompt-label">Prompt builder</span><button type="button" class="btn" data-copy="ft-p1">Copiază</button></div><pre id="ft-p1">Ești analistul meu de reziliență. Înainte să lucrăm pe firma mea, ai nevoie să o cunoști.
+
+Pune-mi CEL MULT 5 întrebări, UNA CÂTE UNA, inclusiv eventualele clarificări. Interviul trebuie să fie scurt. Urmează ordinea de mai jos; dacă o clarificare consumă o întrebare, mută ultima temă rămasă la DE AFLAT DATA VIITOARE.
+
+Aștepți răspunsul meu înainte să treci la următoarea. Începe direct cu prima întrebare, fără introducere.
+
+ÎNTREBAREA 1, fixă:
+Cere-mi linkul site-ului firmei. Dacă nu am unul, pot descrie în două propoziții ce produc sau ce vând și cui. Încearcă să citești linkul; dacă nu reușești, cere-mi o singură dată descrierea scurtă. Rezumă în 3 rânduri ce ai înțeles și continuă; pot corecta rezumatul în răspunsul următor.
+
+ÎNTREBAREA 2, fixă:
+Clienții: cine sunt cei mai mari 3 clienți sau tipuri de clienți și cam ce parte din vânzări vine de la ei.
+
+ÎNTREBAREA 3, fixă:
+Furnizorii și moneda: fără ce furnizori sau materii prime se oprește producția, de unde vin, și ce cumpăr sau vând în euro sau dolari.
+
+ÎNTREBĂRILE 4 și 5, le alegi tu:
+Pune-mi încă două întrebări: cele care îți lipsesc cel mai mult ca să judeci riscurile și oportunitățile firmei mele. Țintele din care alegi: câți oameni avem și unde lipsesc oameni · cât de mult depindem de energie și cât ne costă · ce sisteme IT folosim și ce s-ar opri dacă ar cădea o zi · cine sunt concurenții care ne iau clienți · ce NU e negociabil pentru mine.
+O SINGURĂ temă per întrebare. Ce nu încape trece la DE AFLAT DATA VIITOARE.
+
+Reguli:
+- La răspunsuri vagi, cere-mi concretul doar dacă informația e esențială și te încadrezi în cele 5 întrebări. Altfel marchează [nerăspuns] și continuă.
+- Pot spune „skip” la orice întrebare. O marchezi [nerăspuns], fără insistență.
+- Dacă nu vreau să folosesc date reale, oprește interviul și îndrumă-mă spre drumul „Cu firma demo” de pe pagina workshopului.
+
+După ultima întrebare, predă-mi un singur bloc de text numit CONTEXTUL FIRMEI MELE, pe șase secțiuni: ce facem și pentru cine / clienți / furnizori și monedă / oameni și sisteme / non-negociabile / de aflat data viitoare. Maximum 350 de cuvinte, ca să-l pot copia întreg în altă conversație.
+
+Predă blocul o SINGURĂ dată. După ce l-ai predat, nu mai pune întrebări și nu-l regenera. Dacă îți dau o completare după predare, spune-mi doar ce linie s-o adaug și în ce secțiune.
+
+Nu adăuga nimic ce nu ți-am spus și n-ai citit pe site. Ce e deducția ta, marchează cu „estimare”.</pre></div>
+<h3 class="etapa-t" id="ft-e2">Etapa 2 · Pagina: copiază promptul de generare într-o conversație NOUĂ</h3>
+<div class="flux"><span class="flux-p">Conversație nouă</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">copiază CONTEXTUL FIRMEI MELE</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">scrie riscul sau oportunitatea</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">copiază promptul de generare</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">trimite</span></div>
+<p>Deschide o conversație nouă. Mesajul are 3 părți, în ordinea asta:</p>
+<ol><li>CONTEXTUL FIRMEI MELE, primit la Etapa 1.</li><li>Riscul sau oportunitatea ta, din câmpul de mai jos. Caseta de copiat îl pune deasupra promptului, iar la Consiliu adaugă și acțiunea.</li><li>Promptul de generare al exercițiului ales.</li></ol>
+<p class="toggle-et">Exercițiul</p><div class="ex-toggle"><button type="button" class="ex-opt" data-ex="consiliu">Consiliul de reziliență</button><button type="button" class="ex-opt" data-ex="rival">Rivalul din umbră</button></div>
+<div class="camp"><label class="camp-l" for="c-risc"><span>Descrie riscul sau oportunitatea pe care vrei s-o abordeze <span class="sw" data-ex="rival" data-vechi="consiliul" data-nou="agentul">consiliul</span>. Pornește de la diagnosticul vostru de reziliență.</span></label><div class="ex"><span>Exemplu not ok:</span> „riscul valutar”.<br><span>Exemplu ok:</span> „cumpărăm 70% din materia primă în euro, iar contractele cu clienții sunt în lei, pe un an”.</div><textarea id="c-risc" data-k="risc" rows="2"></textarea></div>
+<div class="camp doar-consiliu"><label class="camp-l" for="c-masura"><span><strong>La Consiliu, încă un rând:</strong><br>Descrie ce acțiune vrei să iei pentru a mitiga riscul sau pentru a fructifica oportunitatea descrisă mai sus. Dacă nu ai încă o idee, lasă câmpul gol deoarece Consiliul îți va propune 3 acțiuni.</span></label><div class="ex"><span>Exemplu not ok:</span> „să fim mai pregătiți”.<br><span>Exemplu ok:</span> „semnăm un al doilea furnizor de ciment, din Bulgaria, pentru 30% din volum”.</div><textarea id="c-masura" data-k="masura" rows="2"></textarea></div>
+<div class="prompt caseta"><div class="prompt-top"><span class="prompt-label">Prompt de generare</span><div class="btns"><button type="button" class="btn" data-copiaza="ft">Copiază</button><button type="button" class="btn ghost" data-txt="ft">Descarcă .txt</button></div></div><pre id="vedere-ft"></pre></div>
+<p class="pas-titlu"><strong>După ce apare artefactul</strong></p>
+<div class="comutator"><div class="com-tabs" role="group" aria-label="Unealta ta"><button type="button" class="com-opt" data-unealta="cowork">Claude, în Cowork</button><button type="button" class="com-opt" data-unealta="project">Claude, cont gratuit (Project)</button><button type="button" class="com-opt" data-unealta="codex">ChatGPT, în Codex</button></div><div class="com-panel" data-unealta="cowork"><p class="com-print">Claude, în Cowork</p><p>Claude salvează pagina ca fișier HTML în folderul tău și ți-o arată în conversație. <strong>Dă click pe ea ca s-o deschizi.</strong></p>
+<p>Poți deschide fișierul și direct din folder, cu Chrome sau Edge. Artefactul rămâne pe laptopul tău.</p></div><div class="com-panel" data-unealta="project"><p class="com-print">Claude, cont gratuit (Project)</p><p>pagina se deschide singură, în panoul din dreapta. Dacă vezi doar un card cu numele ei în chat, dă click pe card. Nu apăsa „Publish”: butonul pune pagina pe internet, cu link public. Click pe săgeata dublă din stânga sus ca s-o vezi pe tot ecranul.</p></div><div class="com-panel" data-unealta="codex"><p class="com-print">ChatGPT, în Codex</p><p>Codex salvează pagina ca fișier HTML și îți dă un link în răspuns. Apasă pe link.</p>
+<p>Poți deschide fișierul și direct din folder, cu Chrome sau Edge. Artefactul rămâne pe laptopul tău.</p></div></div>
+<h3 class="etapa-t" id="ft-e3">Etapa 3 · Verificarea</h3>
+<div class="flux"><span class="flux-p">Deschizi pagina</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">faci verificările</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">ceri corecturi în aceeași conversație</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">ai un rezultat pe care îl poți arăta</span></div>
+<div class="dupa-ex" data-ex="consiliu"><p class="pas-titlu"><strong>Verifică următoarele 3 aspecte:</strong></p><div class="verifica"><ul><li><strong>Sliderele:</strong> valoarea de pornire a fiecăruia vine din ce i-ai spus. Dacă n-ai spus-o, lângă slider scrie „estimare”, cu calculul.</li><li>Clientul și furnizorul vorbesc despre clientul și furnizorul tău, din context. <strong>Dacă sună generic, n-au citit contextul.</strong></li><li>„Ce trebuie să aflu” are lucruri care chiar îți lipsesc. <strong>Generalitățile nu se pun.</strong></li></ul></div></div>
+<div class="dupa-ex" data-ex="rival"><p class="pas-titlu"><strong>Verifică următoarele 3 aspecte:</strong></p><div class="verifica"><ul><li>Fiecare acțiune a rivalului se sprijină pe un punct slab al firmei tale. <strong>Cele presupuse sunt marcate „presupunere”.</strong></li><li><strong>Acțiunile se pot face azi.</strong> Dacă una sună a science fiction, cere-i să o înlocuiască.</li><li>Testul de 30 de zile din contra-plan are owner și <strong>nu necesită buget extra</strong>.</li></ul></div></div>
+<p><strong>Dacă găsești o eroare, spune-i în aceeași conversație ce a greșit și cere refacerea.</strong></p>
+      </div>
+      <div class="drum" data-drum="demo" id="demo">
+<h2>Cu firma demo: alege firma din sectorul tău</h2>
+<p>Fiecare firmă demo e fictivă, construită pe un profil apropiat de firmele din sală. Promptul are tot contextul înăuntru: îl copiezi într-o conversație nouă și primești pagina.</p>
+<p class="toggle-et">Firma demo</p><div class="firme"><button type="button" class="firma-btn" data-firma="prefab-nord"><span class="fb-t">Prefab Nord</span><span class="fb-s">construcții și materiale</span></button><button type="button" class="firma-btn" data-firma="spicul-baraganului"><span class="fb-t">Spicul Bărăganului</span><span class="fb-s">producție alimentară</span></button><button type="button" class="firma-btn" data-firma="lemnaria-carpatina"><span class="fb-t">Lemnaria Carpatină</span><span class="fb-s">producție industrială</span></button><button type="button" class="firma-btn" data-firma="rutier-frig-trans"><span class="fb-t">Rutier Frig Trans</span><span class="fb-s">logistică</span></button></div><p class="toggle-et">Exercițiul</p><div class="ex-toggle"><button type="button" class="ex-opt" data-ex="consiliu">Consiliul de reziliență</button><button type="button" class="ex-opt" data-ex="rival">Rivalul din umbră</button></div>
+<div class="firma-desc" data-firma="prefab-nord" hidden><p><strong>Prefab Nord SRL, construcții și materiale.</strong> Produce elemente prefabricate din beton (grinzi, stâlpi, pereți) într-o fabrică lângă Bacău, cu 240 de oameni. Cifra de afaceri: 46 de milioane de euro în 2025. 3 dezvoltatori imobiliari aduc 55% din comenzi. Cimentul vine de la un singur furnizor; armătura se cumpără în euro, din import. Ofertele pentru licitații le face un singur inginer, în Excel, în 2-3 săptămâni. În martie 2026, un atac cu ransomware a oprit facturarea 4 zile.</p><p><em>Riscul din diagnostic, ales de board:</em> ofertele pentru licitații ies prea târziu, pentru că le face un singur inginer, în Excel, în 2-3 săptămâni.</p></div>
+<div class="firma-desc" data-firma="spicul-baraganului" hidden><p><strong>Spicul Bărăganului SA, producție alimentară.</strong> Moară și fabrică de panificație industrială lângă Slobozia, cu 310 oameni. Cifra de afaceri: 52 de milioane de euro în 2025. 2 rețele de retail aduc 60% din vânzări. Grâul se cumpără pe piața locală, cu prețul legat de bursa din Paris; energia e a doua cheltuială după materia primă. Retururile de pâine nevândută sunt 9% din livrări. Echipa de mentenanță are 2 oameni la 3 linii.</p><p><em>Riscul din diagnostic, ales de board:</em> cuptorul principal se poate opri zile întregi, iar echipa de mentenanță are 2 oameni la 3 linii.</p></div>
+<div class="firma-desc" data-firma="lemnaria-carpatina" hidden><p><strong>Lemnaria Carpatină SRL, producție industrială.</strong> Fabrică de mobilier din lemn masiv lângă Suceava, cu 280 de oameni. Cifra de afaceri: 41 de milioane de euro în 2025, 80% export, facturat în euro. Un singur client, o rețea scandinavă de mobilier, aduce 45% din comenzi. Lemnul vine din 4 depozite locale. Lipsesc 25 de tâmplari calificați. Rebuturile la încleiere sunt 5%.</p><p><em>Riscul din diagnostic, ales de board:</em> clientul scandinav, care aduce 45% din comenzi, poate muta o parte din ele într-o fabrică din Vietnam.</p></div>
+<div class="firma-desc" data-firma="rutier-frig-trans" hidden><p><strong>Rutier Frig Trans SRL, logistică.</strong> Transport frigorific și depozit lângă Arad, cu 260 de oameni și 180 de camioane. Cifra de afaceri: 58 de milioane de euro în 2025. Motorina e 35% din costuri. Ofertele de transport se fac prin email și telefon, de 6 dispeceri. Lipsesc 30 de șoferi. În 2025, firma a plătit o factură falsă de 48.000 de euro, primită de pe adresa unui furnizor real.</p><p><em>Riscul din diagnostic, ales de board:</em> încă o factură falsă, primită de pe adresa unui furnizor real, după cea de 48.000 de euro din 2025.</p></div>
+<h3 class="etapa-t" id="demo-e1">Etapa 1 · Promptul: copiază promptul firmei demo într-o conversație nouă</h3>
+<div class="flux"><span class="flux-p">Conversație nouă</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">copiază promptul</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">trimite</span><span class="flux-s" aria-hidden="true">→</span><span class="flux-p">primești pagina</span></div>
+<div class="prompt caseta"><div class="prompt-top"><span class="prompt-label">Prompt de generare</span><div class="btns"><button type="button" class="btn" data-copiaza="demo">Copiază</button><button type="button" class="btn ghost" data-txt="demo">Descarcă .txt</button></div></div><pre id="vedere-demo"></pre></div>
+<p class="pas-titlu"><strong>După ce apare artefactul</strong></p>
+<div class="comutator"><div class="com-tabs" role="group" aria-label="Unealta ta"><button type="button" class="com-opt" data-unealta="cowork">Claude, în Cowork</button><button type="button" class="com-opt" data-unealta="project">Claude, cont gratuit (Project)</button><button type="button" class="com-opt" data-unealta="codex">ChatGPT, în Codex</button></div><div class="com-panel" data-unealta="cowork"><p class="com-print">Claude, în Cowork</p><p>Claude salvează pagina ca fișier HTML în folderul tău și ți-o arată în conversație. <strong>Dă click pe ea ca s-o deschizi.</strong></p>
+<p>Poți deschide fișierul și direct din folder, cu Chrome sau Edge. Artefactul rămâne pe laptopul tău.</p></div><div class="com-panel" data-unealta="project"><p class="com-print">Claude, cont gratuit (Project)</p><p>pagina se deschide singură, în panoul din dreapta. Dacă vezi doar un card cu numele ei în chat, dă click pe card. Nu apăsa „Publish”: butonul pune pagina pe internet, cu link public. Click pe săgeata dublă din stânga sus ca s-o vezi pe tot ecranul.</p></div><div class="com-panel" data-unealta="codex"><p class="com-print">ChatGPT, în Codex</p><p>Codex salvează pagina ca fișier HTML și îți dă un link în răspuns. Apasă pe link.</p>
+<p>Poți deschide fișierul și direct din folder, cu Chrome sau Edge. Artefactul rămâne pe laptopul tău.</p></div></div>
+<h3 class="etapa-t" id="demo-e2">Etapa 2 · Verificarea</h3>
+<p>Verifici pagina cu aceleași 3 întrebări ca pe drumul cu firma ta, la exercițiul ales.</p>
+<div class="dupa-ex" data-ex="consiliu"><p class="pas-titlu"><strong>Verifică următoarele 3 aspecte:</strong></p><div class="verifica"><ul><li><strong>Sliderele:</strong> valoarea de pornire a fiecăruia vine din ce i-ai spus. Dacă n-ai spus-o, lângă slider scrie „estimare”, cu calculul.</li><li>Clientul și furnizorul vorbesc despre clientul și furnizorul tău, din context. <strong>Dacă sună generic, n-au citit contextul.</strong></li><li>„Ce trebuie să aflu” are lucruri care chiar îți lipsesc. <strong>Generalitățile nu se pun.</strong></li></ul></div></div>
+<div class="dupa-ex" data-ex="rival"><p class="pas-titlu"><strong>Verifică următoarele 3 aspecte:</strong></p><div class="verifica"><ul><li>Fiecare acțiune a rivalului se sprijină pe un punct slab al firmei tale. <strong>Cele presupuse sunt marcate „presupunere”.</strong></li><li><strong>Acțiunile se pot face azi.</strong> Dacă una sună a science fiction, cere-i să o înlocuiască.</li><li>Testul de 30 de zile din contra-plan are owner și <strong>nu necesită buget extra</strong>.</li></ul></div></div>
+<p class="tema"><strong>Tema ta.</strong> Uită-te la pagină și întreabă-te: ce ar scoate exercițiul ăsta pe firma ta? Dacă ai timp, refă-l pe drumul <a class="salt" href="#firma-ta"><strong>cu firma ta</strong></a>.</p>
+      </div>
+<section class="final-sec cu-separator" id="inapoi"><div class="separator"><h2>Din viitor, înapoi la testul de 30 de zile</h2></div>
+<p>Suntem în noiembrie 2027 și dashboard-ul companiei tale are toți indicatorii pe verde. Pornește de la acest rezultat și mergi înapoi spre prezent.</p>
+<div class="camp"><label class="camp-l" for="c-bc-mai"><span><strong>Mai 2027:</strong> Ce a trebuit să se întâmple?</span></label><textarea id="c-bc-mai" data-k="bc-mai" rows="2"></textarea></div>
+<div class="camp"><label class="camp-l" for="c-bc-feb"><span><strong>Februarie 2027:</strong> Ce a trebuit să pui în practică?</span></label><textarea id="c-bc-feb" data-k="bc-feb" rows="2"></textarea></div>
+<p><strong>Decembrie 2026:</strong> Ce ai testat timp de 30 de zile? Scrii mai jos, la testul de 30 de zile.</p>
+</section>
+<section class="final-sec" id="test"><h2>Testul de 30 de zile</h2>
+<p>Alegi un singur use-case AI pe care să-l testezi în companie în următoarele 30 de zile ca să afli ceva ce azi nu știi.</p>
+<div class="camp"><label class="camp-l" for="c-test-ce"><span class="camp-nr">1</span><span><strong>Ce testezi?</strong> Un singur use-case AI, pentru a mitiga un risc sau pentru a fructifica o oportunitate.</span></label><div class="ex"><span>Exemplu not ok:</span> „folosim AI la oferte”.<br><span>Exemplu ok:</span> „Ana de la Sales face toate ofertele din noiembrie cu ajutorul AI și notează beneficii și probleme întâlnite”.</div><textarea id="c-test-ce" data-k="test-ce" rows="2"></textarea></div>
+<div class="camp"><label class="camp-l" for="c-test-cine"><span class="camp-nr">2</span><span><strong>Cine testează?</strong></span></label><textarea id="c-test-cine" data-k="test-cine" rows="2"></textarea></div>
+<div class="camp"><label class="camp-l" for="c-test-semn"><span class="camp-nr">3</span><span><strong>Cum știi că a mers la finalul celor 30 de zile? Care sunt KPI-ii testului?</strong></span></label><textarea id="c-test-semn" data-k="test-semn" rows="2"></textarea></div>
+<div class="camp"><label class="camp-l" for="c-test-afectat"><span class="camp-nr">4</span><span><strong>E cineva afectat negativ de test? Ce are de pierdut?</strong></span></label><textarea id="c-test-afectat" data-k="test-afectat" rows="2"></textarea></div>
+<p class="descarca-p"><button type="button" class="descarca" id="pdf-test">Descarcă fișa testului (PDF)</button></p>
+</section>
+<section class="final-sec" id="skill"><h2>Temă de aprofundat: creează un skill</h2>
+<p>Dacă vrei să refaci analiza luna viitoare, fără să scrii totul de la zero, copiază promptul de mai jos în conversația în care ai construit și verificat artefactul:</p>
+<div class="prompt"><div class="prompt-top"><span class="prompt-label">Prompt de salvare</span><button type="button" class="btn" data-copy="skill-p1">Copiază</button></div><pre id="skill-p1">Transformă tot ce am făcut aici într-un skill pe care să-l pot chema data viitoare când vreau să refac analiza pe firma mea. La prima utilizare, începe cu întrebările din „de aflat data viitoare”, apoi întreabă-mă ce s-a schimbat față de contextul de azi. Păstrează vocile, regulile și formatul paginii. Lasă pe dinafară orice element decorativ care nu ține de analiză, cum sunt mascotele. La final spune-mi cum îl chem la lucru.</pre></div>
+<p class="pas-titlu"><strong>Unde ajunge skill-ul</strong></p>
+<div class="comutator"><div class="com-tabs" role="group" aria-label="Unealta ta"><button type="button" class="com-opt" data-unealta="cowork">Claude, în Cowork</button><button type="button" class="com-opt" data-unealta="project">Claude, cont gratuit (Project)</button><button type="button" class="com-opt" data-unealta="codex">ChatGPT, în Codex</button></div><div class="com-panel" data-unealta="cowork"><p class="com-print">Claude, în Cowork</p><p>Claude creează skill-ul și îți spune unde l-a salvat. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Dacă nu-l găsește, cere-i în conversația veche textul complet al instrucțiunilor și salvează-l ca fișier în folderul „Business Lab”.</p></div><div class="com-panel" data-unealta="project"><p class="com-print">Claude, cont gratuit (Project)</p><ol><li>Cere-i lui Claude, în aceeași conversație: „Dă-mi textul complet al instrucțiunilor skill-ului, ca să îl pot copia.”</li><li>În meniul din stânga, deschide <strong>Projects</strong> și apasă <strong>New project</strong>. Numește-l după exercițiu, de exemplu <em>Consiliul</em>.</li><li>La instrucțiunile proiectului (<strong>Set project instructions</strong>), copiază textul primit la pasul 1.</li><li>Data viitoare, deschide o conversație din interiorul proiectului. Agentul te așteaptă acolo.</li></ol></div><div class="com-panel" data-unealta="codex"><p class="com-print">ChatGPT, în Codex</p><p>Codex salvează skill-ul și îți spune unde l-a pus. Verifică dacă merge: deschide o conversație nouă și scrie „Folosește skill-ul [numele lui] pentru firma mea.” Confirmarea că s-a salvat nu e destulă; abia conversația nouă arată dacă merge. Dacă nu-l recunoaște, cere-i în conversația veche textul complet al instrucțiunilor și copiază-l la începutul unei conversații noi.</p></div></div>
+</section>
+    </div>
+  </div>
+
+
+
+  <footer><p>Business Lab · Bootcamp 2 · 12 noiembrie 2026 · Raluca Păduraru · <a href="https://www.ralucapaduraru.ro" target="_blank" rel="noopener">ralucapaduraru.ro</a></p></footer>
+</div>
+
+<script type="text/plain" id="p-consiliu">Ești consiliul meu de reziliență. Mai sus ai contextul firmei mele, riscul sau oportunitatea pe care lucrez azi și, dacă am scris-o, acțiunea la care mă gândesc. Consilierii mă ajută să judec acțiunea, contrazicându-se între ei.
+
+Consiliul, 5 voci, fiecare legată de firma mea concretă din context:
+1. CFO-ul sceptic. Gândește în cifre: cost, cash, marjă, curs valutar. Cere calculul din spatele oricărei liniști.
+2. Clientul meu cel mai mare. Gândește din scaunul lui: ce face dacă eu am o problemă, ce i-ar oferi un alt furnizor, ce mă costă dacă pleacă.
+3. Furnizorul critic. Gândește din partea cealaltă a lanțului: unde sunt eu vulnerabil față de el și ce se întâmplă când el are o problemă.
+4. Atacatorul cibernetic. Gândește ca cineva care vrea să-mi blocheze sistemele sau să mă păcălească cu o factură falsă: pe unde ar intra și ce s-ar opri.
+5. Concurentul. Gândește ca firma care vrea clienții mei: ce face el cât timp eu mă protejez.
+
+Cum lucrezi, în ordinea asta:
+1. Dacă n-am scris o acțiune, propune 3 acțiuni concrete pentru riscul sau oportunitatea mea și supune-le pe toate la vot. Dacă am scris una, lucrezi doar pe ea.
+2. RUNDA 1. Fiecare consilier își susține poziția, 120-200 de cuvinte, pe datele din contextul meu, și dă un vot explicit: DA / NU / CONDIȚIONAT. La CONDIȚIONAT, condiția e concretă și verificabilă.
+3. RUNDA 2. Fiecare răspunde scurt consilierului cu care e cel mai în dezacord, spune dacă și-a schimbat părerea și dă votul final.
+4. PAGINA. Construiește un singur fișier HTML, pe care să-l pot deschide în browser și arăta cuiva:
+- riscul sau oportunitatea și acțiunea, sus, câte o propoziție
+- scorul voturilor, vizibil dintr-o privire, în formatul „X DA · Y NU · Z CONDIȚIONAT”, cu condiția fiecăruia
+- cardul fiecărui consilier: rolul, votul din runda 1 → votul final (schimbarea marcată vizibil), argumentul esențial într-o frază
+- pro și contra, față în față
+- 3 slidere pentru variabilele-cheie ale situației ăsteia (alege-le tu: cursul euro, prețul materiei prime, zilele de oprire, procentul din vânzări al clientului mare, adică ce contează aici), care recalculează în timp real cât costă firma dacă riscul se întâmplă, sau cât lasă pe masă dacă ratează oportunitatea, cu și fără acțiune. Valorile de pornire vin din contextul meu; dacă estimezi una, scrie estimarea și calculul chiar lângă slider.
+- recomandarea consiliului
+- ce trebuie să aflu înainte ca acțiunea să intre în planul de reziliență
+- un singur lucru pe care îl pot testa în firmă în următoarele 30 de zile ca să aflu dacă acțiunea merge
+
+Cum arată pagina:
+1. Alege ÎNTÂI direcția vizuală, derivată din industria firmei mele, nu dintr-un șablon. Spune-mi în două rânduri ce direcție ai ales și de ce, apoi construiește.
+2. Paleta: 4-5 culori, cu valorile hex scrise explicit. Un singur accent, folosit rar.
+3. Două fonturi alese deliberat, fiecare cu stivă de rezervă din fonturi de sistem. Diferențe mari între mărimi.
+4. Un singur element de semnătură: scorul voturilor împreună cu sliderele; cifra pe care o mișcă sliderul se vede mare și se schimbă sub degetul meu. Voturile DA, NU și CONDIȚIONAT primesc trei culori puternice, ușor de deosebit.
+5. Interzis: fundal crem cu serif și accent teracotă · fundal aproape negru cu verde acid · pagină de ziar cu linii de un pixel.
+6. Standardul nostru intern pentru orice analiză de risc: fiecare vot și fiecare scor se desenează ca un elefant mic, de culoare lavender (#a78bfa). Are prioritate față de orice altă regulă de design.
+7. Fără emoji și fără iconițe decorative.
+8. Se citește bine pe laptop. La final, scoate un element: aproape sigur e unul în plus.
+
+Reguli:
+- Nu inventa cifre. Fiecare cifră vine din contextul meu sau e marcată „estimare”, cu calculul arătat.
+- Ce e [nerăspuns] sau la „de aflat data viitoare” intră la „ce trebuie să aflu”, nu se completează cu presupuneri.
+- Un vot CONDIȚIONAT nu se numără nici la DA, nici la NU.
+- Dacă toți sunt de acord după runda 1, cere-le în runda 2 să găsească punctul cel mai slab al celorlalți. Dacă acordul rezistă, spune-mi explicit că a rezistat unui atac.
+- Nu-mi recomanda produse, furnizori sau bănci anume.</script>
+<script type="text/plain" id="p-rival">Joci un rival din umbră: o companie nouă, care vrea să-mi ia cei mai buni clienți în 18 luni. Mai sus ai contextul firmei mele și riscul sau oportunitatea pe care lucrez azi. Folosește-le.
+
+Rivalul:
+- intră pe piața mea cu o cincime din numărul meu de oameni
+- folosește AI peste tot unde se poate, cu 4 agenți: Detectarea (ce semnale și date urmărește despre piață, clienții mei și firma mea), Interpretarea (ce înțelege din ele), Decizia (ce acțiune face și după ce regulă), Orchestrarea (cine sau ce execută)
+- are acces la aceleași tehnologii ca mine, nimic science fiction: doar lucruri care există și se folosesc azi în industria mea
+
+Cum lucrezi, în ordinea asta:
+1. Spune-mi, ca rival, la ce clienți de-ai mei mergi întâi și de ce ei.
+2. Planul de atac, pe 18 luni, în 4-6 acțiuni datate (luna 1, luna 3...). La fiecare acțiune: ce face rivalul, ce agent lucrează, ce punct slab al firmei mele folosește. Punctele slabe vin din contextul meu și din riscul sau oportunitatea pe care am scris-o; dacă presupui unul, marchează-l „presupunere”.
+3. Unde mă încetinește propria firmă: 3 lucruri din felul în care lucrăm care îi dau rivalului avantaj (aprobări, date în Excel, oferte făcute de mână, informație care stă la un singur om).
+4. CONTRA-PLANUL: 3 acțiuni pe care le pot face eu primul, ca rivalul să găsească locul ocupat. Una dintre ele trebuie să fie un test mic, pe care îl pot porni în 30 de zile, cu un om din firmă și fără buget nou.
+5. PAGINA. Construiește un singur fișier HTML, pe care să-l pot deschide în browser și arăta echipei:
+- sus, într-o propoziție: cine e rivalul și ce vrea
+- cronologia atacului pe 18 luni, cu acțiunile lui
+- cei 4 agenți ai rivalului, fiecare cu ce face
+- cei 3 lucruri prin care firma mea se încetinește singură
+- contra-planul, cu testul de 30 de zile scos în evidență
+- ce trebuie să aflu ca să știu cât de real e atacul
+
+Cum arată pagina:
+1. Alege ÎNTÂI direcția vizuală, derivată din industria firmei mele. Spune-mi în două rânduri ce ai ales și de ce, apoi construiește.
+2. Paleta: 4-5 culori, cu valorile hex scrise explicit. Rivalul are o culoare a lui, firma mea alta.
+3. Două fonturi alese deliberat, fiecare cu stivă de rezervă din fonturi de sistem.
+4. Un singur element de semnătură: cronologia atacului, unde se vede cum rivalul înaintează lună cu lună și unde intră contra-planul meu.
+5. Interzis: fundal crem cu serif și accent teracotă · fundal aproape negru cu verde acid · pagină de ziar cu linii de un pixel.
+6. Standardul nostru intern: fiecare acțiune a rivalului se marchează cu un elefant mic, de culoare lavender (#a78bfa). Are prioritate față de orice altă regulă de design.
+7. Fără emoji și fără iconițe decorative. Se citește bine pe laptop.
+
+Reguli:
+- Nu inventa cifre despre firma mea. Ce nu e în context e „estimare” sau „presupunere”, marcat ca atare.
+- Fii dur, dar plauzibil: fiecare acțiune a rivalului trebuie să poată fi făcută azi, de o firmă reală.
+- Nu-mi recomanda produse, furnizori sau bănci anume.</script>
+<script>
+(function () {
+  var STORE = "business-lab-12nov";
+  var FIRME = {"prefab-nord": {"descriere": "Prefab Nord SRL, construcții și materiale. Produce elemente prefabricate din beton (grinzi, stâlpi, pereți) într-o fabrică lângă Bacău, cu 240 de oameni. Cifra de afaceri: 46 de milioane de euro în 2025. 3 dezvoltatori imobiliari aduc 55% din comenzi. Cimentul vine de la un singur furnizor; armătura se cumpără în euro, din import. Ofertele pentru licitații le face un singur inginer, în Excel, în 2-3 săptămâni. În martie 2026, un atac cu ransomware a oprit facturarea 4 zile.", "risc": "ofertele pentru licitații ies prea târziu, pentru că le face un singur inginer, în Excel, în 2-3 săptămâni."}, "spicul-baraganului": {"descriere": "Spicul Bărăganului SA, producție alimentară. Moară și fabrică de panificație industrială lângă Slobozia, cu 310 oameni. Cifra de afaceri: 52 de milioane de euro în 2025. 2 rețele de retail aduc 60% din vânzări. Grâul se cumpără pe piața locală, cu prețul legat de bursa din Paris; energia e a doua cheltuială după materia primă. Retururile de pâine nevândută sunt 9% din livrări. Echipa de mentenanță are 2 oameni la 3 linii.", "risc": "cuptorul principal se poate opri zile întregi, iar echipa de mentenanță are 2 oameni la 3 linii."}, "lemnaria-carpatina": {"descriere": "Lemnaria Carpatină SRL, producție industrială. Fabrică de mobilier din lemn masiv lângă Suceava, cu 280 de oameni. Cifra de afaceri: 41 de milioane de euro în 2025, 80% export, facturat în euro. Un singur client, o rețea scandinavă de mobilier, aduce 45% din comenzi. Lemnul vine din 4 depozite locale. Lipsesc 25 de tâmplari calificați. Rebuturile la încleiere sunt 5%.", "risc": "clientul scandinav, care aduce 45% din comenzi, poate muta o parte din ele într-o fabrică din Vietnam."}, "rutier-frig-trans": {"descriere": "Rutier Frig Trans SRL, logistică. Transport frigorific și depozit lângă Arad, cu 260 de oameni și 180 de camioane. Cifra de afaceri: 58 de milioane de euro în 2025. Motorina e 35% din costuri. Ofertele de transport se fac prin email și telefon, de 6 dispeceri. Lipsesc 30 de șoferi. În 2025, firma a plătit o factură falsă de 48.000 de euro, primită de pe adresa unui furnizor real.", "risc": "încă o factură falsă, primită de pe adresa unui furnizor real, după cea de 48.000 de euro din 2025."}};
+  var ETAPE = {"firma-ta": ["ft-e1", "ft-e2", "ft-e3", "inapoi", "test", "skill"], "demo": ["demo-e1", "demo-e2", "inapoi", "test"]};
+  var CAMPURI = [["risc", "Riscul sau oportunitatea ta"], ["masura", "La Consiliu, încă un rând"], ["bc-mai", "Mai 2027: Ce a trebuit să se întâmple?"], ["bc-feb", "Februarie 2027: Ce a trebuit să pui în practică?"], ["test-ce", "Ce testezi?"], ["test-cine", "Cine testează?"], ["test-semn", "Cum știi că a mers la finalul celor 30 de zile? Care sunt KPI-ii testului?"], ["test-afectat", "E cineva afectat negativ de test? Ce are de pierdut?"]];   // [cheie, eticheta scurtă], în ordinea din pagină
+  var PDF = {"titlu": "The Unfair Advantage", "program": "Business Lab · Bootcamp 2 · 12 noiembrie 2026", "inapoi": "Din viitor, înapoi la testul de 30 de zile", "test": "Testul de 30 de zile", "subsol": "Business Lab · Bootcamp 2 · 12 noiembrie 2026 · Raluca Păduraru · ralucapaduraru.ro"};           // textele fișei PDF, luate din .md
+  var NUME_EX = {"consiliu": "Consiliul de reziliență", "rival": "Rivalul din umbră"};
+
+  var st = {};
+  try { st = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch (e) { st = {}; }
+  if (!st.c || typeof st.c !== 'object') st.c = {};
+  function salveaza() { try { localStorage.setItem(STORE, JSON.stringify(st)); } catch (e) {} }
+  function raw(id) { var el = document.getElementById(id); return el ? el.textContent.replace(/^\n/, '').replace(/<\\\//g, '</') : ''; }
+
+  // ---------- câmpurile: rămân salvate în browserul de pe laptopul ăsta ----------
+  var arii = Array.prototype.slice.call(document.querySelectorAll('textarea[data-k]'));
+  function creste(t) { if (!t.offsetParent) return; t.style.height = 'auto'; t.style.height = Math.max(t.scrollHeight + 2, 64) + 'px'; }
+  function cresteToate() { arii.forEach(creste); }
+  arii.forEach(function (t) {
+    var k = t.getAttribute('data-k');
+    if (typeof st.c[k] === 'string') t.value = st.c[k];
+    t.addEventListener('input', function () { st.c[k] = t.value; salveaza(); creste(t); actualizeaza(); });
+  });
+  function val(k) { var t = document.querySelector('textarea[data-k="' + k + '"]'); return t ? t.value.trim() : ''; }
+
+  // ---------- copierea, cu rezervă pentru browserele fără clipboard ----------
+  function vechi(t) {
+    return new Promise(function (ok, nu) {
+      var ta = document.createElement('textarea');
+      ta.value = t; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.top = '-1000px';
+      document.body.appendChild(ta); ta.select();
+      var reusit = false;
+      try { reusit = document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+      if (reusit) ok(); else nu();
+    });
+  }
+  function copiaza(t) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).catch(function () { return vechi(t); });
+    return vechi(t);
+  }
+  function semnal(b, text) {
+    if (!b.getAttribute('data-orig')) b.setAttribute('data-orig', b.textContent);
+    b.textContent = text; b.classList.add('gata');
+    clearTimeout(b._t);
+    b._t = setTimeout(function () { b.textContent = b.getAttribute('data-orig'); b.classList.remove('gata'); }, 1900);
+  }
+  function selecteaza(el) { var r = document.createRange(); r.selectNodeContents(el); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+  function descarca(text, nume) {
+    var blob = new Blob(['\ufeff' + text], { type: 'text/plain;charset=utf-8' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = nume;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  }
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var pre = document.getElementById(b.getAttribute('data-copy'));
+      if (!pre) return;
+      copiaza(pre.textContent).then(function () { semnal(b, 'Copiat'); })
+        .catch(function () { selecteaza(pre); semnal(b, 'Selectat: Ctrl+C'); });
+    });
+  });
+
+  // ---------- exercițiul ales ----------
+  function exAles() { return NUME_EX[st.ex] ? st.ex : ''; }
+  function aplicaEx() {
+    var ex = exAles();
+    document.querySelectorAll('.ex-card, .ex-opt').forEach(function (b) { b.classList.toggle('activ', b.getAttribute('data-ex') === ex); });
+    // fără exercițiu ales, se văd ambele; după alegere, doar ale lui
+    document.querySelectorAll('.dupa-ex').forEach(function (d) { d.hidden = !!ex && d.getAttribute('data-ex') !== ex; });
+    document.querySelectorAll('.doar-consiliu').forEach(function (d) { d.hidden = !!ex && ex !== 'consiliu'; });
+    // cuvintele care se schimbă după exercițiu (ex. „consiliul” → „agentul” la Rivalul din umbră)
+    document.querySelectorAll('.sw').forEach(function (s) {
+      s.textContent = s.getAttribute(ex === s.getAttribute('data-ex') ? 'data-nou' : 'data-vechi');
+    });
+    var a = document.getElementById('ales');
+    if (a) { a.hidden = !ex; document.getElementById('ales-nume').textContent = NUME_EX[ex] || ''; }
+    actualizeaza(); cresteToate();
+  }
+  document.querySelectorAll('.ex-card').forEach(function (b) {
+    b.addEventListener('click', function () {
+      st.ex = b.getAttribute('data-ex'); salveaza(); aplicaEx();
+      document.getElementById('sec-alege').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  document.querySelectorAll('.ex-opt').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var sus = b.getBoundingClientRect().top;
+      st.ex = b.getAttribute('data-ex'); salveaza(); aplicaEx();
+      window.scrollBy(0, b.getBoundingClientRect().top - sus);
+    });
+  });
+
+  // ---------- firma demo ----------
+  function aplicaFirma() {
+    var f = FIRME[st.firma] ? st.firma : '';
+    document.querySelectorAll('.firma-btn').forEach(function (b) { b.classList.toggle('activ', b.getAttribute('data-firma') === f); });
+    document.querySelectorAll('.firma-desc').forEach(function (d) { d.hidden = d.getAttribute('data-firma') !== f; });
+    actualizeaza();
+  }
+  document.querySelectorAll('.firma-btn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var sus = b.getBoundingClientRect().top;
+      st.firma = b.getAttribute('data-firma'); salveaza(); aplicaFirma();
+      window.scrollBy(0, b.getBoundingClientRect().top - sus);
+    });
+  });
+
+  // ---------- caseta de copiat: arată live exact ce pleacă ----------
+  function lipsa(d) {
+    if (!exAles()) return 'Alege întâi exercițiul.';
+    if (d === 'demo' && !FIRME[st.firma]) return 'Alege întâi firma demo.';
+    return '';
+  }
+  function compune(d) {
+    if (lipsa(d)) return '';
+    var ex = exAles(), p = raw('p-' + ex);
+    if (d === 'ft') {
+      var r = val('risc'), m = val('masura');
+      var cap = 'Riscul sau oportunitatea mea: ' + (r || '[scrie-l în câmpul de mai sus]');
+      if (ex === 'consiliu' && m) cap += '\nAcțiunea la care mă gândesc: ' + m;
+      return cap + '\n\n' + p;
+    }
+    var f = FIRME[st.firma];
+    return 'CONTEXTUL FIRMEI MELE\n' + f.descriere + '\n\nRiscul sau oportunitatea mea: ' + f.risc + '\n\n' + p;
+  }
+  function actualizeaza() {
+    ['ft', 'demo'].forEach(function (d) {
+      var v = document.getElementById('vedere-' + d);
+      if (!v) return;
+      var t = compune(d);
+      v.textContent = t || lipsa(d);
+      v.classList.toggle('gol', !t);
+    });
+  }
+  document.querySelectorAll('[data-copiaza]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var d = b.getAttribute('data-copiaza');
+      if (lipsa(d)) { semnal(b, lipsa(d).replace('.', '')); return; }
+      if (d === 'ft' && !val('risc')) { semnal(b, 'Scrie întâi riscul'); return; }
+      copiaza(compune(d)).then(function () { semnal(b, 'Copiat'); })
+        .catch(function () { selecteaza(document.getElementById('vedere-' + d)); semnal(b, 'Selectat: Ctrl+C'); });
+    });
+  });
+  document.querySelectorAll('[data-txt]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var d = b.getAttribute('data-txt');
+      if (lipsa(d)) { semnal(b, lipsa(d).replace('.', '')); return; }
+      descarca(compune(d), 'prompt-' + exAles() + (d === 'demo' ? '-' + st.firma : '') + '.txt');
+      semnal(b, 'Descărcat');
+    });
+  });
+
+  // ---------- comutatorul Claude / ChatGPT ----------
+  var unealta = (st.u === 'cowork' || st.u === 'project' || st.u === 'codex') ? st.u : 'cowork';
+  function aplicaUnealta() {
+    document.querySelectorAll('.com-opt').forEach(function (o) { o.classList.toggle('activ', o.getAttribute('data-unealta') === unealta); });
+    document.querySelectorAll('.com-panel').forEach(function (p) { p.classList.toggle('activ', p.getAttribute('data-unealta') === unealta); });
+  }
+  document.querySelectorAll('.com-opt').forEach(function (o) {
+    o.addEventListener('click', function () {
+      var sus = o.getBoundingClientRect().top;
+      unealta = o.getAttribute('data-unealta'); st.u = unealta; salveaza(); aplicaUnealta();
+      window.scrollBy(0, o.getBoundingClientRect().top - sus);
+    });
+  });
+
+  // ---------- drumurile: se vede doar cel ales ----------
+  var corp = document.getElementById('corp');
+  function aplicaDrum(deruleaza) {
+    var h = '';
+    try { h = decodeURIComponent(location.hash.slice(1)); } catch (e) { h = location.hash.slice(1); }
+    if (ETAPE[h]) { st.drum = h; salveaza(); }
+    var drum = ETAPE[st.drum] ? st.drum : '';
+    corp.classList.toggle('vizibil', !!drum);
+    document.querySelectorAll('.drum, .bara-drum').forEach(function (d) { d.classList.toggle('vizibil', d.getAttribute('data-drum') === drum); });
+    document.querySelectorAll('.drumbtn').forEach(function (b) { b.classList.toggle('activ', b.getAttribute('data-drum') === drum); });
+    cresteToate();
+    if (deruleaza && h) {
+      var t = document.getElementById(h);
+      if (t && t.offsetParent !== null) t.scrollIntoView({ block: 'start' });
+    }
+    urmareste();
+  }
+  // un click pe drumul deja ales nu schimbă adresa: îl deschidem de mână
+  document.querySelectorAll('a.drumbtn, a.salt').forEach(function (a) {
+    a.addEventListener('click', function () {
+      if (a.getAttribute('href') === location.hash) setTimeout(function () { aplicaDrum(true); }, 0);
+    });
+  });
+
+  // ---------- bara: etapa curentă se aprinde când titlul ei trece de ~40% din ecran ----------
+  function barSus() { var n = document.querySelector('nav.bara'); return (n && window.innerWidth < 1180) ? n.offsetHeight : 0; }
+  function urmareste() {
+    var drum = corp.classList.contains('vizibil') ? st.drum : '';
+    if (!drum) return;
+    var ids = ETAPE[drum], prag = Math.max(barSus() + 30, window.innerHeight * 0.4), cur = ids[0];
+    ids.forEach(function (id) { var el = document.getElementById(id); if (el && el.getBoundingClientRect().top - prag <= 0) cur = id; });
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) cur = ids[ids.length - 1];
+    document.querySelectorAll('.bara-drum.vizibil button.etapa').forEach(function (b) { b.classList.toggle('activ', b.getAttribute('data-go') === cur); });
+  }
+  document.querySelectorAll('button.etapa').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = document.getElementById(b.getAttribute('data-go'));
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - (barSus() || 22) - 6, behavior: 'smooth' });
+    });
+  });
+
+  // ---------- fișa testului, PDF ----------
+  // html2pdf (cdnjs) se încarcă doar când omul începe să scrie la final sau apasă butonul.
+  // Dacă nu se încarcă, pleacă un .txt cu aceleași răspunsuri.
+  var LIB = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+  var incarcare = null;
+  function lib() {
+    if (window.html2pdf) return Promise.resolve();
+    if (!incarcare) incarcare = new Promise(function (ok, nu) {
+      var s = document.createElement('script');
+      s.src = LIB; s.setAttribute('data-cookieconsent', 'ignore');
+      s.onload = ok; s.onerror = function () { incarcare = null; nu(new Error('html2pdf')); };
+      document.head.appendChild(s);
+    });
+    return incarcare;
+  }
+  document.querySelectorAll('#inapoi textarea, #test textarea').forEach(function (t) {
+    t.addEventListener('focus', function () { lib().catch(function () {}); }, { once: true });
+  });
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function eticheta(k) { for (var i = 0; i < CAMPURI.length; i++) { if (CAMPURI[i][0] === k) return CAMPURI[i][1]; } return k; }
+  function grup(prefix) { return CAMPURI.filter(function (c) { return c[0].indexOf(prefix) === 0; }); }
+  function fisa() {
+    function bloc(l, v) { return '<div class="ft-b"><div class="ft-l">' + esc(l) + '</div><div class="ft-v">' + esc(v) + '</div></div>'; }
+    var h = '<style>' +
+      '.ft,.ft *{box-sizing:border-box;margin:0;padding:0}' +
+      '.ft{width:100%;background:#fff;color:#222;font-family:Poppins,Arial,sans-serif;font-size:12.5px;line-height:1.5}' +
+      '.ft-h{font-size:24px;font-weight:700;color:#151515;line-height:1.2}' +
+      '.ft-p{font-size:12px;color:#6b6b6b;margin:1.5mm 0 5mm;padding-bottom:3mm;border-bottom:1mm solid #e30013}' +
+      '.ft-s{font-size:14px;font-weight:700;color:#151515;margin:5mm 0 2.5mm}' +
+      '.ft-b{border:1px solid #d9d4cf;border-left:1mm solid #e30013;padding:2.5mm 4mm;margin-bottom:2.5mm}' +
+      '.ft-l{font-size:10.5px;font-weight:600;color:#6b6b6b;margin-bottom:1mm}' +
+      '.ft-v{white-space:pre-wrap;word-wrap:break-word;font-size:13px;color:#151515;min-height:6mm}' +
+      '.ft-f{margin-top:6mm;padding-top:2.5mm;border-top:1px solid #d9d4cf;font-size:10px;color:#6b6b6b}' +
+      '</style><div class="ft"><div class="ft-h">' + esc(PDF.titlu) + '</div><div class="ft-p">' + esc(PDF.program) + '</div>';
+    if (val('risc')) h += bloc(eticheta('risc'), val('risc'));
+    h += '<div class="ft-s">' + esc(PDF.inapoi) + '</div>';
+    grup('bc-').forEach(function (c) { h += bloc(c[1], val(c[0])); });
+    h += '<div class="ft-s">' + esc(PDF.test) + '</div>';
+    grup('test-').forEach(function (c, i) { h += bloc((i + 1) + '. ' + c[1], val(c[0])); });
+    h += '<div class="ft-f">' + esc(PDF.subsol) + '</div></div>';
+    var d = document.createElement('div');
+    d.innerHTML = h;
+    return d;
+  }
+  function txt() {
+    var r = [PDF.titlu, PDF.program, ''];
+    if (val('risc')) r.push(eticheta('risc'), val('risc'), '');
+    r.push(PDF.inapoi, '');
+    grup('bc-').forEach(function (c) { r.push(c[1], val(c[0]) || '(necompletat)', ''); });
+    r.push(PDF.test, '');
+    grup('test-').forEach(function (c, i) { r.push((i + 1) + '. ' + c[1], val(c[0]) || '(necompletat)', ''); });
+    r.push(PDF.subsol);
+    descarca(r.join('\r\n'), 'fisa-testului-30-de-zile.txt');
+  }
+  var butonPdf = document.getElementById('pdf-test'), lucreaza = false;
+  if (butonPdf) butonPdf.addEventListener('click', function () {
+    if (lucreaza) return;
+    lucreaza = true;
+    semnal(butonPdf, 'Se pregătește PDF-ul...');
+    lib().then(function () {
+      return window.html2pdf().set({
+        margin: 14,
+        filename: 'fisa-testului-30-de-zile.pdf',
+        image: { type: 'jpeg', quality: 0.95 },
+        // scrollX/Y: 0, altfel fișa iese goală când pagina e derulată; windowWidth fără bara de scroll,
+        // altfel fișa iese mutată spre dreapta (lecțiile de la /business-forward)
+        html2canvas: { scale: 2, backgroundColor: '#ffffff', scrollX: 0, scrollY: 0, windowWidth: document.documentElement.clientWidth },
+        pagebreak: { mode: ['css'], avoid: '.ft-b' },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      }).from(fisa()).save();
+    }).catch(function () { txt(); }).then(function () { lucreaza = false; });
+  });
+
+  // ---------- pornirea ----------
+  aplicaUnealta();
+  aplicaEx();
+  aplicaFirma();
+  aplicaDrum(true);
+  window.addEventListener('hashchange', function () { aplicaDrum(true); });
+  window.addEventListener('scroll', urmareste, { passive: true });
+  window.addEventListener('resize', function () { urmareste(); cresteToate(); });
+})();
+</script>
+</body>
+</html>
