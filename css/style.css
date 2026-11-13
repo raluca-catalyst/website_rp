@@ -199,6 +199,9 @@ body.has-announce-bar .mobile-menu { top: 36px; }
   align-items: center;
   gap: 2rem;
 }
+.nav-logo {
+  flex-shrink: 0;
+}
 .nav-logo img {
   height: 34px;
   width: auto;
