@@ -41,15 +41,15 @@
       width: 100%; text-align: left;
       background: var(--card);
       border: 1px solid var(--border);
-      border-left: 4px solid var(--lavender-lt);
+      border-left: 4px solid var(--violet);
       border-radius: var(--radius);
       padding: 18px 22px;
       display: flex; align-items: flex-start; gap: 16px;
       transition: all var(--transition);
       color: var(--text);
     }
-    .v-row:hover { background: rgba(167,139,250,0.06); }
-    .v-row.is-checked { background: rgba(167,139,250,0.10); border-left-color: var(--lavender); }
+    .v-row:hover { background: rgba(139,92,246,0.09); }
+    .v-row.is-checked { background: rgba(139,92,246,0.15); border-left-color: var(--violet-hover); }
     .v-check {
       width: 26px; height: 26px; border-radius: 7px;
       border: 2px solid var(--border); flex-shrink: 0;
@@ -57,11 +57,11 @@
       margin-top: 2px; transition: all var(--transition);
     }
     .v-check svg { opacity: 0; transition: opacity var(--transition); color: #fff; }
-    .v-row.is-checked .v-check { background: var(--lavender); border-color: var(--lavender); }
+    .v-row.is-checked .v-check { background: var(--violet-hover); border-color: var(--violet-hover); }
     .v-row.is-checked .v-check svg { opacity: 1; }
     .v-body { flex: 1; }
     .v-titlu { font-family: var(--font-mono); font-size: 1rem; margin: 0; color: var(--text); }
-    .v-titlu .v-letter { color: var(--lavender-lt); font-weight: 700; }
+    .v-titlu .v-letter { color: var(--text); font-weight: 700; }
     .v-intrebare { color: var(--text-sec); margin-top: 5px; font-size: 0.95rem; }
 
     .verdict {
@@ -72,7 +72,7 @@
       text-align: center;
       transition: border-color var(--transition), background var(--transition);
     }
-    .verdict.is-good { border-color: rgba(167,139,250,0.4); background: rgba(167,139,250,0.08); }
+    .verdict.is-good { border-color: rgba(139,92,246,0.6); background: rgba(139,92,246,0.12); }
     .verdict-count { font-family: var(--font-mono); font-size: 2rem; font-weight: 700; color: var(--amber); line-height: 1; }
     .verdict-msg { margin-top: 10px; color: var(--text); }
 
@@ -83,7 +83,7 @@
       background: var(--surface);
       color: var(--text-sec);
     }
-    .prompt-box strong { color: var(--lavender-lt); font-family: var(--font-mono); font-size: 0.9rem; display: block; margin-bottom: 6px; }
+    .prompt-box strong { color: var(--text); font-family: var(--font-mono); font-size: 0.9rem; display: block; margin-bottom: 6px; }
     .credit-sursa { font-size: 0.82rem; color: var(--text-muted); margin-top: 28px; }
   </style>
 

@@ -36,40 +36,40 @@
   <style>
     .cifre-intro { max-width: 780px; margin: 0 auto; color: var(--text-sec); font-size: 1.05rem; line-height: 1.75; }
     .tema-title { font-size: clamp(1.1rem, 2vw, 1.4rem); margin: 56px 0 24px; }
-    .tema-title .tema-nr { color: var(--lavender); }
+    .tema-title .tema-nr { color: var(--text-sec); }
     .cifra-card {
       background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
       padding: 28px 30px; margin-bottom: 18px; display: flex; gap: 22px; align-items: flex-start;
     }
     .cifra-num {
       flex-shrink: 0; font-family: var(--font-mono); font-weight: 700; font-size: 1rem;
-      color: var(--lavender-lt); background: rgba(167,139,250,0.08); border: 1px solid var(--border);
+      color: var(--text); background: rgba(139,92,246,0.12); border: 1px solid var(--border);
       border-radius: 100px; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
     }
     .cifra-claim { font-family: var(--font-mono); font-weight: 500; font-size: 0.98rem; line-height: 1.55; color: var(--text); margin: 0 0 12px; }
     .cifra-sursa { font-size: 0.82rem; color: var(--text-muted); margin: 0 0 14px; }
     .cifra-sursa strong { color: var(--text-sec); font-weight: 600; }
-    .cifra-capcana { border-left: 2px solid var(--lavender-dk); padding-left: 16px; }
+    .cifra-capcana { border-left: 2px solid var(--violet); padding-left: 16px; }
     .cifra-capcana .capcana-label {
       display: block; font-family: var(--font-mono); font-size: 0.88rem; font-weight: 500;
-      color: var(--lavender); margin-bottom: 6px;
+      color: var(--text-sec); margin-bottom: 6px;
     }
     .cifra-capcana p { font-size: 0.95rem; color: var(--text-sec); line-height: 1.7; margin: 0 0 10px; }
     .cifra-capcana p:last-child { margin-bottom: 0; }
-    .cifra-capcana strong { color: var(--lavender-lt); font-weight: 600; }
+    .cifra-capcana strong { color: var(--text); font-weight: 600; }
     .cifra-nota { font-size: 0.85rem; font-style: italic; color: var(--text-muted); margin: 10px 0 0; }
     /* demontaje */
     .demontaj-card { display: block; }
     .demontaj-card h3 { font-size: 1rem; line-height: 1.5; color: var(--text); margin: 0 0 16px; }
-    .demontaj-card h3 .dem-nr { color: var(--lavender); margin-right: 8px; }
+    .demontaj-card h3 .dem-nr { color: var(--text-sec); margin-right: 8px; }
     .dem-row { margin-bottom: 12px; }
     .dem-row:last-child { margin-bottom: 0; }
     .dem-row .dem-label {
       display: block; font-family: var(--font-mono); font-size: 0.88rem; font-weight: 500;
-      color: var(--lavender); margin-bottom: 4px;
+      color: var(--text-sec); margin-bottom: 4px;
     }
     .dem-row p { font-size: 0.95rem; color: var(--text-sec); line-height: 1.7; margin: 0; }
-    .dem-row strong { color: var(--lavender-lt); font-weight: 600; }
+    .dem-row strong { color: var(--text); font-weight: 600; }
     /* filter bar */
     .filter-bar { display: none; flex-wrap: wrap; gap: 10px; margin: 40px 0 8px; }
     .filter-bar.visible { display: flex; }
@@ -79,7 +79,7 @@
       border: 1px solid var(--border); border-radius: 100px; padding: 9px 18px; cursor: pointer;
       transition: all 0.2s;
     }
-    .filter-btn:hover { color: var(--text); background: rgba(167,139,250,0.05); }
+    .filter-btn:hover { color: var(--text); background: rgba(139,92,246,0.075); }
     .filter-btn.active { color: #fff; background: linear-gradient(135deg, #7c3aed, #6d28d9); border-color: transparent; box-shadow: 0 0 18px rgba(124,58,237,0.28); }
     /* gate */
     #continut-blocat { display: none; }
@@ -90,7 +90,7 @@
     }
     .gate-section::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--lavender), transparent);
+      background: linear-gradient(90deg, transparent, var(--violet-hover), transparent);
     }
     .gate-section.hidden { display: none; }
     .gate-fade {
@@ -101,14 +101,14 @@
     /* pdf box (apare dupa deblocare) */
     .pdf-box {
       display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
-      background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(167,139,250,0.05));
-      border: 1px solid rgba(167,139,250,0.3); border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(139,92,246,0.075));
+      border: 1px solid rgba(139,92,246,0.45); border-radius: var(--radius);
       padding: 26px 30px; margin: 32px 0 8px;
     }
     .pdf-box-icon {
       flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px;
-      background: rgba(167,139,250,0.1); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center; color: var(--lavender);
+      background: rgba(139,92,246,0.15); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center; color: var(--text);
     }
     .pdf-box-text { flex: 1; min-width: 240px; }
     .pdf-box-title {
@@ -129,10 +129,10 @@
       padding: 13px 16px; font-family: var(--font-body, inherit); font-size: 0.95rem;
       color: var(--text); outline: none; transition: border-color 0.2s;
     }
-    .form-field input:focus { border-color: var(--lavender); }
+    .form-field input:focus { border-color: var(--violet-hover); }
     .form-field input::placeholder { color: var(--text-muted); }
     .form-check { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 24px; }
-    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--lavender); cursor: pointer; }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--violet); cursor: pointer; }
     .form-check label { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; cursor: pointer; }
     .form-submit-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .form-submit-wrap .btn { width: 100%; justify-content: center; }
@@ -140,7 +140,7 @@
     .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
     .download-form-msg { margin-top: 16px; font-size: 0.9rem; border-radius: var(--radius); padding: 12px 16px; text-align: center; display: none; }
     .download-form-msg.success { display: block; background: rgba(107,158,116,0.15); border: 1px solid rgba(107,158,116,0.4); color: #7BC78A; }
-    .download-form-msg.error   { display: block; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3); color: var(--lavender-lt); }
+    .download-form-msg.error   { display: block; background: var(--error-bg); border: 1px solid var(--error-border); color: var(--error); }
     @media (max-width: 600px) {
       .form-row { grid-template-columns: 1fr; }
       .cifra-card { flex-direction: column; gap: 14px; padding: 24px 20px; }
@@ -295,7 +295,7 @@
     <section style="padding: 140px 0 40px;">
       <div class="container">
         <div style="max-width: 860px; margin: 0 auto; text-align: center;">
-          <h1 class="fade-up delay-1" style="margin-bottom: 24px;">30 de date verificate despre <em style="color:var(--lavender-lt);">AI și muncă</em></h1>
+          <h1 class="fade-up delay-1" style="margin-bottom: 24px;">30 de date verificate despre <em style="color:var(--aramiu);">AI și muncă</em></h1>
           <p class="cifre-intro fade-up delay-2">
             Circulă foarte multe cifre despre inteligența artificială. Unele sunt adevărate, dar spuse pe jumătate. Altele sunt luate dintr-o sursă care le-a luat din altă sursă, care le-a luat de pe un slide. Documentul acesta adună 30 de date verificate despre inteligența artificială și muncă. Pentru fiecare găsești 3 lucruri: numerele, sursa originală și capcana, adică felul în care cifra e citată greșit de obicei. La final găsești o secțiune în care punem cifrele care circulă cel mai des prin prezentări și ședințe față în față cu ce spun sursele lor de fapt și le demontăm.
           </p>

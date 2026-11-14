@@ -42,15 +42,15 @@
       text-align: left;
       background: var(--card);
       border: 1px solid var(--border);
-      border-left: 4px solid var(--lavender);
+      border-left: 4px solid var(--violet);
       border-radius: var(--radius);
       padding: 24px 28px;
       transition: all var(--transition);
       color: var(--text);
       display: block;
     }
-    .capcana-card:hover { background: rgba(167,139,250,0.06); border-left-color: var(--lavender-lt); }
-    .capcana-card.is-open { background: rgba(167,139,250,0.08); border-left-color: var(--lavender-lt); }
+    .capcana-card:hover { background: rgba(139,92,246,0.09); border-left-color: var(--violet-hover); }
+    .capcana-card.is-open { background: rgba(139,92,246,0.12); border-left-color: var(--violet-hover); }
     .capcana-head { display: flex; align-items: baseline; gap: 14px; }
     .capcana-nr { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--amber); line-height: 1; flex-shrink: 0; }
     .capcana-titlu { font-family: var(--font-mono); font-size: 1.05rem; margin: 0; color: var(--text); }
@@ -63,14 +63,14 @@
     .capcana-card.is-open .capcana-iesire { max-height: 240px; opacity: 1; margin-top: 18px; }
     .iesire-label {
       font-family: var(--font-mono); font-size: 0.88rem;
-      color: var(--lavender-lt); display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text); display: inline-flex; align-items: center; gap: 6px;
     }
     .iesire-text { color: var(--text); margin-top: 8px; }
     .capcana-hint {
       font-family: var(--font-mono); font-size: 0.85rem;
       color: var(--text-muted); margin-top: 14px; display: block;
     }
-    .capcana-card.is-open .capcana-hint { color: var(--lavender); }
+    .capcana-card.is-open .capcana-hint { color: var(--text-sec); }
     .credit-sursa { font-size: 0.82rem; color: var(--text-muted); margin-top: 28px; }
   </style>
 

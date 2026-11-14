@@ -72,18 +72,18 @@
     .survey-progress-label {
       font-family: var(--font-mono);
       font-size: 0.92rem;
-      color: var(--lavender);
+      color: var(--text-sec);
       margin-bottom: 0.6rem;
     }
     .survey-progress-bar {
       height: 4px;
-      background: rgba(167,139,250,0.15);
+      background: rgba(241,238,253,0.08);
       border-radius: 2px;
       overflow: hidden;
     }
     .survey-progress-fill {
       height: 100%;
-      background: var(--lavender);
+      background: var(--violet-hover);
       border-radius: 2px;
       transition: width 0.4s ease;
     }
@@ -152,9 +152,9 @@
       user-select: none;
     }
     .option-item:hover {
-      border-color: rgba(167,139,250,0.4);
+      border-color: rgba(139,92,246,0.6);
       color: var(--text);
-      background: rgba(167,139,250,0.04);
+      background: rgba(139,92,246,0.06);
     }
     .option-item input[type=radio],
     .option-item input[type=checkbox] {
@@ -167,15 +167,15 @@
       border: 0;
     }
     .option-item:focus-within {
-      border-color: var(--lavender);
-      outline: 2px solid var(--lavender);
+      border-color: var(--violet-hover);
+      outline: 2px solid var(--violet-hover);
       outline-offset: 2px;
     }
     .option-dot {
       width: 16px; height: 16px;
       min-width: 16px;
       border-radius: 50%;
-      border: 1.5px solid rgba(167,139,250,0.4);
+      border: 1.5px solid rgba(139,92,246,0.6);
       transition: all 0.2s;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
@@ -184,23 +184,23 @@
       width: 16px; height: 16px;
       min-width: 16px;
       border-radius: 4px;
-      border: 1.5px solid rgba(167,139,250,0.4);
+      border: 1.5px solid rgba(139,92,246,0.6);
       transition: all 0.2s;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
     .option-item.selected {
-      border-color: var(--lavender);
-      background: rgba(167,139,250,0.08);
+      border-color: var(--violet-hover);
+      background: rgba(139,92,246,0.12);
       color: var(--text);
     }
     .option-item.selected .option-dot {
-      background: var(--lavender);
-      border-color: var(--lavender);
+      background: var(--violet-hover);
+      border-color: var(--violet-hover);
     }
     .option-item.selected .option-check {
-      background: var(--lavender-dk);
-      border-color: var(--lavender);
+      background: var(--violet);
+      border-color: var(--violet-hover);
     }
     .option-item.selected .option-check::after {
       content: '';
@@ -224,7 +224,7 @@
       transition: border-color 0.2s;
       outline: none;
     }
-    .survey-input:focus { border-color: var(--lavender); }
+    .survey-input:focus { border-color: var(--violet-hover); }
     .survey-input::placeholder { color: var(--text-muted); }
     textarea.survey-input { resize: vertical; min-height: 96px; line-height: 1.5; }
     textarea.survey-input:disabled {
@@ -264,7 +264,7 @@
       font-size: 0.72rem;
       color: var(--text-muted);
     }
-    .char-counter.ok { color: var(--lavender); }
+    .char-counter.ok { color: var(--text); }
 
     /* Escape checkbox (reuse consent pattern) */
     .escape-toggle {
@@ -287,21 +287,21 @@
       border: 0;
     }
     .escape-toggle:focus-within .consent-check {
-      outline: 2px solid var(--lavender);
+      outline: 2px solid var(--violet-hover);
       outline-offset: 2px;
     }
     .consent-check {
       width: 18px; height: 18px;
       min-width: 18px;
       border-radius: 4px;
-      border: 1.5px solid rgba(167,139,250,0.4);
+      border: 1.5px solid rgba(139,92,246,0.6);
       transition: all 0.2s;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
     .escape-toggle.checked .consent-check {
-      background: var(--lavender-dk);
-      border-color: var(--lavender);
+      background: var(--violet);
+      border-color: var(--violet-hover);
     }
     .escape-toggle.checked .consent-check::after {
       content: '';
@@ -349,7 +349,7 @@
     }
     .survey-thanks-icon {
       width: 56px; height: 56px;
-      background: rgba(167,139,250,0.1);
+      background: rgba(139,92,246,0.15);
       border: 1px solid var(--border);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -707,7 +707,7 @@
           <!-- THANK YOU -->
           <div class="survey-step hidden survey-thanks-screen" id="thanks-screen">
             <div class="survey-thanks-icon">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--violet-hover)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
             </div>
             <h2 class="survey-screen-title">Mulțumim!</h2>
             <p class="survey-screen-subtitle">Răspunsul tău a fost înregistrat.<br><br>

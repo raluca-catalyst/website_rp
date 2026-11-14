@@ -126,11 +126,11 @@
       color: var(--text);
       margin-bottom: 1.4rem;
     }
-    .report-hero h1 em { color: var(--lavender-lt); font-style: italic; }
+    .report-hero h1 em { color: var(--aramiu); font-style: italic; }
     .report-subtitle {
       font-family: var(--font-mono);
       font-size: clamp(1rem, 2vw, 1.3rem);
-      color: var(--lavender-lt);
+      color: var(--text);
       margin-bottom: 1.6rem;
     }
     .report-hero-sub {
@@ -161,7 +161,7 @@
     .key-tile::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--lavender), transparent 70%);
+      background: linear-gradient(90deg, var(--violet-hover), transparent 70%);
       opacity: 0.6;
     }
     .key-num {
@@ -188,7 +188,7 @@
       margin-bottom: 1.2rem;
       display: flex; align-items: baseline; gap: 0.6rem; flex-wrap: wrap;
     }
-    .report-h2 em { color: var(--lavender-lt); font-style: italic; }
+    .report-h2 em { color: var(--aramiu); font-style: italic; }
     .copy-link {
       background: none; border: 1px solid var(--border); border-radius: 100px;
       color: var(--text-muted); font-family: var(--font-mono); font-size: 0.82rem;
@@ -196,20 +196,20 @@
       transition: color 0.2s, border-color 0.2s;
       flex-shrink: 0;
     }
-    .copy-link:hover { color: var(--lavender-lt); border-color: rgba(167,139,250,0.45); }
+    .copy-link:hover { color: var(--link-hover); border-color: rgba(240,137,74,0.5); }
     .report-lead { font-size: 1.02rem; color: var(--text-sec); line-height: 1.7; margin-bottom: 1.4rem; }
     .report-body p { font-size: 0.95rem; color: var(--text-sec); line-height: 1.7; margin-bottom: 1.1rem; }
     .report-body strong { color: var(--text); font-weight: 600; }
-    .report-body .hl { color: var(--lavender-lt); font-weight: 600; }
+    .report-body .hl { color: var(--text); font-weight: 600; }
 
     /* Sub-blocuri finding: date / ce sugerează / întrebare deschisă */
     .finding-label {
       font-family: var(--font-mono); font-size: 0.9rem; font-weight: 500;
-      color: var(--lavender);
+      color: var(--text-sec);
       margin: 2.2rem 0 0.8rem;
     }
     .open-q {
-      border-left: 2px solid var(--lavender);
+      border-left: 2px solid var(--violet);
       padding: 0.2rem 0 0.2rem 1.1rem;
     }
     .open-q p { color: var(--text-sec); font-style: italic; margin: 0; font-size: 0.95rem; line-height: 1.65; }
@@ -219,9 +219,9 @@
     .chart-title { font-family: var(--font-mono); font-size: 0.92rem; color: var(--text-muted); margin-bottom: 1rem; }
     .bar-row { display: grid; grid-template-columns: minmax(120px, 220px) 1fr 52px; align-items: center; gap: 0.8rem; margin-bottom: 0.55rem; }
     .bar-lab { font-size: 0.82rem; color: var(--text-sec); line-height: 1.3; }
-    .bar-track { height: 12px; background: rgba(167,139,250,0.08); border-radius: 3px; overflow: hidden; }
+    .bar-track { height: 12px; background: rgba(241,238,253,0.06); border-radius: 3px; overflow: hidden; }
     .bar-fill { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, #c98a2a, var(--amber)); }
-    .bar-fill.muted { background: rgba(167,139,250,0.28); }
+    .bar-fill.muted { background: rgba(139,92,246,0.7); }
     .bar-val { font-family: var(--font-mono); font-size: 0.75rem; color: var(--amber); text-align: right; }
     .bar-val.muted { color: var(--text-muted); }
     .bar-pair { margin-bottom: 1rem; }
@@ -230,7 +230,7 @@
     .chart-legend span { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); display: inline-flex; align-items: center; gap: 0.45rem; }
     .chart-legend i { width: 14px; height: 8px; border-radius: 2px; display: inline-block; }
     .chart-legend .lg-now { background: linear-gradient(90deg, #c98a2a, var(--amber)); }
-    .chart-legend .lg-prev { background: rgba(167,139,250,0.28); }
+    .chart-legend .lg-prev { background: rgba(139,92,246,0.7); }
     .chart-note { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.7rem; }
 
     /* Cifră mare în text */
@@ -261,7 +261,7 @@
       font-family: var(--font-mono);
       font-size: clamp(0.95rem, 2vw, 1.15rem);
       font-weight: 600;
-      color: var(--lavender-lt);
+      color: var(--text);
       margin: 2.6rem 0 0.9rem;
     }
 
@@ -275,7 +275,7 @@
     .implic-card h3 { font-family: var(--font-mono); font-size: 0.95rem; color: var(--text); margin-bottom: 1rem; }
     .implic-card ul { list-style: none; padding: 0; margin: 0; }
     .implic-card li { font-size: 0.88rem; color: var(--text-sec); line-height: 1.6; padding-left: 1.2rem; position: relative; margin-bottom: 0.8rem; }
-    .implic-card li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--lavender); }
+    .implic-card li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; border-radius: 50%; background: var(--violet-hover); }
     .implic-card li strong { color: var(--text); }
 
     /* Citare */
@@ -294,7 +294,7 @@
     /* Deck CTA */
     .deck-card {
       background: linear-gradient(135deg, rgba(124,58,237,0.16), rgba(124,58,237,0.05));
-      border: 1px solid rgba(167,139,250,0.3);
+      border: 1px solid rgba(139,92,246,0.45);
       border-radius: var(--radius, 12px);
       padding: 2.4rem 2.2rem;
     }
@@ -312,8 +312,8 @@
       display: flex; align-items: center; justify-content: space-between;
       transition: background 0.2s;
     }
-    .ax-block summary:hover { background: rgba(167,139,250,0.05); }
-    .ax-block summary::after { content: '+'; font-family: var(--font-mono); color: var(--lavender); font-size: 1rem; }
+    .ax-block summary:hover { background: rgba(139,92,246,0.075); }
+    .ax-block summary::after { content: '+'; font-family: var(--font-mono); color: var(--text-sec); font-size: 1rem; }
     .ax-block[open] summary::after { content: '−'; }
     .ax-block summary::-webkit-details-marker { display: none; }
     .ax-q { padding: 0.4rem 1.4rem 1.3rem; }
@@ -321,8 +321,8 @@
     .ax-media { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 400; color: var(--text-muted); margin-left: 0.5rem; }
     .ax-row { display: grid; grid-template-columns: minmax(140px, 300px) 1fr 50px; align-items: center; gap: 0.7rem; margin-bottom: 0.35rem; }
     .ax-opt { font-size: 0.78rem; color: var(--text-sec); line-height: 1.3; }
-    .ax-track { height: 8px; background: rgba(167,139,250,0.07); border-radius: 2px; overflow: hidden; }
-    .ax-fill { display: block; height: 100%; border-radius: 2px; background: rgba(167,139,250,0.55); }
+    .ax-track { height: 8px; background: rgba(241,238,253,0.06); border-radius: 2px; overflow: hidden; }
+    .ax-fill { display: block; height: 100%; border-radius: 2px; background: rgba(139,92,246,0.85); }
     .ax-val { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); text-align: right; }
     @media (max-width: 560px) {
       .ax-row { grid-template-columns: 1fr 50px; }
@@ -342,10 +342,10 @@
       padding: 13px 16px; font-family: var(--font-body, inherit); font-size: 0.95rem;
       color: var(--text); outline: none; transition: border-color 0.2s;
     }
-    .form-field input:focus { border-color: var(--lavender); }
+    .form-field input:focus { border-color: var(--violet-hover); }
     .form-field input::placeholder { color: var(--text-muted); }
     .form-check { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 24px; }
-    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--lavender); cursor: pointer; }
+    .form-check input[type="checkbox"] { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; accent-color: var(--violet); cursor: pointer; }
     .form-check label { font-size: 0.85rem; color: var(--text-sec); line-height: 1.6; cursor: pointer; }
     .form-submit-wrap { display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .form-submit-wrap .btn { width: 100%; justify-content: center; }
@@ -353,7 +353,7 @@
     .hp-field { position: absolute; left: -9999px; opacity: 0; height: 0; overflow: hidden; }
     .download-form-msg { margin-top: 16px; font-size: 0.9rem; border-radius: var(--radius, 12px); padding: 12px 16px; text-align: center; display: none; }
     .download-form-msg.success { display: block; background: rgba(107,158,116,0.15); border: 1px solid rgba(107,158,116,0.4); color: #7BC78A; }
-    .download-form-msg.error   { display: block; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3); color: var(--lavender-lt); }
+    .download-form-msg.error   { display: block; background: var(--error-bg); border: 1px solid var(--error-border); color: var(--error); }
     @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -474,7 +474,7 @@
         <p>
           Compoziția eșantionului a rămas aproape identică între cele două ediții (companii cu 500+ angajați: 41,3% în 2025 față de 41,2% în 2026; muncă hibridă: 56,9% față de 57,8%),
           ceea ce face comparațiile de la an la an solide. Toate răspunsurile sunt self-report, anonime, colectate online.
-          Distribuțiile complete pe fiecare întrebare sunt publicate în <a href="#anexa" style="color:var(--lavender-lt);">anexă</a>.
+          Distribuțiile complete pe fiecare întrebare sunt publicate în <a href="#anexa" style="color:var(--text); text-decoration: underline; text-underline-offset: 3px;">anexă</a>.
         </p>
       </div>
     </section>
@@ -792,7 +792,7 @@
         <h2 class="report-h2">Pentru media <button class="copy-link" data-anchor="citare">Copiază link</button></h2>
         <p>
           Datele și graficele pot fi preluate liber, cu atribuire. Pentru interviuri, comentarii sau alte detalii,
-          scrie-mi pe <a href="../contact.html" style="color:var(--lavender-lt);">pagina de contact</a>.
+          scrie-mi pe <a href="../contact.html" style="color:var(--text); text-decoration: underline; text-underline-offset: 3px;">pagina de contact</a>.
         </p>
         <div class="cite-box" id="cite-text">
           Păduraru, R. (2026). <em>Romanian State of AI, ediția 2026.</em> Upvance Global. N=514. www.ralucapaduraru.ro/romanian-state-of-ai/

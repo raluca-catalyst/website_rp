@@ -136,10 +136,10 @@ main .produs-sub { font-size: 1.3rem; color: var(--text); margin-top: 1.6rem; te
 .produs > p:not(.produs-sub) { margin-top: 0.8rem; }
 .produs-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 1.8rem; }
 .produs-meta div { border-top: 1px solid var(--hairline); padding-top: 1rem; }
-.produs-meta dt { font-family: var(--font-display); font-weight: 500; font-size: 0.95rem; color: var(--lavender); }
+.produs-meta dt { font-family: var(--font-display); font-weight: 500; font-size: 0.95rem; color: var(--text-sec); }
 .produs-meta dd { margin-top: 0.45rem; color: var(--text); line-height: 1.5; }
 .produs-meta a { text-decoration: underline; text-underline-offset: 3px; }
-.produs-nota { margin-top: 1.4rem; color: var(--lavender); font-size: 0.98rem; }
+.produs-nota { margin-top: 1.4rem; color: var(--text-sec); font-size: 0.98rem; }
 .prod-cta { margin-top: 4.5rem; border-radius: 20px; background: var(--bg-deep); border: 1px solid var(--hairline); padding: clamp(1.5rem, 3.5vw, 3rem); }
 main .prod-cta p { color: var(--text); font-size: 1.16rem; }
 .prod-cta .btn { margin-top: 1.4rem; }
@@ -357,4 +357,29 @@ main .final p { margin-top: 1rem; font-size: 1.3rem; color: var(--text); text-al
 @media (max-width: 920px) {
   .testim::before { width: 120%; }
   .presa-sec::before { width: 110%; }
+}
+
+/* ---------- LUMINA ÎN „CUM LUCREZ” ----------
+   Pe laptop treptele lasă gol triunghiul de deasupra pașilor 1-3. Vălul (întors, ca la Patru
+   viitoruri) intră pe la marginea din stânga a ecranului, la înălțimea pozei de la pasul 1, și urcă
+   spre dreapta prin triunghi. Colțul lui luminos e tăiat de marginea ecranului; marginea de jos
+   trece pe sub pozele pașilor 1 și 2 și se stinge scurt în golurile dintre ele; partea de sus și cea
+   din dreapta a imaginii (zona închisă) se sting prin mască. Pe telefon pașii stau unul sub altul,
+   triunghiul nu există, deci acolo nu e lumină. */
+@media (min-width: 921px) {
+  .cum { isolation: isolate; overflow: hidden; }
+  .cum-grid { position: relative; }
+  .cum-grid::before {
+    content: ""; position: absolute; z-index: -1; pointer-events: none;
+    /* de la marginea ecranului; marginea de jos a imaginii la baza pozei de la pasul 1 */
+    left: calc((100% - 100vw) / 2); top: 168px; margin-top: calc(18.75% - 1.125rem);
+    width: min(820px, 64vw); aspect-ratio: 1672 / 941;
+    /* ultimii 4px rămân fără imagine: marginea de jos cade pe o fracțiune de pixel, unde masca nu ajunge */
+    background: url("../images/valul.webp") 0 0 / 100% calc(100% - 4px) no-repeat;
+    transform: translateY(-100%) scaleX(-1);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 58%, transparent 96%), linear-gradient(to right, transparent 0, #000 38%);
+    -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(to bottom, transparent 0, #000 30%, #000 58%, transparent 96%), linear-gradient(to right, transparent 0, #000 38%);
+            mask-composite: intersect;
+  }
 }

@@ -1,7 +1,7 @@
 /* =========================================
    RALUCA PĂDURARU — style.css
    Design (nov 2026): indigo plat #1b1559, casete #150f47,
-   accent arămiu #f0894a, butoane violet, lavandă
+   accent arămiu #f0894a, butoane și acțiuni violet #7c3aed, fără lavandă
    Fonts: Space Grotesk (titluri, meniu, butoane, etichete) + Barlow (text)
    ========================================= */
 
@@ -16,11 +16,16 @@
   --border-card:   rgba(241,238,253,0.12);
   --hairline:      rgba(241,238,253,0.14);
 
-  --lavender:      #a78bfa;
-  --lavender-lt:   #c4b5fd;
-  --lavender-dk:   #7c3aed;
+  /* fără lavandă (nov 2026): acțiunile sunt violet, accentul e arămiu, etichetele sunt text */
   --violet:        #7c3aed;
   --violet-hover:  #8b5cf6;
+
+  /* legături: text normal subliniat; la hover arămiu */
+  --link-hover:    var(--aramiu);
+  /* erori în formulare: roșu deschis, se citește ca eroare pe indigo */
+  --error:         #ff8f8f;
+  --error-bg:      rgba(255,143,143,0.08);
+  --error-border:  rgba(255,143,143,0.45);
 
   /* accentul: arămiu. Numele vechi --amber rămâne, ca să meargă stilurile din pagini */
   --aramiu:        #f0894a;
@@ -74,9 +79,9 @@ h1 { font-size: clamp(1.7rem, 4vw, 3rem); }
 h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
 h3 { font-size: clamp(1rem, 2vw, 1.3rem); }
 p  { color: var(--text-sec); }
-.accent-cyan    { color: var(--lavender-lt); }
-.accent-magenta { color: var(--lavender-lt); }
-.accent-lime    { color: var(--lavender-lt); }
+.accent-cyan    { color: var(--aramiu); }
+.accent-magenta { color: var(--aramiu); }
+.accent-lime    { color: var(--aramiu); }
 
 /* ---- Etichetă (scrisă normal, fără majuscule) ---- */
 .label {
@@ -84,7 +89,7 @@ p  { color: var(--text-sec); }
   font-family: var(--font-display);
   font-size: 0.92rem;
   font-weight: 500;
-  color: var(--lavender);
+  color: var(--text-sec);
 }
 
 /* ---- Layout Utilities ---- */
@@ -248,7 +253,7 @@ body.has-announce-bar .mobile-menu { top: 36px; }
   border: none;
   border-radius: 4px;
   color: #fff;
-  background: var(--lavender-dk);
+  background: var(--violet);
   transition: background var(--transition), border-color var(--transition);
   white-space: nowrap;
   cursor: pointer;
@@ -300,7 +305,7 @@ body.has-announce-bar .mobile-menu { top: 36px; }
   color: var(--text);
   transition: color var(--transition);
 }
-.mobile-menu a:hover { color: var(--lavender-lt); }
+.mobile-menu a:hover { color: var(--link-hover); }
 
 /* ============================
    BUTTONS
@@ -328,7 +333,7 @@ body.has-announce-bar .mobile-menu { top: 36px; }
 /* primary — flat, fara glow/gradient */
 .btn-primary,
 .btn-cyan {
-  background: var(--lavender-dk);
+  background: var(--violet);
   color: #fff;
   border: none;
 }
@@ -350,7 +355,7 @@ body.has-announce-bar .mobile-menu { top: 36px; }
 
 /* magenta alias */
 .btn-magenta {
-  background: var(--lavender-dk);
+  background: var(--violet);
   color: #fff;
   border: none;
 }
@@ -358,20 +363,20 @@ body.has-announce-bar .mobile-menu { top: 36px; }
 
 /* download */
 .btn-download {
-  background: rgba(167,139,250,0.05);
-  color: var(--lavender-lt);
+  background: rgba(139,92,246,0.075);
+  color: var(--text);
   border: 1px solid var(--border-card);
   font-size: 0.92rem;
 }
 .btn-download:hover {
-  background: rgba(167,139,250,0.1);
-  border-color: rgba(167,139,250,0.28);
+  background: rgba(139,92,246,0.15);
+  border-color: rgba(139,92,246,0.42);
 }
 .btn-download svg { flex-shrink: 0; }
 
 /* submit button */
 .btn-submit {
-  background: var(--lavender-dk);
+  background: var(--violet);
   color: #fff;
   font-family: var(--font-display);
   font-size: 1.02rem;
@@ -409,7 +414,7 @@ body.has-announce-bar .mobile-menu { top: 36px; }
   border-top: 1px solid var(--border);
 }
 .card:hover, .card-cyan:hover, .card-magenta:hover, .card-lime:hover {
-  background: rgba(167,139,250,0.05);
+  background: rgba(139,92,246,0.075);
 }
 
 /* ============================
@@ -454,7 +459,7 @@ body.has-announce-bar .mobile-menu { top: 36px; }
   color: var(--text-sec);
   transition: color var(--transition);
 }
-.social-link:hover { color: var(--lavender-lt); }
+.social-link:hover { color: var(--link-hover); }
 .social-link svg { width: 17px; height: 17px; }
 
 /* portretul cu cerc (folosit pe mentorat-ai) */
@@ -701,11 +706,11 @@ footer {
 }
 .bio-text li strong { color: var(--text); font-weight: 600; }
 .bio-text a {
-  color: var(--lavender);
+  color: var(--text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.bio-text a:hover { color: var(--lavender-lt); }
+.bio-text a:hover { color: var(--link-hover); }
 
 /* ABOUT — sectiuni narative */
 .about-narrative p {
@@ -716,11 +721,11 @@ footer {
 }
 .about-narrative p:last-child { margin-bottom: 0; }
 .about-narrative a {
-  color: var(--lavender);
+  color: var(--text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.about-narrative a:hover { color: var(--lavender-lt); }
+.about-narrative a:hover { color: var(--link-hover); }
 
 /* ============================
    FAQ PAGE
@@ -730,7 +735,7 @@ footer {
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 500;
-  color: var(--lavender);
+  color: var(--text-sec);
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border);
@@ -742,7 +747,7 @@ footer {
   overflow: hidden;
   transition: border-color var(--transition);
 }
-.faq-item.open { border-color: rgba(167,139,250,0.3); }
+.faq-item.open { border-color: rgba(139,92,246,0.45); }
 .faq-question {
   display: flex;
   align-items: center;
@@ -753,7 +758,7 @@ footer {
   background: var(--card);
   transition: background var(--transition);
 }
-.faq-question:hover { background: rgba(167,139,250,0.04); }
+.faq-question:hover { background: rgba(139,92,246,0.06); }
 .faq-q-text {
   font-family: var(--font-display);
   font-weight: 500;
@@ -772,8 +777,8 @@ footer {
   font-size: 1rem;
 }
 .faq-item.open .faq-icon {
-  background: var(--lavender-dk);
-  border-color: var(--lavender-dk);
+  background: var(--violet);
+  border-color: var(--violet);
   color: #fff;
   transform: rotate(45deg);
 }
@@ -824,11 +829,11 @@ footer {
 }
 .impact-card:nth-child(even)          { border-right: none; }
 .impact-card:nth-last-child(-n+2)     { border-bottom: none; }
-.impact-card:hover                    { background: rgba(167,139,250,0.05); }
+.impact-card:hover                    { background: rgba(139,92,246,0.075); }
 .impact-card::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--lavender-dk), transparent);
+  background: linear-gradient(90deg, transparent, var(--violet), transparent);
   opacity: 0;
   transition: opacity var(--transition);
 }
@@ -838,7 +843,7 @@ footer {
   border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 1.5rem;
-  background: rgba(167,139,250,0.08);
+  background: rgba(139,92,246,0.12);
   font-size: 1.5rem;
 }
 .impact-card h3 a {
@@ -848,8 +853,8 @@ footer {
   transition: color var(--transition), border-color var(--transition);
 }
 .impact-card h3 a:hover {
-  color: var(--lavender);
-  border-color: var(--lavender);
+  color: var(--link-hover);
+  border-color: var(--link-hover);
 }
 .impact-card h3 {
   font-size: clamp(1rem, 2vw, 1.25rem);
@@ -899,11 +904,11 @@ footer {
 .contact-detail-icon {
   width: 40px; height: 40px;
   border-radius: 8px;
-  background: rgba(167,139,250,0.08);
-  border: 1px solid rgba(167,139,250,0.15);
+  background: rgba(139,92,246,0.12);
+  border: 1px solid rgba(139,92,246,0.225);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
-  color: var(--lavender);
+  color: var(--text);
 }
 .contact-detail-text { display: flex; flex-direction: column; gap: 2px; }
 .contact-detail-label {
@@ -920,7 +925,7 @@ footer {
   color: var(--text);
   transition: color var(--transition);
 }
-.contact-detail-value a:hover { color: var(--lavender-lt); }
+.contact-detail-value a:hover { color: var(--link-hover); }
 
 .contact-form-wrap {
   background: var(--card);
@@ -947,7 +952,7 @@ footer {
   font-weight: 500;
   color: var(--text-sec);
 }
-.required-star { color: var(--lavender); margin-left: 2px; }
+.required-star { color: var(--aramiu); margin-left: 2px; }
 .form-group input,
 .form-group textarea {
   background: rgba(255,255,255,0.03);
@@ -965,8 +970,8 @@ footer {
 .form-group textarea::placeholder { color: var(--text-muted); }
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: var(--lavender);
-  box-shadow: 0 0 0 3px rgba(167,139,250,0.1);
+  border-color: var(--violet-hover);
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.15);
 }
 .form-group textarea {
   resize: vertical;
@@ -1004,13 +1009,13 @@ footer {
   margin-top: 2px;
 }
 .form-checkbox input[type="checkbox"]:checked + .form-checkbox-box {
-  background: var(--lavender-dk);
-  border-color: var(--lavender-dk);
+  background: var(--violet);
+  border-color: var(--violet);
 }
 .form-checkbox-box svg { display: none; color: #fff; }
 .form-checkbox input[type="checkbox"]:checked + .form-checkbox-box svg { display: block; }
 .form-checkbox input[type="checkbox"]:focus-visible + .form-checkbox-box {
-  box-shadow: 0 0 0 3px rgba(167,139,250,0.25);
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.375);
 }
 .form-checkbox-text { font-size: 0.88rem; color: var(--text-sec); line-height: 1.5; }
 .form-divider { height: 1px; background: var(--border); margin: 1.25rem 0 1.5rem; }
@@ -1023,7 +1028,7 @@ footer {
 }
 .form-status { font-size: 0.95rem; display: none; font-family: var(--font-display); }
 .form-status.success { display: block; color: #86efac; }
-.form-status.error   { display: block; color: var(--lavender); }
+.form-status.error   { display: block; color: var(--error); }
 
 /* ============================
    REFLECTII PAGE (article listing)
@@ -1046,14 +1051,14 @@ footer {
   gap: 0.75rem;
   transition: background var(--transition);
 }
-.article-card:hover { background: rgba(167,139,250,0.05); }
+.article-card:hover { background: rgba(139,92,246,0.075); }
 .article-card:nth-child(3n)       { border-right: none; }
 .article-card:nth-last-child(-n+3){ border-bottom: none; }
 .article-cat {
   font-family: var(--font-display);
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--lavender);
+  color: var(--text-sec);
 }
 .article-card h3 {
   font-family: var(--font-display);
@@ -1084,12 +1089,12 @@ footer {
   font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--lavender);
+  color: var(--text); text-decoration: underline; text-underline-offset: 3px;
   white-space: nowrap;
   margin-left: auto;
   transition: color var(--transition);
 }
-.article-read-more:hover { color: var(--lavender-lt); }
+.article-read-more:hover { color: var(--link-hover); }
 
 /* ============================
    ARTICLE BODY (single article)
@@ -1111,13 +1116,13 @@ footer {
   margin-bottom: 1.5rem;
 }
 .article-breadcrumb a { color: var(--text-muted); transition: color var(--transition); }
-.article-breadcrumb a:hover { color: var(--lavender-lt); }
+.article-breadcrumb a:hover { color: var(--link-hover); }
 .article-breadcrumb span { opacity: 0.4; }
 .article-tag {
   font-family: var(--font-display);
   font-size: 0.92rem;
   font-weight: 500;
-  color: var(--lavender);
+  color: var(--text-sec);
   margin-bottom: 1rem;
   display: block;
 }
@@ -1167,13 +1172,16 @@ footer {
 .pasi-amber li::marker { color: var(--amber); font-family: var(--font-display); font-weight: 500; }
 .article-body li { margin-bottom: 0.5rem; }
 .article-body strong { color: var(--text); font-weight: 600; }
-.article-body em { font-style: italic; color: var(--lavender-lt); }
-.article-body a { color: var(--lavender-lt); text-decoration: underline; text-underline-offset: 3px; }
+.article-body em { font-style: italic; color: var(--text); }
+.article-body a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.article-body a:hover { color: var(--link-hover); }
+/* legăturile cu stil scris direct în pagină (style="") primesc același hover */
+a[style*="text-underline-offset:3px"]:hover, a[style*="text-underline-offset: 3px"]:hover { color: var(--link-hover) !important; }
 .article-body blockquote {
-  border-left: 3px solid var(--lavender-dk);
+  border-left: 3px solid var(--violet);
   padding: 1rem 1.5rem;
   margin: 1.5rem 0;
-  background: rgba(167,139,250,0.05);
+  background: rgba(139,92,246,0.075);
   border-radius: 0 var(--radius) var(--radius) 0;
   font-style: italic;
 }
