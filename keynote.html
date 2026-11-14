@@ -145,6 +145,20 @@
 
     /* HERO */
     .kn-hero { padding: 7.5rem 0 3.5rem; }
+    /* Lumina (Vălul) pe primul ecran: intră din colțul de jos-stânga, sub butonul din coloana de text,
+       și e tăiată de marginea de jos a benzii. Se oprește înainte de poză (lățimea < începutul pozei)
+       și se stinge în sus, înainte de text. Pe telefon poza stă deasupra textului: fără lumină. */
+    .kn-hero { position: relative; isolation: isolate; overflow: hidden; }
+    .kn-hero::before {
+      content: ""; position: absolute; z-index: -1; pointer-events: none; left: 0; bottom: 0;
+      width: 52%; height: 300px;
+      background: url("images/valul.webp") 100% 100% / cover no-repeat;
+      transform: scaleX(-1);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 62%), linear-gradient(to right, transparent 0, #000 55%);
+              mask-image: linear-gradient(to bottom, transparent 0, #000 62%), linear-gradient(to right, transparent 0, #000 55%);
+      -webkit-mask-composite: source-in; mask-composite: intersect;
+    }
+    @media (max-width: 860px) { .kn-hero::before { display: none; } }
     .kn-hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3rem; align-items: center; }
     .kn-hero h1 { font-size: clamp(2.2rem, 4.5vw, 3.3rem); line-height: 1.08; margin: 0 0 1.2rem; }
     .kn-hero-lead { font-size: 1.15rem; color: var(--text-sec); margin-bottom: 2rem; line-height: 1.55; }

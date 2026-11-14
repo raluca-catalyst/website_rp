@@ -624,20 +624,48 @@ body.has-announce-bar .mobile-menu { top: 36px; }
           mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, transparent 0, #000 38%);
           mask-composite: intersect;
 }
-/* sus: o fâșie de lumină în spațiul gol de sub text, din colțul de jos-stânga, întoarsă.
-   Are înălțimea exactă a spațiului de sub ultimul rând (padding-ul de jos al benzii), deci nu ajunge
-   sub text, oricât de lung e paragraful. Se vede partea de jos a Vălului: colțul luminos și firele. */
+/* sus (nov 2026, varianta a doua): lumina urcă pe marginea din stânga a benzii, din colțul de jos,
+   în spațiul gol de lângă titlu și intro (nu sub ele). E un dreptunghi înalt, cu colțul luminos al
+   Vălului (întors) jos-stânga: marginea benzii taie doar colțul; spre text și spre meniu se stinge.
+   Lățimea urmează spațiul liber de lângă text:
+   - implicit (intro pe toată lățimea containerului): marginea containerului, deci apare doar pe
+     ecrane late (de la 1360px), unde marginea e destul de mare ca să încapă o formă;
+   - .page-header.lumina-lata (intro scurt, centrat: Despre, Contact, FAQ, Confidențialitate,
+     Reflecții): jumătatea benzii minus 360px, de la 900px în sus. */
 .page-header::before {
-  left: 0; width: min(760px, 58vw); height: clamp(3rem, 6vw, 5rem); aspect-ratio: auto;
-  background-size: 100% auto; background-position: 0 100%;
-  transform: scaleX(-1); opacity: 0.8;
+  display: none;
+  left: 0; top: 130px; bottom: 0; aspect-ratio: auto;
+  width: calc((100% - 1100px) / 2 + 2.5rem - 24px);
+  background-size: cover; background-position: 100% 100%;
+  transform: scaleX(-1);
+  /* în coordonatele de dinainte de întoarcere: stânga = spre text, sus = spre meniu */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 62%), linear-gradient(to right, transparent 0, #000 90%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 62%), linear-gradient(to right, transparent 0, #000 90%);
 }
-/* banda de sus a raportului Romanian State of AI: aceeași fâșie, la înălțimea spațiului de sub butoane */
-.report-hero::before {
-  left: 0; width: min(760px, 58vw); height: 4rem; aspect-ratio: auto;
-  background-size: 100% auto; background-position: 0 100%;
-  transform: scaleX(-1); opacity: 0.8;
+@media (min-width: 1360px) { .page-header::before { display: block; } }
+.page-header.lumina-lata::before {
+  width: min(560px, calc(50% - 360px));
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 62%), linear-gradient(to right, transparent 0, #000 58%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 62%), linear-gradient(to right, transparent 0, #000 58%);
 }
+@media (min-width: 900px) { .page-header.lumina-lata::before { display: block; } }
+/* Romanian State of AI: fără lumină sus. Banda de sus nu are o margine vizibilă (secțiunea
+   următoare are același fundal, fără linie), deci lumina s-ar opri în aer. */
+.report-hero::before { display: none; }
+/* primul ecran al paginilor de ghid și raport (Agentul tău, Ghidul de adopție, Patru viitoruri):
+   ca la Keynote, lumina intră din colțul de jos-stânga, sub coloana de text, tăiată de marginea benzii,
+   și se oprește înainte de copertă / poză. Pe telefon coperta stă deasupra textului: fără lumină. */
+.lp-hero { isolation: isolate; }
+.lp-hero::after {
+  content: ""; position: absolute; z-index: -1; pointer-events: none; left: 0; bottom: 0;
+  width: 50%; height: 280px;
+  background: url("../images/valul.webp") 100% 100% / cover no-repeat;
+  transform: scaleX(-1);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 62%), linear-gradient(to right, transparent 0, #000 55%);
+          mask-image: linear-gradient(to bottom, transparent 0, #000 62%), linear-gradient(to right, transparent 0, #000 55%);
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+@media (max-width: 920px) { .lp-hero::after { display: none; } }
 /* final: din dreapta jos, întreagă (și pe varianta de final a paginilor de ghid și raport, .lp-footer-cta) */
 .footer-cta::before, .lp-footer-cta::after { right: 0; width: min(640px, 46vw); }
 
