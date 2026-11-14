@@ -81,9 +81,10 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Barlow:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Barlow:wght@300;400;500;600;700&display=swap" /></noscript>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
@@ -154,7 +155,7 @@
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo" aria-label="Raluca Păduraru home">
-        <img src="images/logo.png" alt="Raluca Păduraru" />
+        <img src="images/logo-aramiu.png" alt="Raluca Păduraru" />
       </a>
       <ul class="nav-links" role="list">
         <li><a href="#services">Servicii</a></li>
@@ -196,7 +197,7 @@
 
           <div class="hero-content">
             <h1>
-              Transform echipele non-tehnice în <span class="accent">AI Business Translators</span>
+              Transform echipele <span class="nb">non-tehnice</span> în <span class="accent">AI Business Translators</span>
             </h1>
 
             <p>
@@ -204,12 +205,8 @@
             </p>
 
             <div class="hero-cta">
-              <a href="/contact.html" class="btn btn-primary">
-                Hai să vorbim
-              </a>
-              <a href="#services" class="btn btn-outline">
-                Vezi serviciile disponibile
-              </a>
+              <a href="/contact.html" class="btn btn-primary">Hai să vorbim</a>
+              <a href="#services" class="btn btn-outline">Vezi serviciile disponibile</a>
             </div>
 
             <div class="hero-social-row">
@@ -239,75 +236,82 @@
       </div>
     </section>
 
+    <!-- FOAIA: secțiunile dintre primul ecran și final -->
+    <div class="foaie">
+
     <!-- GHID ADOPȚIE AI — PRIMELE 90 DE ZILE -->
-    <section class="survey">
-      <div class="container survey-inner">
-        <div>
+    <section class="ghid">
+      <div class="container">
+        <div class="ghid-head">
           <h2>Ai primit mandatul să te ocupi de AI. De unde începi?</h2>
-          <p>Ghid practic și gratuit pentru primele 90 de zile de adopție AI în organizație. 77 de pagini, 10 capitole, 9 fișe de lucru.</p>
-          <ul class="survey-benefits">
-            <li>Traseul în 3 etape: mandatul și regulile, primul pilot, raportul către conducere</li>
-            <li>Un exemplu practic urmărit prin tot ghidul: planul de onboarding pentru un coleg nou, pregătit cu AI</li>
-            <li>Ancorat în legislația națională și europeană în vigoare în septembrie 2026</li>
-          </ul>
-        </div>
-        <div class="survey-right">
           <a href="/ghid-adoptie" class="btn btn-primary">Descarcă ghidul</a>
         </div>
+
+        <div class="ghid-scena">
+          <div class="ghid-pagini">
+            <img src="images/ghid-adoptie-cover.webp" alt="Coperta ghidului: Ai primit mandatul să te ocupi de AI. De unde începi?" loading="lazy" />
+            <img src="images/ghid-adoptie-pag-cuprins.webp" alt="Pagina de cuprins a ghidului, cu etapele și întrebările fiecărui capitol" loading="lazy" />
+            <img src="images/ghid-adoptie-pag-fisa-a.webp" alt="Fișa A din ghid: clarifică mandatul într-o fișă scurtă" loading="lazy" />
+            <img src="images/ghid-adoptie-pag-politica.webp" alt="Fișa I din ghid: construiește politica internă de utilizare a AI" loading="lazy" />
+            <img src="images/ghid-adoptie-pag-onboarding.webp" alt="Planul de onboarding pe 5 zile, după verificare, cu duratele propuse și ce rămâne de confirmat" loading="lazy" />
+          </div>
+        </div>
+
+        <p>Ghid practic și gratuit pentru primele 90 de zile de adopție AI în organizație. 77 de pagini, 10 capitole, 9 fișe de lucru.</p>
+        <ul class="ghid-benefits">
+          <li>Traseul în 3 etape: mandatul și regulile, primul pilot, raportul către conducere</li>
+          <li>Un exemplu practic urmărit prin tot ghidul: planul de onboarding pentru un coleg nou, pregătit cu AI</li>
+          <li>Ancorat în legislația națională și europeană în vigoare în septembrie 2026</li>
+        </ul>
       </div>
     </section>
 
     <!-- PATRU VIITORURI 2030 — RAPORT DE FORESIGHT -->
-    <section class="survey">
-      <div class="container survey-inner">
-        <div>
+    <section class="ghid viit">
+      <div class="container">
+        <div class="viit-scena">
+          <img src="images/viitoruri-cover-decupat.webp" alt="Patru viitoruri ale muncii în România 2030 — copertă raport" loading="lazy" />
+        </div>
+
+        <div class="ghid-head">
           <h2>Patru viitoruri ale muncii în România 2030</h2>
-          <p>Primul raport de foresight dedicat viitorului muncii în România. Patru scenarii construite pe date reale, din care rezultă 10 competențe relevante pentru toate viitorurile posibile. Util pentru lideri care vor să planifice dincolo de trimestrul următor.</p>
-          <ul class="survey-benefits">
-            <li>Patru scenarii pentru 2030, construite pe Natural Foresight® Framework și ancorate în date de la Eurostat, INS și WEF</li>
-            <li>Zece competențe validate cross-scenariu, fiecare cu un prim pas concret</li>
-            <li>Implicații și strategii per scenariu, cu focus pe IMM-uri</li>
-          </ul>
+          <div class="btns">
+            <a href="/viitoruri" class="btn btn-primary">Citește raportul</a>
+            <a href="/viitoruri#formular" class="btn btn-outline">Descarcă raportul</a>
+          </div>
         </div>
-        <div class="survey-right">
-          <a href="/viitoruri" class="btn btn-primary">Citește raportul</a>
-          <a href="/viitoruri#formular" class="btn btn-outline">Descarcă raportul</a>
-        </div>
+
+        <p>Primul raport de foresight dedicat viitorului muncii în România. Patru scenarii construite pe date reale, din care rezultă 10 competențe relevante pentru toate viitorurile posibile. Util pentru lideri care vor să planifice dincolo de trimestrul următor.</p>
+        <ul class="ghid-benefits">
+          <li>Patru scenarii pentru 2030, construite pe Natural Foresight® Framework și ancorate în date de la Eurostat, INS și WEF</li>
+          <li>Zece competențe validate cross-scenariu, fiecare cu un prim pas concret</li>
+          <li>Implicații și strategii per scenariu, cu focus pe IMM-uri</li>
+        </ul>
       </div>
     </section>
 
     <!-- HOW I WORK -->
-    <section class="section section-alt" aria-labelledby="how-heading">
+    <section class="cum" aria-labelledby="how-heading">
       <div class="container">
-        <div class="section-header fade-up">
-          <h2 id="how-heading">Cum lucrez</h2>
-        </div>
-        <div class="how-grid fade-up">
-          <div class="how-card">
-            <div class="how-icon">
-              <img src="images/assessment.webp" alt="Participanții completează assessmentul pre-laborator de AI fluency" loading="lazy" />
-            </div>
+        <h2 id="how-heading">Cum lucrez</h2>
+        <div class="cum-grid">
+          <div class="cum-card">
+            <img src="images/assessment.webp" alt="Participanții completează assessmentul pre-laborator de AI fluency" loading="lazy" />
             <h3>Assessment pre-laborator</h3>
             <p>Participanții completează un diagnostic înainte de sesiune. Datele arată nivelul echipei, barierele de adopție și procesele cu potențial de automatizare. Datele sunt utilizate în etapele 2 și 3.</p>
           </div>
-          <div class="how-card">
-            <div class="how-icon">
-              <img src="images/build.webp" alt="Raport diagnostic agregat al echipei, livrat managerului înainte de laborator" loading="lazy" />
-            </div>
+          <div class="cum-card">
+            <img src="images/build.webp" alt="Raport diagnostic agregat al echipei, livrat managerului înainte de laborator" loading="lazy" />
             <h3>Raport de diagnostic</h3>
             <p>Managerul echipei primește un raport agregat înainte de laborator: care este nivelul echipei, care sunt constrângerile, unde apar blocajele și ce ar fi util să se întâmple în sesiune.</p>
           </div>
-          <div class="how-card">
-            <div class="how-icon">
-              <img src="images/frameworks.webp" alt="Laborator AI personalizat pe datele reale ale echipei, cu framework-uri proprii" loading="lazy" />
-            </div>
+          <div class="cum-card">
+            <img src="images/frameworks.webp" alt="Laborator AI personalizat pe datele reale ale echipei, cu framework-uri proprii" loading="lazy" />
             <h3>Laborator personalizat pe date reale</h3>
             <p>Sesiunea e construită pe baza răspunsurilor echipei. Fiecare echipă primește exact ce are nevoie. În spatele fiecărui laborator stau instrumente proprii testate în 1.000+ ore de lucru cu peste 5.500 de profesioniști.</p>
           </div>
-          <div class="how-card">
-            <div class="how-icon">
-              <img src="images/followup.webp" alt="Sesiune de follow-up la 20 de zile după laboratorul de AI fluency" loading="lazy" />
-            </div>
+          <div class="cum-card">
+            <img src="images/followup.webp" alt="Sesiune de follow-up la 20 de zile după laboratorul de AI fluency" loading="lazy" />
             <h3>Follow-up la 20 de zile</h3>
             <p>Sesiune de 2 ore în care vedem ce funcționează, ce nu funcționează și ce ajustări mai sunt necesare. Disponibil și ca program extins pe 3 luni pentru organizații care vor să scaleze AI Business Translators interni.</p>
           </div>
@@ -316,471 +320,252 @@
     </section>
 
     <!-- SERVICES -->
-    <section class="section" id="services" aria-labelledby="services-heading">
+    <section class="prod" id="services" aria-labelledby="services-heading">
       <div class="container">
-        <div class="section-header fade-up">
-          <h2 id="services-heading">Produse și servicii</h2>
-          <p class="section-header-wide">Toate pornesc de la aceeași competență: agency-ul cu care judeci obiectivele relevante contextului tău, știi ce și cum să delegi spre AI și acționezi pe baza deciziilor luate pentru îndeplinirea obiectivelor.</p>
-        </div>
+        <h2 id="services-heading">Produse și servicii</h2>
+        <p>Toate pornesc de la aceeași competență: agency-ul cu care judeci obiectivele relevante contextului tău, știi ce și cum să delegi spre AI și acționezi pe baza deciziilor luate pentru îndeplinirea obiectivelor.</p>
 
-        <div class="service fade-up delay-1">
-          <div class="service-left">
-            <div class="label">Pentru leadership</div>
+        <div class="produs">
+          <div class="produs-foto">
+            <img src="images/keynote/bizz-club-ploiesti.webp" alt="" loading="lazy" style="object-position: 50% 42%" />
+            <span class="produs-tag">Pentru leadership</span>
             <h3>AI Agency for Leaders</h3>
-            <p class="service-sub">Discernământ și capacitate de acțiune cu AI pentru lideri.</p>
           </div>
-          <div class="service-right">
-            <p>Înțelegi extrem de clar ce ai nevoie pentru a lua deciziile corecte legate de implementarea AI în organizația ta: de unde începi, ce prioritizezi, ce eviți și cum conduci oamenii prin schimbare. Pleci cu direcție, priorități și cu un plan de acțiune.</p>
-            <div class="product-meta">
-              <div class="product-meta-row">
-                <span class="product-meta-label">Pentru cine</span>
-                <span class="product-meta-val">Antreprenori și echipe de leadership</span>
-              </div>
-              <div class="product-meta-row">
-                <span class="product-meta-label">Ce primiți</span>
-                <span class="product-meta-val">Diagnostic de maturitate AI, roadmap strategic, plan de acțiune 90 de zile</span>
-              </div>
-              <div class="product-meta-row">
-                <span class="product-meta-label">Format</span>
-                <span class="product-meta-val">Keynote 1 - 2 ore · Laborator 4 ore - 1 zi</span>
-              </div>
-            </div>
-            <div class="product-note">Fiecare sesiune e adaptată 100% la contextul tău. Respectă standardele EU AI Act.</div>
-          </div>
+          <p class="produs-sub">Discernământ și capacitate de acțiune cu AI pentru lideri.</p>
+          <p>Înțelegi extrem de clar ce ai nevoie pentru a lua deciziile corecte legate de implementarea AI în organizația ta: de unde începi, ce prioritizezi, ce eviți și cum conduci oamenii prin schimbare. Pleci cu direcție, priorități și cu un plan de acțiune.</p>
+          <dl class="produs-meta">
+            <div><dt>Pentru cine</dt><dd>Antreprenori și echipe de leadership</dd></div>
+            <div><dt>Ce primiți</dt><dd>Diagnostic de maturitate AI, roadmap strategic, plan de acțiune 90 de zile</dd></div>
+            <div><dt>Format</dt><dd>Keynote 1 - 2 ore · Laborator 4 ore - 1 zi</dd></div>
+          </dl>
+          <div class="produs-nota">Fiecare sesiune e adaptată 100% la contextul tău. Respectă standardele EU AI Act.</div>
         </div>
 
-        <div class="service fade-up delay-2">
-          <div class="service-left">
-            <div class="label featured-mark">Cel mai popular</div>
+        <div class="produs">
+          <div class="produs-foto">
+            <img src="images/keynote/scena-ecran-sala.webp" alt="" loading="lazy" style="object-position: 50% 14%" />
+            <span class="produs-tag featured">Cel mai popular</span>
             <h3>AI Agency for Teams</h3>
-            <p class="service-sub">Echipa ta rezolvă sarcini reale cu AI, cu agency (= discernământ + acțiune).</p>
           </div>
-          <div class="service-right">
-            <p>Laboratoare de lucru 100% customizate pe industria, rolurile și workflow-urile reale ale echipei: facem o analiză de nevoi și construim o selecție de use-case-uri pe nevoile unice ale participanților, ca ei să plece la final cu sarcini reale rezolvate și cu dorința de a explora cum se pot rezolva și altele.</p>
-            <div class="product-meta">
-              <div class="product-meta-row">
-                <span class="product-meta-label">Pentru cine</span>
-                <span class="product-meta-val">Echipe non-tehnice: sales, KA, PMO, agile delivery, marketing, finance, CS, middle manageri, echipe de inovație etc.</span>
-              </div>
-              <div class="product-meta-row">
-                <span class="product-meta-label">Ce primiți</span>
-                <span class="product-meta-val">Laboratoare de lucru construite personalizat pe nevoile voastre, pe baza <a href="/frameworks/">framework-urilor proprietare</a></span>
-              </div>
-              <div class="product-meta-row">
-                <span class="product-meta-label">Format</span>
-                <span class="product-meta-val">Keynote 1 - 2 ore · Laborator 4 ore - 2 zile</span>
-              </div>
-            </div>
-            <div class="product-note">Fiecare sesiune e adaptată 100% la contextul tău. Respectă standardele EU AI Act.</div>
-          </div>
+          <p class="produs-sub">Echipa ta rezolvă sarcini reale cu AI, cu agency (= discernământ + acțiune).</p>
+          <p>Laboratoare de lucru 100% customizate pe industria, rolurile și workflow-urile reale ale echipei: facem o analiză de nevoi și construim o selecție de use-case-uri pe nevoile unice ale participanților, ca ei să plece la final cu sarcini reale rezolvate și cu dorința de a explora cum se pot rezolva și altele.</p>
+          <dl class="produs-meta">
+            <div><dt>Pentru cine</dt><dd>Echipe non-tehnice: sales, KA, PMO, agile delivery, marketing, finance, CS, middle manageri, echipe de inovație etc.</dd></div>
+            <div><dt>Ce primiți</dt><dd>Laboratoare de lucru construite personalizat pe nevoile voastre, pe baza <a href="/frameworks/">framework-urilor proprietare</a></dd></div>
+            <div><dt>Format</dt><dd>Keynote 1 - 2 ore · Laborator 4 ore - 2 zile</dd></div>
+          </dl>
+          <div class="produs-nota">Fiecare sesiune e adaptată 100% la contextul tău. Respectă standardele EU AI Act.</div>
         </div>
 
-        <div class="service fade-up delay-3">
-          <div class="service-left">
-            <div class="label">Gândire anticipativă</div>
+        <div class="produs">
+          <div class="produs-foto">
+            <img src="images/keynote/vodafone-force.webp" alt="" loading="lazy" style="object-position: 50% 62%" />
+            <span class="produs-tag">Gândire anticipativă</span>
             <h3>Futures of Work Lab</h3>
-            <p class="service-sub">Prin foresight explorezi scenarii de viitor ca să poți calibra corect deciziile pe care le iei azi.</p>
           </div>
-          <div class="service-right">
-            <p>Formulezi strategii prin care să te pregătești azi pentru viitorul în care ai putea ajunge mâine și explorezi cum va arăta viitorul rolurilor din organizația ta, cum se transformă modelul vostru de business sau cum va arăta industria voastră.</p>
-            <div class="product-meta">
-              <div class="product-meta-row">
-                <span class="product-meta-label">Pentru cine</span>
-                <span class="product-meta-val">Antreprenori și echipe de leadership</span>
-              </div>
-              <div class="product-meta-row">
-                <span class="product-meta-label">Ce primiți</span>
-                <span class="product-meta-val">Scenarii de viitor pentru industria ta, semnale slabe de urmărit, playbook strategic</span>
-              </div>
-              <div class="product-meta-row">
-                <span class="product-meta-label">Format</span>
-                <span class="product-meta-val">Keynote 1 - 2 ore · Laborator 4 ore - 1 zi</span>
-              </div>
-            </div>
-            <div class="product-note">Facilitat de Raluca Păduraru, Certified Foresight Practitioner (TFSX) și autoarea raportului 4 viitoruri ale muncii în România 2030.</div>
-          </div>
+          <p class="produs-sub">Prin foresight explorezi scenarii de viitor ca să poți calibra corect deciziile pe care le iei azi.</p>
+          <p>Formulezi strategii prin care să te pregătești azi pentru viitorul în care ai putea ajunge mâine și explorezi cum va arăta viitorul rolurilor din organizația ta, cum se transformă modelul vostru de business sau cum va arăta industria voastră.</p>
+          <dl class="produs-meta">
+            <div><dt>Pentru cine</dt><dd>Antreprenori și echipe de leadership</dd></div>
+            <div><dt>Ce primiți</dt><dd>Scenarii de viitor pentru industria ta, semnale slabe de urmărit, playbook strategic</dd></div>
+            <div><dt>Format</dt><dd>Keynote 1 - 2 ore · Laborator 4 ore - 1 zi</dd></div>
+          </dl>
+          <div class="produs-nota">Facilitat de Raluca Păduraru, Certified Foresight Practitioner (TFSX) și autoarea raportului 4 viitoruri ale muncii în România 2030.</div>
         </div>
 
-        <div class="products-cta fade-up">
-          <div class="products-cta-main">
-            <p>
-              <span>Fiecare produs începe de la cum va arăta industria ta în 3 ani și ce trebuie să faci azi ca să fii pregătit.</span>
-              <span>Toate sunt configurate pentru contextul, industria și dimensiunea echipei tale.</span>
-              <span>Hai să vorbim despre ce ar fi potrivit pentru tine.</span>
-            </p>
-            <a href="/contact.html" class="btn btn-primary">
-              Hai să vorbim
-            </a>
-          </div>
-          <div class="products-cta-side">
-            <p>Vrei să îți construiești sistemul de lucru cu AI în sesiuni de lucru 1:1?</p>
-            <p>Este un program de 3 sesiuni online și sunt doar 5 locuri disponibile în toamna asta.</p>
-            <a href="/mentorat-ai" class="btn btn-outline">
-              Află despre mentoratul individual
-            </a>
+        <div class="prod-cta">
+          <p>
+            <span>Fiecare produs începe de la cum va arăta industria ta în 3 ani și ce trebuie să faci azi ca să fii pregătit.</span>
+            <span>Toate sunt configurate pentru contextul, industria și dimensiunea echipei tale.</span>
+            <span>Hai să vorbim despre ce ar fi potrivit pentru tine.</span>
+          </p>
+          <a href="/contact.html" class="btn btn-primary">Hai să vorbim</a>
+          <div class="prod-cta-side">
+            <p>Vrei să îți construiești sistemul de lucru cu AI în sesiuni de lucru 1:1? Este un program de 3 sesiuni online și sunt doar 5 locuri disponibile în toamna asta.</p>
+            <a href="/mentorat-ai" class="btn btn-outline">Află despre mentoratul individual</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- KEYNOTE TEASER -->
-    <section class="section keynote-teaser-section" id="keynote" aria-labelledby="keynote-heading">
+    <section class="key" id="keynote" aria-labelledby="keynote-heading">
       <div class="container">
-        <div class="keynote-teaser fade-up">
-          <div class="keynote-teaser-text">
-            <div class="label">Pentru conferințe și evenimente</div>
-            <h2 id="keynote-heading">Keynote-uri</h2>
-            <ul class="keynote-teaser-list">
-              <li>Cum să fii bun la ceea ce faci în era AI</li>
-              <li>Cum conduci adopția AI în organizația ta</li>
-              <li>Viitorul muncii e deja în lucru</li>
-            </ul>
-            <a href="/keynote" class="btn btn-primary">
-              Descoperă temele
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </div>
-          <div class="keynote-teaser-img">
-            <img src="images/keynote/scena-prezentare-sala.webp" alt="Raluca Păduraru prezentând în fața unei săli" width="768" height="952" loading="lazy" />
-          </div>
+        <div class="ghid-head">
+          <h2 id="keynote-heading">Keynote-uri</h2>
+          <a href="/keynote" class="btn btn-primary">Descoperă temele</a>
         </div>
-      </div>
-    </section>
-
-    <!-- FRAMEWORKS -->
-    <section class="section section-alt" id="frameworks" aria-labelledby="frameworks-heading">
-      <div class="container">
-        <div class="section-header fade-up">
-          <h2 id="frameworks-heading">Framework-uri și resurse</h2>
-          <p>Instrumente gratuite pentru lideri și echipe care navighează tranziția AI. Descoperă toate framework-urile pe <a href="/frameworks/" style="color:var(--lavender-lt); text-decoration:underline; text-underline-offset:3px;">pagina dedicată</a>.</p>
-        </div>
-
-        <div class="frameworks-grid fade-up">
-          <div class="framework-card">
-            <h3>AI Business Translator Framework</h3>
-            <p>Competența care leagă realitatea organizației de capabilitățile AI: trei seturi de abilități, cinci activități și cinci milestone-uri de dezvoltare.</p>
-            <a href="/frameworks/ai-business-translator/" class="btn btn-download">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              Descoperă framework-ul
-            </a>
-          </div>
-          <div class="framework-card">
-            <h3>EU AI Act Compliance Checklist</h3>
-            <p>Un checklist de conformitate la EU AI Act pentru deployers. Te ajută să identifici ce sisteme AI folosești, cum le clasifici și ce obligații ai ca utilizator (deployer) conform Regulamentului UE 2024/1689.</p>
-            <a href="downloads/EU-AI-Act-Compliance-Checklist-Upvance.docx" class="btn btn-download">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-              Descarcă DOCX
-            </a>
-          </div>
-          <div class="framework-card">
-            <h3>C.A.D.R.U. Framework</h3>
-            <p>Cele 5 lucruri pe care numai tu le poți defini înainte să deschizi conversația cu un model AI de frontieră: Context, Alegere, Definiția reușitei, Restricții, Ultimul cuvânt.</p>
-            <a href="/frameworks/cadru/" class="btn btn-download">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              Descoperă framework-ul
-            </a>
-          </div>
-          <div class="framework-card">
-            <h3>Stratul uman</h3>
-            <p>Ce cultivi în tine și în echipă ca să rămâi valoros pe măsură ce AI-ul preia execuția: experiență acumulată, judecată și problem framing, relațional și etic.</p>
-            <a href="/frameworks/stratul-uman/" class="btn btn-download">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              Descoperă framework-ul
-            </a>
-          </div>
+        <div class="key-cards">
+          <figure>
+            <img src="images/keynote/elearning-sala.webp" alt="Raluca Păduraru prezentând în fața unei săli" loading="lazy" style="object-position: 38% 40%" />
+            <span class="produs-tag">Pentru conferințe și evenimente</span>
+            <h3>Cum să fii bun la ceea ce faci în era AI</h3>
+          </figure>
+          <figure>
+            <img src="images/keynote/keynote-business-forward.webp" alt="" loading="lazy" style="object-position: 60% 25%" />
+            <h3>Cum conduci adopția AI în organizația ta</h3>
+          </figure>
+          <figure>
+            <img src="images/keynote/sala-maini-ridicate.webp" alt="" loading="lazy" style="object-position: 42% 50%" />
+            <h3>Viitorul muncii e deja în lucru</h3>
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="section" aria-labelledby="testimonials-heading">
+    <section class="testim" aria-labelledby="testimonials-heading">
       <div class="container">
-        <div class="section-header fade-up">
+        <div class="ghid-head">
           <h2 id="testimonials-heading">Ce spun participanții</h2>
+          <div class="testi-nav">
+            <button type="button" id="slider-prev" aria-label="Anterior">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <button type="button" id="slider-next" aria-label="Următor">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
-
-        <div class="testimonials-wrap fade-up">
-          <div class="testimonials-slider" id="testimonials-slider">
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>I built something I'll be using every single day: my own Cortex — a personalized AI system designed around the way I work, think, and make decisions. […] this workshop wasn't just an interesting learning experience, it has already changed the way I work.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Andreea Copaciu</div>
-                <div class="testimonial-role">CEO, g7 Marketing</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Sunt cursuri din care pleci cu notițe, și sunt cursuri din care pleci cu ceva care deja lucrează pentru tine.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Anca Oloeriu</div>
-                <div class="testimonial-role">Consultant Financiar Leasing, Interactive Brokers</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>De la nevoia de a folosi AI mai bine am ajuns să-l folosesc pentru a gândi, analiza, verifica și structura un proiect extrem de complex, pentru care mă pregăteam psihic și emoțional de aproximativ 1 an. Faptul că am reușit să duc la capăt acest proiect (fără a avea expertiză în Comp&amp;Ben) și să construiesc instrumentele de care aveam nevoie este pentru mine aur curat.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Carolina Roșu</div>
-                <div class="testimonial-role">HRBP, companie software</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Combo: science &amp; magic</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">CFO</div>
-                <div class="testimonial-role">Companie oil &amp; gas</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Am intrat cu «Eu nu sunt o persoană tehnică!», «Vreau să-mi eficientizez procesul de recrutare!», «Vreau să-mi planific mai bine banii și timpul!» și am ieșit cu un board pe care l-am pus să ia decizii, cu un plan pe final de 2026 și pe 2027, cu câțiva angajați AI foarte productivi.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Corina Neagu</div>
-                <div class="testimonial-role">Consultant HR senior, Leadership &amp; HR Strategist</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>I left with the beginnings of my own AI TEAM! Different roles. Different responsibilities. Clear expectations. Skills and job descriptions. Even interviews before deciding whether an AI «employee» gets the job.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Ana M. Marin</div>
-                <div class="testimonial-role">Coach &amp; facilitator, PwC's Academy</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Am avut o experiență de o zi în care să construiesc live, cu Claude, un al doilea creier: un sistem care mă cunoaște, lucrează pentru mine și produce.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Anca-Maria Turcanu</div>
-                <div class="testimonial-role">Owner, ELSIMA</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Singură am rezolvat situația aplicației în versiunea desktop, cât și activarea opțiunii cowork, făcând pe programatoarea la indicațiile lui Claude. Îl iubesc maxim pentru că îmi dă puteri nebănuite.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">HRBP</div>
-                <div class="testimonial-role">Companie software</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>3 hours, 16 real case studies and a framework that completely shifts how you think about AI. That's what a meaningful masterclass looks like.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Sinziana Ambrosi</div>
-                <div class="testimonial-role">Head of Product Management, ENGIE</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Probabil unul dintre cele mai bune workshop-uri la care am participat în ultima vreme. Multe aha-uri și insight-uri reale, aplicabile. Un facilitator fluid și carismatic.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Georgiana Dumitru</div>
-                <div class="testimonial-role"></div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Raluca Păduraru's AI Fluency Briefing wasn't about hype. It wasn't about tools. It was about clarity, and that's exactly what the AI conversation has been missing. The F.O.R.C.E. framework changes how you look at every process in your workflow.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">BISM</div>
-                <div class="testimonial-role">Bucharest International School of Management</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>O super sesiune. Mi-a adus multă claritate și inspirație.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Natalia Tănăsescu</div>
-                <div class="testimonial-role">Procurement Leader, Eastern Europe</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Un workshop excelent, scurt și la obiect! Raluca prezintă informația clar, concis și cu un entuziasm molipsitor. Mi-a plăcut mult abordarea practică, am fost aruncați în apă și a trebuit să înotăm, dar sub o ghidare foarte plăcută. A fost un laborator sigur de practică unde am învățat ecuația care ne influențează comportamentul și mediul de lucru.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Manager</div>
-                <div class="testimonial-role">BPO Outsourcing Company</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Mi-a plăcut, foarte bine structurat, a fost interactiv și m-a ținut conectată. Nu a intervenit plictiseala. Nu mă așteptam să îmi schimb radical părerea despre AI, în sensul că am depășit frica.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Mioara Ayoub</div>
-                <div class="testimonial-role">Entrepreneur</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Eu folosesc aproape zilnic AI și am apreciat faptul că a fost un curs bine structurat, practic, pentru niveluri diferite și am lucrat pe grupuri. Mi-a plăcut, foarte bine structurat, a fost interactiv și m-a ținut conectată. Nu a intervenit plictiseala.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Simona Crisbașanu</div>
-                <div class="testimonial-role">Entrepreneur</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>M-a surprins faptul că pot folosi AI nu doar pentru sarcini administrative ci și pentru a fi mai organizată și creativă, și de asemenea cât de simplu este să formulezi cereri clare și cât de mult influențează rezultatele în modul în care pui întrebarea.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Senior Manager</div>
-                <div class="testimonial-role">Tech Company</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Am întâlnit-o pe Raluca, un om super tare. Fără vrăjeli de corporație, cu storytelling, exemple autentice și mai ales invitații înspre acțiune, înspre concret! Sesiuni cu adevărat transformatoare.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Elena-Doralisa Motoc</div>
-                <div class="testimonial-role">Talent Developer</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>A fost foaare tare!! A fost ff interesant ziua de astăzi, a meritat pentru că am înțeles că AI nu te controlează, ci tu îl controlezi pe el.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Albert Gagionea</div>
-                <div class="testimonial-role">Entrepreneur</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>A fost un curs plin de informații noi și dacă crezi că AI-ul este ceva simplu, să fie pregătit să descopere o groa&icirc;ă de lucruri noi.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Iulia Hainarosie</div>
-                <div class="testimonial-role">Senior Communication &amp; PR Manager</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Raluca are o energie incredibilă și un mod de a structura informația care face totul foarte ușor de urmărit. Ceea ce am apreciat cel mai mult a fost felul în care a creat un spațiu sigur de experimentare. Exercițiile au fost alese perfect, oglindind situațiile cu care ne confruntăm zilnic.</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Manager</div>
-                <div class="testimonial-role">Telecommunication Company</div>
-              </div>
-            </div>
-
-            <div class="testimonial-card">
-              <div class="testimonial-quote">"</div>
-              <p>Totul a fost excelent, de la conținut până la speaker. Raluca este un facilitator foarte bun, iar jocurile și exercițiile de echipă au fost exact practica de care aveam nevoie. Am plecat cu insight-uri valoroase despre cum putem învăța mereu să ne comportăm mai bine în mediul profesional. Recomand cu drag!</p>
-              <div class="testimonial-author">
-                <div class="testimonial-name">Senior Manager</div>
-                <div class="testimonial-role">Steel Production Company</div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="slider-controls">
-            <button class="slider-btn" id="slider-prev" aria-label="Anterior">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            </button>
-            <button class="slider-btn" id="slider-next" aria-label="Următor">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-          </div>
+        <div class="testi-row" id="testimonials-slider">
+          <figure class="testi testi-m">
+            <blockquote><p>I built something I'll be using every single day: my own Cortex — a personalized AI system designed around the way I work, think, and make decisions. […] this workshop wasn't just an interesting learning experience, it has already changed the way I work.</p></blockquote>
+            <figcaption><span class="testi-name">Andreea Copaciu</span><span class="testi-role">CEO, g7 Marketing</span></figcaption>
+          </figure>
+          <figure class="testi testi-s">
+            <blockquote><p>Sunt cursuri din care pleci cu notițe, și sunt cursuri din care pleci cu ceva care deja lucrează pentru tine.</p></blockquote>
+            <figcaption><span class="testi-name">Anca Oloeriu</span><span class="testi-role">Consultant Financiar Leasing, Interactive Brokers</span></figcaption>
+          </figure>
+          <figure class="testi testi-l">
+            <blockquote><p>De la nevoia de a folosi AI mai bine am ajuns să-l folosesc pentru a gândi, analiza, verifica și structura un proiect extrem de complex, pentru care mă pregăteam psihic și emoțional de aproximativ 1 an. Faptul că am reușit să duc la capăt acest proiect (fără a avea expertiză în Comp&amp;Ben) și să construiesc instrumentele de care aveam nevoie este pentru mine aur curat.</p></blockquote>
+            <figcaption><span class="testi-name">Carolina Roșu</span><span class="testi-role">HRBP, companie software</span></figcaption>
+          </figure>
+          <figure class="testi testi-s">
+            <blockquote><p>Combo: science &amp; magic</p></blockquote>
+            <figcaption><span class="testi-name">CFO</span><span class="testi-role">Companie oil &amp; gas</span></figcaption>
+          </figure>
+          <figure class="testi testi-l">
+            <blockquote><p>Am intrat cu «Eu nu sunt o persoană tehnică!», «Vreau să-mi eficientizez procesul de recrutare!», «Vreau să-mi planific mai bine banii și timpul!» și am ieșit cu un board pe care l-am pus să ia decizii, cu un plan pe final de 2026 și pe 2027, cu câțiva angajați AI foarte productivi.</p></blockquote>
+            <figcaption><span class="testi-name">Corina Neagu</span><span class="testi-role">Consultant HR senior, Leadership &amp; HR Strategist</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>I left with the beginnings of my own AI TEAM! Different roles. Different responsibilities. Clear expectations. Skills and job descriptions. Even interviews before deciding whether an AI «employee» gets the job.</p></blockquote>
+            <figcaption><span class="testi-name">Ana M. Marin</span><span class="testi-role">Coach &amp; facilitator, PwC's Academy</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>Am avut o experiență de o zi în care să construiesc live, cu Claude, un al doilea creier: un sistem care mă cunoaște, lucrează pentru mine și produce.</p></blockquote>
+            <figcaption><span class="testi-name">Anca-Maria Turcanu</span><span class="testi-role">Owner, ELSIMA</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>Singură am rezolvat situația aplicației în versiunea desktop, cât și activarea opțiunii cowork, făcând pe programatoarea la indicațiile lui Claude. Îl iubesc maxim pentru că îmi dă puteri nebănuite.</p></blockquote>
+            <figcaption><span class="testi-name">HRBP</span><span class="testi-role">Companie software</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>3 hours, 16 real case studies and a framework that completely shifts how you think about AI. That's what a meaningful masterclass looks like.</p></blockquote>
+            <figcaption><span class="testi-name">Sinziana Ambrosi</span><span class="testi-role">Head of Product Management, ENGIE</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>Probabil unul dintre cele mai bune workshop-uri la care am participat în ultima vreme. Multe aha-uri și insight-uri reale, aplicabile. Un facilitator fluid și carismatic.</p></blockquote>
+            <figcaption><span class="testi-name">Georgiana Dumitru</span><span class="testi-role"></span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>Raluca Păduraru's AI Fluency Briefing wasn't about hype. It wasn't about tools. It was about clarity, and that's exactly what the AI conversation has been missing. The F.O.R.C.E. framework changes how you look at every process in your workflow.</p></blockquote>
+            <figcaption><span class="testi-name">BISM</span><span class="testi-role">Bucharest International School of Management</span></figcaption>
+          </figure>
+          <figure class="testi testi-s">
+            <blockquote><p>O super sesiune. Mi-a adus multă claritate și inspirație.</p></blockquote>
+            <figcaption><span class="testi-name">Natalia Tănăsescu</span><span class="testi-role">Procurement Leader, Eastern Europe</span></figcaption>
+          </figure>
+          <figure class="testi testi-l">
+            <blockquote><p>Un workshop excelent, scurt și la obiect! Raluca prezintă informația clar, concis și cu un entuziasm molipsitor. Mi-a plăcut mult abordarea practică, am fost aruncați în apă și a trebuit să înotăm, dar sub o ghidare foarte plăcută. A fost un laborator sigur de practică unde am învățat ecuația care ne influențează comportamentul și mediul de lucru.</p></blockquote>
+            <figcaption><span class="testi-name">Manager</span><span class="testi-role">BPO Outsourcing Company</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>Mi-a plăcut, foarte bine structurat, a fost interactiv și m-a ținut conectată. Nu a intervenit plictiseala. Nu mă așteptam să îmi schimb radical părerea despre AI, în sensul că am depășit frica.</p></blockquote>
+            <figcaption><span class="testi-name">Mioara Ayoub</span><span class="testi-role">Entrepreneur</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>Eu folosesc aproape zilnic AI și am apreciat faptul că a fost un curs bine structurat, practic, pentru niveluri diferite și am lucrat pe grupuri. Mi-a plăcut, foarte bine structurat, a fost interactiv și m-a ținut conectată. Nu a intervenit plictiseala.</p></blockquote>
+            <figcaption><span class="testi-name">Simona Crisbașanu</span><span class="testi-role">Entrepreneur</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>M-a surprins faptul că pot folosi AI nu doar pentru sarcini administrative ci și pentru a fi mai organizată și creativă, și de asemenea cât de simplu este să formulezi cereri clare și cât de mult influențează rezultatele în modul în care pui întrebarea.</p></blockquote>
+            <figcaption><span class="testi-name">Senior Manager</span><span class="testi-role">Tech Company</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>Am întâlnit-o pe Raluca, un om super tare. Fără vrăjeli de corporație, cu storytelling, exemple autentice și mai ales invitații înspre acțiune, înspre concret! Sesiuni cu adevărat transformatoare.</p></blockquote>
+            <figcaption><span class="testi-name">Elena-Doralisa Motoc</span><span class="testi-role">Talent Developer</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>A fost foaare tare!! A fost ff interesant ziua de astăzi, a meritat pentru că am înțeles că AI nu te controlează, ci tu îl controlezi pe el.</p></blockquote>
+            <figcaption><span class="testi-name">Albert Gagionea</span><span class="testi-role">Entrepreneur</span></figcaption>
+          </figure>
+          <figure class="testi testi-m">
+            <blockquote><p>A fost un curs plin de informații noi și dacă crezi că AI-ul este ceva simplu, să fie pregătit să descopere o groa&icirc;ă de lucruri noi.</p></blockquote>
+            <figcaption><span class="testi-name">Iulia Hainarosie</span><span class="testi-role">Senior Communication &amp; PR Manager</span></figcaption>
+          </figure>
+          <figure class="testi testi-l">
+            <blockquote><p>Raluca are o energie incredibilă și un mod de a structura informația care face totul foarte ușor de urmărit. Ceea ce am apreciat cel mai mult a fost felul în care a creat un spațiu sigur de experimentare. Exercițiile au fost alese perfect, oglindind situațiile cu care ne confruntăm zilnic.</p></blockquote>
+            <figcaption><span class="testi-name">Manager</span><span class="testi-role">Telecommunication Company</span></figcaption>
+          </figure>
+          <figure class="testi testi-l">
+            <blockquote><p>Totul a fost excelent, de la conținut până la speaker. Raluca este un facilitator foarte bun, iar jocurile și exercițiile de echipă au fost exact practica de care aveam nevoie. Am plecat cu insight-uri valoroase despre cum putem învăța mereu să ne comportăm mai bine în mediul profesional. Recomand cu drag!</p></blockquote>
+            <figcaption><span class="testi-name">Senior Manager</span><span class="testi-role">Steel Production Company</span></figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- CREDIBILITY -->
-    <section class="section section-alt" aria-labelledby="credibility-heading">
+    <section class="cifre" aria-labelledby="credibility-heading">
       <div class="container">
-        <div class="section-header fade-up">
-          <h2 id="credibility-heading">În cifre</h2>
+        <h2 id="credibility-heading">În cifre</h2>
+        <div class="cifre-grid">
+          <div class="cifra"><span class="cifra-nr">1.000+</span><span class="cifra-label">ore de laboratoare de AI</span></div>
+          <div class="cifra"><span class="cifra-nr">5.500+</span><span class="cifra-label">profesioniști formați</span></div>
+          <div class="cifra"><span class="cifra-nr">17</span><span class="cifra-label">ani de management operațional</span></div>
+          <div class="cifra"><span class="cifra-nr">30+</span><span class="cifra-label">conferințe și paneluri</span></div>
+          <div class="cifra"><span class="cifra-nr">25+</span><span class="cifra-label">apariții media și interviuri</span></div>
         </div>
+      </div>
+    </section>
 
-        <div class="stats-grid fade-up">
-          <div class="stat-card">
-            <div class="stat-number">1.000+</div>
-            <div class="stat-label">ore de laboratoare de AI</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">5,500+</div>
-            <div class="stat-label">profesioniști formați</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">17</div>
-            <div class="stat-label">ani de management operațional</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">30+</div>
-            <div class="stat-label">conferințe și paneluri</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">25+</div>
-            <div class="stat-label">apariții media și interviuri</div>
-          </div>
+    <!-- CREDENȚIALE -->
+    <section class="cred-sec">
+      <div class="container">
+        <h2>Credențiale și certificări</h2>
+        <div class="cred-grid">
+          <div class="cred"><img src="credentials/certified_foresight_practitioner.webp" alt="Certified Foresight Practitioner TFSX" loading="lazy" /><span>Certified Foresight Practitioner (TFSX)</span></div>
+          <div class="cred"><img src="credentials/APF_membership.png" alt="Association of Professional Futurists" loading="lazy" /><span>Association of Professional Futurists</span></div>
+          <div class="cred"><img src="credentials/Certified Agile Leadership - seal.png" alt="Certified Agile Leadership" loading="lazy" /><span>Certified Agile Leadership</span></div>
+          <div class="cred"><img src="credentials/iaf_logo.png" alt="International Association of Facilitators" loading="lazy" /><span>VP of AI &amp; Digital @International Association of Facilitators, Romania</span></div>
         </div>
+      </div>
+    </section>
 
-        <div class="credentials-section fade-up">
-          <h3>Credențiale și certificări</h3>
-          <div class="credentials-grid">
-            <div class="credential-badge">
-              <img src="credentials/certified_foresight_practitioner.webp" alt="Certified Foresight Practitioner TFSX" loading="lazy" />
-              <span>Certified Foresight Practitioner (TFSX)</span>
-            </div>
-            <div class="credential-badge">
-              <img src="credentials/APF_membership.png" alt="Association of Professional Futurists" loading="lazy" />
-              <span>Association of Professional Futurists</span>
-            </div>
-            <div class="credential-badge">
-              <img src="credentials/Certified Agile Leadership - seal.png" alt="Certified Agile Leadership" loading="lazy" />
-              <span>Certified Agile Leadership</span>
-            </div>
-            <div class="credential-badge">
-              <img src="credentials/iaf_logo.png" alt="International Association of Facilitators" loading="lazy" />
-              <span>VP of AI &amp; Digital @International Association of Facilitators, Romania</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="media-section fade-up">
-          <h3>Apariții în presă</h3>
-          <div class="media-logos">
-            <a href="https://www.revistabiz.ro/arhitecta-viitorului-muncii-cu-raluca-paduraru/" target="_blank" rel="noopener" class="media-logo">Revista Biz</a>
-            <a href="https://www.bucurestifm.ro/2026/10/07/de-ce-nu-mai-este-suficienta-diploma-si-ce-competente-conteaza-pe-piata-muncii/" target="_blank" rel="noopener" class="media-logo">București FM</a>
-            <a href="https://www.iconbybiz.ro/cum-vom-munci-in-viitor/" target="_blank" rel="noopener" class="media-logo">Icon by Biz</a>
-            <a href="https://republica.ro/ai-afacerea-soloprenor-antreprenor" target="_blank" rel="noopener" class="media-logo">Republica</a>
-            <a href="https://www.undelucram.ro/ro/cumlucram/contributor/raluca-paduraru/56" target="_blank" rel="noopener" class="media-logo">Undelucram</a>
-            <a href="https://stirileprotv.ro/stiri/ilikeit/folosirea-inteligentei-artificiale-in-romania-ca-n-vestul-salbatic-nimeni-nu-stie-toate-lumea-produce.html" target="_blank" rel="noopener" class="media-logo">Știrile ProTV</a>
-            <a href="https://www.educatieprivata.ro/categorie/educat_ia/" target="_blank" rel="noopener" class="media-logo">Educație Privată</a>
-            <a href="https://www.capital.ro/exclusiv-adoptia-ai-la-locul-de-munca-vine-de-jos-in-sus-angajatii-experimenteaza-pe-cont-propriu-fara-o-directie-din-partea-companiilor.html" target="_blank" rel="noopener" class="media-logo">Capital</a>
-            <a href="https://www.revistacariere.ro/noutati/63-dintre-profesionistii-romani-folosesc-ai-fara-reguli" target="_blank" rel="noopener" class="media-logo">Revista Cariere</a>
-          </div>
+    <!-- APARIȚII ÎN PRESĂ -->
+    <section class="presa-sec">
+      <div class="container">
+        <h2>Apariții în presă</h2>
+        <div class="presa-row">
+          <a href="https://www.revistabiz.ro/arhitecta-viitorului-muncii-cu-raluca-paduraru/" target="_blank" rel="noopener">Revista Biz</a>
+          <a href="https://www.bucurestifm.ro/2026/10/07/de-ce-nu-mai-este-suficienta-diploma-si-ce-competente-conteaza-pe-piata-muncii/" target="_blank" rel="noopener">București FM</a>
+          <a href="https://www.iconbybiz.ro/cum-vom-munci-in-viitor/" target="_blank" rel="noopener">Icon by Biz</a>
+          <a href="https://republica.ro/ai-afacerea-soloprenor-antreprenor" target="_blank" rel="noopener">Republica</a>
+          <a href="https://www.undelucram.ro/ro/cumlucram/contributor/raluca-paduraru/56" target="_blank" rel="noopener">Undelucram</a>
+          <a href="https://stirileprotv.ro/stiri/ilikeit/folosirea-inteligentei-artificiale-in-romania-ca-n-vestul-salbatic-nimeni-nu-stie-toate-lumea-produce.html" target="_blank" rel="noopener">Știrile ProTV</a>
+          <a href="https://www.educatieprivata.ro/categorie/educat_ia/" target="_blank" rel="noopener">Educație Privată</a>
+          <a href="https://www.capital.ro/exclusiv-adoptia-ai-la-locul-de-munca-vine-de-jos-in-sus-angajatii-experimenteaza-pe-cont-propriu-fara-o-directie-din-partea-companiilor.html" target="_blank" rel="noopener">Capital</a>
+          <a href="https://www.revistacariere.ro/noutati/63-dintre-profesionistii-romani-folosesc-ai-fara-reguli" target="_blank" rel="noopener">Revista Cariere</a>
         </div>
       </div>
     </section>
 
     <!-- VIDEO -->
-    <section class="section video-section" aria-labelledby="video-heading">
+    <section class="video" aria-labelledby="video-heading">
       <div class="container">
-        <div class="section-header fade-up">
-          <h2 id="video-heading">Raluca în acțiune</h2>
-        </div>
-        <div class="video-grid fade-up">
+        <h2 id="video-heading">Raluca în acțiune</h2>
+        <div class="video-grid">
           <div class="video-wrap">
             <iframe src="https://www.youtube.com/embed/Lpq3Uts9BE8" title="Profit Live - 17 septembrie" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
@@ -803,36 +588,89 @@
       </div>
     </section>
 
-    <!-- NEWSLETTER -->
-    <section class="section section-alt" aria-labelledby="newsletter-heading">
+    <!-- FRAMEWORKS -->
+    <section class="fw" id="frameworks" aria-labelledby="frameworks-heading">
       <div class="container">
-        <div class="newsletter-inner fade-up">
-          <div>
-            <h2 id="newsletter-heading">Rămâi la curent cu AI și viitorul muncii</h2>
-            <p>Perspective bi-lunare, framework-uri și opinii oneste. Fără spam, doar idei pe care le-am testat personal.</p>
-          </div>
-          <div class="newsletter-right">
-            <div class="substack-cta">
-              <a href="https://ralucapaduraru.substack.com/?r=subscribe" target="_blank" rel="noopener" class="btn btn-primary">
-                Abonează-te gratuit
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
+        <h2 id="frameworks-heading">Framework-uri și resurse</h2>
+        <p>Instrumente gratuite pentru lideri și echipe care navighează tranziția AI. Descoperă toate framework-urile pe <a href="/frameworks/">pagina dedicată</a>.</p>
+
+        <div class="fw-grid">
+          <div class="fw-card">
+            <div class="fw-vis" aria-hidden="true">
+              <div class="fw-cols c3">
+                <div><span class="fw-big">3</span><span class="fw-cap">seturi de abilități</span></div>
+                <div><span class="fw-big">5</span><span class="fw-cap">activități</span></div>
+                <div><span class="fw-big">5</span><span class="fw-cap">milestone-uri de dezvoltare</span></div>
+              </div>
             </div>
-            <p class="gdpr-text">Prin abonare ești de acord să primești newsletter-ul The Leadership Catalyst cu noutăți despre AI și viitorurile muncii.</p>
+            <div class="fw-card-top">
+              <h3>AI Business Translator Framework</h3>
+              <a href="/frameworks/ai-business-translator/" class="btn btn-outline">Descoperă framework-ul</a>
+            </div>
+            <p>Competența care leagă realitatea organizației de capabilitățile AI: trei seturi de abilități, cinci activități și cinci milestone-uri de dezvoltare.</p>
+          </div>
+          <div class="fw-card">
+            <div class="fw-vis" aria-hidden="true">
+              <ul class="fw-check"><li>Ce sisteme AI folosești</li><li>Cum le clasifici</li><li>Ce obligații ai</li></ul>
+            </div>
+            <div class="fw-card-top">
+              <h3>EU AI Act Compliance Checklist</h3>
+              <a href="downloads/EU-AI-Act-Compliance-Checklist-Upvance.docx" class="btn btn-outline">Descarcă checklist-ul</a>
+            </div>
+            <p>Un checklist de conformitate la EU AI Act pentru deployers. Te ajută să identifici ce sisteme AI folosești, cum le clasifici și ce obligații ai ca utilizator (deployer) conform Regulamentului UE 2024/1689.</p>
+          </div>
+          <div class="fw-card">
+            <div class="fw-vis" aria-hidden="true">
+              <div class="fw-cols c5">
+                <div><span class="fw-big">C</span><span class="fw-cap">Context</span></div>
+                <div><span class="fw-big">A</span><span class="fw-cap">Alegere</span></div>
+                <div><span class="fw-big">D</span><span class="fw-cap">Definiția reușitei</span></div>
+                <div><span class="fw-big">R</span><span class="fw-cap">Restricții</span></div>
+                <div><span class="fw-big">U</span><span class="fw-cap">Ultimul cuvânt</span></div>
+              </div>
+            </div>
+            <div class="fw-card-top">
+              <h3>C.A.D.R.U. Framework</h3>
+              <a href="/frameworks/cadru/" class="btn btn-outline">Descoperă framework-ul</a>
+            </div>
+            <p>Cele 5 lucruri pe care numai tu le poți defini înainte să deschizi conversația cu un model AI de frontieră: Context, Alegere, Definiția reușitei, Restricții, Ultimul cuvânt.</p>
+          </div>
+          <div class="fw-card">
+            <div class="fw-vis" aria-hidden="true">
+              <div class="fw-straturi"><span>Relațional și etic</span><span>Judecată și problem framing</span><span>Experiență acumulată</span></div>
+            </div>
+            <div class="fw-card-top">
+              <h3>Stratul uman</h3>
+              <a href="/frameworks/stratul-uman/" class="btn btn-outline">Descoperă framework-ul</a>
+            </div>
+            <p>Ce cultivi în tine și în echipă ca să rămâi valoros pe măsură ce AI-ul preia execuția: experiență acumulată, judecată și problem framing, relațional și etic.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- NEWSLETTER -->
+    <section class="news" aria-labelledby="newsletter-heading">
+      <div class="container">
+        <div class="news-box">
+          <div class="ghid-head">
+            <h2 id="newsletter-heading">Rămâi la curent cu AI și viitorul muncii</h2>
+            <a href="https://ralucapaduraru.substack.com/?r=subscribe" target="_blank" rel="noopener" class="btn btn-primary">Abonează-te gratuit</a>
+          </div>
+          <p>Perspective bi-lunare, framework-uri și opinii oneste. Fără spam, doar idei pe care le-am testat personal.</p>
+          <p class="gdpr-text">Prin abonare ești de acord să primești newsletter-ul The Leadership Catalyst cu noutăți despre AI și viitorurile muncii.</p>
+        </div>
+      </div>
+    </section>
+
+    </div><!-- /foaie -->
+
     <!-- FOOTER CTA -->
-    <section class="footer-cta" id="contact" aria-labelledby="cta-heading">
+    <section class="final" id="contact" aria-labelledby="cta-heading">
       <div class="container">
         <h2 id="cta-heading">Pregătit pentru agency în AI?</h2>
         <p>Totul începe cu o conversație.</p>
-        <a href="/contact.html" class="btn btn-primary">
-          Hai să vorbim
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <a href="/contact.html" class="btn btn-primary">Hai să vorbim</a>
       </div>
     </section>
 
@@ -844,7 +682,7 @@
       <div class="footer-inner">
         <div class="footer-left">
           <a href="index.html" class="footer-logo">
-            <img src="images/logo.png" alt="Raluca Păduraru" />
+            <img src="images/logo-aramiu.png" alt="Raluca Păduraru" />
           </a>
           <p class="footer-copy">© 2026 Raluca Păduraru. All rights reserved.</p>
         </div>

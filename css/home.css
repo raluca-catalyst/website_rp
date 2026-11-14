@@ -1,0 +1,314 @@
+/* =========================================
+   RALUCA PĂDURARU — home.css
+   Doar pentru prima pagină (index.html), încărcat după style.css.
+   Machetă aprobată: docs/redesign/macheta-2026-11-prim-ecran.html (nov 2026).
+   Tokenii, meniul, butoanele și footerul stau în style.css.
+   ========================================= */
+
+:root {
+  --d: 440px;   /* diametrul discului din spatele pozei */
+  --s: 1.02;    /* scara dârei */
+}
+
+/* ---- baza paginii ---- */
+body { font-size: 17px; line-height: 1.6; }
+.container { max-width: 1240px; padding: 0 clamp(16px, 4vw, 40px); }
+main h1, main h2 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  text-wrap: balance;
+}
+main h2 { font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.1; }
+main p { color: var(--text-sec); text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+main .accent { color: var(--aramiu); font-weight: 300; }
+.nb { white-space: nowrap; }
+main .btn { padding: 0.8rem 1.5rem; }
+
+/* ---------- PRIMUL ECRAN ---------- */
+/* meniul e fix (bara de anunț 36px + meniul ~88px), deci primul ecran pornește sub ele */
+.hero { position: relative; isolation: isolate; overflow: hidden; padding: calc(124px + clamp(2rem, 5vw, 4.5rem)) 0 290px; }
+.hero-inner { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: clamp(2rem, 5vw, 5rem); align-items: end; }
+.hero h1 { font-size: clamp(2.3rem, 4vw, 3.5rem); line-height: 1.1; }
+.hero h1 .accent { display: block; }
+@media (min-width: 1280px) { .hero h1 .accent { white-space: nowrap; } }
+.hero-content p { font-size: 1.16rem; margin-top: 1.6rem; }
+.hero .accent-inline { color: var(--text); font-style: italic; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 2rem; }
+.hero-social-row { display: flex; gap: 1rem; margin-top: 1.6rem; color: var(--text-sec); }
+.hero-social-row .social-link svg { width: 20px; height: 20px; }
+
+.hero-image { display: flex; justify-content: center; }
+.hero .hero-image-wrap { position: relative; width: var(--d); display: flex; justify-content: center; align-items: flex-end; }
+.hero .hero-circle {
+  position: absolute; left: 50%; bottom: 0; z-index: 0;
+  width: var(--d); height: var(--d); transform: translateX(-50%); border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, #9166f7 0%, #6d28d9 75%);
+  box-shadow: none; animation: none;
+}
+.hero .hero-image-wrap img {
+  position: relative; z-index: 2;
+  width: calc(var(--d) * 0.95); height: auto;
+  -webkit-mask-image: none; mask-image: none;
+  clip-path: inset(0 round 0 0 calc(var(--d) * 0.475) calc(var(--d) * 0.475));
+}
+
+/* Dâra: punctul de lumină stă ascuns în spatele discului, iar dâra coboară spre stânga
+   și intră sub foaie. Nu atinge poza: poza și discul stau deasupra ei. */
+.hero-image-wrap::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  width: calc(1920px * var(--s)); height: calc(1086px * var(--s));
+  left: calc(50% - 1185px * var(--s)); bottom: calc(var(--d) / 2 - 551px * var(--s));
+  background: url("../images/dara.jpg") 0 0 / 100% 100% no-repeat; transform: scaleX(-1);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 18%, #000 96%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 18%, #000 96%, transparent 100%);
+}
+
+/* ---------- FOAIA: tot ce e între primul ecran și final stă peste dâră ---------- */
+.foaie {
+  position: relative; z-index: 2; margin-top: -44px;
+  background: var(--bg); border-radius: 40px;
+  border: 1px solid rgba(241,238,253,0.18); border-left: 0; border-right: 0;
+  overflow: hidden;
+  box-shadow: 0 -24px 60px rgba(8,5,40,0.5), 0 24px 60px rgba(8,5,40,0.5);
+}
+
+/* ---------- GHIDUL ---------- */
+.ghid { padding: clamp(3rem, 6vw, 5.5rem) 0; }
+.ghid-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; }
+.ghid-head h2 { flex: 1; }
+.ghid-scena {
+  position: relative; margin-top: 2.5rem; height: 400px; border-radius: 20px; overflow: hidden;
+  background: var(--bg-deep) url("../images/valul.webp") right bottom / cover no-repeat;
+  border: 1px solid var(--hairline);
+}
+.ghid-pagini { display: flex; gap: 2%; padding: 56px 4% 0; align-items: flex-start; }
+.ghid-pagini img { width: 18.4%; height: auto; border-radius: 6px; box-shadow: 0 24px 60px rgba(8,5,40,0.55), 0 2px 0 rgba(255,255,255,0.06) inset; }
+.ghid-pagini img:first-child { transform: translateY(-22px); }
+.ghid-pagini img:nth-child(3), .ghid-pagini img:nth-child(5) { transform: translateY(26px); }
+.ghid > .container > p { font-size: 1.16rem; margin-top: 2.2rem; }
+.ghid-benefits { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; }
+.ghid-benefits li { border-top: 1px solid var(--hairline); padding-top: 1.1rem; color: var(--text); font-size: 1.05rem; line-height: 1.5; }
+
+/* ---------- PATRU VIITORURI: coperta sus, pe toată lățimea ---------- */
+.viit { padding-top: 0; }
+.viit-scena {
+  position: relative; isolation: isolate; height: 440px; border-radius: 20px; overflow: hidden;
+  margin-bottom: 2.75rem; background: var(--bg-deep); border: 1px solid var(--hairline);
+  display: flex; align-items: center; justify-content: center;
+}
+/* același Văl ca la ghid, întors: lumina vine din stânga jos */
+.viit-scena::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url("../images/valul.webp") right bottom / cover no-repeat; transform: scaleX(-1); }
+.viit-scena img { height: 84%; width: auto; filter: drop-shadow(0 26px 40px rgba(8,5,40,0.55)); }
+.btns { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+/* ---------- CUM LUCREZ: 4 pași în trepte, pe o bandă mai închisă ---------- */
+.cum { background: var(--bg-deep); padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem); }
+.cum-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem; margin-top: 2.75rem; align-items: start; }
+/* treptele urcă: fiecare pas construiește pe cel dinainte */
+.cum-card:nth-child(1) { margin-top: 168px; }
+.cum-card:nth-child(2) { margin-top: 112px; }
+.cum-card:nth-child(3) { margin-top: 56px; }
+.cum-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; }
+.cum-card h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; font-size: 1.3rem; line-height: 1.25; margin-top: 1.25rem; color: var(--text); }
+/* coloane înguste: aliniere la stânga, ca să nu apară goluri între cuvinte */
+.cum-card p { font-size: 1rem; margin-top: 0.7rem; text-align: left; }
+
+/* ---------- PRODUSE ȘI SERVICII: o poză lată pentru fiecare produs, cu numele peste ea ---------- */
+.prod { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+.prod > .container > p { font-size: 1.16rem; margin-top: 1.4rem; }
+.produs { margin-top: 4rem; }
+.produs-foto { position: relative; aspect-ratio: 2.7 / 1; border-radius: 20px; overflow: hidden; background: var(--bg-deep); }
+.produs-foto img { width: 100%; height: 100%; object-fit: cover; }
+.produs-foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(21,15,71,0.94) 0%, rgba(21,15,71,0.55) 38%, rgba(21,15,71,0) 70%); }
+.produs-foto h3 {
+  position: absolute; z-index: 1; left: clamp(1.25rem, 3vw, 2.5rem); right: clamp(1.25rem, 3vw, 2.5rem); bottom: clamp(1.1rem, 2.4vw, 2rem);
+  font-family: var(--font-display); font-weight: 300; letter-spacing: -0.03em; font-size: clamp(1.8rem, 3.6vw, 3rem); line-height: 1.1; color: #fff;
+}
+.produs-tag {
+  position: absolute; z-index: 1; top: clamp(1rem, 2vw, 1.5rem); right: clamp(1rem, 2vw, 1.5rem);
+  font-family: var(--font-display); font-weight: 500; font-size: 0.92rem; line-height: 1.4; color: var(--text);
+  background: rgba(21,15,71,0.78); border-radius: 4px; padding: 0.4rem 0.8rem;
+}
+.produs-tag.featured { background: var(--aramiu); color: #1b1559; font-weight: 600; }
+main .produs-sub { font-size: 1.3rem; color: var(--text); margin-top: 1.6rem; text-align: left; }
+.produs > p:not(.produs-sub) { margin-top: 0.8rem; }
+.produs-meta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-top: 1.8rem; }
+.produs-meta div { border-top: 1px solid var(--hairline); padding-top: 1rem; }
+.produs-meta dt { font-family: var(--font-display); font-weight: 500; font-size: 0.95rem; color: var(--lavender); }
+.produs-meta dd { margin-top: 0.45rem; color: var(--text); line-height: 1.5; }
+.produs-meta a { text-decoration: underline; text-underline-offset: 3px; }
+.produs-nota { margin-top: 1.4rem; color: var(--lavender); font-size: 0.98rem; }
+.prod-cta { margin-top: 4.5rem; border-radius: 20px; background: var(--bg-deep); border: 1px solid var(--hairline); padding: clamp(1.5rem, 3.5vw, 3rem); }
+main .prod-cta p { color: var(--text); font-size: 1.16rem; }
+.prod-cta .btn { margin-top: 1.4rem; }
+.prod-cta-side { margin-top: 2.2rem; padding-top: 2rem; border-top: 1px solid var(--hairline); }
+main .prod-cta-side p { color: var(--text-sec); font-size: 1.05rem; }
+
+/* ---------- KEYNOTE-URI: fâșie de 3 poze, cu temele peste ele ---------- */
+.key { background: var(--bg-deep); padding: clamp(3.5rem, 7vw, 6rem) 0; }
+.key-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+.key-cards figure { position: relative; height: 400px; border-radius: 20px; overflow: hidden; }
+.key-cards img { width: 100%; height: 100%; object-fit: cover; }
+.key-cards figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(21,15,71,0.95) 0%, rgba(21,15,71,0.6) 34%, rgba(21,15,71,0) 62%); }
+.key-cards h3 { position: absolute; z-index: 1; left: 1.5rem; right: 1.5rem; bottom: 1.4rem; font-family: var(--font-display); font-weight: 400; letter-spacing: -0.015em; font-size: 1.45rem; line-height: 1.2; color: #fff; }
+
+/* ---------- CE SPUN PARTICIPANȚII: casete indigo, câte 3 pe ecran, cu săgeți ---------- */
+.testim { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+.testi-nav { display: flex; gap: 0.6rem; }
+.testi-nav button {
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid rgba(241,238,253,0.28); background: transparent; color: var(--text);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color var(--transition), color var(--transition), opacity var(--transition);
+}
+.testi-nav button svg { width: 18px; height: 18px; }
+.testi-nav button:hover:not(:disabled) { border-color: var(--aramiu); color: var(--aramiu); }
+.testi-nav button:disabled { opacity: 0.3; cursor: default; }
+.testi-row { display: flex; gap: 1.5rem; margin-top: 2.5rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.testi-row::-webkit-scrollbar { display: none; }
+.testi { flex: 0 0 calc((100% - 3rem) / 3); scroll-snap-align: start; display: flex; flex-direction: column; border-radius: 20px; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 1.7rem 1.7rem 1.6rem; }
+.testi blockquote::before { content: "\201C"; display: block; font-family: var(--font-display); font-weight: 400; font-size: 3rem; line-height: 1; height: 2.1rem; color: var(--aramiu); }
+main .testi blockquote p { color: var(--text); text-align: left; hyphens: manual; -webkit-hyphens: manual; line-height: 1.55; }
+main .testi-s blockquote p { font-family: var(--font-display); font-weight: 300; letter-spacing: -0.02em; font-size: 1.6rem; line-height: 1.3; }
+main .testi-m blockquote p { font-size: 1.08rem; }
+main .testi-l blockquote p { font-size: 0.98rem; }
+.testi figcaption { margin-top: auto; padding-top: 1.5rem; }
+.testi-name { display: block; font-weight: 600; color: var(--text); }
+.testi-role { display: block; color: var(--text-sec); font-size: 0.95rem; line-height: 1.4; }
+
+/* ---------- ÎN CIFRE ---------- */
+.cifre { background: var(--bg-deep); padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
+.cifre-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 2.2rem 2rem; margin-top: 2.25rem; }
+.cifra { grid-column: span 2; border-top: 1px solid var(--hairline); padding-top: 1.1rem; }
+.cifra:nth-child(4) { grid-column: 2 / span 2; }
+.cifra-nr { display: block; font-family: var(--font-display); font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-size: clamp(3rem, 6.4vw, 5.4rem); color: var(--aramiu); }
+.cifra-label { display: block; margin-top: 0.6rem; color: var(--text); font-size: 1.08rem; }
+
+/* ---------- CREDENȚIALE și PRESĂ ---------- */
+.cred-sec { padding: clamp(3.5rem, 7vw, 5.5rem) 0 0; }
+.cred-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.25rem; }
+.cred { border-radius: 20px; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 1.1rem 1.1rem 1.4rem; color: var(--text); font-size: 1.02rem; line-height: 1.45; }
+.cred img { display: block; width: 100%; height: 150px; object-fit: contain; background: #fff; border-radius: 12px; padding: 1.1rem; margin-bottom: 1.2rem; }
+.presa-sec { padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
+.presa-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-top: 2.25rem; }
+.presa-row a { flex: 0 0 calc((100% - 3.6rem) / 5); text-align: center; border-radius: 14px; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 1.1rem 1.5rem; font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; color: var(--text); transition: border-color var(--transition); }
+.presa-row a:hover { border-color: var(--aramiu); }
+
+/* ---------- RALUCA ÎN ACȚIUNE ---------- */
+.video { background: var(--bg-deep); padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
+.video-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.25rem; }
+.video-wrap { position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #000; }
+.video-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; display: block; border: 0; }
+
+/* ---------- FRAMEWORK-URI ---------- */
+.fw { padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
+.fw > .container > p { font-size: 1.16rem; margin-top: 1.4rem; }
+.fw > .container > p a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.fw-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2.25rem; }
+.fw-card { display: flex; flex-direction: column; border-radius: 20px; background: var(--bg-deep); border: 1px solid var(--hairline); padding: clamp(1.25rem, 2.4vw, 1.9rem); }
+.fw-vis { height: 132px; display: flex; align-items: center; border-bottom: 1px solid var(--hairline); padding-bottom: 1.2rem; margin-bottom: 1.2rem; }
+.fw-big { font-family: var(--font-display); font-weight: 300; letter-spacing: -0.04em; line-height: 0.95; color: var(--aramiu); }
+.fw-cap { display: block; margin-top: 0.6rem; font-family: var(--font-display); font-weight: 400; font-size: 0.88rem; line-height: 1.3; color: var(--text-sec); }
+.fw-cols { display: grid; width: 100%; gap: 0.75rem; align-items: start; }
+.fw-cols.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fw-cols.c5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.fw-cols .fw-big { display: block; font-size: clamp(2.8rem, 5vw, 4.1rem); }
+.fw-check { width: 100%; list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.fw-check li { display: flex; align-items: center; gap: 0.8rem; font-family: var(--font-display); font-weight: 400; font-size: 1.12rem; color: var(--text); }
+.fw-check li::before { content: ""; flex: none; width: 24px; height: 24px; border-radius: 6px; background: var(--aramiu) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231b1559' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 17px no-repeat; }
+.fw-straturi { width: 100%; display: flex; flex-direction: column; gap: 0.4rem; }
+.fw-straturi span { display: block; border-radius: 8px; padding: 0.45rem 0.9rem; font-family: var(--font-display); font-weight: 400; font-size: 1.02rem; color: #fff; }
+.fw-straturi span:nth-child(1) { width: 58%; background: var(--aramiu); color: #1b1559; }
+.fw-straturi span:nth-child(2) { width: 79%; background: #9166f7; }
+.fw-straturi span:nth-child(3) { width: 100%; background: #6d28d9; }
+.fw-card h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.015em; font-size: clamp(1.25rem, 1.9vw, 1.5rem); line-height: 1.2; color: var(--text); }
+.fw-card-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+main .fw-card .btn { padding: 0.55rem 0.9rem; font-size: 0.9rem; flex: none; }
+.ghid-head .btn, .ghid-head .btns { flex: none; }
+.fw-card p { margin-top: 0.8rem; font-size: 1.02rem; }
+
+/* ---------- NEWSLETTER: o casetă indigo ---------- */
+.news { padding: 0 0 clamp(3.5rem, 7vw, 5.5rem); }
+.news-box { border-radius: 20px; background: var(--bg-deep); border: 1px solid var(--hairline); padding: clamp(1.5rem, 3.5vw, 3rem); }
+.news-box > p { margin-top: 1.2rem; font-size: 1.16rem; }
+main .news-box .gdpr-text { margin-top: 1rem; font-size: 0.9rem; color: rgba(241,238,253,0.55); }
+
+/* ---------- FINALUL PAGINII: dâra iese de sub foaie și se oprește în punctul ei de lumină ---------- */
+.final { position: relative; isolation: isolate; overflow: hidden; margin-top: -44px; height: 580px; padding-top: 170px; }
+main .final p { margin-top: 1rem; font-size: 1.3rem; color: var(--text); text-align: left; }
+.final .btn { margin-top: 1.8rem; }
+.final::after {
+  content: ""; position: absolute; left: 21%; top: -60px; width: max(100%, 1200px); aspect-ratio: 1920 / 1086; z-index: -1; pointer-events: none;
+  background: url("../images/dara.jpg") 0 0 / 100% 100% no-repeat; transform: scaleY(-1);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 16%); mask-image: linear-gradient(to right, transparent 0, #000 16%);
+}
+/* pe ecrane late dâra crește, ca să ajungă tot până la marginea din stânga */
+@media (min-width: 1560px) { :root { --s: 1.2; } }
+@media (min-width: 1800px) { :root { --s: 1.38; } }
+@media (min-width: 2200px) { :root { --s: 1.75; } }
+
+@media (max-width: 920px) {
+  :root { --d: 280px; }
+  .hero { padding: calc(106px + 1.5rem) 0 190px; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-image { order: -1; }
+  .hero-cta { justify-content: flex-start; }
+  .ghid-head { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+  .ghid-scena { height: 300px; }
+  .ghid-pagini { gap: 4%; padding: 36px 6% 0; }
+  .ghid-pagini img { width: 44%; flex: none; }
+  .ghid-benefits { grid-template-columns: 1fr; gap: 1.1rem; }
+  .produs { margin-top: 3rem; }
+  .produs-foto { aspect-ratio: 4 / 3; border-radius: 12px; }
+  .produs-meta { grid-template-columns: 1fr; gap: 1.1rem; }
+  .fw-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .fw-vis { height: auto; min-height: 120px; }
+  .fw-card-top { flex-direction: column; align-items: flex-start; }
+  .fw-cols { gap: 0.4rem; }
+  .fw-cap { font-size: 0.78rem; }
+  .fw-cols.c5 .fw-cap { font-size: 0.62rem; }
+  .fw-card p { text-align: left; }
+  .key-cards { grid-template-columns: 1fr; }
+  .key-cards figure { height: 300px; border-radius: 12px; }
+  .testi { flex-basis: 86%; }
+  .cifre-grid { grid-template-columns: 1fr 1fr; gap: 1.8rem 1.2rem; }
+  .cifra, .cifra:nth-child(4) { grid-column: auto; }
+  .cifra:nth-child(5) { grid-column: 1 / -1; }
+  .cred-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .cred { padding: 0.8rem 0.8rem 1.1rem; border-radius: 14px; }
+  .cred img { height: 110px; padding: 0.8rem; }
+  .video-grid { grid-template-columns: 1fr; }
+  .presa-row a { flex-basis: calc((100% - 0.9rem) / 2); padding: 0.9rem 0.6rem; font-size: 1rem; }
+  .foaie { border-radius: 26px; margin-top: -30px; }
+  .final { margin-top: -30px; height: 520px; padding-top: 90px; }
+  .final::after { width: 1100px; left: -150px; top: 70px; -webkit-mask-image: none; mask-image: none; }
+  .viit-scena { height: 230px; border-radius: 12px; margin-bottom: 2rem; }
+  .viit-scena img { height: auto; width: 92%; }
+  .cum-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .cum-card:nth-child(n) { margin-top: 0; }
+  main .cum-card p { text-align: justify; }
+}
+
+/* pe telefon butoanele rămân cât textul lor, ca în machetă (style.css le face pe toată lățimea) */
+@media (max-width: 600px) {
+  main .btn { width: auto; }
+  .hero-cta { flex-direction: row; }
+}
+
+/* ---------- TELEFON: dâra de sus ----------
+   Pe telefon poza stă deasupra textului, deci dâra nu poate ieși din disc ca pe laptop.
+   Varianta B (cea de aici): punctul de lumină stă în afara ecranului, la marginea din
+   stânga; dâra intră de la margine sub butoane și coboară spre dreapta, sub foaie.
+   Nu trece pe lângă poză și nu apare din nimic.
+   Varianta A (nepublicată, din spatele discului) e în docs/redesign/dara-telefon-varianta-a.css. */
+@media (max-width: 920px) {
+  .hero-image-wrap::before { display: none; }
+  .hero { padding-bottom: 240px; }
+  .hero::after {
+    content: ""; position: absolute; z-index: -1; pointer-events: none;
+    width: 1600px; aspect-ratio: 1920 / 1086; left: -656px; bottom: -150px;
+    background: url("../images/dara.jpg") 0 0 / 100% 100% no-repeat;
+  }
+}
