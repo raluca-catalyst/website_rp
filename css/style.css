@@ -1069,15 +1069,21 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--border-card);
 }
 .article-date { font-family: var(--font-display); font-size: 0.85rem; color: var(--text-muted); }
+/* data și categoria, una lângă alta, pe rândul de jos al cardului */
+.article-meta-left { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.75rem; }
 .article-read-more {
   font-family: var(--font-display);
   font-size: 0.9rem;
   font-weight: 500;
   color: var(--lavender);
+  white-space: nowrap;
+  margin-left: auto;
   transition: color var(--transition);
 }
 .article-read-more:hover { color: var(--lavender-lt); }
@@ -1127,7 +1133,10 @@ footer {
   align-items: center;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
+  flex-wrap: wrap;
 }
+/* categoria articolului stă pe rândul cu data și autorul, nu deasupra titlului */
+.article-date-row .article-tag { display: inline; margin: 0; font-size: inherit; }
 .article-body {
   font-size: 1.02rem;
   line-height: 1.82;

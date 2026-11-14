@@ -52,17 +52,6 @@
       min-width: 0;
     }
 
-    /* Eticheta mono e ancora vizuală de sus a fiecărui card. */
-    .frameworks-page-grid .card-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--lavender-lt);
-      margin-bottom: 0.9rem;
-    }
-
     /* Titluri identice în ambele grile. */
     .frameworks-page-grid .framework-card h3 { font-size: 1.25rem; margin-bottom: 0.85rem; }
 
@@ -76,7 +65,8 @@
       gap: 0.75rem;
       flex-wrap: wrap;   /* plasă de siguranță; la pragurile de mai jos nu se declanșează */
     }
-    .frameworks-page-grid .framework-card > .card-actions .btn { white-space: nowrap; }
+    /* butoanele din card, mai mici decât cele de pagină, ca perechea să încapă pe un rând */
+    .frameworks-page-grid .framework-card > .card-actions .btn { white-space: nowrap; font-size: 0.9rem; padding: 0.55rem 0.9rem; }
 
     /* Pragurile de mai jos sunt alese ca o coloană să nu scadă niciodată sub
        ~300px: perechea „buton principal + PDF" are nevoie de 296px ca să stea
@@ -281,7 +271,6 @@
 
           <!-- 4D Framework -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Framework propriu</div>
             <h3>4D Framework</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Cele mai multe erori în lucrul cu AI vin din decizii greșite luate înainte de a deschide o conversație cu AI. 4D Framework oferă un proces de gândire în 4 pași: ce <strong>Delegi</strong>, cum <strong>Descrii</strong> contextul, cum <strong>Definești</strong> outputul dorit și cum <strong>Discearnezi</strong> calitatea a ceea ce primești. Funcționează pentru oricine lucrează cu AI, indiferent de tool sau rol.
@@ -300,7 +289,6 @@
 
           <!-- C.A.D.R.U. Framework -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Framework propriu</div>
             <h3>C.A.D.R.U. Framework</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Cele mai bune practici de prompting de anul trecut au încetat să funcționeze la modelele de frontieră: instrucțiunile lungi și rigide le supra-constrâng. Ce a rămas valoros e gândirea de dinainte. C.A.D.R.U. sunt cele 5 lucruri pe care numai tu le poți defini: <strong>C</strong>=Contextul pe care doar tu îl ai, <strong>A</strong>=Alegerea, <strong>D</strong>=Definiția reușitei, <strong>R</strong>=Restricțiile care chiar contează, <strong>U</strong>=Ultimul cuvânt.
@@ -315,7 +303,6 @@
 
           <!-- Ce are voie agentul tău? (fără eyebrow vizibil; spațiul păstrează alinierea rândului) -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow" style="visibility: hidden;" aria-hidden="true">Resursă</div>
             <h3>Ce are voie agentul tău?</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Ghid de 9 pagini pentru decidenți și pentru utilizatorii de agenți. Analizezi anatomia unui agent, sondezi cele <strong>5 componente ale lesei</strong> unui agent AI și folosești promptul cu <strong>5 întrebări</strong> pe care să i le pui înainte să-l lași să lucreze singur. Un ghid util pentru oricine încearcă să implementeze agenți AI în organizația sa.
@@ -330,7 +317,6 @@
 
           <!-- Matricea Contributie vs. Botsitting -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Framework propriu</div>
             <h3>Matricea contribuție vs. botsitting</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               87% dintre angajați folosesc AI zilnic, doar 13% din organizații au beneficii clare de pe urma utilizării. Matricea 2×2 îți arată în care dintre cele 4 cadrane se află felul în care utilizezi tu AI: <strong>Botsitting</strong>, <strong>Skill personal</strong>, <strong>Automatizare de rutină</strong> sau <strong>Contribuție</strong>, cadranul unde ne dorim să fim, în care câștigul personal devine câștig organizațional.
@@ -345,7 +331,6 @@
 
           <!-- M.O.D.E.L. Framework -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Framework propriu</div>
             <h3>M.O.D.E.L. Framework</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Protocolul în 5 pași pentru structurarea prompt-ului: <strong>M</strong>=Multipli experți, <strong>O</strong>=Obiective, <strong>D</strong>=Date de context, <strong>E</strong>=Etape de lucru, <strong>L</strong>=Loop de verificare. Testat în 1.000+ ore de laborator. Din 2026 are un domeniu de valabilitate clar: modelele mici, rapide sau locale, care chiar au nevoie de ghidaj directiv. Pentru modelele de frontieră, folosește C.A.D.R.U.
@@ -360,7 +345,6 @@
 
           <!-- F.O.R.C.E. Matrix -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Framework propriu</div>
             <h3>F.O.R.C.E. Matrix</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Agenții AI nu se folosesc la fel ca ChatGPT. F.O.R.C.E. Matrix oferă un cadru de decizie pentru lucrul cu sisteme AI autonome: ce tipuri de sarcini pot fi delegate, cum arată un brief potrivit și unde intervine judecata umană. Framework-ul acoperă <strong>5 categorii de task-uri delegabile</strong>, cu criterii clare pentru fiecare dintre ele.
@@ -389,7 +373,6 @@
 
           <!-- State of AI în România -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Studiu</div>
             <h3>Romanian State of AI 2026</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Al doilea an de măsurare a maturității AI în organizațiile din România: <strong>514 respondenți</strong>, comparație directă cu octombrie 2025 și distribuții complete publicate deschis. Frecvența utilizării a crescut, adâncimea nu, iar decalajul dintre angajați și organizații se vede în cifre. Util pentru decidenți care vor date, nu opinii.
@@ -404,7 +387,6 @@
 
           <!-- Raport Viitoruri -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Raport</div>
             <h3>Patru viitoruri ale muncii în România 2030</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Primul raport de foresight dedicat viitorului muncii în România. Patru scenarii construite pe date reale, din care rezultă <strong>10 competențe relevante</strong> pentru toate viitorurile posibile. Util pentru lideri care vor să planifice dincolo de trimestrul următor.
@@ -419,7 +401,6 @@
 
           <!-- Blueprint de AI Fluency -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Resursă</div>
             <h3>Blueprint de AI Fluency Organizațional</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Un plan de acțiune în <strong>26 de puncte</strong> pentru organizații care vor să construiască AI fluency sistematic. Structurat pe 6 dimensiuni: cultură și oameni, procese și fluxuri de lucru, implementare și testare, eficiență operațională, customer experience și dezvoltare continuă. Funcționează ca instrument de diagnostic și ca roadmap concret.
@@ -438,7 +419,6 @@
 
           <!-- The AI Evolution Arc -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Resursă</div>
             <h3>The AI Evolution Arc</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Un roadmap de la rezistență digitală la transformare strategică, în <strong>4 niveluri</strong>: Conscious Explorer, Augmented Practitioner, Workflow Architect și Strategic Catalyst. Util pentru evaluarea individuală și pentru maparea nivelului de AI fluency al întregii echipe.
@@ -457,7 +437,6 @@
 
           <!-- EU AI Act Compliance Checklist -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Resursă</div>
             <h3>EU AI Act Compliance Checklist</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Ce obligații ai ca deployer conform Regulamentului UE 2024/1689, cu termenele actualizate după <strong>Digital Omnibus</strong>. Checklist-ul acoperă inventarul sistemelor AI pe care le folosești, clasificarea riscului fiecăruia și pașii concreți de conformitate. Disponibil în format DOCX editabil.
@@ -476,7 +455,6 @@
 
           <!-- 30 de date verificate despre AI și muncă -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Resursă</div>
             <h3>30 de date verificate despre AI și muncă</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               <strong>30 de date</strong> despre inteligența artificială și muncă, fiecare cu sursa originală și cu capcana, adică felul în care cifra e citată greșit de obicei. Organizate pe 6 teme, de la investiții și piața muncii până la România și viteza schimbării. La final, <strong>6 cifre celebre</strong> care circulă prin prezentări, demontate la sursă.
@@ -491,7 +469,6 @@
 
           <!-- Stratul uman -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Framework propriu</div>
             <h3>Stratul uman</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Ce cultivi în tine și în echipă ca să rămâi valoros pe măsură ce AI-ul preia execuția. Trei niveluri care se construiesc unul peste altul: <strong>experiența acumulată</strong>, <strong>judecata și problem framing-ul</strong>, <strong>relaționalul și eticul</strong>. AI-ul funcționează ca un amplificator extern, peste acestea.
@@ -506,7 +483,6 @@
 
           <!-- AI Reality Check Canvas -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Resursă</div>
             <h3>AI Reality Check Canvas</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Un instrument de dialog pentru echipe: evaluarea structurată a beneficiilor, riscurilor și necunoscutelor pentru orice caz de utilizare AI. Se folosește la începutul unui proiect AI sau la evaluarea tool-urilor deja implementate.
@@ -521,7 +497,6 @@
 
           <!-- Detecție Workslop — Grila 7V -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Diagnostic</div>
             <h3>Detecție Workslop — Grila 7V</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Workslop e output-ul AI care arată îngrijit, dar e gol pe dinăuntru — și ajunge să mute munca pe umărul colegului. Grila 7V îți dă <strong>șapte verificări</strong> prin care treci orice text generat de AI înainte să-l trimiți mai departe: valoare, verificare, volum, viteză, voce, vid și valabilitate. Instrument interactiv, construit pe datele Microsoft New Future of Work 2025.
@@ -536,7 +511,6 @@
 
           <!-- Capcanele Low-Agency -->
           <div class="framework-card" style="display: flex; flex-direction: column;">
-            <div class="card-eyebrow">Diagnostic</div>
             <h3>Capcanele Low-Agency</h3>
             <p style="color: var(--text-muted); line-height: 1.7; flex-grow: 1;">
               Uneori o echipă spune că vrea AI, dar stă pe loc luni întregi. La mijloc e de obicei una dintre <strong>cinci capcane low-agency</strong>: lipsa de claritate, perfecționismul, îndrăgostirea de proces, ruminația și copleșirea. Diagnostic interactiv: alegi capcana în care te regăsești și vezi întrebarea care te scoate din ea. Adaptat după George Mack.
