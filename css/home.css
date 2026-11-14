@@ -312,3 +312,49 @@ main .final p { margin-top: 1rem; font-size: 1.3rem; color: var(--text); text-al
     background: url("../images/dara.jpg") 0 0 / 100% 100% no-repeat;
   }
 }
+
+/* ---------- LUMINA ÎN CASETE (nov 2026) ----------
+   Același Văl ca în panourile ghidului și al viitorurilor (images/valul.webp), cu altă bucată
+   în fiecare loc: produse = colțul din dreapta jos, newsletter = întors pe verticală, din dreapta sus.
+   Partea de sus și din stânga a imaginii (zona închisă, uniformă) se stinge prin mască, ca să nu
+   apară marginea pozei; lumina intră doar pe la marginile casetei, care o taie. */
+.prod-cta, .news-box { position: relative; isolation: isolate; overflow: hidden; }
+.prod-cta::before, .news-box::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none;
+  aspect-ratio: 1672 / 941;
+  background: url("../images/valul.webp") 0 0 / 100% 100% no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, transparent 0, #000 38%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, transparent 0, #000 38%);
+          mask-composite: intersect;
+}
+/* pe laptop lumina stă jos, sub ultimul rând de text: imaginea coboară sub marginea casetei,
+   care o taie; pe telefon (sub 921px) colțul întreg încape lângă ultimul buton */
+.prod-cta::before { width: 52%; right: 0; bottom: -22%; }
+@media (max-width: 920px) { .prod-cta::before { width: min(58%, 240px); bottom: 0; } }
+/* butonul cu contur stă pe telefon chiar în colțul luminat: primește fundalul casetei, ca textul lui să rămână ușor de citit */
+.prod-cta .btn-outline { background: var(--bg-deep); }
+.news-box::before { width: 46%; right: 0; top: 0; transform: scaleY(-1); }
+
+/* ---------- LUMINA ÎNCETĂ: testimoniale și presă ----------
+   Câte o singură lumină pe secțiune, în spatele rândului de casete (casetele rămân pline),
+   la jumătate de putere. Intră pe la marginea de jos și cea laterală a secțiunii și trece
+   pe sub banda închisă care urmează (În cifre, respectiv Raluca în acțiune). */
+.testim, .presa-sec { position: relative; isolation: isolate; overflow: hidden; }
+.testim::before, .presa-sec::before {
+  content: ""; position: absolute; z-index: -1; pointer-events: none; bottom: 0;
+  aspect-ratio: 1672 / 941; opacity: 0.5;
+  background: url("../images/valul.webp") 0 0 / 100% 100% no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, transparent 0, #000 38%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, transparent 0, #000 38%);
+          mask-composite: intersect;
+}
+/* testimoniale: lumina vine din stânga jos (întoarsă), ca la Patru viitoruri */
+.testim::before { width: min(900px, 70%); left: 0; transform: scaleX(-1); }
+/* presă: din dreapta jos, mai mică */
+.presa-sec::before { width: min(760px, 60%); right: 0; }
+@media (max-width: 920px) {
+  .testim::before { width: 120%; }
+  .presa-sec::before { width: 110%; }
+}

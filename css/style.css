@@ -119,7 +119,7 @@ p  { color: var(--text-sec); }
   top: 0; left: 0; right: 0;
   z-index: 1001;
   height: 36px;
-  background: var(--lavender);
+  background: var(--aramiu);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,7 +137,10 @@ p  { color: var(--text-sec); }
   text-overflow: ellipsis;
   padding: 0 16px;
 }
-.announce-bar a:hover { opacity: 0.75; }
+/* hover și focus: textul rămâne indigo plin (contrast 6,5:1 pe arămiu); se subliniază,
+   iar la tastatură primește și un contur indigo */
+.announce-bar a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.announce-bar a:focus-visible { outline: 2px solid #1b1559; outline-offset: -4px; text-decoration: underline; text-underline-offset: 3px; }
 body.has-announce-bar .nav       { top: 36px; }
 body.has-announce-bar .mobile-menu { top: 36px; }
 /* Pe ecrane inguste taiem prefixul, ca sa incapa data si call-to-action-ul */
