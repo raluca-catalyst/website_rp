@@ -81,7 +81,7 @@ const GHID_CONFIRMATION_EMAIL_HTML = (email) => `
     body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
     .wrap { max-width: 560px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; }
     .header { background: #ffffff; padding: 32px 40px 24px; border-bottom: 1px solid #eee; }
-    .header h1 { color: #9B8AF0; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 10px; }
+    .header h1 { color: #7c3aed; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 10px; }
     .header h2 { color: #111111; font-size: 22px; font-weight: 700; margin: 0; line-height: 1.3; }
     .body { padding: 36px 40px; }
     .body p { font-size: 15px; color: #444; line-height: 1.7; margin: 0 0 16px; }
@@ -115,7 +115,7 @@ const GHID_CONFIRMATION_EMAIL_HTML = (email) => `
     </div>
     <div class="footer">
       <p>Ai primit acest email deoarece te-ai înscris pe lista de așteptare pentru ghidul de adopție AI pe ralucapaduraru.ro/ghid-adoptie.<br>
-      Pentru a te retrage de pe listă, trimite un email la <a href="mailto:contact@upvance.global" style="color:#9B8AF0">contact@upvance.global</a>.</p>
+      Pentru a te retrage de pe listă, trimite un email la <a href="mailto:contact@upvance.global" style="color:#7c3aed">contact@upvance.global</a>.</p>
     </div>
   </div>
 </body>
@@ -132,13 +132,13 @@ const CONFIRMATION_EMAIL_HTML = (email) => `
     body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
     .wrap { max-width: 560px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; }
     .header { background: #0A0A0F; padding: 32px 40px; }
-    .header h1 { color: #9B8AF0; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 8px; }
+    .header h1 { color: #7c3aed; font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 8px; }
     .header h2 { color: #ffffff; font-size: 22px; font-weight: 700; margin: 0; line-height: 1.3; }
     .body { padding: 36px 40px; }
     .body p { font-size: 15px; color: #444; line-height: 1.7; margin: 0 0 16px; }
     .body ul { padding-left: 20px; margin: 0 0 20px; }
     .body ul li { font-size: 15px; color: #444; line-height: 1.7; margin-bottom: 6px; }
-    .cta { display: inline-block; background: #9B8AF0; color: #ffffff; text-decoration: none; padding: 13px 24px; border-radius: 8px; font-weight: 600; font-size: 15px; margin: 8px 0 20px; }
+    .cta { display: inline-block; background: #7c3aed; color: #ffffff; text-decoration: none; padding: 13px 24px; border-radius: 8px; font-weight: 600; font-size: 15px; margin: 8px 0 20px; }
     .footer { background: #f9f9f9; padding: 24px 40px; border-top: 1px solid #eee; }
     .footer p { font-size: 12px; color: #888; line-height: 1.6; margin: 0; }
     .sig { font-size: 14px; color: #333; font-weight: 600; margin-top: 24px; }
@@ -171,7 +171,7 @@ const CONFIRMATION_EMAIL_HTML = (email) => `
     </div>
     <div class="footer">
       <p>Ai primit acest email deoarece te-ai inscris pe lista de asteptare pentru raportul "4 Viitoruri ale Muncii in Romania 2030" pe ralucapaduraru.ro.<br>
-      Pentru a te retrage de pe lista, trimite un email la <a href="mailto:contact@upvance.global" style="color:#9B8AF0">contact@upvance.global</a>.</p>
+      Pentru a te retrage de pe lista, trimite un email la <a href="mailto:contact@upvance.global" style="color:#7c3aed">contact@upvance.global</a>.</p>
     </div>
   </div>
 </body>
