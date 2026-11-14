@@ -186,11 +186,8 @@ main .testi-l blockquote p { font-size: 0.98rem; }
 .cifra-nr { display: block; font-family: var(--font-display); font-weight: 300; letter-spacing: -0.04em; line-height: 1; font-size: clamp(3rem, 6.4vw, 5.4rem); color: var(--aramiu); }
 .cifra-label { display: block; margin-top: 0.6rem; color: var(--text); font-size: 1.08rem; }
 
-/* ---------- CREDENȚIALE și PRESĂ ---------- */
+/* ---------- CREDENȚIALE și PRESĂ (casetele .cred stau în style.css, comune cu Despre) ---------- */
 .cred-sec { padding: clamp(3.5rem, 7vw, 5.5rem) 0 0; }
-.cred-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.25rem; }
-.cred { border-radius: 20px; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 1.1rem 1.1rem 1.4rem; color: var(--text); font-size: 1.02rem; line-height: 1.45; }
-.cred img { display: block; width: 100%; height: 150px; object-fit: contain; background: #fff; border-radius: 12px; padding: 1.1rem; margin-bottom: 1.2rem; }
 .presa-sec { padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
 .presa-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; margin-top: 2.25rem; }
 .presa-row a { flex: 0 0 calc((100% - 3.6rem) / 5); text-align: center; border-radius: 14px; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 1.1rem 1.5rem; font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; color: var(--text); transition: border-color var(--transition); }
@@ -276,9 +273,6 @@ main .final p { margin-top: 1rem; font-size: 1.3rem; color: var(--text); text-al
   .cifre-grid { grid-template-columns: 1fr 1fr; gap: 1.8rem 1.2rem; }
   .cifra, .cifra:nth-child(4) { grid-column: auto; }
   .cifra:nth-child(5) { grid-column: 1 / -1; }
-  .cred-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-  .cred { padding: 0.8rem 0.8rem 1.1rem; border-radius: 14px; }
-  .cred img { height: 110px; padding: 0.8rem; }
   .video-grid { grid-template-columns: 1fr; }
   .presa-row a { flex-basis: calc((100% - 0.9rem) / 2); padding: 0.9rem 0.6rem; font-size: 1rem; }
   .foaie { border-radius: 26px; margin-top: -30px; }

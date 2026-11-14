@@ -37,6 +37,20 @@
     /* Full-width paragraphs in section headers on this page */
     .section-header p { max-width: none; }
 
+    /* Lumina (Vălul) în caseta evidențiată AI Business Translator: din colțul de jos-dreapta,
+       în spatele butonului; textul stă în stânga casetei. */
+    section[aria-labelledby="abt-featured-heading"] .fade-up { position: relative; isolation: isolate; overflow: hidden; }
+    section[aria-labelledby="abt-featured-heading"] .fade-up::before {
+      content: ""; position: absolute; z-index: -1; pointer-events: none; right: 0; bottom: 0;
+      width: min(460px, 40%); aspect-ratio: 1672 / 941;
+      background: url("../images/valul.webp") 0 0 / 100% 100% no-repeat;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, transparent 0, #000 38%);
+      -webkit-mask-composite: source-in;
+              mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, transparent 0, #000 38%);
+              mask-composite: intersect;
+    }
+    @media (max-width: 920px) { section[aria-labelledby="abt-featured-heading"] .fade-up::before { display: none; } }
+
     /* Trei coloane strict egale. minmax(0, 1fr) împiedică un conținut lat
        (un buton care nu se rupe, un titlu lung) să umfle o coloană. */
     .frameworks-page-grid {

@@ -572,27 +572,19 @@ body.has-announce-bar .mobile-menu { top: 36px; }
 }
 .stat-label { font-size: 0.78rem; color: var(--text-sec); line-height: 1.45; }
 
-.credentials-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.75rem 2.5rem;
+/* credențialele: câte o casetă indigo, cu logo-ul mare, în culorile lui, pe o plăcuță albă
+   (aceleași pe prima pagină și pe Despre) */
+.cred-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2.25rem; }
+.cred { border-radius: 20px; background: var(--bg-deep); border: 1px solid var(--hairline); padding: 1.1rem 1.1rem 1.4rem; color: var(--text); font-size: 1.02rem; line-height: 1.45; }
+.cred img { display: block; width: 100%; height: 150px; object-fit: contain; background: #fff; border-radius: 12px; padding: 1.1rem; margin-bottom: 1.2rem; }
+/* pe o bandă mai închisă (section-alt) casetele iau fundalul paginii, ca să se vadă ca niște casete */
+.section-alt .cred { background: var(--bg); }
+.section-header + .cred-grid { margin-top: 0; }
+@media (max-width: 920px) {
+  .cred-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .cred { padding: 0.8rem 0.8rem 1.1rem; border-radius: 14px; }
+  .cred img { height: 110px; padding: 0.8rem; }
 }
-.credential-badge {
-  display: flex; align-items: center; gap: 1rem;
-  padding: 0;
-  border: none;
-  background: none;
-  font-size: 0.85rem;
-  color: var(--text-sec);
-}
-.credential-badge img {
-  width: 52px; height: 52px;
-  object-fit: contain;
-  filter: grayscale(1) brightness(1.6);
-  opacity: 0.7;
-  flex-shrink: 0;
-}
-.credential-badge span { line-height: 1.4; }
 
 /* ============================
    FOOTER CTA
@@ -613,6 +605,41 @@ body.has-announce-bar .mobile-menu { top: 36px; }
   font-size: 0.95rem;
   line-height: 1.65;
 }
+
+/* ============================
+   LUMINA PE PAGINI (Vălul, images/valul.webp)
+   Regula comună: banda de sus a paginii (.page-header) primește lumina din colțul de jos-stânga,
+   întoarsă și mai stinsă; chemarea de la final (.footer-cta) o primește din colțul de jos-dreapta,
+   întreagă. Lumina intră pe la marginea benzii, care o taie; partea închisă a imaginii (sus și spre
+   interior) se stinge prin mască, ca să nu se vadă marginea pozei. Textul e centrat, deci colțurile
+   benzilor sunt goale; contrastul textului a fost măsurat la fiecare lățime.
+   ============================ */
+.page-header, .report-hero, .footer-cta, .lp-footer-cta { position: relative; isolation: isolate; overflow: hidden; }
+.page-header::before, .report-hero::before, .footer-cta::before, .lp-footer-cta::after {
+  content: ""; position: absolute; z-index: -1; pointer-events: none; bottom: 0;
+  aspect-ratio: 1672 / 941;
+  background: url("../images/valul.webp") 0 0 / 100% 100% no-repeat;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, transparent 0, #000 38%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(to bottom, transparent 0, #000 30%), linear-gradient(to right, transparent 0, #000 38%);
+          mask-composite: intersect;
+}
+/* sus: o fâșie de lumină în spațiul gol de sub text, din colțul de jos-stânga, întoarsă.
+   Are înălțimea exactă a spațiului de sub ultimul rând (padding-ul de jos al benzii), deci nu ajunge
+   sub text, oricât de lung e paragraful. Se vede partea de jos a Vălului: colțul luminos și firele. */
+.page-header::before {
+  left: 0; width: min(760px, 58vw); height: clamp(3rem, 6vw, 5rem); aspect-ratio: auto;
+  background-size: 100% auto; background-position: 0 100%;
+  transform: scaleX(-1); opacity: 0.8;
+}
+/* banda de sus a raportului Romanian State of AI: aceeași fâșie, la înălțimea spațiului de sub butoane */
+.report-hero::before {
+  left: 0; width: min(760px, 58vw); height: 4rem; aspect-ratio: auto;
+  background-size: 100% auto; background-position: 0 100%;
+  transform: scaleX(-1); opacity: 0.8;
+}
+/* final: din dreapta jos, întreagă (și pe varianta de final a paginilor de ghid și raport, .lp-footer-cta) */
+.footer-cta::before, .lp-footer-cta::after { right: 0; width: min(640px, 46vw); }
 
 /* ============================
    FOOTER
