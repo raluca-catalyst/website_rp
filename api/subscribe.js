@@ -96,7 +96,6 @@ const GHID_CONFIRMATION_EMAIL_HTML = (email) => `
 <body>
   <div class="wrap">
     <div class="header">
-      <h1>Upvance Global</h1>
       <h2>Ești pe listă. Pe 8 octombrie primești ghidul.</h2>
     </div>
     <div class="body">
@@ -148,7 +147,6 @@ const CONFIRMATION_EMAIL_HTML = (email) => `
 <body>
   <div class="wrap">
     <div class="header">
-      <h1>Upvance Global</h1>
       <h2>Esti pe lista. Pe 3 aprilie primesti raportul.</h2>
     </div>
     <div class="body">
@@ -162,7 +160,7 @@ const CONFIRMATION_EMAIL_HTML = (email) => `
         <li>14 actiuni pe care le poti lua ca lider sau profesionist</li>
       </ul>
       <p>Pana pe 3 aprilie, daca vrei sa afli mai multe despre viitorurile muncii, ma gasesti pe LinkedIn:</p>
-      <a class="cta" href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank">LinkedIn &rarr;</a>
+      <a class="cta" style="color:#ffffff" href="https://www.linkedin.com/in/paduraru-raluca/" target="_blank">LinkedIn &rarr;</a>
       <p>Ne auzim curand,</p>
       <p class="sig">
         Raluca Paduraru

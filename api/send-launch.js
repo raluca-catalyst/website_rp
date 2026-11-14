@@ -38,13 +38,12 @@ const LAUNCH_EMAIL_HTML = `
 <body>
   <div class="wrap">
     <div class="header">
-      <h1>Upvance Global</h1>
       <h2>Raportul e gata. Descarcă-l acum.</h2>
     </div>
     <div class="body">
       <p>Salutare,</p>
       <p>Ți-am promis că pe 3 aprilie primești raportul. Iată-l.</p>
-      <a class="cta" href="${PDF_URL}" target="_blank">Descarcă &ldquo;Patru viitoruri ale muncii în România 2030&rdquo; &rarr;</a>
+      <a class="cta" style="color:#ffffff" href="${PDF_URL}" target="_blank">Descarcă &ldquo;Patru viitoruri ale muncii în România 2030&rdquo; &rarr;</a>
       <p>Câteva cifre din raport, ca aperitiv:</p>
       <ul>
         <li>5,2% din companiile din România folosesc AI. Ultimul loc în UE.</li>
@@ -95,13 +94,12 @@ const GHID_LAUNCH_EMAIL_HTML = `
 <body>
   <div class="wrap">
     <div class="header">
-      <h1>Upvance Global</h1>
       <h2>Ghidul e gata. Descarcă-l acum.</h2>
     </div>
     <div class="body">
       <p>Bună,</p>
       <p>Ți-am promis că pe 8 octombrie primești ghidul. Iată-l.</p>
-      <a class="cta" href="${GHID_PDF_URL}" target="_blank">Descarcă &bdquo;Ai primit mandatul să te ocupi de AI. De unde începi?&rdquo; &rarr;</a>
+      <a class="cta" style="color:#ffffff" href="${GHID_PDF_URL}" target="_blank">Descarcă &bdquo;Ai primit mandatul să te ocupi de AI. De unde începi?&rdquo; &rarr;</a>
       <p>Ce găsești în cele 77 de pagini:</p>
       <ul>
         <li>Traseul primelor 90 de zile: mandatul, echipa, regulile, primul pilot, măsurarea și raportul către conducere</li>
