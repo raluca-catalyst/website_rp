@@ -161,7 +161,7 @@ const RESOURCES = {
       <a class="cta" style="color:#ffffff" href="${this.pdfUrl}" target="_blank">Descarcă ghidul &rarr;</a>
       <p>Are 9 pagini. Dacă vrei să începi direct cu verificarea, promptul e la pagina 5: îl copiezi în agentul tău și citești ce răspunde.</p>
       <p>După ce îi pui întrebările, am o invitație: dă-mi un reply cu o singură propoziție. <strong>La care dintre cele 5 întrebări a răspuns agentul tău cel mai vag?</strong></p>`,
-        postscript: `<p>P.S. Dacă vrei să-ți construiești propriul sistem de agenți, cu informația, know-how-ul și regulile tale, asta facem la Build Your Cortex. Într-o zi îți construiești un sistem AI personal, care îți cunoaște obiectivele și regulile pe baza cărora lucrezi. Estimez că următoarea ediție va avea loc pe 28 ianuarie 2027, în București. Dacă vrei să afli primul când se deschid înscrierile, intră pe lista de așteptare: <a href="https://www.ralucapaduraru.ro/build-your-cortex#inscriere" style="color:#7c3aed">Mă înscriu pe lista de așteptare</a></p>`,
+        postscript: `<p>P.S. Dacă vrei să-ți construiești propriul sistem de agenți, cu informația, know-how-ul și regulile tale, asta facem la Build Your Cortex. Într-o zi îți construiești un sistem AI personal, care îți cunoaște obiectivele și regulile pe baza cărora lucrezi. Următoarea ediție are loc pe 28 ianuarie 2027, la Nagarro Orhideea Towers, în București. Dacă vrei să afli primul când se deschid înscrierile, intră pe lista de așteptare: <a href="https://www.ralucapaduraru.ro/build-your-cortex#inscriere" style="color:#7c3aed">Mă înscriu pe lista de așteptare</a></p>`,
       });
     },
   },
@@ -177,8 +177,8 @@ const RESOURCES = {
         bodyHtml: `
       <p>${salut}</p>
       <p>Felicitări pentru că te-ai înscris pe lista de așteptare pentru <strong>Build Your Cortex</strong>! Iată mai jos detaliile de care ai nevoie acum.</p>
-      <p><strong>Când:</strong> 28 ianuarie 2027, de la 9:30 la 17:30. Momentan, data este doar o estimare și urmează să vin cu o confirmare clară până la final de noiembrie.<br>
-      <strong>Unde:</strong> București. Locul exact urmează să fie confirmat odată cu data.<br>
+      <p><strong>Când:</strong> 28 ianuarie 2027, de la 9:30 la 17:30.<br>
+      <strong>Unde:</strong> Nagarro Orhideea Towers, București.<br>
       <strong>Investiția:</strong> 1.337 lei.</p>
       <p>Pentru că te-ai înscris pe lista de așteptare, vei afla primul când se deschid înscrierile. Locurile sunt limitate și se ocupă în ordinea efectuării plăților.</p>
       <p>Ulterior, lucrăm împreună pentru ca tu să poți deveni CEO-ul propriului sistem de lucru cu AI.</p>
