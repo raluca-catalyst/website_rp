@@ -179,8 +179,8 @@ const RESOURCES = {
       <p>Felicitări pentru că te-ai înscris pe lista de așteptare pentru <strong>Build Your Cortex</strong>! Iată mai jos detaliile de care ai nevoie acum.</p>
       <p><strong>Când:</strong> 28 ianuarie 2027, de la 9:30 la 17:30.<br>
       <strong>Unde:</strong> Nagarro Orhideea Towers, București.<br>
-      <strong>Investiția:</strong> 1.337 lei.</p>
-      <p>Pentru că te-ai înscris pe lista de așteptare, vei afla primul când se deschid înscrierile. Locurile sunt limitate și se ocupă în ordinea efectuării plăților.</p>
+      <strong>Investiția:</strong> 1.490 lei.</p>
+      <p>Pentru că te-ai înscris pe lista de așteptare, beneficiezi de un preț special: în loc de 1.490 lei, plătești 1.337 lei. Acest preț e valabil dacă achiți până la finalul zilei pe 13 decembrie. Locurile sunt limitate și se ocupă în ordinea efectuării plăților.</p>
       <p>Ulterior, lucrăm împreună pentru ca tu să poți deveni CEO-ul propriului sistem de lucru cu AI.</p>
       <p>Dacă ai orice fel de întrebări, dă-mi un reply la acest email.</p>`,
       });
