@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Raluca Păduraru" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Cum construiești o ofertă care vinde cu ajutorul AI · Stup · 26 noiembrie 2026</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png" />
+<!--
+  Fișa de lucru Stup, 26 nov 2026. Sursa textului: wiki/workshop-design/stup/fisa-oferta-text.md.
+  Construită din fisa-lucru-raluca/assets/fisa-template.html, pe brandul Upvance din 14 nov 2026, cu 2 teme.
+  Orice corectură de text se face și în .md, în aceeași rundă.
+-->
+
+<!-- 1. Google Consent Mode defaults (must be FIRST) -->
+<script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        analytics_storage: "denied",
+        functionality_storage: "denied",
+        personalization_storage: "denied",
+        security_storage: "granted",
+        wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+</script>
+
+<!-- 2. Cookiebot CMP (must be SECOND) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f162324-b38d-4877-916f-0a08bd2fa970" type="text/javascript" async></script>
+
+<!-- 2b. Cookiebot -> GA consent update -->
+<script>
+  function updateGAConsent() {
+    if (typeof Cookiebot === 'undefined') return;
+    gtag('consent', 'update', {
+      ad_personalization:      Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_storage:              Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      ad_user_data:            Cookiebot.consent.marketing   ? 'granted' : 'denied',
+      analytics_storage:       Cookiebot.consent.statistics  ? 'granted' : 'denied',
+      functionality_storage:   Cookiebot.consent.preferences ? 'granted' : 'denied',
+      personalization_storage: Cookiebot.consent.preferences ? 'granted' : 'denied',
+    });
+  }
+  window.addEventListener('CookiebotOnAccept',       updateGAConsent, false);
+  window.addEventListener('CookiebotOnDecline',      updateGAConsent, false);
+  window.addEventListener('CookiebotOnConsentReady', updateGAConsent, false);
+</script>
+
+<!-- 3. Google Analytics (must be AFTER Cookiebot) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M4ET119Z1X" data-cookieconsent="ignore"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M4ET119Z1X');
+</script>
+
+<script>
+/* TEMA. Rulează înainte de randare, ca să nu clipească pagina. */
+(function(){
+  var t = null;
+  try { t = localStorage.getItem('stup-oferta-26nov-tema'); } catch(e) {}
+  if (t !== 'dark' && t !== 'light') t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* BRANDUL: Upvance, tema luminoasă (brand-lock: fisa-luminoasa). */
+  :root{
+    --bg:#ffffff; --card:#f4f2fb; --card2:#ece8f8; --ink:#1a1a1a; --soft:rgba(0,0,0,0.70); --gray:rgba(0,0,0,0.60);
+    --line:rgba(27,21,89,0.14); --main:#7c3aed; --main-ink:#ffffff; --a1:#7c3aed; --a2:#7c3aed; --a3:#7c3aed;
+    --head:'Space Grotesk',sans-serif; --body:'Barlow',sans-serif; --acc:var(--a1);
+    --main-text:#7c3aed; --nr:#b8561c; --nr-ink:#ffffff;
+  }
+  /* Tema închisă (brand-lock: fisa-inchisa). */
+  html[data-theme="dark"]{
+    --bg:#1b1559; --card:#150f47; --card2:#120d3d; --ink:#f1eefd; --soft:rgba(241,238,253,0.74); --gray:rgba(241,238,253,0.62);
+    --line:rgba(241,238,253,0.14); --main:#7c3aed; --main-ink:#ffffff; --a1:rgba(241,238,253,0.74); --a2:rgba(241,238,253,0.74); --a3:rgba(241,238,253,0.74);
+    --main-text:#f1eefd; --nr:#f0894a; --nr-ink:#1b1559;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--body);background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+  a{color:var(--main-text)}
+
+  /* LĂȚIMEA: textul ocupă toată lățimea zonei de conținut; paragrafele sunt justify. */
+  :root{--gut:max(16px,calc((100vw - 1180px) / 2))}
+  p,.save{text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+
+  header{padding:40px var(--gut) 30px;border-bottom:1px solid var(--line)}
+  header h1{font-family:var(--head);font-size:42px;font-weight:500;line-height:1.12}
+  header p{margin-top:12px;font-size:18px;color:var(--soft)}
+  .themebox{margin-top:16px;display:flex;gap:6px}
+  .themebox button{font-family:var(--head);font-size:13px;background:transparent;color:var(--gray);border:1px solid var(--line);padding:6px 12px;cursor:pointer}
+  .themebox button.on{color:var(--main-text);border-color:var(--main)}
+
+  /* CELE 4 SPAȚII: butoanele stau în bara lipită, deci se văd mereu. */
+  .spatii{display:flex;gap:6px;padding:10px 12px}
+  .spbtn{flex:1;font-family:var(--head);font-size:15px;font-weight:500;background:transparent;color:var(--ink);border:1.5px solid var(--line);padding:11px 8px;cursor:pointer}
+  .spbtn.on{background:var(--main);border-color:var(--main);color:var(--main-ink)}
+  @media(max-width:1179px){.spatii{flex-wrap:wrap}.spbtn{flex:1 1 40%}}
+  .sp{display:none} .sp.show{display:block}
+
+  .navwrap{background:var(--bg);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line)}
+  .nav{display:none;gap:2px;overflow-x:auto;padding:0 12px;scrollbar-width:none}
+  .nav.show{display:flex}
+  .nav::-webkit-scrollbar{display:none}
+  .navbtn{background:none;border:none;color:var(--gray);padding:10px 12px;cursor:pointer;font-size:14px;font-family:var(--head);white-space:nowrap;border-bottom:2px solid transparent}
+  .navbtn:hover{color:var(--ink)}
+  .navbtn.active{color:var(--ink);border-bottom-color:var(--main)}
+  .navbtn .no,.navbtn .ns{display:none}
+
+  @media(min-width:1180px){
+    :root{--gut:max(32px,calc((100vw - 290px - 1180px) / 2))}
+    .layout{display:grid;grid-template-columns:290px minmax(0,1fr);align-items:start}
+    header{padding-left:calc(290px + var(--gut))}
+    .layout footer{grid-column:2;width:100%}
+    .navwrap{height:100vh;overflow-y:auto;border-bottom:none;border-right:1px solid var(--line)}
+    .spatii{flex-direction:column;padding:24px 20px 14px}
+    .spbtn{text-align:left;padding:11px 14px}
+    .nav{flex-direction:column;gap:0;overflow:visible;padding:8px 0 24px}
+    .navbtn{display:block;width:100%;text-align:left;white-space:normal;line-height:1.4;padding:12px 20px;border-bottom:none;border-left:3px solid transparent}
+    .navbtn .nt{display:block;font-size:15px;font-weight:500}
+    .navbtn.active{background:var(--card);border-left-color:var(--main)}
+    .navbtn.active .no{display:block;font-family:var(--body);font-style:italic;font-size:14px;color:var(--soft);margin-top:6px}
+    .navbtn.active .ns{display:block;font-family:var(--body);font-size:14px;color:var(--ink);margin-top:6px}
+  }
+
+  main{padding:28px var(--gut) 60px}
+
+  .box,.plain{background:var(--card);border:1px solid var(--line);margin-bottom:16px;padding:24px}
+  .hd{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .num{font-family:var(--head);font-size:15px;font-weight:500;color:var(--nr-ink);background:var(--nr);width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .box h3,.plain h2{font-family:var(--head);font-size:26px;font-weight:500;line-height:1.2}
+  .plain h2{margin-bottom:12px}
+  .box h4,.plain h4{font-family:var(--head);font-size:17px;font-weight:500;color:var(--ink);margin:22px 0 8px}
+  .box p,.plain p{margin-bottom:10px}
+  .helper{font-size:15px;color:var(--gray)}
+  ul.bul,ol.bul{padding-left:22px;margin:8px 0 12px}
+  ul.bul li,ol.bul li{margin-bottom:6px}
+
+  .field{margin:16px 0}
+  .fk{font-weight:600}
+  .fd{font-size:15px;color:var(--gray)}
+  .fblock{display:block;min-height:40px;background:var(--bg);border:1px solid var(--line);border-bottom:2px solid var(--main);padding:9px 10px;outline:none;margin-top:8px;white-space:pre-wrap;overflow-wrap:anywhere}
+  .fblock:focus{border-color:var(--main)}
+  .fblock:empty:before{content:attr(data-ph);color:var(--gray);opacity:.8;font-size:15px}
+  .fbig{min-height:84px}
+
+  .mat{border:1px solid var(--line);margin:16px 0;background:var(--card2)}
+  .mat .mh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .mat .mt{font-family:var(--head);font-weight:500}
+  .mat .ms{font-size:14px;color:var(--gray)}
+  .mat pre{font-family:var(--body);font-size:15px;line-height:1.55;color:var(--soft);white-space:pre-wrap;overflow-wrap:anywhere;padding:14px 16px;max-height:380px;overflow:auto}
+  .btns{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{font-family:var(--head);background:var(--main);color:var(--main-ink);border:1.5px solid var(--main);padding:11px 18px;font-size:15px;font-weight:500;cursor:pointer}
+  .btn.ghost{background:transparent;color:var(--main-text)}
+  .btn.done{opacity:.8}
+
+  .mis{border-left:3px solid var(--nr);background:var(--card2);padding:14px 18px;margin:16px 0}
+  .mis .ml{font-family:var(--head);font-weight:500;margin-bottom:6px}
+  .mis ul{padding-left:20px}
+  .mis li{margin-bottom:4px}
+
+  table.grid{width:100%;border-collapse:collapse;font-size:16px;margin:10px 0 14px}
+  table.grid th{text-align:left;font-family:var(--head);font-size:14px;font-weight:500;color:var(--gray);padding:9px 10px;border-bottom:1px solid var(--line)}
+  table.grid td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.pret th:not(:first-child),table.pret td:not(:first-child){text-align:center}
+  @media(max-width:700px){
+    table.stack thead{display:none}
+    table.stack tr{display:block;border-bottom:1px solid var(--line);padding:10px 0}
+    table.stack td{display:block;border:none;padding:3px 0}
+    table.stack td:before{content:attr(data-l);display:block;font-family:var(--head);font-size:13px;color:var(--gray)}
+    table.pret{font-size:14px}
+    table.pret th,table.pret td{padding:8px 4px}
+  }
+
+  .links a{display:block;font-family:var(--head);font-size:18px;font-weight:500;border:1.5px solid var(--main);padding:14px 16px;margin:10px 0;text-decoration:none;overflow-wrap:anywhere}
+
+  /* CHECKLISTUL */
+  .ck{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+  .ck .ct{flex:1;min-width:0}
+  .st{display:flex;gap:6px;flex-shrink:0}
+  .stb{font-family:var(--head);font-size:14px;background:transparent;color:var(--ink);border:1.5px solid var(--line);padding:9px 12px;cursor:pointer}
+  .stb.on{background:var(--main);border-color:var(--main);color:var(--main-ink)}
+  @media(max-width:700px){.ck{display:block}.st{margin-top:8px}.stb{flex:1}}
+
+  .next{display:flex;justify-content:flex-end;margin-bottom:18px}
+  .nextbtn{background:transparent;color:var(--main-text);border:1.5px solid var(--main);padding:10px 16px;font-size:15px;font-weight:500;font-family:var(--head);cursor:pointer}
+
+  .save{border:1px dashed var(--line);padding:16px 18px;margin:18px 0;color:var(--soft)}
+  footer{padding:0 var(--gut) 50px;font-size:14px;color:var(--gray)}
+  @media(max-width:640px){header h1{font-size:30px}.box,.plain{padding:18px}.btn{flex:1}}
+
+  /* Forma din mostra de brandbook (brandbook/exemple/fisa.html): titluri Space Grotesk 400, strânse; casete rotunjite; butoane cu colț de 6px. */
+  header h1{font-weight:400;letter-spacing:-0.03em}
+  .box h3,.plain h2{font-weight:400;letter-spacing:-0.02em}
+  .box,.plain,.mat,.save{border-radius:16px}
+  .mat{overflow:hidden}
+  .btn,.nextbtn,.spbtn,.stb,.themebox button,.num,.fblock,.links a{border-radius:6px}
+  .mis{border-radius:0 6px 6px 0}
+
+  /* ICOANELE */
+  .ic{width:36px;height:36px;flex-shrink:0;margin-left:auto;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;color:var(--ink);opacity:.82}
+  .ic.mic{width:19px;height:19px;margin:0 8px 0 0;vertical-align:-4px;display:inline-block;color:inherit;opacity:1;stroke-width:1.7}
+  .hd h2{margin-bottom:0}
+  .plain .hd{margin-bottom:14px}
+  @media(max-width:640px){.ic{width:28px;height:28px}.ic.mic{width:17px;height:17px;margin-right:6px}}
+
+  /* Print-ul iese mereu luminos și arată doar spațiul deschis. */
+  @media print{
+    :root,html[data-theme="dark"]{--bg:#fff;--card:#fff;--card2:#f6f6f8;--ink:#111;--soft:#333;--gray:#555;--line:#bbb;--main:#111;--main-ink:#fff;--a1:#333;--a2:#333;--a3:#333;--main-text:#111;--nr:#111;--nr-ink:#fff}
+    body{background:#fff;color:#111;font-size:11pt}
+    header{background:#fff;border-bottom:2px solid #111;padding:0 0 12px}
+    main{padding:12px 0 0}
+    footer{padding:12px 0 0}
+    .navwrap,.noprint,.btn,.next,.btns,.themebox{display:none !important}
+    .layout{display:block !important}
+    .box,.plain,.mat,.mis{background:#fff !important;border:1px solid #bbb;color:#111}
+    .num{background:#111 !important;color:#fff !important}
+    .fblock{border:none;border-bottom:1px solid #999;border-radius:0}
+    .fblock:empty:before{content:""}
+    .mat pre{max-height:none}
+    .stb{display:none}
+    .stb.on{display:inline-block;background:#fff;color:#111;border:1px solid #111}
+  }
+</style>
+</head>
+<body>
+
+<!-- ICOANELE: linii simple, în culoarea textului (brandbook: „Minimal geometric line icons”). Desenate în cod, nu generate. -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-creion" viewBox="0 0 24 24"><path d="M4 20l1-4.5L16.5 4a2.1 2.1 0 0 1 3 3L8 18.5z"/><path d="M14.5 6l3.5 3.5"/></symbol>
+  <symbol id="i-client" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></symbol>
+  <symbol id="i-tinta" viewBox="0 0 24 24"><circle cx="11" cy="13" r="8"/><circle cx="11" cy="13" r="4"/><path d="M11 13l8.5-8.5"/><path d="M16.5 4.5h3v3"/></symbol>
+  <symbol id="i-blocuri" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7.5" height="7.5" rx="1.8"/><rect x="13" y="3.5" width="7.5" height="7.5" rx="1.8"/><rect x="3.5" y="13" width="7.5" height="7.5" rx="1.8"/><rect x="13" y="13" width="7.5" height="7.5" rx="1.8"/></symbol>
+  <symbol id="i-trepte" viewBox="0 0 24 24"><rect x="3.5" y="13" width="4.6" height="7.5" rx="1.4"/><rect x="9.7" y="8.5" width="4.6" height="12" rx="1.4"/><rect x="15.9" y="4" width="4.6" height="16.5" rx="1.4"/></symbol>
+  <symbol id="i-dialog" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H11l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5z"/><path d="M8.5 10h.01M12 10h.01M15.5 10h.01"/></symbol>
+  <symbol id="i-cadou" viewBox="0 0 24 24"><rect x="4.5" y="11" width="15" height="9.5" rx="1.6"/><rect x="3.2" y="7.4" width="17.6" height="3.6" rx="1.2"/><path d="M12 7.4v13.1"/><path d="M12 7.4C10.6 3.6 6.4 3.9 7 6.2c.4 1.4 2.8 1.3 5 1.2z"/><path d="M12 7.4c1.4-3.8 5.6-3.5 5-1.2-.4 1.4-2.8 1.3-5 1.2z"/></symbol>
+  <symbol id="i-piatra" viewBox="0 0 24 24"><path d="M6.5 4h11l4 5.2L12 20.5 2.5 9.2z"/><path d="M2.5 9.2h19"/><path d="M9.2 4L7.8 9.2 12 20.5l4.2-11.3L14.8 4"/></symbol>
+  <symbol id="i-pagina" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.2"/><path d="M3 9h18"/><path d="M6 6.8h.01M8.5 6.8h.01"/><path d="M7 13h6M7 16h10"/></symbol>
+  <symbol id="i-iesire" viewBox="0 0 24 24"><path d="M10 5H6.5A2.5 2.5 0 0 0 4 7.5v10A2.5 2.5 0 0 0 6.5 20h10a2.5 2.5 0 0 0 2.5-2.5V14"/><path d="M14 4h6v6"/><path d="M20 4l-9 9"/></symbol>
+  <symbol id="i-bifa" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3.4"/><path d="M8 12.5l3 3 5.2-6.3"/></symbol>
+</svg>
+
+<header>
+  <h1>Cum construiești o ofertă care vinde cu ajutorul AI</h1>
+  <p>La final ai oferta ta pe 7 blocuri, cu 3 pachete de preț, construită pentru clientul tău ideal.</p>
+  <div class="themebox noprint"><button data-theme-choice="light">Temă luminoasă</button><button data-theme-choice="dark">Temă închisă</button></div>
+</header>
+
+<div class="layout">
+
+<div class="navwrap noprint">
+  <div class="spatii">
+    <button class="spbtn" data-sp="exercitiu"><svg class="ic mic" aria-hidden="true"><use href="#i-creion"/></svg>Exercițiul</button>
+    <button class="spbtn" data-sp="exemplu"><svg class="ic mic" aria-hidden="true"><use href="#i-piatra"/></svg>Exemplul</button>
+    <button class="spbtn" data-sp="checklist"><svg class="ic mic" aria-hidden="true"><use href="#i-bifa"/></svg>Checklist-ul</button>
+    <button class="spbtn" data-sp="cadou"><svg class="ic mic" aria-hidden="true"><use href="#i-cadou"/></svg>Cadou: landing page</button>
+  </div>
+  <nav class="nav" data-nav="exercitiu">
+    <button class="navbtn active" data-go="e-client"><span class="nt">Clientul tău în 3 întrebări</span><span class="no">Descrii clientul ideal, fără AI.</span><span class="ns">Tot ce urmează se construiește pe descrierea asta.</span></button>
+    <button class="navbtn" data-go="e-f1"><span class="nt">Framework 1 · Rezultatul</span><span class="no">Alegi formularea rezultatului pe care îl obține clientul.</span><span class="ns">Acum că ai descris clientul, formulezi ce obține el de la tine.</span></button>
+    <button class="navbtn" data-go="e-f2"><span class="nt">Framework 2 · Cele 7 blocuri</span><span class="no">Vezi ce blocuri lipsesc din oferta ta.</span><span class="ns">Acum că ai rezultatul, verifici oferta pe cele 7 blocuri.</span></button>
+    <button class="navbtn" data-go="e-f3"><span class="nt">Framework 3 · Good, Better, Best</span><span class="no">Construiești cele 3 pachete.</span><span class="ns">Acum că știi ce conține oferta, îi pui 3 variante de preț.</span></button>
+    <button class="navbtn" data-go="e-timp"><span class="nt">Dacă îți mai rămâne timp</span><span class="no">Testezi oferta cu AI-ul în rol de client.</span><span class="ns">Acum că ai pachetele, afli ce obiecții ar avea un client.</span></button>
+    <button class="navbtn" data-go="e-logo"><span class="nt">Cadou · Logo-ul tău</span><span class="no">Îți faci un logo cu AI.</span><span class="ns">Dacă nu ai logo, îl faci acum, cu un singur prompt.</span></button>
+  </nav>
+  <nav class="nav" data-nav="exemplu">
+    <button class="navbtn active" data-go="x-oferta"><span class="nt">Oferta MARA, pe 7 blocuri</span><span class="no">Vezi cum arată o ofertă completă.</span><span class="ns">Un brand fictiv, trecut prin toate cele 7 blocuri.</span></button>
+    <button class="navbtn" data-go="x-landing"><span class="nt">Landing page-ul MARA</span><span class="no">Vezi promptul din care a ieșit pagina.</span><span class="ns">Aceeași ofertă, pusă într-un landing page.</span></button>
+    <button class="navbtn" data-go="x-rezultat"><span class="nt">Rezultatul</span><span class="no">Deschizi pagina și oferta.</span><span class="ns">Așa arată la final.</span></button>
+  </nav>
+</div>
+
+<main>
+
+<!-- ============ SPAȚIUL 1 · EXERCIȚIUL ============ -->
+<div class="sp" data-space="exercitiu">
+
+  <section class="box" id="e-client">
+    <div class="hd"><span class="num">1</span><h3>Clientul tău în 3 întrebări</h3><svg class="ic" aria-hidden="true"><use href="#i-client"/></svg></div>
+    <p><strong>Fără să deschizi vreun instrument AI, răspunde la următoarele 3 întrebări despre clientul tău ideal. Fii cât poți de detaliat și specific.</strong></p>
+    <div class="field">
+      <div class="fk">1. Cine e?</div>
+      <div class="fd">Ce face, în ce situație e, cum arată o zi din viața lui/ei?</div>
+      <span class="fblock fbig" contenteditable="true" data-k="c1" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">2. Ce problemă are?</div>
+      <div class="fd">Ce îl doare? Ce nu merge? Ce pierde dacă nu rezolvă?</div>
+      <span class="fblock fbig" contenteditable="true" data-k="c2" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">3. Ce a încercat deja?</div>
+      <div class="fd">Ce soluții a probat și de ce nu au funcționat?</div>
+      <span class="fblock fbig" contenteditable="true" data-k="c3" data-ph="scrie aici"></span>
+    </div>
+    <p><strong>Dacă poți să-i găsești inclusiv o identitate, un profil demografic, dacă te poți raporta la el ca la un individ, este minunat.</strong></p>
+    <p class="helper noprint">Răspunsurile se salvează în browserul tău și intră singure în prompturile de mai jos.</p>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="e-f1">Framework 1 · Rezultatul →</button></div>
+
+  <section class="box" id="e-f1">
+    <div class="hd"><span class="num">2</span><h3>Framework 1 · Rezultatul</h3><svg class="ic" aria-hidden="true"><use href="#i-tinta"/></svg></div>
+    <p><strong>Completează întâi câmpurile de mai jos și apoi copiază promptul de dedesubt în aplicația AI pe care o folosești.</strong></p>
+    <p>De fiecare dată, promptul va include informațiile completate de tine.</p>
+    <div class="field">
+      <div class="fk">Rolul tău</div>
+      <span class="fblock" contenteditable="true" data-k="rol" data-ph="de exemplu: instructor de dans"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Serviciul sau produsul pe care îl oferi</div>
+      <span class="fblock" contenteditable="true" data-k="serviciu" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Cum descrii oferta acum, dacă ai deja o formulare</div>
+      <span class="fblock" contenteditable="true" data-k="formulare" data-ph="poate rămâne gol"></span>
+    </div>
+    <div class="mat" data-p="p_f1" data-name="prompt-framework-1-rezultatul.txt">
+      <div class="mh">
+        <div><div class="mt">Prompt de folosit</div><div class="ms">Așa pleacă, cu răspunsurile tale înăuntru.</div></div>
+        <div class="btns"><button class="btn" data-copy>Copiază</button><button class="btn ghost" data-txt>Descarcă .txt</button></div>
+      </div>
+      <pre></pre>
+    </div>
+    <div class="mis">
+      <div class="ml">Misiunea ta:</div>
+      <ul>
+        <li>Alege varianta care ți se potrivește cel mai bine.</li>
+        <li>Poate fi și o combinație a celor 3.</li>
+        <li>Notează-o.</li>
+      </ul>
+    </div>
+    <div class="field">
+      <div class="fk">Varianta aleasă</div>
+      <span class="fblock fbig" contenteditable="true" data-k="rezultat" data-ph="scrie aici"></span>
+    </div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="e-f2">Framework 2 · Cele 7 blocuri →</button></div>
+
+  <section class="box" id="e-f2">
+    <div class="hd"><span class="num">3</span><h3>Framework 2 · Cele 7 blocuri</h3><svg class="ic" aria-hidden="true"><use href="#i-blocuri"/></svg></div>
+    <p><strong>Copiază întâi textul ofertei tale (sau descrie ce oferi) în căsuța de mai jos și apoi copiază promptul de sub ea în aplicația AI pe care o folosești.</strong></p>
+    <div class="field">
+      <div class="fk">Oferta ta</div>
+      <span class="fblock fbig" contenteditable="true" data-k="oferta" data-ph="scrie aici"></span>
+    </div>
+    <div class="mat" data-p="p_f2" data-name="prompt-framework-2-cele-7-blocuri.txt">
+      <div class="mh">
+        <div><div class="mt">Prompt de folosit</div><div class="ms">Așa pleacă, cu oferta, clientul și rezultatul tău înăuntru.</div></div>
+        <div class="btns"><button class="btn" data-copy>Copiază</button><button class="btn ghost" data-txt>Descarcă .txt</button></div>
+      </div>
+      <pre></pre>
+    </div>
+    <div class="mis">
+      <div class="ml">Misiunea ta:</div>
+      <ul>
+        <li>Vezi ce blocuri lipsesc din oferta ta.</li>
+        <li>Notează-ți ideile de îmbunătățire care te inspiră.</li>
+      </ul>
+    </div>
+    <div class="field">
+      <div class="fk">Ideile tale de îmbunătățire</div>
+      <span class="fblock fbig" contenteditable="true" data-k="idei" data-ph="scrie aici"></span>
+    </div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="e-f3">Framework 3 · Good, Better, Best →</button></div>
+
+  <section class="box" id="e-f3">
+    <div class="hd"><span class="num">4</span><h3>Framework 3 · Good, Better, Best</h3><svg class="ic" aria-hidden="true"><use href="#i-trepte"/></svg></div>
+    <p><strong>Scrie mai jos prețul la care te gândești și apoi copiază promptul de sub el în aplicația AI pe care o folosești.</strong></p>
+    <div class="field">
+      <div class="fk">Prețul la care vinzi acum sau la care te gândești</div>
+      <span class="fblock" contenteditable="true" data-k="pret" data-ph="poate rămâne gol"></span>
+    </div>
+    <div class="mat" data-p="p_f3" data-name="prompt-framework-3-good-better-best.txt">
+      <div class="mh">
+        <div><div class="mt">Prompt de folosit</div><div class="ms">Așa pleacă, cu serviciul, clientul, rezultatul și prețul tău înăuntru.</div></div>
+        <div class="btns"><button class="btn" data-copy>Copiază</button><button class="btn ghost" data-txt>Descarcă .txt</button></div>
+      </div>
+      <pre></pre>
+    </div>
+    <div class="mis">
+      <div class="ml">Misiunea ta:</div>
+      <ul>
+        <li>Construiește oferta Good, Better, Best.</li>
+      </ul>
+    </div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="e-timp">Dacă îți mai rămâne timp →</button></div>
+
+  <section class="box" id="e-timp">
+    <div class="hd"><span class="num">5</span><h3>Dacă îți mai rămâne timp</h3><svg class="ic" aria-hidden="true"><use href="#i-dialog"/></svg></div>
+    <p><strong>Folosește AI-ul ca simulator de conversație cu un client.</strong></p>
+    <p>Copiază întâi oferta ta, cu cele 3 pachete, în căsuța de mai jos și apoi copiază promptul de sub ea în aplicația AI pe care o folosești.</p>
+    <div class="field">
+      <div class="fk">Oferta ta, cu cele 3 pachete</div>
+      <span class="fblock fbig" contenteditable="true" data-k="pachete" data-ph="scrie aici"></span>
+    </div>
+    <div class="mat" data-p="p_sim" data-name="prompt-simulator-de-client.txt">
+      <div class="mh">
+        <div><div class="mt">Prompt de folosit</div><div class="ms">Așa pleacă, cu oferta și clientul tău înăuntru.</div></div>
+        <div class="btns"><button class="btn" data-copy>Copiază</button><button class="btn ghost" data-txt>Descarcă .txt</button></div>
+      </div>
+      <pre></pre>
+    </div>
+    <p><strong>După simularea obiecțiilor, citește mai jos.</strong></p>
+    <h4>Cele 4 tipuri de obiecții și ce înseamnă de fapt:</h4>
+    <table class="grid stack">
+      <thead><tr><th>Tip obiecție</th><th>Ce spune clientul</th><th>Ce înseamnă de fapt</th><th>Ce lipsește din ofertă</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Tip obiecție"><strong>Confuzie</strong></td><td data-l="Ce spune clientul"><em>Nu înțeleg exact ce primesc</em></td><td data-l="Ce înseamnă de fapt">Oferta nu e suficient de clară</td><td data-l="Ce lipsește din ofertă">Blocurile 1 și 3 (Rezultat + Ce include)</td></tr>
+        <tr><td data-l="Tip obiecție"><strong>Risc</strong></td><td data-l="Ce spune clientul"><em>Și dacă nu funcționează?</em></td><td data-l="Ce înseamnă de fapt">Nu are suficiente dovezi</td><td data-l="Ce lipsește din ofertă">Blocul 5 (Dovada)</td></tr>
+        <tr><td data-l="Tip obiecție"><strong>Comparație</strong></td><td data-l="Ce spune clientul"><em>De ce să nu merg la altcineva?</em></td><td data-l="Ce înseamnă de fapt">Nu vede diferențierea</td><td data-l="Ce lipsește din ofertă">Blocul 2 (Pentru cine)</td></tr>
+        <tr><td data-l="Tip obiecție"><strong>Timing</strong></td><td data-l="Ce spune clientul"><em>Poate mai târziu</em></td><td data-l="Ce înseamnă de fapt">Nu simte urgența</td><td data-l="Ce lipsește din ofertă">Lipsește un motiv clar de a lua decizia acum (Rezultat, Framework 1)</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Fiecare obiecție e o informație despre ce bloc din ofertă trebuie îmbunătățit.</strong></p>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="e-logo">Cadou · Logo-ul tău →</button></div>
+
+  <section class="box" id="e-logo">
+    <div class="hd"><span class="num">6</span><h3>Cadou · Logo-ul tău</h3><svg class="ic" aria-hidden="true"><use href="#i-cadou"/></svg></div>
+    <p><strong>Dacă nu ai logo, îl poți crea în Google Gemini, folosind modelul Nanobanana Pro 2, sau în ChatGPT.</strong></p>
+    <p>Completează întâi câmpurile de mai jos și apoi copiază promptul de dedesubt în Google Gemini sau în ChatGPT. Sub fiecare câmp ai câteva exemple.</p>
+    <div class="field">
+      <div class="fk">Tipul de brand / industria</div>
+      <div class="fd">Exemple: Startup în tehnologie, consultanță financiară, modă sustenabilă, platformă educațională.</div>
+      <span class="fblock" contenteditable="true" data-k="l-tip" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Oferta principală</div>
+      <div class="fd">Exemple: Soluții software AI, managementul averii, haine ecologice, coaching executiv.</div>
+      <span class="fblock" contenteditable="true" data-k="l-oferta" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Publicul țintă</div>
+      <div class="fd">Exemple: Directori de top (C-level), familii tinere, investitori corporate, profesioniști din industrii creative.</div>
+      <span class="fblock" contenteditable="true" data-k="l-public" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Stilul vizual</div>
+      <div class="fd">Exemple: Minimalist, geometric, retro, acuarelă, futurist, abstract, corporate și elegant.</div>
+      <span class="fblock" contenteditable="true" data-k="l-stil" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Simbolul sau metafora</div>
+      <div class="fd">Exemple: Un creier stilizat, un val abstract, o formă geometrică suprapusă, o busolă subtilă.</div>
+      <span class="fblock" contenteditable="true" data-k="l-simbol" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Paleta de culori</div>
+      <div class="fd">Exemple: Albastru marin și argintiu, tonuri pământii (verde și maro), culori vibrante de neon, monocrom.</div>
+      <span class="fblock" contenteditable="true" data-k="l-paleta" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Atmosfera / emoția</div>
+      <div class="fd">Exemple: De încredere și stabil, jucăuș și plin de energie, luxos și premium, inovator și curajos.</div>
+      <span class="fblock" contenteditable="true" data-k="l-atmosfera" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Culoarea de fundal</div>
+      <div class="fd">Exemple: Alb, negru, albastru închis solid.</div>
+      <span class="fblock" contenteditable="true" data-k="l-fundal" data-ph="scrie aici"></span>
+    </div>
+    <div class="mat" data-p="p_logo" data-name="prompt-logo.txt">
+      <div class="mh">
+        <div><div class="mt">Prompt de folosit</div><div class="ms">Așa pleacă, cu ce ai scris în câmpuri.</div></div>
+        <div class="btns"><button class="btn" data-copy>Copiază</button><button class="btn ghost" data-txt>Descarcă .txt</button></div>
+      </div>
+      <pre></pre>
+    </div>
+    <p><em>Sfat practic:</em> Dacă rezultatul generat nu este exact ceea ce căutai, ajustează doar o singură variabilă la un moment dat (de exemplu, schimbă doar stilul vizual din „abstract” în „minimalist geometric”) pentru a putea observa direct cum interpretează modelul acea schimbare.</p>
+  </section>
+
+  <div class="save noprint">
+    PDF-ul păstrează ce ai scris în pagină. Oferta rămâne în conversația ta cu AI-ul.
+    <div class="btns" style="margin-top:10px"><button class="btn" data-print>Descarcă notițele tale, PDF</button></div>
+  </div>
+</div>
+
+<!-- ============ SPAȚIUL 2 · EXEMPLUL ============ -->
+<div class="sp" data-space="exemplu">
+
+  <section class="plain" id="x-oferta">
+    <div class="hd"><h2>Brandul fictiv: MARA, bijuterii handmade din pietre naturale</h2><svg class="ic" aria-hidden="true"><use href="#i-piatra"/></svg></div>
+
+    <h4>BLOCUL 1: Rezultatul</h4>
+    <p>Primești un set de bijuterii handmade din pietre naturale, asortat, gata de purtat sau de oferit cadou. Fiecare piesă e unică, făcută manual, cu pietre selectate individual.</p>
+
+    <h4>BLOCUL 2: Pentru cine (și pentru cine nu)</h4>
+    <p>Pentru femei care vor bijuterii cu personalitate, diferite de ce găsesc în centre comerciale. Pentru cei care vor să facă femeile dragi să plângă de bucurie.</p>
+    <p>Nu e pentru cine caută bijuterii standard sau branduri luxury. Și nu e pentru cine vrea livrare în aceeași zi pentru că fiecare set e pregătit manual.</p>
+
+    <h4>BLOCUL 3: Ce include</h4>
+    <p>Depinde de pachet (vezi Good, Better, Best mai jos). Fiecare comandă include: bijuteriile, săculeț de depozitare, cartonaș cu povestea pietrelor, livrare prin curier.</p>
+
+    <h4>BLOCUL 4: Cum funcționează</h4>
+    <ol class="bul">
+      <li>Alegi pachetul de pe eMAG sau ne trimiți mesaj pe Instagram</li>
+      <li>Primești confirmare în 24h</li>
+      <li>Setul se pregătește manual în 3-5 zile lucrătoare</li>
+      <li>Livrare prin curier cu cutie cadou inclusă și felicitare scrisă manual</li>
+    </ol>
+
+    <h4>BLOCUL 5: Dovada</h4>
+    <p>Peste 400 de seturi vândute în ultimul an. Rating 4.9 pe eMAG din peste 400 comenzi. Fotografii reale de la cliente pe Instagram (@mara.bijuterii). Garanție 30 zile: dacă nu ești mulțumită, returnezi fără explicații.</p>
+    <p>3 testimoniale de inclus</p>
+
+    <h4>BLOCUL 6: Preț (Good, Better, Best)</h4>
+    <table class="grid pret">
+      <thead><tr><th></th><th>Descoperă</th><th>Alege</th><th>Dăruiește</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Preț</strong></td><td>89 RON</td><td>149 RON</td><td>219 RON</td></tr>
+        <tr><td>Brățară pietre naturale</td><td>da</td><td>da</td><td>da</td></tr>
+        <tr><td>Cercei asortați</td><td>–</td><td>da</td><td>da</td></tr>
+        <tr><td>Colier asortat</td><td>–</td><td>–</td><td>da</td></tr>
+        <tr><td>Săculeț depozitare</td><td>da</td><td>da</td><td>da</td></tr>
+        <tr><td>Cutie cadou premium</td><td>–</td><td>da</td><td>da</td></tr>
+        <tr><td>Cartonaș personalizat cu mesaj</td><td>–</td><td>–</td><td>da</td></tr>
+        <tr><td>Livrare gratuită</td><td>–</td><td>da</td><td>da</td></tr>
+      </tbody>
+    </table>
+    <ul class="bul">
+      <li>Descoperă = Good = o piesă de sine stătătoare, perfectă dacă vrei să încerci.</li>
+      <li>Alege = Better = set asortat complet, cel mai popular.</li>
+      <li>Dăruiește = Best = cadoul perfect, totul inclus, gata de oferit.</li>
+    </ul>
+
+    <h4>BLOCUL 7: Următorul pas</h4>
+    <p>Pe eMAG: adaugă în coș și comandă. Pe Instagram: scrie-ne „VREAU [să descopăr / să aleg / să dăruiesc]” în DM și primești sprijin rapid din partea noastră.</p>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="x-landing">Landing page-ul MARA →</button></div>
+
+  <section class="plain" id="x-landing">
+    <div class="hd"><h2>Landing page-ul MARA Bijuterii Handmade</h2><svg class="ic" aria-hidden="true"><use href="#i-pagina"/></svg></div>
+    <h4>Decizii luate pentru landing page</h4>
+    <p>Ordinea secțiunilor pe pagină e ușor diferită de ordinea blocurilor din workshop. Pachetele (Good, Better, Best) sunt sus, pe poziția 3, pentru că pe un landing page vizitatorii vor să vadă rapid ce cumpără și la ce preț. Dovada și procesul vin după, ca să susțină decizia.</p>
+    <p>Better va fi evidențiat vizual: card mai mare, border auriu, badge „Cel mai popular”, pentru a se ancora în mintea consumatorului ca alegerea evidentă.</p>
+    <h4>Promptul</h4>
+    <p>La prompt au fost atașate 2 fișiere: imaginea de header și logo-ul.</p>
+    <div class="mat" data-p="p_landing" data-name="prompt-landing-page-mara.txt">
+      <div class="mh">
+        <div><div class="mt">Promptul de landing page</div><div class="ms">Exemplul MARA, întreg.</div></div>
+        <div class="btns"><button class="btn" data-copy>Copiază</button><button class="btn ghost" data-txt>Descarcă .txt</button></div>
+      </div>
+      <pre></pre>
+    </div>
+  </section>
+  <div class="next noprint"><button class="nextbtn" data-go="x-rezultat">Rezultatul →</button></div>
+
+  <section class="plain" id="x-rezultat">
+    <div class="hd"><h2>Rezultatul</h2><svg class="ic" aria-hidden="true"><use href="#i-iesire"/></svg></div>
+    <div class="links">
+      <a href="https://mara-bijuterii.lovable.app" target="_blank" rel="noopener">Landing page-ul: mara-bijuterii.lovable.app</a>
+      <a href="https://mara-bijuterii.lovable.app/oferta" target="_blank" rel="noopener">Oferta: mara-bijuterii.lovable.app/oferta</a>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SPAȚIUL 3 · CHECKLISTUL ============ -->
+<div class="sp" data-space="checklist">
+  <section class="plain" id="k-lista">
+    <div class="hd"><h2>Checklist de auto-evaluare a ofertei</h2><svg class="ic" aria-hidden="true"><use href="#i-bifa"/></svg></div>
+    <p><strong>Pentru fiecare punct notează: Da / Parțial / Lipsește.</strong></p>
+
+    <h4>Claritate</h4>
+    <div class="ck" data-ck="k1"><div class="ct">Un străin înțelege în 30 de secunde ce vinzi.</div></div>
+    <div class="ck" data-ck="k2"><div class="ct">Rezultatul e formulat din perspectiva clientului, nu a ta.</div></div>
+    <div class="ck" data-ck="k3"><div class="ct">Nu conține jargon pe care clientul nu-l folosește.</div></div>
+
+    <h4>Structură</h4>
+    <div class="ck" data-ck="k4"><div class="ct">Are toate 7 blocurile (Rezultat, Pentru cine, Ce include, Cum funcționează, Dovadă, Preț, Următorul pas).</div></div>
+    <div class="ck" data-ck="k5"><div class="ct">Fiecare livrabil răspunde la <em>câte?</em> sau <em>cât timp?</em>.</div></div>
+    <div class="ck" data-ck="k6"><div class="ct">Procesul e descris în 3-5 pași simpli.</div></div>
+
+    <h4>Opțiuni și preț</h4>
+    <div class="ck" data-ck="k7"><div class="ct">Are minimum 2, ideal 3 variante (Good, Better, Best).</div></div>
+    <div class="ck" data-ck="k8"><div class="ct">Diferențele între variante sunt evidente fără explicații suplimentare.</div></div>
+    <div class="ck" data-ck="k9"><div class="ct">Better e varianta cea mai atractivă ca raport valoare/preț.</div></div>
+    <div class="ck" data-ck="k10"><div class="ct">Prețurile respectă regulile de ancorare (25% / 50%).</div></div>
+
+    <h4>Încredere</h4>
+    <div class="ck" data-ck="k11"><div class="ct">Conține cel puțin un element de dovadă (testimonial, caz, garanție, număr).</div></div>
+    <div class="ck" data-ck="k12"><div class="ct">Specifică pentru cine nu e oferta.</div></div>
+    <div class="ck" data-ck="k13"><div class="ct">Are un singur pas următor, clar și care nu implică mult efort.</div></div>
+
+    <h4>Test final</h4>
+    <div class="ck" data-ck="k14"><div class="ct">Ai testat oferta cu AI ca simulator de conversație.</div></div>
+    <div class="ck" data-ck="k15"><div class="ct">Ai integrat feedback-ul din simulare.</div></div>
+  </section>
+  <div class="save noprint">
+    <div class="btns"><button class="btn" data-print>Descarcă checklist-ul tău, PDF</button></div>
+  </div>
+</div>
+
+<!-- ============ SPAȚIUL 4 · CADOU: PROMPT PENTRU LANDING PAGE ============ -->
+<div class="sp" data-space="cadou">
+  <section class="plain" id="g-landing">
+    <div class="hd"><h2>Cadou: Prompt pentru landing page</h2><svg class="ic" aria-hidden="true"><use href="#i-cadou"/></svg></div>
+    <p>Cu promptul de mai jos îți pui oferta într-un landing page, ca în exemplul MARA. Lucrezi în 2 pași.</p>
+
+    <h4>Pasul 1</h4>
+    <p><strong>Completează întâi câmpurile de mai jos și apoi copiază promptul de dedesubt în aplicația AI pe care o folosești.</strong></p>
+    <p>AI-ul îți dă înapoi un prompt scris pentru oferta ta.</p>
+    <div class="field">
+      <div class="fk">Oferta ta, cu cele 3 pachete</div>
+      <div class="fd">Dacă ai completat-o deja la exercițiu, o găsești aici.</div>
+      <span class="fblock fbig" contenteditable="true" data-k="pachete" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Numele brandului tău</div>
+      <span class="fblock" contenteditable="true" data-k="lp-nume" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Culorile tale</div>
+      <div class="fd">Exemple: bej, terracotta și verde sage. Dacă ai brand, scrie codurile hex ale culorilor.</div>
+      <span class="fblock" contenteditable="true" data-k="lp-culori" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Atmosfera, în 3 cuvinte</div>
+      <div class="fd">Exemple: organic, natural, artizanal.</div>
+      <span class="fblock" contenteditable="true" data-k="lp-atm" data-ph="scrie aici"></span>
+    </div>
+    <div class="field">
+      <div class="fk">Ce nu vrei pe pagină</div>
+      <div class="fd">Exemple: fără gradient-uri, fără colțuri ascuțite, fără look corporatist.</div>
+      <span class="fblock" contenteditable="true" data-k="lp-nu" data-ph="scrie aici"></span>
+    </div>
+    <div class="mat" data-p="p_cadou" data-name="prompt-cadou-landing-page.txt">
+      <div class="mh">
+        <div><div class="mt">Prompt de folosit</div><div class="ms">Așa pleacă, cu oferta și direcția ta vizuală înăuntru.</div></div>
+        <div class="btns"><button class="btn" data-copy>Copiază</button><button class="btn ghost" data-txt>Descarcă .txt</button></div>
+      </div>
+      <pre></pre>
+    </div>
+
+    <h4>Pasul 2</h4>
+    <p><strong>Copiază promptul primit de la AI în Lovable (lovable.dev) și trimite-l.</strong></p>
+    <p>Dacă ai logo, atașează-l la mesaj și spune-i lui Lovable să îl pună sus, pe pagină, și jos, în footer.</p>
+  </section>
+</div>
+
+</main>
+
+<footer>© 2026 Raluca Păduraru. All rights reserved. Upvance Global · <a href="https://www.ralucapaduraru.ro">ralucapaduraru.ro</a></footer>
+</div>
+
+<!-- PROMPTURILE: text simplu. [[cheie|text]] = valoarea câmpului sau, dacă e gol, textul între paranteze drepte.
+     {?cheie}...{/} = bucata apare doar când câmpul e completat. -->
+<script type="text/plain" id="p_f1">
+Sunt [[rol|rol]] și ofer [[serviciu|serviciu/produs]].
+
+Clientul meu ideal:
+- Cine e: [[c1|răspunsul tău la întrebarea 1]]
+- Ce problemă are: [[c2|răspunsul tău la întrebarea 2]]
+- Ce a încercat deja: [[c3|răspunsul tău la întrebarea 3]]
+
+{?formulare}Acum descriu oferta mea așa: „[[formulare|formularea ta actuală dacă există]]".
+
+{/}Reformulează oferta mea concentrându-te strict pe rezultatul concret pe care îl obține clientul.
+
+Folosește limbaj simplu, specific, măsurabil, în cuvintele pe care le-ar folosi clientul. Evită jargon de marketing.
+
+Folosește doar ce ți-am spus. Nu inventa cifre, termene sau garanții. Unde ai nevoie de o cifră pe care nu o ai, scrie „de completat".
+
+Dă-mi 3 variante diferite, fiecare într-o singură propoziție, cu 3 argumente pro și 3 contra pentru fiecare dintre ele. Argumentele sunt din perspectiva clientului descris mai sus.</script>
+
+<script type="text/plain" id="p_f2">
+Iată oferta mea: [[oferta|copiază textul ofertei existente sau descrie-o]].
+
+Clientul meu ideal:
+- Cine e: [[c1|răspunsul tău la întrebarea 1]]
+- Ce problemă are: [[c2|răspunsul tău la întrebarea 2]]
+- Ce a încercat deja: [[c3|răspunsul tău la întrebarea 3]]
+
+Rezultatul pe care îl obține clientul: [[rezultat|varianta aleasă la Framework 1]].
+
+Înainte de a răspunde, întreabă-mă 3 lucruri ca să-mi poți oferi un răspuns wow! Pune întrebările una câte una.
+
+Apoi verifică dacă oferta conține aceste 7 blocuri:
+1. Rezultat concret,
+2. Pentru cine e și pentru cine nu,
+3. Ce include (livrabile clare),
+4. Cum funcționează (proces clar),
+5. Dovadă (testimoniale, garanții, cifre),
+6. Preț cu context,
+7. Următorul pas.
+
+Pentru fiecare bloc, spune-mi dacă este prezent/ parțial/ absent.
+
+Unde e absent sau parțial, sugerează cum să integrez.
+
+Unde e prezent, dă o notă de la 1 la 10 și dacă e sub 9, spune-mi 3 lucruri pe care să le îmbunătățesc ca să sporesc semnificativ șansele de vânzare.
+
+La blocul Dovadă, nu inventa testimoniale, cifre sau garanții. Spune-mi ce dovezi să adun și de unde.
+
+Prezintă răspunsul într-un tabel, cu un rând pentru fiecare bloc.</script>
+
+<script type="text/plain" id="p_f3">
+Am un [[serviciu|serviciu/produs]].
+
+Clientul meu ideal:
+- Cine e: [[c1|răspunsul tău la întrebarea 1]]
+- Ce problemă are: [[c2|răspunsul tău la întrebarea 2]]
+- Ce a încercat deja: [[c3|răspunsul tău la întrebarea 3]]
+
+Rezultatul principal este [[rezultat|cel rezultat din Framework 1]].{?pret} Prețul la care vând acum sau la care mă gândesc: [[pret|prețul tău]].{/} Ajută-mă să construiesc 3 pachete de tip Good, Better, Best.
+
+Reguli:
+- Good trebuie să aibă valoare reală.
+- Better e pachetul principal, pe acesta vreau să-l vând. Prețul lui pornește de la prețul meu.
+- Best include tot + elemente premium.
+- Good = max 25% mai ieftin ca Better.
+- Best = max 50% mai scump ca Better.
+- Fiecare livrabil are un număr sau o durată: câte? cât timp?
+- Dă fiecărui pachet un nume scurt și spune într-o propoziție pentru cine e.
+- Dacă nu ți-am dat un preț, întreabă-mă înainte să construiești pachetele. Nu inventa prețuri.
+
+Prezintă într-un tabel cu livrabile pe rânduri și pachete pe coloane.</script>
+
+<script type="text/plain" id="p_sim">
+Ești un potențial client care vede pentru prima dată această ofertă: [[pachete|copiază oferta generată mai sus]].
+
+Clientul pe care îl joci:
+- Cine e: [[c1|răspunsul tău la întrebarea 1]]
+- Ce problemă are: [[c2|răspunsul tău la întrebarea 2]]
+- Ce a încercat deja: [[c3|răspunsul tău la întrebarea 3]]
+
+Joacă rolul unui client realist. Nu fi politicos, fii sincer. Răspunde în cuvintele lui, fără sfaturi de marketing. Spune-mi:
+1. Ce ai înțeles din ofertă?
+2. Ce nu ți-e clar?
+3. Ce 3 obiecții ai avea?
+4. Ce ți-ar da mai multă încredere?
+5. Ce pachet ai alege și de ce?
+
+La final, spune-mi pentru fiecare obiecție ce tip este: confuzie, risc, comparație sau timing.</script>
+
+<script type="text/plain" id="p_logo">
+Creează un design de logo profesional și de înaltă calitate pentru o companie din domeniul [[l-tip|TIP_DE_BRAND / INDUSTRIE]].
+
+Brandul oferă [[l-oferta|OFERTĂ_PRINCIPALĂ]] și se adresează [[l-public|PUBLIC_ȚINTĂ]]. Stilul vizual trebuie să fie strict [[l-stil|STIL_VIZUAL]].
+
+Integrează următorul element sau concept cheie: [[l-simbol|SIMBOL_SAU_METAFORĂ]]. Paleta de culori trebuie să fie formată din [[l-paleta|PALETĂ_DE_CULORI]]. Atmosfera vizuală trebuie să transmită [[l-atmosfera|ATMOSFERĂ / EMOȚIE]].
+
+Plasează designul pe un fundal [[l-fundal|CULOARE_FUNDAL]], folosește un stil de grafică vectorială (vector art), culori uniforme (flat colors), linii clare și nu include deloc text.
+
+Logo-ul trebuie să fie simplu, într-un format pătrat, și să se recunoască și la dimensiune mică.</script>
+
+<script type="text/plain" id="p_cadou">
+Mai jos ai oferta mea și un schelet de prompt pentru un landing page. Completează scheletul cu informațiile din oferta mea și dă-mi înapoi un singur prompt, gata de copiat în Lovable.
+
+Reguli:
+- Folosește doar ce e în oferta mea. Nu inventa testimoniale, cifre, prețuri sau garanții. Unde lipsește ceva, scrie „DE ADĂUGAT".
+- Scrie titlurile și textele scurt, în cuvintele clientului meu.
+- Dacă direcția vizuală de mai jos e incompletă, pune-mi cel mult 3 întrebări, una câte una, înainte să scrii promptul.
+- Dă-mi promptul într-un singur bloc, fără explicații înainte sau după.
+
+OFERTA MEA:
+[[pachete|oferta ta, cu cele 3 pachete]]
+
+NUMELE BRANDULUI: [[lp-nume|numele brandului tău]]
+
+DIRECȚIA VIZUALĂ:
+- Culori: [[lp-culori|culorile tale]]
+- Atmosferă, în 3 cuvinte: [[lp-atm|atmosfera]]
+- Ce nu vreau: [[lp-nu|ce nu vrei]]
+
+SCHELETUL:
+
+Creează un landing page one-page pentru (numele brandului), (o propoziție despre ce este).
+
+Pagina e de prezentare și de vânzare directă. Un vizitator trebuie să înțeleagă în 10 secunde ce cumpără și pentru cine e.
+
+DIRECȚIE VIZUALĂ
+- Fundal principal: (culoare, cod hex)
+- Fundal secundar, pentru secțiunile alternate: (culoare, cod hex)
+- Culoarea textului: (culoare, cod hex)
+- Culoarea de accent, pentru butoane și detalii: (culoare, cod hex)
+- Fonturi, de pe Google Fonts: titluri (font), text (font)
+- Atmosferă, în 3 cuvinte: (cuvânt), (cuvânt), (cuvânt)
+- Ce nu vreau: (interdicții)
+
+Reguli comune:
+- Maximum 3 culori și maximum 2 fonturi.
+- Secțiunile alternează între fundalul principal și fundalul secundar, pentru ritm vizual.
+- Butoanele principale au culoarea de accent, colțuri rotunjite, hover subtil.
+- Scroll smooth între secțiuni.
+- Pagina se citește bine pe telefon.
+- Pentru imagini folosește placeholder-e rectangulare cu colțuri rotunjite, în nuanțele paletei, cu text în interior care descrie ce fotografie ar merge acolo.
+
+STRUCTURA PAGINII, în această ordine
+
+1. HERO
+- Titlu mare: (rezultatul pe care îl obține clientul)
+- Subtitlu: (o propoziție)
+- Imagine placeholder sub subtitlu
+- Buton: (textul butonului)
+
+2. PENTRU CINE
+- Titlu secțiune
+- 3 carduri cu icon minimalist și text scurt: (pentru cine 1), (pentru cine 2), (pentru cine 3)
+- Sub carduri, o linie discretă cu pentru cine NU e
+
+3. PACHETE (Good, Better, Best), secțiunea principală
+- Titlu secțiune
+- 3 carduri, câte unul pentru fiecare pachet. Cel din mijloc (Better) e evidențiat vizual: border în culoarea de accent, badge „Cel mai popular", ușor mai mare.
+- La fiecare pachet: numele, prețul, lista de livrabile (fiecare cu un număr sau o durată), butonul
+
+4. CUM FUNCȚIONEAZĂ
+- Titlu secțiune
+- Între 3 și 5 pași, cu numere mari și text scurt
+
+5. DOVADA
+- Titlu secțiune
+- 2-3 testimoniale cu nume și context. Dacă lipsesc, placeholder-e marcate clar „TESTIMONIAL DE ADĂUGAT".
+- Sub testimoniale, o bară cu cifrele mele
+
+6. REZULTATUL
+- Titlu secțiune
+- Text scurt, centrat, în 3-4 propoziții
+- Placeholder imagine
+
+7. CTA FINAL
+- Titlu
+- Subtitlu: o linie de context, cu timpul de răspuns
+- Buton: același pas următor ca în hero
+
+8. FOOTER
+- Numele brandului, o linie
+- Link-uri de contact
+- © 2026 (numele brandului). Toate drepturile rezervate.</script>
+
+<script type="text/plain" id="p_landing">
+Instrucțiuni
+
+Creează un landing page one-page pentru un brand de bijuterii handmade din pietre naturale, numit MARA. Pagina e de prezentare și vânzare directă. Trebuie să fie caldă, feminină, premium dar accesibilă, cu focus pe conversie.
+
+Direcție vizuală
+
+- Paletă de culori: nuanțe calde de bej, nude și terracotta, cu accente de verde sage și auriu. Fundalul principal e off-white cald (#FAF7F2 sau similar). Textul principal e un maro închis cald, nu negru pur.
+- Fonturi: un font serif elegant pentru titluri (gen Playfair Display sau DM Serif Display), un font sans-serif curat și modern pentru body text (gen DM Sans sau Lato).
+- Atmosferă generală: organic, natural, artizanal. Fără look corporatist, fără colțuri dure. Rotunjiri blânde, spații generoase, aer între elemente.
+- Dacă pui emoji, pune-le într-o singură culoare, ca și accent pentru acel pachet.
+- Imagini placeholder: folosește placeholder-e rectangulare cu colțuri rotunjite, proporții landscape sau pătrate, în nuanțe de bej/terracotta ca sugestie vizuală. Pune text în ele care descrie ce imagine ar merge acolo (ex: "Foto: set Better pe mâna unei cliente").
+- Secțiunile alternate între fundal off-white și fundal bej deschis pentru ritm vizual.
+- Butoanele principale: terracotta/auriu cu text alb, rotunjite, cu hover subtil.
+- Scroll smooth între secțiuni.
+
+Structura landing page-ului (secțiuni în această ordine)
+
+1. HERO
+- Titlu mare: "Un look complet, cu pietre care te reprezintă."
+- Subtitlu: "Când fiecare piesă e aleasă manual și asamblată într-un set, nu mai cauți ce lipsește."
+- Imagine sub subtitlu și înainte de buton CTA
+- CTA: Primești un set complet de bijuterii handmade din pietre naturale - buton: "Alege setul tău"
+
+2. PENTRU CINE
+- Titlu secțiune: "Pentru cine sunt bijuteriile MARA"
+- Trei carduri cu icons minimaliste și în culori unice și text scurt:
+  - "Sunt pentru tine, dacă vrei bijuterii cu personalitate, diferite de ce găsești în mall."
+  - "Sunt pentru tine dacă apreciezi munca manuală și piesele unice, cu imperfecțiuni frumoase."
+  - "Sunt pentru tine dacă vrei să aduci bucurie în viața unei femei dragi. Fiecare set vine cu povestea pietrelor și ambalaj de cadou."
+- Sub carduri, o linie discretă: "Nu suntem un brand de bijuterii standard. Și nu promitem livrare în aceeași zi. Fiecare set e pregătit manual cu grijă."
+
+3. PACHETE (Good, Better, Best), secțiunea principală
+- Titlu secțiune: "Alege setul care ți se potrivește"
+- 3 coloane/carduri, cea din mijloc (Alege) vizual evidențiată (border auriu, badge "Cel mai popular", ușor mai mare sau ridicată vizual).
+
+Descoperă - 89 RON
+- Brățară din pietre naturale
+- Săculeț de depozitare din bumbac
+- Cartonaș cu povestea pietrelor
+- Buton: "Descoperă acum."
+
+Alege - 149 RON (evidențiat)
+- Brățară din pietre naturale
+- Cercei asortați
+- Săculeț de depozitare din bumbac
+- Cutie cadou premium
+- Cartonaș cu povestea pietrelor
+- Livrare gratuită
+- Buton: "Comandă pachetul Alege"
+
+Dăruiește - 219 RON
+- Brățară din pietre naturale
+- Cercei asortați
+- Colier asortat
+- Săculeț de depozitare din bumbac
+- Cutie cadou premium
+- Cartonaș personalizat cu mesajul tău
+- Livrare gratuită
+- Buton: "Comandă pachetul Dăruiește"
+
+4. CUM FUNCȚIONEAZĂ
+- Titlu secțiune: "De la comandă la cutia ta, în 4 pași simpli"
+- 4 pași orizontali sau verticali, cu numere mari și text scurt:
+  1. "Alegi pachetul pe eMAG sau prin DM pe Instagram"
+  2. "Primești confirmare în 24h"
+  3. "Setul se pregătește manual în 3-5 zile lucrătoare"
+  4. "Livrare prin curier, în cutie cadou"
+
+5. DOVADA / ÎNCREDERE
+- Titlu secțiune: "Ce spun clientele noastre"
+- 3 testimoniale:
+  - "Am comandat pachetul Dăruiește pentru ziua mamei. A plâns când a deschis cutia. Merită fiecare leu." - Ana, Cluj
+  - "Port brățara zilnic de 4 luni. Primesc complimente constant. Am revenit pentru cercei." - Irina, București
+  - "Am luat o brățară ca să testez. A doua zi am comandat pachetul Alege pentru mine și Dăruiește ca să-l ofer cadou surorii mele." - Maria, Timișoara
+- Sub testimoniale, o bară cu cifre cheie:
+  - "400+ seturi vândute" | "Rating 4.9 pe eMAG" | "Garanție 30 zile, fără întrebări"
+
+6. REZULTATUL
+- Titlu secțiune: "Ce primești de fapt"
+- Text scurt, centrat: "Primești bijuterii care nu seamănă cu nimic din magazine. Fiecare piatră e selectată manual. Fiecare piesă e asamblată cu grijă. Și fiecare set vine cu o poveste pe care o porți cu tine."
+- Placeholder imagine (mâini care asamblează o brățară)
+
+7. CTA FINAL
+- Titlu: "Alege setul tău MARA"
+- Subtitlu: "Sau scrie-ne pe Instagram @mara.bijuterii. Răspundem în mai puțin de 24h."
+- Buton: "Vezi pachetele" (scroll înapoi la secțiunea pachete)
+
+8. FOOTER
+- "MARA, bijuterii handmade din pietre naturale"
+- Link-uri: Instagram (www.instagram.com) | eMAG (www.emag.ro) | Contact (mailto:contact@mara.ro)
+- "© 2026 MARA. Toate drepturile rezervate."
+
+Am atașat și logo, te rog să îl integrezi natural în partea superioară a paginii și jos, în footer. Te rog să îl pui și în favicon.</script>
+
+<script>
+var STORE = 'stup-oferta-26nov';
+function raw(id){ var el = document.getElementById(id); return el ? el.textContent.replace(/^\n/, '') : ''; }
+
+/* salvare locală */
+var saved = {};
+try { saved = JSON.parse(localStorage.getItem(STORE) || '{}') || {}; } catch(e) { saved = {}; }
+function persist(){ try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch(e) {} }
+function val(k){ var el = document.querySelector('[data-k="' + k + '"]'); return el ? el.innerText.trim() : ''; }
+
+/* promptul, cu răspunsurile omului înăuntru; ce nu e completat rămâne între paranteze drepte, ca să se vadă ce lipsește */
+function fill(t){
+  t = t.replace(/\{\?([\w-]+)\}([\s\S]*?)\{\/\}/g, function(m, k, body){ return val(k) ? body : ''; });
+  t = t.replace(/\[\[([\w-]+)\|([^\]]+)\]\]/g, function(m, k, fb){ return val(k) || '[' + fb + ']'; });
+  return t.replace(/([^.])\.\.(?!\.)/g, '$1.');
+}
+/* un câmp care apare în 2 spații (oferta cu pachete) se ține la zi în ambele */
+function geaman(el, k){ document.querySelectorAll('[data-k="' + k + '"]').forEach(function(o){ if (o !== el) o.innerText = saved[k]; }); }
+var mats = Array.prototype.slice.call(document.querySelectorAll('.mat[data-p]'));
+function updateViews(){ mats.forEach(function(m){ m.querySelector('pre').textContent = fill(raw(m.getAttribute('data-p'))); }); }
+
+document.querySelectorAll('[contenteditable="true"][data-k]').forEach(function(el){
+  var k = el.getAttribute('data-k');
+  if (saved[k]) el.innerText = saved[k];
+  el.addEventListener('input', function(){
+    if (!el.innerText.trim()) el.innerHTML = '';   /* ca textul de ajutor din câmp să reapară după ștergere */
+    saved[k] = el.innerText; persist(); geaman(el, k); updateViews();
+  });
+  /* la copiere în câmp intră doar textul, fără formatarea din conversația cu AI-ul */
+  el.addEventListener('paste', function(e){
+    var t = (e.clipboardData || window.clipboardData).getData('text');
+    if (typeof t !== 'string') return;
+    e.preventDefault();
+    if (!document.execCommand('insertText', false, t)) el.innerText += t;
+    saved[k] = el.innerText; persist(); geaman(el, k); updateViews();
+  });
+});
+
+/* copiere, cu rezervă pentru browserele fără clipboard API */
+function copyText(t){
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t).catch(function(){ return legacyCopy(t); });
+  return legacyCopy(t);
+}
+function legacyCopy(t){
+  return new Promise(function(resolve, reject){
+    var ta = document.createElement('textarea');
+    ta.value = t; ta.style.position = 'fixed'; ta.style.top = '-1000px';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    ok ? resolve() : reject();
+  });
+}
+function flash(btn, txt){
+  var old = btn.getAttribute('data-old') || btn.textContent;
+  btn.setAttribute('data-old', old);
+  btn.textContent = txt; btn.classList.add('done');
+  setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1700);
+}
+function download(text, name){
+  var blob = new Blob(['﻿' + text], { type: 'text/plain;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+}
+mats.forEach(function(m){
+  var get = function(){ return fill(raw(m.getAttribute('data-p'))); };
+  m.querySelector('[data-copy]').addEventListener('click', function(){
+    var b = this;
+    copyText(get()).then(function(){ flash(b, 'Copiat'); }).catch(function(){ flash(b, 'Selectează și copiază manual'); });
+  });
+  m.querySelector('[data-txt]').addEventListener('click', function(){ download(get(), m.getAttribute('data-name')); flash(this, 'Descărcat'); });
+});
+
+/* checklistul: 3 stări per punct, salvate */
+var STARI = ['Da', 'Parțial', 'Lipsește'];
+document.querySelectorAll('.ck').forEach(function(row){
+  var k = row.getAttribute('data-ck'), box = document.createElement('div');
+  box.className = 'st';
+  STARI.forEach(function(s){
+    var b = document.createElement('button');
+    b.className = 'stb' + (saved[k] === s ? ' on' : ''); b.textContent = s;
+    b.addEventListener('click', function(){
+      saved[k] = (saved[k] === s) ? '' : s; persist();
+      box.querySelectorAll('.stb').forEach(function(x){ x.classList.toggle('on', x.textContent === saved[k]); });
+    });
+    box.appendChild(b);
+  });
+  row.appendChild(box);
+});
+
+/* cele 3 spații: se vede doar cel ales; alegerea se ține minte și merge și din adresă (#exemplu, #checklist, #cadou) */
+var SPATII = ['exercitiu', 'exemplu', 'checklist', 'cadou'];
+var spatiu = SPATII.indexOf(location.hash.slice(1)) > -1 ? location.hash.slice(1) : (SPATII.indexOf(saved._sp) > -1 ? saved._sp : 'exercitiu');
+var navBtns = [], secIds = [];
+function setSpatiu(s, sus){
+  spatiu = s; saved._sp = s; persist();
+  document.querySelectorAll('.sp').forEach(function(d){ d.classList.toggle('show', d.getAttribute('data-space') === s); });
+  document.querySelectorAll('.spbtn').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-sp') === s); });
+  document.querySelectorAll('.nav').forEach(function(n){ n.classList.toggle('show', n.getAttribute('data-nav') === s); });
+  navBtns = Array.prototype.slice.call(document.querySelectorAll('.nav[data-nav="' + s + '"] .navbtn'));
+  secIds = navBtns.map(function(b){ return b.getAttribute('data-go'); });
+  if (sus) window.scrollTo(0, 0);
+  markActive();
+}
+document.querySelectorAll('.spbtn').forEach(function(b){
+  b.addEventListener('click', function(){ setSpatiu(b.getAttribute('data-sp'), true); try { history.replaceState(null, '', '#' + spatiu); } catch(e) {} });
+});
+
+window.addEventListener('hashchange', function(){ var h = location.hash.slice(1); if (SPATII.indexOf(h) > -1 && h !== spatiu) setSpatiu(h, true); });
+
+/* navigare în spațiul curent */
+function navOff(){ var nw = document.querySelector('.navwrap'); return nw.offsetHeight < window.innerHeight / 2 ? nw.offsetHeight + 12 : 24; }
+function goTo(id){
+  var el = document.getElementById(id);
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - navOff(), behavior: 'smooth' });
+}
+document.querySelectorAll('[data-go]').forEach(function(el){
+  el.addEventListener('click', function(e){ e.preventDefault(); goTo(el.getAttribute('data-go')); });
+});
+/* etapa devine curentă când titlul ei trece de ~40% din ecran; la capătul paginii se aprinde ultima */
+function markActive(){
+  if (!secIds.length) return;
+  var best = 0, off = Math.max(navOff() + 30, window.innerHeight * 0.4);
+  for (var i = 0; i < secIds.length; i++){ var el = document.getElementById(secIds[i]); if (el && el.getBoundingClientRect().top - off <= 0) best = i; }
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) best = secIds.length - 1;
+  navBtns.forEach(function(b, i){
+    var era = b.classList.contains('active');
+    b.classList.toggle('active', i === best);
+    if (i === best && !era && b.parentNode.scrollWidth > b.parentNode.clientWidth) b.parentNode.scrollLeft = b.offsetLeft - 12;
+  });
+}
+window.addEventListener('scroll', markActive, { passive: true });
+
+/* tema */
+document.querySelectorAll('[data-theme-choice]').forEach(function(o){
+  o.addEventListener('click', function(){
+    var t = o.getAttribute('data-theme-choice');
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem(STORE + '-tema', t); } catch(e) {}
+    markTheme();
+  });
+});
+function markTheme(){
+  var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  document.querySelectorAll('[data-theme-choice]').forEach(function(o){ o.classList.toggle('on', o.getAttribute('data-theme-choice') === cur); });
+}
+markTheme();
+
+document.querySelectorAll('[data-print]').forEach(function(b){ b.addEventListener('click', function(){ window.print(); }); });
+updateViews();
+setSpatiu(spatiu, false);
+</script>
+</body>
+</html>
